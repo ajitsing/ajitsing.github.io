@@ -6,7 +6,7 @@ cover-img: /assets/img/posts/monitoring_sidekiq/sidekiq_cover.png
 permalink: /monitoring-individual-queue-in-sidekiq
 gh-repo: ajitsing/sidekiq_queue_metrics
 gh-badge: [star, fork, follow]
-tags: [rails, ruby, sidekiq]
+tags: [rails, ruby, sidekiq, rubygem]
 comments: true
 ---
 

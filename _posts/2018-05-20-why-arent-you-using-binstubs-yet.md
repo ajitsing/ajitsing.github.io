@@ -27,7 +27,7 @@ Rails 5 has introduced something called bin stubs. Bin stubs are created keeping
 
 All these scripts runs within the context of current bundle. Lets take a look at one of the bin stub files. For instance this is how the rails binary file looks like.
 
-```ruby
+{% highlight ruby linenos %}
 #!/usr/bin/env ruby
 begin
   load File.expand_path('../spring', __FILE__)
@@ -37,15 +37,15 @@ end
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative '../config/boot'
 require 'rails/commands'
-```
+{% endhighlight %}
 
 Take a look at the above code. I want you to focus on the second last line which requires the boot.rb file. Now lets see what lies in boot.rb file.
 
-```ruby
+{% highlight ruby linenos %}
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __dir__)
 
 require 'bundler/setup' # Set up gems listed in the Gemfile.
-```
+{% endhighlight %}
 
 boot.rb loads all the gems listed in Gemfile and this is how your bin stub executable will run in the context of current bundle.
 
@@ -59,9 +59,9 @@ In case of other binary files like rake or spring you will have to execute them 
 
 By default rails will create only the above mentioned bin stubs. If you wish to create bin stub for another gem, you can do it with a single command. Here is how you can do it.
 
-```bash
+{% highlight shell linenos %}
 bundle binstub capistrano
-```
+{% endhighlight %}
 
 It will create the binstubs for all the binary files present inside capistrano gem. In this case capistrano has two binary files cap and capify. That means you will see two new files added under bin/ folder. bin/cap and bin/capify
 

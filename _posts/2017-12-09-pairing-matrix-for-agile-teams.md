@@ -35,15 +35,15 @@ The matrix is generated using the git commits presents in your local machine or 
 
 Add the below line to the Gemfile and run bundle install
 
-```ruby
+{% highlight ruby linenos %}
 gem 'pairing_matrix'
-```
+{% endhighlight %}
 
 Or install it yourself:
 
-```bash
+{% highlight shell linenos %}
 gem install pairing_matrix
-```
+{% endhighlight %}
 
 ![Crepe](/assets/img/posts/pairing_matrix/pairing_matrix_1.png)
 
@@ -55,14 +55,14 @@ To automate pairing matrix you need to provide following things to pairing matri
 
 You need to add all this information in the pairing_martix.yml file. Please refer to the below sample.
 
-```yaml
+{% highlight yaml linenos %}
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
 github_access_token: 000324cff69wes5613f732c345hn679c0knt509c
 github_repos:
   - org1/repo1
   - org1/repo2
   - github_username/my_private_repo
-```
+{% endhighlight %}
 
 &nbsp;
 # How to test the author regex?
@@ -77,16 +77,16 @@ StoryNumber [Dev1/Dev2] message
 
 You can choose any format as long as you are able to extract dev names from the message using a regex. To figure out if your regex is correct, you can try the regex on the commit message in [irb](http://tryruby.org/levels/1/challenges/0).
 
-```ruby
+{% highlight ruby linenos %}
 "4324 [Ajit/Abhishek] My commit message".scan(/^.*\[([\w]*)(?:\/)?([\w]*)\].*$/).flatten
 => ["Ajit", "Abhishek"]
-```
+{% endhighlight %}
 
 Once you are ready with your regex, put it in the pairing_matrix.yml and run the below command from the same directory.
 
-```bash
+{% highlight bash linenos %}
 pairing_martix
-```
+{% endhighlight %}
 
 ![Crepe](/assets/img/posts/pairing_matrix/pairing_martix_2.png)
 
@@ -98,34 +98,34 @@ This command starts the [sinatra](http://sinatrarb.com) server on the machine on
 &nbsp;
 ### For local repositories
 
-```yaml
+{% highlight yaml linenos %}
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
 repos:
   - /Users/Ajit/projects/project1
   - /Users/Ajit/projects/project2
   - /Users/Ajit/projects/project3
-```
+{% endhighlight %}
 
 &nbsp;
 ### For private repositories on github
 
-```yaml
+{% highlight yaml linenos %}
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
 github_access_token: 000324cff69wes5613f732c345hn679c0knt509c
 github_repos:
   - organization1/repo1
   - organization1/repo2
   - github_username/my_private_repo
-```
+{% endhighlight %}
 
 &nbsp;
 ### For public repositories on github
 
-```yaml
+{% highlight yaml linenos %}
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
 github_repos:
   - github_username/my_public_repo1
   - github_username/my_public_repo2
-```
+{% endhighlight %}
 
 I hope you will now be able to automate your pairing matrix. If you have any questions or feedback, please write it in the comment below. Thanks!

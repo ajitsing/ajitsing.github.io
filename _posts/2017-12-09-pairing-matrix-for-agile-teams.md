@@ -6,7 +6,7 @@ cover-img: /assets/img/posts/pairing_matrix/cover.jpg
 permalink: /pairing-matrix-for-agile-teams
 gh-repo: ajitsing/pairing_matrix
 gh-badge: [star, fork, follow]
-tags: [ruby]
+tags: [ruby, agile, rubygem]
 comments: true
 ---
 

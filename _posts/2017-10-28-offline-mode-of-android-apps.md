@@ -4,7 +4,7 @@ title: Offline Mode Of Android Apps
 description: This talk covers offline mode of android apps. In this talk I talked about, what it takes to build offline mode and how to design its architecture.
 cover-img: /assets/img/posts/offline_mode_presentation/cover.jpg
 permalink: /offline-mode-of-android-apps
-tags: [android, presentation]
+tags: [android, presentation, conference]
 comments: true
 ---
 

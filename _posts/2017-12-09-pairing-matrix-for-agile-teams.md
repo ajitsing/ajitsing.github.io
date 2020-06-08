@@ -10,9 +10,9 @@ tags: [ruby, agile, rubygem]
 comments: true
 ---
 
-I work in an agile team which follows [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming) practices like [pairing programming](https://en.wikipedia.org/wiki/Pair_programming). But with pair programming comes the problem of switching pairs. Sometimes in big teams we do see that the individuals are not able to make the decision of with whom they should pair next. To overcome this problem we generally create pairing matrix which helps us figure out who is pairing with whom and wether team is switching pairs frequently or not.
+I work in an agile team which follows [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming){:target="_blank"} practices like [pairing programming](https://en.wikipedia.org/wiki/Pair_programming){:target="_blank"}. But with pair programming comes the problem of switching pairs. Sometimes in big teams we do see that the individuals are not able to make the decision of with whom they should pair next. To overcome this problem we generally create pairing matrix which helps us figure out who is pairing with whom and wether team is switching pairs frequently or not.
 
-Managing the hand made pairing matrix is a pain. Also maintaining the matrix of more than a month is difficult and space consuming on the white boards. I wanted a matrix that can allow me to see the pairing data based on the time span without much effort. To solve this problem I created a [rubygem](https://github.com/ajitsing/pairing_matrix) which automates the generation of pairing matrix based on the git commits.
+Managing the hand made pairing matrix is a pain. Also maintaining the matrix of more than a month is difficult and space consuming on the white boards. I wanted a matrix that can allow me to see the pairing data based on the time span without much effort. To solve this problem I created a [rubygem](https://github.com/ajitsing/pairing_matrix){:target="_blank"} which automates the generation of pairing matrix based on the git commits.
 
 # Demo
 
@@ -75,7 +75,7 @@ First of all you need to follow a particular pattern in your git commit messages
 StoryNumber [Dev1/Dev2] message
 ```
 
-You can choose any format as long as you are able to extract dev names from the message using a regex. To figure out if your regex is correct, you can try the regex on the commit message in [irb](http://tryruby.org/levels/1/challenges/0).
+You can choose any format as long as you are able to extract dev names from the message using a regex. To figure out if your regex is correct, you can try the regex on the commit message in [irb](http://tryruby.org/levels/1/challenges/0){:target="_blank"}.
 
 {% highlight ruby linenos %}
 "4324 [Ajit/Abhishek] My commit message".scan(/^.*\[([\w]*)(?:\/)?([\w]*)\].*$/).flatten
@@ -90,7 +90,7 @@ pairing_martix
 
 ![Crepe](/assets/img/posts/pairing_matrix/pairing_martix_2.png)
 
-This command starts the [sinatra](http://sinatrarb.com) server on the machine on port 4567. Now go to web browser and type localhost:4567/matrix. You should start seeing the pairing matrix based on the data you have provided in the pairing_matrix.yml file.
+This command starts the [sinatra](http://sinatrarb.com){:target="_blank"} server on the machine on port 4567. Now go to web browser and type localhost:4567/matrix. You should start seeing the pairing matrix based on the data you have provided in the pairing_matrix.yml file.
 
 &nbsp;
 # Some example of pairing_matrix.yml

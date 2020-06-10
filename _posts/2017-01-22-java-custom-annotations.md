@@ -21,7 +21,7 @@ Java annotation is nothing but an interface and we all know that creating an int
 
 Lets take an example of Junit test runner. If you had to design your own test runner, how would you implement it?
 
-To explain java custom annotations better I have created this small [project on github](https://github.com/ajitsing/JavaCustomAnnotations) which is nothing but a custom test runner. I have tests which are marked with @MyTest annotation. TestRunner will execute all the tests marked with @MyTest annotation. Lets see the code.
+To explain java custom annotations better I have created this small [project on github](https://github.com/ajitsing/JavaCustomAnnotations){:target="_blank"} which is nothing but a custom test runner. I have tests which are marked with @MyTest annotation. TestRunner will execute all the tests marked with @MyTest annotation. Lets see the code.
 
 # @MyTest<br><br>
 

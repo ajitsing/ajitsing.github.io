@@ -25,7 +25,7 @@ It's easy to figure out when one should use filter design pattern. When you have
 
 # Example:
 
-Let's understand Filter Design Pattern with an example. All the code used below is available on [github](https://github.com/ajitsing/design_patterns/tree/master/src/filter_pattern).
+Let's understand Filter Design Pattern with an example. All the code used below is available on [github](https://github.com/ajitsing/design_patterns/tree/master/src/filter_pattern){:target="_blank"}.
 
 Let's build a hypothetical scenario to understand this pattern better.
 

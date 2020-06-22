@@ -16,7 +16,7 @@ Rotating the android device changes the device configuration. Android replaces 
 
 # Lets understand this with an example
 
-For this [example](https://github.com/ajitsing/AndroidScreenRotationDemo) I have created two different layout files with the same name. One is present in the res/layout folder and other is in res/layout-land. Both the layouts contains just a TextView with different texts so that we can easily figure out which resource is loaded.
+For this [example](https://github.com/ajitsing/AndroidScreenRotationDemo){:target="_blank"} I have created two different layout files with the same name. One is present in the res/layout folder and other is in res/layout-land. Both the layouts contains just a TextView with different texts so that we can easily figure out which resource is loaded.
 
 ### `activity_main.xml` in res/layout<br><br>
 

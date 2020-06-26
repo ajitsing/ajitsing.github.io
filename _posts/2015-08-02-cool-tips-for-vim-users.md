@@ -12,7 +12,7 @@ comments: true
 
 Hello Folks, I have been using vim for about 2 years now. And it is my primary editor when it comes to editing text or coding(other than java ;) ). Since I have been exploring vim for 2 years, I have learned some cool tips which vim users can use. These things are small but makes a big difference when you use them. So let's go through them one by one.
 
-If you want to take a look at my vim-setup you can have a look here on [github](https://github.com/ajitsing/vim-setup).
+If you want to take a look at my vim-setup you can have a look here on [github](https://github.com/ajitsing/vim-setup){:target="_blank"}.
 
 # Uppercase and Lowercase conversion
 

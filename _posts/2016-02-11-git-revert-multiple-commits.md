@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GIT  revert multiple commits
+title: GIT revert multiple commits
 description: git revert multiple commits with single command. Use grep, cut and xargs to revert multiple commits of a feature.
 cover-img: /assets/img/posts/git_revert_multiple_commits/cover.png
 permalink: /git-revert-multiple-commits

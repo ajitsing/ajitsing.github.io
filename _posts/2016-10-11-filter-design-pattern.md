@@ -6,7 +6,7 @@ cover-img: /assets/img/posts/filter_design_pattern/cover.png
 permalink: /filter-design-pattern
 gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]
-tags: [java, design patterns]
+tags: [java, design pattern]
 comments: true
 ---
 

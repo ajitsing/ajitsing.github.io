@@ -6,7 +6,7 @@ cover-img: /assets/img/posts/amusing_git/cover.png
 permalink: /print-custom-messages-after-executing-git-commands
 gh-repo: ajitsing/amusing_git
 gh-badge: [star, fork, follow]
-tags: [git, shell]
+tags: [git, shell, rubygem]
 comments: true
 ---
 

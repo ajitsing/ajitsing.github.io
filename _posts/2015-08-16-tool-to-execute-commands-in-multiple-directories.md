@@ -2,7 +2,7 @@
 layout: post
 title: Tool to execute commands in multiple directories
 description: brint_it_on is a tool to execute commands in multiple directories, it takes a configuration file which provides all the info of the directories and commands.
-cover-img: /assets/img/posts/bring_it_on/cover.png
+cover-img: /assets/img/posts/bring_it_on/cover.jpg
 permalink: /tool-to-execute-commands-in-multiple-directories
 gh-repo: ajitsing/bring_it_on
 gh-badge: [star, fork, follow]

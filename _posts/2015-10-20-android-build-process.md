@@ -2,7 +2,7 @@
 layout: post
 title: Android Build Process
 description: How Android build process works? What are the tools involved from android sdk and what they do? Lets understand all the steps involved in build process.
-cover-img: /assets/img/posts/android_build_process/cover.png
+cover-img: /assets/img/posts/android_build_process/cover.jpg
 permalink: /android-build-process
 tags: [android]
 comments: true

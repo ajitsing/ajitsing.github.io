@@ -2,7 +2,7 @@
 layout: post
 title: Writing a new programming language
 description: In this article I will share my experience and learning from a small project about writing a new programming language using various concepts of automata.
-cover-img: /assets/img/posts/soft/cover.png
+cover-img: /assets/img/posts/soft/cover.jpg
 permalink: /writing-a-new-programming-language
 gh-repo: ajitsing/soft
 gh-badge: [star, fork, follow]

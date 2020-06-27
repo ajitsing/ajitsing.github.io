@@ -2,7 +2,7 @@
 layout: post
 title: Notify when android device network status changes
 description: This article will show how you can listen network status and notify when android device network status changes using a snackbar notification.
-cover-img: /assets/img/posts/network_status_change/cover.png
+cover-img: /assets/img/posts/android/cover.png
 permalink: /notify-android-device-network-status-changes
 gh-repo: ajitsing/AndroidOfflineModeNotifications
 gh-badge: [star, fork, follow]

@@ -2,7 +2,7 @@
 layout: post
 title: Android Instrumentation Testing Using Espresso
 description: Recently people have started doing Android Instrumentation Testing Using Espresso. In this article we will see a demo of espresso testing.
-cover-img: /assets/img/posts/instrumentation_testing/cover.png
+cover-img: /assets/img/posts/android/cover.png
 permalink: /android-instrumentation-testing-using-espresso
 gh-repo: ajitsing/InstrumentationTestDemo
 gh-badge: [star, fork, follow]

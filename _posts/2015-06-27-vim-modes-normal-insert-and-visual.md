@@ -2,7 +2,7 @@
 layout: post
 title: Vim modes - normal, insert and visual
 description: Vim modes - normal, insert and visual. What are the commands or mappings supported in each mode. What commands can be used to jump between the modes.
-cover-img: /assets/img/posts/vim_tips/cover.png
+cover-img: /assets/img/posts/vim/cover.png
 permalink: /vim-modes-normal-insert-and-visual
 gh-repo: ajitsing/vim-setup
 gh-badge: [star, fork, follow]

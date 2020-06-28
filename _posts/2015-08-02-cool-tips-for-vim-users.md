@@ -2,7 +2,7 @@
 layout: post
 title: Cool tips for vim users
 description: Cool tips for vim users, In this article we will cover some awesome tips & tricks vim users can use to make their life easier while using vim.
-cover-img: /assets/img/posts/vim_tips/cover.png
+cover-img: /assets/img/posts/vim/cover.png
 permalink: /cool-tips-for-vim-users
 gh-repo: ajitsing/vim-setup
 gh-badge: [star, fork, follow]

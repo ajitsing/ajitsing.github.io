@@ -2,7 +2,7 @@
 layout: post
 title: Basic configuration of VIM
 description: Basic configuration of vim - This article will explain how to configure VIM for basic things like syntax highlighting, enabling numbers and a lot more.
-cover-img: /assets/img/posts/vim_tips/cover.png
+cover-img: /assets/img/posts/vim/cover.png
 permalink: /basic-configuration-of-vim
 gh-repo: ajitsing/vim-setup
 gh-badge: [star, fork, follow]

@@ -2,7 +2,7 @@
 layout: post
 title: MVP in android
 description: How to use MVP in android, In this article we will discuss what is MVP in android and how we can implement it. MVP helps improve coverage of code too.
-cover-img: /assets/img/posts/android_mvp/cover.png
+cover-img: /assets/img/posts/android/cover.png
 permalink: /mvp-in-android
 tags: [android, design pattern]
 comments: true

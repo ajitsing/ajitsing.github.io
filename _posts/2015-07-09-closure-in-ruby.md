@@ -2,7 +2,7 @@
 layout: post
 title: Closure in Ruby
 description: Closure in Ruby, This article will explain what is closure in ruby and how it works.
-cover-img: /assets/img/posts/ruby_closure/cover.png
+cover-img: /assets/img/posts/ruby/cover.png
 permalink: /closure-in-ruby
 tags: [ruby]
 comments: true

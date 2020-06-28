@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Integrating Sherlock with android apps
-cover-img: /assets/img/posts/sherlock/cover.jpg
+cover-img: /assets/img/posts/android/cover.png
 permalink: /integrating-sherlock-with-android-apps-to-get-crash-reports
 gh-repo: ajitsing/Sherlock
 gh-badge: [star, fork, follow]

@@ -2,7 +2,7 @@
 layout: post
 title: nokogiri ERROR Failed to build gem native extension on MAC
 description: nokogiri ERROR Failed to build gem native extension on MAC, Find out how to solve this issue with a single command.
-cover-img: /assets/img/posts/nokogiri_error/cover.png
+cover-img: /assets/img/posts/ruby/cover.png
 permalink: /nokogiri-error-failed-to-build-gem-native-extension-on-mac
 tags: [ruby]
 comments: true

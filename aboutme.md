@@ -1,16 +1,12 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Hi, I am Ajit Singh author of singhajit.com. I am an application developer working in one of the MNCs. I spent 3 years of my career in Chennai (India) and recently I moved to Gurgaon. I have worked on a lot of different technologies and platforms like java, ruby, nodejs, C, javascript, Android etc.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+I enjoy working on different technologies, so I decided to start writing this blog which will not be constraint to any single technology but will have multiple technologies.
 
-What else do you need?
+When it comes to editors my favourite is Vim. I use it a lot. I have written my own vim setup.
 
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+Thanks for visiting my blog. I am hoping to see you more on singhajit.com. Please participate in discussions and any feedback or suggestions are most welcome.

@@ -10,6 +10,8 @@
   
   {% if page.subtitle %}
   <meta name="description" content="{{ page.subtitle }}">
+  {% elsif page.description %}
+  <meta name="description" content="{{ page.description }}">
   {% endif %}
 
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | default: 'Untitled' }} {{ site.title-separator | default: '-' }} {{ site.description }}" href="{{ '/feed.xml' | absolute_url }}">
@@ -50,7 +52,7 @@
   {% if page.meta-title %}
   <meta property="og:title" content="{{ page.meta-title }}">
   {% elsif page.title %}
-  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:title" content="{{ page.title }} - Ajit Singh">
   {% elsif site.title %}
   <meta property="og:title" content="{{ site.title }}">
   {% endif %}
@@ -59,6 +61,8 @@
   <meta property="og:description" content="{{ page.meta-description }}">
   {% elsif page.subtitle %}
   <meta property="og:description" content="{{ page.subtitle }}">
+  {% elsif page.description %}
+  <meta property="og:description" content="{{ page.description }}">
   {% else %}
   <meta property="og:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}">
   {% endif %}
@@ -76,6 +80,8 @@
 
   {% if page.share-img %}
   <meta property="og:image" content="{{ page.share-img }}">
+  {% elsif page.cover-img %}
+  <meta property="og:image" content="{{ page.cover-img | absolute_url }}">
   {% elsif site.avatar %}
   <meta property="og:image" content="{{ site.avatar | absolute_url }}">
   {% endif %}
@@ -98,12 +104,16 @@
   <meta name="twitter:description" content="{{ page.meta-description }}">
   {% elsif page.subtitle %}
   <meta name="twitter:description" content="{{ page.subtitle }}">
+  {% elsif page.description %}
+  <meta name="twitter:description" content="{{ page.description }}">
   {% else %}
   <meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}">
   {% endif %}
 
   {% if page.share-img %}
   <meta name="twitter:image" content="{{ page.share-img }}">
+  {% elsif page.cover-img %}
+  <meta name="twitter:image" content="{{ page.cover-img | absolute_url }}">
   {% elsif site.avatar %}
   <meta name="twitter:image" content="{{ site.avatar | absolute_url }}">
   {% endif %}

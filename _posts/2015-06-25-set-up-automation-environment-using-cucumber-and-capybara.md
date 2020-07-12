@@ -3,7 +3,7 @@ layout: post
 title: Set up automation using cucumber and capybara
 description: This article is about setting up automation environment using cucumber and capybara (on chrome browser) with minimal config.
 cover-img: /assets/img/posts/cucumber/cover.png
-permalink: /set-up-automation-environment-using-cucumber-and-capybara
+permalink: /set-up-automation-environment-using-cucumber-and-capybara/
 gh-repo: ajitsing/cucumber_setup
 gh-badge: [star, fork, follow]
 tags: [testing, cucumber]

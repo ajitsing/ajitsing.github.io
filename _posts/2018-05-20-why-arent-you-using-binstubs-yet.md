@@ -2,7 +2,7 @@
 layout: post
 title: Why aren’t you using binstubs yet?
 cover-img: /assets/img/posts/bin_stubs/cover.png
-permalink: /why-arent-you-using-binstubs-yet
+permalink: /why-arent-you-using-binstubs-yet/
 tags: [rails, ruby]
 comments: true
 ---

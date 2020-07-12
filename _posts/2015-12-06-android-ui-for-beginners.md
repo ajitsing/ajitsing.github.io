@@ -3,7 +3,7 @@ layout: post
 title: Android UI for beginners
 description: Android ui for beginners covers all the basic layouts you use all the time while developing android applications. How to choose a Layout for you use case.
 cover-img: /assets/img/posts/android_ui_styling/cover.png
-permalink: /android-ui-for-beginners
+permalink: /android-ui-for-beginners/
 gh-repo: ajitsing/AndroidUIPlayground
 gh-badge: [star, fork, follow]
 tags: [android]

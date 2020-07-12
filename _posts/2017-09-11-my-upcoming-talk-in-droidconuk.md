@@ -2,7 +2,7 @@
 layout: post
 title: My upcoming talk in DroidConUK
 cover-img: /assets/img/posts/droidconuk/cover.jpg
-permalink: /my-upcoming-talk-in-droidconuk
+permalink: /my-upcoming-talk-in-droidconuk/
 tags: [android, conference]
 comments: false
 ---

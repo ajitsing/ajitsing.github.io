@@ -3,7 +3,7 @@ layout: post
 title: "MediaMagic: Convert any media file into encoded string or vice-versa"
 description: MediaMagic Convert any media file into encoded string or vice-versa. Its a very small ruby gem. We will discuss how to use it to encode and decode.
 cover-img: /assets/img/posts/fancy_audio/cover.png
-permalink: /mediamagic-convert-any-media-file-into-encoded-string-or-vice-versa
+permalink: /mediamagic-convert-any-media-file-into-encoded-string-or-vice-versa/
 gh-repo: ajitsing/MediaMagic
 gh-badge: [star, fork, follow]
 tags: [ruby, rubygem]

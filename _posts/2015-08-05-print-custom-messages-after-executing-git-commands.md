@@ -3,7 +3,7 @@ layout: post
 title: Print custom messages after executing git commands
 description: amusing_git will help you print custom messages after executing git commands. You can configure the messages which you want to show.
 cover-img: /assets/img/posts/git/cover.png
-permalink: /print-custom-messages-after-executing-git-commands
+permalink: /print-custom-messages-after-executing-git-commands/
 gh-repo: ajitsing/amusing_git
 gh-badge: [star, fork, follow]
 tags: [git, shell, rubygem]

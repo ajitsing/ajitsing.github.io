@@ -3,7 +3,7 @@ layout: post
 title: Android with sqlite database
 description: Android with sqlite database, How to use database in android in the right way with the best practices.
 cover-img: /assets/img/posts/android/cover.png
-permalink: /android-with-sqlite-database
+permalink: /android-with-sqlite-database/
 gh-repo: ajitsing/AndroidDatabaseDemo
 gh-badge: [star, fork, follow]
 tags: [android]

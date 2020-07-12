@@ -3,7 +3,7 @@ layout: post
 title: What happens when android screen rotates?
 description: Understand with example and demo that what happens when android screen rotates? How it causes lose of data?
 cover-img: /assets/img/posts/android/cover.png
-permalink: /what-happens-when-android-screen-rotates
+permalink: /what-happens-when-android-screen-rotates/
 gh-repo: ajitsing/AndroidScreenRotationDemo
 gh-badge: [star, fork, follow]
 tags: [android]

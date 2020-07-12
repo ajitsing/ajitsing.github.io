@@ -3,7 +3,7 @@ layout: post
 title: Add album cover to mp3 file
 description: Add album cover to mp3 file, We will discuss how we can attach album-cover-image file with mp3 file. And using it with multiple mp3 files.
 cover-img: /assets/img/posts/fancy_audio/cover.png
-permalink: /add-album-cover-to-mp3-file
+permalink: /add-album-cover-to-mp3-file/
 gh-repo: ajitsing/fancy_audio
 gh-badge: [star, fork, follow]
 tags: [ruby, rubygem]

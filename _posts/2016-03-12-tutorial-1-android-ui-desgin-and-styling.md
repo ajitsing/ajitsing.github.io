@@ -3,7 +3,7 @@ layout: post
 title: Android UI Design And Styling
 description: This tutorial covers DP, SP and Pixels in depth with examples. And what to use where. Android UI Design And Styling.
 cover-img: /assets/img/posts/android_ui_styling/cover.png
-permalink: /tutorial-1-android-ui-desgin-and-styling
+permalink: /tutorial-1-android-ui-desgin-and-styling/
 gh-repo: ajitsing/androiduisessions
 gh-badge: [star, fork, follow]
 tags: [android]

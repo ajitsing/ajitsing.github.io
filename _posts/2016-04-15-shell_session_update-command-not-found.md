@@ -3,7 +3,7 @@ layout: post
 title: "shell_session_update: command not found"
 description: "rvm issue: shell_session_update: command not found and its solutions."
 cover-img: /assets/img/posts/terminal/cover.png
-permalink: /shell_session_update-command-not-found
+permalink: /shell_session_update-command-not-found/
 tags: [rvm, ruby, shell]
 comments: true
 ---

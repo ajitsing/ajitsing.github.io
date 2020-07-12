@@ -3,7 +3,7 @@ layout: post
 title: Junit Rules Vs Setup and TearDown
 description: This articles covers implementing your own junit rules and its benefits over setup and teardown.
 cover-img: /assets/img/posts/junit_rules/cover.jpg
-permalink: /junit-rules
+permalink: /junit-rules/
 tags: [java, junit, testing]
 comments: true
 ---

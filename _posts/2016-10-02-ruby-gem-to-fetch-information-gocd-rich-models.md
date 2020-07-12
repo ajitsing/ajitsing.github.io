@@ -3,7 +3,7 @@ layout: post
 title: Ruby gem to fetch information from gocd as rich models
 description: GoCD is a ruby gem to fetch information from gocd server as models. It will make the api calls on your behalf and get you the information that you want.
 cover-img: /assets/img/posts/gocd_gem/cover.png
-permalink: /ruby-gem-to-fetch-information-gocd-rich-models
+permalink: /ruby-gem-to-fetch-information-gocd-rich-models/
 gh-repo: ajitsing/gocd
 gh-badge: [star, fork, follow]
 tags: [ruby, gocd, rubygem]

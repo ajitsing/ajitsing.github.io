@@ -3,7 +3,7 @@ layout: post
 title: Testing Android Database
 description: This article is about testing android database using instrumentation test. It also covers how to configure instrumentation test for the first time.
 cover-img: /assets/img/posts/android/cover.png
-permalink: /testing-android-database
+permalink: /testing-android-database/
 tags: [android, testing]
 comments: true
 ---

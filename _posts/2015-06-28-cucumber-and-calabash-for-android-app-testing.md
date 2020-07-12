@@ -2,7 +2,7 @@
 layout: post
 title: Cucumber and calabash for android app testing
 description: This article is about how we can use cucumber and calabash for android app testing. Here we build the testing environment using calabash with minimal config
-cover-img: /assets/img/posts/cucumber/cover.png
+share-img: /assets/img/posts/cucumber/cover.png
 permalink: /cucumber-and-calabash-for-android-app-testing/
 tags: [android, testing, cucumber]
 comments: true

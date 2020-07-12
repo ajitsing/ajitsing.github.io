@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Conway's Game Of Life
-cover-img: /assets/img/posts/game_of_life/cover.png
+share-img: /assets/img/posts/game_of_life/cover.png
 permalink: /conways-game-of-life/
 gh-repo: ajitsing/game_of_life
 gh-badge: [star, fork, follow]

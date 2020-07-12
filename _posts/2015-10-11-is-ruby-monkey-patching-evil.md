@@ -2,7 +2,7 @@
 layout: post
 title: Is ruby monkey patching evil?
 description: The way we use ruby monkey patching, is it good or evil? Lets understand through some examples.
-cover-img: /assets/img/posts/ruby_monkey_patching/cover.jpeg
+share-img: /assets/img/posts/ruby_monkey_patching/cover.jpeg
 permalink: /is-ruby-monkey-patching-evil/
 tags: [ruby]
 comments: true

@@ -2,7 +2,7 @@
 layout: post
 title: Android Data Binding
 description: Keep your android activities lean with Android Data Binding. Use ViewModels to render the data on UI and notify the UI when something changes in ViewModel
-cover-img: /assets/img/posts/data_binding/cover.png
+share-img: /assets/img/posts/data_binding/cover.png
 permalink: /android-data-binding/
 gh-repo: ajitsing/AndroidDataBinding
 gh-badge: [star, fork, follow]

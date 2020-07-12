@@ -2,7 +2,7 @@
 layout: post
 title: Schedule local notification in android
 description: What are the things you need to know to schedule local notification in android. Here we will discuss in detail about the android components involved int it.
-cover-img: /assets/img/posts/android/cover.png
+share-img: /assets/img/posts/android/cover.png
 permalink: /schedule-local-notification-in-android/
 gh-repo: ajitsing/AlarmManagerAndReceiver
 gh-badge: [star, fork, follow]

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Why your android application needs awareness api
-cover-img: /assets/img/posts/android/cover.png
+share-img: /assets/img/posts/android/cover.png
 permalink: /android-awareness-api/
 gh-repo: ajitsing/LocationAwareApp
 gh-badge: [star, fork, follow]

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java custom annotations
-cover-img: /assets/img/posts/java_annotations/cover.png
+share-img: /assets/img/posts/java_annotations/cover.png
 permalink: /java-custom-annotations/
 gh-repo: ajitsing/JavaCustomAnnotations
 gh-badge: [star, fork, follow]

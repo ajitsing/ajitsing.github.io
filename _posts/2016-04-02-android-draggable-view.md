@@ -2,7 +2,7 @@
 layout: post
 title: Android Draggable View
 description: This tutorial covers how we can add a draggable view/button in the layout.
-cover-img: /assets/img/posts/android/cover.png
+share-img: /assets/img/posts/android/cover.png
 permalink: /android-draggable-view/
 gh-repo: ajitsing/androiduisessions
 gh-badge: [star, fork, follow]

@@ -2,7 +2,7 @@
 layout: post
 title: Prevent push on red build with the help of gocd_pre_push
 description: gocd_pre_push helps agile teams to prevent pushing the changes in the central repo when the build is red by checking the status of concerned pipelines.
-cover-img: /assets/img/posts/gocd_pre_push/cover.png
+share-img: /assets/img/posts/gocd_pre_push/cover.png
 permalink: /prevent-push-on-red-build-with-the-help-of-gocd-pre-push/
 gh-repo: ajitsing/gocd_pre_push
 gh-badge: [star, fork, follow]

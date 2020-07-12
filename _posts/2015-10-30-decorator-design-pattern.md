@@ -2,7 +2,7 @@
 layout: post
 title: Decorator Design Pattern
 description: Decorator Design Pattern is very useful when it comes to modifying the characteristics or functionality of an object at runtime.
-cover-img: /assets/img/posts/filter_design_pattern/cover.png
+share-img: /assets/img/posts/filter_design_pattern/cover.png
 permalink: /decorator-design-pattern/
 gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]

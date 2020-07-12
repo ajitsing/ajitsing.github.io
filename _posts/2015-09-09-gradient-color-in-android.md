@@ -3,7 +3,7 @@ layout: post
 title: Gradient color in android
 description: How to use Gradient color in android as background or any component's background. Its very simple task to create a gradient color.
 cover-img: /assets/img/posts/android_ui_styling/cover.png
-permalink: /gradient-color-in-android/
+permalink: /gradient-color-in-android
 tags: [android]
 comments: true
 ---

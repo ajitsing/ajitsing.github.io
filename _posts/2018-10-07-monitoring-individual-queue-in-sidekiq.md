@@ -2,7 +2,7 @@
 layout: post
 title: Monitoring individual queue in sidekiq
 description: By default sidekiq does not allow you to monitor failures on individual queues. This article will help you monitor individual queue in sidekiq like a pro.
-cover-img: /assets/img/posts/monitoring_sidekiq/cover.png
+share-img: /assets/img/posts/monitoring_sidekiq/cover.png
 permalink: /monitoring-individual-queue-in-sidekiq/
 gh-repo: ajitsing/sidekiq_queue_metrics
 gh-badge: [star, fork, follow]

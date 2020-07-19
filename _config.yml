@@ -4,7 +4,7 @@
 title: Ajit Singh
 
 # Short description of your site
-description: Tech Blogs
+description: Insights on various technologies to improve developer's knowledge and productivity. Including the tools/libraries created by author for various needs in different projects.
 
 # Your name to show in the footer
 author: Ajit Singh
@@ -45,12 +45,12 @@ social-network-links:
   twitter: Ajit5ingh
   rss: true
 #  reddit: yourname
-#  linkedin: daattali
+  linkedin: ajit-singh-11620570
 #  xing: yourname
-#  stackoverflow: "3943160/daattali"
+  stackoverflow: "2334534/ajit-singh"
 #  snapchat: deanat78
-#  instagram: deanat78
-#  youtube: user/deanat78
+  instagram: Ajit5ingh
+  youtube: AjitSinghG
 #  spotify: yourname
 #  telephone: +14159998888
 #  steam: deanat78
@@ -165,7 +165,7 @@ date_format: "%B %-d, %Y"
 # --- You don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Vancouver"
+timezone: "India/Kolkata"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
@@ -206,4 +206,5 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+
 

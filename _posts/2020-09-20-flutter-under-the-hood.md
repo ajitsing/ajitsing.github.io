@@ -2,7 +2,7 @@
 layout: post
 title: Flutter under the hood
 description: Overview of Flutter architecture and how it executes Dart code behind the scenes on the mobile devices.
-share-img: /assets/img/posts/flutter/cover.png
+share-img: /assets/img/posts/flutter/running_code_on_device.png
 permalink: /flutter-under-the-hood/
 tags: [flutter, mobile-cross-platform]
 comments: true

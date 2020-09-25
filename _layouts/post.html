@@ -52,6 +52,31 @@ layout: base
         {% include social-share.html %}
       {% endif %}
 
+      {% assign related_posts = "" | split: ',' %}
+
+      {% for tag in page.tags %}
+        {% for post in site.tags[tag] limit:10 %}
+          {% if post.title != page.title %}
+            {% assign related_posts = related_posts | push: post %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
+      {% assign uniq_related_posts = related_posts | uniq %}
+
+      {% if uniq_related_posts.size > 0 %}
+        <h3>Related Posts:</h3>
+        <ul class="post-list">
+          {% for post in uniq_related_posts limit:5 %}
+            <li class="tag-entry">
+              <a href="{{ post.url | relative_url }}">{{- post.title -}}</a>
+              </br>
+            </li>
+          {% endfor %}
+        </ul>
+        </br>
+      {% endif %}
+
       <ul class="pagination blog-pager">
         {% if page.previous.url %}
         <li class="page-item previous">

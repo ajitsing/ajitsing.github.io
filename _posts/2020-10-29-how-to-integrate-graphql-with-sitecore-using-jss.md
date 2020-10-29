@@ -19,9 +19,9 @@ Once you have above prerequisites you can start following below steps to install
 
 ### Download JSS package
 
-Downloading the JSS package requires a certified developer account. You can download the JSS package from [sitecore downloads page](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services.aspx).
+Downloading the JSS package requires a certified developer account. You can download the JSS package from [sitecore downloads page](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services.aspx){:target="_blank"}.
 
-Use the below table to find the right JSS package for your sitecore version. You can also visit [this link](https://kb.sitecore.net/articles/541788) to find the latest version compatibility table.
+Use the below table to find the right JSS package for your sitecore version. You can also visit [this link](https://kb.sitecore.net/articles/541788){:target="_blank"} to find the latest version compatibility table.
 
 ![Crepe](/assets/img/posts/sitecore/sitecore-jss-version-compatibility-table.png)
 

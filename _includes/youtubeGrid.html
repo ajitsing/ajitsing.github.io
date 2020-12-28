@@ -1,0 +1,10 @@
+{% assign videoIds = include.videos | split: "," %}
+
+<h2 class="center">{{ include.gridTitle }}</h2>
+<div class="embed-container">
+    {% for videoId in videoIds %}
+    <iframe src="https://www.youtube.com/embed/{{ videoId }}" width="350" height="200" frameborder="40"
+        allowfullscreen="">
+    </iframe>
+    {% endfor %}
+</div>

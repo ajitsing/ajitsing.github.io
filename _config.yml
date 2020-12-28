@@ -13,11 +13,13 @@ author: Ajit Singh
 
 navbar-links:
   About Me: "aboutme"
-  Android: "/tags/#android"
-  Ruby: "/tags/#ruby"
-  Java: "/tags/#java"
-  Design Patterns: "/tags/#design%20pattern"
+  Videos: "videos"
   Tag Cloud: "/tags"
+  # Android: "/tags/#android"
+  # Ruby: "/tags/#ruby"
+  # Java: "/tags/#java"
+  # Design Patterns: "/tags/#design%20pattern"
+  
 
 # --- Logo --- #
 

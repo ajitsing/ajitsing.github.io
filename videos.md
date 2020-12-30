@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Youtube Videos
 ---
 
-<script src="https://apis.google.com/js/platform.js"></script>
-<div class="g-ytsubscribe" data-channelid="UCT-zzHDIusepI2FfFlpYI1g" data-layout="full" data-count="default"></div>
+{% include youtubeChannelPromo.html %}
 
 <br>
 {% include youtubeGrid.html gridTitle="Android Videos" videos="k-tREnlQsrk,N8w0enp1Krg,NxRJNqOL-lk,NLfKxEprWB4,ubvWRlFnr74,YDWg-bgsAfc,cEQBJkTeRUQ" %}

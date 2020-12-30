@@ -916,3 +916,19 @@ pre {
   font-style: italic;
   font-size: 1rem;
 }
+
+
+/* Videos page */
+
+
+.youtube-channel {
+  background: whitesmoke;
+  border-color: black;
+  border-style: solid;
+  text-align: center;
+}
+
+.youtube-subscribe-txt {
+  color: brown;
+  font-weight: bold;
+}

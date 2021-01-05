@@ -83,7 +83,7 @@ You can choose any format as long as you are able to extract dev names from the 
 Once you are ready with your regex, put it in the pairing_matrix.yml and run the below command from the same directory.
 
 {% highlight bash linenos %}
-pairing_martix pairing_martix.yml
+pairing_martix
 {% endhighlight %}
 
 ![Crepe](/assets/img/posts/pairing_matrix/pairing_martix_2.png)

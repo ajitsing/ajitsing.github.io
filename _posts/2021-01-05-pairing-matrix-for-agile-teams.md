@@ -28,18 +28,12 @@ Managing the hand made pairing matrix is a pain. Also maintaining the matrix of 
 &nbsp;
 # How pairing matrix gem works?
 
-The matrix is generated using the git commits presents in your local machine or github. I would suggest to point the pairing matrix to github so that everyone sees the same copy of the matrix.
+The matrix is generated using the git commits presents in your git repositories. I would suggest to point the pairing matrix to your code hosting platform like github or gitlab so that everyone sees the same copy of the matrix.
 
 &nbsp;
 # Installation of gem
 
-Add the below line to the Gemfile and run bundle install
-
-{% highlight ruby linenos %}
-gem 'pairing_matrix'
-{% endhighlight %}
-
-Or install it yourself:
+Run the below command in your terminal:
 
 {% highlight shell linenos %}
 gem install pairing_matrix
@@ -47,21 +41,25 @@ gem install pairing_matrix
 
 ![Crepe](/assets/img/posts/pairing_matrix/pairing_matrix_1.png)
 
-To automate pairing matrix you need to provide following things to pairing matrix gem:
+To automate pairing matrix you need to provide following detail:
 
 * Regex to extract pair name from the commit message
-* Github access token (only required for private repositories)
-* Github repos
+* Access token
+* Url of the code hosting platform APIs
+* Repositories
 
-You need to add all this information in the pairing_martix.yml file. Please refer to the below sample.
+You need to add all this information in the ```pairing_martix.yml``` file. Please refer to the below github sample configuration.
 
 {% highlight yaml linenos %}
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
-github_access_token: 000324cff69wes5613f732c345hn679c0knt509c
-github_repos:
-  - org1/repo1
-  - org1/repo2
-  - github_username/my_private_repo
+
+github:
+  url: https://api.github.com/
+  access_token: 000324cgf89weq56132f32c345hn679c0knh501c
+  repositories:
+    - org1/repo1
+    - org1/repo2
+    - github_username/my_private_repo
 {% endhighlight %}
 
 &nbsp;
@@ -85,7 +83,7 @@ You can choose any format as long as you are able to extract dev names from the 
 Once you are ready with your regex, put it in the pairing_matrix.yml and run the below command from the same directory.
 
 {% highlight bash linenos %}
-pairing_martix
+pairing_martix pairing_martix.yml
 {% endhighlight %}
 
 ![Crepe](/assets/img/posts/pairing_matrix/pairing_martix_2.png)
@@ -93,39 +91,60 @@ pairing_martix
 This command starts the [sinatra](http://sinatrarb.com){:target="_blank"} server on the machine on port 4567. Now go to web browser and type localhost:4567/matrix. You should start seeing the pairing matrix based on the data you have provided in the pairing_matrix.yml file.
 
 &nbsp;
-# Some example of pairing_matrix.yml
+# Supported code hosting platforms
+
+Pairing matrix gem supports below platforms:
+* Github
+* Gitlab
+* Local
+
+Support for bitbucket is coming soon!
+
+&nbsp;
+### Github sample configuration
+
+{% highlight yaml linenos %}
+authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
+
+github:
+  url: https://api.github.com/
+  access_token: 000324cff69wes5613f732c345hn679c0knt509c
+  repositories:
+    - org1/repo1
+    - org1/repo2
+    - github_username/my_private_repo
+{% endhighlight %}
+
+**Note: Access token is optional if you are using public repositories.**
+
+&nbsp;
+### Gitlab sample configuration
+
+{% highlight yaml linenos %}
+authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
+
+gitlab:
+  url: https://gitlab.com/api/v4
+  access_token: G7EmKQs4swhadZn2sd0T
+  repositories:
+    - username/repo1
+    - username/repo2
+{% endhighlight %}
+
+**Note: Add your custom urls if you are using enterprise version of Github or Gitlab.**
 
 &nbsp;
 ### For local repositories
 
 {% highlight yaml linenos %}
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
-repos:
-  - /Users/Ajit/projects/project1
-  - /Users/Ajit/projects/project2
-  - /Users/Ajit/projects/project3
+local:
+  repositories:
+    - /Users/Ajit/projects/project1
+    - /Users/Ajit/projects/project2
+    - /Users/Ajit/projects/project3
 {% endhighlight %}
 
-&nbsp;
-### For private repositories on github
+You can also use all these configurations together if you have repositories on multiple platforms.
 
-{% highlight yaml linenos %}
-authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
-github_access_token: 000324cff69wes5613f732c345hn679c0knt509c
-github_repos:
-  - organization1/repo1
-  - organization1/repo2
-  - github_username/my_private_repo
-{% endhighlight %}
-
-&nbsp;
-### For public repositories on github
-
-{% highlight yaml linenos %}
-authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
-github_repos:
-  - github_username/my_public_repo1
-  - github_username/my_public_repo2
-{% endhighlight %}
-
-I hope you will now be able to automate your pairing matrix. If you have any questions or feedback, please write it in the comment below. Thanks!
+I hope you will now be able to automate your pairing matrix using this tool. If you have any questions or feedback, please write it in the comment below. For any feature request or reporting bug create an issue on [Github](https://github.com/ajitsing/pairing_matrix){:target="_blank"}. Thanks!

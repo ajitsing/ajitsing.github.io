@@ -75,7 +75,7 @@ First of all you need to follow a particular pattern in your git commit messages
 StoryNumber [Dev1/Dev2] message
 ```
 
-You can choose any format as long as you are able to extract dev names from the message using a regex. To figure out if your regex is correct, you can try the regex on the commit message in [irb](http://tryruby.org/levels/1/challenges/0){:target="_blank"}.
+You can choose any format as long as you are able to extract dev names from the message using a regex. To figure out if your regex is correct, you can try the regex on the commit message in [irb](https://repl.it/languages/ruby){:target="_blank"}.
 
 {% highlight ruby linenos %}
 "4324 [Ajit/Abhishek] My commit message".scan(/^.*\[([\w]*)(?:\/)?([\w]*)\].*$/).flatten

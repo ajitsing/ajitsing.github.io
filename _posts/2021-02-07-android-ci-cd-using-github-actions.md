@@ -60,6 +60,8 @@ To add Github Actions to your repository you need to create a yaml file `your_re
 
 The first thing that you need to define in the `ci.yml` is the events on which you want to trigger your workflow. In below configuration we are running the build whenever there is a push on `main` branch or when someone creates a pull request against `main` branch.
 
+All the code that you see in this post is available on [github](https://github.com/ajitsing/ExpenseManager/blob/master/.github/workflows/main.yml){:target="_blank"}.
+
 ```yaml
 name: CI
 on:

@@ -16,7 +16,7 @@ I work in an agile team which follows [extreme programming](https://en.wikipedia
 
 Managing the hand made pairing matrix is a pain. Also maintaining the matrix of more than a month is difficult and space consuming on the white boards. I wanted a matrix that can allow me to see the pairing data based on the time span without much effort. To solve this problem I created a [rubygem](https://github.com/ajitsing/pairing_matrix){:target="_blank"} which automates the generation of pairing matrix based on the git commits.
 
-# Demo
+# See it in action
 
 {% include youtubePlayer.html id="H8PpiUFBpyI" %}
 

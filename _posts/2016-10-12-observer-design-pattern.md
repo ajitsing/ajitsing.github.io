@@ -21,7 +21,6 @@ The Observer design pattern can be used in the cases where multiple objects want
 # Video
 
 {% include youtubePlayer.html id="KSJJ3JO9Zpc" %}
-<br>
 
 # Example:
 

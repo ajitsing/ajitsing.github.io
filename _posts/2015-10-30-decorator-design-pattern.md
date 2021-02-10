@@ -23,8 +23,6 @@ This pattern can be used when you have a requirement that you have to add charac
 # Video<br><br>
 
 {% include youtubePlayer.html id="DX6zmUyIhZg" %}
-<br>
-
 
 # Lets Understand With An Example
 

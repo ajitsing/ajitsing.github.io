@@ -26,7 +26,6 @@ We will discuss these components whenever we will come across them in the code.
 # Watch this video to understand scheduling local notification in depth<br><br>
 
 {% include youtubePlayer.html id="k-tREnlQsrk" %}
-<br>
 
 # Create MainActivity<br><br>
 

@@ -21,7 +21,6 @@ It's easy to figure out when one should use filter design pattern. When you have
 # Video
 
 {% include youtubePlayer.html id="icgoR_vfh40" %}
-<br>
 
 # Example:
 

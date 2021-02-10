@@ -51,7 +51,6 @@ Here is a small demo.
 
 {% include youtubePlayer.html id="cEQBJkTeRUQ" %}
 
-&nbsp;
 # Sherlock provides much more than just a crash notification
 
 Using sherlock you can get list of all crashes that has occurred since you installed the application on your device. To see all the crashes, create a menu item or wherever you want to trigger that view from and start the CrashListActivity.

@@ -19,7 +19,6 @@ To use this FancyAudio gem you need to have little bit knowledge of terminal/com
 # Demo<br><br>
 
 {% include youtubePlayer.html id="woqHqBDslWo" %}
-<br>
 
 # For Developers
 

@@ -28,7 +28,6 @@ android {
 # Here is a detailed video<br><br>
 
 {% include youtubePlayer.html id="NLfKxEprWB4" %}
-<br>
 
 # How to use Data Binding?
 

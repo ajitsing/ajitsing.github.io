@@ -15,7 +15,6 @@ Hello Folks, In this post I will be showing how we can create gradient color in 
 # See it live<br><br>
 
 {% include youtubePlayer.html id="NxRJNqOL-lk" %}
-<br>
 
 # What goes inside this xml file??<br><br>
 

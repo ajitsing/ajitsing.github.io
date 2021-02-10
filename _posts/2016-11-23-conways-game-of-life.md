@@ -14,7 +14,6 @@ Conway's game of life is a zero players game. It is played on a rectangular grid
 # Demo<br><br>
 
 {% include youtubePlayer.html id="bwDfhsItfq4" %}
-<br>
 
 # Rules Of Conway's Game Of Life
 

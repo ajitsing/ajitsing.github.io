@@ -932,3 +932,7 @@ pre {
   color: brown;
   font-weight: bold;
 }
+
+.youtube_video {
+  margin-bottom: 35px;
+}

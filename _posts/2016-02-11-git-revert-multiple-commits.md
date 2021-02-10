@@ -25,7 +25,6 @@ and wallah, I was able to revert all the commits of that feature and found that 
 # Video tutorial<br><br>
 
 {% include youtubePlayer.html id="uVj9ut7mJgs" %}
-<br>
 
 # How it works?
 

@@ -37,8 +37,6 @@ dependencies {
 # Android Instrumentation Testing Series<br><br>
 
 {% include youtubePlayer.html id="gdsxVfq-yNM" %}
-<br>
-
 
 Now let's look at an example of Testing Android Database.
 

@@ -16,7 +16,6 @@ Hello Folks, this blog will help you add a draggable view to your android page. 
 # Video Tutorial
 
 {% include youtubePlayer.html id="N8w0enp1Krg" %}
-<br>
 
 We can divide the draggable view implementation in two parts.
 

@@ -20,7 +20,6 @@ Managing the hand made pairing matrix is a pain. Also maintaining the matrix of 
 
 {% include youtubePlayer.html id="H8PpiUFBpyI" %}
 
-&nbsp;
 # How to read this matrix?
 
 * This matrix is purely based on git commits.

@@ -32,7 +32,6 @@ gem install apkToJava
 # See it in action:<br><br>
 
 {% include youtubePlayer.html id="YDWg-bgsAfc" %}
-<br>
 
 # How to use it?<br><br>
 

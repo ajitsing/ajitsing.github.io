@@ -19,7 +19,6 @@ Your android device has capability to notify all the applications in the mobile
 # For detailed explanation with demo, watch this
 
 {% include youtubePlayer.html id="ubvWRlFnr74" %}
-<br>
 
 # NetworkStateChangeReceiver<br><br>
 

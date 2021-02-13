@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Setting up Android CI/CD using Github Actions
-description: This blog explains how you can setup CI/CD for Android application using Github Actions. The post includes code snippets and videos content.
+title: Github Actions for Android
+description: Designing and setting up CI/CD for Android using Github Actions is simple. In this post we will implement entire CI/CD pipeline using Github Actions.
 share-img: /assets/img/posts/android_github_actions/thumbnail.png
 cover-img: /assets/img/posts/android_github_actions/cover.png
 thumbnail-img: /assets/img/posts/android_github_actions/thumbnail.png
@@ -12,9 +12,9 @@ tags: [android, cd/cd, Github Actions]
 comments: true
 ---
 
-CI/CD is one of the most important aspects of every software. This is important for any kind of app be it web, mobile, console or desktop. In this post we will discuss how we can setup CI/CD for an Android Application using Github Actions.<br/>
+CI/CD is a development practice that delivers software to the end user with speed and reliability. This is important for any kind of app be it web, mobile, console or desktop. In this post we will discuss how we can setup CI/CD for an Android Application using Github Actions.<br/>
 
-Before we jump on to the implementation le us discuss a little about CI/CD first.
+Before we jump on to the implementation let us discuss a little about CI/CD first.
 
 ## What is Continuous Integration?
 

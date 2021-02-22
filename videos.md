@@ -5,8 +5,10 @@ layout: page
 {% include youtubeChannelPromo.html %}
 
 <br>
-<h2 class="center">Series: Setup CI/CD for Android App using Github Actions</h2>
-{% include youtubePlaylist.html id="PLFYf87MeyEq5Os9Vsnd9k9kgUHzy8eff_" %}
+{% include youtubeGrid.html gridTitle="TDD In Java" videos="e68qxC3cTQc" %}
+
+<br>
+{% include youtubeGrid.html gridTitle="GitHub Actions For Android" videos="2mCJZHEhsxc,E8qXYydzDbc,slCtr4LXmIM,g9WDcGuhfSI,ydRhDYhw3i0,SmY__nDcw5w" %}
 
 <br>
 {% include youtubeGrid.html gridTitle="Android Videos" videos="k-tREnlQsrk,N8w0enp1Krg,NxRJNqOL-lk,NLfKxEprWB4,ubvWRlFnr74,YDWg-bgsAfc,cEQBJkTeRUQ" %}

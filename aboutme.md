@@ -8,3 +8,10 @@ Hi, I am Ajit Singh author of singhajit.com. I am an application developer worki
 I enjoy working on different technologies, so I decided to start writing this blog to share my experience and learnings.
 
 Thanks for visiting my blog. I am hoping to see you more on singhajit.com. Please participate in discussions and any feedback or suggestions are most welcome.
+
+## Other Websites I Own
+
+In addition to this blog, I also own and maintain other websites:
+
+- [PDF Tools Hub](https://www.pdftoolshub.online) – A collection of free online PDF tools.
+

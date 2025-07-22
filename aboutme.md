@@ -13,5 +13,5 @@ Thanks for visiting my blog. I am hoping to see you more on singhajit.com. Pleas
 
 In addition to this blog, I also own and maintain other websites:
 
-- [PDF Tools Hub](https://www.pdftoolshub.online) – A collection of free online PDF tools.
+ - <a href="https://www.pdftoolshub.online" target="_blank">PDF Tools Hub</a> – A collection of free online PDF tools.
 

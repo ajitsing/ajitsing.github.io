@@ -1,14 +1,13 @@
 ---
 layout: page
+title: Tech News
+subtitle: What's happening in the world of software development
 ---
 
-{{ content }}
-
 {% assign posts = paginator.posts | default: site.posts %}
-
 <div class="posts-list">
   {% for post in posts %}
-  {% unless post.categories contains "tech-news" %}
+  {% if post.categories contains "tech-news" %}
   <article class="post-preview">
     <a href="{{ post.url | relative_url }}">
       <h2 class="post-title">{{ post.title }}</h2>
@@ -57,7 +56,7 @@ layout: page
     {% endif %}
 
    </article>
-   {% endunless %}
+   {% endif %}
   {% endfor %}
 </div>
 

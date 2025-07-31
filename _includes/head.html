@@ -4,6 +4,8 @@
 
   <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator | default: '-' }} {{ site.description }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   
+  {% include seo.html %}
+
   {% if site.author %}
   <meta name="author" content="{{ site.author }}">
   {% endif %}

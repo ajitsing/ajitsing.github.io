@@ -398,7 +398,7 @@ footer .list-inline {
   margin-bottom: 1.875rem;
 }
 footer .copyright {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Merriweather', Georgia, serif;
   text-align: center;
   margin-bottom: 0;
   margin-top: 0;
@@ -410,7 +410,7 @@ footer .theme-by {
 footer .footer-custom-content {
   text-align: center;
   margin-bottom: 0.9375rem;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Merriweather', Georgia, serif;
 }
 
 @media (min-width: 768px) {
@@ -456,6 +456,9 @@ footer .footer-custom-content {
   color: {{ site.hover-col | default: "#0085A1" }};
 }
 
+.navbar-tech-news {
+  color: #fff95e !important;
+}
 .post-preview .post-title {
   font-size: 1.875rem;
   margin-top: 0;
@@ -935,4 +938,13 @@ pre {
 
 .youtube_video {
   margin-bottom: 35px;
+}
+
+h2 + h2,
+h2 + h3,
+h3 + h2,
+h3 + h3,
+h1 + h2,
+h1 + h3 {
+  margin-top: 1.3em;
 }

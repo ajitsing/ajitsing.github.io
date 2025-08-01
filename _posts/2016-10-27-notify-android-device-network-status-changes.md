@@ -8,6 +8,7 @@ gh-repo: ajitsing/AndroidOfflineModeNotifications
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android network status, android broadcast receiver, network change notification, android connectivity change, android snackbar notification, android offline detection, android network listener, android manifest receiver, android app notifications, android development"
 ---
 
 There are a lot of applications in the play store that notifies you when your mobile goes offline. This article will help you understand how all that happens. How app knows that device is offline and notifies the user about the same by showing a notification on the screen. To understand this clearly I have created this small [project on github](https://github.com/ajitsing/AndroidOfflineModeNotifications){:target="_blank"}.

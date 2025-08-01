@@ -8,6 +8,7 @@ gh-repo: ajitsing/androiduisessions
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android draggable view, draggable button android, android onTouch event, android FrameLayout, android UI tutorial, draggable layout android, android viewgroup, android floating button, android custom view, android development"
 ---
 
 Hello Folks, this blog will help you add a draggable view to your android page. It's fairly simple to add a draggable view to your layout if you know about FrameLayout and Android's ```onTouch``` event. You can find the code in this [Github repo](https://github.com/ajitsing/androiduisessions){:target="_blank"}.

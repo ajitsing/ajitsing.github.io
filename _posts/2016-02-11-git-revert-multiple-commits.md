@@ -6,6 +6,7 @@ share-img: /assets/img/posts/git/cover.png
 permalink: /git-revert-multiple-commits/
 tags: [git, shell]
 comments: true
+keywords: "git revert, revert multiple commits, git automation, git xargs, git grep, git cut, git command line, git tutorial, revert feature branch, git revert script"
 ---
 
 Hello Folks, There are situations when we want to revert all the commits of a feature instead of checking out an earlier commit, because you want to retain the changes made for other features.

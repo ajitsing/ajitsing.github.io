@@ -8,6 +8,7 @@ gh-repo: ajitsing/fancy_audio
 gh-badge: [star, fork, follow]
 tags: [ruby, rubygem]
 comments: true
+keywords: "add album cover mp3, mp3 album art, fancy_audio gem, ruby mp3 tools, embed image mp3, mp3 metadata, album cover script, mp3 file editing, ruby audio gem, mp3 batch album art"
 ---
 
 Hi Guys, Here I am again with a new gem called [FancyAudio](https://rubygems.org/gems/fancy_audio){:target="_blank"}. Any guesses what this gem might do or how to use it. Let me explain it for you.

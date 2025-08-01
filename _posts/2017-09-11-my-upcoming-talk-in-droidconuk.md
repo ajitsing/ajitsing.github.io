@@ -1,10 +1,12 @@
 ---
 layout: post
 title: My upcoming talk in DroidConUK
+description: Sharing learnings on building offline mode in Android apps at DroidConUK, including design, challenges, and best practices.
 share-img: /assets/img/posts/droidconuk/cover.jpg
 permalink: /my-upcoming-talk-in-droidconuk/
 tags: [android, conference]
 comments: false
+keywords: "DroidConUK, android offline mode, android conference, offline support android, android app design, android best practices, modularization android, android community, android developer talk, offline android app"
 ---
 
 I am very excited to be joining DroidConUK to share my learnings on Offline Mode of Android Apps. This talk is highly inspired by one of the client project that I worked on where the ask was to build an offline mode for their app.

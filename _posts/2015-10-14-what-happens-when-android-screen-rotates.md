@@ -8,6 +8,7 @@ gh-repo: ajitsing/AndroidScreenRotationDemo
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android screen rotation, android activity recreation, android layout resources, android orientation change, android data loss, android onCreate, android configuration change, android ui rotation, android development, android screen orientation"
 ---
 
 Rotating the android device changes the device configuration. Android replaces the current resources with the best suited resources for that screen orientation. Thats why when we add a resource in android we add different versions of that resource. For example an image can be added in four formats(hdpi, mdpi, xhdpi, xxhdpi). The below screen shot shows the same resource for different screen sizes.

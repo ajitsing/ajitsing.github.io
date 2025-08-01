@@ -8,6 +8,7 @@ gh-repo: ajitsing/AndroidUIPlayground
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android ui basics, android layouts, android viewgroup, android beginner tutorial, android ui design, linear layout android, relative layout android, android ui components, android development, android ui guide"
 ---
 
 This article covers the basic Android UI which every android developer should know. Here we will discuss what are the basic android UI building blocks and how they can be used. With a little attention you can master the basics of android UI design. I have created a demo application to help learn the basics. You can look at the code on [github](https://github.com/ajitsing/AndroidUIPlayground){:target="_blank"}.

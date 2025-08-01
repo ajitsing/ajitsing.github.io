@@ -7,6 +7,7 @@ permalink: /basic-configuration-of-vim/
 gh-repo: ajitsing/vim-setup
 gh-badge: [star, fork, follow]
 tags: [vim]
+keywords: "vim configuration, vimrc setup, vim syntax highlighting, vim line numbers, vim beginner guide, vim settings, vim editor tips, vim customization, vim tutorial, vim productivity"
 comments: true
 ---
 

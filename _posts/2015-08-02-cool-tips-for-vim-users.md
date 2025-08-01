@@ -7,6 +7,7 @@ permalink: /cool-tips-for-vim-users/
 gh-repo: ajitsing/vim-setup
 gh-badge: [star, fork, follow]
 tags: [vim]
+keywords: "vim tips, vim tricks, vim productivity, vim shortcuts, vim advanced usage, vim configuration, vim editor tips, vim json formatting, vim uppercase lowercase, vimrc tips, vim best practices"
 comments: true
 ---
 

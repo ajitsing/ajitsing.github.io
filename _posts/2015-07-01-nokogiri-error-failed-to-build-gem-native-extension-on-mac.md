@@ -6,6 +6,7 @@ share-img: /assets/img/posts/ruby/cover.png
 permalink: /nokogiri-error-failed-to-build-gem-native-extension-on-mac/
 tags: [ruby]
 comments: true
+keywords: "nokogiri error mac, failed to build gem native extension, nokogiri install error, ruby gem install mac, xcode command line tools, nokogiri troubleshooting, mac gem native extension, nokogiri solution, ruby development tools mac, nokogiri mac fix"
 ---
 
 During `bundle install`, a lot of time we use to get following error because of `nokogiri` gem. This error generally occur on MAC OSX. There are few other gems as well which throw the same error like pg, rmagic etc. But the way we resolve this problem is same for most of them. So Lets see how we can resolve this issue.

@@ -8,6 +8,7 @@ gh-repo: ajitsing/gocd
 gh-badge: [star, fork, follow]
 tags: [ruby, gocd, rubygem]
 comments: true
+keywords: "gocd ruby gem, gocd api, gocd models, ruby gocd integration, gocd pipeline status, gocd automation, ruby gem gocd, gocd server info, gocd agents, gocd open source"
 ---
 
 # What is GoCD?

@@ -8,6 +8,7 @@ gh-repo: ajitsing/sidekiq_queue_metrics
 gh-badge: [star, fork, follow]
 tags: [rails, ruby, sidekiq, rubygem]
 comments: true
+keywords: "sidekiq queue monitoring, sidekiq queue metrics, sidekiq plugin, sidekiq failures, rails background jobs, sidekiq queue stats, ruby sidekiq gem, sidekiq dashboard, sidekiq job tracking, sidekiq development"
 ---
 
 The default interface of [sidekiq](https://github.com/mperham/sidekiq){:target="_blank"} allows you to see the number of processed and failed jobs with a morgue which has all the dead jobs. The interface is sufficient when you have few queues. But when you have more queues and the number of jobs in each queue is significant then it becomes difficult to track the progress of an individual queue in sidekiq. Also to group the failure for each queue becomes a challenge because sidekiq don't have the functionality to filter the dead jobs by the queue.

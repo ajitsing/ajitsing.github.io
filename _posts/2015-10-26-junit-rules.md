@@ -6,6 +6,7 @@ share-img: /assets/img/posts/junit_rules/cover.jpg
 permalink: /junit-rules/
 tags: [java, junit, testing]
 comments: true
+keywords: "junit rules, junit setup teardown, custom junit rule, junit testrule, java unit testing, junit annotation, junit best practices, junit database test, junit rule example, junit automation"
 ---
 
 There has been a lot of confusion when it comes to Junit Rules. People hardly use it or avoid using it without knowing its essence. This article will cover the power of junit rules and how to implement them. Also we will see whats the benefits of using junit rules over `setup()` and `tearDown()` methods.

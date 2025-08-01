@@ -10,6 +10,7 @@ gh-repo: ajitsing/ExpenseManager
 gh-badge: [star, fork, follow]
 tags: [android, cd/cd, Github Actions]
 comments: true
+keywords: "github actions android, android ci cd, android github workflow, android pipeline setup, android automation, github actions yaml, android lint github, android unit tests ci, android apk github, android app deployment"
 ---
 
 CI/CD is a development practice that delivers software to the end user with speed and reliability. This is important for any kind of app be it web, mobile, console or desktop. In this post we will discuss how we can setup CI/CD for an Android Application using Github Actions.<br/>

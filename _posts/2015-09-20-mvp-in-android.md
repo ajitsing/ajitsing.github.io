@@ -6,6 +6,7 @@ share-img: /assets/img/posts/android/cover.png
 permalink: /mvp-in-android/
 tags: [android, design pattern]
 comments: true
+keywords: "mvp in android, android mvp pattern, model view presenter, android architecture, mvp implementation android, android design patterns, android code organization, android unit testing, mvp tutorial, android presenter"
 ---
 
 Hello Folks, In this article we will discuss what is MVP in android and how we can use it to make our code better organised and unit/integration tested ([video series](https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR){:target="_blank"} on android instrumentation testing). There are mainly three components involved in MVP pattern Model, View and Presenter. Lets discuss about each of them in detail.

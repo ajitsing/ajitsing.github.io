@@ -7,6 +7,7 @@ permalink: /print-custom-messages-after-executing-git-commands/
 gh-repo: ajitsing/amusing_git
 gh-badge: [star, fork, follow]
 tags: [git, shell, rubygem]
+keywords: "git custom messages, amusing_git, git hooks, git automation, shell scripting git, ruby git tools, print message after git push, git productivity, git post-commit, git post-push"
 comments: true
 ---
 

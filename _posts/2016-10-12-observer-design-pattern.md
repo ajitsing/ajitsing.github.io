@@ -8,6 +8,7 @@ gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]
 tags: [java, design pattern]
 comments: true
+keywords: "observer design pattern, java observer pattern, observable example, observer implementation, design patterns, event subscription, observer vs observable, java software architecture, observer use case, observer pattern tutorial"
 ---
 
 # What is Observer Design Pattern?

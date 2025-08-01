@@ -8,6 +8,7 @@ gh-repo: ajitsing/gocd_pre_push
 gh-badge: [star, fork, follow]
 tags: [ruby, rubygem, continuous integration, git, gocd]
 comments: true
+keywords: "gocd pre push, prevent push on red build, git pre-push hook, continuous integration, gocd pipelines, ruby gem, gocd api, agile development, ci cd, gocd tutorial, git automation"
 ---
 
 An agile team delivers their software as and when they are ready with a small feature or user feedback. This is achieved with the help of [Continuous integration](https://www.thoughtworks.com/continuous-integration){:target="_blank"} and [Continuos Delivery](https://www.thoughtworks.com/continuous-delivery){:target="_blank"}. The idea is whenever you make any change to your software, there is a continuous integration environment that checks if your changes integrates well with the rest of  the software or not. There are a lot of CI softwares available and one of them is [GoCD](https://www.go.cd/){:target="_blank"} which is open source and developed by [ThoughtWorks](https://www.thoughtworks.com/){:target="_blank"}.

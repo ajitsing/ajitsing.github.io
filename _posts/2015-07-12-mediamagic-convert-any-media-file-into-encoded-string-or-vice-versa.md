@@ -8,6 +8,7 @@ gh-repo: ajitsing/MediaMagic
 gh-badge: [star, fork, follow]
 tags: [ruby, rubygem]
 comments: true
+keywords: "mediamagic gem, encode media file, decode media file, ruby media tools, file to string ruby, string to file ruby, media encoding ruby, ruby gem media, store media in database, media file conversion"
 ---
 
 This [gem](https://rubygems.org/gems/media-magic){:target="_blank"} is  written with the intention of converting any kind of file into encoded string or vice versa. The code is available on [github](https://github.com/ajitsing/MediaMagic){:target="_blank"}.

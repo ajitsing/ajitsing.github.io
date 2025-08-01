@@ -7,6 +7,7 @@ gh-repo: ajitsing/LocationAwareApp
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android awareness api, android fence api, android snapshot api, android geofencing, android context api, android location aware, android user context, android api tutorial, android app features, android development"
 ---
 
 Google introduced android [awareness api](https://developers.google.com/awareness/){:target="_blank"} in I/O 16. It offers a lot of awesome features which can make your android application better and improve the user experience. Awareness API is a combination of two APIs

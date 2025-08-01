@@ -8,6 +8,7 @@ gh-repo: ajitsing/vim-setup
 gh-badge: [star, fork, follow]
 tags: [vim]
 comments: true
+keywords: "vim modes, vim normal mode, vim insert mode, vim visual mode, vim commands, vim navigation, vim shortcuts, vim tutorial, vimrc tips, vim text editing"
 ---
 
 This article covers all the basic modes of vim. commands or mappings supported in each mode and what commands we can use to jump between them. Or if you are looking for a well configured vim you can visit my github repo [here](https://github.com/ajitsing/vim-setup){:target="_blank"}.

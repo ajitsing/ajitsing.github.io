@@ -8,6 +8,7 @@ gh-repo: ajitsing/AndroidDataBinding
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android data binding, android viewmodel, data binding tutorial, android ui binding, android databinding example, two way binding android, android handler, android mvvm, android layout binding, android development"
 ---
 
 Hello friends, Recently I have tried android's new library Android Data Binding. My experience with data binding has been really good and I would like others to try it out too. It takes very less to integrate android data binding in your existing code. You don't need to download any extra dependency for it as it comes built in the android's gradle plugin. All the code used in this article is present in my [github repo](https://github.com/ajitsing/AndroidDataBinding){:target="_blank"}.

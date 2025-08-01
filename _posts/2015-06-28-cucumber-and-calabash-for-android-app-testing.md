@@ -6,6 +6,7 @@ share-img: /assets/img/posts/cucumber/cover.png
 permalink: /cucumber-and-calabash-for-android-app-testing/
 tags: [android, testing, cucumber]
 comments: true
+keywords: "cucumber android testing, calabash android, android app automation, cucumber setup android, calabash tutorial, android bdd testing, ruby android testing, calabash steps, cucumber feature android, android test automation"
 ---
 
 This article will cover how cucumber and calabash can be used for android testing. Code used in this post can be found on github using following urls.

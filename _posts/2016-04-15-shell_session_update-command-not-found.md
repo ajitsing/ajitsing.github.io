@@ -6,6 +6,7 @@ share-img: /assets/img/posts/terminal/cover.png
 permalink: /shell_session_update-command-not-found/
 tags: [rvm, ruby, shell]
 comments: true
+keywords: "shell_session_update command not found, rvm shell error, rvm get head, rvm troubleshooting, ruby shell issues, direnv shell_session_update, rvm update solution, shell command not found fix, rvm mac error, ruby environment setup"
 ---
 
 This problem has troubled me a lot before I found the solution to it. And no forum provided the right solution for it, hence this post. You can go through the [rvm issue thread](https://github.com/direnv/direnv/issues/210){:target="_blank"} for more details about the issue.

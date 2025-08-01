@@ -10,6 +10,7 @@ gh-repo: ajitsing/pairing_matrix
 gh-badge: [star, fork, follow]
 tags: [ruby, agile, rubygem]
 comments: true
+keywords: "pairing matrix, agile teams, pair programming, pairing_matrix gem, ruby gem, agile tools, team collaboration, git pairing matrix, extreme programming, automate pairing matrix"
 ---
 
 I work in an agile team which follows [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming){:target="_blank"} practices like [pairing programming](https://en.wikipedia.org/wiki/Pair_programming){:target="_blank"}. But with pair programming comes the problem of switching pairs. Sometimes in big teams we do see that the individuals are not able to make the decision of with whom they should pair next. To overcome this problem we generally create pairing matrix which helps us figure out who is pairing with whom and wether team is switching pairs frequently or not.

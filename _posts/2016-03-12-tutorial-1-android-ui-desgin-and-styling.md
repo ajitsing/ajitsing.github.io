@@ -8,6 +8,7 @@ gh-repo: ajitsing/androiduisessions
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android ui design, android styling, dp vs sp, android pixels, android screen density, android layout units, android design tutorial, android font size, android ui best practices"
 ---
 
 Hello friends, Recently I have been doing some Android UI Design And Styling training [sessions](https://github.com/ajitsing/AndroidUISessions){:target="_blank"}. So I thought to share it with the wider audience. And here I am with my first android ui design and styling tutorial. I will be writing more on the same topic. So, Lets get started...

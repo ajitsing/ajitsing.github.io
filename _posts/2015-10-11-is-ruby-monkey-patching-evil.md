@@ -6,6 +6,7 @@ share-img: /assets/img/posts/ruby_monkey_patching/cover.jpeg
 permalink: /is-ruby-monkey-patching-evil/
 tags: [ruby]
 comments: true
+keywords: "ruby monkey patching, ruby open classes, monkey patching example, ruby best practices, ruby class extension, ruby util methods, monkey patching risks, ruby array replace, ruby code safety, ruby programming tips"
 ---
 
 We have been using monkey patching since we had exposure to it. Now the question is ruby monkey patching is it good or bad?.  Before answering the question lets understand what monkey patching is.

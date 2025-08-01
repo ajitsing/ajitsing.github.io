@@ -7,6 +7,7 @@ permalink: /schedule-local-notification-in-android/
 gh-repo: ajitsing/AlarmManagerAndReceiver
 gh-badge: [star, fork, follow]
 tags: [android]
+keywords: "android local notification, schedule notification android, android AlarmManager, android BroadcastReceiver, android notification tutorial, android PendingIntent, android app notifications, android development, android notification example"
 comments: true
 ---
 

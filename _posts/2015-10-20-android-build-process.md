@@ -6,7 +6,7 @@ share-img: /assets/img/posts/android_build_process/cover.jpg
 permalink: /android-build-process/
 tags: [android]
 comments: true
----
+keywords: "android build process, android aapt tool, android sdk tools, android build steps, android R.java, android apk build, android development, android build tutorial, android asset packaging, android app compilation"
 
 There are a lot of steps involved in android build process. We will discuss them one by one. But before jumping to the explanation lets take a look at the below diagram first where I have tried to put all the steps of build process together.
 

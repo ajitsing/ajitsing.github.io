@@ -8,6 +8,7 @@ gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]
 tags: [java, design pattern]
 comments: true
+keywords: "decorator design pattern, java decorator pattern, design patterns, java design patterns, decorator example, software architecture, decorator implementation"
 ---
 
 # What Is Decorator Pattern?

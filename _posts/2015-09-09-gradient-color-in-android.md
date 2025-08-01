@@ -6,6 +6,7 @@ share-img: /assets/img/posts/android_ui_styling/cover.png
 permalink: /gradient-color-in-android/
 tags: [android]
 comments: true
+keywords: "android gradient color, android background gradient, gradient xml android, android drawable gradient, android ui design, gradient color tutorial, android layout background, android xml example, android color resources, android app styling"
 ---
 
 Hello Folks, In this post I will be showing how we can create gradient color in android and use it as a background. To create a gradient color we need to create an .xml file in the drawable directory. Below is the directory structure where you should put your .xml file.

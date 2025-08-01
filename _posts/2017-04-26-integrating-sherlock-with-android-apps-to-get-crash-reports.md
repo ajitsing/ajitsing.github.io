@@ -7,6 +7,7 @@ gh-repo: ajitsing/Sherlock
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android crash reporting, sherlock android library, android crash logs, crash notification android, crashlytics alternative, android app debugging, android error tracking, crash report sharing, android app stability, android development tools"
 ---
 
 Its always a challenge for an app tester to report crashes to the developers. Because most of the time they don't have enough info about the crash which can enable developers to start fixing the crash right away. Even if you are using Crashlytics, its hard to find the logs for your crash as crashlytics is the central server and has all the crashes and figuring out which one is yours is a nightmare.

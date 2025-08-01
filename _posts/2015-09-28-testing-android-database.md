@@ -6,6 +6,7 @@ share-img: /assets/img/posts/android/cover.png
 permalink: /testing-android-database/
 tags: [android, testing]
 comments: true
+keywords: "testing android database, android instrumentation test, android database testing, android test configuration, android junit, android test tutorial, android sqlite test, android test automation, android database example, android testing best practices"
 ---
 
 Hello folks, In this article I want to discuss how to test android database. Android database can be tested easily using Instrumentation tests. If you are writing the instrumentation test for the first time then there are few things that you need to setup before getting started with the testing of android database. I have also recorded a series of videos for instrumentation testing [tutorials](https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR){:target="_blank"}.

@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Conway's Game Of Life
+description: Learn about Conway's Game of Life, its rules, and how to implement it in JavaScript with code and demo.
 share-img: /assets/img/posts/game_of_life/cover.png
 permalink: /conways-game-of-life/
 gh-repo: ajitsing/game_of_life
 gh-badge: [star, fork, follow]
 tags: [javascript, game]
+keywords: "conway's game of life, game of life javascript, cellular automata, zero player games, game of life rules, game of life implementation, javascript game tutorial, conway simulation, coding games, game of life code"
 comments: false
 ---
 

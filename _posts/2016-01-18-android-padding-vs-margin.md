@@ -5,6 +5,7 @@ description: Android Padding vs Margin covers whats the difference between paddi
 share-img: /assets/img/posts/android_ui_styling/cover.png
 permalink: /android-padding-vs-margin/
 tags: [android]
+keywords: "android padding vs margin, android margin vs padding, difference between padding and margin android, android ui layout margin, android ui layout padding, android view margin example, android view padding example, android layout tutorial, android xml margin, android xml padding, android beginner ui tips, android layout spacing, android design best practices, android user interface, android development basics"
 comments: true
 ---
 

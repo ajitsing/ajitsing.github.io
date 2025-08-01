@@ -8,6 +8,7 @@ gh-repo: ajitsing/androiduisessions
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android custom animations, android xml animation, alpha animation, scale animation, rotate animation, translate animation, android UI effects, android animation tutorial, android UI design, android animation xml example"
 ---
 
 Hello Folks, Recently I have been writing around Android UI Styling and Design. This is my yet another article on Android UI styling. In this article I will cover how we can create custom animations using pure xml tags. Here is my [github repo](https://github.com/ajitsing/androiduisessions){:target="_blank"} which contains all the code related to these articles.

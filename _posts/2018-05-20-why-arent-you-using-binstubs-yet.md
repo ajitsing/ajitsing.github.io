@@ -5,6 +5,7 @@ share-img: /assets/img/posts/bin_stubs/cover.png
 permalink: /why-arent-you-using-binstubs-yet/
 tags: [rails, ruby]
 comments: true
+keywords: "rails binstubs, bundle exec alternative, ruby binstubs, rails 5 bin, ruby gem executables, rails project setup, binstubs vs bundle exec, rails rake tasks, ruby gem versioning, rails development tips"
 ---
 
 If you have been using bundle exec to run any executable gem and tired of it then this post is for you. In this post I will show you the ways to avoid bundle exec command and run the executable directly instead.

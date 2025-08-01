@@ -8,6 +8,7 @@ gh-repo: ajitsing/InstrumentationTestDemo
 gh-badge: [star, fork, follow]
 tags: [android, testing, espresso]
 comments: true
+keywords: "android instrumentation testing, espresso testing, android ui testing, espresso framework, android test automation, android testing tutorial, espresso api, android test example, android test automation tools, android testing best practices"
 ---
 
 Hello Folks, This is my second article on Android Instrumentation testing. My previous instrumentation testing [article](http://www.singhajit.com/instrumentation-testing-of-listview/){:target="_blank"} was about testing a list view with core instrumentation (without any external library or framework). In this I am going to discuss the Espresso framework which I use for android instrumentation testing. I have also recored a series of [videos](https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR){:target="_blank"} on instrumentation testing in Android.

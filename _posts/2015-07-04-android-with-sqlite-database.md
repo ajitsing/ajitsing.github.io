@@ -8,6 +8,7 @@ gh-repo: ajitsing/AndroidDatabaseDemo
 gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
+keywords: "android sqlite database, android database tutorial, sqlite android example, android data storage, android database best practices, android listview sqlite, android database demo, android sqlite CRUD, android app database, android development"
 ---
 
 This article will cover how to use sqlite database with android. For this article I have created a [demo application](https://github.com/ajitsing/AndroidDatabaseDemo){:target="_blank"} which is available on my github account. The app just has a list view which contains a list of products with its price. We will fetch the products from sqlite database and display it on the screen.

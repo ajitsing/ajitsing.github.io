@@ -6,6 +6,7 @@ share-img: /assets/img/posts/flutter/running_code_on_device.png
 permalink: /flutter-under-the-hood/
 tags: [flutter, mobile-cross-platform]
 comments: true
+keywords: "flutter architecture, flutter engine, dart runtime, flutter framework, mobile cross platform, flutter layers, flutter under the hood, flutter internals, flutter mobile development, flutter vs react native"
 ---
 
 This blog is intended to provide an overview of Flutter architecture and how it executes Dart code behind the scenes on the mobile devices. The language used in this blog is very simplistic so that any mobile developer learning Flutter can understand how it works underneath.

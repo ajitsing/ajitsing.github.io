@@ -6,6 +6,7 @@ share-img: /assets/img/posts/offline_mode_presentation/cover.jpg
 permalink: /offline-mode-of-android-apps/
 tags: [android, presentation, conference]
 comments: true
+keywords: "android offline mode, offline app architecture, android offline support, mobile offline design, android network handling, offline testing android, droidcon presentation, android app reliability, offline bugs android, android development"
 ---
 
 I presented this talk in droid con London 2017. Here are the [slides for download](/assets/img/posts/offline_mode_presentation/presentation.pdf){:target="_blank"}. You can also watch the entire talk on [skillcasts](https://skillsmatter.com/skillscasts/10667-bridging-the-gaps-online-to-offline-world-of-mobile-apps){:target="_blank"}.

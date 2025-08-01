@@ -5,6 +5,7 @@ description: Closure in Ruby, This article will explain what is closure in ruby 
 share-img: /assets/img/posts/ruby/cover.png
 permalink: /closure-in-ruby/
 tags: [ruby]
+keywords: "ruby closure, ruby blocks, ruby lambda, closure in programming, ruby scope, ruby binding, ruby functional programming, ruby code examples, ruby tutorial, ruby advanced concepts"
 comments: true
 ---
 

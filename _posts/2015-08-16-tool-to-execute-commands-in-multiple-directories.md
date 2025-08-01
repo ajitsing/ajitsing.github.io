@@ -7,6 +7,7 @@ permalink: /tool-to-execute-commands-in-multiple-directories/
 gh-repo: ajitsing/bring_it_on
 gh-badge: [star, fork, follow]
 tags: [nodejs, productivity]
+keywords: "execute commands multiple directories, bring_it_on tool, nodejs productivity, shell automation, run scripts multiple folders, service orchestration, command line tool, devops automation, nodejs tools, project workflow"
 comments: true
 ---
 

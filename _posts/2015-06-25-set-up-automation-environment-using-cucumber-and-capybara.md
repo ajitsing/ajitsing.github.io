@@ -8,6 +8,7 @@ gh-repo: ajitsing/cucumber_setup
 gh-badge: [star, fork, follow]
 tags: [testing, cucumber]
 comments: true
+keywords: "cucumber automation setup, capybara tutorial, ruby automation testing, cucumber chrome, capybara selenium, bdd ruby, cucumber step definitions, capybara configuration, ruby testing tools, cucumber feature file example"
 ---
 
 This article is about setting up automation environment using cucumber and capybara from scratch with minimal configuration and the code. For this tutorial I have created a sample project and code for that is available [here](https://github.com/ajitsing/cucumber_setup){:target="_blank"} on github. We will start from nothing and build eventually. So lets start

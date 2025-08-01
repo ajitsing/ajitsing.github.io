@@ -8,6 +8,7 @@ gh-repo: ajitsing/InstrumentationTestDemo
 gh-badge: [star, fork, follow]
 tags: [android, testing]
 comments: true
+keywords: "android instrumentation testing, listview test android, android ui testing, android test automation, android junit, android activity test, android test example, android listview click, android test tutorial, android testing best practices"
 ---
 
 In this post we will learn how to write simple instrumentation test. We will be testing an app which has a listView. We will test that list has items in it and on clicking on an item it goes to item's detail page. For this post I have created a demo application with a list view, the code can be found [here](https://github.com/ajitsing/InstrumentationTestDemo){:target="_blank"}. It has following activities.

@@ -7,6 +7,7 @@ permalink: /writing-a-new-programming-language/
 gh-repo: ajitsing/soft
 gh-badge: [star, fork, follow]
 tags: [experiment, language]
+keywords: "writing a programming language, create new language, compiler basics, automata theory, lexical analysis, programming language tutorial, language grammar, dfa nfa, custom language, language development, programming language project"
 comments: true
 ---
 

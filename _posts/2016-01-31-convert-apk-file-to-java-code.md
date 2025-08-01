@@ -7,6 +7,7 @@ permalink: /convert-apk-file-to-java-code/
 gh-repo: ajitsing/apkToJava
 gh-badge: [star, fork, follow]
 tags: [android, rubygem]
+keywords: "convert apk to java, apkToJava gem, android reverse engineering, apk decompiler, ruby android tools, java code from apk, jadx, dex2jar, android productivity, apk analysis"
 comments: true
 ---
 

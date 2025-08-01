@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Java custom annotations
+description: Learn how to create custom annotations in Java, with code examples and practical use cases for advanced Java development.
 share-img: /assets/img/posts/java_annotations/cover.png
 permalink: /java-custom-annotations/
 gh-repo: ajitsing/JavaCustomAnnotations
 gh-badge: [star, fork, follow]
 tags: [java]
+keywords: "java custom annotations, create annotation java, java annotation tutorial, java reflection, java test runner, java @interface, java code examples, java advanced, java programming, java annotations explained"
 comments: true
 ---
 

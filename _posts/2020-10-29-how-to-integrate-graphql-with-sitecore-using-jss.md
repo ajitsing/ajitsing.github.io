@@ -6,6 +6,7 @@ share-img: /assets/img/posts/sitecore/sitecore-jss.png
 permalink: /how-to-integrate-graphql-with-sitecore-using-jss/
 tags: [sitecore, graphql, jss]
 comments: true
+keywords: "sitecore graphql integration, sitecore jss, graphql with sitecore, sitecore tutorial, sitecore javascript services, graphql sitecore example, sitecore headless, sitecore data querying, sitecore development, install jss sitecore"
 ---
 
 This blog contains step by step instructions on how you can integrate GraphQL with Sitecore. Also how you can start using GraphQL for querying the sitecore data.

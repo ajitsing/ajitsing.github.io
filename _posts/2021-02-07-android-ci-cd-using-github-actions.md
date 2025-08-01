@@ -8,7 +8,7 @@ thumbnail-img: /assets/img/posts/android_github_actions/thumbnail.png
 permalink: /android-ci-cd-using-github-actions/
 gh-repo: ajitsing/ExpenseManager
 gh-badge: [star, fork, follow]
-tags: [android, cd/cd, Github Actions]
+tags: [android, ci-cd, Github Actions]
 comments: true
 keywords: "github actions android, android ci cd, android github workflow, android pipeline setup, android automation, github actions yaml, android lint github, android unit tests ci, android apk github, android app deployment"
 ---

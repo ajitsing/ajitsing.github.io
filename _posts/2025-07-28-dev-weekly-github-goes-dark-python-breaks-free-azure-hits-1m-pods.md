@@ -6,6 +6,8 @@ subtitle: "Weekly Software Development News: July 21-27, 2025"
 date: 2025-07-29
 categories: tech-news
 permalink: /dev-weekly-github-goes-dark-python-breaks-free-azure-hits-1m-pods/
+share-img: /assets/img/posts/dev_weekly/dev-weekly-cover.png
+thumbnail-img: /assets/img/posts/dev_weekly/dev-weekly-cover.png
 description: "Weekly roundup: GitHub outage, Python 3.14 RC1, Azure pod scaling, security news, and more for software developers."
 keywords: "GitHub outage, Python 3.14, Azure, Kubernetes, DevOps, AI, software development news, dev weekly"
 tags: ["dev-weekly", "tech-news", "software-development-news"]

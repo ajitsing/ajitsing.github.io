@@ -6,6 +6,8 @@ subtitle: "Weekly Software Development News: July 28 – August 2, 2025"
 date: 2025-08-02
 categories: tech-news
 permalink: /dev-weekly-ai-dlc-ignites-voxtral-speaks-mass-layoffs/
+share-img: /assets/img/posts/dev_weekly/dev-weekly-cover.png
+thumbnail-img: /assets/img/posts/dev_weekly/dev-weekly-cover.png
 description: "Weekly software development news covering AWS AI-DLC methodology, Mistral Voxtral open-source audio AI, Amazon SQS Fair Queues, Kubernetes v1.34, tech layoffs, and Windows 11 updates for developers."
 keywords: "dev weekly, software development news, AWS AI-DLC, DevSphere 2025, Mistral Voxtral, Amazon SQS Fair Queues, Kubernetes v1.34, tech layoffs 2025, Windows 11 build, developer tools, cloud infrastructure, AI machine learning, tech industry updates"
 tags: ["dev-weekly", "tech-news", "software-development-news"]

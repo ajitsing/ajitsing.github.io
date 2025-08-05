@@ -29,6 +29,7 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
   line-height: 1.1;
+  margin-top: 1.5rem; /* Added space above headings */
 }
 h1 {
   font-size: 2.25rem;

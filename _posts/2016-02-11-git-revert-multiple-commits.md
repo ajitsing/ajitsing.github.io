@@ -1,36 +1,91 @@
 ---
 layout: post
 title: GIT revert multiple commits
-description: git revert multiple commits with single command. Use grep, cut and xargs to revert multiple commits of a feature.
+description: "Learn various ways to revert multiple commits in Git using command-line tools like grep, cut, xargs, and more. Explore new methods for efficient Git workflows."
 share-img: /assets/img/posts/git/cover.png
 permalink: /git-revert-multiple-commits/
-tags: [git, shell]
+tags: ["git", "shell", "version-control"]
 comments: true
-keywords: "git revert, revert multiple commits, git automation, git xargs, git grep, git cut, git command line, git tutorial, revert feature branch, git revert script"
+keywords: "git revert, revert multiple commits, git automation, git xargs, git grep, git cut, git command line, git tutorial, revert feature branch, git revert script, git reset, git cherry-pick"
 ---
 
-Hello Folks, There are situations when we want to revert all the commits of a feature instead of checking out an earlier commit, because you want to retain the changes made for other features.
+Hello Folks, there are situations when you need to revert all the commits of a feature without checking out an earlier commit. This allows you to retain changes made for other features while isolating the problematic ones.
 
-# Why?
+In this blog, we'll explore multiple ways to revert commits efficiently using Git command-line tools.
 
-It was a real scenario where my project QA reported a bug which might have introduced by my changes. But I was doubtful of that. So what I did is I reverted all the commits of the feature I was working on and then tested the scenario. I had almost 20 commits for that feature and that too in the middle of others commits. So, If I had to do it manually then I would have given up. But I tried to automate it and I tried this.
+---
 
-# Git revert multiple commits<br><br>
+## Why Revert Multiple Commits?
 
+Imagine a scenario where your QA team reports a bug that might have been introduced by your changes. Instead of manually reverting each commit, you can automate the process to save time and effort. This approach is particularly useful when dealing with a large number of commits.
+
+---
+
+## Method 1: Using `grep`, `cut`, and `xargs`
+
+This method is ideal for reverting commits based on a specific keyword or feature name.
+
+### Command:
 ```bash
 git log --pretty=oneline | grep 'feature_name' | cut -d ' ' -f1 | xargs -n1 git revert --no-edit
 ```
 
-and wallah, I was able to revert all the commits of that feature and found that the bug was not introduced by my commits :)
+### How It Works:
+1. **`git log --pretty=oneline`**: Lists all commits in a single line format.
+2. **`grep 'feature_name'`**: Filters commits related to the specified feature.
+3. **`cut -d ' ' -f1`**: Extracts the SHA hash of each commit.
+4. **`xargs -n1 git revert --no-edit`**: Reverts each commit one by one.
 
-# Video tutorial<br><br>
+This method is quick and effective for reverting commits tied to a specific feature.
+
+---
+
+## Method 2: Using `git reset`
+
+If you want to revert multiple commits and discard changes, `git reset` is a powerful option.
+
+### Command:
+```bash
+git reset --hard <commit-SHA>
+```
+
+### How It Works:
+1. Identify the SHA of the commit you want to reset to.
+2. Use `git reset --hard` to move the HEAD pointer to the specified commit.
+
+**Note:** This method discards all changes after the specified commit, so use it cautiously.
+
+---
+
+## Method 3: Using `git revert` with a Range
+
+If the commits are consecutive, you can revert them using a range.
+
+### Command:
+```bash
+git revert <commit-SHA1>..<commit-SHA2>
+```
+
+### How It Works:
+1. Specify the range of commits to revert.
+2. Git reverts all commits within the range.
+
+This method is efficient for reverting consecutive commits.
+
+---
+
+## Video Tutorial
 
 {% include youtubePlayer.html id="uVj9ut7mJgs" %}
 
-# How it works?
+---
 
-First you log all the commits in single line using ```git log --pretty=oneline``` then we pass the output to the ```grep``` 'feature_name' which filters commits of your feature. Now you want just the SHA of each commit for which we pass the output of grep command to ```cut -d ' ' -f1``` which splits the commits message which space and gives back the first column of it which is hash from each commit.
+## Conclusion
 
-Now that we have all the commits, we want to revert them one by one. I used xargs for this purpose. xargs takes standard output from the previous command and executes a command on each of the output. which means ```xargs -n1 git revert --no-edit``` will take each of the SHA and execute git revert on it.
+Reverting multiple commits in Git can be done in various ways, depending on your requirements. Whether you use `grep`, `cut`, and `xargs` for automation or `git reset` for a hard reset, these methods save time and streamline your workflow.
 
-And believe me it saves a lot of time :)
+Experiment with these techniques and find the one that best suits your project needs. Happy coding!
+
+---
+
+*What are your favorite Git commands for reverting commits? Share your thoughts in the comments below!*

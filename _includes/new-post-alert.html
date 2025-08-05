@@ -1,0 +1,4 @@
+{% assign latest_post = site.posts | first %}
+<div class="new-post-alert">
+  <p>Check out the latest post: <a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a>!</p>
+</div>

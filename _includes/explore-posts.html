@@ -1,0 +1,149 @@
+
+<!-- All Posts Cards Section -->
+<div class="all-posts-section">
+  <h2 class="section-title">Explore All Posts</h2>
+  <div class="posts-cards-container">
+    {% assign posts_count = 0 %}
+    {% assign random_seed = site.time | date: "%s" | modulo: 1000 %}
+    {% assign shown_post_urls = "" %}
+    
+    {% assign valid_posts = "" %}
+    {% for post in site.posts %}
+      {% assign valid_posts = valid_posts | append: forloop.index0 | append: "," %}
+    {% endfor %}
+    
+    {% assign valid_posts_array = valid_posts | split: "," %}
+    {% assign posts_to_show = 6 %}
+    
+    {% for post in site.posts %}
+      {% assign post_random = post.title | size | plus: forloop.index | plus: random_seed | modulo: 17 %}
+      {% assign should_show = false %}
+      
+      {% if posts_count < posts_to_show %}
+        {% if post_random == 0 or post_random == 3 or post_random == 7 or post_random == 11 or post_random == 13 or post_random == 16 %}
+          {% assign should_show = true %}
+        {% endif %}
+      {% endif %}
+      
+      {% if should_show %}
+      <div class="post-card">
+        <a href="{{ post.url | relative_url }}" class="card-link">
+          {% if post.share-img %}
+          <div class="card-image">
+            <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
+          </div>
+          {% elsif post.image %}
+          <div class="card-image">
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+          </div>
+          {% else %}
+          <div class="card-placeholder">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          {% endif %}
+          
+          <div class="card-content">
+            <h3 class="card-title">{{ post.title }}</h3>
+          </div>
+        </a>
+      </div>
+      {% assign posts_count = posts_count | plus: 1 %}
+      {% assign shown_post_urls = shown_post_urls | append: post.url | append: "," %}
+      {% endif %}
+    {% endfor %}
+    
+    <!-- If we don't have 6 random posts, fill with remaining posts -->
+    {% if posts_count < posts_to_show %}
+      {% for post in site.posts %}
+          {% unless shown_post_urls contains post.url %}
+            {% if posts_count < posts_to_show %}
+            <div class="post-card">
+              <a href="{{ post.url | relative_url }}" class="card-link">
+                {% if post.share-img %}
+                <div class="card-image">
+                  <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
+                </div>
+                {% elsif post.image %}
+                <div class="card-image">
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                </div>
+                {% else %}
+                <div class="card-placeholder">
+                  <i class="fas fa-file-alt"></i>
+                </div>
+                {% endif %}
+                
+                <div class="card-content">
+                  <h3 class="card-title">{{ post.title }}</h3>
+                </div>
+              </a>
+            </div>
+            {% assign posts_count = posts_count | plus: 1 %}
+            {% assign shown_post_urls = shown_post_urls | append: post.url | append: "," %}
+            {% endif %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+    
+    <!-- Hidden posts that will be shown when expanded -->
+    <div class="hidden-posts" id="hiddenPosts">
+      {% for post in site.posts %}
+          {% unless shown_post_urls contains post.url %}
+          <div class="post-card">
+            <a href="{{ post.url | relative_url }}" class="card-link">
+              {% if post.share-img %}
+              <div class="card-image">
+                <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
+              </div>
+              {% elsif post.image %}
+              <div class="card-image">
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+              </div>
+              {% else %}
+              <div class="card-placeholder">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              {% endif %}
+              
+              <div class="card-content">
+                <h3 class="card-title">{{ post.title }}</h3>
+              </div>
+            </a>
+          </div>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+  
+  <!-- Expand/Collapse Button -->
+  {% assign total_posts = 0 %}
+  {% for post in site.posts %}
+    {% assign total_posts = total_posts | plus: 1 %}
+  {% endfor %}
+  {% if total_posts > 6 %}
+  <div class="expand-section">
+    <button class="expand-btn" id="expandBtn" onclick="togglePosts()">
+      <i class="fas fa-chevron-down" id="expandIcon"></i> Show More Posts
+    </button>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+function togglePosts() {
+  const hiddenPosts = document.getElementById('hiddenPosts');
+  const expandBtn = document.getElementById('expandBtn');
+  const expandIcon = document.getElementById('expandIcon');
+  
+  if (hiddenPosts.classList.contains('show')) {
+    // Collapse
+    hiddenPosts.classList.remove('show');
+    expandBtn.innerHTML = '<i class="fas fa-chevron-down" id="expandIcon"></i> Show More Posts';
+    expandBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } else {
+    // Expand
+    hiddenPosts.classList.add('show');
+    expandBtn.innerHTML = '<i class="fas fa-chevron-up" id="expandIcon"></i> Show Less Posts';
+  }
+}
+</script>

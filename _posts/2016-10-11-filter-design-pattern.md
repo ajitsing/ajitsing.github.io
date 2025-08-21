@@ -8,7 +8,6 @@ gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]
 tags: [java, design pattern]
 comments: true
-keywords: "filter design pattern, java filter pattern, design patterns, software design, dynamic filtering, filter pattern example, java design patterns, creational patterns, object filtering, filter criteria"
 ---
 
 # What Is Filter Design Pattern?

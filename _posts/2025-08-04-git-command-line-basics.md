@@ -33,7 +33,7 @@ Using the command line helps you understand underlying mechanics, making you a m
 
 Before diving into commands, ensure Git is installed on your system. You can check by running:
 
-```bash
+```shell
 git --version
 ```
 

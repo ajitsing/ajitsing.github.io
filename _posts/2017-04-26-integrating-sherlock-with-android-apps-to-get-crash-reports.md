@@ -19,18 +19,18 @@ Keeping this problem in mind, I created this android library named [Sherlock](ht
 
 Integrating Sherlock with your android application is very easy. You just need to add Sherlock as a dependency in your build.gradle file. And then initialize Sherlock in the Application class of your app.
 
-{% highlight groovy linenos %}
+```groovy
 dependencies {
     compile('com.github.ajitsing:sherlock:1.0.1@aar') {
         transitive = true
     }
 }
-{% endhighlight %}
+```
 
 After adding the Sherlock to the build.gradle file sync your android studio project and then initialize Sherlock in your application class.
 
 
-{% highlight java linenos %}
+```java
 package com.singhajit.login;
 
 import android.app.Application;
@@ -44,7 +44,7 @@ public class SampleApp extends Application {
     Sherlock.init(this);
   }
 }
-{% endhighlight %}
+```
 
 Thats all you need to do to integrate Sherlock in your application. Now whenever your app will crash, Sherlock will give a notification. When you tap on that notification, it will open an activity with all the crash details.
 
@@ -56,7 +56,7 @@ Here is a small demo.
 
 Using sherlock you can get list of all crashes that has occurred since you installed the application on your device. To see all the crashes, create a menu item or wherever you want to trigger that view from and start the CrashListActivity.
 
-{% highlight java linenos %}
+```java
 import com.singhajit.sherlock.crashes.activity.CrashListActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -64,20 +64,20 @@ public class LoginActivity extends AppCompatActivity {
     startActivity(new Intent(this, CrashListActivity.class));
   }
 }
-{% endhighlight %}
+```
 
 Apart from showing all the crashes, Sherlock can also give you all the crash objects it has persisted. You can utilize these crash objects for anything. One possible use case is to generate a custom crash report.
 
-{% highlight java linenos %}
+```java
 Sherlock.getInstance().getAllCrashes();
-{% endhighlight %}
+```
 
 &nbsp;
 # App Information Provider
 
 By default Sherlock only provides app version in the crash reports. If you want to add extra information, you need to provide your own AppInfoProvider to Sherlock.
 
-{% highlight java linenos %}
+```java
 Sherlock.setAppInfoProvider(new AppInfoProvider() {
   @Override
   public AppInfo getAppInfo() {
@@ -87,7 +87,7 @@ Sherlock.setAppInfoProvider(new AppInfoProvider() {
                .build();
   }
 });
-{% endhighlight %}
+```
 
 Before doing this make sure that you have initialized Sherlock otherwise it will throw SherlockNotInitializedException.
 

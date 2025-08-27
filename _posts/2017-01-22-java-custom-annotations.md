@@ -27,20 +27,20 @@ To explain java custom annotations better I have created this small [project on 
 
 # @MyTest<br><br>
 
-{% highlight java linenos %}
+```java
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyTest {
 }
-{% endhighlight %}
+```
 
 The above code creates ```@MyTest``` annotation. ```@Retention(RUNTIME)``` tells java compiler that this annotation should be retained at RUNTIME.
 
 # Test Cases<br><br>
 
-{% highlight java linenos %}
+```java
 public class Test {
     @MyTest
     public void firstTest() {
@@ -60,13 +60,13 @@ public class Test {
         System.out.println("I am helper method");
     }
 }
-{% endhighlight %}
+```
 
 Test class contains all the tests. It has three tests but only two of them is marked with ```@MyTest``` annotation. Which means our test runner should execute only first two tests. Now lets take a look at our test runner which will run these tests.
 
 # TestRunner<br><br>
 
-{% highlight java linenos %}
+```java
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -84,7 +84,7 @@ public class TestRunner {
         }
     }
 }
-{% endhighlight %}
+```
 
 This test runner takes an object and runs tests present in that object. Tests are nothing but methods. So to run the tests we would need to get all the methods present in this object. To achieve that we will use reflection.
 
@@ -92,7 +92,7 @@ This test runner takes an object and runs tests present in that object. Tests ar
 
 # TestRunner Usage<br><br>
 
-{% highlight java linenos %}
+```java
 import java.lang.reflect.InvocationTargetException;
 
 public class Main {
@@ -102,7 +102,7 @@ public class Main {
         testRunner.runTests(new Test());
     }
 }
-{% endhighlight %}
+```
 
 In this Main class I create the new object of Test and pass it to testRunner. Thats all you need to do and your tests will be executed.
 

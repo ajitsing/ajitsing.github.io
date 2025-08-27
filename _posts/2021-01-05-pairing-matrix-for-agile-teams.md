@@ -37,9 +37,9 @@ The matrix is generated using the git commits presents in your git repositories.
 
 Run the below command in your terminal:
 
-{% highlight shell linenos %}
+```shell
 gem install pairing_matrix
-{% endhighlight %}
+```
 
 ![Crepe](/assets/img/posts/pairing_matrix/pairing_matrix_1.png)
 
@@ -52,7 +52,7 @@ To automate pairing matrix you need to provide following detail:
 
 You need to add all this information in the ```pairing_martix.yml``` file. Please refer to the below github sample configuration.
 
-{% highlight yaml linenos %}
+```yaml
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
 
 github:
@@ -62,7 +62,7 @@ github:
     - org1/repo1
     - org1/repo2
     - github_username/my_private_repo
-{% endhighlight %}
+```
 
 &nbsp;
 # How to test the author regex?
@@ -77,16 +77,16 @@ StoryNumber [Dev1/Dev2] message
 
 You can choose any format as long as you are able to extract dev names from the message using a regex. To figure out if your regex is correct, you can try the regex on the commit message in [irb](https://repl.it/languages/ruby){:target="_blank"}.
 
-{% highlight ruby linenos %}
+```ruby
 "4324 [Ajit/Abhishek] My commit message".scan(/^.*\[([\w]*)(?:\/)?([\w]*)\].*$/).flatten
 => ["Ajit", "Abhishek"]
-{% endhighlight %}
+```
 
 Once you are ready with your regex, put it in the pairing_matrix.yml and run the below command from the same directory.
 
-{% highlight bash linenos %}
+```bash
 pairing_martix
-{% endhighlight %}
+```
 
 ![Crepe](/assets/img/posts/pairing_matrix/pairing_martix_2.png)
 
@@ -105,7 +105,7 @@ Support for bitbucket is coming soon!
 &nbsp;
 ### Github sample configuration
 
-{% highlight yaml linenos %}
+```yaml
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
 
 github:
@@ -115,14 +115,14 @@ github:
     - org1/repo1
     - org1/repo2
     - github_username/my_private_repo
-{% endhighlight %}
+```
 
 **Note: Access token is optional if you are using public repositories.**
 
 &nbsp;
 ### Gitlab sample configuration
 
-{% highlight yaml linenos %}
+```yaml
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
 
 gitlab:
@@ -131,21 +131,21 @@ gitlab:
   repositories:
     - username/repo1
     - username/repo2
-{% endhighlight %}
+```
 
 **Note: Add your custom urls if you are using enterprise version of Github or Gitlab.**
 
 &nbsp;
 ### For local repositories
 
-{% highlight yaml linenos %}
+```yaml
 authors_regex: ^.*\[([\w]*)(?:\/)?([\w]*)\].*$
 local:
   repositories:
     - /Users/Ajit/projects/project1
     - /Users/Ajit/projects/project2
     - /Users/Ajit/projects/project3
-{% endhighlight %}
+```
 
 You can also use all these configurations together if you have repositories on multiple platforms.
 

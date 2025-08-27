@@ -25,15 +25,15 @@ So, here is [gocd ruby gem](https://github.com/ajitsing/gocd){:target="_blank"} 
 
 To install gocd gem just add below line to your Gemfile.
 
-{% highlight ruby linenos %}
+```ruby
 gem 'gocd'
-{% endhighlight %}
+```
 
 You can also install it directly and try out in irb.
 
-{% highlight bash linenos %}
+```bash
 gem install gocd
-{% endhighlight %}
+```
 <br>
 
 # What does gocd gem do?
@@ -53,7 +53,7 @@ Lets solve it step by step:
 
 Now that we have our dev tasks defined, lets see how we can complete theses tasks with the help of gocd gem.
 
-{% highlight ruby linenos %}
+```ruby
 require 'gocd'
 
 GOCD.server = GOCD::Server.new 'http://goserverurl.com'
@@ -66,7 +66,7 @@ if pipelines.any_red?
   puts pipelines.red_pipelines
   sh 'exit 1'
 end
-{% endhighlight %}
+```
 
 Now run this script as part of your pre-push [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks){:target="_blank"} and you are done. Neat and Clean!!
 
@@ -80,7 +80,7 @@ Currently gocd gem can provide you information about:
 
 Below is how you can use these features:
 
-{% highlight ruby linenos %}
+```ruby
 require 'gocd'
 
 GOCD.server = GOCD::Server.new 'http://goserverurl.com'
@@ -105,7 +105,7 @@ GOCD::Agents.missing
 
 #To get all the disabled agents
 GOCD::Agents.disabled
-{% endhighlight %}
+```
 
 Its Open Source...
 

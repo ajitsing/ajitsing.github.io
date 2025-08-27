@@ -42,7 +42,7 @@ Let's define the interface which every criteria has to implement. This interface
 
 # Criteria.java<br><br>
 
-{% highlight java linenos %}
+```java
 package filter_pattern.filter_criteria;
 
 
@@ -53,13 +53,13 @@ import java.util.List;
 public interface Criteria {
     List<Laptop> meets(List<Laptop> laptops);
 }
-{% endhighlight %}
+```
 
 Now let's implement a bunch of criteria to choose from.
 
 # Macintosh.java<br><br>
 
-{% highlight java linenos %}
+```java
 package filter_pattern.filter_criteria;
 
 
@@ -75,12 +75,12 @@ public class Macintosh implements Criteria {
         return laptops.stream().filter(laptop -> laptop.getOperatingSystem().equals("MAC")).collect(toList());
     }
 }
-{% endhighlight %}
+```
 <br>
 
 # 4GBRam.java<br><br>
 
-{% highlight java linenos %}
+```java
 package filter_pattern.filter_criteria;
 
 import filter_pattern.model.Laptop;
@@ -95,12 +95,12 @@ public class Ram4GB implements Criteria {
         return laptops.stream().filter(laptop -> laptop.getRam().equals("4GB")).collect(toList());
     }
 }
-{% endhighlight %}
+```
 <br>
 
 # I7Processor.java<br><br>
 
-{% highlight java linenos %}
+```java
 package filter_pattern.filter_criteria;
 
 
@@ -116,12 +116,12 @@ public class I7Processor implements Criteria {
         return laptops.stream().filter(laptop -> laptop.getProcessor().equals("i7")).collect(toList());
     }
 }
-{% endhighlight %}
+```
 <br>
 
 # ScreenSize15Inch.java<br><br>
 
-{% highlight java linenos %}
+```java
 package filter_pattern.filter_criteria;
 
 import filter_pattern.model.Laptop;
@@ -136,7 +136,7 @@ public class ScreenSize15Inch implements Criteria {
         return laptops.stream().filter(laptop -> laptop.getScreenSize().equals("15inch")).collect(toList());
     }
 }
-{% endhighlight %}
+```
 
 Likewise there can be a lot of other criteria e.g Windows.java, Ubuntu.java, 8GBRam.java, I3Processor.java etc.
 
@@ -144,7 +144,7 @@ There is two more criteria which are very important AndCriteria and OrCriteria. 
 
 # AndCritera.java<br><br>
 
-{% highlight java linenos %}
+```java
 package filter_pattern.filter_criteria;
 
 
@@ -170,13 +170,13 @@ public class AndCriteria implements Criteria {
         return filteredLaptops;
     }
 }
-{% endhighlight %}
+```
 
 Now that we have all criteria implemented, lets use them to filter out the desired laptops.
 
 # LaptopScanner.java<br><br>
 
-{% highlight java linenos %}
+```java
 package filter_pattern;
 
 import filter_pattern.filter_criteria.AndCriteria;
@@ -198,7 +198,7 @@ public class LaptopScanner {
         filteredLaptops.stream().forEach(Laptop::prettyPrint);
     }
 }
-{% endhighlight %}
+```
 
 This class combines multiple criteria and prints the laptops which matches with employees configuration.
 

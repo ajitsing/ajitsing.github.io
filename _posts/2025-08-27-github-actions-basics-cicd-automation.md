@@ -263,21 +263,19 @@ run: |
 
 Here's how GitHub Actions fits into your development workflow:
 
-```
-Developer pushes code
-        ↓
-GitHub receives push event
-        ↓
-Workflow triggers automatically
-        ↓
-Runner starts (Ubuntu/Windows/macOS)
-        ↓
-Steps execute in sequence
-        ↓
-Results reported back to GitHub
-        ↓
-Notifications sent (email/Slack/etc)
-```
+**Developer pushes code**  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+**GitHub receives push event**  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+**Workflow triggers automatically**  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+**Runner starts (Ubuntu/Windows/macOS)**  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+**Steps execute in sequence**  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+**Results reported back to GitHub**  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+**Notifications sent (email/Slack/etc)**
 
 The beauty is that this entire process happens without any manual intervention. You push code, GitHub handles the rest.
 

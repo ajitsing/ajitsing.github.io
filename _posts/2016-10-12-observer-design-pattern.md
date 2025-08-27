@@ -49,7 +49,7 @@ Lets create the `Observable` interface which will be implemented by the `Theme` 
 
 # Observable.java<br><br>
 
-{% highlight java linenos %}
+```java
 package observer_pattern.observable;
 
 import observer_pattern.observers.Observer;
@@ -61,13 +61,13 @@ public interface Observable {
 
     void notifyObservers();
 }
-{% endhighlight %}
+```
 
 Now let's create the `Observer` interface which will be implemented by the page components.
 
 # Observer.java<br><br>
 
-{% highlight java linenos %}
+```java
 package observer_pattern.observers;
 
 import observer_pattern.Mode;
@@ -75,14 +75,14 @@ import observer_pattern.Mode;
 public interface Observer {
     void update(Mode mode);
 }
-{% endhighlight %}
+```
 <br>
 
 Let us impelment the Theme class which will have the list of subscribers and the mode of the theme.
 
 # Theme.java<br><br>
 
-{% highlight java linenos %}
+```java
 package observer_pattern.observable;
 
 import observer_pattern.Mode;
@@ -122,14 +122,14 @@ public class Theme implements Observable {
         }
     }
 }
-{% endhighlight %}
+```
 <br>
 
 Now let us create couple of page componets which will implement `Observer` interface.
 
 # Header.java<br><br>
 
-{% highlight java linenos %}
+```java
 package observer_pattern.observers;
 
 import observer_pattern.Mode;
@@ -140,12 +140,12 @@ public class Header implements Observer {
         System.out.println("Applying " + mode.name() + " theme to header");
     }
 }
-{% endhighlight %}
+```
 <br>
 
 # Footer.java<br><br>
 
-{% highlight java linenos %}
+```java
 package observer_pattern.observers;
 
 import observer_pattern.Mode;
@@ -156,7 +156,7 @@ public class Footer implements Observer {
         System.out.println("Applying " + mode.name() + " theme to footer");
     }
 }
-{% endhighlight %}
+```
 
 Likewise there can be a lot of other observers e.g PageBody.java, NavBar.java etc.
 
@@ -164,7 +164,7 @@ Now that we have both `Observable` and `Observers` ready, let us use them to sim
 
 # Main.java<br><br>
 
-{% highlight java linenos %}
+```java
 package observer_pattern;
 
 import observer_pattern.observable.Theme;
@@ -197,7 +197,7 @@ public class Main {
         theme.changeTheme(BRIGHT);
     }
 }
-{% endhighlight %}
+```
 
 In this example we are creating a Theme object which is our Observable and we are creating multiple page components which are Observers.
 

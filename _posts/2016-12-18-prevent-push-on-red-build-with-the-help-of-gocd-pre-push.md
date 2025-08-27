@@ -38,32 +38,32 @@ Using gocd_pre_push is very easy. You just have to install the gocd_pre_push gem
 
 Add the following line to your Gemfile and run bundle install.
 
-{% highlight ruby linenos %}
+```ruby
 gem 'gocd_pre_push'
-{% endhighlight %}
+```
 <br>
 
 # One time setup
 
 To create pre-push hook and a template of ```pipelines.yml``` execute the below command in root folder of your git repository.
 
-{% highlight bash linenos %}
+```bash
 gocd_pre_push create
-{% endhighlight %}
+```
 
 It will create a hooks/pre-push file and symlink it with the ```.git/hooks/pre-push```. Now open this file and configure your gocd server url, username and password. The go server details will look like this.
 
-{% highlight ruby linenos %}
+```ruby
 gocd_server = GocdServer.with do |server|
   server.url      = 'http://yourgoserverurl.com'
   server.username = 'yourusername'
   server.password = 'yourpassword'
 end
-{% endhighlight %}
+```
 
 And your pre-push hook is ready. Now you need to tell gocd_pre_push, which pipelines you want to check for this repository. That you can add inside pipelines.yml. For example I want to check for following pipelines and their stages.
 
-{% highlight yaml linenos %}
+```yaml
 - pipeline: MyAwesomeProject
   stages:
     - spec
@@ -72,14 +72,14 @@ And your pre-push hook is ready. Now you need to tell gocd_pre_push, which pipel
 - pipeline: MyAwesomeProject_Smoke
   stages:
     - smoke
-{% endhighlight %}
+```
 
 Thats all you have to configure. Once you push these change to your central repo, ask your fellow devs to take a pull and run the below commands on the root directory of your repository.
 
-{% highlight bash linenos %}
+```bash
 bundle install
 gocd_pre_push use_hooks
-{% endhighlight %}
+```
 
 And they are done with the configuration. Now whenever someone runs git push command gocd_pre_push will check for the status of the pipelines and let you know if you can push your changes or not.
 

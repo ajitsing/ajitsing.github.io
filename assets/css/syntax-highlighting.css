@@ -1,0 +1,387 @@
+---
+layout: null
+---
+
+/* ================================================
+   Comprehensive Syntax Highlighting CSS
+   VS Code Dark Theme for Jekyll with Rouge
+   ================================================
+   
+   This file contains all syntax highlighting styles for the blog.
+   It provides a consistent VS Code dark theme across all code blocks.
+   
+   Features:
+   - VS Code dark theme colors (#1e1e1e background, #d4d4d4 text)
+   - Support for line numbers with Rouge syntax highlighter
+   - Consistent styling for all languages (bash, shell, yaml, java, etc.)
+   - Rouge table structure handling for line-numbered code blocks
+   - Optimized padding (0.4em) to prevent extra spacing issues
+   - Clean separation of inline code vs code blocks
+   
+   Last updated: August 2025
+   ================================================ */
+
+/* ================================================
+   Main Highlight Containers
+   ================================================ */
+
+/* Ultra-specific CSS for ALL language code blocks - With native line numbers */
+div[class*="language-"].highlighter-rouge div.highlight,
+div[class*="language-"].highlighter-rouge div.highlight pre,
+div[class*="language-"].highlighter-rouge div.highlight pre.highlight,
+div[class*="language-"].highlighter-rouge div.highlight pre.highlight code {
+  background: #1e1e1e !important; 
+  color: #d4d4d4 !important;
+  border-radius: 6px !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0.4em !important;
+  line-height: 1.5 !important;
+  font-family: 'Monaco', 'Consolas', 'Courier New', monospace !important;
+  font-size: 14px !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+  display: block !important;
+}
+
+/* Force dark theme on ALL code blocks across the entire site */
+.highlight,
+div.highlight,
+.highlighter-rouge .highlight,
+.highlighter-rouge div.highlight,
+div[class*="language-"] div.highlight,
+div.language-yaml div.highlight,
+div.language-yml div.highlight,
+div.language-json div.highlight,
+div.language-javascript div.highlight,
+div.language-java div.highlight,
+div.language-groovy div.highlight,
+div.language-python div.highlight,
+div.language-ruby div.highlight,
+div.language-bash div.highlight,
+div.language-shell div.highlight,
+div.language-html div.highlight,
+div.language-css div.highlight,
+div.language-xml div.highlight,
+pre.highlight {
+  background: #1e1e1e !important; 
+  color: #d4d4d4 !important;
+  border-radius: 6px !important;
+  border: none !important;
+  padding: 0.4em !important;
+  margin: 1em 0 !important;
+  line-height: 1.5 !important;
+  font-family: 'Monaco', 'Consolas', 'Courier New', monospace !important;
+  font-size: 14px !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+  display: block !important;
+}
+
+/* Main highlight containers - all possible combinations */
+.highlight, 
+div.highlight,
+.highlighter-rouge .highlight,
+.language-yaml .highlight,
+.language-yml .highlight,
+div.language-yaml div.highlight,
+div.language-yml div.highlight,
+.highlighter-rouge div.highlight { 
+  background: #1e1e1e !important; 
+  color: #d4d4d4 !important;
+  border-radius: 6px !important;
+  margin: 1.5em 0 !important;
+}
+
+.highlight pre,
+div.highlight pre,
+.highlighter-rouge .highlight pre,
+.language-yaml .highlight pre,
+.language-yml .highlight pre,
+div.language-yaml div.highlight pre,
+div.language-yml div.highlight pre,
+.highlighter-rouge div.highlight pre,
+pre.highlight { 
+  background-color: transparent !important; 
+  color: #d4d4d4 !important;
+  font-size: 14px !important;
+  padding: 0.4em !important;
+  border-radius: 6px !important;
+  border: none !important;
+  margin: 0 !important;
+  background-image: none !important;
+  border-left: none !important;
+}
+
+/* Pre elements outside of highlight */
+pre {
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+  border-radius: 6px !important;
+  padding: 0.4em !important;
+  margin: 1.5em 0 !important;
+  border: none !important;
+}
+
+/* ================================================
+   Line Numbers Styling
+   ================================================ */
+
+/* Dark theme line numbers */
+.highlight .lineno,
+div.highlight .lineno,
+.highlighter-rouge .highlight .lineno,
+.highlighter-rouge div.highlight .lineno,
+pre.highlight .lineno,
+.highlight pre.lineno {
+  color: #6e7681 !important;
+  background-color: #2d2d2d !important;
+  border-right: 2px solid #444 !important;
+  padding-right: 8px !important;
+  margin-right: 8px !important;
+  user-select: none !important;
+  font-size: 12px !important;
+}
+
+/* Line numbers for dark theme */
+.highlight .lineno, .highlight pre.lineno {
+  color: #858585 !important;
+  background-color: #252525 !important;
+  border-right: 2px solid #444 !important;
+  padding-right: 8px !important;
+  margin-right: 8px !important;
+}
+
+/* ================================================
+   Rouge Table Styling (for line numbers)
+   ================================================ */
+
+/* Rouge table styling - specific for line number tables */
+.rouge-table,
+table.rouge-table {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.rouge-table tbody,
+.rouge-table tbody tr,
+.rouge-table tbody tr td {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  vertical-align: top !important;
+}
+
+/* Rouge gutter (line numbers) */
+.rouge-gutter,
+td.rouge-gutter {
+  background-color: #2d2d2d !important;
+  border-right: 2px solid #444 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 1% !important;
+  white-space: nowrap !important;
+}
+
+.rouge-gutter pre,
+.rouge-gutter .lineno,
+td.rouge-gutter pre,
+td.rouge-gutter .lineno {
+  background: transparent !important;
+  color: #6e7681 !important;
+  padding: 0 8px 0 4px !important;
+  margin: 0 !important;
+  border: none !important;
+  text-align: right !important;
+  font-size: 12px !important;
+  user-select: none !important;
+}
+
+/* Rouge code (actual code content) */
+.rouge-code,
+td.rouge-code {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 99% !important;
+}
+
+.rouge-code pre,
+td.rouge-code pre {
+  background: transparent !important;
+  color: #d4d4d4 !important;
+  padding: 0 0 0 8px !important;
+  margin: 0 !important;
+  border: none !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+/* Line number table styling - for markdown code blocks only */
+.highlight table,
+div.highlight table,
+.highlighter-rouge .highlight table,
+.highlighter-rouge div.highlight table {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+}
+
+.highlight table td,
+div.highlight table td,
+.highlighter-rouge .highlight table td,
+.highlighter-rouge div.highlight table td {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: top !important;
+}
+
+.highlight table .gutter,
+div.highlight table .gutter,
+.highlighter-rouge .highlight table .gutter,
+.highlighter-rouge div.highlight table .gutter {
+  border-right: 2px solid #444 !important;
+  background-color: #2d2d2d !important;
+  padding: 0 !important;
+  width: 1% !important;
+  white-space: nowrap !important;
+}
+
+.highlight table .code,
+div.highlight table .code,
+.highlighter-rouge .highlight table .code,
+.highlighter-rouge div.highlight table .code {
+  padding: 0 !important;
+  width: 99% !important;
+}
+
+/* ================================================
+   VS Code Theme Token Colors
+   ================================================ */
+
+/* Comments - Green */
+.highlight .c, div.highlight .c, .highlighter-rouge .highlight .c { color: #6a9955 !important; font-style: italic } /* Comment */
+.highlight .cm, div.highlight .cm, .highlighter-rouge .highlight .cm { color: #6a9955 !important; font-style: italic } /* Comment.Multiline */
+.highlight .cp, div.highlight .cp, .highlighter-rouge .highlight .cp { color: #6a9955 !important; font-style: italic } /* Comment.Preproc */
+.highlight .c1, div.highlight .c1, .highlighter-rouge .highlight .c1 { color: #6a9955 !important; font-style: italic } /* Comment.Single */
+.highlight .cs, div.highlight .cs, .highlighter-rouge .highlight .cs { color: #6a9955 !important; font-style: italic } /* Comment.Special */
+
+/* Errors - Red */
+.highlight .err { color: #f44747 !important; background-color: transparent !important } /* Error */
+
+/* Keywords - Blue */
+.highlight .k { color: #569cd6 !important; font-weight: normal } /* Keyword */
+.highlight .kc { color: #569cd6 !important; font-weight: normal } /* Keyword.Constant */
+.highlight .kd { color: #569cd6 !important; font-weight: normal } /* Keyword.Declaration */
+.highlight .kp { color: #569cd6 !important; font-weight: normal } /* Keyword.Pseudo */
+.highlight .kr { color: #569cd6 !important; font-weight: normal } /* Keyword.Reserved */
+.highlight .kt { color: #569cd6 !important; font-weight: normal } /* Keyword.Type */
+
+/* Operators - Light Gray */
+.highlight .o { color: #d4d4d4 !important; font-weight: normal } /* Operator */
+.highlight .ow { color: #d4d4d4 !important; font-weight: normal } /* Operator.Word */
+
+/* Strings - Orange */
+.highlight .s, div.highlight .s, .highlighter-rouge .highlight .s { color: #ce9178 !important } /* Literal.String */
+.highlight .sb, div.highlight .sb, .highlighter-rouge .highlight .sb { color: #ce9178 !important } /* Literal.String.Backtick */
+.highlight .sc, div.highlight .sc, .highlighter-rouge .highlight .sc { color: #ce9178 !important } /* Literal.String.Char */
+.highlight .sd, div.highlight .sd, .highlighter-rouge .highlight .sd { color: #ce9178 !important } /* Literal.String.Doc */
+.highlight .s2, div.highlight .s2, .highlighter-rouge .highlight .s2 { color: #ce9178 !important } /* Literal.String.Double */
+.highlight .se, div.highlight .se, .highlighter-rouge .highlight .se { color: #ce9178 !important } /* Literal.String.Escape */
+.highlight .sh, div.highlight .sh, .highlighter-rouge .highlight .sh { color: #ce9178 !important } /* Literal.String.Heredoc */
+.highlight .si, div.highlight .si, .highlighter-rouge .highlight .si { color: #ce9178 !important } /* Literal.String.Interpol */
+.highlight .sx, div.highlight .sx, .highlighter-rouge .highlight .sx { color: #ce9178 !important } /* Literal.String.Other */
+.highlight .sr, div.highlight .sr, .highlighter-rouge .highlight .sr { color: #ce9178 !important } /* Literal.String.Regex */
+.highlight .s1, div.highlight .s1, .highlighter-rouge .highlight .s1 { color: #ce9178 !important } /* Literal.String.Single */
+.highlight .ss, div.highlight .ss, .highlighter-rouge .highlight .ss { color: #ce9178 !important } /* Literal.String.Symbol */
+
+/* Numbers - Light Green */
+.highlight .m { color: #b5cea8 !important } /* Literal.Number */
+.highlight .mf { color: #b5cea8 !important } /* Literal.Number.Float */
+.highlight .mh { color: #b5cea8 !important } /* Literal.Number.Hex */
+.highlight .mi { color: #b5cea8 !important } /* Literal.Number.Integer */
+.highlight .mo { color: #b5cea8 !important } /* Literal.Number.Oct */
+.highlight .il { color: #b5cea8 !important } /* Literal.Number.Integer.Long */
+
+/* Names/Attributes - Light Blue */
+.highlight .na, div.highlight .na, .highlighter-rouge .highlight .na { color: #92c5f8 !important } /* Name.Attribute */
+.highlight .nb, div.highlight .nb, .highlighter-rouge .highlight .nb { color: #4ec9b0 !important } /* Name.Builtin */
+.highlight .nc, div.highlight .nc, .highlighter-rouge .highlight .nc { color: #4ec9b0 !important; font-weight: normal } /* Name.Class */
+.highlight .no, div.highlight .no, .highlighter-rouge .highlight .no { color: #4ec9b0 !important } /* Name.Constant */
+.highlight .ni, div.highlight .ni, .highlighter-rouge .highlight .ni { color: #4ec9b0 !important } /* Name.Entity */
+.highlight .ne, div.highlight .ne, .highlighter-rouge .highlight .ne { color: #4ec9b0 !important; font-weight: normal } /* Name.Exception */
+.highlight .nf, div.highlight .nf, .highlighter-rouge .highlight .nf { color: #dcdcaa !important; font-weight: normal } /* Name.Function */
+.highlight .nn, div.highlight .nn, .highlighter-rouge .highlight .nn { color: #4ec9b0 !important } /* Name.Namespace */
+.highlight .nt, div.highlight .nt, .highlighter-rouge .highlight .nt { color: #92c5f8 !important } /* Name.Tag */
+.highlight .nv, div.highlight .nv, .highlighter-rouge .highlight .nv { color: #9cdcfe !important } /* Name.Variable */
+
+/* Variables */
+.highlight .vc { color: #9cdcfe !important } /* Name.Variable.Class */
+.highlight .vg { color: #9cdcfe !important } /* Name.Variable.Global */
+.highlight .vi { color: #9cdcfe !important } /* Name.Variable.Instance */
+.highlight .bp { color: #4ec9b0 !important } /* Name.Builtin.Pseudo */
+
+/* Punctuation */
+.highlight .p, div.highlight .p, .highlighter-rouge .highlight .p { color: #d4d4d4 !important } /* Punctuation */
+.highlight .pi, div.highlight .pi, .highlighter-rouge .highlight .pi { color: #d4d4d4 !important } /* Punctuation.Indicator */
+
+/* Generic elements */
+.highlight .gd { color: #f44747 !important; background-color: transparent !important } /* Generic.Deleted */
+.highlight .gd .x { color: #f44747 !important; background-color: transparent !important } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #f44747 !important } /* Generic.Error */
+.highlight .gh { color: #9cdcfe !important } /* Generic.Heading */
+.highlight .gi { color: #608b4e !important; background-color: transparent !important } /* Generic.Inserted */
+.highlight .gi .x { color: #608b4e !important; background-color: transparent !important } /* Generic.Inserted.Specific */
+.highlight .go { color: #d4d4d4 !important } /* Generic.Output */
+.highlight .gp { color: #d4d4d4 !important } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #9cdcfe !important } /* Generic.Subheading */
+.highlight .gt { color: #f44747 !important } /* Generic.Traceback */
+
+/* Whitespace */
+.highlight .w { color: #d4d4d4 !important } /* Text.Whitespace */
+
+/* ================================================
+   Language-specific containers
+   ================================================ */
+
+.language-yaml, .language-yml, .language-json, .language-javascript, .language-python,
+.language-bash, .language-shell, .language-html, .language-css, .language-java,
+.language-ruby, .language-php, .language-go, .language-rust, .language-kotlin {
+  background: #1e1e1e !important;
+  border-radius: 6px !important;
+}
+
+/* ================================================
+   Inline Code Styling
+   ================================================ */
+
+/* Inline code */
+code {
+  background-color: #2d2d2d !important;
+  color: #f8f8f2 !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 3px !important;
+  font-family: 'Monaco', 'Consolas', 'Courier New', monospace !important;
+}
+
+/* Inline code in paragraphs should remain light for readability */
+p code, li code, td code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+  background-color: #f1f1f1 !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+}

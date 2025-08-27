@@ -42,7 +42,7 @@ I have implemented this game in JavaScript, Html and Css. The code is available 
 
 # Source Code<br><br>
 
-{% highlight javascript linenos %}
+```javascript
 $(document).ready(function(){
   var Grid = function(size) {
     this.size = size;
@@ -164,6 +164,6 @@ $(document).ready(function(){
     setInterval(play, 200);
   });
 })();
-{% endhighlight %}
+```
 
 Thats all folks, enjoy the game :)

@@ -46,7 +46,7 @@ To make this article more helpful, I have created a project on [github](https://
 
 To start using awareness API you need to create an API key from [google console](https://console.developers.google.com){:target="_blank"}. Once you create the key add it in your [AndroidManifest.xml](https://github.com/ajitsing/LocationAwareApp/blob/master/app/src/main/AndroidManifest.xml){:target="_blank"} file as shown below.
 
-{% highlight xml linenos %}
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.singh.ajit.locationawareapp">
@@ -81,7 +81,7 @@ To start using awareness API you need to create an API key from [google console]
     </receiver>
   </application>
 </manifest>
-{% endhighlight %}
+```
 
 *Note:* The key which I have used above is a fake key, it will not work. To make it work you have to generate your own key and replace the above key with your newly created key.
 
@@ -89,7 +89,7 @@ Now that our setup is done, lets start using awareness API in our app. Lets take
 
 Once you have latitude and longitude of all the location we can start registering those locations in awareness API, so that whenever user reaches nearby those location your app gets a callback. Lets take a look at the code for this.
 
-{% highlight java linenos %}
+```java
 final GoogleApiClient client = new GoogleApiClient.Builder(this)
         .addApi(Awareness.API)
         .addApi(LocationServices.API)
@@ -97,11 +97,11 @@ final GoogleApiClient client = new GoogleApiClient.Builder(this)
 
 GeofenceApiHelper geofenceApiHelper = new GeofenceApiHelper(client, this);
 geofenceApiHelper.registerLocations();
-{% endhighlight %}
+```
 
 Here we are creating GoogleApiClient and adding the Awareness and LocationServices API to it. Now lets take a look at [GeofenceApiHelper](https://github.com/ajitsing/LocationAwareApp/blob/master/app/src/main/AndroidManifest.xml){:target="_blank"} and what it does in registerLocations() method.
 
-{% highlight java linenos %}
+```java
   public void registerLocations() {
     client.registerConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
       @Override
@@ -115,11 +115,11 @@ Here we are creating GoogleApiClient and adding the Awareness and LocationServic
 
     client.connect();
   }
-{% endhighlight %}
+```
 
 To register locations we have to connect to the google client first and pass it a callback saying whenever you are connected, register these locations. Now lets see what regiserGeoFence() does.
 
-{% highlight java linenos %}
+```java
 private void registerGeoFence() {
   GeofencingRequest geofencingRequest = new GeofencingRequest.Builder()
       .addGeofences(locationsToBeRegistered())
@@ -127,11 +127,11 @@ private void registerGeoFence() {
       .build();
   geofenceRequestRegistrar.registerGeofenceRequest(client, geofencingRequest);
 }
-{% endhighlight %}
+```
 
 In this method we are registering the locations and setting the trigger INITIAL_TRIGGER_ENTER, which means whenever user enters this location, your app will get a callback. All this is done using GeofencingRequest. This request takes our locations and geofenceRequestRegistrar registers this request. Now how are we getting the locationsToBeRegistered(). Lets take a look.
 
-{% highlight java linenos %}
+```java
 private List<Geofence> locationsToBeRegistered() {
   int twentyFourHours = 24 * 60 * 60 * 1000;
 
@@ -148,13 +148,13 @@ private List<Geofence> locationsToBeRegistered() {
 
   return asList(atlantaAirport, chicagoAirport);
 }
-{% endhighlight %}
+```
 
 Locations are nothing but a List of Geofences. Here we are creating two Geofence, one for Atlanta airport and another for Chicago airport.
 
 Ok, now we have the GeofencingRequest  ready, now we need to register this using GeofenceRegistrar. Lets take a look at the registration code.
 
-{% highlight java linenos %}
+```java
 public void registerGeofenceRequest(GoogleApiClient client, GeofencingRequest geofencingRequest) {
   if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
     Toast.makeText(this, "please give the required permission", Toast.LENGTH_SHORT).show();
@@ -166,13 +166,13 @@ public void registerGeofenceRequest(GoogleApiClient client, GeofencingRequest ge
 
   LocationServices.GeofencingApi.addGeofences(client, geofencingRequest, geoFencePendingIntent);
 }
-{% endhighlight %}
+```
 
 Registering geofencingRequest is a simple task, you just have to use *LocationServices.GeofencingApi* to add the request. But what is this LocationAwareService? Ok, so what happens when user comes nearby the registered location? Your awareness api need something e.g callback which it can trigger.
 
 LocationAwareService is an IntentService which acts like a callback and is triggered by the awareness API. Lets take a look at the LocationAwareService code.
 
-{% highlight java linenos %}
+```java
 public class LocationAwareService extends IntentService {
 
   public LocationAwareService() {
@@ -198,7 +198,7 @@ public class LocationAwareService extends IntentService {
     sendBroadcast(message);
   }
 }
-{% endhighlight %}
+```
 
 Whenever awareness api detects that user is nearby the configured location, it will call the onHandleIntent() method of this service. Then we can extract the location information from the intent. In this case I am just sending a broadcast to show a notification in the phone. But for your use case you can do whatever you want when the user is at your configured location.
 

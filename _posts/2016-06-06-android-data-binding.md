@@ -17,13 +17,13 @@ Hello friends, Recently I have tried android's new library Android Data Binding.
 
 Add below line in your build.gradle file and sync it. After syncing you will be able to see some of the Data Binding classes like DataBindingUtils.java etc.
 
-{% highlight groovy linenos %}
+```groovy
 android {
     dataBinding {
         enabled = true
     }
 }
-{% endhighlight %}
+```
 <br>
 
 # Here is a detailed video<br><br>
@@ -124,7 +124,7 @@ Also you need to have setters of the fields in your viewModel for it to work.
 
 Now that our layout is ready, lets see how to inflate this layout file and set it's variables in the activity.
 
-{% highlight java linenos %}
+```java
 package com.ajit.singh.androiddatabinding.login;
 
 import android.databinding.DataBindingUtil;
@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
     binding.setHandler(new LoginHandler(new LoginPresenter()));
   }
 }
-{% endhighlight %}
+```
 
 You would notice one things here that your activity's onCreate method is very lean and simple. Thats all because of data binding as you don't need to write any boiler plate code like findViewById() etc.
 
@@ -172,7 +172,7 @@ Now the generated binding class will have the setters for the variables which yo
 
 You can define your layout file as shown above, the only thing which will change in fragments is the way we inflate the layout file. You can use DataBindingUtil.inflate() method to inflate the layout and that will also return a Binding class. After inflating the layout set the variables and call binding.getRoot() to return the root view of the layout file. This is how your code will look like.
 
-{% highlight java linenos %}
+```java
 @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     LoginBinding binding = DataBindingUtil.inflate(inflater, R.layout.login, container, false);
@@ -184,14 +184,14 @@ You can define your layout file as shown above, the only thing which will change
 
     return binding.getRoot();
   }
-{% endhighlight %}
+```
 <br>
 
 # Lets dig deep into the ViewModel
 
 ViewModel is a very essential component of binding. This is where you will bind content of UI with your logic. For each element on UI which will be dynamically populated, you will have a corresponding field in your view model. Now the main part is, binding those viewModel fields with the UI elements. Lets take a look at our viewModel.
 
-{% highlight java linenos %}
+```java
 package com.ajit.singh.androiddatabinding.login;
 
 import android.databinding.BaseObservable;
@@ -237,7 +237,7 @@ public class LoginViewModel extends BaseObservable {
     notifyPropertyChanged(BR.loginMessage);
   }
 }
-{% endhighlight %}
+```
 
 You would notice that we are extending the ```LoginViewModel``` with ```BaseObservable``` class. Which means that any of the fields in this view model can be observed using binding. Whenever value of a field changes we need to notify binding that this particular field has changed so please refresh all the views which are using this particular field.
 
@@ -247,7 +247,7 @@ To generate BR property, you need to add ```@Bindable``` annotation on it's gett
 
 Handler is the class which holds all the event listeners. For example it might have onClick listeners or TextWatchers etc. Lets take a look at our handler class.
 
-{% highlight java linenos %}
+```java
 package com.ajit.singh.androiddatabinding.login;
 
 import android.view.View;
@@ -268,7 +268,7 @@ public class LoginHandler {
     };
   }
 }
-{% endhighlight %}
+```
 
 You can use all the handler methods directly as a value of the listener attributes in the layout file. As you might have noticed in our layout file.
 

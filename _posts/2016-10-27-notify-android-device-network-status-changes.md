@@ -23,7 +23,7 @@ Your android device has capability to notify all the applications in the mobile
 
 # NetworkStateChangeReceiver<br><br>
 
-{% highlight java linenos %}
+```java
 package com.ajit.singh.offlinemode.receiver;
 
 
@@ -62,7 +62,7 @@ public class NetworkStateChangeReceiver extends BroadcastReceiver {
     }
   }
 }
-{% endhighlight %}
+```
 
 NetworkStateChangeReceiver is a broadcast receiver which can listen to network status change event. When android triggers that event then NetworkStateChangeReceiver's ```onReceive()``` method gets called. In ```onReceive()``` method you can write the logic to identify the network status and take some action.
 
@@ -72,7 +72,7 @@ NetworkStateChangeReceiver is a broadcast receiver which can listen to network s
 
 Now that our ```NetworkStateChangeReceiver``` is ready and it can identify the network status but where is the code which tells that this receiver will listen to the network connectivity event. The answer is in the ```AndroidManifest.xml``` file. Your AndroidManifest will have that code. Let's take a look at the AndroidManifest file.
 
-{% highlight xml linenos %}
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ajit.singh.offlinemode">
@@ -104,7 +104,7 @@ Now that our ```NetworkStateChangeReceiver``` is ready and it can identify the n
   </application>
 
 </manifest>
-{% endhighlight %}
+```
 
 There are two things to notice here.
 
@@ -118,7 +118,7 @@ Now, we have our broadcast receiver in place and it can tell about the current i
 
 To do that there should be a communication between Broadcast Receiver and the activity and to handle that we can broadcast a local message to the whole app and whichever activity is listening to that message will show the notification. In our case MainActivity is listening to this message and will show the notification using a Snackbar.
 
-{% highlight java linenos %}
+```java
 package com.ajit.singh.offlinemode;
 
 import android.content.BroadcastReceiver;
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }, intentFilter);
   }
 }
-{% endhighlight %}
+```
 
 Our main activity has registered to a broadcast which has ```com.ajit.singh.NetworkAvailable``` action because thats the action we are using to broadcast the intent from the NetworkStatusChangeReceiver. In its ```onReceive()``` method we are getting the status of the network from the intent which we had set in the ```NetworkStatusChangeReceiver```. Then final thing is show that status using a Snackbar.
 

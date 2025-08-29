@@ -2,7 +2,8 @@
 layout: post
 title: Android Custom Animations
 description: Android Custom Animations will cover how to create custom animations using pure xml tags e.g "alpha", "scale", "translate" and "rotate".
-share-img: /assets/img/posts/android_custom_animation/cover.jpg
+share-img: /assets/img/posts/android_ui_styling/cover.png
+thumbnail-img: /assets/img/posts/android_ui_styling/cover.png
 permalink: /android-custom-animations/
 gh-repo: ajitsing/androiduisessions
 gh-badge: [star, fork, follow]

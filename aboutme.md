@@ -8,7 +8,7 @@ Thanks for stopping by. I hope you find something useful and feel free to join t
 
 ## Stay Connected
 
-Follow me on Twitter/X [@Ajit5ingh](https://twitter.com/Ajit5ingh) for my latest thoughts on system design, AI, coding, and software development. I share what I'm working on and engage with other developers there.
+Follow me on Twitter/X [@Ajit5ingh](https://x.com/Ajit5ingh) for my latest thoughts on system design, AI, coding, and software development. I share what I'm working on and engage with other developers there.
 
 ## Other Websites I Own
 

@@ -1,13 +1,14 @@
----
-layout: page
-title: About me
----
+Hi, I'm Ajit Singh, the author of singhajit.com. I'm a software engineer with over a decade of experience, having started my journey in 2012. Over the years, I've worked with Java, Ruby, Node.js, C, JavaScript, Scala, Android and other technologies that keep me busy.
 
-Hi, I am Ajit Singh author of singhajit.com. I am an application developer working in one of the MNCs. I started my career in 2012 and got chance to work on different tools and technologies like java, ruby, nodejs, C, javascript, Android etc.
+I love working on different tech stacks, which is why I started this blog. I write about what I learn, the problems I solve, and the mistakes I make along the way. It's my way of giving back to the developer community that's helped me so much.
 
-I enjoy working on different technologies, so I decided to start writing this blog to share my experience and learnings.
+I'm particularly interested in system design, AI, and how we can write better software. There's always something new to learn in this field and I try to share the interesting bits here.
 
-Thanks for visiting my blog. I am hoping to see you more on singhajit.com. Please participate in discussions and any feedback or suggestions are most welcome.
+Thanks for stopping by. I hope you find something useful and feel free to join the conversation in the comments.
+
+## Stay Connected
+
+Follow me on Twitter/X [@Ajit5ingh](https://twitter.com/Ajit5ingh) for my latest thoughts on system design, AI, coding, and software development. I share what I'm working on and engage with other developers there.
 
 ## Other Websites I Own
 

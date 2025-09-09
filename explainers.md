@@ -5,8 +5,8 @@ subtitle: "Short explanations of software engineering concepts"
 seo: true
 description: "Comprehensive collection of software engineering explainers and tutorials. Learn programming concepts, web development, API testing, command-line tools, and developer best practices with practical examples."
 keywords: "software engineering explainers, programming tutorials, web development guides, API testing, command line tools, developer tutorials, coding examples, technical documentation, programming concepts, software development"
-thumbnail: /assets/img/explainers/explainers-og.png
-share-img: /assets/img/explainers/explainers-og.png
+thumbnail: /assets/img/explainers/explainer-thumbnail.png
+share-img: /assets/img/explainers/explainer-thumbnail.png
 permalink: /explainers/
 social-share: true
 ---

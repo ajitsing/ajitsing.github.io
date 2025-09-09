@@ -1,7 +1,7 @@
 ---
 layout: explainer
 seo: true
-title: "cURL Command Examplained"
+title: "cURL Command Explained"
 subtitle: "Master HTTP requests, API testing, and file downloads with practical cURL examples"
 description: "Complete cURL command reference for developers. Learn HTTP requests, authentication, file uploads, API testing, and advanced cURL techniques with practical examples and syntax highlighting."
 thumbnail: /assets/img/explainers/curl-commands.png

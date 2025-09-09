@@ -1,0 +1,153 @@
+/* Explainer-specific styles */
+
+.explainer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.explainer-content h1 {
+  color: #2c3e50;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.explainer-content h2 {
+  color: #34495e;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.explainer-content h3 {
+  color: #5a6c7d;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.explainer-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.explainer-content th,
+.explainer-content td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.explainer-content th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.explainer-content tr:hover {
+  background-color: #f8f9fa;
+}
+
+.explainer-content blockquote {
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.explainer-content code {
+  background: #f4f4f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+}
+
+.explainer-content pre {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  line-height: 1.5;
+}
+
+.explainer-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Related links styling */
+.related-links {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.related-links h3 {
+  margin-top: 0;
+  color: #495057;
+  font-size: 1.1rem;
+}
+
+.related-links ul {
+  margin-bottom: 0;
+}
+
+.related-links li {
+  margin-bottom: 0.5rem;
+}
+
+.related-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.related-links a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation button */
+.explainer-navigation {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.explainer-navigation .btn {
+  background: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+
+.explainer-navigation .btn:hover {
+  background: #0056b3;
+  text-decoration: none;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .explainer-content {
+    padding: 0 1rem;
+  }
+  
+  .explainer-content table {
+    font-size: 0.8rem;
+  }
+  
+  .explainer-content th,
+  .explainer-content td {
+    padding: 0.5rem;
+  }
+}

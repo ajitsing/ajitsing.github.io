@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<style>
+  /* Hide default post elements for explainers */
+  .post-header, .post-title, .post-subtitle, .post-meta {
+    display: none !important;
+  }
+  
+  /* Make explainer full width */
+  .container-lg, .container {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .row {
+    margin: 0 !important;
+  }
+  
+  .col-xl-8, .col-lg-8 {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  /* Remove default post styling */
+  .post-content {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+</style>
+
+{{ content }}
+
+<div class="explainer-navigation" style="text-align: center; margin: 40px 20px; padding: 0 20px;">
+  <a href="/explainers" class="explainer-nav-btn" style="
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(33, 150, 243, 0.4)';" 
+     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.3)';">
+    ← Back to All Explainers
+  </a>
+</div>

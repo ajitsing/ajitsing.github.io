@@ -14,6 +14,7 @@ author: Ajit Singh
 navbar-links:
   About Me: "aboutme"
   Videos: "videos"
+  Explainers: "explainers"
   Tag Cloud: "/tags"
   Tech News: "/software-development-news"
   # Android: "/tags/#android"
@@ -174,6 +175,12 @@ highlighter: rouge
 permalink: /:year-:month-:day-:title/
 paginate: 10
 
+# Collections
+collections:
+  explainers:
+    output: true
+    permalink: /explainer/:name/
+
 kramdown:
   input: GFM
   syntax_highlighter: rouge
@@ -192,6 +199,13 @@ defaults:
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
       readtime: true # add estimated reading time on all blog posts
+  -
+    scope:
+      path: ""
+      type: "explainers"
+    values:
+      layout: "explainer"
+      comments: false
   -
     scope:
       path: "" # all files

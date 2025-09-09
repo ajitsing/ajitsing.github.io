@@ -2,7 +2,122 @@
 layout: page
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/page-navigation.css' | relative_url }}">
+
+<!-- SEO: Structured Data for Homepage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.description | escape }}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://github.com/ajitsing",
+    "sameAs": [
+      "https://github.com/ajitsing",
+      "https://linkedin.com/in/ajitsingh",
+      "https://twitter.com/ajit5ingh"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "{{ site.url }}"
+  },
+  "inLanguage": "en-US",
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Software Engineering"
+    },
+    {
+      "@type": "Thing",
+      "name": "Programming"
+    },
+    {
+      "@type": "Thing",
+      "name": "Web Development"
+    },
+    {
+      "@type": "Thing",
+      "name": "Mobile Development"
+    }
+  ],
+  "blogPost": [
+    {% assign recent_posts = site.posts | limit: 5 %}
+    {% for post in recent_posts %}
+    {
+      "@type": "BlogPosting",
+      "headline": "{{ post.title | escape }}",
+      "description": "{{ post.excerpt | strip_html | escape | truncatewords: 20 }}",
+      "url": "{{ site.url }}{{ post.url }}",
+      "datePublished": "{{ post.date | date_to_xmlschema }}",
+      "dateModified": "{{ post.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "Ajit Singh"
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}"
+      }
+    ]
+  }
+}
+</script>
+
+<!-- SEO: Additional Meta Tags -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="Ajit Singh">
+<meta property="article:author" content="Ajit Singh">
+<meta name="classification" content="Technology, Programming, Software Engineering">
+<meta name="category" content="Software Engineering Blog">
+<meta name="coverage" content="Worldwide">
+<meta name="distribution" content="Global">
+<meta name="rating" content="General">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Code Chronicles">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Ajit5ingh">
+<meta name="twitter:creator" content="@Ajit5ingh">
+
 {{ content }}
+
+<!-- Page Navigation Section -->
+<section class="page-navigation">
+  <div class="nav-cards-container">
+    <a href="{{ '/explainers/' | relative_url }}" class="nav-card">
+      <div class="nav-card-icon">💡</div>
+      <h3 class="nav-card-title">Explainers</h3>
+      <p class="nav-card-description">
+        Short, practical explanations of software engineering concepts with real examples and code samples.
+      </p>
+    </a>
+    
+    <a href="{{ '/software-development-news/' | relative_url }}" class="nav-card">
+      <div class="nav-card-icon">📰</div>
+      <h3 class="nav-card-title">Dev News Hub</h3>
+      <p class="nav-card-description">
+        Stay updated with the latest trends, updates, and insights from the software development world.
+      </p>
+    </a>
+  </div>
+</section>
 
 {% assign posts = paginator.posts | default: site.posts %}
 

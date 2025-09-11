@@ -16,7 +16,7 @@ navbar-links:
   Videos: "videos"
   Explainers: "explainers"
   Tag Cloud: "/tags"
-  Tech News: "/software-development-news"
+  Dev Weekly: "/software-development-news"
   # Android: "/tags/#android"
   # Ruby: "/tags/#ruby"
   # Java: "/tags/#java"

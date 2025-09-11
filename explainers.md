@@ -79,14 +79,6 @@ social-share: true
 }
 </script>
 
-<!-- SEO: Additional Meta Tags -->
-<meta name="robots" content="index, follow">
-<meta name="author" content="Ajit Singh">
-<meta property="article:author" content="Ajit Singh">
-<meta property="article:section" content="Software Engineering">
-<meta name="classification" content="Education, Technology, Programming">
-<meta name="category" content="Software Engineering Tutorials">
-
 <link rel="stylesheet" href="{{ '/assets/css/explainers-grid.css' | relative_url }}">
 
 <div class="explainers-grid">

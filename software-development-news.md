@@ -61,15 +61,6 @@ social-share: true
 }
 </script>
 
-<!-- SEO: Additional Meta Tags -->
-<meta name="robots" content="index, follow">
-<meta name="author" content="Ajit Singh">
-<meta property="article:author" content="Ajit Singh">
-<meta property="article:section" content="Technology News">
-<meta name="classification" content="Technology, News, Software Development">
-<meta name="category" content="Tech News">
-<meta name="news_keywords" content="software development, programming, tech trends, web development, mobile apps, DevOps, AI, machine learning">
-
 {% assign posts = paginator.posts | default: site.posts %}
 <div class="posts-list">
   {% for post in posts %}

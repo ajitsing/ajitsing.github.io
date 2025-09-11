@@ -10,7 +10,7 @@ share-img: /assets/img/posts/write-ahead-log/write-ahead-log-thumbnail.png
 permalink: /distributed-systems/write-ahead-log/
 description: "Learn how Write-Ahead Log (WAL) prevents data loss in distributed systems. Complete guide with real-world examples, code samples, and diagrams covering PostgreSQL, Kafka, and custom implementations."
 keywords: "write-ahead log, WAL, distributed systems, database durability, transaction logging, PostgreSQL WAL, Kafka logs, data recovery, system reliability, ACID properties, database patterns"
-tags: [distributed-systems, database, architecture, patterns, reliability]
+tags: [distributed-systems]
 comments: true
 ---
 

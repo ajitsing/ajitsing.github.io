@@ -30,3 +30,36 @@
     <script src="{{ js | relative_url }}"></script>
   {% endfor %}
 {% endif %}
+
+<!-- Mermaid Support -->
+{% if page.content contains 'language-mermaid' or content contains 'language-mermaid' %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize mermaid
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      themeVariables: {
+        fontFamily: 'Open Sans, sans-serif'
+      }
+    });
+    
+    // Convert code blocks with language-mermaid class to mermaid divs
+    var mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
+    for (var i = 0; i < mermaidBlocks.length; i++) {
+      var code = mermaidBlocks[i];
+      var pre = code.parentNode;
+      var div = document.createElement('div');
+      div.className = 'mermaid';
+      div.textContent = code.textContent;
+      div.style.textAlign = 'center';
+      div.style.backgroundColor = 'transparent';
+      pre.parentNode.replaceChild(div, pre);
+    }
+    
+    // Now render all mermaid diagrams
+    mermaid.run();
+  });
+</script>
+{% endif %}

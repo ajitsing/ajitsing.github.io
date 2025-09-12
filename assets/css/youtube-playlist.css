@@ -1,0 +1,41 @@
+/* assets/css/youtube-playlist.css */
+
+.youtube-playlist {
+  margin-bottom: 2.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.youtube-playlist:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.playlist-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  padding: 1rem 1.5rem;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+}
+
+.playlist-videos {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.playlist-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

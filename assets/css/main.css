@@ -926,15 +926,21 @@ pre {
 
 
 .youtube-channel {
-  background: whitesmoke;
-  border-color: black;
-  border-style: solid;
+  background: #fff0f0; /* A light reddish background */
+  border-left: 5px solid #ff0000; /* YouTube red border on the left */
+  border-radius: 8px;
+  padding: 20px;
   text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .youtube-subscribe-txt {
-  color: brown;
-  font-weight: bold;
+  color: #c4302b; /* A darker red color for text */
+  font-size: 1.2em; /* Slightly larger font */
+  font-weight: 700; /* Bolder */
+  margin-bottom: 15px;
+  display: inline-block;
 }
 
 .youtube_video {

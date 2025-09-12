@@ -1,7 +1,66 @@
 ---
 layout: page
-title: 'Tag Index'
+title: 'Tag Cloud'
+subtitle: 'Browse posts by topic and technology'
+description: 'Explore all blog posts organized by tags and topics. Find content about Java, Ruby, Node.js, Android development, system design, programming tutorials, and software engineering concepts.'
+seo: true
+keywords: 'blog tags, programming topics, Java tutorials, Ruby guides, Node.js examples, Android development, system design, software engineering, programming languages, technology topics'
+thumbnail: /assets/img/tags/tags-thumbnail.png
+share-img: /assets/img/tags/tags-thumbnail.png
+permalink: /tags/
+social-share: true
+canonical-url: "https://ajitsing.github.io/tags/"
 ---
+
+<!-- SEO: Structured Data for Tag Index -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "headline": "Tag Cloud - Browse Posts by Topic",
+  "description": "Explore all blog posts organized by tags and topics. Find content about Java, Ruby, Node.js, Android development, system design, programming tutorials, and software engineering concepts.",
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://github.com/ajitsing"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://ajitsing.github.io"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ajitsing.github.io/tags/"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Programming Tutorials"
+    },
+    {
+      "@type": "Thing",
+      "name": "Software Engineering"
+    },
+    {
+      "@type": "Thing",
+      "name": "Technology Topics"
+    }
+  ],
+  "numberOfItems": {{ site.tags.size }},
+  "itemListElement": [
+    {% for tag in site.tags %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "name": "{{ tag[0] }}",
+      "description": "{{ tag[1].size }} posts tagged with {{ tag[0] }}",
+      "url": "https://ajitsing.github.io/tags/#{{ tag[0] }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
 
 {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
 

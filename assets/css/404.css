@@ -1,0 +1,90 @@
+.error-404 {
+  padding: 10px 0;
+  text-align: center;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-404 h1 {
+  font-size: 3.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.error-404 h2 {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.error-404-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.error-404-actions {
+  margin-top: 40px;
+}
+
+.error-404-actions .btn {
+  margin: 10px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-404 {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+}
+
+.btn-primary-404:hover {
+  background: linear-gradient(45deg, #0056b3, #004085);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-secondary-404 {
+  background: transparent;
+  color: #666;
+  border: 2px solid #ddd;
+}
+
+.btn-secondary-404:hover {
+  background: #f8f9fa;
+  border-color: #007bff;
+  color: #007bff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .error-404 h1 {
+    font-size: 2.5rem;
+  }
+  
+  .error-404 h2 {
+    font-size: 1.2rem;
+  }
+  
+  .error-404-actions .btn {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+  }
+}

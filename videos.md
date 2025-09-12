@@ -1,6 +1,56 @@
 ---
 layout: page
+title: "Videos"
+subtitle: "A collection of videos from my YouTube channel"
+description: "A collection of videos from my YouTube channel covering topics like Test-Driven Development (TDD), GitHub Actions, Android development, design patterns, and terminal hacks."
+seo: true
+keywords: "TDD, Test-Driven Development, GitHub Actions, Android development, design patterns, terminal hacks, programming tutorials, software engineering, video tutorials"
+thumbnail: /assets/img/videos/video-thumbnail.png
+share-img: /assets/img/videos/video-thumbnail.png
+permalink: /videos/
+social-share: true
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "headline": "Software Development Video Tutorials",
+  "description": "A collection of videos from my YouTube channel covering topics like Test-Driven Development (TDD), GitHub Actions, Android development, design patterns, and terminal hacks.",
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://github.com/ajitsing"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://ajitsing.github.io"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ajitsing.github.io/videos/"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "TDD"
+    },
+    {
+      "@type": "Thing",
+      "name": "GitHub Actions"
+    },
+    {
+      "@type": "Thing",
+      "name": "Android Development"
+    },
+    {
+      "@type": "Thing",
+      "name": "Design Patterns"
+    }
+  ]
+}
+</script>
 
 {% include youtubeChannelPromo.html %}
 

@@ -3,7 +3,7 @@ layout: post
 seo: true
 title: "Dev Weekly: NPM Attack, AI Outage & VMware Exodus"
 subtitle: "Your weekly dose of software development news, trends, and insights from September 8-14, 2025"
-date: 2025-09-14
+date: 2025-09-13
 categories: tech-news
 permalink: /dev-weekly-npm-attack-anthropic-outage-vmware-exodus/
 share-img: /assets/img/posts/dev_weekly/dev-weekly-cover.png

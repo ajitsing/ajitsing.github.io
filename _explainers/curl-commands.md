@@ -11,93 +11,10 @@ keywords: "cURL commands, HTTP requests, API testing, REST API, command line too
 social-share: true
 ---
 
+{% include explainer-head.html %}
+
 <style>
-body {
-  background: #f5f7fa !important;
-  margin: 0 !important;
-  padding: 20px !important;
-}
-
-.curl-explainer {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
-
-.explainer-frame {
-  max-width: 1000px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
-}
-
-.hero-header {
-  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-  color: white;
-  padding: 50px 40px;
-  text-align: center;
-  position: relative;
-}
-
-.hero-header::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: linear-gradient(135deg, #2196F3, #1976D2);
-  border-radius: 0 0 20px 20px;
-}
-
-.branding {
-  position: absolute;
-  top: 25px;
-  right: 40px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  opacity: 0.95;
-  font-weight: 400;
-  margin: 0;
-}
-
-.frame-content {
-  padding: 50px 40px;
-  background: white;
-}
-
-.intro-card {
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-  border: 1px solid #2196F3;
-  border-radius: 12px;
-  padding: 30px;
-  margin-bottom: 50px;
-  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.1);
-}
-
 .intro-card h3 {
-  color: #1565c0;
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 15px;
@@ -714,14 +631,10 @@ body {
 <meta property="article:tag" content="Command Line">
 <meta property="article:tag" content="Web Development">
 
-<div class="curl-explainer">
+<div class="explainer">
   <div class="explainer-frame">
-    <div class="hero-header">
-      <div class="branding">@Ajit5ingh</div>
-      <h1 class="hero-title">cURL Commands</h1>
-      <p class="hero-subtitle">Essential HTTP client commands every developer should know</p>
-    </div>
-
+    {% include explainer-hero.html title='cURL Commands' subtitle='Essential HTTP client commands every developer should know' %}
+    
     <div class="frame-content">
     <div class="intro-card">
       <h3>What is cURL?</h3>

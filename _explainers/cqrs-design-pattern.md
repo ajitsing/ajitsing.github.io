@@ -11,98 +11,9 @@ keywords: "CQRS design pattern, Command Query Responsibility Segregation, softwa
 social-share: true
 ---
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% include explainer-head.html %}
 
 <style>
-body {
-  background: #f5f7fa !important;
-  margin: 0 !important;
-  padding: 20px !important;
-}
-
-.cqrs-explainer {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
-
-.explainer-frame {
-  max-width: 1000px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
-}
-
-.hero-header {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  color: white;
-  padding: 50px 40px;
-  text-align: center;
-  position: relative;
-}
-
-.hero-header::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  border-radius: 0 0 20px 20px;
-}
-
-.branding {
-  position: absolute;
-  top: 25px;
-  right: 40px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  opacity: 0.95;
-  font-weight: 400;
-  margin: 0;
-}
-
-.frame-content {
-  padding: 50px 40px;
-  background: white;
-}
-
-.intro-card {
-  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
-  border: 1px solid #CBD5E1;
-  border-radius: 12px;
-  padding: 30px;
-  margin-bottom: 50px;
-  box-shadow: 0 4px 16px rgba(148, 163, 184, 0.1);
-}
-
-.intro-card h3 {
-  color: #334155;
-  font-size: 1.4rem;
-  margin: 0 0 15px 0;
-}
 
 /* Component Architecture */
 .architecture-container {
@@ -314,13 +225,6 @@ body {
 }
 
 /* Benefits Grid */
-.benefits-section {
-  margin: 50px 0;
-  padding: 40px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
 
 .section-title {
   color: #334155;
@@ -858,16 +762,12 @@ body {
 }
 </style>
 
-<div class="cqrs-explainer">
+<div class="explainer">
   <div class="explainer-frame">
-    <div class="hero-header">
-      <div class="branding">@Ajit5ingh</div>
-      <h1 class="hero-title">CQRS Design Pattern</h1>
-      <p class="hero-subtitle">Command Query Responsibility Segregation</p>
-    </div>
-
+    {% include explainer-hero.html title='CQRS Design Pattern' subtitle='Command Query Responsibility Segregation' %}
+    
     <div class="frame-content">
-      <div class="architecture-container">
+      <div class="gradient-container">
         <h2 class="section-title">What is CQRS?</h2>
         <p><strong>Command Query Responsibility Segregation (CQRS)</strong> is an architectural pattern that separates read and write operations for data stores. Instead of using one model for both reading and writing data, CQRS uses separate models for each operation.</p>
         
@@ -946,9 +846,9 @@ body {
         </div>
       </div>
 
-      <div class="benefits-section">
+      <div class="white-container">
         <h2 class="section-title">Key Benefits</h2>
-        <ul class="benefits-list">
+        <ul class="benefits-list clean-list">
           <li><strong><i class="fas fa-bolt"></i> Performance:</strong> Read and write operations can be optimized independently for their specific use cases</li>
           <li><strong><i class="fas fa-expand-arrows-alt"></i> Scalability:</strong> Scale read and write databases separately based on actual usage patterns</li>
           <li><strong><i class="fas fa-lock"></i> Security:</strong> Different security models for read vs write operations</li>

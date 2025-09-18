@@ -1,153 +1,465 @@
-/* Explainer-specific styles */
+/* Common Explainer Styles */
+body {
+  background: white !important;
+  margin: 0 !important;
+  padding: 20px !important;
+}
 
-.explainer-content {
-  max-width: 800px;
+.explainer {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.explainer-frame {
+  max-width: 1000px;
   margin: 0 auto;
-  line-height: 1.7;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
 
-.explainer-content h1 {
-  color: #2c3e50;
-  border-bottom: 3px solid #3498db;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
+.hero-header {
+  color: white;
+  padding: 50px 40px;
+  text-align: center;
+  position: relative;
 }
 
-.explainer-content h2 {
-  color: #34495e;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+.hero-header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  border-radius: 0 0 20px 20px;
 }
 
-.explainer-content h3 {
-  color: #5a6c7d;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+.branding {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.explainer-content table {
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  font-weight: 400;
+  margin: 0;
+}
+
+.frame-content {
+  padding: 50px 40px;
+  background: white;
+}
+
+.intro-card {
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 16px rgba(148, 163, 184, 0.1);
+}
+
+.intro-card h3 {
+  font-size: 1.4rem;
+  margin: 0 0 15px 0;
+}
+
+.section-title {
+  color: #374151;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 40px 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #d1d5db;
+}
+
+.code-block {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 25px;
+  border-radius: 12px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border: 1px solid #334155;
+  position: relative;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.code-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #10b981, #06b6d4);
+  border-radius: 12px 12px 0 0;
+}
+
+.code-comment {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.code-string {
+  color: #22d3ee;
+}
+
+.code-keyword {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.code-number {
+  color: #fbbf24;
+}
+
+.code-function {
+  color: #34d399;
+}
+
+.code-variable {
+  color: #ef4444;
+}
+
+.code-operator {
+  color: #f59e0b;
+}
+
+.diagram-container {
+  margin: 40px 0;
+  padding: 30px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+  text-align: center;
+}
+
+.diagram-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 25px;
+}
+
+.comparison-section {
+  margin: 50px 0;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.comparison-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 0.9rem;
+  margin: 30px 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.explainer-content th,
-.explainer-content td {
-  padding: 0.75rem;
+.comparison-table th {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 20px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  font-weight: 700;
 }
 
-.explainer-content th {
-  background-color: #f8f9fa;
-  font-weight: 600;
-  color: #2c3e50;
+.comparison-table td {
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
 }
 
-.explainer-content tr:hover {
-  background-color: #f8f9fa;
+.comparison-table tr:nth-child(even) {
+  background: #f8fafc;
 }
 
-.explainer-content blockquote {
-  background: #f8f9fa;
-  border-left: 4px solid #3498db;
-  padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 0 4px 4px 0;
+.comparison-table tr:hover {
+  background: #f1f5f9;
 }
 
-.explainer-content code {
-  background: #f4f4f4;
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 0.875rem;
+/* Common Container Patterns */
+.content-container {
+  margin: 40px 0;
+  padding: 30px;
+  background: #f9fafb;
+  border-radius: 16px;
+  border: 2px solid #e5e7eb;
 }
 
-.explainer-content pre {
-  background: #2d3748;
-  color: #e2e8f0;
-  padding: 1.5rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-  line-height: 1.5;
+.white-container {
+  margin: 50px 0;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.explainer-content pre code {
-  background: none;
+.gradient-container {
+  margin: 50px 0;
+  padding: 40px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px;
+  border: 2px solid #cbd5e1;
+}
+
+/* Common Flex Layouts */
+.flex-comparison {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.flex-side {
+  flex: 1;
+  padding: 25px;
+  border-radius: 16px;
+  border: 2px solid;
+}
+
+.common-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+/* Common Lists */
+.clean-list {
+  list-style: none;
   padding: 0;
-  color: inherit;
+  margin: 0;
 }
 
-/* Related links styling */
-.related-links {
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 1.5rem;
-  border: 1px solid #e9ecef;
+.clean-list li {
+  background: white;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(148, 163, 184, 0.1);
 }
 
-.related-links h3 {
-  margin-top: 0;
-  color: #495057;
-  font-size: 1.1rem;
+.clean-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(148, 163, 184, 0.2);
 }
 
-.related-links ul {
-  margin-bottom: 0;
+/* Common Titles */
+.common-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.related-links li {
-  margin-bottom: 0.5rem;
+/* Common Cards */
+.hover-card {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 25px;
+  border: 2px solid;
 }
 
-.related-links a {
-  color: #007bff;
-  text-decoration: none;
+.hover-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.related-links a:hover {
-  text-decoration: underline;
+/* Arrow Components */
+.arrow-horizontal {
+  position: relative;
+  width: 60px;
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 4px;
+  margin: 0 20px;
 }
 
-/* Navigation button */
-.explainer-navigation {
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid #e9ecef;
+.arrow-horizontal::before {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 12px solid #3b82f6;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
 }
 
-.explainer-navigation .btn {
-  background: #007bff;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.2s;
+.arrow-vertical {
+  position: relative;
+  width: 8px;
+  height: 40px;
+  background: #3b82f6;
+  border-radius: 4px;
+  margin: 20px auto;
 }
 
-.explainer-navigation .btn:hover {
-  background: #0056b3;
-  text-decoration: none;
-  color: white;
+.arrow-vertical::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 12px solid #3b82f6;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
 }
 
-/* Responsive adjustments */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .explainer-content {
-    padding: 0 1rem;
+  body {
+    padding: 10px !important;
   }
   
-  .explainer-content table {
-    font-size: 0.8rem;
+  .explainer-frame {
+    margin: 0;
+    border-radius: 12px;
   }
   
-  .explainer-content th,
-  .explainer-content td {
-    padding: 0.5rem;
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-header {
+    padding: 30px 20px;
+  }
+  
+  .frame-content {
+    padding: 20px 15px;
+  }
+  
+  .branding {
+    position: static;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .comparison-table {
+    font-size: 14px;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 15px 10px;
+  }
+  
+  .code-block {
+    font-size: 12px;
+    padding: 15px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .flex-comparison {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .common-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .content-container,
+  .white-container,
+  .gradient-container {
+    margin: 30px 0;
+    padding: 25px 15px;
+  }
+  
+  .flex-side,
+  .hover-card {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-header {
+    padding: 25px 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .frame-content {
+    padding: 15px 10px;
+  }
+  
+  .intro-card {
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .comparison-table {
+    font-size: 12px;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 12px 8px;
+  }
+  
+  .code-block {
+    font-size: 11px;
+    padding: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
   }
 }

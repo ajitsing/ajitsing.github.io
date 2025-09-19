@@ -16,16 +16,17 @@
     {% assign posts_to_show = 6 %}
     
     {% for post in site.posts %}
-      {% assign post_random = post.title | size | plus: forloop.index | plus: random_seed | modulo: 17 %}
-      {% assign should_show = false %}
-      
-      {% if posts_count < posts_to_show %}
-        {% if post_random == 0 or post_random == 3 or post_random == 7 or post_random == 11 or post_random == 13 or post_random == 16 %}
-          {% assign should_show = true %}
+      {% unless post.categories contains "tech-news" %}
+        {% assign post_random = post.title | size | plus: forloop.index | plus: random_seed | modulo: 17 %}
+        {% assign should_show = false %}
+        
+        {% if posts_count < posts_to_show %}
+          {% if post_random == 0 or post_random == 3 or post_random == 7 or post_random == 11 or post_random == 13 or post_random == 16 %}
+            {% assign should_show = true %}
+          {% endif %}
         {% endif %}
-      {% endif %}
-      
-      {% if should_show %}
+        
+        {% if should_show %}
       <div class="post-card">
         <a href="{{ post.url | relative_url }}" class="card-link">
           {% if post.share-img %}
@@ -47,15 +48,16 @@
           </div>
         </a>
       </div>
-      {% assign posts_count = posts_count | plus: 1 %}
-      {% assign shown_post_urls = shown_post_urls | append: post.url | append: "," %}
-      {% endif %}
+        {% assign posts_count = posts_count | plus: 1 %}
+        {% assign shown_post_urls = shown_post_urls | append: post.url | append: "," %}
+        {% endif %}
+      {% endunless %}
     {% endfor %}
     
     <!-- If we don't have 6 random posts, fill with remaining posts -->
     {% if posts_count < posts_to_show %}
       {% for post in site.posts %}
-          {% unless shown_post_urls contains post.url %}
+          {% unless shown_post_urls contains post.url or post.categories contains "tech-news" %}
             {% if posts_count < posts_to_show %}
             <div class="post-card">
               <a href="{{ post.url | relative_url }}" class="card-link">
@@ -88,7 +90,7 @@
     <!-- Hidden posts that will be shown when expanded -->
     <div class="hidden-posts" id="hiddenPosts">
       {% for post in site.posts %}
-          {% unless shown_post_urls contains post.url %}
+          {% unless shown_post_urls contains post.url or post.categories contains "tech-news" %}
           <div class="post-card">
             <a href="{{ post.url | relative_url }}" class="card-link">
               {% if post.share-img %}
@@ -118,7 +120,9 @@
   <!-- Expand/Collapse Button -->
   {% assign total_posts = 0 %}
   {% for post in site.posts %}
-    {% assign total_posts = total_posts | plus: 1 %}
+    {% unless post.categories contains "tech-news" %}
+      {% assign total_posts = total_posts | plus: 1 %}
+    {% endunless %}
   {% endfor %}
   {% if total_posts > 6 %}
   <div class="expand-section">

@@ -84,14 +84,30 @@ body {
   margin: 0 0 15px 0;
 }
 
-.section-title {
-  color: #374151;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 0 0 40px 0;
-  padding-bottom: 15px;
-  border-bottom: 3px solid #d1d5db;
+.explainer .section-title {
+  color: #374151 !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin: 0 0 40px 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  position: relative !important;
+}
+
+/* Ensure no other elements add borders around section titles */
+.explainer .content-container,
+.explainer .comparison-section {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.explainer h2,
+.explainer h2.section-title {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 .code-block {
@@ -376,8 +392,8 @@ body {
     padding: 8px 16px;
   }
   
-  .section-title {
-    font-size: 1.6rem;
+  .explainer .section-title {
+    font-size: 1.6rem !important;
   }
   
   .comparison-table {
@@ -458,8 +474,8 @@ body {
     word-wrap: break-word;
   }
   
-  .section-title {
-    font-size: 1.4rem;
-    margin-bottom: 25px;
+  .explainer .section-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 25px !important;
   }
 }

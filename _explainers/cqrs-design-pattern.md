@@ -233,7 +233,6 @@ social-share: true
   text-align: center;
   margin: 0 0 40px 0;
   padding-bottom: 15px;
-  border-bottom: 3px solid #CBD5E1;
 }
 
 .benefits-list {

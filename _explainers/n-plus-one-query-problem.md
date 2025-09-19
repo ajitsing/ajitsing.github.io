@@ -60,7 +60,7 @@ social-share: true
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #3b82f6, #10b981, #06b6d4);
+  background: linear-gradient(90deg, #64748b, #6b7280, #9ca3af);
   border-radius: 12px 12px 0 0;
 }
 
@@ -74,7 +74,7 @@ social-share: true
 }
 
 .code-keyword {
-  color: #3b82f6;
+  color: #64748b;
   font-weight: 600;
 }
 

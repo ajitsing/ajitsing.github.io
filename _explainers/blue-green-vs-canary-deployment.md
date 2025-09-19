@@ -15,40 +15,40 @@ social-share: true
 
 <style>
 
-/* Theme-specific styles for blue-green vs canary */
+/* Theme-specific styles for blue-green vs canary - Muted palette */
 
 .blue-green-demo {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  border-color: #0ea5e9;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-color: #64748b;
 }
 
 .canary-demo {
-  background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
-  border-color: #f59e0b;
+  background: linear-gradient(135deg, #faf5f0 0%, #f3e8dc 100%);
+  border-color: #a16207;
 }
 
 
 .blue-green-demo .common-title {
-  color: #0ea5e9;
+  color: #475569;
 }
 
 .canary-demo .common-title {
-  color: #f59e0b;
+  color: #92400e;
 }
 
 
 .pros-card {
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-  border-color: #22c55e;
+  background: linear-gradient(135deg, #f0f9f4 0%, #e4f2e4 100%);
+  border-color: #65a30d;
 }
 
 .cons-card {
-  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-  border-color: #ef4444;
+  background: linear-gradient(135deg, #fef7f7 0%, #f5e5e5 100%);
+  border-color: #b91c1c;
 }
 
 .pros-title {
-  color: #16a34a;
+  color: #365314;
   font-size: 1.3rem;
   font-weight: 700;
   margin: 0 0 15px 0;
@@ -58,7 +58,7 @@ social-share: true
 }
 
 .cons-title {
-  color: #dc2626;
+  color: #991b1b;
   font-size: 1.3rem;
   font-weight: 700;
   margin: 0 0 15px 0;
@@ -79,14 +79,14 @@ social-share: true
 
 .pros-card .pros-cons-list.clean-list li::before {
   content: "✓";
-  color: #16a34a;
+  color: #365314;
   margin-right: 10px;
   font-weight: bold;
 }
 
 .cons-card .pros-cons-list.clean-list li::before {
   content: "✗";
-  color: #dc2626;
+  color: #991b1b;
   margin-right: 10px;
   font-weight: bold;
 }
@@ -221,7 +221,7 @@ graph LR
       <div class="content-container">
         <h2 class="section-title">Pros and Cons</h2>
         
-        <h3 style="color: #0ea5e9; margin: 30px 0 20px 0; font-size: 1.5rem;">Blue-Green Deployment</h3>
+        <h3 style="color: #475569; margin: 30px 0 20px 0; font-size: 1.5rem;">Blue-Green Deployment</h3>
         <div class="common-grid">
           <div class="pros-card hover-card">
             <h4 class="pros-title">
@@ -252,7 +252,7 @@ graph LR
           </div>
         </div>
         
-        <h3 style="color: #f59e0b; margin: 30px 0 20px 0; font-size: 1.5rem;">Canary Deployment</h3>
+        <h3 style="color: #92400e; margin: 30px 0 20px 0; font-size: 1.5rem;">Canary Deployment</h3>
         <div class="common-grid">
           <div class="pros-card hover-card">
             <h4 class="pros-title">

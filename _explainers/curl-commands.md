@@ -36,7 +36,7 @@ social-share: true
 }
 
 .section-title {
-  color: #1976D2;
+  color: #475569;
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 35px;
@@ -52,7 +52,7 @@ social-share: true
   transform: translateY(-50%);
   width: 5px;
   height: 50px;
-  background: #2196F3;
+  background: #64748b;
   border-radius: 3px;
 }
 
@@ -85,18 +85,18 @@ social-share: true
   left: 0;
   right: 0;
   height: 3px;
-  background: #2196F3;
+  background: #64748b;
   border-radius: 12px 12px 0 0;
 }
 
 .command-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(33, 150, 243, 0.15);
-  border-color: #2196F3;
+  border-color: #64748b;
 }
 
 .command-title {
-  color: #1976D2;
+  color: #475569;
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 10px;
@@ -118,7 +118,7 @@ social-share: true
   font-size: 14px;
   line-height: 1.5;
   overflow-x: auto;
-  border-left: 4px solid #2196F3;
+  border-left: 4px solid #64748b;
   margin: 0;
   width: 100%;
   box-sizing: border-box;
@@ -213,7 +213,7 @@ social-share: true
     padding: 35px 20px;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
   }
   
   .hero-header::after {
@@ -223,7 +223,7 @@ social-share: true
     left: 0;
     right: 0;
     height: 8px;
-    background: linear-gradient(135deg, #2196F3, #1976D2);
+    background: linear-gradient(135deg, #64748b, #475569);
     border-radius: 0 0 16px 16px;
   }
   
@@ -263,7 +263,7 @@ social-share: true
     padding: 25px 20px;
     margin-bottom: 35px;
     background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border: 1px solid #2196F3;
+    border: 1px solid #64748b;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(33, 150, 243, 0.1);
   }
@@ -290,14 +290,14 @@ social-share: true
     font-size: 1.7rem;
     padding-left: 20px;
     margin-bottom: 25px;
-    color: #1976D2;
+    color: #475569;
     font-weight: 700;
   }
   
   .section-title::before {
     height: 35px;
     width: 4px;
-    background: #2196F3;
+    background: #64748b;
   }
   
   .commands-grid {
@@ -327,14 +327,14 @@ social-share: true
     left: 0;
     right: 0;
     height: 3px;
-    background: #2196F3;
+    background: #64748b;
     border-radius: 12px 12px 0 0;
   }
   
   .command-title {
     font-size: 1.15rem;
     margin-bottom: 8px;
-    color: #1976D2;
+    color: #475569;
     font-weight: 600;
   }
   
@@ -354,7 +354,7 @@ social-share: true
     -webkit-overflow-scrolling: touch;
     background: #263238;
     color: #eceff1;
-    border-left: 4px solid #2196F3;
+    border-left: 4px solid #64748b;
     width: 100%;
     box-sizing: border-box;
     word-break: break-all;
@@ -421,7 +421,7 @@ social-share: true
   
   .hero-header {
     padding: 30px 15px;
-    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
     text-align: center;
     position: relative;
   }
@@ -433,7 +433,7 @@ social-share: true
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(135deg, #2196F3, #1976D2);
+    background: linear-gradient(135deg, #64748b, #475569);
     border-radius: 0 0 12px 12px;
   }
   
@@ -472,7 +472,7 @@ social-share: true
     padding: 20px 15px;
     border-radius: 10px;
     background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border: 1px solid #2196F3;
+    border: 1px solid #64748b;
     box-shadow: 0 4px 16px rgba(33, 150, 243, 0.1);
     margin-bottom: 30px;
   }
@@ -480,12 +480,12 @@ social-share: true
   .section-title {
     font-size: 1.5rem;
     padding-left: 18px;
-    color: #1976D2;
+    color: #475569;
     font-weight: 700;
   }
   
   .section-title::before {
-    background: #2196F3;
+    background: #64748b;
     height: 30px;
     width: 4px;
   }
@@ -506,7 +506,7 @@ social-share: true
     left: 0;
     right: 0;
     height: 3px;
-    background: #2196F3;
+    background: #64748b;
     border-radius: 10px 10px 0 0;
   }
   
@@ -516,7 +516,7 @@ social-share: true
     border-left-width: 3px;
     background: #263238;
     color: #eceff1;
-    border-left-color: #2196F3;
+    border-left-color: #64748b;
     border-radius: 6px;
   }
   

@@ -35,7 +35,7 @@ social-share: true
 .component-box {
   flex: 1;
   padding: 25px;
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #475569 0%, #334155 100%);
   color: white;
   border-radius: 16px;
   text-align: center;
@@ -67,7 +67,7 @@ social-share: true
   position: relative;
   width: 60px;
   height: 8px;
-  background: #3b82f6;
+  background: #64748b;
   border-radius: 4px;
 }
 
@@ -79,7 +79,7 @@ social-share: true
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-left: 12px solid #3b82f6;
+  border-left: 12px solid #64748b;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
 }
@@ -92,20 +92,12 @@ social-share: true
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-right: 12px solid #3b82f6;
+  border-right: 12px solid #64748b;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
 }
 
-/* Architecture Flow */
-.flow-container {
-  margin: 50px 0;
-  padding: 40px;
-  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
-  border-radius: 16px;
-  border: 2px solid #CBD5E1;
-}
-
+/* Mermaid diagram styling */
 .flow-title {
   text-align: center;
   color: #334155;
@@ -114,115 +106,16 @@ social-share: true
   font-weight: 700;
 }
 
-.flow-steps {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.flow-step {
-  background: white;
-  border: 3px solid #CBD5E1;
-  border-radius: 16px;
-  padding: 25px;
+.mermaid-diagram {
   text-align: center;
-  min-width: 300px;
-  box-shadow: 0 6px 20px rgba(148, 163, 184, 0.15);
-  transition: all 0.3s ease;
+  margin: 30px 0;
 }
 
-.flow-step:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(148, 163, 184, 0.25);
+.mermaid-diagram .mermaid {
+  background: transparent;
+  border: none;
 }
 
-.step-number {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 15px auto;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.step-title {
-  color: #334155;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-}
-
-.step-description {
-  color: #374151;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.flow-arrow {
-  position: relative;
-  width: 8px;
-  height: 40px;
-  background: #3b82f6;
-  border-radius: 4px;
-}
-
-.flow-arrow::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-top: 12px solid #3b82f6;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-}
-
-.flow-arrow.diagonal-left {
-  transform: rotate(-45deg);
-}
-
-.flow-arrow.diagonal-right {
-  transform: rotate(45deg);
-}
-
-.flow-branches {
-  display: flex;
-  gap: 50px;
-  width: 100%;
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
-}
-
-
-
-.branch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  position: relative;
-}
-
-.branch::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 60px;
-  background: #3b82f6;
-  z-index: -1;
-}
 
 /* Benefits Grid */
 
@@ -286,13 +179,13 @@ social-share: true
 }
 
 .usage-card.good {
-  border-color: #3b82f6;
-  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-color: #64748b;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
 }
 
 .usage-card.avoid {
-  border-color: #f59e0b;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-color: #78716c;
+  background: linear-gradient(135deg, #faf5f0 0%, #f5f0e8 100%);
 }
 
 .usage-title {
@@ -365,7 +258,7 @@ social-share: true
   position: relative;
   width: 8px;
   height: 40px;
-  background: #3b82f6;
+  background: #64748b;
   border-radius: 4px;
 }
 
@@ -377,7 +270,7 @@ social-share: true
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-top: 12px solid #3b82f6;
+  border-top: 12px solid #64748b;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
 }
@@ -487,10 +380,6 @@ social-share: true
     border-bottom: 4px solid transparent;
   }
   
-  .flow-diagram {
-    padding: 15px;
-    gap: 15px;
-  }
   
   .flow-step {
     min-width: auto;
@@ -797,51 +686,29 @@ social-share: true
         </div>
       </div>
 
-      <div class="flow-container">
+      <div class="white-container">
         <h3 class="flow-title">System Architecture Flow</h3>
         
-        <div class="flow-steps">
-          <div class="flow-step">
-            <div class="step-number">1</div>
-            <h4 class="step-title">User Action</h4>
-            <p class="step-description">User submits a command (Create, Update, Delete) or query (Read)</p>
-          </div>
-          
-          <div class="flow-arrow" aria-label="down arrow"></div>
-          
-          <div class="flow-step">
-            <div class="step-number">2</div>
-            <h4 class="step-title">Router Decision</h4>
-            <p class="step-description">System routes to either Command Handler or Query Handler</p>
-          </div>
-          
-          <div class="flow-branches">
-            <div class="branch">
-              <div class="flow-arrow diagonal-left" aria-label="diagonal left arrow"></div>
-              <div class="flow-step">
-                <div class="step-number">3a</div>
-                <h4 class="step-title">Command Path</h4>
-                <p class="step-description">Business rules, validation, write DB</p>
-              </div>
-            </div>
-            
-            <div class="branch">
-              <div class="flow-arrow diagonal-right" aria-label="diagonal right arrow"></div>
-              <div class="flow-step">
-                <div class="step-number">3b</div>
-                <h4 class="step-title">Query Path</h4>
-                <p class="step-description">Fast data retrieval from read DB</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="flow-arrow" aria-label="down arrow"></div>
-          
-          <div class="flow-step">
-            <div class="step-number">4</div>
-            <h4 class="step-title">Data Synchronization</h4>
-            <p class="step-description">Write operations eventually sync to read database</p>
-          </div>
+        <div class="mermaid-diagram">
+<pre><code class="language-mermaid">
+graph TD
+    A[User Request] --> B{Router}
+    
+    B -->|Command| C[Command Handler]
+    B -->|Query| D[Query Handler]
+    
+    C --> E[Write DB]
+    D --> F[Read DB]
+    
+    E -.->|Sync| F
+    
+    style A fill:#f1f5f9,stroke:#64748b,stroke-width:2px
+    style B fill:#faf5f0,stroke:#92400e,stroke-width:2px
+    style C fill:#f0f9f0,stroke:#365314,stroke-width:2px
+    style D fill:#f0f9f0,stroke:#365314,stroke-width:2px
+    style E fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px
+    style F fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px
+</code></pre>
         </div>
       </div>
 
@@ -859,7 +726,7 @@ social-share: true
         <h2 class="section-title">When to Use CQRS</h2>
         <div class="usage-grid">
           <div class="usage-card good">
-            <h3 class="usage-title"><i class="fas fa-check-circle" style="color: #22c55e;"></i> Good For:</h3>
+            <h3 class="usage-title"><i class="fas fa-check-circle" style="color: #365314;"></i> Good For:</h3>
             <ul class="usage-list">
               <li>High-read, low-write applications</li>
               <li>Complex business logic on write operations</li>
@@ -871,7 +738,7 @@ social-share: true
           </div>
           
           <div class="usage-card avoid">
-            <h3 class="usage-title"><i class="fas fa-times-circle" style="color: #ef4444;"></i> Avoid When:</h3>
+            <h3 class="usage-title"><i class="fas fa-times-circle" style="color: #991b1b;"></i> Avoid When:</h3>
             <ul class="usage-list">
               <li>Simple CRUD applications</li>
               <li>Strong consistency requirements</li>

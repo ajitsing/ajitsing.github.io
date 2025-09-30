@@ -329,9 +329,7 @@ resources:
     memory: 512Mi  # 512 Mebibytes ≈ 537 MB
 ```
 
-**Resource units explained:**
-- **CPU**: `100m` = 0.1 core, `1` = 1 full core, `2` = 2 cores
-- **Memory**: `Mi` = Mebibytes (binary), `M` = Megabytes (decimal)
+**Not sure what these units mean?** Check out our [Kubernetes Resource Units Explained](/explainer/kubernetes-resource-units/) guide for a detailed breakdown of CPU and memory notation.
 
 ### 5. Health Checks are Critical
 

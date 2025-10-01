@@ -34,7 +34,7 @@
 
 .explainer-thumbnail {
   height: 180px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,10 +42,36 @@
   overflow: hidden;
 }
 
+.explainer-thumbnail::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #64748b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.explainer-thumbnail:not(:has(img[src]))::before,
+.explainer-thumbnail img:not([src])::before {
+  opacity: 1;
+}
+
 .explainer-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .default-thumbnail {

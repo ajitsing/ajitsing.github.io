@@ -75,6 +75,9 @@ share-links-active:
 # Remove this if you don't want a link in the footer
 url-pretty: "www.singhajit.com"
 
+# Full URL for SEO and schema
+url: "https://www.singhajit.com"
+
 # Create a "tags" index page and make tags on each post clickable
 link-tags: true
 
@@ -106,9 +109,6 @@ footer-link-col: "#404040"
 
 # Fill in your Google Analytics gtag.js ID to track your website using gtag
 gtag: "UA-64427329-1"
-
-# Fill in your Google Analytics ID to track your website using GA
-google_analytics: "64427329"
 
 # Google Tag Manager ID
 # gtm: ""

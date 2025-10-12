@@ -2,6 +2,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- Preconnect to external domains for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://www.google-analytics.com">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+  {% if page.comments and site.disqus %}
+  <link rel="preconnect" href="https://c.disquscdn.com">
+  <link rel="preconnect" href="https://{{ site.disqus }}.disqus.com">
+  {% endif %}
+
   <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator | default: '-' }} {{ site.description }}{% elsif page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   
   {% include seo.html %}
@@ -10,7 +22,6 @@
 
   {% include gtag.html %}
   {% include gtm_head.html %}
-  {% include google_analytics.html %}
 
   {% if layout.common-ext-css %}
     {% for css in layout.common-ext-css %}
@@ -47,5 +58,9 @@
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2886086145980317"
      crossorigin="anonymous"></script>
+
+  <!-- DNS prefetch for additional performance -->
+  <link rel="dns-prefetch" href="https://code.jquery.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
 </head>

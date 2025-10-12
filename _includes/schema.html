@@ -1,0 +1,143 @@
+{% if page.layout == "post" or page.layout == "explainer" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "{% if page.layout == 'explainer' %}TechArticle{% else %}BlogPosting{% endif %}",
+      "@id": "{{ page.url | absolute_url }}#article",
+      "headline": "{{ page.title | escape }}",
+      "name": "{{ page.title | escape }}",
+      {% if page.subtitle %}
+      "alternativeHeadline": "{{ page.subtitle | escape }}",
+      {% endif %}
+      {% if page.description %}
+      "description": "{{ page.description | escape }}",
+      {% elsif page.subtitle %}
+      "description": "{{ page.subtitle | escape }}",
+      {% else %}
+      "description": "{{ page.content | strip_html | xml_escape | truncatewords: 50 }}",
+      {% endif %}
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ page.url | absolute_url }}"
+      },
+      {% if page.share-img %}
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ page.share-img | absolute_url }}",
+        "width": 1200,
+        "height": 630
+      },
+      {% elsif page.thumbnail %}
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ page.thumbnail | absolute_url }}",
+        "width": 1200,
+        "height": 630
+      },
+      {% elsif site.avatar %}
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ site.avatar | absolute_url }}",
+        "width": 400,
+        "height": 400
+      },
+      {% endif %}
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      {% if page.last-modified-date %}
+      "dateModified": "{{ page.last-modified-date | date_to_xmlschema }}",
+      {% else %}
+      "dateModified": "{{ page.date | date_to_xmlschema }}",
+      {% endif %}
+      "author": {
+        "@type": "Person",
+        "@id": "{{ site.url }}#author",
+        "name": "{{ site.author }}",
+        "url": "{{ site.url }}/aboutme",
+        {% if site.social-network-links.twitter %}
+        "sameAs": [
+          "https://twitter.com/{{ site.social-network-links.twitter }}",
+          {% if site.social-network-links.github %}
+          "https://github.com/{{ site.social-network-links.github }}",
+          {% endif %}
+          {% if site.social-network-links.linkedin %}
+          "https://www.linkedin.com/in/{{ site.social-network-links.linkedin }}",
+          {% endif %}
+          {% if site.social-network-links.youtube %}
+          "https://www.youtube.com/{{ site.social-network-links.youtube }}"
+          {% endif %}
+        ]
+        {% endif %}
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "{{ site.url }}#organization",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}",
+        {% if site.avatar %}
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ site.avatar | absolute_url }}",
+          "width": 400,
+          "height": 400
+        }
+        {% endif %}
+      },
+      {% if page.tags %}
+      "keywords": "{{ page.tags | join: ', ' }}",
+      {% elsif page.keywords %}
+      "keywords": "{{ page.keywords }}",
+      {% endif %}
+      "wordCount": {{ page.content | number_of_words }},
+      "articleSection": "{% if page.tags %}{{ page.tags | first }}{% else %}Technology{% endif %}",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ page.url | absolute_url }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}"
+        },
+        {% if page.layout == 'explainer' %}
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Explainers",
+          "item": "{{ site.url }}/explainers"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ page.title | escape }}",
+          "item": "{{ page.url | absolute_url }}"
+        }
+        {% else %}
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ page.title | escape }}",
+          "item": "{{ page.url | absolute_url }}"
+        }
+        {% endif %}
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}#website",
+      "url": "{{ site.url }}",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "publisher": {
+        "@id": "{{ site.url }}#organization"
+      }
+    }
+  ]
+}
+</script>
+{% endif %}
+

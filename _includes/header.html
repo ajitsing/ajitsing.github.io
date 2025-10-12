@@ -38,7 +38,16 @@
       {% endif %}
       
       {% if include.type == "post" %}
-          <span class="post-meta">Posted on {{ page.date | date: date_format }}</span>
+          <span class="post-meta">
+            Posted on {{ page.date | date: date_format }}
+            {% if page.last-modified-date %}
+              {% assign modified_date = page.last-modified-date | date: "%Y-%m-%d" %}
+              {% assign published_date = page.date | date: "%Y-%m-%d" %}
+              {% if modified_date != published_date %}
+                <span style="margin-left: 10px;">• Updated on {{ page.last-modified-date | date: date_format }}</span>
+              {% endif %}
+            {% endif %}
+          </span>
           {% if page.readtime %}
             {% include readtime.html %}
           {% endif %}
@@ -66,7 +75,16 @@
       {% endif %}
       
       {% if include.type == "post" %}
-          <span class="post-meta">Posted on {{ page.date | date: date_format }}</span>
+          <span class="post-meta">
+            Posted on {{ page.date | date: date_format }}
+            {% if page.last-modified-date %}
+              {% assign modified_date = page.last-modified-date | date: "%Y-%m-%d" %}
+              {% assign published_date = page.date | date: "%Y-%m-%d" %}
+              {% if modified_date != published_date %}
+                <span style="margin-left: 10px;">• Updated on {{ page.last-modified-date | date: date_format }}</span>
+              {% endif %}
+            {% endif %}
+          </span>
           {% if page.readtime %}
             {% include readtime.html %}
           {% endif %}

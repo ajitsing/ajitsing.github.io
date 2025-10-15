@@ -23,7 +23,7 @@ layout: page
     "sameAs": [
       "https://github.com/ajitsing",
       "https://linkedin.com/in/ajitsingh",
-      "https://twitter.com/ajit5ingh"
+      "https://x.com/ajit5ingh"
     ]
   },
   "publisher": {
@@ -74,7 +74,11 @@ layout: page
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "{{ site.url }}"
+        "item": {
+          "@type": "WebSite",
+          "@id": "{{ site.url }}",
+          "name": "Home"
+        }
       }
     ]
   }

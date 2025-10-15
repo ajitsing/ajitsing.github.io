@@ -26,11 +26,11 @@ social-share: true
   "publisher": {
     "@type": "Person",
     "name": "Ajit Singh",
-    "url": "https://ajitsing.github.io"
+    "url": "{{ site.url }}"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ajitsing.github.io/explainers/"
+    "@id": "{{ site.url }}{{ page.url }}"
   },
   "about": [
     {
@@ -75,7 +75,33 @@ social-share: true
       "name": "{{ explainer.title | escape }}"
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
-  ]
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": {
+          "@type": "WebSite",
+          "@id": "{{ site.url }}",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ page.title | escape }}",
+        "item": {
+          "@type": "CollectionPage",
+          "@id": "{{ site.url }}{{ page.url }}",
+          "name": "{{ page.title | escape }}"
+        }
+      }
+    ]
+  }
 }
 </script>
 

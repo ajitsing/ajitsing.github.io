@@ -11,7 +11,6 @@ permalink: /software-development-news/
 social-share: true
 ---
 
-<!-- SEO: Structured Data for Tech News Collection -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,11 +25,11 @@ social-share: true
   "publisher": {
     "@type": "Person",
     "name": "Ajit Singh",
-    "url": "https://ajitsing.github.io"
+    "url": "{{ site.url }}"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ajitsing.github.io/software-development-news/"
+    "@id": "{{ site.url }}{{ page.url }}"
   },
   "about": [
     {
@@ -57,7 +56,33 @@ social-share: true
     "AI and Machine Learning",
     "Programming Languages",
     "Software Engineering"
-  ]
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": {
+          "@type": "WebSite",
+          "@id": "{{ site.url }}",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ page.title | escape }}",
+        "item": {
+          "@type": "CollectionPage",
+          "@id": "{{ site.url }}{{ page.url }}",
+          "name": "{{ page.title | escape }}"
+        }
+      }
+    ]
+  }
 }
 </script>
 

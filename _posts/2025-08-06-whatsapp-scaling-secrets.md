@@ -9,6 +9,8 @@ share-img: /assets/img/posts/whatsapp-scaling/thumbnail.png
 permalink: /whatsapp-scaling-secrets/
 keywords: "whatsapp scaling, whatsapp architecture, system design, erlang, mnesia, freebsd, xmpp, messaging app, concurrency"
 comments: true
+seo: true
+social-share: true
 tags: [system-design]
 ---
 

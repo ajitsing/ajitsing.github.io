@@ -4,12 +4,15 @@ seo: true
 title: "From Panic to Performance: A Guide to Grafana k6 Load Testing"
 subtitle: "From panic to performance confidence – scripting, scaling, observing, and automating load tests with k6"
 date: 2025-08-10
+last-modified-date: 2025-10-16
 permalink: /performance-testing-with-grafana-k6/
 share-img: /assets/img/posts/performance_testing/cover.png
 thumbnail-img: /assets/img/posts/performance_testing/cover.png
 description: "Performance testing using Grafana k6: scripting basics, checks, thresholds, scenarios, custom metrics, observability, CI/CD automation, and best practices."
 keywords: "performance testing, load testing, Grafana k6, k6 scenarios, k6 thresholds, k6 checks, DevOps, SRE, reliability engineering, k6 GitHub Actions"
 tags: ["performance-testing", "testing"]
+social-share: true
+comments: true
 ---
 
 ## 1. From Firefighting to Foresight
@@ -25,15 +28,32 @@ In this guide, we’ll rebuild performance confidence step‑by‑step – the s
 ---
 ## 2. Why k6?
 
-| Need | k6 Advantage |
-|------|--------------|
-| Developer friendly | JavaScript ES2015+ scripting model |
-| Shift-left | Run locally, in CI, in containers, or k6 Cloud |
-| Production realism | Scenarios: arrival-rate, distributed VUs, ramping patterns |
-| Rich validation | Checks, thresholds, tags, custom metrics |
-| Observability | Native outputs to Prometheus / InfluxDB / JSON + Grafana dashboards |
-| Automation | Deterministic exit codes based on SLO thresholds |
-| Extensibility | xk6 extensions (GRPC, Redis, Kafka, WebSockets, Browser) |
+Before diving into code, let's understand what makes k6 special:
+
+| Need | k6 Solution |
+|------|-------------|
+| **Developer-friendly** | Write tests in JavaScript |
+| **Shift-left testing** | Run locally, in CI, Docker, or k6 Cloud |
+| **Production realism** | Model real traffic with scenarios, arrival-rate, ramping patterns |
+| **Built-in validation** | Checks, thresholds, tags, custom metrics out of the box |
+| **Real-time observability** | Native outputs to Prometheus, InfluxDB, Grafana |
+| **CI/CD ready** | Deterministic exit codes based on SLO thresholds |
+| **Extensible** | xk6 extensions for gRPC, Redis, Kafka, WebSockets, Browser testing |
+
+**The k6 Philosophy:**
+
+```mermaid
+graph LR
+    A[Write Test<br/>JavaScript] --> B[Define Scenarios<br/>Traffic Patterns]
+    B --> C[Set Thresholds<br/>SLO Gates]
+    C --> D[Run Test<br/>Local or CI]
+    D --> E[Stream Metrics<br/>Grafana/Prometheus]
+    E --> F[Pass/Fail<br/>Based on SLOs]
+    
+    style A fill:#e1f5ff
+    style C fill:#fff4e1
+    style F fill:#ffe1e1
+```
 
 ---
 ## 3. First Script: Baseline Request
@@ -45,8 +65,8 @@ import http from 'k6/http';
 import { sleep, check } from 'k6';
 
 export const options = {
-  vus: 5,              // virtual users
-  duration: '30s',     // total test duration
+  vus: 5,              // 5 virtual users
+  duration: '30s',     // Run for 30 seconds
 };
 
 export default function () {
@@ -59,16 +79,49 @@ export default function () {
 }
 ```
 
-Run it:
+**Run it:**
 
 ```bash
 k6 run scripts/smoke.js
 ```
 
-Key output sections:
-- **checks**: functional expectations
-- **http_req_duration**: aggregate latency
-- **iterations / vus**: workload profile
+**What You'll See:**
+
+```
+     ✓ status is 200
+     ✓ response < 200ms
+
+     checks.........................: 100.00% ✓ 150       ✗ 0  
+     http_req_duration..............: avg=145ms p(95)=178ms
+     http_reqs......................: 150     5/s
+     iterations.....................: 150     5/s
+     vus............................: 5       min=5 max=5
+```
+
+**Understanding the Output:**
+
+- **checks**: Your validation rules (100% pass rate = healthy)
+- **http_req_duration**: Response time stats (p95 is your friend)
+- **http_reqs**: Total requests and requests per second
+- **iterations**: How many times each VU completed the function
+
+```mermaid
+sequenceDiagram
+    participant K6
+    participant API
+    
+    loop Every VU (5 times in parallel)
+        K6->>API: GET /health
+        API-->>K6: 200 OK (145ms)
+        K6->>K6: check(status == 200)
+        K6->>K6: check(duration < 200ms)
+        K6->>K6: sleep(1s)
+    end
+    
+    Note over K6: Repeat for 30 seconds
+```
+
+**Congratulations!** You just ran your first load test. But we're not stopping here—let's add some teeth to it.
 
 ---
 ## 4. Add SLO Guardrails with Thresholds
@@ -80,8 +133,14 @@ export const options = {
   vus: 10,
   duration: '1m',
   thresholds: {
-    http_req_failed: ['rate<0.01'],              // <1% errors
-    http_req_duration: ['p(95)<400', 'avg<250'], // latency SLO
+    // Error rate must be < 1%
+    http_req_failed: ['rate<0.01'],
+    
+    // P95 latency must be < 400ms AND average < 250ms
+    http_req_duration: ['p(95)<400', 'avg<250'],
+    
+    // At least 99% of checks must pass
+    checks: ['rate>0.99'],
   },
 };
 ```
@@ -149,75 +208,104 @@ export function login () {
 }
 ```
 
-### Explaining the Settings
+### Understanding the Three Scenarios
 
-#### scenarios.ramp_up (executor: ramping-vus)
-Simulates organic growth, then steady usage, then traffic tapering off.
-- startVUs: begin with zero users.
-- stages: time-sequenced target VU changes.
-  - 1m → target 50: warm‑up & ramp period (reveals connection pool / JIT / cache effects).
-  - 2m @ 50: steady plateau to collect statistically meaningful latency.
-  - 30s → 0: controlled ramp down to free resources cleanly.
-- exec: browse – links this scenario to the `browse` function (lightweight page fetches).
+This test simulates three real-world traffic patterns running simultaneously:
 
-#### scenarios.sustained_api (executor: constant-arrival-rate)
-Models an API receiving a consistent external request rate regardless of how many VUs are required.
-- executor: constant-arrival-rate drives RPS (requests per second) explicitly; k6 auto-scales active VUs to meet `rate`.
-- rate: target of 100 iterations (requests) every `timeUnit`.
-- timeUnit: '1s' → rate interpreted per second.
-- duration: run length (3 minutes) to observe stabilization & GC cycles.
-- preAllocatedVUs: initial pool of VUs reserved to avoid jitter at start.
-- maxVUs: upper ceiling to prevent uncontrolled scaling (safety bound if SUT slows).
-- exec: api – runs the heavier product list endpoint.
+| Scenario | What It Does | Why It Matters |
+|----------|-------------|----------------|
+| **ramp_up** | 0→50→50→0 users over 3.5 minutes | Tests warm-up, cache loading, connection pools |
+| **sustained_api** | 100 requests/second for 3 minutes | Validates steady-state capacity and SLA compliance |
+| **spike** | 100 users login simultaneously | Tests auth system under sudden traffic burst |
 
-Why arrival‑rate over ramping VUs? It holds throughput constant so latency variations reflect system strain, not fluctuating concurrency patterns.
+**Key Settings Explained:**
 
-#### scenarios.spike (executor: per-vu-iterations)
-Exercises a sudden burst such as a login storm after a push notification.
-- vus: spawns 100 virtual users instantly.
-- iterations: each VU executes the function exactly once (1 login attempt) – pure burst.
-- gracefulStop: allows up to 30s for any hanging requests to finish before force termination.
-- exec: login – the critical authentication path.
+**1. Ramp-Up VUs (ramping-vus)**
+```javascript
+stages: [
+  { duration: '1m', target: 50 },   // Gradual increase
+  { duration: '2m', target: 50 },   // Hold steady
+  { duration: '30s', target: 0 },   // Ramp down
+]
+```
+- **Controls:** Number of virtual users
+- **Use case:** Simulate gradual user growth (morning traffic, cache warm-up)
+- **Example:** "Start with 0 users, grow to 50 over 1 minute, hold steady for 2 minutes"
 
-#### thresholds
-Global pass/fail performance gates applied to filtered metrics.
-- 'http_req_duration{type:api}': ['p(95)<500']
-  - Metric: built-in request duration.
-  - Tag filter: only samples where you added `type=api` as a tag (you could add `tags: { type: 'api' }` in the `api` function for clarity).
-  - Condition: 95th percentile must stay under 500 ms. If exceeded → test exits non‑zero.
-- 'checks{scenario:login}': ['rate>0.99']
-  - Metric: aggregate success ratio of `check()` calls.
-  - Tag filter: only for samples tagged with `scenario=login` (added automatically when using tags on the POST request or inherited from the scenario context).
-  - Condition: at least 99% of login checks must pass.
+**2. Constant Arrival Rate (constant-arrival-rate)**
+```javascript
+rate: 100,              // 100 requests per second
+preAllocatedVUs: 60,    // Start with 60 VUs
+maxVUs: 120,            // Scale up to 120 if needed
+```
+- **Controls:** Requests per second (RPS)
+- **Use case:** Validate SLA at specific throughput
+- **Example:** "Send exactly 100 requests/second regardless of response time"
+- **Why it's powerful:** If your API slows down, k6 spins up more VUs to maintain the target RPS. This helps you spot when latency increases under load.
 
-#### Executors Recap
+**3. Spike (per-vu-iterations)**
+```javascript
+vus: 100,         // 100 users
+iterations: 1,    // Each runs once = instant burst
+```
+- **Controls:** Instant burst of users
+- **Use case:** Test sudden traffic spikes (push notification, flash sale)
+- **Example:** "100 users all login at exactly the same time"
 
-| Executor | Use Case | Key Control | Typical Question Answered |
-|----------|----------|-------------|---------------------------|
-| `ramping-vus` | Organic traffic ramp / soak prep | VU count over time | How do caches / warmup behave? |
-| `constant-arrival-rate` | SLA / capacity validation at target RPS | Requests per time unit | Can we sustain 100 RPS within p95 SLO? |
-| `per-vu-iterations` | Burst / spike / stress snapshot | Fixed iterations per VU | What happens on a sudden surge? |
+---
 
-#### VUs vs Arrival Rate
-- VUs (virtual users) approximate concurrent actors. Ramp patterns show scaling and saturation characteristics.
-- Arrival rate fixes throughput; VU usage becomes an internal mechanism. If latency increases, required VUs climb → early signal of saturation.
+### VUs vs. Arrival Rate: What's the Difference?
 
-#### Tagging Strategy
-Add tags (e.g., `{ type: 'api', endpoint: 'products' }`) to:
-- Filter thresholds precisely.
-- Break down dashboards by scenario / endpoint.
-- Attribute regressions to a specific path.
+| Executor Type | What It Controls | When Latency Increases... | Best For |
+|---------------|------------------|---------------------------|----------|
+| **ramping-vus** | Number of concurrent users | RPS decreases | Simulating realistic user behavior |
+| **constant-arrival-rate** | Requests per second (RPS) | k6 adds more VUs | SLA validation, capacity planning |
+| **ramping-arrival-rate** | Gradually increase RPS | k6 adjusts VUs dynamically | Realistic ramp-up to peak RPS |
 
-#### Practical Tuning Tips
-- Keep ramp stages long enough (≥ p95 * several hundred samples) for percentile stability.
-- Use `constant-arrival-rate` for SLA confirmation before launches.
-- Add separate spike scenario to isolate cold path / lock contention issues.
-- Raise `preAllocatedVUs` if you observe early under-shooting of target RPS.
-- Always cap `maxVUs` to avoid runaway load if the system slows drastically.
+**Example Scenario:**
 
-**Summary:** These combined scenarios create a realistic composite load: gradual adoption, steady sustained business traffic, and acute spike risk — all enforced by objective SLO-style thresholds for fast feedback and CI gating.
+```javascript
+// ramping-vus: "I want 50 users browsing the site"
+{
+  executor: 'ramping-vus',
+  stages: [{ duration: '2m', target: 50 }],
+}
+// If API slows down: Users wait longer, RPS drops naturally
 
-**Why multiple thresholds?** Separate latency (performance) and correctness (functional) signals reduce false positives and clarify remediation priority.
+// constant-arrival-rate: "I want exactly 100 requests/second"
+{
+  executor: 'constant-arrival-rate',
+  rate: 100,
+  duration: '2m',
+  preAllocatedVUs: 50,
+  maxVUs: 200,
+}
+// If API slows down: k6 spins up more VUs to maintain 100 RPS
+
+// ramping-arrival-rate: "Gradually increase from 10 to 100 requests/second"
+{
+  executor: 'ramping-arrival-rate',
+  startRate: 10,
+  timeUnit: '1s',
+  stages: [
+    { duration: '2m', target: 50 },   // Ramp to 50 RPS
+    { duration: '3m', target: 100 },  // Ramp to 100 RPS
+    { duration: '1m', target: 100 },  // Hold at 100 RPS
+  ],
+  preAllocatedVUs: 50,
+  maxVUs: 200,
+}
+// Best of both worlds: Gradual RPS increase + fixed throughput
+```
+
+**When to Use Each:**
+
+- **ramping-vus:** "How does my app handle growing user traffic?"
+- **constant-arrival-rate:** "Can we handle 500 RPS within our SLA?"
+- **ramping-arrival-rate:** "Gradually ramp to Black Friday traffic levels"
+- **per-vu-iterations:** "What happens during a login storm?"
+
+**Pro Tip:** Start with one scenario, validate it works, then add more. Don't try to build the perfect test on day one.
 
 ---
 ## 6. Data-Driven & Parameterized Tests
@@ -378,18 +466,8 @@ spec:
 ```
 
 ---
-## 12. Performance Analysis Heuristics
 
-| Symptom | Likely Cause | Next Step |
-|---------|-------------|-----------|
-| Rising p95 only | Tail latency, GC pauses | Inspect memory, heap profiling |
-| Uniform latency shift | Network / dependency slowdown | Trace upstream services |
-| Error spike + low latency | Fast failures (auth / rate limit) | Examine response codes |
-| High latency + CPU low | Lock contention / I/O wait | Thread dumps / slow queries |
-| RPS plateaus early | Bottleneck before target concurrency | Load test dependency services |
-
----
-## 13. Best Practices Checklist
+## 12. Best Practices Checklist
 
 - Start with **small smoke tests** on every PR.
 - Define **SLO-aligned thresholds** (p95, error rate) early.
@@ -404,34 +482,7 @@ spec:
 - Periodically **refresh test data** to avoid caching distortion.
 
 ---
-## 14. From Panic to Performance Maturity
-
-Two weeks later, marketing launches again. This time:
-- You ran capacity & spike tests in staging.
-- Bottlenecks (N+1 query + slow Redis pipeline) were fixed pre-launch.
-- Dashboards show stable p95, zero error threshold violations.
-- Leadership sees green SLOs. Users see speed.
-
-The difference wasn’t luck – it was **intentional performance engineering** powered by k6.
-
----
-## 15. Quick Reference Cheat Sheet
-
-| Goal | Snippet |
-|------|---------|
-| Basic test | `vus/duration` in `options` |
-| Multiple patterns | `scenarios` map |
-| Enforce SLO | `thresholds` with p95 / error rate |
-| Validate responses | `check(res, {cond})` |
-| Add metadata | `http.get(url, { tags: { type: 'api' }})` |
-| Custom metric | `new Trend('name').add(val)` |
-| Load profile RPS | `constant-arrival-rate` executor |
-| Data reuse | `new SharedArray(...)` |
-| Secret config | `__ENV.MY_VAR` |
-| CI failure | Non-zero exit on threshold breach |
-
----
-## 16. Resources
+## 13. Resources
 
 - [Official k6 Documentation](https://k6.io/docs/)
 - [k6 Examples Repository](https://github.com/grafana/k6-examples)
@@ -443,6 +494,6 @@ The difference wasn’t luck – it was **intentional performance engineering** 
 - [Performance Test Thresholds Best Practices](https://k6.io/docs/using-k6/thresholds/)
 
 ---
-**Final Thought:** Performance isn’t a phase – it’s a **habit**. k6 lets you encode that habit as code, observable data, and enforceable standards.
+**Final Thought:** Performance isn’t a phase, it’s a **habit**. k6 lets you encode that habit as code, observable data, and enforceable standards.
 
 If you found this helpful, share it or adapt the snippets to your stack. Have a twist on these patterns? Drop a comment.

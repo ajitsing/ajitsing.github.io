@@ -51,7 +51,7 @@ layout: page
     }
   ],
   "blogPost": [
-    {% assign recent_posts = site.posts | limit: 5 %}
+    {% assign recent_posts = site.posts | limit: 20 %}
     {% for post in recent_posts %}
     {
       "@type": "BlogPosting",
@@ -127,7 +127,6 @@ layout: page
 
 <div class="posts-list">
   {% for post in posts %}
-  {% unless post.categories contains "tech-news" %}
   <article class="post-preview">
     <a href="{{ post.url | relative_url }}">
       <h2 class="post-title">{{ post.title }}</h2>
@@ -176,7 +175,6 @@ layout: page
     {% endif %}
 
    </article>
-   {% endunless %}
   {% endfor %}
 </div>
 

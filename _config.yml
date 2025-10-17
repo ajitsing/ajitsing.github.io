@@ -173,7 +173,7 @@ timezone: "India/Kolkata"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 10
+paginate: 20
 
 # Collections
 collections:

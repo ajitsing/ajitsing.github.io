@@ -1,0 +1,99 @@
+<section class="search-section">
+  <div class="search-container">
+    <input 
+      type="search" 
+      id="search-input" 
+      class="search-input" 
+      placeholder="Search posts..."
+      autocomplete="off"
+    />
+    <button type="button" class="search-button" aria-label="Search">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+        <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16z" stroke-width="2" stroke-linecap="round"/>
+        <path d="m19 19-4.35-4.35" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</section>
+
+<script src="{{ '/assets/js/simple-jekyll-search.min.js' | relative_url }}"></script>
+<script>
+  (function() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    if (!searchInput || !searchResults) return;
+    
+    let searchTimeout;
+    let hasTrackedFocus = false;
+
+    searchInput.addEventListener('focus', function() {
+      if (!hasTrackedFocus && typeof gtag !== 'undefined') {
+        gtag('event', 'search_focus', {
+          'event_category': 'Search',
+          'event_label': 'Search Box Focused'
+        });
+        hasTrackedFocus = true;
+      }
+    });
+    
+    SimpleJekyllSearch({
+      searchInput: searchInput,
+      resultsContainer: searchResults,
+      json: '{{ "/search.json" | relative_url }}',
+      searchResultTemplate: '<article class="search-result-item"><a href="{url}" class="search-result-link" data-search-result="{title}"><div class="search-result-content"><h3 class="search-result-title">{title}</h3><p class="search-result-excerpt">{excerpt}</p><div class="search-result-meta"><span class="search-result-date">{date}</span>{tags}</div></div></a></article>',
+      templateMiddleware: function(prop, value, template) {
+        if (prop === 'tags' && value) {
+          const tags = value.split(', ').filter(tag => tag.trim());
+          return tags.map(tag => `<span class="search-result-tag">${tag}</span>`).join('');
+        }
+        if (prop === 'excerpt') {
+          return value.substring(0, 150) + (value.length > 150 ? '...' : '');
+        }
+        return value;
+      },
+      noResultsText: '<div class="search-no-results">No posts found. Try different keywords.</div>',
+      limit: 10,
+      fuzzy: false,
+      success: function(data) {
+        const query = searchInput.value.trim();
+        if (query.length > 0 && typeof gtag !== 'undefined') {
+          clearTimeout(searchTimeout);
+          searchTimeout = setTimeout(function() {
+            gtag('event', 'search', {
+              'search_term': query,
+              'event_category': 'Search',
+              'event_label': query
+            });
+          }, 1000);
+        }
+      }
+    });
+    
+    searchInput.addEventListener('input', function(e) {
+      searchResults.classList.toggle('active', e.target.value.length > 0);
+    });
+
+    searchResults.addEventListener('click', function(e) {
+      const resultLink = e.target.closest('.search-result-link');
+      if (resultLink && typeof gtag !== 'undefined') {
+        const postTitle = resultLink.getAttribute('data-search-result');
+        const searchQuery = searchInput.value.trim();
+        
+        gtag('event', 'search_result_click', {
+          'event_category': 'Search',
+          'event_label': searchQuery,
+          'value': postTitle
+        });
+      }
+    });
+    
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.classList.remove('active');
+      }
+    });
+  })();
+</script>
+

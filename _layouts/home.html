@@ -2,6 +2,7 @@
 layout: page
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/page-navigation.css' | relative_url }}">
 
 <!-- SEO: Structured Data for Homepage -->
@@ -101,6 +102,9 @@ layout: page
 <meta name="twitter:creator" content="@Ajit5ingh">
 
 {{ content }}
+
+<!-- Search Section -->
+{% include search-bar.html %}
 
 <!-- Page Navigation Section -->
 <section class="page-navigation">

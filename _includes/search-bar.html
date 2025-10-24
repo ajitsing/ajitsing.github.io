@@ -55,24 +55,25 @@
       },
       noResultsText: '<div class="search-no-results">No posts found. Try different keywords.</div>',
       limit: 10,
-      fuzzy: false,
-      success: function(data) {
-        const query = searchInput.value.trim();
-        if (query.length > 0 && typeof gtag !== 'undefined') {
-          clearTimeout(searchTimeout);
-          searchTimeout = setTimeout(function() {
+      fuzzy: false
+    });
+    
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.trim();
+      searchResults.classList.toggle('active', query.length > 0);
+      
+      if (query.length > 2) {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(function() {
+          if (typeof gtag !== 'undefined') {
             gtag('event', 'search', {
               'search_term': query,
               'event_category': 'Search',
               'event_label': query
             });
-          }, 1000);
-        }
+          }
+        }, 1500);
       }
-    });
-    
-    searchInput.addEventListener('input', function(e) {
-      searchResults.classList.toggle('active', e.target.value.length > 0);
     });
 
     searchResults.addEventListener('click', function(e) {

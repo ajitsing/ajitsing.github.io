@@ -11,6 +11,17 @@ layout: null
       "excerpt": "{{ post.excerpt | strip_html | strip_newlines | escape }}",
       "tags": "{{ post.tags | join: ', ' }}",
       "image": "{{ post.thumbnail-img | default: post.image | relative_url }}"
+    },
+  {% endfor %}
+  {% for explainer in site.explainers %}
+    {
+      "title": "{{ explainer.title | escape }}",
+      "subtitle": "{{ explainer.subtitle | escape }}",
+      "url": "{{ explainer.url | relative_url }}",
+      "date": "{{ explainer.date | date: '%B %-d, %Y' }}",
+      "excerpt": "{{ explainer.excerpt | strip_html | strip_newlines | escape }}",
+      "tags": "explainer",
+      "image": "{{ explainer.thumbnail-img | default: explainer.image | relative_url }}"
     }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

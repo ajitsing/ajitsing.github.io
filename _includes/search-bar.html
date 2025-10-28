@@ -4,7 +4,9 @@
       type="search" 
       id="search-input" 
       class="search-input" 
-      placeholder="Search posts..."
+      placeholder="Search tutorials and articles..."
+      data-placeholder-desktop="Search for posts, explainers, and topics..."
+      data-placeholder-mobile="Search posts and explainers..."
       autocomplete="off"
     />
     <button type="button" class="search-button" aria-label="Search">
@@ -14,6 +16,12 @@
       </svg>
     </button>
   </div>
+  <p class="search-stats">
+    {% assign posts_count = site.posts | size %}
+    {% assign explainers_count = site.explainers | size %}
+    {% assign tags_count = site.tags | size %}
+    Search across {{ posts_count }} posts, {{ explainers_count }} explainers, and {{ tags_count }} topics
+  </p>
   <div id="search-results" class="search-results"></div>
 </section>
 
@@ -24,6 +32,18 @@
     const searchResults = document.getElementById('search-results');
     
     if (!searchInput || !searchResults) return;
+    
+    // Handle responsive placeholder
+    function updatePlaceholder() {
+      if (window.innerWidth <= 768) {
+        searchInput.placeholder = searchInput.getAttribute('data-placeholder-mobile');
+      } else {
+        searchInput.placeholder = searchInput.getAttribute('data-placeholder-desktop');
+      }
+    }
+    
+    updatePlaceholder();
+    window.addEventListener('resize', updatePlaceholder);
     
     let searchTimeout;
     let hasTrackedFocus = false;

@@ -3,6 +3,15 @@
   position: relative;
 }
 
+.search-stats {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+  text-align: center;
+  font-weight: 500;
+}
+
 .search-container {
   position: relative;
   display: flex;
@@ -12,24 +21,27 @@
 
 .search-input {
   flex: 1;
-  padding: 1rem 1.25rem;
+  padding: 1.125rem 1.5rem;
   padding-right: 3.5rem;
   font-size: 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
   background: #fff;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #008AFF;
-  box-shadow: 0 0 0 3px rgba(0, 138, 255, 0.1);
+  border-color: #6c757d;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 .search-input::placeholder {
-  color: #999;
+  color: #adb5bd;
+  font-size: 0.95rem;
 }
 
 .search-button {
@@ -37,28 +49,29 @@
   right: 1rem;
   background: none;
   border: none;
-  color: #666;
+  color: #6c757d;
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .search-button:hover {
-  color: #008AFF;
+  color: #495057;
+  transform: scale(1.1);
 }
 
 .search-results {
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: calc(100% + 2.5rem);
   left: 0;
   right: 0;
   background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   max-height: 600px;
   overflow-y: auto;
   z-index: 1000;
@@ -145,10 +158,19 @@
     margin: 1.5rem 0 2rem;
   }
   
+  .search-stats {
+    font-size: 0.8rem;
+    margin-top: 0.625rem;
+  }
+  
   .search-input {
-    padding: 0.875rem 0.875rem;
+    padding: 1rem 1rem;
     padding-right: 3rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .search-input::placeholder {
+    font-size: 0.9rem;
   }
   
   .search-button {

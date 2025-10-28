@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Dev News Hub"
+title: "Dev Weekly"
 subtitle: "Latest trends, updates, and insights from the software development world"
 seo: true
 description: "Stay ahead with curated software development news, technology trends, programming updates, and tech industry insights. Covering web development, mobile apps, DevOps, AI/ML, and emerging technologies."
@@ -15,7 +15,7 @@ social-share: true
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "headline": "Dev News Hub - Software Development Updates",
+  "headline": "Dev Weekly - Software Development Updates",
   "description": "Curated software development news, technology trends, and programming updates covering web development, mobile apps, DevOps, AI/ML, and emerging technologies.",
   "author": {
     "@type": "Person",

@@ -148,6 +148,11 @@ layout: page
   </div>
 </section>
 
+<!-- Newsletter Subscription Section -->
+<div class="newsletter-section-home">
+  {% include newsletter-subscription.html %}
+</div>
+
 {% assign posts = paginator.posts | default: site.posts %}
 
 <div class="posts-list">

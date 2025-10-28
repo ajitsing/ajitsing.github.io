@@ -36,6 +36,9 @@ layout: base
         {{ content }}
       </article>
 
+      <div class="newsletter-section-footer">
+        {% include newsletter-subscription.html %}
+      </div>
       {% include new-post-alert.html %}
 
       {% if page.tags.size > 0 %}

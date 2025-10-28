@@ -133,3 +133,8 @@ social-share: true
   <p>No explainers available yet. Check back soon!</p>
 </div>
 {% endif %}
+
+<!-- Newsletter Subscription Section -->
+<div class="newsletter-section-home">
+  {% include newsletter-subscription.html %}
+</div>

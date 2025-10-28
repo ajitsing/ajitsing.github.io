@@ -106,3 +106,15 @@
   padding: 0;
 }
 
+.newsletter-section-explainer {
+  max-width: 1000px;
+  margin: 3rem auto 2rem auto;
+  padding: 0;
+}
+
+/* Adjust newsletter widget on explainer pages to account for body padding */
+.newsletter-section-explainer .followit--follow-form-container {
+  margin-left: 0;
+  margin-right: 0;
+}
+

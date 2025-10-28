@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-09-30
 seo: true
 title: "Kubernetes Resource Units Explained"
 subtitle: "Understanding CPU and Memory notation in K8s"

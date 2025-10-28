@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-10-09
 seo: true
 title: "Row vs Column Store Explained"
 subtitle: "Understanding how databases organize data"

@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-09-16
 seo: true
 title: "N+1 Query Problem Explained"
 subtitle: "The database performance killer"

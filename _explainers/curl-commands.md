@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-09-09
 seo: true
 title: "cURL Command Explained"
 subtitle: "Master HTTP requests, API testing, and file downloads with practical cURL examples"

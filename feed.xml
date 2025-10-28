@@ -24,5 +24,17 @@ layout: null
         <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
       </item>
     {% endfor %}
+    {% for explainer in site.explainers %}
+      <item>
+        <title>{{ explainer.title | xml_escape }}</title>
+        <description>
+          {% if explainer.subtitle %}{{ explainer.subtitle | xml_escape }} - {% endif %}
+          {{ explainer.content | strip_html | xml_escape | truncatewords: 50 }}
+        </description>
+        <pubDate>{{ explainer.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <link>{{ explainer.url | absolute_url }}</link>
+        <guid isPermaLink="true">{{ explainer.url | absolute_url }}</guid>
+      </item>
+    {% endfor %}
   </channel>
 </rss>

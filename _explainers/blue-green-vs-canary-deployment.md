@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-09-18
 seo: true
 title: "Blue-Green vs Canary Deployment Explained"
 subtitle: "Deploy safely without downtime"

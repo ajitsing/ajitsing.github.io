@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-10-27
 seo: true
 title: "Service Discovery Explained"
 subtitle: "How services find each other in distributed systems"

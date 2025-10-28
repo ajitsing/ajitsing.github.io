@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-10-28
 seo: true
 title: "Service Mesh Explained"
 subtitle: "Managing communication between microservices"

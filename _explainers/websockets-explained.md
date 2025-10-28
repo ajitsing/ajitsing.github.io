@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-09-20
 seo: true
 title: "WebSockets Explained"
 subtitle: "Real-time communication between browser and server"

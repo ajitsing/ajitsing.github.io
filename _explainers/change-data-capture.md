@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-10-09
 seo: true
 title: "Change Data Capture (CDC) Explained"
 subtitle: "Keeping your cache in sync with your database"

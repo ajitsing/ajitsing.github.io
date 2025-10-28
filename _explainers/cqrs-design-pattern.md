@@ -1,5 +1,6 @@
 ---
 layout: explainer
+date: 2025-09-09
 seo: true
 title: "CQRS Design Pattern Explained"
 subtitle: "Command Query Responsibility Segregation through visual components"

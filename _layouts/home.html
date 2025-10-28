@@ -110,19 +110,40 @@ layout: page
 <section class="page-navigation">
   <div class="nav-cards-container">
     <a href="{{ '/explainers/' | relative_url }}" class="nav-card">
-      <div class="nav-card-icon">💡</div>
+      <div class="nav-card-icon"><i class="fas fa-lightbulb"></i></div>
       <h3 class="nav-card-title">Explainers</h3>
       <p class="nav-card-description">
         Short, practical explanations of software engineering concepts with real examples and code samples.
       </p>
+      {% assign explainers_count = site.explainers | size %}
+      <div class="nav-card-meta">
+        <span class="nav-card-count">{{ explainers_count }} Guides Available</span>
+      </div>
     </a>
     
     <a href="{{ '/software-development-news/' | relative_url }}" class="nav-card">
-      <div class="nav-card-icon">📰</div>
+      <div class="nav-card-icon"><i class="fas fa-newspaper"></i></div>
       <h3 class="nav-card-title">Dev Weekly</h3>
       <p class="nav-card-description">
         Stay updated with the latest trends, updates, and insights from the software development world.
       </p>
+      {% assign tech_news_count = site.tags.dev-weekly | size %}
+      <div class="nav-card-meta">
+        <span class="nav-card-count">{{ tech_news_count }} Articles</span>
+        <span class="nav-card-count">• Updated weekly</span>
+      </div>
+    </a>
+    
+    <a href="{{ '/tags/' | relative_url }}" class="nav-card">
+      <div class="nav-card-icon"><i class="fas fa-tags"></i></div>
+      <h3 class="nav-card-title">Topics</h3>
+      <p class="nav-card-description">
+        Explore articles by topic and discover content tailored to your interests across all categories.
+      </p>
+      {% assign tags_count = site.tags | size %}
+      <div class="nav-card-meta">
+        <span class="nav-card-count">{{ tags_count }} Topics</span>
+      </div>
     </a>
   </div>
 </section>

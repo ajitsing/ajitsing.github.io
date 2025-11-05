@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/service-discovery.png
 share-img: /assets/img/explainers/service-discovery.png
 permalink: /explainer/service-discovery/
 keywords: "service discovery, microservices, distributed systems, load balancing, service registry, consul, eureka, kubernetes service discovery"
+tags: ["Microservices"]
 social-share: true
 ---
 

@@ -9,6 +9,7 @@ thumbnail: /assets/img/devops/k8s-thumbnail.png
 share-img: /assets/img/devops/k8s-thumbnail.png
 permalink: /explainer/kubernetes-resource-units/
 keywords: "kubernetes resources, CPU units, memory units, millicores, mebibytes, k8s resource limits, kubernetes requests, Mi vs M, resource notation"
+tags: ["DevOps"]
 social-share: true
 ---
 

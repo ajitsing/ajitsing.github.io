@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/n-plus-one-thumbnail.png
 share-img: /assets/img/explainers/n-plus-one-thumbnail.png  
 permalink: /explainer/n-plus-one-query-problem/
 keywords: "N+1 query problem, database optimization, eager loading, lazy loading, ORM performance, SQL optimization, database performance"
+tags: ["Database"]
 social-share: true
 ---
 

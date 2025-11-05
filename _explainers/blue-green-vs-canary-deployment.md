@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/deployment-strategies-thumbnail.png
 share-img: /assets/img/explainers/deployment-strategies-thumbnail.png  
 permalink: /explainer/blue-green-vs-canary-deployment/
 keywords: "blue-green deployment, canary deployment, zero downtime deployment, deployment strategies, DevOps, continuous deployment"
+tags: ["DevOps"]
 social-share: true
 ---
 

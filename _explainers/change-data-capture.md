@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/change-data-capture.png
 share-img: /assets/img/explainers/change-data-capture.png  
 permalink: /explainer/change-data-capture/
 keywords: "CDC, change data capture, database sync, cache invalidation, real-time data, event-driven architecture, database replication"
+tags: ["Architecture"]
 social-share: true
 ---
 

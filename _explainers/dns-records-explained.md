@@ -9,6 +9,7 @@ thumbnail: /assets/img/posts/dns/dns-explained.png
 share-img: /assets/img/posts/dns/dns-explained.png
 permalink: /explainer/dns-records-explained/
 keywords: "DNS records, A record, CNAME, MX record, TXT record, DNS explained, domain name system, nameserver"
+tags: ["Networking"]
 social-share: true
 ---
 

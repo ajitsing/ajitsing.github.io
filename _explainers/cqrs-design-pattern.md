@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/cqrs-thumbnail.png
 share-img: /assets/img/explainers/cqrs-thumbnail.png  
 permalink: /explainer/cqrs-design-pattern/
 keywords: "CQRS design pattern, Command Query Responsibility Segregation, software architecture, system design, microservices, scalable applications, architectural patterns"
+tags: ["Architecture"]
 social-share: true
 ---
 

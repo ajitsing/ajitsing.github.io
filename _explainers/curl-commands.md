@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/curl-commands.png
 share-img: /assets/img/explainers/curl-commands.png  
 permalink: /explainer/curl-commands/
 keywords: "cURL commands, HTTP requests, API testing, REST API, command line tools, web development, developer tools, HTTP client, cURL tutorial, cURL examples, API authentication, file download, POST requests, curl, http, api, command-line, web-development, developer-tools"
+tags: ["Tools"]
 social-share: true
 ---
 

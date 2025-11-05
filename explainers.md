@@ -108,7 +108,8 @@ social-share: true
 <link rel="stylesheet" href="{{ '/assets/css/explainers-grid.css' | relative_url }}">
 
 <div class="explainers-grid">
-  {% for explainer in site.explainers %}
+  {% assign sorted_explainers = site.explainers | sort: 'date' | reverse %}
+  {% for explainer in sorted_explainers %}
     <div class="explainer-card">
       <a href="{{ explainer.url | relative_url }}" class="explainer-link">
         <div class="explainer-thumbnail">
@@ -121,7 +122,17 @@ social-share: true
           {% endif %}
         </div>
         <div class="explainer-info">
+          {% if explainer.tags %}
+            <div class="explainer-tags">
+              {% for tag in explainer.tags %}
+                <span class="tag tag-{{ tag | downcase }}">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
           <h3 class="explainer-title">{{ explainer.title }}</h3>
+          {% if explainer.description %}
+            <p class="explainer-description">{{ explainer.description }}</p>
+          {% endif %}
         </div>
       </a>
     </div>

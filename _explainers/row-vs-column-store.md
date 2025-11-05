@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/row-vs-column.png
 share-img: /assets/img/explainers/row-vs-column.png
 permalink: /explainer/row-vs-column-store/
 keywords: "row store, column store, columnar database, database storage, OLTP, OLAP, data warehouse, database optimization"
+tags: ["Database"]
 social-share: true
 ---
 

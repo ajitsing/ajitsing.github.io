@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/service-mesh.png
 share-img: /assets/img/explainers/service-mesh.png
 permalink: /explainer/service-mesh-explained/
 keywords: "service mesh, microservices, istio, linkerd, kubernetes, service to service communication, sidecar proxy, traffic management"
+tags: ["DevOps", "Microservices"]
 social-share: true
 ---
 

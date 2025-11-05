@@ -9,6 +9,7 @@ thumbnail: /assets/img/explainers/websocket-thumbnail.png
 share-img: /assets/img/explainers/websocket-thumbnail.png  
 permalink: /explainer/websockets-explained/
 keywords: "WebSockets, real-time communication, web development, HTTP vs WebSockets, socket programming, bidirectional communication"
+tags: ["Networking"]
 social-share: true
 ---
 

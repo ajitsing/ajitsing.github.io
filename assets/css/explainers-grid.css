@@ -2,8 +2,8 @@
 
 .explainers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
@@ -21,6 +21,18 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+.explainer-card:hover .explainer-thumbnail::after {
+  opacity: 1;
+}
+
+.explainer-card:hover .explainer-thumbnail img {
+  transform: scale(1.05);
+}
+
+.explainer-card:hover .explainer-title {
+  color: #0ea5e9;
+}
+
 .explainer-link {
   text-decoration: none;
   color: inherit;
@@ -33,13 +45,30 @@
 }
 
 .explainer-thumbnail {
-  height: 180px;
+  height: 160px;
   background: #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+}
+
+.explainer-thumbnail::after {
+  content: 'Read More →';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 30px 15px 15px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
 }
 
 .explainer-thumbnail::before {
@@ -66,6 +95,7 @@
   object-fit: cover;
   position: relative;
   z-index: 1;
+  transition: transform 0.3s ease;
 }
 
 @keyframes spin {
@@ -79,23 +109,106 @@
   font-size: 3rem;
 }
 
+/* Badge Styles */
+.explainer-badges {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 3;
+  align-items: flex-end;
+}
+
+.badge-new,
+.badge-read-time {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.badge-new {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.badge-read-time {
+  background: rgba(255, 255, 255, 0.95);
+  color: #475569;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.6);
+  }
+}
+
 .explainer-info {
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+/* Topic Tags */
+.explainer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.tag-database,
+.tag-networking,
+.tag-devops,
+.tag-microservices,
+.tag-architecture,
+.tag-tools {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
+  border: none;
 }
 
 .explainer-title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
-  margin: 0 0 0.75rem 0;
-  color: #2c3e50;
-  line-height: 1.4;
+  margin: 0 0 0.875rem 0;
+  color: #1a202c;
+  line-height: 1.35;
+  transition: color 0.3s ease;
 }
 
 .explainer-description {
-  color: #6c757d;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -142,10 +255,61 @@
 @media (max-width: 768px) {
   .explainers-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
   
   .explainer-card {
-    margin: 0 1rem;
+    margin: 0 0.75rem;
+  }
+  
+  .explainer-thumbnail {
+    height: 180px;
+  }
+  
+  .explainer-badges {
+    top: 8px;
+    right: 8px;
+    gap: 5px;
+  }
+  
+  .badge-new,
+  .badge-read-time {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+  
+  .explainer-title {
+    font-size: 1.2rem;
+  }
+  
+  .explainer-description {
+    font-size: 0.875rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  
+  .explainer-info {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+  
+  .explainer-tags {
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  
+  .tag {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .explainer-card {
+    margin: 0 0.5rem;
+  }
+  
+  .explainer-thumbnail::after {
+    font-size: 0.85rem;
+    padding: 25px 12px 12px;
   }
 }

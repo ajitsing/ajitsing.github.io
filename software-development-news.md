@@ -93,7 +93,7 @@ social-share: true
 {% assign posts = paginator.posts | default: site.posts %}
 <div class="posts-list">
   {% for post in posts %}
-  {% if post.categories contains "tech-news" %}
+  {% if post.tags contains "dev-weekly" %}
   <article class="post-preview">
     <a href="{{ post.url | relative_url }}">
       <h2 class="post-title">{{ post.title }}</h2>
@@ -146,7 +146,8 @@ social-share: true
   {% endfor %}
 </div>
 
-{% if site.posts.size == 0 or site.categories.tech-news.size == 0 %}
+{% assign dev_weekly_posts = site.tags.dev-weekly | default: empty %}
+{% if site.posts.size == 0 or dev_weekly_posts.size == 0 %}
 <div class="no-posts">
   <p>No tech news posts available yet. Check back soon for the latest software development updates!</p>
 </div>

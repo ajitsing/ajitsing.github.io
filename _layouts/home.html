@@ -111,7 +111,7 @@ layout: page
 <!-- Page Navigation Section -->
 <section class="page-navigation">
   <div class="nav-cards-container">
-    <a href="{{ '/explainers/' | relative_url }}" class="nav-card">
+    <a href="{{ '/explainers/' | relative_url }}" class="nav-card" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Explainers Card'});">
       <div class="nav-card-icon"><i class="fas fa-lightbulb"></i></div>
       <h3 class="nav-card-title">Explainers</h3>
       <p class="nav-card-description">
@@ -123,7 +123,7 @@ layout: page
       </div>
     </a>
     
-    <a href="{{ '/software-development-news/' | relative_url }}" class="nav-card">
+    <a href="{{ '/software-development-news/' | relative_url }}" class="nav-card" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Weekly Card'});">
       <div class="nav-card-icon"><i class="fas fa-newspaper"></i></div>
       <h3 class="nav-card-title">Dev Weekly</h3>
       <p class="nav-card-description">
@@ -136,7 +136,7 @@ layout: page
       </div>
     </a>
     
-    <a href="{{ '/tags/' | relative_url }}" class="nav-card">
+    <a href="{{ '/tags/' | relative_url }}" class="nav-card" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Topics Card'});">
       <div class="nav-card-icon"><i class="fas fa-tags"></i></div>
       <h3 class="nav-card-title">Topics</h3>
       <p class="nav-card-description">

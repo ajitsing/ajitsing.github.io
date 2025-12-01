@@ -101,8 +101,8 @@ canonical-url: "{{ site.url }}/tags/"
     <a href="#{{- tag -}}" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;{{- tag -}}&nbsp;({{site.tags[tag].size}})</a>
 {%- endfor -%}
 
-<div class="newsletter-section-footer">
-  {% include newsletter-subscription.html %}
+<div class="rss-section-footer">
+  {% include rss-subscribe.html %}
 </div>
 
 <div id="full-tags-list">

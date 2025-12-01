@@ -86,8 +86,8 @@ social-share: true
 }
 </script>
 
-<div class="newsletter-section-footer">
-  {% include newsletter-subscription.html %}
+<div class="rss-section-footer">
+  {% include rss-subscribe.html %}
 </div>
 
 {% assign posts = paginator.posts | default: site.posts %}

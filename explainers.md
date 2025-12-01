@@ -145,7 +145,7 @@ social-share: true
 </div>
 {% endif %}
 
-<!-- Newsletter Subscription Section -->
-<div class="newsletter-section-home">
-  {% include newsletter-subscription.html %}
+<!-- RSS Subscribe Section -->
+<div class="rss-section-home">
+  {% include rss-subscribe.html %}
 </div>

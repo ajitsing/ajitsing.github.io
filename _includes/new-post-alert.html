@@ -1,4 +1,20 @@
 {% assign latest_post = site.posts | first %}
 <div class="new-post-alert">
-  <p>Check out the latest post: <a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a>!</p>
+  <div class="new-post-alert-content">
+    <div class="new-post-alert-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+      </svg>
+    </div>
+    <div class="new-post-alert-text">
+      <span class="new-post-label">Latest Post</span>
+      <a href="{{ latest_post.url | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'New Post Alert', 'event_label': 'Title Link'});">{{ latest_post.title }}</a>
+    </div>
+    <a href="{{ latest_post.url | relative_url }}" class="new-post-alert-btn" onclick="gtag('event', 'click', {'event_category': 'New Post Alert', 'event_label': 'Read Now Button'});">
+      Read Now
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
 </div>

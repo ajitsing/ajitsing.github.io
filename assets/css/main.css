@@ -980,28 +980,6 @@ h1 + h3 {
   margin-top: 1.3em;
 }
 
-.new-post-alert {
-  background-color: #fff8e1; /* Light yellow background */
-  border: 2px solid #ff9800; /* Orange border */
-  padding: 1.5rem; /* Add more padding */
-  margin-bottom: 2rem; /* Increase space below the alert */
-  text-align: center; /* Center the text */
-  border-radius: 10px; /* More rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Consistent font */
-}
-
-.new-post-alert a {
-  color: #ff9800; /* Orange link color */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Bold text */
-  font-size: 1.25rem; /* Larger font size */
-}
-
-.new-post-alert a:hover {
-  text-decoration: underline; /* Add underline on hover */
-}
-
 /* --- All Posts Cards Section --- */
 
 .all-posts-section {

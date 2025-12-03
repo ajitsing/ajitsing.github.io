@@ -136,15 +136,15 @@ layout: page
       </div>
     </a>
     
-    <a href="{{ '/tags/' | relative_url }}" class="nav-card" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Topics Card'});">
-      <div class="nav-card-icon"><i class="fas fa-tags"></i></div>
-      <h3 class="nav-card-title">Topics</h3>
+    {% assign system_design_count = site.posts | where_exp: "post", "post.tags contains 'system-design'" | size %}
+    <a href="{{ '/system-design/' | relative_url }}" class="nav-card" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'System Design Card'});">
+      <div class="nav-card-icon"><i class="fas fa-cubes"></i></div>
+      <h3 class="nav-card-title">System Design</h3>
       <p class="nav-card-description">
-        Browse by topic to find exactly what you need—from APIs to DevOps, cloud to design patterns.
+        Learn how Uber, Stripe, WhatsApp, and Meta scale to millions of users with deep-dive architecture guides.
       </p>
-      {% assign tags_count = site.tags | size %}
       <div class="nav-card-meta">
-        <span class="nav-card-count">{{ tags_count }} Topics</span>
+        <span class="nav-card-count">{{ system_design_count }} Case Studies</span>
       </div>
     </a>
   </div>

@@ -1,0 +1,139 @@
+.system-design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin: 2rem 0 3rem;
+}
+
+.system-design-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.system-design-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
+}
+
+.system-design-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.system-design-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.system-design-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.system-design-card:hover .system-design-thumbnail img {
+  transform: scale(1.05);
+}
+
+.system-design-thumbnail::after {
+  content: 'View case study →';
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 18px;
+  background: linear-gradient(0deg, rgba(15, 23, 42, 0.9), transparent);
+  color: #f8fafc;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.system-design-card:hover .system-design-thumbnail::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.system-design-badges {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1;
+}
+
+.system-design-badge {
+  background: rgba(15, 23, 42, 0.75);
+  color: #f8fafc;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border: 1px solid rgba(248, 250, 252, 0.25);
+}
+
+.system-design-info {
+  flex: 1;
+  padding: 1.4rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.system-design-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0f172a;
+  margin: 0 0 0.75rem 0;
+}
+
+.system-design-description {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .system-design-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .system-design-card {
+    margin: 0 0.5rem;
+  }
+
+  .system-design-thumbnail {
+    height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .system-design-card,
+  .system-design-thumbnail img {
+    transition: none;
+  }
+}
+

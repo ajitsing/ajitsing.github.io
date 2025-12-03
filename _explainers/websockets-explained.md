@@ -477,6 +477,21 @@ sequenceDiagram
           </p>
         </div>
       </div>
+
+      <div class="white-container" style="margin-top: 40px; padding: 30px; background: #fefce8; border: 2px solid #fbbf24; border-radius: 12px;">
+        <h2 class="section-title" style="margin-top: 0;">Want to Learn More?</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6; color: #374151; margin-bottom: 20px;">
+          WebSockets aren't the only way to build real-time features. Explore other approaches:
+        </p>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="background: white; border: 2px solid #d1d5db; border-radius: 12px; padding: 20px; margin-bottom: 15px; font-size: 1.1rem; line-height: 1.6; color: #374151;">
+            <strong><i class="fas fa-sync" style="color: #059669; margin-right: 10px;"></i><a href="/long-polling-explained/" style="color: #0284c7; text-decoration: none;">Long Polling Explained</a>:</strong> Build real-time apps without WebSockets using HTTP polling done right.
+          </li>
+          <li style="background: white; border: 2px solid #d1d5db; border-radius: 12px; padding: 20px; margin-bottom: 15px; font-size: 1.1rem; line-height: 1.6; color: #374151;">
+            <strong><i class="fas fa-stream" style="color: #059669; margin-right: 10px;"></i><a href="/server-sent-events-explained/" style="color: #0284c7; text-decoration: none;">Server-Sent Events</a>:</strong> One-way real-time streaming over HTTP with automatic reconnection.
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

@@ -558,6 +558,19 @@ footer .footer-custom-content {
   filter: grayscale(0%);
 }
 
+.post-thumbnail-placeholder {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.post-preview:hover .post-thumbnail-placeholder {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
 .navbar-tech-news {
   color: #fff95e !important;
 }

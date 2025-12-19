@@ -114,6 +114,18 @@ canonical-url: "{{ site.url }}/system-design/"
       <div class="post-thumbnail">
         <img src="{{ post["thumbnail-img"] | relative_url }}" alt="{{ post.title }}" loading="lazy">
       </div>
+      {% elsif post["share-img"] %}
+      <div class="post-thumbnail">
+        <img src="{{ post["share-img"] | relative_url }}" alt="{{ post.title }}" loading="lazy">
+      </div>
+      {% elsif post.image %}
+      <div class="post-thumbnail">
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+      </div>
+      {% else %}
+      <div class="post-thumbnail post-thumbnail-placeholder">
+        <i class="fas fa-file-alt"></i>
+      </div>
       {% endif %}
     </a>
     

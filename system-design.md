@@ -87,27 +87,43 @@ canonical-url: "{{ site.url }}/system-design/"
 }
 </script>
 
-<link rel="stylesheet" href="{{ '/assets/css/system-design-grid.css' | relative_url }}">
-
 {% if system_design_posts.size > 0 %}
-<div class="system-design-grid">
+<div class="posts-list">
   {% for post in system_design_posts %}
-  {% assign thumbnail = post.image | default: post.thumbnail-img | default: '/assets/img/ajit-singh-blog-og.png' %}
-  <article class="system-design-card">
-    <a href="{{ post.url | relative_url }}" class="system-design-link">
-      <div class="system-design-thumbnail">
-        <img src="{{ thumbnail | relative_url }}" alt="{{ post.title }} architecture breakdown" loading="lazy">
-        <div class="system-design-badges">
-          <span class="system-design-badge">{{ post.date | date: "%b %Y" }}</span>
+  <article class="post-preview">
+    <a href="{{ post.url | relative_url }}" class="post-preview-link">
+      <div class="post-content">
+        <h2 class="post-title">{{ post.title }}</h2>
+
+        {% if post.subtitle %}
+          <p class="post-subtitle">{{ post.subtitle }}</p>
+        {% else %}
+          <p class="post-excerpt">
+            {{ post.description | default: post.excerpt | strip_html | xml_escape | truncatewords: 30 }}
+          </p>
+        {% endif %}
+
+        <div class="post-meta-row">
+          <span class="post-date">
+            {{ post.date | date: "%b %-d, %Y" }}
+          </span>
         </div>
       </div>
-      <div class="system-design-info">
-        <h3 class="system-design-title">{{ post.title }}</h3>
-        <p class="system-design-description">
-          {{ post.description | default: post.excerpt | strip_html | strip_newlines | truncatewords: 36 }}
-        </p>
+
+      {% if post["thumbnail-img"] %}
+      <div class="post-thumbnail">
+        <img src="{{ post["thumbnail-img"] | relative_url }}" alt="{{ post.title }}" loading="lazy">
       </div>
+      {% endif %}
     </a>
+    
+    {% if post.tags.size > 0 %}
+    <div class="post-tags-row">
+      {% for tag in post.tags limit:2 %}
+      <a href="{{ '/tags' | relative_url }}#{{- tag -}}" class="post-tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
   </article>
   {% endfor %}
 </div>

@@ -114,7 +114,7 @@ canonical-url: "{{ site.url }}/tags/"
     <div class="post-list">
         {%- for post in site.tags[tag] -%}
             <div class="tag-entry">
-                <a href="{{ post.url | relative_url }}">{{- post.title -}}</a>
+                <a href="{{ post.url | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">{{- post.title -}}</a>
                 <div class="entry-date">
                     <time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: date_format -}}</time>
                 </div>

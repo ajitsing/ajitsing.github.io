@@ -91,7 +91,7 @@ canonical-url: "{{ site.url }}/system-design/"
 <div class="posts-list">
   {% for post in system_design_posts %}
   <article class="post-preview">
-    <a href="{{ post.url | relative_url }}" class="post-preview-link">
+    <a href="{{ post.url | relative_url }}" class="post-preview-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
       <div class="post-content">
         <h2 class="post-title">{{ post.title }}</h2>
 
@@ -132,7 +132,7 @@ canonical-url: "{{ site.url }}/system-design/"
     {% if post.tags.size > 0 %}
     <div class="post-tags-row">
       {% for tag in post.tags limit:2 %}
-      <a href="{{ '/tags' | relative_url }}#{{- tag -}}" class="post-tag">{{ tag }}</a>
+      <a href="{{ '/tags' | relative_url }}#{{- tag -}}" class="post-tag" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{ tag }}</a>
       {% endfor %}
     </div>
     {% endif %}

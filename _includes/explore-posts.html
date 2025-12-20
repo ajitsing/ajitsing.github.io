@@ -28,7 +28,7 @@
         
         {% if should_show %}
       <div class="post-card">
-        <a href="{{ post.url | relative_url }}" class="card-link">
+        <a href="{{ post.url | relative_url }}" class="card-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
           {% if post.share-img %}
           <div class="card-image">
             <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
@@ -60,7 +60,7 @@
           {% unless shown_post_urls contains post.url or post.categories contains "tech-news" %}
             {% if posts_count < posts_to_show %}
             <div class="post-card">
-              <a href="{{ post.url | relative_url }}" class="card-link">
+              <a href="{{ post.url | relative_url }}" class="card-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
                 {% if post.share-img %}
                 <div class="card-image">
                   <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
@@ -92,7 +92,7 @@
       {% for post in site.posts %}
           {% unless shown_post_urls contains post.url or post.categories contains "tech-news" %}
           <div class="post-card">
-            <a href="{{ post.url | relative_url }}" class="card-link">
+            <a href="{{ post.url | relative_url }}" class="card-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
               {% if post.share-img %}
               <div class="card-image">
                 <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
@@ -126,7 +126,7 @@
   {% endfor %}
   {% if total_posts > 6 %}
   <div class="expand-section">
-    <button class="expand-btn" id="expandBtn" onclick="togglePosts()">
+    <button class="expand-btn" id="expandBtn" onclick="togglePosts(); gtag('event', 'click', {'event_category': 'Explore Posts', 'event_label': 'Show More Posts'});">
       <i class="fas fa-chevron-down" id="expandIcon"></i> Show More Posts
     </button>
   </div>

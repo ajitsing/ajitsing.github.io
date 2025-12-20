@@ -111,7 +111,7 @@ social-share: true
   {% assign sorted_explainers = site.explainers | sort: 'date' | reverse %}
   {% for explainer in sorted_explainers %}
     <div class="explainer-card">
-      <a href="{{ explainer.url | relative_url }}" class="explainer-link">
+      <a href="{{ explainer.url | relative_url }}" class="explainer-link" onclick="gtag('event', 'click', {'event_category': 'Explainer', 'event_label': '{{ explainer.title | escape }}'});">
         <div class="explainer-thumbnail">
           {% if explainer.thumbnail %}
             <img src="{{ explainer.thumbnail | relative_url }}" alt="{{ explainer.title }}" loading="lazy">

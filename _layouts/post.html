@@ -46,7 +46,7 @@ layout: base
           Tags:
           {% if site.link-tags %}
           {% for tag in page.tags %}
-            <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
+            <a href="{{ '/tags' | relative_url }}#{{- tag -}}" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{- tag -}}</a>
           {% endfor %}
           {% else %}
             {{ page.tags | join: ", " }}
@@ -75,7 +75,7 @@ layout: base
         <ul class="post-list">
           {% for post in uniq_related_posts limit:5 %}
             <li class="tag-entry">
-              <a href="{{ post.url | relative_url }}">{{- post.title -}}</a>
+              <a href="{{ post.url | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'Related Post', 'event_label': '{{ post.title | escape }}'});">{{- post.title -}}</a>
               </br>
             </li>
           {% endfor %}

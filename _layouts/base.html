@@ -33,7 +33,9 @@ common-js:
 
     {{ content }}
 
+    {% unless page.hide-explore-posts %}
     {% include explore-posts.html %}
+    {% endunless %}
 
     {% include footer.html %}
   

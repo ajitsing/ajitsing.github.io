@@ -111,40 +111,38 @@ layout: page
 <!-- Page Navigation Section -->
 <section class="page-navigation">
   <div class="nav-cards-container">
-    <a href="{{ '/explainers/' | relative_url }}" class="nav-card" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Explainers Card'});">
+    {% assign explainers_count = site.explainers | size %}
+    <a href="{{ '/explainers/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Explainers Card'});">
       <div class="nav-card-icon"><i class="fas fa-lightbulb"></i></div>
       <h3 class="nav-card-title">Explainers</h3>
-      <p class="nav-card-description">
-        Master complex engineering concepts quickly with practical examples and working code samples.
-      </p>
-      {% assign explainers_count = site.explainers | size %}
       <div class="nav-card-meta">
-        <span class="nav-card-count">{{ explainers_count }} Guides Available</span>
+        <span class="nav-card-count">{{ explainers_count }} Guides</span>
       </div>
     </a>
     
-    <a href="{{ '/software-development-news/' | relative_url }}" class="nav-card" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Weekly Card'});">
+    {% assign tech_news_count = site.tags.dev-weekly | size %}
+    <a href="{{ '/software-development-news/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Weekly Card'});">
       <div class="nav-card-icon"><i class="fas fa-newspaper"></i></div>
       <h3 class="nav-card-title">Dev Weekly</h3>
-      <p class="nav-card-description">
-        Get curated tech news, trends, and insights delivered weekly to stay ahead in software development.
-      </p>
-      {% assign tech_news_count = site.tags.dev-weekly | size %}
       <div class="nav-card-meta">
         <span class="nav-card-count">{{ tech_news_count }} Articles</span>
-        <span class="nav-card-count">• Updated weekly</span>
       </div>
     </a>
     
     {% assign system_design_count = site.posts | where_exp: "post", "post.tags contains 'system-design'" | size %}
-    <a href="{{ '/system-design/' | relative_url }}" class="nav-card" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'System Design Card'});">
+    <a href="{{ '/system-design/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'System Design Card'});">
       <div class="nav-card-icon"><i class="fas fa-cubes"></i></div>
       <h3 class="nav-card-title">System Design</h3>
-      <p class="nav-card-description">
-        Learn how Uber, Stripe, WhatsApp, and Meta scale to millions of users with deep-dive architecture guides.
-      </p>
       <div class="nav-card-meta">
         <span class="nav-card-count">{{ system_design_count }} Case Studies</span>
+      </div>
+    </a>
+    
+    <a href="{{ '/tools/cron-expression/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Tools Card'});">
+      <div class="nav-card-icon"><i class="fas fa-wrench"></i></div>
+      <h3 class="nav-card-title">Dev Tools</h3>
+      <div class="nav-card-meta">
+        <span class="nav-card-count">1 Tool</span>
       </div>
     </a>
   </div>

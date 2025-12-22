@@ -1,0 +1,756 @@
+/**
+ * Cron Expression Tool Styles
+ * Matches the explainer theme: clean, professional, developer-focused
+ */
+
+/* ==========================================================================
+   Layout & Container
+   ========================================================================== */
+
+.cron-tool {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+}
+
+/* Override page background for cron tool */
+body:has(.cron-tool) {
+  background: #faf8f5 !important;
+}
+
+.cron-tool .main-content {
+  background: #faf8f5;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.tool-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 16px;
+  color: #faf8f5;
+  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+}
+
+.tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tool-title i {
+  font-size: 1.6rem;
+  color: #fef3c7;
+}
+
+.tool-subtitle {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.75;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #d6d3d1;
+}
+
+/* ==========================================================================
+   Mode Tabs
+   ========================================================================== */
+
+.mode-tabs {
+  display: flex;
+  margin-bottom: 24px;
+  background: #f5f0e8;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.mode-tab {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #78716c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 6px;
+}
+
+.mode-tab:hover {
+  color: #44403c;
+}
+
+.mode-tab.active {
+  background: #fffdf9;
+  color: #292524;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.mode-tab i {
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Mode Content
+   ========================================================================== */
+
+.mode-content {
+  display: none;
+}
+
+.mode-content.active {
+  display: block;
+}
+
+/* ==========================================================================
+   Input Section (Parse Mode)
+   ========================================================================== */
+
+.input-section {
+  margin-bottom: 24px;
+}
+
+.input-section label {
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.input-wrapper input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  background: #fffdf9;
+}
+
+.input-wrapper input:focus {
+  border-color: #a8a29e;
+}
+
+.input-wrapper input::placeholder {
+  color: #a8a29e;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: #292524;
+  color: #faf8f5;
+  box-shadow: 0 2px 8px rgba(41, 37, 36, 0.2);
+}
+
+.btn-primary:hover {
+  background: #44403c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(41, 37, 36, 0.25);
+}
+
+.btn-secondary {
+  background: #fffdf9;
+  color: #44403c;
+  border: 2px solid #e7e0d5;
+}
+
+.btn-secondary:hover {
+  background: #f5f0e8;
+  border-color: #d6cfc4;
+}
+
+.btn-secondary.copied {
+  background: #166534;
+  color: white;
+  border-color: #166534;
+}
+
+/* ==========================================================================
+   Cron Fields Breakdown (Parse Mode)
+   ========================================================================== */
+
+.breakdown-section {
+  margin-bottom: 24px;
+}
+
+.cron-fields-compact {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: #f5f0e8 !important;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  padding: 8px 4px;
+}
+
+.cron-fields-compact .cron-field {
+  text-align: center;
+  padding: 4px 2px;
+  background: transparent !important;
+}
+
+.cron-fields-compact .field-value {
+  display: block;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #292524 !important;
+  background: transparent !important;
+  line-height: 1;
+}
+
+.cron-fields-compact .field-label {
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #78716c !important;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Result Cards
+   ========================================================================== */
+
+.result-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.result-card {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.result-card h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #78716c;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-card h3 i {
+  color: #78716c;
+}
+
+.result-card.human-readable p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #292524;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.result-card.next-runs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result-card.next-runs li {
+  padding: 8px 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.85rem;
+  color: #44403c;
+  border-bottom: 1px solid #f5f0e8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-card.next-runs li:last-child {
+  border-bottom: none;
+}
+
+.result-card.next-runs li i {
+  color: #166534;
+  font-size: 0.75rem;
+}
+
+.result-card.next-runs li.placeholder {
+  color: #a8a29e;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Builder Section (Compact Dropdowns)
+   ========================================================================== */
+
+.builder-compact {
+  margin-bottom: 24px;
+}
+
+.builder-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  padding: 20px;
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+}
+
+.builder-col {
+  text-align: center;
+}
+
+.builder-col label {
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.builder-col select {
+  width: 100%;
+  padding: 10px 8px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #292524;
+  cursor: pointer;
+  text-align: center;
+  text-align-last: center;
+  transition: all 0.2s ease;
+}
+
+.builder-col select:focus {
+  outline: none;
+  border-color: #a8a29e;
+}
+
+.builder-col select:hover {
+  border-color: #d6cfc4;
+}
+
+/* ==========================================================================
+   Generated Expression
+   ========================================================================== */
+
+.generated-section {
+  margin-bottom: 24px;
+}
+
+.generated-output {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #292524;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(41, 37, 36, 0.2);
+}
+
+.generated-output code {
+  flex: 1;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fef3c7;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* ==========================================================================
+   Quick Reference
+   ========================================================================== */
+
+.reference-section {
+  margin-bottom: 32px;
+}
+
+.reference-section h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #44403c;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reference-section h3 i {
+  color: #78716c;
+}
+
+.reference-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.reference-card {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.reference-card h4 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #78716c;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.reference-card table {
+  width: 100%;
+  font-size: 0.85rem;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.reference-card tr {
+  border: none;
+  background: transparent;
+}
+
+.reference-card td {
+  padding: 6px 0;
+  color: #44403c;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: none;
+  background: transparent;
+}
+
+.reference-card td:first-child {
+  font-weight: 600;
+  color: #292524;
+}
+
+.reference-card td:last-child {
+  text-align: right;
+  color: #78716c;
+  font-size: 0.8rem;
+}
+
+.reference-card code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #f5f0e8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #44403c;
+  font-weight: 600;
+  border: 1px solid #e7e0d5;
+}
+
+/* ==========================================================================
+   Examples Section (Collapsible)
+   ========================================================================== */
+
+.examples-section {
+  margin-bottom: 32px;
+}
+
+.examples-toggle {
+  width: 100%;
+  padding: 16px 20px;
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #44403c;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.examples-toggle:hover {
+  background: #f5f0e8;
+  border-color: #d6cfc4;
+}
+
+.examples-toggle span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.examples-toggle i.fa-lightbulb {
+  color: #b45309;
+}
+
+.examples-toggle .toggle-icon {
+  color: #78716c;
+  transition: transform 0.3s ease;
+}
+
+.examples-toggle.open .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.example-btn {
+  padding: 12px 16px;
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.example-btn:hover {
+  border-color: #a8a29e;
+  background: #f5f0e8;
+  transform: translateY(-1px);
+}
+
+.example-btn .example-name {
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #44403c;
+  margin-bottom: 4px;
+}
+
+.example-btn code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.75rem;
+  color: #78716c;
+  background: none;
+}
+
+/* ==========================================================================
+   FAQ Section
+   ========================================================================== */
+
+.faq-section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f5f0e8;
+  border-radius: 16px;
+  border: 2px solid #e7e0d5;
+}
+
+.faq-section h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #44403c;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq-section h2 i {
+  color: #78716c;
+}
+
+.faq-item {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.faq-item h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 10px 0;
+}
+
+.faq-item p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.faq-item code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #fef3c7;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .tool-header {
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+
+  .tool-title {
+    font-size: 1.5rem;
+  }
+
+  .input-wrapper {
+    flex-direction: column;
+  }
+
+  .btn-primary {
+    justify-content: center;
+  }
+
+  .cron-fields-compact {
+    grid-template-columns: repeat(5, 1fr);
+    padding: 12px 4px;
+  }
+
+  .cron-fields-compact .field-value {
+    font-size: 1.2rem;
+  }
+
+  .result-section {
+    grid-template-columns: 1fr;
+  }
+
+  .builder-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .reference-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .examples-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .generated-output {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .generated-output code {
+    width: 100%;
+    text-align: center;
+  }
+
+  .faq-section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tool-title {
+    font-size: 1.3rem;
+  }
+
+  .mode-tab {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .cron-fields-compact .field-value {
+    font-size: 1rem;
+  }
+
+  .cron-fields-compact .field-label {
+    font-size: 0.55rem;
+  }
+
+  .builder-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .builder-col select {
+    font-size: 0.8rem;
+    padding: 8px 4px;
+  }
+
+  .examples-grid {
+    grid-template-columns: 1fr;
+  }
+}

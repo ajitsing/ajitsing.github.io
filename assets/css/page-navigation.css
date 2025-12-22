@@ -6,14 +6,22 @@
 
 .nav-cards-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   max-width: 100%;
   margin: 0;
 }
 
-/* Tablet: Stack to single column for smaller tablets */
-@media (max-width: 900px) {
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .nav-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* Mobile: Stack to single column */
+@media (max-width: 600px) {
   .nav-cards-container {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -32,6 +40,26 @@
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   display: block;
+}
+
+.nav-card.nav-card-compact {
+  padding: 16px;
+  text-align: center;
+}
+
+.nav-card-compact .nav-card-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.nav-card-compact .nav-card-title {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.nav-card-compact .nav-card-meta {
+  justify-content: center;
+  margin-top: 8px;
 }
 
 .nav-card:hover {

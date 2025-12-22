@@ -15,6 +15,7 @@ navbar-links:
   About Me: "aboutme"
   Videos: "videos"
   Explainers: "explainers"
+  Tools: "/tools/cron-expression"
   System Design: "/system-design"
   Tag Cloud: "/tags"
   Dev Weekly: "/software-development-news"

@@ -1,11 +1,17 @@
 {% assign latest_post = site.posts | first %}
 <div class="new-post-alert">
   <div class="new-post-alert-content">
-    <div class="new-post-alert-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-      </svg>
-    </div>
+    <a href="{{ latest_post.url | relative_url }}" class="new-post-alert-thumbnail" onclick="gtag('event', 'click', {'event_category': 'New Post Alert', 'event_label': 'Thumbnail'});">
+      {% if latest_post.thumbnail-img %}
+        <img src="{{ latest_post.thumbnail-img | relative_url }}" alt="{{ latest_post.title }}">
+      {% else %}
+        <div class="new-post-alert-icon-fallback">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/>
+          </svg>
+        </div>
+      {% endif %}
+    </a>
     <div class="new-post-alert-text">
       <span class="new-post-label">Latest Post</span>
       <a href="{{ latest_post.url | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'New Post Alert', 'event_label': 'Title Link'});">{{ latest_post.title }}</a>

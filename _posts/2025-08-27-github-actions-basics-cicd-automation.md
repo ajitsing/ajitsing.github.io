@@ -1,7 +1,7 @@
 ---
 layout: post
 seo: true
-title: "From Manual Testing to Automated Excellence: GitHub Actions"
+title: "GitHub Actions: CI/CD Automation Basics"
 subtitle: "Turn your repository into an automated testing and deployment machine that catches bugs before they reach users"
 date: 2025-08-27
 categories: devops

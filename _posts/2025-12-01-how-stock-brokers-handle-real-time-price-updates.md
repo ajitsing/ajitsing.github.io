@@ -3,16 +3,28 @@ layout: post
 title: "How Stock Brokers Push 1 Million Price Updates Per Second to Your Screen"
 subtitle: "The engineering behind real-time stock prices that move faster than you can blink"
 date: 2025-12-01
+last-modified-date: 2025-12-23
 thumbnail-img: /assets/img/posts/system-design/stock-broker-thumbnail.png
 share-img: /assets/img/posts/system-design/stock-broker-thumbnail.png
 categories: system-design
 tags: [system-design]
 permalink: /how-stock-brokers-handle-real-time-price-updates/
-description: "How stock brokers deliver millions of real-time price updates using WebSockets, Kafka, and ticker plants. System design guide for developers."
+description: "How stock brokers deliver millions of real-time price updates per second using WebSockets, Kafka, and ticker plants. Complete system design guide covering the fan-out problem, low-latency architecture, and real-time data distribution."
 keywords: "stock broker system design, real-time stock prices, WebSocket architecture, Kafka streaming, ticker plant, market data feed, low latency trading systems, financial technology, fan-out problem, stock exchange data"
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "How do stock brokers handle millions of real-time price updates?"
+    answer: "Stock brokers use a multi-layered architecture: exchanges broadcast price updates to ticker plants that normalize and filter data, message brokers (like Kafka) distribute updates to broker backends, WebSocket connections push updates to clients, and clients buffer and batch updates for efficient rendering. The entire journey from exchange to user screen takes 300-500 milliseconds."
+  - question: "What is a ticker plant in stock trading systems?"
+    answer: "A ticker plant is a high-performance system that receives raw market data feeds from exchanges, normalizes different exchange formats into a common format, filters and enriches data, and distributes it to downstream systems. It acts as the central hub that processes millions of messages per second before they reach broker systems."
+  - question: "How do WebSockets help in real-time stock price updates?"
+    answer: "WebSockets provide persistent, bidirectional connections that allow servers to push price updates instantly to clients without polling overhead. Unlike HTTP polling, WebSockets maintain open connections, enabling sub-second latency for price updates. Brokers use WebSocket connections to push filtered, normalized price data directly to user devices."
+  - question: "What is the fan-out problem in stock trading systems?"
+    answer: "The fan-out problem occurs when one price update from an exchange needs to reach millions of users watching that stock. A single update must be replicated and delivered to potentially millions of WebSocket connections. Message brokers like Kafka solve this by allowing one producer to publish to a topic, and multiple consumers (one per user connection) subscribe and receive the update."
+  - question: "How fast are stock price updates delivered to users?"
+    answer: "Stock price updates typically reach users within 300-500 milliseconds from when a trade occurs on the exchange. This includes exchange processing, ticker plant normalization, broker backend processing, WebSocket transmission, and client rendering. High-frequency trading systems aim for even lower latency, but for retail users, sub-second delivery is the standard."
 ---
 
 Open any stock trading app. Tap on a stock. Watch the price flicker green, then red, then green again. That number just changed 3 times in one second.

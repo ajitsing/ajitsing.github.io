@@ -3,6 +3,7 @@ layout: post
 title: "How Uber Finds Nearby Drivers at 1 Million Requests per Second"
 description: "How Uber matches you with a driver in seconds? Here's the fascinating story behind their 1M+ requests per second matching system."
 date: 2025-08-16
+last-modified-date: 2025-12-23
 categories: system-design
 thumbnail-img: /assets/img/posts/uber-sytem-design/thumbnail.png
 share-img: /assets/img/posts/uber-sytem-design/thumbnail.png
@@ -10,6 +11,15 @@ permalink: /how-uber-finds-nearby-drivers-1-million-requests-per-second/
 keywords: "uber system design, geospatial indexing, H3 hexagonal grid, distributed systems, real-time matching, driver location tracking, scalability, microservices architecture, kafka streaming, redis caching, system design interview, uber engineering, location-based services, high-performance systems, 1 million RPS"
 comments: true
 tags: [system-design]
+faq:
+  - question: "How does Uber find nearby drivers so quickly?"
+    answer: "Uber uses H3 hexagonal grid indexing to convert GPS coordinates into hexagonal cells. When you request a ride, the system converts your location to an H3 cell, searches nearby cells (k-ring neighbors), and finds all available drivers in those cells. This avoids checking every driver in the city, reducing search time from 10-15 seconds to under 3 seconds."
+  - question: "What is H3 hexagonal grid and how does Uber use it?"
+    answer: "H3 is a hexagonal hierarchical spatial indexing system that divides the Earth into millions of hexagonal tiles. Uber uses H3 to convert GPS coordinates into unique 64-bit cell IDs. This allows them to quickly find drivers in nearby hexagons without expensive distance calculations. Hexagons are preferred over squares because they have uniform neighbors and better approximate circles."
+  - question: "How does Uber handle 1 million requests per second?"
+    answer: "Uber handles 1M+ RPS through geographic sharding (data separated by city/region), memory-first architecture (driver locations in RAM), circuit breakers for overload protection, and predictable performance optimization focusing on p99 latency. The real-time index is sharded by H3 prefix, ensuring requests from one city never hit servers storing data from another city."
+  - question: "What technology stack does Uber use for driver matching?"
+    answer: "Uber's driver matching system uses Go for real-time services, Java for business logic, Redis for hot data, Cassandra for persistent storage, Kafka for event streaming, gRPC for service-to-service communication, and WebSocket for mobile connections. The system is deployed using blue-green deployments with canary releases."
 ---
 
 Picture this. You're standing outside Select City Walk in Saket, tired after shopping, and you open the Uber app. Tap the destination, hit "Book Ride", and boom - within 3-4 seconds, you see "Driver is 2 minutes away" with his Maruti Dzire coming towards you on the map.
@@ -40,6 +50,26 @@ Here's what happens in those magical 2-3 seconds:
 
 Now, let me tell you how each piece works.
 
+```mermaid
+flowchart TD
+    A[User Taps Book Ride] --> B[Convert GPS to H3 Cell]
+    B --> C[Expand to K-Ring Neighbors]
+    C --> D[Search Driver Index]
+    D --> E[Filter Available Drivers]
+    E --> F[Rank by ETA/Acceptance Rate]
+    F --> G[Send Offers to Top Drivers]
+    G --> H{Driver Accepts?}
+    H -->|Yes| I[Match Confirmed]
+    H -->|No| J[Offer to Next Driver]
+    J --> F
+    
+    style A fill:#e1f5ff
+    style B fill:#fff4e1
+    style D fill:#f3e5f5
+    style F fill:#e8f5e9
+    style I fill:#c8e6c9
+```
+
 ## Chapter 1: The Hexagon Revolution
 
 The breakthrough moment came when Uber's team discovered something called H3 - a hexagonal hierarchical spatial indexing system. Think of it as dividing the entire Earth into millions of hexagonal tiles, like a giant honeycomb.
@@ -53,6 +83,34 @@ Why hexagons instead of squares? This is brilliant:
 **Hierarchical**: H3 has 16 different resolution levels. Level 0 covers continents, Level 8 covers neighborhoods, Level 15 covers individual parking spots. You can easily go from fine-grained to coarse-grained.
 
 Here's the magic - every location on Earth gets a unique 64-bit H3 ID. Your pickup location `28.5355, 77.2090` (Connaught Place, Delhi) becomes something like `8a1fb466d18ffff`. That ID tells you exactly which hexagon you're in.
+
+```mermaid
+graph TB
+    subgraph H3Grid["H3 Hexagonal Grid System"]
+        H1[Hexagon 1<br/>Driver A, B]
+        H2[Hexagon 2<br/>Driver C]
+        H3[Hexagon 3<br/>Pickup Location]
+        H4[Hexagon 4<br/>Driver D, E]
+        H5[Hexagon 5<br/>Driver F]
+        H6[Hexagon 6<br/>Driver G]
+        H7[Hexagon 7<br/>Driver H]
+    end
+    
+    H3 -->|k=1 neighbors| H1
+    H3 -->|k=1 neighbors| H2
+    H3 -->|k=1 neighbors| H4
+    H3 -->|k=1 neighbors| H5
+    H3 -->|k=1 neighbors| H6
+    H3 -->|k=1 neighbors| H7
+    
+    style H3 fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
+    style H1 fill:#c8e6c9
+    style H2 fill:#c8e6c9
+    style H4 fill:#c8e6c9
+    style H5 fill:#c8e6c9
+    style H6 fill:#c8e6c9
+    style H7 fill:#c8e6c9
+```
 
 ## Chapter 2: The Real-Time Location Pipeline
 
@@ -137,6 +195,37 @@ Let's talk numbers. Uber handles 1M+ matching requests per second. That's:
 How do they not collapse under this load?
 
 **Geographic Sharding**: The real-time index is sharded by H3 prefix. All of Delhi NCR's data lives on specific shards, never mixed with New York's data. A pickup request in Connaught Place will never hit servers storing San Francisco data.
+
+```mermaid
+flowchart LR
+    subgraph APAC["🌏 Asia-Pacific Region"]
+        direction TB
+        S1["Delhi NCR<br/>H3: 8a1fb..."]
+        S2["Mumbai<br/>H3: 8a2fc..."]
+        S3["Bangalore<br/>H3: 8a3fd..."]
+    end
+    
+    subgraph NA["🌎 North America Region"]
+        direction TB
+        S4["New York<br/>H3: 8b1aa..."]
+        S5["San Francisco<br/>H3: 8b2bb..."]
+        S6["Los Angeles<br/>H3: 8b3cc..."]
+    end
+    
+    R1["📍 Request<br/>from Delhi"] --> S1
+    R2["📍 Request<br/>from New York"] --> S4
+    
+    style APAC fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style NA fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+    style S1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style S2 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style S3 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style S4 fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    style S5 fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    style S6 fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    style R1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style R2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+```
 
 **Memory-First Architecture**: The entire "which drivers are in which cells" mapping lives in RAM across thousands of servers. They use Redis for shared state, but most reads happen from local memory.
 

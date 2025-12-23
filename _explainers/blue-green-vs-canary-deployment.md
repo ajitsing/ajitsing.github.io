@@ -1,6 +1,7 @@
 ---
 layout: explainer
 date: 2025-09-18
+last-modified-date: 2025-12-23
 seo: true
 title: "Blue-Green vs Canary Deployment Explained"
 subtitle: "Deploy safely without downtime"
@@ -11,6 +12,17 @@ permalink: /explainer/blue-green-vs-canary-deployment/
 keywords: "blue-green deployment, canary deployment, zero downtime deployment, deployment strategies, DevOps, continuous deployment"
 tags: ["DevOps"]
 social-share: true
+faq:
+  - question: "What is the difference between blue-green and canary deployment?"
+    answer: "Blue-green deployment runs two identical production environments (blue and green), switching traffic instantly from one to the other. Canary deployment gradually routes a small percentage of traffic to the new version, monitoring for issues before fully rolling out. Blue-green is instant but requires double infrastructure; canary is gradual and safer for catching issues early."
+  - question: "When should I use blue-green deployment vs canary deployment?"
+    answer: "Use blue-green when you need instant rollback capability and have infrastructure to run two full environments. Use canary when you want to minimize risk by testing with real traffic gradually, or when you have limited infrastructure. Canary is better for catching subtle bugs that only appear under production load."
+  - question: "How does blue-green deployment achieve zero downtime?"
+    answer: "Blue-green achieves zero downtime by running the new version (green) alongside the current version (blue) on separate infrastructure. Once green is tested and ready, traffic is switched instantly via load balancer configuration. If issues occur, traffic can be switched back to blue immediately without any downtime."
+  - question: "What are the advantages of canary deployment?"
+    answer: "Canary deployment advantages include: gradual risk reduction by testing with small traffic percentage, early detection of production issues before full rollout, lower infrastructure costs (no need for duplicate full environments), ability to monitor real user behavior, and easy rollback by routing traffic back to old version."
+  - question: "How do you rollback in blue-green vs canary deployment?"
+    answer: "In blue-green, rollback is instant - simply switch traffic back from green to blue via load balancer. In canary, rollback means routing traffic back from the canary (new version) to the stable version, which can be done gradually or instantly depending on your routing configuration. Both allow quick rollback, but blue-green is typically faster."
 ---
 
 {% include explainer-head.html %}

@@ -3,14 +3,26 @@ layout: post
 title: "How Stripe Prevents Double Payments"
 subtitle: "Learn the engineering patterns that prevent duplicate charges and how to implement them in your payment systems"
 date: 2025-08-29
+last-modified-date: 2025-12-23
 categories: system-design
 thumbnail-img: /assets/img/posts/stripe-double-payment/stripe-thumbnail.png
 share-img: /assets/img/posts/stripe-double-payment/stripe-thumbnail.png
 permalink: /how-stripe-prevents-double-payment/
 description: "Discover how Stripe's engineering team prevents double payments using idempotency keys, database constraints, and smart retry logic. Practical lessons for building reliable payment systems."
-keywords: "Stripe double payment, idempotency keys, payment processing, duplicate transactions, financial engineering, payment systems"
+keywords: "Stripe double payment, idempotency keys, payment processing, duplicate transactions, financial engineering, payment systems, idempotent requests, payment idempotency"
 tags: [system-design]
 comments: true
+faq:
+  - question: "How does Stripe prevent double payments?"
+    answer: "Stripe uses a three-layer defense: idempotency keys that cache responses for duplicate requests, database unique constraints on idempotency keys to prevent duplicates at the data layer, and smart retry logic that only retries on appropriate errors. When the same idempotency key is used twice, Stripe returns the cached result instead of processing the payment again."
+  - question: "What are idempotency keys and how do they work?"
+    answer: "Idempotency keys are unique identifiers sent with API requests. When Stripe receives a request with an idempotency key, it checks if that key was used before. If yes, it returns the cached response from the original request. If no, it processes the request and stores the result. This ensures that retrying a request with the same key doesn't create duplicate charges."
+  - question: "How do you prevent duplicate transactions in payment systems?"
+    answer: "To prevent duplicate transactions, use idempotency keys on all payment requests, implement database unique constraints on transaction identifiers, use smart retry logic that only retries on network errors (not business logic errors), and cache responses for idempotency keys. Multiple layers of defense ensure no single point of failure."
+  - question: "What happens if a payment request is retried multiple times?"
+    answer: "If a payment request is retried with the same idempotency key, Stripe returns the cached response from the first successful request. The payment is only processed once, and subsequent retries with the same key return the same charge object. This prevents double charging even if network issues cause multiple retry attempts."
+  - question: "How does Stripe handle network failures during payment processing?"
+    answer: "Stripe handles network failures by: requiring idempotency keys so retries are safe, categorizing errors to determine if retry is appropriate (network timeouts yes, card declined no), using exponential backoff between retries, and caching successful responses. Clients should preserve the same idempotency key across all retry attempts."
 ---
 
 You're checking out online. Click "Pay Now". Nothing happens. Click again. Boom - charged twice.
@@ -198,6 +210,35 @@ Here's exactly what happens step by step:
 
 **Key insight**: The idempotency key acts like a unique fingerprint. If Stripe sees the same key twice, it returns the original result instead of processing again.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant API as Stripe API
+    participant Cache as Idempotency Cache
+    participant DB as Database
+    participant Payment as Payment Processor
+    
+    Note over Client,Payment: Request 1 - First Attempt
+    Client->>API: POST /charges<br/>idempotencyKey: order_123
+    API->>Cache: Check key: order_123
+    Cache-->>API: Key not found
+    API->>DB: Check unique constraint
+    DB-->>API: OK
+    API->>Payment: Process payment $500
+    Payment-->>API: charge_abc123 created
+    API->>DB: Store charge + cache response
+    API->>Cache: Store: order_123 → charge_abc123
+    API-->>Client: Response (network timeout)
+    
+    Note over Client,Payment: Request 2 - Retry with Same Key
+    Client->>API: POST /charges<br/>idempotencyKey: order_123
+    API->>Cache: Check key: order_123
+    Cache-->>API: Found! charge_abc123
+    API-->>Client: Return cached response<br/>(Same charge_abc123)
+    
+    Note over Client,Payment: Result: No double charge!
+```
+
 ### Layer 2: Database Constraints
 
 Even if idempotency keys fail, database-level constraints provide backup:
@@ -267,6 +308,50 @@ This prevents the "rapid-fire clicking" problem where frustrated users click the
 ## The Architecture in Action
 
 Here's how all three layers work together:
+
+```mermaid
+flowchart TB
+    subgraph Layer1["Layer 1: Client"]
+        C[Client Application]
+        IK[Idempotency Key<br/>Generation]
+        SR[Smart Retry Logic]
+    end
+    
+    subgraph Layer2["Layer 2: API Gateway"]
+        AG[API Gateway]
+        IC[Idempotency Cache<br/>Check]
+        VR[Request Validation]
+    end
+    
+    subgraph Layer3["Layer 3: Payment Service"]
+        PS[Payment Service]
+        PC[Process Charge]
+        SC[Store in Cache]
+    end
+    
+    subgraph Layer4["Layer 4: Database"]
+        DB[(Database)]
+        UC[Unique Constraint<br/>on idempotency_key]
+    end
+    
+    C --> IK
+    IK --> SR
+    SR --> AG
+    AG --> IC
+    IC -->|New Key| VR
+    IC -->|Existing Key| SC
+    VR --> PS
+    PS --> PC
+    PC --> DB
+    DB --> UC
+    PC --> SC
+    SC --> IC
+    
+    style Layer1 fill:#c8e6c9
+    style Layer2 fill:#fff9c4
+    style Layer3 fill:#e1f5ff
+    style Layer4 fill:#f3e5f5
+```
 
 <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin: 25px 0; border: 1px solid #e9ecef;">
 <style>

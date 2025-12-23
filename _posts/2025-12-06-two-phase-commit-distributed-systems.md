@@ -4,6 +4,7 @@ seo: true
 title: "Two-Phase Commit: The Protocol That Keeps Distributed Transactions Honest"
 subtitle: "How databases across servers agree to commit or rollback without losing data"
 date: 2025-12-06
+last-modified-date: 2025-12-23
 categories: distributed-systems
 thumbnail-img: /assets/img/posts/distributed-systems/two-phase-commit-thumb.png
 share-img: /assets/img/posts/distributed-systems/two-phase-commit-thumb.png
@@ -12,6 +13,17 @@ description: "Learn how Two-Phase Commit (2PC) coordinates distributed transacti
 keywords: "two-phase commit, 2PC, distributed transactions, distributed systems, database consistency, atomic commit, transaction coordinator, prepare commit, XA transactions, saga pattern, distributed database, ACID transactions, commit protocol, database replication, microservices transactions"
 tags: [distributed-systems]
 comments: true
+faq:
+  - question: "What is two-phase commit (2PC) in distributed systems?"
+    answer: "Two-Phase Commit (2PC) is a distributed consensus protocol that ensures atomicity across multiple databases or services. It has two phases: Prepare (where all participants vote YES/NO) and Commit (where the coordinator makes the final decision). All participants must agree to commit, or the entire transaction is rolled back."
+  - question: "How does two-phase commit ensure atomicity?"
+    answer: "2PC ensures atomicity by requiring all participants to vote YES in the Prepare phase before any commit happens. The coordinator collects votes from all participants, and only if everyone votes YES does it send commit commands. If any participant votes NO or times out, the coordinator sends abort commands to all, ensuring all-or-nothing execution."
+  - question: "What are the phases of two-phase commit protocol?"
+    answer: "Two-Phase Commit has two phases: Phase 1 (Prepare) where the coordinator asks all participants to prepare and vote, and Phase 2 (Commit) where the coordinator sends commit or abort commands based on the votes. Participants must wait for the coordinator's decision in Phase 2, which can cause blocking if the coordinator fails."
+  - question: "What happens if a participant fails during two-phase commit?"
+    answer: "If a participant fails before voting, the coordinator times out and aborts the transaction. If a participant fails after voting YES, it must wait for the coordinator's decision when it recovers. This blocking behavior is a key limitation of 2PC - participants can be stuck waiting indefinitely if the coordinator fails."
+  - question: "What is the difference between 2PC and Saga pattern?"
+    answer: "2PC is a blocking protocol that requires all participants to commit or abort together, while Saga pattern uses compensating transactions. In Saga, each service commits independently, and if a later step fails, previous steps are rolled back using compensating actions. Saga is non-blocking but requires careful design of compensation logic."
 ---
 
 **Two-Phase Commit (2PC)** is one of the oldest and most fundamental protocols in distributed systems. But why do we need it?

@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "WhatsApp's Scaling Secrets: A Deep Dive into System Design and Architecture"
-description: "How WhatsApp handles billions of messages daily with a lean engineering team, and what developers can learn from their technology choices."
+description: "How WhatsApp handles billions of messages daily with just 50 engineers using Erlang, Mnesia, and FreeBSD. Learn the architecture secrets that enabled massive scale with minimal resources."
 date: 2025-08-07
+last-modified-date: 2025-12-23
 categories: system-design
 thumbnail-img: /assets/img/posts/whatsapp-scaling/thumbnail.png
 share-img: /assets/img/posts/whatsapp-scaling/thumbnail.png
@@ -12,6 +13,17 @@ comments: true
 seo: true
 social-share: true
 tags: [system-design]
+faq:
+  - question: "How did WhatsApp scale to billions of messages with only 50 engineers?"
+    answer: "WhatsApp achieved massive scale with a small team by choosing the right technology stack: Erlang/OTP for massive concurrency and fault tolerance, Mnesia for high-performance in-memory database, FreeBSD for superior networking stack, and a philosophy of simplicity. Each Erlang process handles one client connection, allowing millions of concurrent connections per server with minimal overhead."
+  - question: "Why did WhatsApp choose Erlang for their messaging system?"
+    answer: "WhatsApp chose Erlang because of its Actor Model concurrency, where lightweight processes (not OS threads) handle millions of concurrent connections. Erlang's OTP framework provides supervisors for fault tolerance, hot code swapping for zero-downtime updates, and built-in distribution. This allowed WhatsApp to handle massive scale with fewer servers and engineers."
+  - question: "What is Mnesia and how does WhatsApp use it?"
+    answer: "Mnesia is a distributed, real-time database that comes with Erlang/OTP. WhatsApp uses it for user metadata, routing information, and session data. Mnesia tables can be configured as RAM-only for extreme speed, with optional disk persistence. It's tightly integrated with Erlang, eliminating impedance mismatch and providing fast lookups essential for message routing."
+  - question: "How does WhatsApp handle message delivery at scale?"
+    answer: "WhatsApp uses one Erlang process per client connection. When a message is sent, the sender's process forwards it to the recipient's process. If the recipient is offline, the message is queued in the sender's process. Once delivered and acknowledged, the message is deleted from the server. Messages are not stored long-term on servers - the device is the source of truth for chat history."
+  - question: "What technology stack powers WhatsApp?"
+    answer: "WhatsApp's technology stack includes: Erlang/OTP for backend services providing massive concurrency, Mnesia for distributed in-memory database, FreeBSD operating system for superior networking performance, and modified XMPP protocol with binary encoding for efficient mobile communication. This stack enabled handling 900 million users with just 50 engineers."
 ---
 
 WhatsApp is a household name, but for software engineers, it's a legendary tale of massive scaling with a remarkably small team. At its peak, WhatsApp supported 900 million users with just 50 engineers. How did they achieve this incredible feat? The answer lies in a series of smart, and sometimes unconventional, technology choices that prioritized reliability, efficiency, and scalability above all else.
@@ -39,6 +51,41 @@ WhatsApp's architecture can be broken down into a few key components:
 4.  **Database:** Storing user metadata and other essential information.
 
 Unlike many other messaging apps, WhatsApp's servers don't store message history on their servers long-term. Once a message is successfully delivered to the recipient's device, it's removed from the server's memory. This is a critical design choice that keeps the infrastructure lean, reduces storage costs, and simplifies the state management on the backend. The "source of truth" for chat history is the user's device.
+
+```mermaid
+flowchart TB
+    subgraph Clients
+        C1[Mobile Client 1]
+        C2[Mobile Client 2]
+        C3[Mobile Client N]
+    end
+    
+    subgraph WhatsAppServers["WhatsApp Servers (Erlang/OTP)"]
+        P1[Erlang Process 1<br/>Client 1 Connection]
+        P2[Erlang Process 2<br/>Client 2 Connection]
+        P3[Erlang Process N<br/>Client N Connection]
+    end
+    
+    subgraph Storage
+        M[Mnesia Database<br/>User Metadata & Routing]
+    end
+    
+    C1 -->|Persistent TCP| P1
+    C2 -->|Persistent TCP| P2
+    C3 -->|Persistent TCP| P3
+    
+    P1 <--> M
+    P2 <--> M
+    P3 <--> M
+    
+    P1 -.->|Message Routing| P2
+    P2 -.->|Message Routing| P3
+    
+    style P1 fill:#c8e6c9
+    style P2 fill:#c8e6c9
+    style P3 fill:#c8e6c9
+    style M fill:#e1f5ff
+```
 
 ## The Technology Stack: A Deep Dive into WhatsApp's Bold Choices
 
@@ -83,6 +130,37 @@ WhatsApp started with the **XMPP (Extensible Messaging and Presence Protocol)**,
 ## How It All Comes Together: The Anatomy of a Message
 
 Let's trace the journey of a message with this deeper understanding:
+
+```mermaid
+sequenceDiagram
+    participant Sender as Sender Client
+    participant SP as Sender Process<br/>(Erlang)
+    participant Mnesia as Mnesia DB
+    participant RP as Recipient Process<br/>(Erlang)
+    participant Recipient as Recipient Client
+    
+    Sender->>SP: Send Message
+    SP->>SP: Store in Queue
+    SP->>Sender: First Tick (Received)
+    SP->>Mnesia: Lookup Recipient Info
+    Mnesia-->>SP: Recipient Process ID
+    
+    alt Recipient Online
+        SP->>RP: Forward Message
+        RP->>Recipient: Deliver Message
+        Recipient->>RP: Acknowledge
+        RP->>SP: Delivery Notification
+        SP->>Sender: Second Tick (Delivered)
+        SP->>SP: Delete from Queue
+    else Recipient Offline
+        SP->>SP: Keep in Queue
+        Note over SP: Wait for Recipient to Connect
+        Recipient->>RP: Connect
+        RP->>SP: Request Pending Messages
+        SP->>RP: Forward Queued Messages
+        RP->>Recipient: Deliver Messages
+    end
+```
 
 1.  **Connection and Authentication:** When a user opens the app, the client establishes a persistent TCP connection to a WhatsApp server. An Erlang process is spawned on the server to handle this single client. This process manages the user's session, presence status, and message queues.
 

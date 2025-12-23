@@ -31,11 +31,11 @@
         <a href="{{ post.url | relative_url }}" class="card-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
           {% if post.share-img %}
           <div class="card-image">
-            <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
+            <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
           </div>
           {% elsif post.image %}
           <div class="card-image">
-            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
           </div>
           {% else %}
           <div class="card-placeholder">
@@ -63,11 +63,11 @@
               <a href="{{ post.url | relative_url }}" class="card-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
                 {% if post.share-img %}
                 <div class="card-image">
-                  <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
+                  <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
                 </div>
                 {% elsif post.image %}
                 <div class="card-image">
-                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
                 </div>
                 {% else %}
                 <div class="card-placeholder">
@@ -95,11 +95,11 @@
             <a href="{{ post.url | relative_url }}" class="card-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
               {% if post.share-img %}
               <div class="card-image">
-                <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}">
+                <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
               </div>
               {% elsif post.image %}
               <div class="card-image">
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
               </div>
               {% else %}
               <div class="card-placeholder">

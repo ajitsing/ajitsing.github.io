@@ -1,0 +1,124 @@
+name: IndexNow - Notify Search Engines
+
+on:
+  # Trigger after GitHub Pages deployment
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types:
+      - completed
+  
+  # Allow manual trigger with custom URLs
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'URLs to submit (comma-separated, leave empty for recent posts)'
+        required: false
+        default: ''
+
+jobs:
+  notify-indexnow:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get recently changed posts
+        id: get-urls
+        run: |
+          if [ -n "${{ github.event.inputs.urls }}" ]; then
+            # Use manually provided URLs
+            URLS="${{ github.event.inputs.urls }}"
+          else
+            # Find recently modified markdown files in _posts and _explainers
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' '_explainers/*.md' 2>/dev/null || echo "")
+            
+            if [ -z "$CHANGED_FILES" ]; then
+              echo "No new posts found"
+              echo "has_urls=false" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+            
+            # Convert file paths to URLs
+            URLS=""
+            for file in $CHANGED_FILES; do
+              if [[ $file == _posts/* ]]; then
+                # Extract date and slug from post filename
+                filename=$(basename "$file" .md)
+                # Format: YYYY-MM-DD-slug -> /YYYY-MM-DD-slug/
+                url="https://singhajit.com/${filename}/"
+              elif [[ $file == _explainers/* ]]; then
+                slug=$(basename "$file" .md)
+                url="https://singhajit.com/explainer/${slug}/"
+              fi
+              
+              if [ -n "$URLS" ]; then
+                URLS="${URLS},${url}"
+              else
+                URLS="${url}"
+              fi
+            done
+          fi
+          
+          if [ -n "$URLS" ]; then
+            echo "urls=$URLS" >> $GITHUB_OUTPUT
+            echo "has_urls=true" >> $GITHUB_OUTPUT
+            echo "URLs to notify: $URLS"
+          else
+            echo "has_urls=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Notify Bing IndexNow
+        if: steps.get-urls.outputs.has_urls == 'true'
+        run: |
+          IFS=',' read -ra URL_ARRAY <<< "${{ steps.get-urls.outputs.urls }}"
+          
+          # Build URL list JSON
+          URL_LIST=""
+          for url in "${URL_ARRAY[@]}"; do
+            if [ -n "$URL_LIST" ]; then
+              URL_LIST="${URL_LIST},"
+            fi
+            URL_LIST="${URL_LIST}\"${url}\""
+          done
+          
+          # Send to Bing
+          echo "Notifying Bing IndexNow..."
+          curl -s -X POST "https://www.bing.com/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"singhajit.com\",
+              \"key\": \"c7cba40954d441c6866b7aa29ed5c8d6\",
+              \"keyLocation\": \"https://singhajit.com/c7cba40954d441c6866b7aa29ed5c8d6.txt\",
+              \"urlList\": [${URL_LIST}]
+            }"
+          
+          echo ""
+          echo "Notifying Yandex IndexNow..."
+          curl -s -X POST "https://yandex.com/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"singhajit.com\",
+              \"key\": \"c7cba40954d441c6866b7aa29ed5c8d6\",
+              \"keyLocation\": \"https://singhajit.com/c7cba40954d441c6866b7aa29ed5c8d6.txt\",
+              \"urlList\": [${URL_LIST}]
+            }"
+          
+          echo ""
+          echo "IndexNow notifications sent!"
+
+      - name: Summary
+        if: steps.get-urls.outputs.has_urls == 'true'
+        run: |
+          echo "### IndexNow Notification Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The following URLs were submitted to Bing and Yandex:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          IFS=',' read -ra URL_ARRAY <<< "${{ steps.get-urls.outputs.urls }}"
+          for url in "${URL_ARRAY[@]}"; do
+            echo "- $url" >> $GITHUB_STEP_SUMMARY
+          done
+

@@ -303,7 +303,7 @@ graph TD
           </h3>
           <p class="directory-description"><strong>Configuration files.</strong> All system settings live here. Want to change how your network works or what programs start on boot? Look in /etc.</p>
           <div class="directory-example">
-            <strong>Example:</strong> <code>/etc/hosts</code> maps website names to IP addresses. <code>/etc/passwd</code> has user account info.
+            <strong>Example:</strong> <code>/etc/hosts</code> maps website names to IP addresses. <code>/etc/passwd</code> has user account info. <code>/etc/crontab</code> defines <a href="/tools/cron-expression/" style="color: #0284c7;">scheduled tasks</a>.
           </div>
         </div>
 

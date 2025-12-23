@@ -42,15 +42,21 @@ jobs:
               exit 0
             fi
             
-            # Convert file paths to URLs
+            # Convert file paths to URLs by reading permalink from frontmatter
             URLS=""
             for file in $CHANGED_FILES; do
-              if [[ $file == _posts/* ]]; then
-                # Extract date and slug from post filename
+              # Extract permalink from frontmatter (between --- markers)
+              permalink=$(sed -n '/^---$/,/^---$/p' "$file" | grep -E '^permalink:' | sed 's/^permalink:[[:space:]]*//' | tr -d '"' | tr -d "'")
+              
+              if [ -n "$permalink" ]; then
+                # Use permalink from frontmatter
+                url="https://singhajit.com${permalink}"
+              elif [[ $file == _posts/* ]]; then
+                # Fallback: Extract date and slug from post filename
                 filename=$(basename "$file" .md)
-                # Format: YYYY-MM-DD-slug -> /YYYY-MM-DD-slug/
                 url="https://singhajit.com/${filename}/"
               elif [[ $file == _explainers/* ]]; then
+                # Fallback for explainers
                 slug=$(basename "$file" .md)
                 url="https://singhajit.com/explainer/${slug}/"
               fi

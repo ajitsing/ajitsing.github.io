@@ -13,6 +13,19 @@ keywords: "Slack system design, real-time messaging architecture, WebSocket scal
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "What database architecture does Slack use for storing messages?"
+    answer: "Slack uses MySQL with workspace-based sharding. Messages are stored in tiered storage - hot storage (Redis cache + MySQL) for recent messages (last 30 days), warm storage for older messages (30-365 days), and cold storage (Amazon S3) for messages older than a year. Elasticsearch powers the search layer across all tiers."
+  - question: "How does Slack handle millions of users and channels at scale?"
+    answer: "Slack shards everything by workspace - each workspace gets its own database shard, RTM server, and search index. This provides linear scaling, fault isolation, and data locality. Users within a workspace share resources, but different workspaces are completely isolated."
+  - question: "How does Slack deliver messages in real-time to users?"
+    answer: "Slack uses a two-brain architecture: WebApp servers handle message validation, processing, and database writes, while Real-Time Messaging (RTM) servers manage WebSocket connections and message broadcasting. Messages flow through WebApp for storage, then RTM broadcasts to connected users instantly."
+  - question: "What is Slack's scalability strategy for handling billions of messages?"
+    answer: "Slack's scalability comes from workspace-based sharding, separating read/write concerns (WebApp vs RTM servers), tiered message storage, Redis caching, and solving the thundering herd problem with exponential backoff and jitter during reconnections."
+  - question: "How does Slack store and retrieve channel messages efficiently?"
+    answer: "Channel messages are stored in sharded MySQL databases partitioned by workspace. Recent messages are cached in Redis for instant access. Lazy-loading fetches message history as users scroll, and Elasticsearch enables fast full-text search across all messages."
+  - question: "What technology stack powers Slack's messaging architecture?"
+    answer: "Slack uses PHP for WebApp servers, Java for RTM (real-time) servers, MySQL for sharded databases, Redis for caching and connection state, Elasticsearch for search, AWS infrastructure, HAProxy for load balancing, and CloudFront CDN for file delivery."
 ---
 
 You send a message in Slack, and within milliseconds, it appears on your colleague's screen across the globe. Behind this simple action lies one of the most sophisticated real-time messaging systems ever built.

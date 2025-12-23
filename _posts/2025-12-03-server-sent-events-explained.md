@@ -1,18 +1,28 @@
 ---
 layout: post
-title: "Server-Sent Events: One-Way Real-Time Streaming Over HTTP"
+title: "The Complete Guide to Server-Sent Events (SSE)"
 subtitle: "The overlooked middle ground between polling and WebSockets"
 date: 2025-12-03
+last-modified-date: 2025-12-23
 thumbnail-img: /assets/img/posts/system-design/server-sent-events-thumb.png
 share-img: /assets/img/posts/system-design/server-sent-events-thumb.png
 categories: system-design
 tags: [system-design]
 permalink: /server-sent-events-explained/
-description: "Learn how Server-Sent Events (SSE) enable real-time server push over HTTP. Understand implementation, auto-reconnection, and when to choose SSE over WebSockets or Long Polling."
-keywords: "server-sent events, SSE, EventSource, real-time streaming, HTTP streaming, server push, WebSocket alternative, live updates, event stream, real-time web"
+description: "Complete guide to Server-Sent Events (SSE) and the EventSource API. Learn about the default 3000ms retry time, auto-reconnection, Last-Event-ID, and when to choose SSE over WebSockets."
+keywords: "server-sent events, SSE, EventSource, eventsource retry, eventsource reconnection time, 3000ms, default retry time, text/event-stream, Last-Event-ID"
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "What is the default EventSource retry time?"
+    answer: "The default EventSource retry time is 3000 milliseconds (3 seconds). When a connection drops, the browser waits 3 seconds before attempting to reconnect. Servers can override this by sending a retry field with a different value in milliseconds."
+  - question: "What is the default EventSource reconnection time according to the HTML standard?"
+    answer: "According to the HTML Living Standard, the default reconnection time for EventSource is approximately 3 seconds (3000ms). The server can modify this by sending a retry field with the desired milliseconds value."
+  - question: "How do I change the EventSource retry interval?"
+    answer: "The server can change the retry interval by sending a retry field in the event stream. For example, sending 'retry: 5000' sets the reconnection time to 5 seconds. The client cannot directly set this value."
+  - question: "Does EventSource automatically reconnect?"
+    answer: "Yes, EventSource automatically reconnects when the connection drops. The browser handles reconnection without any code needed, waiting the retry time (default 3000ms) before attempting to reconnect."
 ---
 
 You need to push live updates from server to client. Stock prices. Notifications. Live scores. Log streams.
@@ -215,6 +225,53 @@ app.get('/events', (req, res) => {
 <img src="/assets/img/posts/system-design/server-sent-events.png" alt="Server-Sent Events sequence diagram showing browser establishing HTTP connection to server, server keeping connection open and streaming price updates continuously, connection dropping and browser automatically reconnecting with Last-Event-ID header to resume from last received event" title="How Server-Sent Events work - persistent HTTP streaming with automatic reconnection" loading="lazy" />
 
 Compare this to WebSockets where you need to implement your own reconnection logic, sequence tracking, and message replay. SSE gives you this for free.
+
+## EventSource Default Retry Time: 3000ms
+
+When an SSE connection drops, the browser automatically attempts to reconnect. But how long does it wait?
+
+**The default EventSource retry time is 3000 milliseconds (3 seconds).**
+
+This is defined in the [HTML Living Standard](https://html.spec.whatwg.org/multipage/server-sent-events.html) and implemented consistently across browsers. The [MDN EventSource documentation](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) confirms this behavior.
+
+### Customizing the Retry Interval
+
+Servers can override the default by sending a `retry` field in the event stream:
+
+```javascript
+app.get('/events', (req, res) => {
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    
+    // Set custom retry interval to 5 seconds
+    res.write('retry: 5000\n\n');
+    
+    // Send events...
+    const intervalId = setInterval(() => {
+        res.write(`data: ${JSON.stringify({ time: Date.now() })}\n\n`);
+    }, 1000);
+    
+    req.on('close', () => clearInterval(intervalId));
+});
+```
+
+<br>
+
+| Retry Value | Behavior |
+|-------------|----------|
+| Not sent | Browser uses default 3000ms |
+| `retry: 1000` | Reconnect after 1 second |
+| `retry: 5000` | Reconnect after 5 seconds |
+| `retry: 10000` | Reconnect after 10 seconds |
+| `retry: 0` | Reconnect immediately (not recommended) |
+
+**Important Notes:**
+
+- The `retry` field must be sent as a separate line in the event stream format
+- The value is in milliseconds
+- The browser remembers this value for the duration of the connection
+- Setting `retry: 0` causes immediate reconnection attempts, which can overwhelm your server
 
 ## SSE vs WebSockets vs Long Polling
 

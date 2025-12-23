@@ -2,29 +2,56 @@
 # IndexNow Notification Script for Bing/Yandex
 # 
 # Usage: 
-#   ./scripts/indexnow-notify.sh https://singhajit.com/new-post-url/
-#   ./scripts/indexnow-notify.sh https://singhajit.com/post1/ https://singhajit.com/post2/
+#   ./scripts/indexnow-notify.sh _posts/2025-12-22-htmx-guide.md
+#   ./scripts/indexnow-notify.sh _posts/post1.md _posts/post2.md
 #
-# This script notifies Bing and Yandex about new or updated content via IndexNow protocol
+# This script reads the permalink from the post's frontmatter and notifies
+# Bing and Yandex about new or updated content via IndexNow protocol
 
 HOST="singhajit.com"
 KEY="c7cba40954d441c6866b7aa29ed5c8d6"
 KEY_LOCATION="https://singhajit.com/${KEY}.txt"
 
-# Check if URLs are provided
+# Check if files are provided
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 <url1> [url2] [url3] ..."
-    echo "Example: $0 https://singhajit.com/my-new-post/"
+    echo "Usage: $0 <post1.md> [post2.md] [post3.md] ..."
+    echo "Example: $0 _posts/2025-12-22-htmx-guide-modern-web-development.md"
     exit 1
 fi
 
-# Build URL list for JSON
+# Extract permalink from frontmatter and build URL list
 URL_LIST=""
-for url in "$@"; do
+URLS_DISPLAY=""
+
+for file in "$@"; do
+    if [ ! -f "$file" ]; then
+        echo "Error: File not found: $file"
+        exit 1
+    fi
+    
+    # Extract permalink from frontmatter (between --- markers)
+    permalink=$(sed -n '/^---$/,/^---$/p' "$file" | grep -E '^permalink:' | sed 's/^permalink:[[:space:]]*//' | tr -d '"' | tr -d "'")
+    
+    if [ -z "$permalink" ]; then
+        echo "Error: No permalink found in frontmatter of: $file"
+        exit 1
+    fi
+    
+    # Build full URL
+    url="https://${HOST}${permalink}"
+    
+    # Add to URL list for JSON
     if [ -n "$URL_LIST" ]; then
         URL_LIST="$URL_LIST,"
     fi
     URL_LIST="$URL_LIST\"$url\""
+    
+    # Add to display list
+    if [ -n "$URLS_DISPLAY" ]; then
+        URLS_DISPLAY="$URLS_DISPLAY, $url"
+    else
+        URLS_DISPLAY="$url"
+    fi
 done
 
 # JSON payload
@@ -38,7 +65,7 @@ JSON_PAYLOAD=$(cat <<EOF
 EOF
 )
 
-echo "Notifying IndexNow about URL(s): $@"
+echo "Notifying IndexNow about URL(s): $URLS_DISPLAY"
 echo ""
 
 # Notify Bing
@@ -70,4 +97,3 @@ echo "  400 = Invalid request"
 echo "  403 = Key not valid"
 echo "  422 = URLs don't belong to the host"
 echo "  429 = Too many requests"
-

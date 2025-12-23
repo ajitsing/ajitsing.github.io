@@ -1,21 +1,28 @@
 ---
 layout: post
 seo: true
-title: "From Panic to Performance: A Guide to Grafana k6 Load Testing"
+title: "The Complete Guide to k6 Load Testing"
 subtitle: "From panic to performance confidence – scripting, scaling, observing, and automating load tests with k6"
 date: 2025-08-10
-last-modified-date: 2025-10-16
+last-modified-date: 2025-12-23
 permalink: /performance-testing-with-grafana-k6/
 share-img: /assets/img/posts/performance_testing/cover.png
 thumbnail-img: /assets/img/posts/performance_testing/cover.png
-description: "Performance testing using Grafana k6: scripting basics, checks, thresholds, scenarios, custom metrics, observability, CI/CD automation, and best practices."
-keywords: "performance testing, load testing, Grafana k6, k6 scenarios, k6 thresholds, k6 checks, DevOps, SRE, reliability engineering, k6 GitHub Actions"
+description: "Master k6 executors: ramping-arrival-rate, constant-arrival-rate, and ramping-vus explained with examples. Complete guide to k6 load testing scenarios, thresholds, and CI/CD."
+keywords: "k6 ramping-arrival-rate, k6 constant-arrival-rate, k6 ramping-vus, k6 executors, performance testing, load testing, Grafana k6, k6 scenarios, k6 thresholds"
 tags: ["performance-testing", "testing"]
 social-share: true
 comments: true
+faq:
+  - question: "What is the k6 ramping-arrival-rate executor?"
+    answer: "The ramping-arrival-rate executor in k6 gradually increases the request rate (RPS) over time. Unlike ramping-vus which controls user count, this executor maintains a target throughput by dynamically adjusting VUs as response times change."
+  - question: "What is the difference between constant-arrival-rate and ramping-arrival-rate in k6?"
+    answer: "constant-arrival-rate maintains a fixed requests-per-second throughout the test, while ramping-arrival-rate gradually increases or decreases the RPS through defined stages. Use constant for SLA validation, ramping for realistic traffic growth simulation."
+  - question: "When should I use ramping-vus vs ramping-arrival-rate?"
+    answer: "Use ramping-vus when you want to simulate growing user traffic where RPS varies based on response time. Use ramping-arrival-rate when you need to guarantee a specific throughput regardless of latency - k6 will add more VUs automatically to maintain the target RPS."
+  - question: "How do I configure preAllocatedVUs and maxVUs for arrival-rate executors?"
+    answer: "preAllocatedVUs is the initial pool of virtual users k6 creates. maxVUs is the upper limit k6 can scale to if responses slow down. Start with preAllocatedVUs equal to your target RPS divided by expected requests per VU per second, and set maxVUs 2-3x higher."
 ---
-
-## 1. From Firefighting to Foresight
 
 Your team just shipped a new personalization API. Marketing ran a campaign. Traffic spiked. Latency tripled. Dashboards lit up. Postmortem pain followed.
 
@@ -26,7 +33,7 @@ This week, you decide to change that. Enter **Grafana k6** – an open source, d
 In this guide, we’ll rebuild performance confidence step‑by‑step – the same way a real team would.
 
 ---
-## 2. Why k6?
+## Why k6?
 
 Before diving into code, let's understand what makes k6 special:
 
@@ -56,7 +63,7 @@ graph LR
 ```
 
 ---
-## 3. First Script: Baseline Request
+## First Script: Baseline Request
 
 Create `scripts/smoke.js`:
 
@@ -124,7 +131,7 @@ sequenceDiagram
 **Congratulations!** You just ran your first load test. But we're not stopping here—let's add some teeth to it.
 
 ---
-## 4. Add SLO Guardrails with Thresholds
+## Add SLO Guardrails with Thresholds
 
 Thresholds fail the test if SLOs degrade – perfect for CI.
 
@@ -148,7 +155,9 @@ export const options = {
 If violated, k6 exits with non‑zero status -> pipeline fails.
 
 ---
-## 5. Realistic Scenarios: Spikes, Ramps & Constant Rate
+## k6 Executors Explained
+
+k6 provides several executor types to model different traffic patterns. Here's a complete scenario combining multiple executors:
 
 `scenarios.js`:
 
@@ -218,97 +227,180 @@ This test simulates three real-world traffic patterns running simultaneously:
 | **sustained_api** | 100 requests/second for 3 minutes | Validates steady-state capacity and SLA compliance |
 | **spike** | 100 users login simultaneously | Tests auth system under sudden traffic burst |
 
-**Key Settings Explained:**
+---
 
-**1. Ramp-Up VUs (ramping-vus)**
-```javascript
-stages: [
-  { duration: '1m', target: 50 },   // Gradual increase
-  { duration: '2m', target: 50 },   // Hold steady
-  { duration: '30s', target: 0 },   // Ramp down
-]
-```
-- **Controls:** Number of virtual users
-- **Use case:** Simulate gradual user growth (morning traffic, cache warm-up)
-- **Example:** "Start with 0 users, grow to 50 over 1 minute, hold steady for 2 minutes"
+### k6 ramping-vus Executor
 
-**2. Constant Arrival Rate (constant-arrival-rate)**
-```javascript
-rate: 100,              // 100 requests per second
-preAllocatedVUs: 60,    // Start with 60 VUs
-maxVUs: 120,            // Scale up to 120 if needed
-```
-- **Controls:** Requests per second (RPS)
-- **Use case:** Validate SLA at specific throughput
-- **Example:** "Send exactly 100 requests/second regardless of response time"
-- **Why it's powerful:** If your API slows down, k6 spins up more VUs to maintain the target RPS. This helps you spot when latency increases under load.
+The `ramping-vus` executor controls the **number of virtual users** over time. Use it to simulate gradual user growth.
 
-**3. Spike (per-vu-iterations)**
 ```javascript
-vus: 100,         // 100 users
-iterations: 1,    // Each runs once = instant burst
+{
+  executor: 'ramping-vus',
+  startVUs: 0,
+  stages: [
+    { duration: '1m', target: 50 },   // Gradual increase to 50 users
+    { duration: '2m', target: 50 },   // Hold steady at 50 users
+    { duration: '30s', target: 0 },   // Ramp down to 0
+  ],
+}
 ```
-- **Controls:** Instant burst of users
-- **Use case:** Test sudden traffic spikes (push notification, flash sale)
-- **Example:** "100 users all login at exactly the same time"
+
+<br>
+
+| Setting | Description |
+|---------|-------------|
+| `startVUs` | Initial number of virtual users |
+| `stages` | Array of ramp stages with duration and target VU count |
+| `gracefulRampDown` | Time to wait for iterations to finish when ramping down |
+
+<br>
+
+**When to use:** Morning traffic simulation, cache warm-up testing, gradual load increase.
+
+**Behavior:** If your API slows down, users wait longer and RPS drops naturally—just like real users.
 
 ---
 
-### VUs vs. Arrival Rate: What's the Difference?
+### k6 constant-arrival-rate Executor
 
-| Executor Type | What It Controls | When Latency Increases... | Best For |
-|---------------|------------------|---------------------------|----------|
-| **ramping-vus** | Number of concurrent users | RPS decreases | Simulating realistic user behavior |
-| **constant-arrival-rate** | Requests per second (RPS) | k6 adds more VUs | SLA validation, capacity planning |
-| **ramping-arrival-rate** | Gradually increase RPS | k6 adjusts VUs dynamically | Realistic ramp-up to peak RPS |
-
-**Example Scenario:**
+The `constant-arrival-rate` executor maintains a **fixed requests-per-second (RPS)** regardless of response time.
 
 ```javascript
-// ramping-vus: "I want 50 users browsing the site"
-{
-  executor: 'ramping-vus',
-  stages: [{ duration: '2m', target: 50 }],
-}
-// If API slows down: Users wait longer, RPS drops naturally
-
-// constant-arrival-rate: "I want exactly 100 requests/second"
 {
   executor: 'constant-arrival-rate',
-  rate: 100,
-  duration: '2m',
-  preAllocatedVUs: 50,
-  maxVUs: 200,
+  rate: 100,              // 100 requests per second
+  timeUnit: '1s',         // Rate is per second
+  duration: '3m',         // Run for 3 minutes
+  preAllocatedVUs: 60,    // Start with 60 VUs
+  maxVUs: 120,            // Scale up to 120 if needed
 }
-// If API slows down: k6 spins up more VUs to maintain 100 RPS
+```
 
-// ramping-arrival-rate: "Gradually increase from 10 to 100 requests/second"
+<br>
+
+| Setting | Description |
+|---------|-------------|
+| `rate` | Number of iterations to start per timeUnit |
+| `timeUnit` | Period of time to apply the rate (default: '1s') |
+| `preAllocatedVUs` | Initial VU pool size |
+| `maxVUs` | Maximum VUs k6 can scale to |
+
+<br>
+
+**When to use:** SLA validation, capacity planning, "can we handle X RPS?" testing.
+
+**Behavior:** If your API slows down, k6 spins up more VUs to maintain the target RPS. This reveals latency degradation under load.
+
+---
+
+### k6 ramping-arrival-rate Executor
+
+The `ramping-arrival-rate` executor **gradually increases or decreases RPS** through defined stages—combining the best of ramping patterns with fixed throughput guarantees.
+
+```javascript
 {
   executor: 'ramping-arrival-rate',
-  startRate: 10,
+  startRate: 10,          // Start at 10 RPS
   timeUnit: '1s',
+  preAllocatedVUs: 50,
+  maxVUs: 200,
   stages: [
     { duration: '2m', target: 50 },   // Ramp to 50 RPS
     { duration: '3m', target: 100 },  // Ramp to 100 RPS
     { duration: '1m', target: 100 },  // Hold at 100 RPS
+    { duration: '1m', target: 0 },    // Ramp down
   ],
-  preAllocatedVUs: 50,
-  maxVUs: 200,
 }
-// Best of both worlds: Gradual RPS increase + fixed throughput
 ```
 
-**When to Use Each:**
+<br>
 
-- **ramping-vus:** "How does my app handle growing user traffic?"
-- **constant-arrival-rate:** "Can we handle 500 RPS within our SLA?"
-- **ramping-arrival-rate:** "Gradually ramp to Black Friday traffic levels"
-- **per-vu-iterations:** "What happens during a login storm?"
+| Setting | Description |
+|---------|-------------|
+| `startRate` | Initial iterations per timeUnit |
+| `stages` | Array of stages with duration and target RPS |
+| `preAllocatedVUs` | Initial VU pool (set to expected RPS / iterations per VU per second) |
+| `maxVUs` | Maximum VUs for scaling (set 2-3x preAllocatedVUs) |
+
+<br>
+
+**When to use:** Black Friday traffic simulation, realistic ramp-up to peak load, gradual stress testing.
+
+**Behavior:** k6 dynamically adjusts VUs to maintain the target RPS at each stage. Perfect for finding the breaking point.
+
+**Complete Example:**
+
+```javascript
+import http from 'k6/http';
+import { check } from 'k6';
+
+export const options = {
+  scenarios: {
+    ramp_to_peak: {
+      executor: 'ramping-arrival-rate',
+      startRate: 10,
+      timeUnit: '1s',
+      preAllocatedVUs: 50,
+      maxVUs: 300,
+      stages: [
+        { duration: '1m', target: 50 },    // Warm up to 50 RPS
+        { duration: '2m', target: 100 },   // Scale to 100 RPS
+        { duration: '3m', target: 200 },   // Push to 200 RPS
+        { duration: '2m', target: 200 },   // Hold peak
+        { duration: '1m', target: 0 },     // Ramp down
+      ],
+    },
+  },
+  thresholds: {
+    http_req_duration: ['p(95)<500'],
+    http_req_failed: ['rate<0.01'],
+  },
+};
+
+export default function () {
+  const res = http.get('https://api.example.com/products');
+  check(res, { 'status 200': (r) => r.status === 200 });
+}
+```
+
+---
+
+### k6 per-vu-iterations Executor (Spike Testing)
+
+The `per-vu-iterations` executor runs each VU for a fixed number of iterations—perfect for **instant traffic bursts**.
+
+```javascript
+{
+  executor: 'per-vu-iterations',
+  vus: 100,         // 100 users
+  iterations: 1,    // Each runs once = instant burst
+  gracefulStop: '30s',
+}
+```
+
+**When to use:** Login storms, push notification spikes, flash sale simulations.
+
+---
+
+### ramping-vus vs ramping-arrival-rate: Which Should You Use?
+
+| Executor | Controls | When Latency Increases... | Best For |
+|----------|----------|---------------------------|----------|
+| **ramping-vus** | Number of concurrent users | RPS decreases naturally | Simulating realistic user behavior |
+| **constant-arrival-rate** | Fixed RPS | k6 adds more VUs | SLA validation at specific throughput |
+| **ramping-arrival-rate** | Gradually changing RPS | k6 adjusts VUs dynamically | Realistic ramp to peak traffic |
+
+**Quick Decision Guide:**
+
+- **"How does my app handle growing users?"** → Use `ramping-vus`
+- **"Can we sustain exactly 500 RPS?"** → Use `constant-arrival-rate`
+- **"Simulate Black Friday traffic ramp"** → Use `ramping-arrival-rate`
+- **"What happens in a login storm?"** → Use `per-vu-iterations`
 
 **Pro Tip:** Start with one scenario, validate it works, then add more. Don't try to build the perfect test on day one.
 
 ---
-## 6. Data-Driven & Parameterized Tests
+## Data-Driven & Parameterized Tests
 
 `data.js`:
 
@@ -352,7 +444,7 @@ const BASE = __ENV.API_BASE;
 ```
 
 ---
-## 7. Checks vs Thresholds vs Assertions
+## Checks vs Thresholds vs Assertions
 
 | Concept | Scope | Purpose |
 |--------|-------|---------|
@@ -361,7 +453,7 @@ const BASE = __ENV.API_BASE;
 | Custom logic (throw) | Immediate | Hard stop for critical scenarios |
 
 ---
-## 8. Custom & Trend Metrics
+## Custom & Trend Metrics
 
 ```javascript
 import { Trend, Counter } from 'k6/metrics';
@@ -383,7 +475,7 @@ export default function () {
 Visualize custom metrics in Grafana (Prometheus / Influx pipeline described next).
 
 ---
-## 9. Observability: Streaming to Grafana
+## Observability: Streaming to Grafana
 
 ### Option A: Prometheus Remote Write
 
@@ -414,7 +506,7 @@ Import a k6 Grafana dashboard (ID: 2587 or community variants) and correlate wit
 4. Pin p95 regression panels.
 
 ---
-## 10. GitHub Actions CI Integration
+## GitHub Actions CI Integration
 
 `.github/workflows/perf.yml`:
 
@@ -442,7 +534,7 @@ jobs:
 Failing thresholds stop merges: true shift‑left.
 
 ---
-## 11. Scaling Beyond One Machine
+## Scaling Beyond One Machine
 
 | Need | Approach |
 |------|----------|
@@ -467,7 +559,7 @@ spec:
 
 ---
 
-## 12. Best Practices Checklist
+## Best Practices Checklist
 
 - Start with **small smoke tests** on every PR.
 - Define **SLO-aligned thresholds** (p95, error rate) early.
@@ -482,7 +574,7 @@ spec:
 - Periodically **refresh test data** to avoid caching distortion.
 
 ---
-## 13. Resources
+## Resources
 
 - [Official k6 Documentation](https://k6.io/docs/)
 - [k6 Examples Repository](https://github.com/grafana/k6-examples)

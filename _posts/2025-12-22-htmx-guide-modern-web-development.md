@@ -12,6 +12,21 @@ description: "Complete guide to HTMX for developers. Learn how HTMX works, when 
 keywords: "htmx tutorial, htmx guide, htmx vs react, htmx examples, hypermedia driven applications, htmx attributes, hx-get hx-post, htmx ajax, server side rendering htmx, htmx web development, frontend without javascript, htmx architecture"
 seo: true
 comments: true
+faq:
+  - question: "What is HTMX and how does it work?"
+    answer: "HTMX is a lightweight JavaScript library (14KB gzipped) that extends HTML with attributes allowing any element to make HTTP requests and update the page. Instead of writing JavaScript, you add attributes like hx-get, hx-post, hx-target, and hx-swap to HTML elements. When triggered, HTMX sends AJAX requests to your server, which returns HTML fragments that HTMX swaps into the DOM. No virtual DOM, no build step, no complex state management required."
+  - question: "What are the core HTMX attributes I need to know?"
+    answer: "The essential HTMX attributes are: hx-get, hx-post, hx-put, hx-patch, hx-delete for making HTTP requests; hx-target for specifying where the response goes (CSS selector); hx-swap for controlling how content is inserted (innerHTML, outerHTML, beforeend, etc.); and hx-trigger for defining what event initiates the request (click, keyup, load, revealed, etc.). These four concepts cover most use cases."
+  - question: "When should I use HTMX instead of React or Vue?"
+    answer: "HTMX is ideal for CRUD applications, admin panels, dashboards, and content management systems. It's perfect for teams with backend strength (Python, Ruby, Go, Java) who want to avoid complex JavaScript. Use HTMX when you need simpler deployment without build steps, and when your application is primarily server-rendered. Choose React/Vue for complex client-side interactions, offline support, real-time collaborative editing, or high-frequency interactions like drawing apps or games."
+  - question: "What is hypermedia driven applications (HDA) architecture?"
+    answer: "Hypermedia Driven Applications is the philosophy behind HTMX where the server drives the UI by returning HTML instead of JSON. In SPAs, the browser requests JSON from an API and client JavaScript transforms it into HTML. In HDA, the browser requests HTML directly, the server returns ready-to-use HTML fragments, and HTMX puts them in the DOM. State lives on the server (database + session), not in client-side stores like Redux."
+  - question: "Is HTMX slow because it makes server requests for every interaction?"
+    answer: "HTMX performance is often better than expected because: modern networks have ~50ms round trips which users don't notice; HTML partials are typically just a few KB (smaller than React bundles); there's no client-side processing like JSON parsing or virtual DOM diffing; server responses can be cached by CDNs; and your server is on the same network as your database. The real bottleneck is usually the database, which affects both JSON APIs and HTML responses equally."
+  - question: "How do I add HTMX to my existing website?"
+    answer: "Add HTMX via CDN with a single script tag: <script src='https://unpkg.com/htmx.org@2.0.0'></script>, or install via npm (npm install htmx.org) and import it. To progressively enhance existing pages, add hx-boost='true' to the body element - this makes all links and forms submit via AJAX automatically without rewriting your existing server routes or templates."
+  - question: "How does HTMX handle updating multiple parts of a page?"
+    answer: "HTMX uses out-of-band swaps with the hx-swap-oob attribute. Your server can return multiple HTML fragments in a single response. The primary response goes to hx-target, while elements marked with hx-swap-oob='true' are automatically swapped into matching elements on the page by their ID. For example, adding to cart can update the success message, cart count, and cart total in one request."
 ---
 
 For years, the default assumption was that building modern web applications required React, Vue, or Angular. That frontend development meant writing JavaScript, managing state, and shipping large bundles to the browser.

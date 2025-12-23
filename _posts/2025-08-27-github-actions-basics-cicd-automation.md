@@ -33,7 +33,7 @@ These are the automation recipes stored in `.github/workflows/` directory. Think
 The triggers that kick off your workflows. Common ones include:
 - `push` - Someone pushes code
 - `pull_request` - A PR is opened or updated
-- `schedule` - Run on a timer (like cron jobs)
+- `schedule` - Run on a timer using [cron syntax](/tools/cron-expression/)
 - `workflow_dispatch` - Manual trigger
 
 ### Jobs

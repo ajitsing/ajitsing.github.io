@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Caching Strategies Explained: Read-Through, Write-Through, Write-Behind and More"
+title: "Caching Strategies Explained: The Complete Guide"
 subtitle: "The complete guide to cache patterns that every backend developer should know"
 date: 2025-12-24
 categories: system-design
@@ -8,7 +8,7 @@ tags: [system-design]
 thumbnail-img: /assets/img/posts/caching-strategies/caching-strategies-thumbnail.png
 share-img: /assets/img/posts/caching-strategies/caching-strategies-thumbnail.png
 permalink: /caching-strategies-explained/
-description: "Learn all caching strategies including Cache-Aside, Read-Through, Write-Through, Write-Behind, and Write-Around. Understand when to use each pattern, their tradeoffs, and how companies like Netflix, Amazon, and Facebook implement them at scale."
+description: "Learn Cache-Aside, Read-Through, Write-Through, Write-Behind, and Write-Around caching patterns. When to use each, tradeoffs, and real-world examples."
 keywords: "caching strategies, cache aside pattern, read through cache, write through cache, write behind cache, write back cache, write around cache, cache eviction, LRU cache, cache invalidation, redis caching, distributed cache, caching patterns, system design cache"
 seo: true
 comments: true

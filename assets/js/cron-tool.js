@@ -60,8 +60,9 @@
     buildNextRuns: document.getElementById('build-next-runs'),
     copyBtn: document.getElementById('copy-btn'),
     
-    // Examples
-    exampleBtns: document.querySelectorAll('.example-btn')
+    // Examples (support both button and table row formats)
+    exampleBtns: document.querySelectorAll('.example-btn'),
+    exampleRows: document.querySelectorAll('.example-row')
   };
 
   // ==========================================================================
@@ -190,6 +191,17 @@
       return `Every ${interval} minutes`;
     }
 
+    // Every minute during specific hour(s)
+    if (minute === '*' && hour !== '*') {
+      const hourVal = parseFieldValues(hour);
+      if (hourVal.length === 1) {
+        const h = hourVal[0] % 12 || 12;
+        const ampm = hourVal[0] < 12 ? 'AM' : 'PM';
+        return `Every minute from ${h}:00-${h}:59 ${ampm}`;
+      }
+      return `Every minute during hours ${hour}`;
+    }
+
     // Every hour at specific minute
     if (minute !== '*' && hour === '*') {
       return `Every hour at minute ${minute}`;
@@ -217,7 +229,7 @@
       }
     }
 
-    return `At ${hour}:${minute.padStart(2, '0')}`;
+    return `At ${hour}:${String(minute).padStart(2, '0')}`;
   }
 
   /**
@@ -768,9 +780,14 @@
     // Real-time parsing as user types (with URL update)
     elements.cronInput.addEventListener('input', parseAndUpdateWithURL);
 
-    // Example buttons
+    // Example buttons (legacy support)
     elements.exampleBtns.forEach(btn => {
       btn.addEventListener('click', handleExampleClick);
+    });
+
+    // Example table rows
+    elements.exampleRows.forEach(row => {
+      row.addEventListener('click', handleExampleClick);
     });
 
     // Copy button
@@ -780,34 +797,6 @@
     const shareBtn = document.getElementById('share-btn');
     if (shareBtn) {
       shareBtn.addEventListener('click', handleShareClick);
-    }
-
-    // Examples toggle
-    const examplesToggle = document.getElementById('examples-toggle');
-    const examplesGrid = document.getElementById('examples-grid');
-    if (examplesToggle && examplesGrid) {
-      examplesToggle.addEventListener('click', () => {
-        const isExpanded = examplesGrid.style.display !== 'none';
-        examplesGrid.style.display = isExpanded ? 'none' : 'block';
-        examplesToggle.classList.toggle('expanded', !isExpanded);
-        
-        // Track toggle
-        trackEvent('examples_toggle', isExpanded ? 'collapse' : 'expand');
-      });
-    }
-
-    // Syntax guide toggle
-    const syntaxToggle = document.getElementById('syntax-guide-toggle');
-    const syntaxContent = document.getElementById('syntax-guide-content');
-    if (syntaxToggle && syntaxContent) {
-      syntaxToggle.addEventListener('click', () => {
-        const isExpanded = syntaxContent.style.display !== 'none';
-        syntaxContent.style.display = isExpanded ? 'none' : 'block';
-        syntaxToggle.classList.toggle('expanded', !isExpanded);
-        
-        // Track toggle
-        trackEvent('syntax_guide_toggle', isExpanded ? 'collapse' : 'expand');
-      });
     }
 
     // Initialize builder

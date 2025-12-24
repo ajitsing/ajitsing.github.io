@@ -3,8 +3,8 @@ layout: post
 title: "Caching Strategies Explained: The Complete Guide"
 subtitle: "The complete guide to cache patterns that every backend developer should know"
 date: 2025-12-24
-categories: system-design
-tags: [system-design]
+categories: software-engineering
+tags: [software-engineering]
 thumbnail-img: /assets/img/posts/caching-strategies/caching-strategies-thumbnail.png
 share-img: /assets/img/posts/caching-strategies/caching-strategies-thumbnail.png
 permalink: /caching-strategies-explained/

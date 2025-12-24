@@ -398,6 +398,15 @@ Kubernetes succeeded because it solved real problems that every organization fac
 4. **Declarative Management**: Infrastructure as code for applications
 5. **Self-Healing**: Automatic recovery from failures
 
+## Beyond Deployments: Other Workload Types
+
+While this article focused on Deployments and Pods, Kubernetes supports other workload types:
+
+- **StatefulSets**: For stateful applications like databases that need stable network identities
+- **DaemonSets**: Run one pod per node (great for log collectors or monitoring agents)
+- **Jobs**: Run tasks to completion (batch processing, migrations)
+- **CronJobs**: Run Jobs on a schedule using [cron expressions](/tools/cron-expression/) (backups, reports, cleanup tasks)
+
 ## Conclusion
 
 Kubernetes might seem complex at first, but its architecture is actually quite elegant. By separating concerns between the control plane (decision making) and worker nodes (execution), it creates a scalable, resilient platform for running distributed applications.

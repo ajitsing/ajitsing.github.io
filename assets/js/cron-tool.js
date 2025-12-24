@@ -636,6 +636,9 @@
     elements.cronInput.value = cron;
     parseAndUpdate();
     
+    // Update URL with the example expression
+    updateURL(cron);
+    
     // Scroll to top of tool
     document.querySelector('.cron-tool').scrollIntoView({ behavior: 'smooth' });
   }
@@ -661,11 +664,84 @@
     });
   }
 
+  /**
+   * Handle share button click - copies shareable URL to clipboard
+   */
+  function handleShareClick() {
+    const expression = elements.generatedCron.textContent;
+    const url = new URL(window.location.origin + window.location.pathname);
+    url.searchParams.set('expr', expression);
+    const shareUrl = url.toString();
+    
+    // Track share action
+    trackEvent('share_expression', expression);
+    
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      // Show success state
+      const shareBtn = document.getElementById('share-btn');
+      shareBtn.classList.add('copied');
+      shareBtn.innerHTML = '<i class="fas fa-check"></i> Link Copied!';
+      
+      setTimeout(() => {
+        shareBtn.classList.remove('copied');
+        shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> Share';
+      }, 2000);
+    });
+  }
+
+  // ==========================================================================
+  // URL State Management (for shareable links)
+  // ==========================================================================
+
+  /**
+   * Get cron expression from URL query parameter
+   * @returns {string|null} The cron expression or null
+   */
+  function getExpressionFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const expr = params.get('expr');
+    if (expr) {
+      // URL decode and replace + with space (common URL encoding for spaces)
+      return decodeURIComponent(expr).replace(/\+/g, ' ');
+    }
+    return null;
+  }
+
+  /**
+   * Update URL with current cron expression (without page reload)
+   * @param {string} expression - The cron expression to save in URL
+   */
+  function updateURL(expression) {
+    if (!expression || expression.trim() === '') {
+      // Remove the parameter if empty
+      const url = new URL(window.location);
+      url.searchParams.delete('expr');
+      window.history.replaceState({}, '', url);
+      return;
+    }
+    
+    const url = new URL(window.location);
+    url.searchParams.set('expr', expression.trim());
+    window.history.replaceState({}, '', url);
+  }
+
+  /**
+   * Parse and update with URL state awareness
+   */
+  function parseAndUpdateWithURL() {
+    const expression = elements.cronInput.value.trim();
+    parseAndUpdate();
+    updateURL(expression);
+  }
+
   // ==========================================================================
   // Initialize
   // ==========================================================================
 
   function init() {
+    // Check for expression in URL first
+    const urlExpression = getExpressionFromURL();
+    
     // Tab switching
     elements.modeTabs.forEach(tab => {
       tab.addEventListener('click', handleTabClick);
@@ -677,7 +753,7 @@
       if (expression) {
         trackEvent('parse_expression', expression);
       }
-      parseAndUpdate();
+      parseAndUpdateWithURL();
     });
     elements.cronInput.addEventListener('keyup', (e) => {
       if (e.key === 'Enter') {
@@ -685,12 +761,12 @@
         if (expression) {
           trackEvent('parse_expression', expression);
         }
-        parseAndUpdate();
+        parseAndUpdateWithURL();
       }
     });
     
-    // Real-time parsing as user types
-    elements.cronInput.addEventListener('input', parseAndUpdate);
+    // Real-time parsing as user types (with URL update)
+    elements.cronInput.addEventListener('input', parseAndUpdateWithURL);
 
     // Example buttons
     elements.exampleBtns.forEach(btn => {
@@ -700,17 +776,37 @@
     // Copy button
     elements.copyBtn.addEventListener('click', handleCopyClick);
 
+    // Share button
+    const shareBtn = document.getElementById('share-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', handleShareClick);
+    }
+
     // Examples toggle
     const examplesToggle = document.getElementById('examples-toggle');
     const examplesGrid = document.getElementById('examples-grid');
     if (examplesToggle && examplesGrid) {
       examplesToggle.addEventListener('click', () => {
         const isExpanded = examplesGrid.style.display !== 'none';
-        examplesGrid.style.display = isExpanded ? 'none' : 'grid';
+        examplesGrid.style.display = isExpanded ? 'none' : 'block';
         examplesToggle.classList.toggle('expanded', !isExpanded);
         
         // Track toggle
         trackEvent('examples_toggle', isExpanded ? 'collapse' : 'expand');
+      });
+    }
+
+    // Syntax guide toggle
+    const syntaxToggle = document.getElementById('syntax-guide-toggle');
+    const syntaxContent = document.getElementById('syntax-guide-content');
+    if (syntaxToggle && syntaxContent) {
+      syntaxToggle.addEventListener('click', () => {
+        const isExpanded = syntaxContent.style.display !== 'none';
+        syntaxContent.style.display = isExpanded ? 'none' : 'block';
+        syntaxToggle.classList.toggle('expanded', !isExpanded);
+        
+        // Track toggle
+        trackEvent('syntax_guide_toggle', isExpanded ? 'collapse' : 'expand');
       });
     }
 
@@ -720,8 +816,13 @@
     // Initialize build mode with default values
     updateGeneratedCron();
     
-    // Set default expression for parse mode
-    elements.cronInput.value = '0 9 * * 1-5';
+    // Set expression: use URL param if available, otherwise use default
+    if (urlExpression) {
+      elements.cronInput.value = urlExpression;
+      trackEvent('url_load', urlExpression);
+    } else {
+      elements.cronInput.value = '0 9 * * 1-5';
+    }
     parseAndUpdate();
     
     // Track tool load

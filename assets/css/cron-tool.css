@@ -551,15 +551,47 @@ body:has(.cron-tool) {
   transition: transform 0.3s ease;
 }
 
-.examples-toggle.open .toggle-icon {
+.examples-toggle.open .toggle-icon,
+.examples-toggle.expanded .toggle-icon {
   transform: rotate(180deg);
+}
+
+.examples-content {
+  margin-top: 16px;
+}
+
+.examples-category {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.examples-category:last-child {
+  margin-bottom: 0;
+}
+
+.examples-category h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 6px 0;
+}
+
+.examples-category .category-desc {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #78716c;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
 }
 
 .examples-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-top: 12px;
 }
 
 .example-btn {
@@ -592,6 +624,160 @@ body:has(.cron-tool) {
   font-size: 0.75rem;
   color: #78716c;
   background: none;
+}
+
+/* ==========================================================================
+   Syntax Guide Section
+   ========================================================================== */
+
+.syntax-guide-section {
+  margin-bottom: 32px;
+}
+
+.syntax-guide-toggle {
+  width: 100%;
+  padding: 16px 20px;
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #44403c;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.syntax-guide-toggle:hover {
+  background: #f5f0e8;
+  border-color: #d6cfc4;
+}
+
+.syntax-guide-toggle span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.syntax-guide-toggle i.fa-graduation-cap {
+  color: #7c3aed;
+}
+
+.syntax-guide-toggle .toggle-icon {
+  color: #78716c;
+  transition: transform 0.3s ease;
+}
+
+.syntax-guide-toggle.expanded .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.syntax-guide-content {
+  margin-top: 16px;
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.guide-article {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.guide-article:last-child {
+  border-bottom: none;
+}
+
+.guide-article h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+}
+
+.guide-article h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #44403c;
+  margin: 16px 0 8px 0;
+}
+
+.guide-article h3:first-of-type {
+  margin-top: 0;
+}
+
+.guide-article p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  margin: 0 0 12px 0;
+  line-height: 1.7;
+}
+
+.guide-article p:last-child {
+  margin-bottom: 0;
+}
+
+.guide-article ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-article ul li {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  padding: 8px 0 8px 20px;
+  position: relative;
+  border-bottom: 1px solid #f5f0e8;
+}
+
+.guide-article ul li:last-child {
+  border-bottom: none;
+}
+
+.guide-article ul li::before {
+  content: "•";
+  color: #7c3aed;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.guide-article code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #fef3c7;
+}
+
+.syntax-diagram {
+  background: #292524;
+  color: #a8a29e;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.syntax-diagram code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  display: block;
 }
 
 /* ==========================================================================
@@ -707,6 +893,14 @@ body:has(.cron-tool) {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .examples-category {
+    padding: 16px;
+  }
+
+  .examples-category h3 {
+    font-size: 0.95rem;
+  }
+
   .generated-output {
     flex-direction: column;
     text-align: center;
@@ -719,6 +913,15 @@ body:has(.cron-tool) {
 
   .faq-section {
     padding: 20px;
+  }
+
+  .guide-article {
+    padding: 20px;
+  }
+
+  .syntax-diagram {
+    font-size: 0.7rem;
+    padding: 15px;
   }
 }
 

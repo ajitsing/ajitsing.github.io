@@ -44,11 +44,14 @@
 }
 
 .explainer-sidebar-ad {
-  /* Container collapses if ad is blocked */
+  min-height: 250px;
+  width: 100%;
 }
 
 .explainer-sidebar-ad .adsbygoogle {
   min-height: 250px;
+  width: 100%;
+  display: block;
 }
 
 /* ==========================================================================

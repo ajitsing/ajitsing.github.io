@@ -53,14 +53,30 @@
   /**
    * Hide empty ad containers when ads are blocked
    * SEO-friendly: uses requestAnimationFrame to batch with paint
+   * Note: Sidebar ads are NEVER hidden - they don't block content reading
    */
   function hideEmptyAds() {
-    var adContainers = document.querySelectorAll('.post-mid-ad, .post-bottom-ad, .post-sidebar-ad');
+    // Only hide in-content ads that block reading flow
+    // Sidebar ads are intentionally excluded - they stay visible even if empty
+    var adContainers = document.querySelectorAll('.post-mid-ad, .post-bottom-ad');
     adContainers.forEach(function(container) {
       var adSlot = container.querySelector('.adsbygoogle');
-      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
-        container.style.display = 'none';
+      // Check if ad is truly empty (no iframe, no content, and no ad-status indicating it's loading)
+      if (adSlot) {
+        var hasIframe = adSlot.querySelector('iframe');
+        var hasAdStatus = adSlot.dataset.adStatus === 'done' || adSlot.dataset.adStatus === 'filled';
+        var isEmpty = adSlot.offsetHeight === 0 && !hasIframe && !hasAdStatus;
+        
+        if (isEmpty) {
+          container.style.display = 'none';
+        }
       }
+    });
+    
+    // Ensure sidebar ads are always visible (safeguard)
+    var sidebarAds = document.querySelectorAll('.post-sidebar-ad');
+    sidebarAds.forEach(function(container) {
+      container.style.display = '';
     });
   }
 

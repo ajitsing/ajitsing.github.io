@@ -22,6 +22,8 @@ faq:
     answer: "Use ramping-vus when you want to simulate growing user traffic where RPS varies based on response time. Use ramping-arrival-rate when you need to guarantee a specific throughput regardless of latency - k6 will add more VUs automatically to maintain the target RPS."
   - question: "How do I configure preAllocatedVUs and maxVUs for arrival-rate executors?"
     answer: "preAllocatedVUs is the initial pool of virtual users k6 creates. maxVUs is the upper limit k6 can scale to if responses slow down. Start with preAllocatedVUs equal to your target RPS divided by expected requests per VU per second, and set maxVUs 2-3x higher."
+  - question: "What is the k6 constant-arrival-rate executor?"
+    answer: "The constant-arrival-rate executor in k6 maintains a fixed requests-per-second (RPS) throughout your test, regardless of response time. Unlike VU-based executors, it guarantees consistent throughput by automatically scaling virtual users when latency increases. Configure it with rate (target RPS), timeUnit, duration, preAllocatedVUs, and maxVUs."
 ---
 
 Your team just shipped a new personalization API. Marketing ran a campaign. Traffic spiked. Latency tripled. Dashboards lit up. Postmortem pain followed.

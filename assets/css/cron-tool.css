@@ -4,15 +4,63 @@
  */
 
 /* ==========================================================================
+   Page Wrapper with Sidebars
+   ========================================================================== */
+
+.cron-page-wrapper {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 900px) 160px;
+  gap: 24px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Sidebar Ads
+   ========================================================================== */
+
+.cron-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  max-height: calc(100vh - 120px);
+}
+
+.sidebar-ad-container {
+  min-height: 600px;
+}
+
+.sidebar-ad-container .adsbygoogle {
+  min-height: 600px;
+}
+
+/* ==========================================================================
+   Dedicated Ad Section (Below Examples)
+   ========================================================================== */
+
+.dedicated-ad-section {
+  margin: 32px 0;
+  padding: 16px 0;
+  min-height: 120px;
+}
+
+.dedicated-ad-section .adsbygoogle {
+  min-height: 100px;
+}
+
+/* ==========================================================================
    Layout & Container
    ========================================================================== */
 
 .cron-tool {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 20px 15px 40px;
+  width: 100%;
+  padding: 0;
   background: #faf8f5;
-  min-height: 100vh;
 }
 
 /* Override page background for cron tool */
@@ -894,7 +942,28 @@ body:has(.cron-tool) {
    Responsive Design
    ========================================================================== */
 
+/* Hide sidebars on smaller screens */
+@media (max-width: 1200px) {
+  .cron-page-wrapper {
+    grid-template-columns: minmax(0, 900px);
+    padding: 20px 15px 40px;
+  }
+
+  .cron-sidebar {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+  .cron-page-wrapper {
+    padding: 15px 12px 30px;
+  }
+
+  .dedicated-ad-section {
+    margin: 24px 0;
+    padding: 12px 0;
+  }
+
   .tool-header {
     padding: 30px 20px;
     border-radius: 12px;

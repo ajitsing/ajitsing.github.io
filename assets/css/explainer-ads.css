@@ -1,0 +1,137 @@
+/**
+ * Explainer Pages Ad Containers Styles
+ * Top ad (small), bottom ad, and left/right sidebar ads
+ */
+
+/* ==========================================================================
+   Explainer Page Wrapper with Sidebars
+   ========================================================================== */
+
+.explainer-page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1000px) 1fr;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Left spacer for visual balance */
+.explainer-spacer {
+  max-width: 180px;
+}
+
+/* ==========================================================================
+   Main Content Area
+   ========================================================================== */
+
+.explainer-main-content {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* ==========================================================================
+   Sidebar Ads (Left & Right)
+   ========================================================================== */
+
+.explainer-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  max-height: calc(100vh - 120px);
+  max-width: 180px;
+  justify-self: start;
+}
+
+.explainer-sidebar-ad {
+  /* Container collapses if ad is blocked */
+}
+
+.explainer-sidebar-ad .adsbygoogle {
+  min-height: 250px;
+}
+
+/* ==========================================================================
+   Top Ad (Small - doesn't hide content)
+   ========================================================================== */
+
+.explainer-top-ad {
+  margin: 5px 0;
+  padding: 4px 0;
+  text-align: center;
+  width: 100%;
+  max-width: 728px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.explainer-top-ad .adsbygoogle,
+.explainer-top-ad ins {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Allow ad to render naturally but constrain maximum size for small banner */
+.explainer-top-ad iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Allow ad container divs to render naturally */
+.explainer-top-ad div[id*="aswift"],
+.explainer-top-ad div[id*="google_ads"] {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* Hide sidebars on smaller screens */
+@media (max-width: 1200px) {
+  .explainer-page-wrapper {
+    grid-template-columns: minmax(0, 1000px);
+    padding: 0;
+    justify-content: center;
+  }
+
+  .explainer-spacer {
+    display: none;
+  }
+
+  .explainer-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .explainer-page-wrapper {
+    padding: 0;
+  }
+
+  .explainer-top-ad {
+    margin: 4px 0;
+    padding: 3px 0;
+  }
+
+  .explainer-top-ad .adsbygoogle,
+  .explainer-top-ad ins {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .explainer-top-ad iframe {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .explainer-top-ad div[id*="aswift"],
+  .explainer-top-ad div[id*="google_ads"] {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+

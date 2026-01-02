@@ -1,140 +1,73 @@
-/**
- * Explainer Pages Ad Containers Styles
- * Top ad (small), bottom ad, and left/right sidebar ads
- */
-
-/* ==========================================================================
-   Explainer Page Wrapper with Sidebars
-   ========================================================================== */
-
 .explainer-page-wrapper {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 1000px) 1fr;
-  gap: 24px;
-  max-width: 1400px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0;
 }
 
-/* Left spacer for visual balance */
-.explainer-spacer {
-  max-width: 180px;
-}
-
-/* ==========================================================================
-   Main Content Area
-   ========================================================================== */
-
 .explainer-main-content {
   width: 100%;
-  max-width: 1000px;
 }
 
-/* ==========================================================================
-   Sidebar Ads (Left & Right)
-   ========================================================================== */
-
-.explainer-sidebar {
-  position: sticky;
-  top: 100px;
-  height: fit-content;
-  max-height: calc(100vh - 120px);
-  max-width: 180px;
-  justify-self: start;
+.explainer-top-ad {
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  max-width: 728px;
 }
 
-.explainer-sidebar-ad {
-  min-height: 250px;
+.explainer-top-ad .adsbygoogle {
+  display: block;
   width: 100%;
 }
 
-.explainer-sidebar-ad .adsbygoogle {
-  min-height: 250px;
+.explainer-navigation {
+  text-align: center;
+  margin: 40px 20px;
+  padding: 0 20px;
+}
+
+.explainer-nav-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.explainer-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.explainer-bottom-ad {
+  margin: 40px 0 20px 0;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.explainer-bottom-ad .adsbygoogle {
   width: 100%;
   display: block;
 }
 
-/* ==========================================================================
-   Top Ad (Small - doesn't hide content)
-   ========================================================================== */
-
-.explainer-top-ad {
-  margin: 5px 0;
-  padding: 4px 0;
-  text-align: center;
-  width: 100%;
-  max-width: 728px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-}
-
-.explainer-top-ad .adsbygoogle,
-.explainer-top-ad ins {
-  display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* Allow ad to render naturally but constrain maximum size for small banner */
-.explainer-top-ad iframe {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-/* Allow ad container divs to render naturally */
-.explainer-top-ad div[id*="aswift"],
-.explainer-top-ad div[id*="google_ads"] {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-/* ==========================================================================
-   Responsive Design
-   ========================================================================== */
-
-/* Hide sidebars on smaller screens */
-@media (max-width: 1200px) {
-  .explainer-page-wrapper {
-    grid-template-columns: minmax(0, 1000px);
-    padding: 0;
-    justify-content: center;
-  }
-
-  .explainer-spacer {
-    display: none;
-  }
-
-  .explainer-sidebar {
-    display: none;
-  }
-}
-
 @media (max-width: 768px) {
-  .explainer-page-wrapper {
-    padding: 0;
-  }
-
   .explainer-top-ad {
-    margin: 4px 0;
-    padding: 3px 0;
+    margin: 10px auto;
+    padding: 5px 0;
   }
 
-  .explainer-top-ad .adsbygoogle,
-  .explainer-top-ad ins {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .explainer-top-ad iframe {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  .explainer-top-ad div[id*="aswift"],
-  .explainer-top-ad div[id*="google_ads"] {
-    max-width: 100% !important;
-    width: 100% !important;
+  .explainer-bottom-ad {
+    margin: 32px 0;
+    padding: 16px 0;
   }
 }
-

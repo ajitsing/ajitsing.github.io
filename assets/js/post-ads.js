@@ -1,102 +1,113 @@
-/**
- * Blog Post Ad Management
- * - Injects mid-content ad at ~50% of article
- * - Hides empty ad containers for ad-blocker users
- */
-
 (function() {
   'use strict';
 
-  /**
-   * Inject mid-content ad at approximately 50% of the article
-   */
-  function injectMidContentAd() {
-    var article = document.querySelector('.blog-post');
-    if (!article) return;
+  var AD_POSITIONS = [0.25, 0.75];
+  var AD_LOAD_TIMEOUT_MS = 3000;
+  var CONTENT_SELECTOR = '.blog-post';
+  var AD_CLASS = 'post-mid-ad';
+  var VALID_INSERTION_TAGS = ['P', 'H2', 'H3', 'DIV'];
 
-    // Get all direct children of the article (paragraphs, headings, lists, etc.)
-    var children = Array.from(article.children);
-    if (children.length === 0) return;
+  function createAdElement(className) {
+    var container = document.createElement('div');
+    container.className = className;
+    container.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    return container;
+  }
 
-    // Calculate insertion point at ~50%
-    var midPoint = Math.floor(children.length / 2);
-    
-    // Find a good insertion point (prefer after a paragraph or heading, not in the middle of a list)
-    var insertIndex = midPoint;
-    for (var i = midPoint; i < children.length && i < midPoint + 3; i++) {
-      var tagName = children[i].tagName;
-      // Prefer inserting after paragraphs, headings, or divs
-      if (tagName === 'P' || tagName === 'H2' || tagName === 'H3' || tagName === 'DIV') {
-        insertIndex = i + 1;
-        break;
-      }
-    }
-
-    // Create ad container
-    var adContainer = document.createElement('div');
-    adContainer.className = 'post-mid-ad';
-    adContainer.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>';
-    
-    // Insert the ad
-    if (insertIndex < children.length) {
-      article.insertBefore(adContainer, children[insertIndex]);
-    } else {
-      article.appendChild(adContainer);
-    }
-
-    // Push to AdSense
+  function pushToAdSense() {
     if (window.adsbygoogle) {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     }
   }
 
-  /**
-   * Hide empty ad containers when ads are blocked
-   * SEO-friendly: uses requestAnimationFrame to batch with paint
-   * Note: Sidebar ads are NEVER hidden - they don't block content reading
-   */
-  function hideEmptyAds() {
-    // Only hide in-content ads that block reading flow
-    // Sidebar ads are intentionally excluded - they stay visible even if empty
-    var adContainers = document.querySelectorAll('.post-mid-ad, .post-bottom-ad');
-    adContainers.forEach(function(container) {
+  function isValidInsertionPoint(element) {
+    return VALID_INSERTION_TAGS.indexOf(element.tagName) !== -1;
+  }
+
+  function findInsertionIndex(children, targetPercent) {
+    var targetIndex = Math.max(1, Math.floor(children.length * targetPercent));
+    
+    for (var i = targetIndex; i < Math.min(children.length, targetIndex + 3); i++) {
+      if (isValidInsertionPoint(children[i])) {
+        return i + 1;
+      }
+    }
+    
+    return targetIndex;
+  }
+
+  function insertAdAtIndex(container, ad, children, index) {
+    if (index < children.length) {
+      container.insertBefore(ad, children[index]);
+    } else {
+      container.appendChild(ad);
+    }
+  }
+
+  function adsAlreadyInjected(container) {
+    return container.querySelectorAll('.' + AD_CLASS).length > 0;
+  }
+
+  function injectContentAds() {
+    var article = document.querySelector(CONTENT_SELECTOR);
+    if (!article || adsAlreadyInjected(article)) return;
+
+    var children = Array.from(article.children);
+    if (children.length === 0) return;
+
+    var insertionIndices = AD_POSITIONS.map(function(position) {
+      return findInsertionIndex(children, position);
+    });
+
+    if (insertionIndices[1] <= insertionIndices[0]) {
+      insertionIndices[1] = Math.min(
+        insertionIndices[0] + Math.floor(children.length * 0.25),
+        children.length
+      );
+    }
+
+    var ads = AD_POSITIONS.map(function() {
+      return createAdElement(AD_CLASS);
+    });
+
+    insertAdAtIndex(article, ads[1], children, insertionIndices[1]);
+    children = Array.from(article.children);
+    insertAdAtIndex(article, ads[0], children, insertionIndices[0]);
+
+    ads.forEach(pushToAdSense);
+  }
+
+  function isAdEmpty(adSlot) {
+    var hasIframe = adSlot.querySelector('iframe');
+    var isLoaded = adSlot.dataset.adStatus === 'done' || adSlot.dataset.adStatus === 'filled';
+    return adSlot.offsetHeight === 0 && !hasIframe && !isLoaded;
+  }
+
+  function hideEmptyContentAds() {
+    var contentAds = document.querySelectorAll('.post-mid-ad, .post-bottom-ad');
+    
+    contentAds.forEach(function(container) {
       var adSlot = container.querySelector('.adsbygoogle');
-      // Check if ad is truly empty (no iframe, no content, and no ad-status indicating it's loading)
-      if (adSlot) {
-        var hasIframe = adSlot.querySelector('iframe');
-        var hasAdStatus = adSlot.dataset.adStatus === 'done' || adSlot.dataset.adStatus === 'filled';
-        var isEmpty = adSlot.offsetHeight === 0 && !hasIframe && !hasAdStatus;
-        
-        if (isEmpty) {
-          container.style.display = 'none';
-        }
+      if (adSlot && isAdEmpty(adSlot)) {
+        container.style.display = 'none';
       }
     });
-    
-    // Ensure sidebar ads are always visible (safeguard)
-    var sidebarAds = document.querySelectorAll('.post-sidebar-ad');
-    sidebarAds.forEach(function(container) {
-      container.style.display = '';
-    });
   }
 
-  // Run when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      injectMidContentAd();
-      
-      // Check for empty ads after they've had time to load
-      setTimeout(function() {
-        requestAnimationFrame(hideEmptyAds);
-      }, 3000);
-    });
-  } else {
-    // DOM already loaded
-    injectMidContentAd();
-    
+  function scheduleEmptyAdCheck() {
     setTimeout(function() {
-      requestAnimationFrame(hideEmptyAds);
-    }, 3000);
+      requestAnimationFrame(hideEmptyContentAds);
+    }, AD_LOAD_TIMEOUT_MS);
+  }
+
+  function init() {
+    injectContentAds();
+    scheduleEmptyAdCheck();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();
-

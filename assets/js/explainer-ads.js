@@ -1,144 +1,113 @@
-/**
- * Explainer Page Ad Management
- * - Injects top ad after hero-header section
- * - Hides empty ad containers for ad-blocker users
- */
-
 (function() {
   'use strict';
 
-  /**
-   * Inject ad at 30% of the explainer content
-   * SEO-friendly: Uses requestAnimationFrame to prevent layout shift
-   */
-  function injectTopAd() {
-    // Check if top ad already exists
-    var existingTopAd = document.querySelector('.explainer-top-ad');
-    if (existingTopAd) {
-      return;
-    }
+  var AD_POSITION = 0.3;
+  var AD_LOAD_TIMEOUT_MS = 3000;
+  var CONTENT_SELECTOR = '.frame-content';
+  var AD_CLASS = 'explainer-top-ad';
+  var VALID_INSERTION_TAGS = ['P', 'H2', 'H3', 'DIV', 'SECTION'];
+  var EXCLUDED_TAGS = ['SCRIPT', 'STYLE', 'NOSCRIPT'];
 
-    // Find the frame-content container (main content area)
+  function createAdElement(className) {
+    var container = document.createElement('div');
+    container.className = className;
+    container.setAttribute('aria-label', 'Advertisement');
+    container.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    return container;
+  }
+
+  function pushToAdSense() {
+    if (window.adsbygoogle) {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  }
+
+  function isContentElement(element) {
+    return EXCLUDED_TAGS.indexOf(element.tagName) === -1;
+  }
+
+  function isValidInsertionPoint(element) {
+    return VALID_INSERTION_TAGS.indexOf(element.tagName) !== -1;
+  }
+
+  function findInsertionIndex(children, targetPercent) {
+    var targetIndex = Math.max(1, Math.floor(children.length * targetPercent));
+    
+    for (var i = targetIndex; i < Math.min(children.length, targetIndex + 3); i++) {
+      if (isValidInsertionPoint(children[i])) {
+        return i + 1;
+      }
+    }
+    
+    return targetIndex;
+  }
+
+  function getContentContainer() {
     var explainerFrame = document.querySelector('.explainer-frame');
-    var frameContent = explainerFrame ? explainerFrame.querySelector('.frame-content') : null;
-    
-    // If no frame-content, try to find the main content container
-    if (!frameContent) {
-      frameContent = document.querySelector('.frame-content');
+    if (explainerFrame) {
+      var frameContent = explainerFrame.querySelector(CONTENT_SELECTOR);
+      if (frameContent) return frameContent;
     }
-    
-    if (!frameContent) {
-      return;
-    }
+    return document.querySelector(CONTENT_SELECTOR);
+  }
 
-    // Get all direct children of the frame-content (excluding scripts and styles)
-    var children = Array.from(frameContent.children).filter(function(child) {
-      var tagName = child.tagName;
-      return tagName !== 'SCRIPT' && tagName !== 'STYLE' && tagName !== 'NOSCRIPT';
-    });
-    
-    if (children.length === 0) {
-      return;
-    }
+  function adAlreadyInjected() {
+    return document.querySelector('.' + AD_CLASS) !== null;
+  }
 
-    // Calculate insertion point at ~30%
-    var insertIndex = Math.floor(children.length * 0.3);
-    
-    // Ensure minimum insertion point (at least after first element)
-    if (insertIndex < 1) {
-      insertIndex = 1;
-    }
-    
-    // Find a good insertion point (prefer after paragraphs, headings, or divs)
-    for (var i = insertIndex; i < children.length && i < insertIndex + 3; i++) {
-      var tagName = children[i].tagName;
-      // Prefer inserting after paragraphs, headings, divs, or sections
-      if (tagName === 'P' || tagName === 'H2' || tagName === 'H3' || tagName === 'DIV' || tagName === 'SECTION') {
-        insertIndex = i + 1;
-        break;
-      }
-    }
+  function injectContentAd() {
+    if (adAlreadyInjected()) return;
 
-    // Create ad container with reserved space to prevent CLS
-    var adContainer = document.createElement('div');
-    adContainer.className = 'explainer-top-ad';
-    adContainer.setAttribute('aria-label', 'Advertisement');
-    adContainer.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>';
-    
-    // Use requestAnimationFrame to batch DOM manipulation with browser paint
+    var contentContainer = getContentContainer();
+    if (!contentContainer) return;
+
+    var children = Array.from(contentContainer.children).filter(isContentElement);
+    if (children.length === 0) return;
+
+    var insertionIndex = findInsertionIndex(children, AD_POSITION);
+    var ad = createAdElement(AD_CLASS);
+
     requestAnimationFrame(function() {
-      // Insert the ad
-      if (insertIndex < children.length) {
-        frameContent.insertBefore(adContainer, children[insertIndex]);
+      if (insertionIndex < children.length) {
+        contentContainer.insertBefore(ad, children[insertionIndex]);
       } else {
-        frameContent.appendChild(adContainer);
+        contentContainer.appendChild(ad);
       }
-
-      // Push to AdSense after insertion
-      if (window.adsbygoogle) {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      }
+      pushToAdSense();
     });
   }
 
-  /**
-   * Hide empty ad containers when ads are blocked
-   * SEO-friendly: uses requestAnimationFrame to batch with paint
-   * Note: Sidebar ads are NEVER hidden - they don't block content reading
-   */
-  function hideEmptyAds() {
-    // Only hide in-content ads that block reading flow
-    // Sidebar ads are intentionally excluded - they stay visible even if empty
-    var adContainers = document.querySelectorAll('.explainer-top-ad');
-    adContainers.forEach(function(container) {
-      var adSlot = container.querySelector('.adsbygoogle');
-      // Check if ad is truly empty (no iframe, no content, and no ad-status indicating it's loading)
-      if (adSlot) {
-        var hasIframe = adSlot.querySelector('iframe');
-        var hasAdStatus = adSlot.dataset.adStatus === 'done' || adSlot.dataset.adStatus === 'filled';
-        var isEmpty = adSlot.offsetHeight === 0 && !hasIframe && !hasAdStatus;
-        
-        if (isEmpty) {
-          container.style.display = 'none';
-        }
-      }
-    });
+  function isAdEmpty(adSlot) {
+    var hasIframe = adSlot.querySelector('iframe');
+    var isLoaded = adSlot.dataset.adStatus === 'done' || adSlot.dataset.adStatus === 'filled';
+    return adSlot.offsetHeight === 0 && !hasIframe && !isLoaded;
+  }
+
+  function hideEmptyContentAds() {
+    var contentAds = document.querySelectorAll('.explainer-top-ad, .explainer-bottom-ad');
     
-    // Ensure sidebar ads are always visible (safeguard)
-    var sidebarAds = document.querySelectorAll('.explainer-sidebar-ad');
-    sidebarAds.forEach(function(container) {
-      container.style.display = '';
+    contentAds.forEach(function(container) {
+      var adSlot = container.querySelector('.adsbygoogle');
+      if (adSlot && isAdEmpty(adSlot)) {
+        container.style.display = 'none';
+      }
     });
   }
 
-  // Run when DOM is ready - SEO-friendly: wait for content to be fully parsed
-  function initAds() {
-    // Wait a tick to ensure all content is rendered
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        // Use requestAnimationFrame to ensure content is painted before ad injection
-        requestAnimationFrame(function() {
-          injectTopAd();
-        });
-        
-        // Check for empty ads after they've had time to load
-        setTimeout(function() {
-          requestAnimationFrame(hideEmptyAds);
-        }, 3000);
-      });
-    } else {
-      // DOM already loaded - use requestAnimationFrame for smooth insertion
-      requestAnimationFrame(function() {
-        injectTopAd();
-      });
-      
-      setTimeout(function() {
-        requestAnimationFrame(hideEmptyAds);
-      }, 3000);
-    }
+  function scheduleEmptyAdCheck() {
+    setTimeout(function() {
+      requestAnimationFrame(hideEmptyContentAds);
+    }, AD_LOAD_TIMEOUT_MS);
   }
 
-  // Initialize
-  initAds();
-})();
+  function init() {
+    requestAnimationFrame(injectContentAd);
+    scheduleEmptyAdCheck();
+  }
 
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

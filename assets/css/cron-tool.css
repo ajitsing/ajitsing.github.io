@@ -9,14 +9,20 @@
 
 .cron-page-wrapper {
   display: grid;
-  grid-template-columns: 160px minmax(0, 900px) 160px;
+  grid-template-columns: 1fr minmax(0, 900px) 1fr;
   gap: 24px;
   max-width: 1320px;
   margin: 0 auto;
   padding: 20px 15px 40px;
   background: #faf8f5;
   min-height: 100vh;
-  justify-content: center;
+}
+
+/* Empty left spacer for visual balance */
+.cron-page-wrapper::before {
+  content: "";
+  display: block;
+  max-width: 160px;
 }
 
 /* ==========================================================================
@@ -28,14 +34,16 @@
   top: 100px;
   height: fit-content;
   max-height: calc(100vh - 120px);
+  max-width: 160px;
+  justify-self: start;
 }
 
 .sidebar-ad-container {
-  min-height: 600px;
+  /* Container collapses if ad is blocked */
 }
 
 .sidebar-ad-container .adsbygoogle {
-  min-height: 600px;
+  min-height: 250px;
 }
 
 /* ==========================================================================
@@ -45,11 +53,15 @@
 .dedicated-ad-section {
   margin: 32px 0;
   padding: 16px 0;
-  min-height: 120px;
 }
 
-.dedicated-ad-section .adsbygoogle {
-  min-height: 100px;
+/* ==========================================================================
+   Bottom Ad Section
+   ========================================================================== */
+
+.bottom-ad-section {
+  margin: 40px 0 20px 0;
+  padding: 16px 0;
 }
 
 /* ==========================================================================
@@ -942,11 +954,15 @@ body:has(.cron-tool) {
    Responsive Design
    ========================================================================== */
 
-/* Hide sidebars on smaller screens */
+/* Hide sidebar on smaller screens */
 @media (max-width: 1200px) {
   .cron-page-wrapper {
     grid-template-columns: minmax(0, 900px);
     padding: 20px 15px 40px;
+  }
+
+  .cron-page-wrapper::before {
+    display: none;
   }
 
   .cron-sidebar {
@@ -959,7 +975,8 @@ body:has(.cron-tool) {
     padding: 15px 12px 30px;
   }
 
-  .dedicated-ad-section {
+  .dedicated-ad-section,
+  .bottom-ad-section {
     margin: 24px 0;
     padding: 12px 0;
   }

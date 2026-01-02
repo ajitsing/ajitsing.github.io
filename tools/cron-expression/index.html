@@ -225,17 +225,6 @@ hide-explore-posts: true
 <link rel="stylesheet" href="{{ '/assets/css/cron-tool.css' | relative_url }}">
 
 <div class="cron-page-wrapper">
-  <!-- Left Sidebar Ad -->
-  <aside class="cron-sidebar cron-sidebar-left">
-    <div class="sidebar-ad-container">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-  </aside>
-
   <!-- Main Content -->
   <div class="cron-tool">
 <header class="tool-header">
@@ -698,6 +687,15 @@ hide-explore-posts: true
       <p>To run a job every Sunday, set the weekday field (last field) to 0. For example, <code>0 2 * * 0</code> runs every Sunday at 2 AM. Note: Some systems also accept 7 as Sunday.</p>
     </div>
   </section>
+
+  <!-- Bottom Ad Section -->
+  <div class="bottom-ad-section">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 </div>
 <!-- End Main Content -->
 
@@ -713,6 +711,27 @@ hide-explore-posts: true
   </aside>
 </div>
 <!-- End Page Wrapper -->
+
+<!-- Hide empty ad containers when ads are blocked (SEO-friendly: no layout shift) -->
+<script>
+(function() {
+  // Check quickly before first paint to avoid layout shift
+  function hideEmptyAds() {
+    var adContainers = document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section');
+    adContainers.forEach(function(container) {
+      var adSlot = container.querySelector('.adsbygoogle');
+      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
+        container.style.display = 'none';
+      }
+    });
+  }
+  
+  // Run after ads have had time to load, but use requestAnimationFrame to batch with paint
+  setTimeout(function() {
+    requestAnimationFrame(hideEmptyAds);
+  }, 3000);
+})();
+</script>
 
 <script src="{{ '/assets/js/cron-tool.js' | relative_url }}"></script>
 

@@ -1,0 +1,114 @@
+/**
+ * Blog Post Ad Containers Styles
+ * Right sidebar, mid-content, and bottom ad placements
+ */
+
+/* ==========================================================================
+   Post Page Wrapper with Sidebar
+   ========================================================================== */
+
+.post-page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 780px) 1fr;
+  gap: 24px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+}
+
+/* Left spacer for visual balance */
+.post-spacer {
+  max-width: 180px;
+}
+
+/* ==========================================================================
+   Main Content Area
+   ========================================================================== */
+
+.post-main-content {
+  width: 100%;
+  max-width: 780px;
+}
+
+/* ==========================================================================
+   Right Sidebar Ad
+   ========================================================================== */
+
+.post-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  max-height: calc(100vh - 120px);
+  max-width: 180px;
+  justify-self: start;
+}
+
+.post-sidebar-ad {
+  /* Container collapses if ad is blocked */
+}
+
+.post-sidebar-ad .adsbygoogle {
+  min-height: 250px;
+}
+
+/* ==========================================================================
+   Mid-Content Ad (Injected by JavaScript)
+   ========================================================================== */
+
+.post-mid-ad {
+  margin: 40px 0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.post-mid-ad .adsbygoogle {
+  min-height: 100px;
+}
+
+/* ==========================================================================
+   Bottom Ad Section
+   ========================================================================== */
+
+.post-bottom-ad {
+  margin: 40px 0 20px 0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.post-bottom-ad .adsbygoogle {
+  min-height: 100px;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* Hide sidebar on smaller screens */
+@media (max-width: 1200px) {
+  .post-page-wrapper {
+    grid-template-columns: minmax(0, 780px);
+    padding: 20px 15px 40px;
+    justify-content: center;
+  }
+
+  .post-spacer {
+    display: none;
+  }
+
+  .post-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-page-wrapper {
+    padding: 15px 12px 30px;
+  }
+
+  .post-mid-ad,
+  .post-bottom-ad {
+    margin: 32px 0;
+    padding: 16px 0;
+  }
+}
+

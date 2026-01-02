@@ -5,97 +5,118 @@ layout: base
 {% include schema.html %}
 {% include header.html type="post" %}
 
-<div class="container-md">
-  <div class="row">
-    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+<div class="post-page-wrapper">
+  <div class="post-spacer"></div>
+  
+  <div class="post-main-content">
+    {% if page.gh-repo %}
+      {% assign gh_split =  page.gh-repo | split:'/'  %}
+      {% assign gh_user =  gh_split[0]  %}
+      {% assign gh_repo =  gh_split[1]  %}
 
-      {% if page.gh-repo %}
-        {% assign gh_split =  page.gh-repo | split:'/'  %}
-        {% assign gh_user =  gh_split[0]  %}
-        {% assign gh_repo =  gh_split[1]  %}
-
-        <div id="header-gh-btns">
-          {% if page.gh-badge.size > 0 %}
-            {% for badge in page.gh-badge %}
-              {% case badge %}
-                {% when 'star'%}
-                  <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
-                {% when 'watch'%}
-                  <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=watch&v=2&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
-                {% when 'fork'%}
-                  <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=fork&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
-                {% when 'follow'%}
-                  <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&type=follow&count=true" frameborder="0" scrolling="0" width="220px" height="20px"></iframe>
-              {% endcase %}
-            {% endfor %}
-          {% endif %}
-        </div>
-      {% endif %}
-
-      <article role="main" class="blog-post">
-        {{ content }}
-      </article>
-
-      <div class="rss-section-footer">
-        {% include rss-subscribe.html %}
+      <div id="header-gh-btns">
+        {% if page.gh-badge.size > 0 %}
+          {% for badge in page.gh-badge %}
+            {% case badge %}
+              {% when 'star'%}
+                <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
+              {% when 'watch'%}
+                <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=watch&v=2&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
+              {% when 'fork'%}
+                <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=fork&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
+              {% when 'follow'%}
+                <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&type=follow&count=true" frameborder="0" scrolling="0" width="220px" height="20px"></iframe>
+            {% endcase %}
+          {% endfor %}
+        {% endif %}
       </div>
-      {% include new-post-alert.html %}
+    {% endif %}
 
-      {% if page.tags.size > 0 %}
-        <div class="blog-tags">
-          Tags:
-          {% if site.link-tags %}
-          {% for tag in page.tags %}
-            <a href="{{ '/tags' | relative_url }}#{{- tag -}}" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{- tag -}}</a>
-          {% endfor %}
-          {% else %}
-            {{ page.tags | join: ", " }}
-          {% endif %}
-        </div>
-      {% endif %}
+    <article role="main" class="blog-post">
+      {{ content }}
+    </article>
 
-      {% if page.social-share %}
-        {% include social-share.html %}
-      {% endif %}
+    <div class="rss-section-footer">
+      {% include rss-subscribe.html %}
+    </div>
+    {% include new-post-alert.html %}
 
-      {% assign related_posts = "" | split: ',' %}
-
-      {% for tag in page.tags %}
-        {% for post in site.tags[tag] limit:10 %}
-          {% if post.title != page.title %}
-            {% assign related_posts = related_posts | push: post %}
-          {% endif %}
+    {% if page.tags.size > 0 %}
+      <div class="blog-tags">
+        Tags:
+        {% if site.link-tags %}
+        {% for tag in page.tags %}
+          <a href="{{ '/tags' | relative_url }}#{{- tag -}}" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{- tag -}}</a>
         {% endfor %}
+        {% else %}
+          {{ page.tags | join: ", " }}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if page.social-share %}
+      {% include social-share.html %}
+    {% endif %}
+
+    {% assign related_posts = "" | split: ',' %}
+
+    {% for tag in page.tags %}
+      {% for post in site.tags[tag] limit:10 %}
+        {% if post.title != page.title %}
+          {% assign related_posts = related_posts | push: post %}
+        {% endif %}
       {% endfor %}
+    {% endfor %}
 
-      {% assign uniq_related_posts = related_posts | uniq %}
+    {% assign uniq_related_posts = related_posts | uniq %}
 
-      {% if uniq_related_posts.size > 0 %}
-        <h3>Related Posts:</h3>
-        <ul class="post-list">
-          {% for post in uniq_related_posts limit:5 %}
-            <li class="tag-entry">
-              <a href="{{ post.url | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'Related Post', 'event_label': '{{ post.title | escape }}'});">{{- post.title -}}</a>
-              </br>
-            </li>
-          {% endfor %}
-        </ul>
-        </br>
-      {% endif %}
-
-      <ul class="pagination blog-pager">
-        {% if page.previous.url %}
-        <li class="page-item previous">
-          <a class="page-link" href="{{ page.previous.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-        </li>
-        {% endif %}
-        {% if page.next.url %}
-        <li class="page-item next">
-          <a class="page-link" href="{{ page.next.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-        </li>
-        {% endif %}
+    {% if uniq_related_posts.size > 0 %}
+      <h3>Related Posts:</h3>
+      <ul class="post-list">
+        {% for post in uniq_related_posts limit:5 %}
+          <li class="tag-entry">
+            <a href="{{ post.url | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'Related Post', 'event_label': '{{ post.title | escape }}'});">{{- post.title -}}</a>
+            </br>
+          </li>
+        {% endfor %}
       </ul>
-      {% include comments.html %}
+      </br>
+    {% endif %}
+
+    <ul class="pagination blog-pager">
+      {% if page.previous.url %}
+      <li class="page-item previous">
+        <a class="page-link" href="{{ page.previous.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+      </li>
+      {% endif %}
+      {% if page.next.url %}
+      <li class="page-item next">
+        <a class="page-link" href="{{ page.next.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+      </li>
+      {% endif %}
+    </ul>
+    {% include comments.html %}
+
+    <!-- Bottom Ad -->
+    <div class="post-bottom-ad">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </div>
+
+  <!-- Right Sidebar Ad -->
+  <aside class="post-sidebar">
+    <div class="post-sidebar-ad">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </aside>
 </div>
+
+<script src="{{ '/assets/js/post-ads.js' | relative_url }}"></script>

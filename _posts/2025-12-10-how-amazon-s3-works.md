@@ -3,6 +3,7 @@ layout: post
 title: "How Amazon S3 Stores 100 Trillion Objects Without Losing One"
 subtitle: "Inside the distributed storage system that powers Netflix, Airbnb, and most of the internet"
 date: 2025-12-10
+last-modified-date: 2026-01-03
 categories: system-design
 tags: [system-design]
 thumbnail-img: /assets/img/posts/system-design/amazon-s3-thumb.png
@@ -12,6 +13,15 @@ description: "Deep dive into Amazon S3 architecture. Learn how S3 achieves 11 ni
 keywords: "amazon s3, s3 architecture, object storage, aws s3, s3 durability, distributed storage, cloud storage, s3 consistency, s3 multipart upload, s3 storage classes, s3 presigned url"
 seo: true
 comments: true
+faq:
+  - question: "How does Amazon S3 achieve 11 nines durability?"
+    answer: "S3 achieves 99.999999999% durability by storing each object redundantly across multiple devices in multiple Availability Zones within a region. Data is checksummed, automatically repaired if corruption is detected, and replicated to maintain redundancy even when hardware fails. This means losing one object out of 10 million would take about 10,000 years."
+  - question: "What is the difference between S3 storage classes?"
+    answer: "S3 Standard is for frequently accessed data with millisecond access. S3 Intelligent-Tiering automatically moves data between tiers based on access patterns. S3 Glacier is for archives with retrieval times from minutes to hours. S3 Glacier Deep Archive is the cheapest, for data accessed once or twice a year with 12-hour retrieval."
+  - question: "How does S3 handle large file uploads?"
+    answer: "S3 uses multipart upload for files larger than 100MB. The file is split into parts (5MB-5GB each), uploaded in parallel, and S3 assembles them. If a part fails, only that part needs re-uploading. This enables resumable uploads, parallel transfers, and handling files up to 5TB."
+  - question: "Is Amazon S3 strongly consistent?"
+    answer: "Yes, since December 2020, S3 provides strong read-after-write consistency for all operations. When you PUT an object, subsequent GET requests immediately return the new data. This applies to new objects, overwrites, and deletes. No more eventual consistency surprises."
 ---
 
 Every second, millions of files land in Amazon S3. Photos, database backups, ML models, application logs. By the time you finish this paragraph, S3 handled another million requests. And it barely noticed.

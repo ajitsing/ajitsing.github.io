@@ -3,6 +3,7 @@ layout: post
 title: "How Google Ads Supports 4.8 Billion Users with a SQL Database"
 subtitle: "Inside Google Spanner, the database that broke the rules of distributed systems"
 date: 2025-12-19
+last-modified-date: 2026-01-03
 categories: system-design
 tags: [system-design]
 thumbnail-img: /assets/img/posts/system-design/google-spanner-thumb.png
@@ -12,6 +13,15 @@ description: "Deep dive into Google Spanner architecture. Learn how Google Ads h
 keywords: "google spanner, google ads, distributed database, truetime, paxos, distributed sql, global database, horizontal scaling, acid transactions, cloud spanner, database sharding"
 seo: true
 comments: true
+faq:
+  - question: "What is Google Spanner?"
+    answer: "Google Spanner is a globally distributed SQL database that provides strong consistency, horizontal scaling, and full ACID transactions across data centers worldwide. It powers Google Ads, serving 4.8 billion users. Unlike traditional databases, Spanner offers both SQL flexibility and NoSQL scale."
+  - question: "How does Google Spanner achieve global consistency?"
+    answer: "Spanner uses TrueTime, a system of atomic clocks and GPS receivers in every data center that provides accurate timestamps with known uncertainty bounds. Combined with Paxos consensus for every write, this allows Spanner to order transactions globally and provide strong consistency across continents."
+  - question: "What is TrueTime in Google Spanner?"
+    answer: "TrueTime is Google's globally synchronized clock system. Unlike regular clocks, TrueTime returns a time interval [earliest, latest] with guaranteed bounds. Spanner uses this to ensure transactions are ordered correctly across all replicas worldwide, enabling strong consistency without sacrificing performance."
+  - question: "How does Spanner compare to traditional sharded databases?"
+    answer: "Traditional sharded databases require manual shard management, complex cross-shard transaction logic, and often sacrifice SQL flexibility. Spanner handles sharding automatically, supports full SQL with joins and secondary indexes, and provides ACID transactions across shards without application complexity."
 ---
 
 Everyone knows the rule: you can't have both strong consistency and global scale in a database. Pick one.

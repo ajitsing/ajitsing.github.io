@@ -3,6 +3,7 @@ layout: post
 title: "How Meta Achieves 99.99999999% Cache Consistency"
 subtitle: "Inside the architecture that keeps 3 billion users in sync"
 date: 2025-09-22
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/meta-cache-consistency/thumbnail.png
 share-img: /assets/img/posts/meta-cache-consistency/thumbnail.png
 categories: system-design
@@ -13,6 +14,15 @@ keywords: "Meta cache consistency, distributed cache, TAO graph database, memcac
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "How does Meta achieve cache consistency across data centers?"
+    answer: "Meta uses a cache invalidation service that propagates invalidations globally within milliseconds. When data changes, the system invalidates cached copies everywhere before acknowledging the write. They use version numbers and lease mechanisms to prevent stale data from being written back to cache after invalidation."
+  - question: "What is TAO at Meta?"
+    answer: "TAO (The Associations and Objects) is Meta's distributed graph cache system designed for social data. It stores objects (users, posts, photos) and associations (friendships, likes, comments) as a graph. TAO provides read-after-write consistency and handles trillions of queries per day across Meta's global infrastructure."
+  - question: "How does Meta handle cache invalidation at scale?"
+    answer: "Meta's cache invalidation system uses a pub/sub model where database changes trigger invalidation messages that propagate to all cache servers globally. They batch invalidations for efficiency, use version vectors to detect stale writes, and employ lease mechanisms to prevent thundering herd problems during cache misses."
+  - question: "What is the difference between cache-aside and write-through caching?"
+    answer: "In cache-aside (look-aside), the application checks cache first, then database on miss, and populates cache manually. In write-through, writes go to both cache and database simultaneously. Meta uses variations of both - TAO is write-through for consistency, while memcache is cache-aside for flexibility."
 ---
 
 When you like a friend's photo on Facebook, that like appears instantly across all their devices, to all their friends, and in all the places that photo appears on the platform. Behind this simple action lies one of the most sophisticated distributed cache consistency systems ever built.

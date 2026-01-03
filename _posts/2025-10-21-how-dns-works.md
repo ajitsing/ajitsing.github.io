@@ -3,7 +3,7 @@ layout: post
 title: "What Actually Happens When You Type a URL"
 subtitle: "From browser to backend server - the complete journey of a DNS request, with performance tricks and production insights"
 date: 2025-10-21
-last-modified-date: 2025-10-21
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/dns/dns-explained.png
 share-img: /assets/img/posts/dns/dns-explained.png
 categories: system-design
@@ -14,6 +14,15 @@ keywords: "DNS, domain name system, DNS resolution, DNS caching, DNS records, A 
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "How does DNS work?"
+    answer: "DNS translates domain names (like google.com) to IP addresses. When you visit a website, your browser checks local caches first, then queries a recursive resolver, which contacts root servers, TLD servers (.com, .org), and finally the authoritative nameserver for the domain. The IP address is returned and cached at multiple levels for faster future lookups."
+  - question: "What is DNS TTL?"
+    answer: "TTL (Time To Live) is how long DNS records should be cached before re-querying. A 300-second TTL means caches will hold the record for 5 minutes. Lower TTLs enable faster failover but increase DNS query load. Higher TTLs reduce load but mean changes take longer to propagate. Typical values range from 60 seconds to 24 hours."
+  - question: "What is the difference between A record and CNAME?"
+    answer: "An A record maps a domain directly to an IPv4 address (example.com → 93.184.216.34). A CNAME creates an alias pointing to another domain (www.example.com → example.com). CNAMEs require an additional DNS lookup to resolve the final IP. A records are terminal; CNAMEs chain to other records."
+  - question: "What causes DNS propagation delays?"
+    answer: "DNS propagation delays occur because cached records must expire before new ones take effect. If your old TTL was 24 hours, some users will see old IPs for up to 24 hours after a change. To minimize delays, lower your TTL before making changes, wait for the old TTL to expire, then make the change and restore normal TTL."
 ---
 
 You type `google.com` into your browser. Half a second later, Google's homepage appears. Between those two moments, your computer talked to at least four different servers, checked multiple caches, and navigated a global distributed database with billions of records.

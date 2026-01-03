@@ -3,7 +3,7 @@ layout: post
 title: "How Ticket Booking Systems Handle 50,000 People Fighting for One Seat"
 subtitle: "Inside the architecture that powers BookMyShow, Ticketmaster, and what happened during the Taylor Swift meltdown"
 date: 2025-10-13
-last-modified-date: 2025-10-13
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/ticket-booking-system/booking-system.png
 share-img: /assets/img/posts/ticket-booking-system/booking-system.png
 categories: system-design
@@ -14,6 +14,15 @@ keywords: "ticket booking system design, seat reservation architecture, concurre
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "How do ticket booking systems prevent double booking?"
+    answer: "Ticket systems use distributed locks (often Redis-based) to ensure only one user can hold a seat at a time. When you select a seat, the system acquires a lock with a TTL (e.g., 5 minutes). If payment completes, the booking is finalized. If the lock expires, the seat returns to available. Database constraints provide a final safety net."
+  - question: "Why do ticket booking sites show seats that disappear?"
+    answer: "Seats 'disappear' because of temporary holds. When you view available seats, someone else may have just locked one. Or your held seat expired while you were entering payment details. High-traffic events have thousands of concurrent locks expiring and being acquired, creating constantly shifting availability."
+  - question: "How do systems like Ticketmaster handle millions of concurrent users?"
+    answer: "High-traffic ticket systems use virtual queues to control flow, CDNs for static content, aggressive caching for show/venue data, and horizontal scaling of booking services. They separate read operations (browsing) from write operations (booking) and use rate limiting to prevent any single user from overwhelming the system."
+  - question: "What caused the Ticketmaster Taylor Swift crash?"
+    answer: "The 2022 Eras Tour crash happened when 14 million fans attempted to buy 2 million tickets simultaneously. The system couldn't handle the concurrency - locks were timing out, database connections maxed out, and the virtual queue became overwhelmed. The architecture wasn't designed for that level of simultaneous demand."
 ---
 
 November 2022, 14 million Taylor Swift fans logged into Ticketmaster at the exact same time. The goal? Grab one of 2 million tickets for the Eras Tour.

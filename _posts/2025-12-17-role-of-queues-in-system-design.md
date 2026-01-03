@@ -3,6 +3,7 @@ layout: post
 title: "Role of Queues in System Design"
 subtitle: "How message queues help build scalable, resilient systems that don't fall apart under pressure"
 date: 2025-12-17
+last-modified-date: 2026-01-03
 categories: system-design
 tags: [system-design]
 thumbnail-img: /assets/img/posts/system-design/queues-thumbnail.png
@@ -12,6 +13,15 @@ description: "Deep dive into message queues in system design. Learn when and why
 keywords: "message queue, system design, rabbitmq, kafka, sqs, async processing, distributed systems, microservices, producer consumer pattern, pub sub, dead letter queue, event driven architecture"
 seo: true
 comments: true
+faq:
+  - question: "Why use message queues in system design?"
+    answer: "Message queues decouple services, enabling asynchronous processing. They absorb traffic spikes (buffering requests during peaks), improve resilience (failed consumers don't crash producers), reduce latency (non-critical work happens in background), and enable horizontal scaling (add more consumers to process faster)."
+  - question: "When should I use Kafka vs RabbitMQ vs SQS?"
+    answer: "Use Kafka for high-throughput event streaming, log aggregation, and when you need message replay. Use RabbitMQ for complex routing, request-reply patterns, and traditional task queues. Use SQS for simple AWS-native queuing with minimal operational overhead. Kafka handles millions of messages/second; RabbitMQ excels at routing flexibility; SQS wins on simplicity."
+  - question: "What is a dead letter queue?"
+    answer: "A dead letter queue (DLQ) stores messages that fail processing after multiple retry attempts. Instead of losing failed messages or blocking the queue, they're moved to the DLQ for inspection and manual handling. This prevents poison messages from blocking healthy processing while preserving failed messages for debugging."
+  - question: "What is the difference between pub/sub and point-to-point queuing?"
+    answer: "In point-to-point queuing, each message is consumed by exactly one consumer (like a task queue). In pub/sub (publish-subscribe), messages are broadcast to all subscribers. Use point-to-point for work distribution; use pub/sub for events that multiple services need to react to independently."
 ---
 
 Your checkout page just went viral on Twitter. Orders are flooding in. The payment service is getting hammered. Database connections are maxing out. Your monitoring dashboard is screaming red.

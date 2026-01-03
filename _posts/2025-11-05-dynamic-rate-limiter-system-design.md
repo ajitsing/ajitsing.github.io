@@ -3,6 +3,7 @@ layout: post
 title: "Stop Blocking Your Paying Customers: Build a Smart Rate Limiter"
 subtitle: "How to protect your API without blocking legitimate users"
 date: 2025-11-05
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/system-design/rate-limiter-thumbnail.png
 share-img: /assets/img/posts/system-design/rate-limiter-thumbnail.png
 categories: system-design
@@ -13,6 +14,15 @@ keywords: "rate limiter, API rate limiting, dynamic throttling, token bucket, le
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "What is a rate limiter in system design?"
+    answer: "A rate limiter controls how many requests a client can make to an API within a time window. It protects servers from overload, prevents abuse, and ensures fair resource distribution. Common implementations include token bucket, leaky bucket, fixed window, and sliding window algorithms."
+  - question: "What is the difference between token bucket and leaky bucket?"
+    answer: "Token bucket allows bursts up to a maximum capacity while refilling at a steady rate - good for APIs that can handle occasional traffic spikes. Leaky bucket processes requests at a constant rate regardless of input - good for systems that need smooth, predictable throughput. Token bucket is more flexible; leaky bucket is more predictable."
+  - question: "How do you implement distributed rate limiting?"
+    answer: "Distributed rate limiting typically uses a centralized store like Redis to track request counts across multiple server instances. Common approaches include Redis INCR with TTL, Lua scripts for atomic operations, or sliding window counters. The key challenge is balancing accuracy with latency overhead."
+  - question: "What HTTP status code should a rate limiter return?"
+    answer: "Rate limiters should return HTTP 429 (Too Many Requests) when limits are exceeded. Include headers like X-RateLimit-Limit (max requests), X-RateLimit-Remaining (requests left), X-RateLimit-Reset (when the window resets), and Retry-After (seconds to wait). This helps clients implement proper backoff."
 ---
 
 It's 3 AM. Your phone buzzes. "API is down." You check the logs and see it: someone is hammering your endpoint with 50,000 requests per second. Your database is screaming, response times are through the roof, and legitimate users can't access your service.

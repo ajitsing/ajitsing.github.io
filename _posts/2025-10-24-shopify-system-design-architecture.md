@@ -3,6 +3,7 @@ layout: post
 title: "How Shopify Powers 5 Million Stores Without Breaking a Sweat"
 subtitle: "Inside the architecture that handles Black Friday at massive scale"
 date: 2025-10-24
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/system-design/shopify-thumbnail.png
 share-img: /assets/img/posts/system-design/shopify-thumbnail.png
 categories: system-design
@@ -13,6 +14,15 @@ keywords: "Shopify system design, e-commerce architecture, modular monolith, pod
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "How does Shopify handle millions of stores?"
+    answer: "Shopify uses a pod architecture where stores are grouped into isolated 'pods' - each pod is a complete copy of the application stack with its own databases. This provides tenant isolation (one store's traffic spike doesn't affect others), enables horizontal scaling by adding more pods, and limits blast radius if issues occur."
+  - question: "Why did Shopify choose a modular monolith over microservices?"
+    answer: "Shopify found that microservices added too much operational complexity for their needs. A modular monolith gives them clear code boundaries and team autonomy while keeping deployment simple and avoiding network latency between services. They can still extract modules into services when truly needed."
+  - question: "How does Shopify handle Black Friday traffic?"
+    answer: "Shopify handles BFCM (Black Friday/Cyber Monday) through extensive caching, pre-scaling pods, load shedding for non-critical features, and queue-based processing for orders. They also run 'flash sale' simulations throughout the year to test their infrastructure under realistic spiky load conditions."
+  - question: "What database does Shopify use?"
+    answer: "Shopify primarily uses MySQL with extensive sharding. Each pod has its own MySQL cluster. They shard by shop_id, ensuring all data for a single store lives on the same shard. This avoids cross-shard queries and enables linear horizontal scaling as they add more shops."
 ---
 
 You launch a small t-shirt store on Shopify at 9 AM. By noon, you've made 50 sales. By evening, your store has processed 500 orders without you touching a single server. Tomorrow, your traffic spikes 10x because someone tweeted about your product. The store doesn't even hiccup.

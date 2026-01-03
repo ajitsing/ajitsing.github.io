@@ -3,13 +3,24 @@ layout: post
 title: "55 Million Requests Per Second: Inside Cloudflare's Magic"
 description: "Deep dive into Cloudflare's technical architecture - how 15 PostgreSQL clusters, ClickHouse, and Quicksilver work together to handle 55 million requests per second with millisecond latency."
 date: 2025-08-20
+last-modified-date: 2026-01-03
 categories: system-design
 thumbnail-img: /assets/img/posts/cloudflare/cloudflare.png
 share-img: /assets/img/posts/cloudflare/cloudflare.png
 permalink: /how-cloudflare-supports-55-million-requests-per-second/
-keywords: "cloudflare, distributed systems, architecture, performance, scale, postgres, clickhouse, quicksilver, database, sharding"
+keywords: "cloudflare architecture, cloudflare system design, distributed systems, performance, scale, postgres, clickhouse, quicksilver, database sharding, anycast routing, PgBouncer"
+seo: true
 comments: true
 tags: [system-design]
+faq:
+  - question: "How does Cloudflare handle 55 million requests per second?"
+    answer: "Cloudflare handles 55 million RPS using a combination of connection pooling with PgBouncer, bare metal PostgreSQL servers, HAProxy load balancing, Anycast routing across 330+ data centers, and intelligent caching. They use only 15 PostgreSQL clusters by efficiently managing connections and distributing traffic globally."
+  - question: "What is Anycast and how does Cloudflare use it?"
+    answer: "Anycast is a routing technique where multiple servers share the same IP address. The internet automatically routes requests to the nearest server. Cloudflare uses Anycast across 330+ data centers so users are automatically served from the closest location, reducing latency and providing automatic failover if a data center goes offline."
+  - question: "Why does Cloudflare use bare metal servers instead of cloud?"
+    answer: "Cloudflare runs PostgreSQL on bare metal servers to eliminate virtualization overhead. At 55 million requests per second, every microsecond matters. Bare metal provides predictable performance without the latency penalty of virtualization layers, maximizing throughput from their hardware."
+  - question: "What is PgBouncer and why does Cloudflare use it?"
+    answer: "PgBouncer is a lightweight PostgreSQL connection pooler. Instead of each application opening direct database connections (which are expensive), PgBouncer maintains a smaller pool of connections and shares them among thousands of clients. This prevents connection exhaustion and handles the thundering herd problem."
 ---
 
 Picture this: it's Black Friday, millions of shoppers worldwide are frantically clicking "Add to Cart" on their favorite websites, and somewhere in the world, a massive DDoS attack is trying to bring down critical infrastructure. Yet, the internet keeps humming along smoothly. How? The answer lies in one of the most fascinating engineering achievements of our time—Cloudflare's ability to handle 55 million HTTP requests per second with just 15 PostgreSQL clusters.

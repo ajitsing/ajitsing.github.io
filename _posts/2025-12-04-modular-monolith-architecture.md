@@ -3,6 +3,7 @@ layout: post
 title: "Modular Monolith: The Architecture Most Teams Actually Need"
 subtitle: "Why microservices might be overkill and how to build systems that actually scale"
 date: 2025-12-04
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/system-design/modular-monolith-thumb.png
 share-img: /assets/img/posts/system-design/modular-monolith-thumb.png
 categories: system-design
@@ -13,6 +14,15 @@ keywords: "modular monolith, monolith vs microservices, software architecture, d
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "What is a modular monolith?"
+    answer: "A modular monolith is a single deployable application divided into well-defined modules with clear boundaries. Each module owns its domain and communicates through explicit interfaces. It combines the simplicity of monoliths (single deployment, no network calls between modules) with the organization of microservices (clear boundaries, team autonomy)."
+  - question: "When should I choose a modular monolith over microservices?"
+    answer: "Choose a modular monolith when you have a small-to-medium team (under 50 developers), don't need independent scaling of components, want simpler debugging and deployment, or are building an MVP. Microservices add network latency, distributed debugging complexity, and operational overhead that often outweighs benefits for smaller teams."
+  - question: "How do modules communicate in a modular monolith?"
+    answer: "Modules communicate through explicit public interfaces (APIs), not by directly accessing each other's internals. Options include: direct method calls through interfaces, in-process events/mediator pattern, or shared contracts. The key is that modules can't reach into each other's database tables or private classes."
+  - question: "Can you migrate from a modular monolith to microservices?"
+    answer: "Yes, and this is a key advantage. Because modules already have clear boundaries and communicate through interfaces, extracting a module into a microservice is straightforward. You replace in-process calls with network calls. Companies like Shopify use this approach - starting modular and extracting services only when needed."
 ---
 
 Microservices aren't always the answer. For most teams, they bring network latency, distributed debugging nightmares, and operational overhead that outweighs the benefits. But a tangled monolith where everything depends on everything isn't great either.

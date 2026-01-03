@@ -3,6 +3,7 @@ layout: post
 title: "Long Polling Explained: Build Real-Time Apps Without WebSockets"
 subtitle: "The battle-tested technique that powers notifications when persistent connections fail"
 date: 2025-12-02
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/system-design/long-polling-thumbnail.png
 share-img: /assets/img/posts/system-design/long-polling-thumbnail.png
 categories: system-design
@@ -13,6 +14,15 @@ keywords: "long polling, real-time communication, HTTP polling, comet, reverse a
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "What is long polling?"
+    answer: "Long polling is a technique where the client sends a request to the server and the server holds the connection open until new data is available (or a timeout occurs). When data arrives or timeout hits, the server responds and the client immediately opens a new request. This provides near-real-time updates using standard HTTP."
+  - question: "What is the difference between long polling and WebSockets?"
+    answer: "Long polling uses standard HTTP request-response cycles, opening a new connection for each update. WebSockets maintain a persistent bidirectional connection. Long polling works through any firewall/proxy that supports HTTP; WebSockets need special proxy support. WebSockets are more efficient for high-frequency updates; long polling is simpler to implement and more universally compatible."
+  - question: "When should I use long polling instead of WebSockets?"
+    answer: "Use long polling when WebSockets are blocked by firewalls or proxies, when you need a simple fallback mechanism, when updates are infrequent (less than once per second), or when you're using serverless infrastructure that doesn't support persistent connections. Long polling works everywhere HTTP works."
+  - question: "What are the downsides of long polling?"
+    answer: "Long polling creates more overhead than WebSockets due to HTTP headers on every request, requires server resources to hold connections open, and has slightly higher latency since a new connection is needed after each response. It's also less efficient for high-frequency bidirectional communication."
 ---
 
 You're building a notification system. Users need to see new alerts the moment they arrive. The obvious solution? WebSockets. But your load balancer doesn't support them. Your corporate firewall blocks them. Your client's browser is ancient.

@@ -1,16 +1,27 @@
 ---
 layout: post
-title: "Building Distributed Counters for High-Traffic Systems"
+title: "Distributed Counter System Design"
 subtitle: "From simple incrementers to battle-tested architectures that handle millions of operations"
 date: 2025-09-03
+last-modified-date: 2026-01-03
 categories: system-design
 thumbnail-img: /assets/img/posts/distributed-counter/counter-thumbnail.png
 share-img: /assets/img/posts/distributed-counter/counter-thumbnail.png
 permalink: /distributed-counter-architecture-guide/
-description: "Learn how to build scalable distributed counters for high-traffic systems. Complete guide covering sharded counters, local aggregation, CRDTs, and production patterns with Code examples."
-keywords: "distributed systems, counter architecture, sharded counters, CRDT, local aggregation, scalability, Java, system design, high availability, eventual consistency"
+description: "How to design a distributed counter for high-traffic systems. Complete system design guide covering sharded counters, sharded counter architecture, local aggregation, CRDTs, and production patterns with code examples."
+keywords: "distributed counter, distributed counter system design, sharded counters, sharded counter system design, design a distributed counter, counter architecture, CRDT, local aggregation, scalability, Java, system design, high availability, eventual consistency"
 tags: [system-design]
+seo: true
 comments: true
+faq:
+  - question: "What is a distributed counter?"
+    answer: "A distributed counter is a data structure that tracks counts across multiple servers or nodes in a distributed system. Unlike a simple counter that runs on one machine, distributed counters handle concurrent increments from many sources while maintaining consistency, fault tolerance, and high availability."
+  - question: "How do you design a distributed counter?"
+    answer: "To design a distributed counter, you can use techniques like sharded counters (splitting the count across multiple shards), local aggregation (batch updates locally before syncing), or CRDTs (Conflict-free Replicated Data Types). The choice depends on your consistency requirements, traffic volume, and acceptable read latency."
+  - question: "What are sharded counters?"
+    answer: "Sharded counters split a single logical counter into multiple physical shards. Each shard handles a portion of the increment traffic independently. To get the total count, you sum all shards. This approach eliminates single-point bottlenecks and allows horizontal scaling for high-traffic scenarios like social media likes or view counts."
+  - question: "When should you use sharded counters vs a single counter?"
+    answer: "Use sharded counters when you have high write throughput (thousands of increments per second), need to avoid hotspots, or require horizontal scalability. A single counter works fine for low-traffic scenarios or when strong consistency on every read is critical."
 ---
 
 You've probably implemented counters dozens of times. A simple `count++` here, a database increment there. But what happens when your humble counter needs to handle millions of increments per second across multiple data centers? Welcome to the fascinating world of distributed counters.

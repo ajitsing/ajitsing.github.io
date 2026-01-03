@@ -3,16 +3,23 @@ layout: post
 title: "Caching Strategies Explained: The Complete Guide"
 subtitle: "The complete guide to cache patterns that every backend developer should know"
 date: 2025-12-24
+last-modified-date: 2026-01-03
 categories: software-engineering
 tags: [software-engineering]
 thumbnail-img: /assets/img/posts/caching-strategies/caching-strategies-thumbnail.png
 share-img: /assets/img/posts/caching-strategies/caching-strategies-thumbnail.png
 permalink: /caching-strategies-explained/
-description: "Learn Cache-Aside, Read-Through, Write-Through, Write-Behind, and Write-Around caching patterns. When to use each, tradeoffs, and real-world examples."
-keywords: "caching strategies, cache aside pattern, read through cache, write through cache, write behind cache, write back cache, write around cache, cache eviction, LRU cache, cache invalidation, redis caching, distributed cache, caching patterns, system design cache"
+description: "Complete guide to caching strategies and patterns. Learn cache-aside, read-through, write-through, write-behind patterns, Redis caching techniques, database caching strategies, and cache invalidation strategies with real-world examples."
+keywords: "caching strategies, cache strategies, cache strategy, caching patterns, cache pattern, caching techniques, redis caching patterns, redis cache strategy, database caching strategies, cache invalidation strategies, cache aside pattern, read through cache, write through cache, write behind cache, write back cache, write around cache, cache eviction, LRU cache, distributed cache, system design cache"
 seo: true
 comments: true
 faq:
+  - question: "What are the main caching strategies?"
+    answer: "The five main caching strategies are: Cache-Aside (application manages cache), Read-Through (cache fetches from database on miss), Write-Through (writes go to cache and database synchronously), Write-Behind (writes go to cache first, database later), and Write-Around (writes bypass cache, go directly to database). Each has different consistency and performance tradeoffs."
+  - question: "What are common Redis caching patterns?"
+    answer: "Common Redis caching patterns include: Cache-Aside for general purpose caching, session storage for user sessions, rate limiting with INCR and EXPIRE, leaderboards with sorted sets, pub/sub for cache invalidation, and distributed locking. Redis also supports write-through patterns when combined with Redis persistence options like RDB and AOF."
+  - question: "What are database caching strategies?"
+    answer: "Database caching strategies include: query result caching (storing full query results), object caching (storing deserialized entities), page/fragment caching (storing rendered HTML), and computed value caching (storing expensive calculations). The strategy depends on whether your bottleneck is query execution, serialization, rendering, or computation."
   - question: "What is the difference between Read-Through and Cache-Aside caching?"
     answer: "In Cache-Aside, the application code is responsible for managing the cache. It checks the cache first, and on a miss, fetches from the database and populates the cache. In Read-Through, the cache itself handles this logic. The application always reads from the cache, and the cache automatically fetches from the database on a miss. Read-Through simplifies application code but offers less flexibility."
   - question: "When should I use Write-Through vs Write-Behind caching?"

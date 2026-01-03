@@ -1330,3 +1330,25 @@ h1 + h3 {
 .hidden-posts.show {
   display: contents;
 }
+
+/* --- In-Feed Ads --- */
+
+.in-feed-ad {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+.in-feed-ad .adsbygoogle {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .in-feed-ad {
+    padding: 1.5rem 0;
+  }
+}

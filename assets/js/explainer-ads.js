@@ -7,6 +7,7 @@
   var AD_CLASS = 'explainer-top-ad';
   var VALID_INSERTION_TAGS = ['P', 'H2', 'H3', 'DIV', 'SECTION'];
   var EXCLUDED_TAGS = ['SCRIPT', 'STYLE', 'NOSCRIPT'];
+  var ANALYTICS_SENT_KEY = 'adblock_analytics_sent';
 
   function createAdElement(className) {
     var container = document.createElement('div');
@@ -83,15 +84,39 @@
     return adSlot.offsetHeight === 0 && !hasIframe && !isLoaded;
   }
 
+  function sendAnalyticsEvent(hasAdBlocker) {
+    // Only send once per session to avoid duplicate events
+    if (sessionStorage.getItem(ANALYTICS_SENT_KEY)) return;
+
+    if (typeof gtag === 'function') {
+      gtag('event', hasAdBlocker ? 'ad_blocker_detected' : 'ad_blocker_not_detected', {
+        'event_category': 'Ad Blocker',
+        'event_label': hasAdBlocker ? 'Using Ad Blocker' : 'No Ad Blocker',
+        'non_interaction': true
+      });
+      sessionStorage.setItem(ANALYTICS_SENT_KEY, 'true');
+    }
+  }
+
   function hideEmptyContentAds() {
     var contentAds = document.querySelectorAll('.explainer-top-ad, .explainer-bottom-ad');
+    var hasBlockedAds = false;
+    var hasLoadedAds = false;
     
     contentAds.forEach(function(container) {
       var adSlot = container.querySelector('.adsbygoogle');
       if (adSlot && isAdEmpty(adSlot)) {
         container.style.display = 'none';
+        hasBlockedAds = true;
+      } else if (adSlot) {
+        hasLoadedAds = true;
       }
     });
+
+    // Send analytics event based on ad status
+    if (contentAds.length > 0) {
+      sendAnalyticsEvent(hasBlockedAds && !hasLoadedAds);
+    }
   }
 
   function scheduleEmptyAdCheck() {

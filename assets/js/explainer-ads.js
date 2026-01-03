@@ -12,7 +12,7 @@
     var container = document.createElement('div');
     container.className = className;
     container.setAttribute('aria-label', 'Advertisement');
-    container.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    container.innerHTML = '<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2886086145980317" data-ad-slot="7962308891"></ins>';
     return container;
   }
 

@@ -3,16 +3,21 @@ layout: post
 title: "The Complete HTMX Guide: From Zero to Production"
 subtitle: "The library that brings HTML back to life and makes you question everything you thought you knew about frontend development"
 date: 2025-12-22
+last-modified-date: 2026-01-03
 categories: web-development
 tags: [web-development]
 thumbnail-img: /assets/img/posts/web-development/htmx-guide-thumb.png
 share-img: /assets/img/posts/web-development/htmx-guide-thumb.png
 permalink: /htmx-guide-modern-web-development/
-description: "Complete guide to HTMX for developers. Learn how HTMX works, when to use it, practical examples with code, and why companies are ditching React for hypermedia. Covers hx-get, hx-post, hx-swap, hx-trigger, and real production patterns."
+description: "HTMX tutorial and guide with practical examples. Learn HTMX from zero to production with code examples covering hx-get, hx-post, hx-swap, hx-trigger, and real-world patterns. Complete htmx guide for developers switching from React."
 keywords: "htmx tutorial, htmx guide, htmx vs react, htmx examples, hypermedia driven applications, htmx attributes, hx-get hx-post, htmx ajax, server side rendering htmx, htmx web development, frontend without javascript, htmx architecture"
 seo: true
 comments: true
 faq:
+  - question: "Where can I find a good HTMX tutorial?"
+    answer: "This complete HTMX tutorial covers everything from basics to production patterns. You'll learn core attributes (hx-get, hx-post, hx-target, hx-swap), triggers, loading states, form handling, and real-world examples like infinite scroll, live search, and shopping carts. No prior HTMX experience required."
+  - question: "What are some practical HTMX examples?"
+    answer: "Common HTMX examples include: inline editing (click to edit, save to server), live search with debouncing, infinite scroll pagination, form validation with real-time feedback, add-to-cart with multi-element updates, and modal dialogs loaded on demand. Each uses just HTML attributes like hx-get, hx-post, hx-trigger, and hx-swap without writing JavaScript."
   - question: "What is HTMX and how does it work?"
     answer: "HTMX is a lightweight JavaScript library (14KB gzipped) that extends HTML with attributes allowing any element to make HTTP requests and update the page. Instead of writing JavaScript, you add attributes like hx-get, hx-post, hx-target, and hx-swap to HTML elements. When triggered, HTMX sends AJAX requests to your server, which returns HTML fragments that HTMX swaps into the DOM. No virtual DOM, no build step, no complex state management required."
   - question: "What are the core HTMX attributes I need to know?"

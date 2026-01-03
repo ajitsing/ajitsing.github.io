@@ -4,7 +4,7 @@ seo: true
 title: "HOCON vs YAML vs TOML vs JSON: Complete Configuration Format Comparison"
 subtitle: "Why Docker uses YAML, Rust picks TOML, and Akka chose HOCON over JSON"
 date: 2025-11-21
-last-modified-date: 2025-12-24
+last-modified-date: 2026-01-03
 categories: software-engineering
 permalink: /configuration-file-formats-comparison/
 share-img: /assets/img/posts/config-formats-comparison.png
@@ -15,6 +15,8 @@ tags: ["software-engineering"]
 social-share: true
 comments: true
 faq:
+  - question: "What is the difference between HOCON and JSON?"
+    answer: "HOCON is a JSON superset that adds comments (# and //), trailing commas, unquoted keys, variable substitution (${var}), and file includes. All valid JSON is valid HOCON, but HOCON is more human-friendly for configuration files. JSON is better for APIs and data exchange due to universal parsing support. HOCON is primarily used in JVM ecosystems like Akka and Play Framework."
   - question: "What is the difference between HOCON and YAML?"
     answer: "HOCON is a JSON superset designed for JVM applications (Akka, Play Framework) with built-in variable substitution and config includes. It uses brace-based syntax and is not whitespace-sensitive. YAML is indentation-based and used primarily in DevOps tools like Docker, Kubernetes, and GitHub Actions. HOCON offers features like ${variable} substitutions and file includes, while YAML has broader ecosystem support across programming languages."
   - question: "Is HOCON better than JSON for configuration files?"

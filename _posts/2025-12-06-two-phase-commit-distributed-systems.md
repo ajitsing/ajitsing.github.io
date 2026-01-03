@@ -4,16 +4,20 @@ seo: true
 title: "Two-Phase Commit: The Protocol That Keeps Distributed Transactions Honest"
 subtitle: "How databases across servers agree to commit or rollback without losing data"
 date: 2025-12-06
-last-modified-date: 2025-12-23
+last-modified-date: 2026-01-03
 categories: distributed-systems
 thumbnail-img: /assets/img/posts/distributed-systems/two-phase-commit-thumb.png
 share-img: /assets/img/posts/distributed-systems/two-phase-commit-thumb.png
 permalink: /distributed-systems/two-phase-commit/
-description: "Learn how Two-Phase Commit (2PC) coordinates distributed transactions across multiple databases. Understand the protocol phases, failure scenarios, and real-world implementations in PostgreSQL, MySQL, and microservices."
-keywords: "two-phase commit, 2PC, distributed transactions, distributed systems, database consistency, atomic commit, transaction coordinator, prepare commit, XA transactions, saga pattern, distributed database, ACID transactions, commit protocol, database replication, microservices transactions"
+description: "What is 2 phase commit? Complete guide to the two phase commit protocol (2PC) for distributed transactions. Learn how the 2 phase commit protocol coordinates atomicity across multiple databases, its phases, failure scenarios, and implementations in PostgreSQL, MySQL, and microservices."
+keywords: "two phase commit protocol, two-phase commit, 2 phase commit, 2 phase commit protocol, what is 2 phase commit, 2PC protocol, 2PC, distributed transactions, distributed systems, database consistency, atomic commit, transaction coordinator, prepare commit, XA transactions, saga pattern, distributed database, ACID transactions, commit protocol, database replication, microservices transactions"
 tags: [distributed-systems]
 comments: true
 faq:
+  - question: "What is the two phase commit protocol?"
+    answer: "The two phase commit protocol (2PC) is a distributed algorithm that coordinates all processes in a distributed transaction to either commit or abort together. Phase 1 (Prepare): the coordinator asks all participants to vote. Phase 2 (Commit): based on votes, the coordinator tells all participants to commit or abort. This ensures atomicity across multiple databases or services."
+  - question: "What is 2 phase commit?"
+    answer: "2 phase commit (also written as two-phase commit or 2PC) is a protocol for distributed transactions that ensures all participating databases either commit or rollback together. The two phases are: (1) Prepare phase where participants vote YES or NO, and (2) Commit phase where the coordinator sends the final decision based on all votes."
   - question: "What is two-phase commit (2PC) in distributed systems?"
     answer: "Two-Phase Commit (2PC) is a distributed consensus protocol that ensures atomicity across multiple databases or services. It has two phases: Prepare (where all participants vote YES/NO) and Commit (where the coordinator makes the final decision). All participants must agree to commit, or the entire transaction is rolled back."
   - question: "How does two-phase commit ensure atomicity?"

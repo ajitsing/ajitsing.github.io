@@ -4,6 +4,7 @@ seo: true
 title: "Your JSON is Costing You Thousands: Why TOON Might Save Your Budget"
 subtitle: "How a simple format change can reduce LLM API costs by 40-50%"
 date: 2025-11-14
+last-modified-date: 2026-01-03
 categories: artificial-intelligence
 thumbnail-img: /assets/img/posts/artificial-intelligence/toon-thumbnail.png
 share-img: /assets/img/posts/artificial-intelligence/toon-thumbnail.png
@@ -13,6 +14,15 @@ keywords: "TOON format, JSON alternative, token optimization, LLM cost reduction
 tags: [artificial-intelligence]
 social-share: true
 comments: true
+faq:
+  - question: "What is TOON format?"
+    answer: "TOON (Token-Oriented Object Notation) is a data format designed to minimize token usage when communicating with LLMs. It eliminates repeated field names in arrays by separating headers from values. For arrays with many objects, TOON can reduce token usage by 30-60% compared to JSON, directly cutting API costs."
+  - question: "How much can TOON reduce LLM API costs?"
+    answer: "TOON typically reduces token usage by 30-60% for array-heavy data. The savings depend on array size and object complexity. A dataset with 1,000 user records might drop from 15,400 tokens to 6,200 tokens - a 60% reduction. At GPT rates, this translates directly to 40-50% cost savings."
+  - question: "When should I use TOON instead of JSON?"
+    answer: "Use TOON when sending large arrays to LLMs (product catalogs, user lists, log entries), when API costs are significant, or when you're hitting context window limits. Stick with JSON for simple objects without arrays, when human readability is priority, or when the data stays within your system (no LLM involved)."
+  - question: "Can LLMs understand TOON format?"
+    answer: "Yes, modern LLMs like GPT and Claude understand TOON without special prompting. The format is simple: headers define field names, rows contain pipe-separated values. Include a brief format description in your system prompt for best results. LLMs parse it correctly and can even output TOON when asked."
 ---
 
 Companies using GPT for product recommendations are seeing monthly API bills reach $15,000-$20,000. Most of this cost comes from sending the same field names thousands of times in JSON arrays.

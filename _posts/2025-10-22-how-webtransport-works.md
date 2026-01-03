@@ -4,6 +4,7 @@ seo: true
 title: "WebTransport: The Protocol That Fixes What's Broken in WebSockets"
 subtitle: "How HTTP/3 and QUIC are changing real-time communication on the web"
 date: 2025-10-22
+last-modified-date: 2026-01-03
 categories: web-development
 thumbnail-img: /assets/img/posts/web-development/webtransport-thumbnail.png
 share-img: /assets/img/posts/web-development/webtransport-thumbnail.png
@@ -13,6 +14,15 @@ keywords: "WebTransport, HTTP/3, QUIC protocol, WebSocket alternative, real-time
 tags: [web-development, networking]
 social-share: true
 comments: true
+faq:
+  - question: "What is WebTransport and how is it different from WebSockets?"
+    answer: "WebTransport is a modern web API built on HTTP/3 and QUIC that provides bidirectional communication without TCP's head-of-line blocking. Unlike WebSockets where one lost packet blocks everything, WebTransport uses independent streams - a lost packet in one stream doesn't affect others. It also supports unreliable datagrams for real-time data like game positions."
+  - question: "What is head-of-line blocking and how does WebTransport solve it?"
+    answer: "Head-of-line blocking occurs in TCP when one lost packet blocks all subsequent packets from being processed, even if they arrived successfully. WebTransport runs on QUIC, which uses independent streams. Each stream has its own ordering, so a lost packet in stream A doesn't block streams B and C. This is crucial for multiplayer games and real-time applications."
+  - question: "When should I use WebTransport instead of WebSockets?"
+    answer: "Use WebTransport for multiplayer games, live streaming, video conferencing, IoT telemetry, or any application mixing reliable and unreliable data. WebSockets are still better for simple chat apps, broad browser compatibility requirements, or when you don't control the server infrastructure. WebTransport requires HTTP/3 server support."
+  - question: "Does WebTransport work in all browsers?"
+    answer: "WebTransport is supported in Chrome, Edge, and Opera. Firefox has experimental support. Safari support is coming. For production apps requiring broad compatibility, implement WebSockets as a fallback. Check caniuse.com/webtransport for current browser support status."
 ---
 
 You're building a multiplayer game. Players are chatting, shooting, moving around. Your WebSocket connection works fine until one packet gets lost. 

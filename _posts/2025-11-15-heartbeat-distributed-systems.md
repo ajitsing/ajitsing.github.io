@@ -4,6 +4,7 @@ seo: true
 title: "Heartbeat: How Distributed Systems Know You're Still Alive"
 subtitle: "The simple signal that prevents your servers from becoming digital zombies"
 date: 2025-11-15
+last-modified-date: 2026-01-03
 categories: distributed-systems
 thumbnail-img: /assets/img/posts/distributed-systems/distributed-systems-heartbeat.png
 share-img: /assets/img/posts/distributed-systems/distributed-systems-heartbeat.png
@@ -13,6 +14,15 @@ keywords: "heartbeat distributed systems, failure detection, health checks, dist
 tags: [distributed-systems]
 social-share: true
 comments: true
+faq:
+  - question: "What is a heartbeat in distributed systems?"
+    answer: "A heartbeat is a periodic signal sent between nodes to indicate they're alive and functioning. If a node stops sending heartbeats or fails to respond to health checks, other nodes assume it has failed and take corrective action (failover, rebalancing). Heartbeats are the foundation of failure detection in distributed systems."
+  - question: "What is the difference between push and pull heartbeats?"
+    answer: "In push-based heartbeats, nodes actively send 'I'm alive' signals to a monitor at regular intervals. In pull-based (health checks), a monitor periodically queries nodes. Push is better for many nodes (reduces monitor load); pull is better for fewer nodes needing detailed health information. Kubernetes uses both: kubelet pushes status, API server pulls probe results."
+  - question: "What is the split brain problem in distributed systems?"
+    answer: "Split brain occurs when network partitions cause nodes to lose contact with each other, and both sides think the other is dead. Each side may elect its own leader or accept writes, causing data inconsistency. Quorum-based systems prevent this by requiring a majority of nodes to agree before taking action."
+  - question: "How do you choose heartbeat timeout values?"
+    answer: "Heartbeat timeouts balance detection speed against false positives. Too short: network hiccups cause unnecessary failovers. Too long: real failures take too long to detect. A common starting point is 3x the heartbeat interval (e.g., 10s heartbeat, 30s timeout). Use adaptive timeouts like Phi Accrual for variable network conditions."
 ---
 
 It's 2 AM. Your database cluster is running smoothly. Then, one server freezes. Not a clean crash. Not a network disconnect. Just frozen. Still listening on the network, still responding to pings, but completely unable to process requests.

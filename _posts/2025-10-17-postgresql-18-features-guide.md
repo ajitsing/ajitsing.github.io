@@ -3,7 +3,7 @@ layout: post
 title: "Postgres 18: The Release That Makes Databases Fast Again"
 subtitle: "Async I/O that's 3x faster, skip scans that actually work, and OAuth built-in - here's what this release means for your production systems"
 date: 2025-10-17
-last-modified-date: 2025-10-17
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/database/postgres-18.png
 share-img: /assets/img/posts/database/postgres-18.png
 categories: database
@@ -14,6 +14,15 @@ keywords: "Postgres 18, PostgreSQL 18, database performance, async I/O, skip sca
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "What are the main features in PostgreSQL 18?"
+    answer: "PostgreSQL 18 introduces async I/O for 3x faster sequential scans, skip scan for multicolumn indexes, virtual generated columns that don't consume storage, OAuth 2.0 authentication, temporal constraints for time-based data, UUIDv7 support for time-ordered IDs, and faster pg_upgrade. It's a significant performance-focused release."
+  - question: "How much faster is PostgreSQL 18 async I/O?"
+    answer: "Async I/O in PostgreSQL 18 delivers up to 3x faster sequential scans on modern SSDs, 2-3x faster vacuum operations for large tables, and 40-60% faster bitmap heap scans. It issues multiple I/O requests concurrently instead of one at a time, dramatically reducing wait times on modern storage."
+  - question: "What is skip scan in PostgreSQL 18?"
+    answer: "Skip scan allows PostgreSQL to efficiently use a multicolumn index even when the leading column isn't in the WHERE clause. Previously, an index on (status, created_at) was useless for queries filtering only on created_at. Skip scan jumps through distinct values of the leading column, making the index useful."
+  - question: "Should I upgrade to PostgreSQL 18?"
+    answer: "Yes, if you have I/O-bound workloads, large tables requiring vacuum, or multicolumn indexes. The async I/O alone can provide significant performance gains. Test on a staging environment first, especially if using extensions. pg_upgrade in Postgres 18 is also faster, making the upgrade process smoother."
 ---
 
 Last month, Postgres shipped version 18, and it's packed with features that actually matter. While databases don't get the same attention as shiny new programming languages, this release has changes that will make your applications faster, your upgrades smoother, and your code cleaner.

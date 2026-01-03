@@ -4,6 +4,7 @@ seo: true
 title: "Why JWT Replaced Sessions: Building Auth That Scales"
 subtitle: "How stateless tokens solved the scaling problem that broke every session-based system"
 date: 2025-10-02
+last-modified-date: 2026-01-03
 categories: web-development
 thumbnail-img: /assets/img/posts/security/jwt-thumbnail.png
 share-img: /assets/img/posts/security/jwt-thumbnail.png
@@ -12,6 +13,15 @@ description: "Deep dive into JSON Web Tokens (JWT) - understand the structure, s
 keywords: "jwt, json web token, authentication, authorization, web security, stateless authentication, token based authentication, jwt signature, jwt security, oauth, api authentication"
 tags: [security]
 comments: true
+faq:
+  - question: "What is a JWT and how does it work?"
+    answer: "A JWT (JSON Web Token) is a compact, URL-safe token with three parts: header (algorithm), payload (claims like user ID and expiration), and signature. The server creates and signs the token at login. On each request, the server verifies the signature without storing session state - the token itself carries the proof of authenticity."
+  - question: "What is the difference between JWT and session-based authentication?"
+    answer: "Session-based auth stores user state on the server and gives clients a session ID. JWT is stateless - all user data is in the token itself. Sessions require shared storage (Redis) across servers; JWT works on any server with the signing key. Sessions are easier to revoke; JWT requires additional mechanisms like blacklists."
+  - question: "Where should I store JWT tokens - localStorage or cookies?"
+    answer: "Store JWTs in httpOnly cookies when possible. This protects against XSS attacks since JavaScript cannot access httpOnly cookies. LocalStorage is vulnerable to XSS. If you must use localStorage (e.g., for cross-domain APIs), implement strict Content Security Policy and sanitize all inputs."
+  - question: "How do I invalidate or revoke a JWT?"
+    answer: "JWTs cannot be directly invalidated since they're stateless. Common approaches: use short expiration times (15 minutes) with refresh tokens, maintain a blacklist of revoked tokens in Redis, or change the signing key (invalidates all tokens). Each approach trades off between security and complexity."
 ---
 
 Your app just hit production. 10,000 users are logged in. Your server stores session data for each one in memory. Traffic doubles. Then triples. The server runs out of memory. Users get logged out randomly. You add more servers, but now sessions don't sync across them.

@@ -4,6 +4,7 @@ seo: true
 title: "Hash Collisions: The Hidden Performance Killer in Your Code"
 subtitle: "Why your O(1) lookup just became O(n), and what you can do about it"
 date: 2025-10-06
+last-modified-date: 2026-01-03
 categories: data-structures
 thumbnail-img: /assets/img/posts/data_structures/hashtable-collision.png
 share-img: /assets/img/posts/data_structures/hashtable-collision.png
@@ -12,6 +13,15 @@ description: "Deep dive into hash table collisions - understand why they happen,
 keywords: "hash table collision, collision resolution, separate chaining, open addressing, hash function, load factor, performance optimization, hash collision attack, data structures"
 tags: [data-structures]
 comments: true
+faq:
+  - question: "What is a hash collision?"
+    answer: "A hash collision occurs when two different keys produce the same hash value and map to the same bucket in a hash table. Since hash functions map an infinite set of possible keys to a finite set of buckets, collisions are mathematically inevitable. How you handle them determines whether your O(1) lookups stay fast or degrade to O(n)."
+  - question: "What is the difference between separate chaining and open addressing?"
+    answer: "Separate chaining stores colliding elements in a linked list (or tree) at each bucket. Open addressing finds the next available slot using probing (linear, quadratic, or double hashing). Chaining handles high load factors better; open addressing has better cache performance. Java HashMap uses chaining; Python dict uses open addressing."
+  - question: "What is the load factor in a hash table?"
+    answer: "Load factor is the ratio of stored elements to total buckets (n/capacity). Higher load factors mean more collisions. Most implementations resize when load factor exceeds 0.75. At this threshold, average chain length is still short but collision probability is increasing. Resizing doubles capacity and rehashes all elements."
+  - question: "What is a hash collision attack?"
+    answer: "A hash collision attack exploits predictable hash functions by sending input that all hashes to the same bucket. This degrades O(1) lookups to O(n), causing denial of service. The 2011 attack affected PHP, Java, Python, and Ruby. Modern languages use randomized hash seeds to prevent attackers from predicting collisions."
 ---
 
 December 28th, 2011. Web servers across the internet started crashing. PHP, Java, Python, Ruby applications all fell like dominos. The culprit? A few carefully crafted HTTP POST requests with specific parameter names.

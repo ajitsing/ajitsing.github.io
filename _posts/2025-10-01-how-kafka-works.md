@@ -4,6 +4,7 @@ seo: true
 title: "How Kafka Works: The Engine Behind Real-Time Data Pipelines"
 subtitle: "Inside LinkedIn's log that changed how we think about messaging systems"
 date: 2025-10-01
+last-modified-date: 2026-01-03
 categories: distributed-systems
 thumbnail-img: /assets/img/posts/kafka/kafka-thumbnail.png
 share-img: /assets/img/posts/kafka/kafka-thumbnail.png
@@ -12,6 +13,15 @@ description: "Deep dive into Apache Kafka architecture - understand topics, part
 keywords: "apache kafka, kafka architecture, distributed systems, message broker, event streaming, kafka topics, kafka partitions, consumer groups, data pipelines, real-time processing, kafka performance, log-based messaging"
 tags: [distributed-systems]
 comments: true
+faq:
+  - question: "What is Apache Kafka and how does it work?"
+    answer: "Apache Kafka is a distributed event streaming platform that works as a commit log. Producers write messages to topics, which are split into partitions distributed across brokers. Consumers read from partitions at their own pace using offsets. Unlike traditional queues, Kafka retains messages for a configurable period, allowing multiple consumers and message replay."
+  - question: "What is the difference between Kafka and RabbitMQ?"
+    answer: "Kafka is a distributed log designed for high-throughput event streaming with message retention and replay. RabbitMQ is a traditional message broker with complex routing but deletes messages after delivery. Kafka excels at millions of messages per second and multiple consumers; RabbitMQ is better for complex routing patterns and lower-volume workloads."
+  - question: "What are Kafka topics and partitions?"
+    answer: "A Kafka topic is a category or feed name for messages. Topics are divided into partitions, which are ordered, immutable sequences of messages. Partitions enable parallelism - multiple consumers can read from different partitions simultaneously. Messages within a partition are ordered, but there's no ordering guarantee across partitions."
+  - question: "What is a Kafka consumer group?"
+    answer: "A consumer group is a set of consumers that work together to consume a topic. Each partition is assigned to exactly one consumer in the group, enabling parallel processing. If a consumer fails, its partitions are reassigned to other consumers in the group. Multiple consumer groups can read the same topic independently."
 ---
 
 Your company just launched a new feature. Within seconds, millions of events start flooding in: user clicks, purchases, page views, API calls. Traditional databases are choking. Message queues are dropping data. Your monitoring dashboard shows error rates climbing.

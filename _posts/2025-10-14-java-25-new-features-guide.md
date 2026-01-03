@@ -3,7 +3,7 @@ layout: post
 title: "Java 25 is Finally Here: The LTS Release That Changes Everything"
 subtitle: "Simplified syntax, faster performance, and memory savings - here's what 3 years of Java evolution brings to your codebase"
 date: 2025-10-15
-last-modified-date: 2025-10-15
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/java/java-25.png
 share-img: /assets/img/posts/java/java-25.png
 categories: java
@@ -14,6 +14,15 @@ keywords: "Java 25, JDK 25, Java LTS 2025, Java 25 features, JEP 512, JEP 513, S
 seo: true
 social-share: true
 comments: true
+faq:
+  - question: "What are the main features in Java 25 LTS?"
+    answer: "Java 25 LTS includes simplified main methods (no class or public static required), flexible constructors (code before super()), Scoped Values replacing ThreadLocal for virtual threads, compact object headers saving 8-12% memory, built-in password hashing with PBKDF2, and module imports for cleaner code. It's the first LTS since Java 21."
+  - question: "Should I upgrade from Java 21 to Java 25?"
+    answer: "Yes, Java 25 is the next LTS release after Java 21 and includes 3 years of improvements. Key benefits include better virtual thread support with Scoped Values, memory savings from compact object headers, and simpler syntax. LTS versions receive long-term security updates, making them ideal for production systems."
+  - question: "What are Scoped Values in Java 25?"
+    answer: "Scoped Values are a safer, more efficient alternative to ThreadLocal designed for virtual threads. Unlike ThreadLocal, Scoped Values are immutable, automatically cleaned up when scope exits, and work correctly with virtual threads. They prevent memory leaks and inheritance issues that plague ThreadLocal in modern concurrent code."
+  - question: "What are compact object headers in Java 25?"
+    answer: "Compact object headers reduce the memory overhead of every Java object from 12 bytes to 8 bytes on 64-bit JVMs. This saves 8-12% memory for object-heavy applications. Enable with -XX:+UseCompactObjectHeaders. It's especially impactful for applications with millions of small objects."
 ---
 
 September 2025. After three years of waiting, Java finally released its next Long-Term Support (LTS) version. The last one was Java 21 in September 2023. If you've been holding off on upgrading, this is the release you've been waiting for.

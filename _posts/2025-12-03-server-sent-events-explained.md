@@ -3,18 +3,20 @@ layout: post
 title: "The Complete Guide to Server-Sent Events (SSE)"
 subtitle: "The overlooked middle ground between polling and WebSockets"
 date: 2025-12-03
-last-modified-date: 2025-12-23
+last-modified-date: 2026-01-03
 thumbnail-img: /assets/img/posts/system-design/server-sent-events-thumb.png
 share-img: /assets/img/posts/system-design/server-sent-events-thumb.png
 categories: system-design
 tags: [system-design]
 permalink: /server-sent-events-explained/
-description: "Complete guide to Server-Sent Events (SSE) and the EventSource API. Learn about the default 3000ms retry time, auto-reconnection, Last-Event-ID, and when to choose SSE over WebSockets."
-keywords: "server-sent events, SSE, EventSource, eventsource retry, eventsource reconnection time, 3000ms, default retry time, text/event-stream, Last-Event-ID"
+description: "What is SSE? Server-Sent Events is a web standard for real-time server-to-client streaming over HTTP. Learn about the EventSource API, retry field default 3000 ms per MDN and the HTML specification, auto-reconnection behavior, Last-Event-ID, and when to choose SSE over WebSockets."
+keywords: "what is SSE, server-sent events, server sent events, SSE, EventSource, eventsource retry, eventsource reconnection behavior, eventsource reconnection time, MDN EventSource, retry field default 3000 ms, eventsource specification, eventsource spec, 3000ms, default retry time, text/event-stream, Last-Event-ID"
 seo: true
 social-share: true
 comments: true
 faq:
+  - question: "What is SSE (Server-Sent Events)?"
+    answer: "SSE (Server-Sent Events) is a web technology that allows servers to push real-time updates to browsers over a single HTTP connection. Unlike WebSockets, SSE is one-way (server to client only) and uses the text/event-stream format. It's ideal for live dashboards, notifications, stock prices, and any scenario where the server needs to push data without the client requesting it."
   - question: "What is the default EventSource retry time?"
     answer: "The default EventSource retry time is 3000 milliseconds (3 seconds). When a connection drops, the browser waits 3 seconds before attempting to reconnect. Servers can override this by sending a retry field with a different value in milliseconds."
   - question: "What is the default EventSource reconnection time according to the HTML standard?"
@@ -23,6 +25,10 @@ faq:
     answer: "The server can change the retry interval by sending a retry field in the event stream. For example, sending 'retry: 5000' sets the reconnection time to 5 seconds. The client cannot directly set this value."
   - question: "Does EventSource automatically reconnect?"
     answer: "Yes, EventSource automatically reconnects when the connection drops. The browser handles reconnection without any code needed, waiting the retry time (default 3000ms) before attempting to reconnect."
+  - question: "What is the EventSource reconnection behavior according to MDN?"
+    answer: "According to MDN (Mozilla Developer Network), EventSource automatically attempts to reconnect when the connection is closed. The default retry interval is 3000 milliseconds (3 seconds). The server can customize this by sending a retry field in the event stream. On reconnection, the browser sends the Last-Event-ID header to enable message replay."
+  - question: "What does the server-sent events specification say about the retry field default?"
+    answer: "The HTML Living Standard specification for server-sent events states that the default reconnection time is approximately 3000 milliseconds (3 seconds). The retry field in the event stream format allows servers to override this default by sending a new value in milliseconds (e.g., 'retry: 5000' for 5 seconds)."
 ---
 
 You need to push live updates from server to client. Stock prices. Notifications. Live scores. Log streams.

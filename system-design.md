@@ -137,8 +137,25 @@ canonical-url: "{{ site.url }}/system-design/"
     </div>
     {% endif %}
   </article>
+
+  {% comment %} Insert in-feed ad after every 5th post {% endcomment %}
+  {% assign mod_check = forloop.index | modulo: 5 %}
+  {% if mod_check == 0 %}
+  <div class="in-feed-ad" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-fz-16+2s-di+qa"
+         data-ad-client="ca-pub-2886086145980317"
+         data-ad-slot="7281945758"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  {% endif %}
+
   {% endfor %}
 </div>
+
+<script src="{{ '/assets/js/in-feed-ads.js' | relative_url }}"></script>
 {% else %}
 <div class="no-system-design-posts">
   <p>No system design breakdowns yet. Check back soon!</p>

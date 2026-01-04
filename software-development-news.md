@@ -92,8 +92,10 @@ social-share: true
 
 {% assign posts = paginator.posts | default: site.posts %}
 <div class="posts-list">
+  {% assign post_counter = 0 %}
   {% for post in posts %}
   {% if post.tags contains "dev-weekly" %}
+  {% assign post_counter = post_counter | plus: 1 %}
   <article class="post-preview">
     <a href="{{ post.url | relative_url }}" class="post-preview-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
       <div class="post-content">
@@ -142,9 +144,26 @@ social-share: true
     </div>
     {% endif %}
   </article>
+
+  {% comment %} Insert in-feed ad after every 5th post {% endcomment %}
+  {% assign mod_check = post_counter | modulo: 5 %}
+  {% if mod_check == 0 %}
+  <div class="in-feed-ad" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-fz-16+2s-di+qa"
+         data-ad-client="ca-pub-2886086145980317"
+         data-ad-slot="7281945758"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  {% endif %}
+
   {% endif %}
   {% endfor %}
 </div>
+
+<script src="{{ '/assets/js/in-feed-ads.js' | relative_url }}"></script>
 
 {% assign dev_weekly_posts = site.tags.dev-weekly | default: empty %}
 {% if site.posts.size == 0 or dev_weekly_posts.size == 0 %}

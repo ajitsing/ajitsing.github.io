@@ -1,16 +1,38 @@
 ---
 layout: post
 seo: true
-title: "Dev Weekly: 2025 Year in Review - The Biggest Tech Stories That Shaped Our Industry"
+title: "Dev Weekly: 2025 Year in Review - The Year AI Became Normal"
 subtitle: "From Nvidia's $5T valuation to AI coding tools everywhere, Python breaking free of the GIL, Windows 10's death, and the acquisitions that changed the game"
 date: 2026-01-04
 categories: tech-news
 permalink: /dev-weekly/2025-year-in-review/
-share-img: /assets/img/posts/dev_weekly/dev-weekly-cover.png
-thumbnail-img: /assets/img/posts/dev_weekly/dev-weekly-cover.png
+share-img: /assets/img/posts/dev_weekly/2025-year-in-review.png
+thumbnail-img: /assets/img/posts/dev_weekly/2025-year-in-review.png
 description: "The definitive look back at 2025's biggest tech stories: Nvidia hits $5 trillion, AI transforms development, Python drops the GIL, major acquisitions reshape the industry, and what it all means for developers going into 2026."
-keywords: "2025 tech year in review, Nvidia 5 trillion, OpenAI GPT-5, Python 3.14 GIL free, Java 25 LTS, Windows 10 end of support, Cursor Graphite acquisition, Anthropic Bun acquisition, AI coding tools 2025, developer news 2025, software development 2025"
-tags: ["dev-weekly", "tech-news", "software-development-news"]
+keywords: "2025 tech year in review, Nvidia 5 trillion market cap, OpenAI GPT-5, Python 3.14 GIL free, Java 25 LTS, Windows 10 end of support October 2025, Cursor Graphite acquisition, SoftBank OpenAI investment, AI coding tools 2025, developer news 2025, software development 2025, tech news 2025, biggest tech stories 2025, Sora 2 video generation, Genesis Mission AI, Google Antigravity IDE, AWS frontier agents, TypeScript 2025"
+comments: true
+tags: ["dev-weekly", "tech-news", "software-development-news", "2025-year-in-review"]
+faq:
+  - question: "What was the biggest tech story of 2025?"
+    answer: "Nvidia becoming the first company to reach a $5 trillion market cap on October 29, 2025. This milestone highlighted the massive demand for AI hardware and Nvidia's dominance in the GPU market that powers nearly every major AI system."
+  - question: "How did AI change software development in 2025?"
+    answer: "AI became the default tool for developers in 2025. According to surveys, 84% of developers are now using or planning to use AI tools. GitHub reported 4.3 million AI-related repositories were created (nearly double from 2023), and developers reported 20-50% productivity improvements from AI tools. However, 46% of developers still don't fully trust AI-generated code accuracy."
+  - question: "What happened to Python in 2025?"
+    answer: "Python 3.14 was released with optional GIL (Global Interpreter Lock) removal, allowing true multi-threaded parallel execution for the first time. The release also included an experimental JIT compiler for performance improvements and template literals (t-strings). This was one of the most significant Python releases in years."
+  - question: "When did Windows 10 support end?"
+    answer: "Windows 10 support ended on October 14, 2025. After this date, Microsoft stopped providing security updates, bug fixes, and technical support. This affected approximately 400 million PCs worldwide, many of which cannot upgrade to Windows 11 due to hardware requirements like TPM 2.0."
+  - question: "What major tech acquisitions happened in 2025?"
+    answer: "Key acquisitions in 2025 included: Cursor acquiring Graphite (code review startup valued at $290M+), Coursera and Udemy merging in a $2.5 billion deal, Nvidia acquiring SchedMD (makers of Slurm workload manager), and Qualcomm acquiring Ventana Micro Systems for RISC-V CPU expertise."
+  - question: "What was OpenAI's biggest news in 2025?"
+    answer: "OpenAI had several major developments: releasing GPT-5 and GPT-5.2 Codex, launching Sora 2 video generator, receiving a $22.5 billion investment from SoftBank, announcing a Disney partnership for character licensing in Sora, launching Canvas for collaborative coding, and preparing for a potential $1 trillion IPO in 2026-2027."
+  - question: "What is Google Antigravity?"
+    answer: "Google Antigravity is an AI-powered integrated development environment (IDE) announced in 2025 alongside Gemini 3. It allows developers to delegate complex coding tasks to autonomous AI agents, representing a shift toward AI-first development platforms where AI agents handle much of the actual code writing."
+  - question: "What are AWS frontier agents?"
+    answer: "AWS frontier agents are fully autonomous AI systems introduced in 2025 designed to operate without human input for extended periods. They can handle coding, security analysis, and DevOps processes autonomously. AWS positioned this as a major evolution in how software gets developed and maintained."
+  - question: "What was the Genesis Mission announced in 2025?"
+    answer: "The Genesis Mission was a US government initiative announced in December 2025, described as the biggest national AI project since the Manhattan Project. It involves 24 tech companies including Nvidia, OpenAI, Microsoft, and Google building AI supercomputers across Department of Energy national laboratories."
+  - question: "How much did SoftBank invest in OpenAI?"
+    answer: "SoftBank invested $22.5 billion in OpenAI in December 2025, one of the largest single investments in an AI company ever. To fund this investment, SoftBank sold public-market holdings and used additional credit capacity."
 ---
 
 What a year. 2025 was the year AI stopped being hype and became the way most of us work. Nvidia became the first company worth $5 trillion. Python finally broke free of the GIL. Windows 10 died. OpenAI prepared for a trillion-dollar IPO. And the race to own developer tools went into overdrive.

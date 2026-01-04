@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: "How Stripe Prevents Double Payments"
 subtitle: "Learn the engineering patterns that prevent duplicate charges and how to implement them in your payment systems"
 date: 2025-08-29

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: "Git Command Line Basics: Essential Commands for Software Developers"
 description: "Learn the basics of Git command-line usage with detailed explanations of essential commands. Discover why the command line is a powerful tool for developers."
 date: 2025-08-04
@@ -10,6 +11,19 @@ permalink: /git-command-line-basics/
 tags: ["git", "version-control"]
 keywords: "git basics, git command line, git commands for beginners, git tutorial, git version control, git cli, git gui vs command line, git workflow, git cheat sheet"
 comments: true
+faq:
+  - question: "What are the most essential Git commands for beginners?"
+    answer: "The essential Git commands are: git init (initialize repository), git clone (copy remote repo), git status (check changes), git add (stage files), git commit (save changes), git push (upload to remote), git pull (download from remote), git branch (manage branches), and git merge (combine branches)."
+  - question: "What is the difference between git pull and git pull --rebase?"
+    answer: "git pull fetches changes and creates a merge commit if there are conflicts, which can clutter history. git pull --rebase fetches changes and replays your local commits on top of them, creating a linear history without merge commits. Use rebase for cleaner history in collaborative projects."
+  - question: "How do I undo the last git commit?"
+    answer: "Use git reset --soft HEAD~1 to undo the last commit but keep changes staged. Use git reset --hard HEAD~1 to undo the commit and discard all changes. Use git revert HEAD to create a new commit that undoes the changes while preserving history."
+  - question: "Why should I use Git command line instead of GUI tools?"
+    answer: "The command line offers more speed, access to all Git features (including advanced ones not in GUIs), better understanding of Git internals, automation through scripting, and more precise control. It also helps with debugging and troubleshooting since you see exactly what commands are executed."
+  - question: "How do I resolve merge conflicts in Git?"
+    answer: "When conflicts occur, Git marks the conflicting sections in the affected files. Open each file, find the conflict markers (<<<<<<, ======, >>>>>>), choose which changes to keep, remove the markers, then stage the resolved files with git add and commit with git commit."
+  - question: "What is git stash and when should I use it?"
+    answer: "git stash temporarily saves your uncommitted changes so you can switch branches or pull updates without committing incomplete work. Use git stash to save changes, git stash list to see stashed items, git stash apply to restore changes, and git stash pop to restore and remove from stash."
 ---
 
 Git is an indispensable tool for software developers, enabling version control, collaboration, and efficient workflows. While many developers rely on GUI tools, the command line offers unparalleled flexibility, speed, and control. In this post, we'll explore the basics of Git command-line usage, essential commands, and why you should consider using the command line over GUI tools. This guide serves as a comprehensive cheat sheet for beginners and experienced developers alike.

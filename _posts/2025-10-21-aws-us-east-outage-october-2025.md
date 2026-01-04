@@ -11,6 +11,17 @@ thumbnail-img: /assets/img/tech-news/aws-outage-oct.png
 description: "Complete analysis of the October 20, 2025 AWS US-East-1 outage that disrupted Netflix, Snapchat, Reddit, Robinhood, Fortnite, and major services worldwide. Timeline, root cause analysis, impact assessment, and critical lessons for developers on building resilient cloud architectures."
 keywords: "AWS outage October 2025, US-East-1 failure, AWS network load balancer issue, cloud infrastructure failure, multi-region architecture, AWS DynamoDB outage, DNS resolution failure, cloud resilience, disaster recovery, AWS EC2 outage, developer lessons cloud outage"
 tags: ["tech-news"]
+faq:
+  - question: "What caused the AWS US-East-1 outage in October 2025?"
+    answer: "A network load balancer health check bug caused the system to incorrectly mark healthy servers as dead. This led to DNS resolution failures for DynamoDB, which cascaded to Lambda, API Gateway, CloudWatch, and dependent services. The issue took 12 hours to fully resolve."
+  - question: "Why does AWS US-East-1 have so many outages?"
+    answer: "US-East-1 is AWS's oldest and largest region with the most accumulated technical debt. It's the default in documentation, the cheapest region, and has the most services. Companies continue using it despite risks due to legacy infrastructure, migration costs, and network effects."
+  - question: "How can I protect my application from AWS regional outages?"
+    answer: "Deploy across multiple AWS regions with Route53 health checks for automatic failover. Replicate critical data across regions. Use external monitoring that doesn't depend on AWS. Design for failure with circuit breakers, retry logic, and graceful degradation. Test failover regularly."
+  - question: "What services were affected by the AWS October 2025 outage?"
+    answer: "Major affected services included Netflix, Snapchat, Reddit, Fortnite, Roblox, Robinhood, Venmo, Disney+, Prime Video, Canvas, Duolingo, and Amazon's own retail services. The outage impacted millions of users and hundreds of thousands of applications."
+  - question: "What is the difference between AWS Availability Zones and Regions?"
+    answer: "Availability Zones (AZs) are isolated data centers within a region connected by low-latency links. Regions are geographically separate locations with multiple AZs. AZs protect against single data center failures, but regional outages like this one affect all AZs in the region simultaneously."
 ---
 
 On October 20, 2025, Amazon Web Services experienced one of its most significant outages in recent years. A network load balancer bug in the US-East-1 region brought down Netflix, Snapchat, Reddit, Robinhood, Fortnite, and countless other services for 12 hours. Here's what happened and what developers need to learn.

@@ -12,6 +12,19 @@ description: "Deep dive into Kubernetes architecture - understand how the contro
 keywords: "kubernetes architecture, k8s components, control plane, worker nodes, etcd, kube-apiserver, container orchestration, microservices, cloud native, system design"
 tags: [system-design, devops]
 comments: true
+faq:
+  - question: "What are the main components of Kubernetes architecture?"
+    answer: "Kubernetes has two main parts: the Control Plane (kube-apiserver, etcd, kube-scheduler, kube-controller-manager) which makes decisions about the cluster, and Worker Nodes (kubelet, kube-proxy, container runtime) which run the actual containerized workloads."
+  - question: "What is the Kubernetes control plane?"
+    answer: "The control plane is the brain of Kubernetes that manages the cluster state. It includes the API server (handles all communication), etcd (stores cluster state), scheduler (assigns pods to nodes), and controller manager (maintains desired state). It runs on master nodes separate from worker nodes."
+  - question: "What is etcd in Kubernetes?"
+    answer: "etcd is a distributed key-value store that holds all Kubernetes cluster data including pod specs, service configurations, secrets, and cluster state. It uses the Raft consensus algorithm for reliability. The API server is the only component that directly communicates with etcd."
+  - question: "What is the difference between a Pod and a Container in Kubernetes?"
+    answer: "A container is a single running instance of a Docker/OCI image. A Pod is the smallest deployable unit in Kubernetes that can contain one or more containers sharing the same network namespace, IP address, and storage volumes. Pods provide the execution environment for containers."
+  - question: "How does Kubernetes handle node failures?"
+    answer: "When a node fails, the Node Controller detects the failure (typically after 5 minutes of no heartbeat). It marks the node as NotReady and evicts pods. The ReplicaSet controller then creates new pods on healthy nodes to maintain the desired replica count. This self-healing happens automatically."
+  - question: "What is kubelet and what does it do?"
+    answer: "Kubelet is the primary node agent running on every worker node. It watches for pod assignments from the API server, pulls container images, starts and monitors containers, runs health checks (liveness and readiness probes), and reports node and pod status back to the control plane."
 ---
 
 Six months ago, you had one web app on one server. Today, you have 50 microservices that need to scale independently, find each other, and handle failures gracefully. Your deployment process went from "upload via FTP" to "run this 200 line script and pray."

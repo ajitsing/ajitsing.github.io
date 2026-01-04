@@ -12,6 +12,19 @@ description: "Learn how Write-Ahead Log (WAL) prevents data loss in distributed 
 keywords: "write-ahead log, WAL, distributed systems, database durability, transaction logging, PostgreSQL WAL, Kafka logs, data recovery, system reliability, ACID properties, database patterns"
 tags: [distributed-systems]
 comments: true
+faq:
+  - question: "What is a Write-Ahead Log (WAL) and why is it important?"
+    answer: "A Write-Ahead Log is a pattern where changes are written to a log file before being applied to the actual data. This ensures durability because if the system crashes, the log can be replayed to recover any incomplete transactions. WAL is fundamental to databases like PostgreSQL, MySQL, and systems like Kafka."
+  - question: "How does Write-Ahead Log prevent data loss?"
+    answer: "WAL prevents data loss by recording all intended changes before executing them. If a crash occurs mid-transaction, the system reads the WAL on restart and either completes the transaction (redo) or rolls it back (undo). Since the log is written to disk first, no committed data is ever lost."
+  - question: "What databases use Write-Ahead Log?"
+    answer: "Most modern databases use WAL including PostgreSQL (pg_wal directory), MySQL/MariaDB (binary log), SQLite (WAL mode), MongoDB (oplog), and SQLServer (transaction log). Message systems like Apache Kafka also use WAL as their core storage mechanism."
+  - question: "What is the difference between WAL and regular logging?"
+    answer: "Regular application logs are for debugging and monitoring. WAL is a structured transaction log that records every data modification in order. WAL entries are written synchronously before data changes and can be replayed for recovery. Regular logs cannot reconstruct database state."
+  - question: "How does PostgreSQL use Write-Ahead Log?"
+    answer: "PostgreSQL writes all data modifications to WAL files in pg_wal directory before updating actual tables. On crash recovery, PostgreSQL replays WAL entries to restore data to a consistent state. WAL is also used for streaming replication to replica servers and point-in-time recovery."
+  - question: "What are the performance implications of Write-Ahead Log?"
+    answer: "WAL adds overhead because every write goes to disk twice (log and data). However, WAL writes are sequential (fast) while data writes are random (slower). The net effect is often positive because WAL allows batching of data writes. The tradeoff is extra disk space for log files."
 ---
 
 Picture this: You're transferring $500 to your friend through a banking app. You hit "Send," and your phone immediately dies. When you turn it back on, you check your account—the money is gone from your balance, but your friend never received it. 

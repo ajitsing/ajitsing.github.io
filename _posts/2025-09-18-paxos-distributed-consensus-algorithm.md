@@ -12,6 +12,19 @@ description: "Learn how Paxos algorithm achieves consensus in distributed system
 keywords: "paxos algorithm, distributed consensus, distributed systems, fault tolerance, Byzantine fault tolerance, Google Chubby, consensus algorithms, distributed computing, system reliability"
 tags: [distributed-systems]
 comments: true
+faq:
+  - question: "What is the Paxos algorithm and what problem does it solve?"
+    answer: "Paxos is a consensus algorithm that allows multiple distributed nodes to agree on a single value even when some nodes fail or network messages are delayed. It solves the distributed consensus problem, ensuring all nodes eventually agree on the same decision without a single point of failure."
+  - question: "How does Paxos achieve consensus?"
+    answer: "Paxos uses a two-phase voting process. In Phase 1 (Prepare), a proposer asks acceptors for permission to make a proposal. In Phase 2 (Accept), if a majority agrees, the proposer sends the actual value. Once a majority accepts, the value is chosen. This ensures only one value can ever be agreed upon."
+  - question: "What is the difference between Paxos and Raft?"
+    answer: "Both solve distributed consensus, but Raft was designed to be easier to understand and implement. Paxos is more theoretical and harder to implement correctly. Raft uses a strong leader model while basic Paxos doesn't require one. In practice, Raft is more commonly used in new systems due to its simplicity."
+  - question: "What systems use Paxos in production?"
+    answer: "Google Chubby (their distributed lock service) uses Paxos. Apache Cassandra uses Paxos for lightweight transactions. Google Spanner uses a variant called Multi-Paxos. Many other distributed databases and coordination services are built on Paxos or Paxos-like algorithms."
+  - question: "Why is Paxos considered difficult to implement?"
+    answer: "Paxos is difficult because the original paper is famously hard to understand, there are many edge cases around leader election and failure recovery, implementing Multi-Paxos (for sequences of values) adds complexity, and bugs are subtle and hard to detect. This led to Raft being created as an alternative."
+  - question: "How many nodes are needed for Paxos to work?"
+    answer: "Paxos requires a majority (quorum) of nodes to agree. With N nodes, you need at least (N/2)+1 to make progress. A 3-node cluster tolerates 1 failure, a 5-node cluster tolerates 2 failures. Having more nodes increases fault tolerance but adds latency due to more network communication."
 ---
 
 Imagine you're running a bank with branches in New York, London, and Tokyo. A customer has $1500 in their account. At the exact same moment, they walk into the New York branch asking to withdraw $1000, try to withdraw $1000 through the London ATM, and attempt another $1000 withdrawal via the Tokyo mobile app.

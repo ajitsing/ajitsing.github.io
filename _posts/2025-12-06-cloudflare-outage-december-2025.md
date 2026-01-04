@@ -11,6 +11,19 @@ thumbnail-img: /assets/img/tech-news/cloudflare-outage.png
 description: "Complete technical analysis of the December 5, 2025 Cloudflare outage that affected 28% of global HTTP traffic. Deep dive into how a Lua nil value exception, dormant for years, was triggered by a killswitch applied to an execute action for the first time. Timeline, root cause analysis, and lessons for developers on type safety, feature flags, and deployment strategies."
 keywords: "Cloudflare outage December 2025, nil value exception, Lua error, type safety, Rust vs Lua, killswitch testing, feature flags, gradual rollouts, WAF outage, React Server Components CVE, CVE-2025-55182, developer lessons, infrastructure failure"
 tags: ["tech-news"]
+faq:
+  - question: "What caused the Cloudflare outage in December 2025?"
+    answer: "A Lua nil value exception that had been dormant for years was triggered when a killswitch was applied to an 'execute' action rule for the first time. The code assumed that if action equals 'execute', then the execute field would exist, but the killswitch caused it to be nil."
+  - question: "Why did a security fix cause an outage?"
+    answer: "Cloudflare was protecting customers from CVE-2025-55182 (React Server Components vulnerability). They needed to disable a testing tool that was incompatible with the fix. Disabling it via the global config system (instant propagation) triggered the dormant bug globally."
+  - question: "How did Rust prevent this bug in Cloudflare's new system?"
+    answer: "Cloudflare's newer FL2 proxy written in Rust was not affected. Rust's strong type system with Option types forces you to handle the None case at compile time. The same nil access bug that crashed Lua code is impossible in properly-written Rust code."
+  - question: "What is the difference between gradual rollout and global config deployment?"
+    answer: "Gradual rollout deploys changes incrementally with health validation, limiting blast radius if something goes wrong. Global config propagates changes to the entire fleet within seconds with no validation. Both Cloudflare outages in November and December 2025 used global config."
+  - question: "How can developers prevent dormant bugs from causing outages?"
+    answer: "Test feature flags and killswitches for every code path they affect. Use strong type systems that catch nil/null access at compile time. Implement fuzz testing and chaos engineering. Apply gradual rollouts to all changes, not just code deployments."
+  - question: "What is fail-open error handling?"
+    answer: "Fail-open means that when a non-critical feature fails, the system continues operating without it rather than returning errors. For example, if bot detection fails, traffic passes through anyway. This prevents optional components from breaking core functionality."
 ---
 
 On December 5, 2025, Cloudflare experienced another global outage, just 17 days after the November 18 incident. This time, approximately 28% of all HTTP traffic served by Cloudflare was affected for 25 minutes. The root cause was a Lua nil value exception that had been hiding in their codebase for years, waiting for exactly the right combination of inputs to surface.

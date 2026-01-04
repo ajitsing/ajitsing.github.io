@@ -11,6 +11,19 @@ thumbnail-img: /assets/img/posts/android_github_actions/thumbnail.png
 description: "Learn GitHub Actions fundamentals with practical examples. Master CI/CD automation, workflow triggers, and best practices for software developers."
 keywords: "GitHub Actions, CI/CD, automation, workflows, continuous integration, continuous deployment, DevOps"
 tags: ["github-actions", "ci-cd", "devops"]
+faq:
+  - question: "What is GitHub Actions and how does it work?"
+    answer: "GitHub Actions is a CI/CD platform built into GitHub that automates workflows based on repository events. Workflows are defined in YAML files in .github/workflows/ directory. When events occur (push, pull request, schedule), GitHub runs your workflow on virtual machines, executing jobs and steps you define."
+  - question: "How do I create my first GitHub Actions workflow?"
+    answer: "Create a YAML file in .github/workflows/ directory (e.g., ci.yml). Define the trigger events with 'on:', specify jobs with 'jobs:', and add steps for each task. Use 'actions/checkout@v4' to check out code and 'actions/setup-node@v4' (or similar) to set up your environment."
+  - question: "What are GitHub Actions secrets and how do I use them?"
+    answer: "GitHub Actions secrets are encrypted environment variables for storing sensitive data like API keys and passwords. Add them in Settings > Secrets and variables > Actions. Access them in workflows using ${{ secrets.SECRET_NAME }}. Never hardcode sensitive values in workflow files."
+  - question: "How do I run tests on multiple versions or operating systems?"
+    answer: "Use matrix builds with the 'strategy.matrix' option. Define arrays for versions and OS (e.g., node-version: [16, 18, 20], os: [ubuntu-latest, windows-latest]). GitHub Actions creates a job for each combination, running them in parallel."
+  - question: "What is the difference between jobs and steps in GitHub Actions?"
+    answer: "Jobs are independent units of work that run on separate virtual machines and can run in parallel. Steps are sequential tasks within a job that share the same environment. Use 'needs:' to create job dependencies. Steps can run shell commands or use pre-built actions."
+  - question: "How do I trigger a workflow only on specific branches?"
+    answer: "Use the 'on.push.branches' or 'on.pull_request.branches' configuration. For example: 'on: push: branches: [main, develop]' triggers only on pushes to main or develop branches. You can also use 'branches-ignore' to exclude specific branches."
 ---
 
 Think of GitHub Actions as your digital assistant that never sleeps. Every time something happens in your repository - like pushing code or creating a pull request - Actions can automatically run tasks for you.

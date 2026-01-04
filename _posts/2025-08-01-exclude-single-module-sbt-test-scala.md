@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: How to Exclude a Single Module from `sbt test` in a Multi-Module Scala Project
 description: Learn different approaches to exclude specific modules from sbt test execution in multi-module Scala projects, with code examples and CI-friendly solutions.
 share-img: /assets/img/posts/scala/cover.png
@@ -8,6 +9,17 @@ permalink: /exclude-single-module-sbt-test-scala/
 tags: [scala, sbt, testing, ci-cd]
 keywords: "sbt test exclude module, scala multi-module testing, sbt skip tests, scala build configuration, sbt aggregate exclude, scala testing best practices, sbt multi-project setup, scala ci cd testing"
 comments: true
+faq:
+  - question: "How do I exclude a single module from sbt test?"
+    answer: "The most flexible way is to use the command-line skip method: sbt 'set integration / Test / skip := true' test. This dynamically skips tests for the specified module without requiring any code changes to your build.sbt file."
+  - question: "How do I skip tests for multiple modules in sbt?"
+    answer: "Chain multiple set commands before the test task: sbt 'set integration / Test / skip := true' 'set utils / Test / skip := true' test. Each module you want to skip needs its own set command."
+  - question: "What is the best way to skip integration tests in sbt for CI/CD?"
+    answer: "For CI/CD pipelines, the command-line skip method is recommended because it requires no code changes, is visible in build logs, and can be easily added to any build script. Use: sbt 'set integration / Test / skip := true' test in your CI configuration."
+  - question: "How do I conditionally skip tests in sbt based on environment variables?"
+    answer: "Add this to your build.sbt: Test / skip := sys.env.get('SKIP_TESTS').contains('true'). Then run with: SKIP_INTEGRATION_TESTS=true sbt test. This allows flexible control without command-line complexity."
+  - question: "What is the difference between Test / skip and removing a module from aggregate?"
+    answer: "Test / skip := true disables tests for a specific module while keeping it in the project aggregation for other tasks like compile and package. Removing from aggregate excludes the module from all aggregated tasks entirely, which may not be desired if you still want to compile or package that module."
 ---
 
 When working with multi-module Scala projects, there are scenarios where you need to exclude specific modules from the `sbt test` command. This could be due to long-running integration tests, modules with external dependencies, or simply modules that aren't ready for automated testing yet.

@@ -11,6 +11,17 @@ permalink: /explainer/row-vs-column-store/
 keywords: "row store, column store, columnar database, database storage, OLTP, OLAP, data warehouse, database optimization"
 tags: ["Database"]
 social-share: true
+faq:
+  - question: "What is the difference between row store and column store databases?"
+    answer: "Row stores save data by row - each row's columns are stored together (PostgreSQL, MySQL). Column stores save data by column - each column's values are stored together (ClickHouse, Redshift). Row stores are fast for transactional queries fetching entire rows. Column stores are fast for analytical queries aggregating specific columns."
+  - question: "When should I use a columnar database?"
+    answer: "Use columnar databases for analytics, reporting, and data warehousing where you aggregate large datasets across few columns (SUM, AVG, COUNT). They excel at queries like 'total sales by region' that scan millions of rows but only need 2-3 columns. Not ideal for transactional workloads or frequent row updates."
+  - question: "Why are column stores faster for analytics?"
+    answer: "Column stores read only the columns needed for a query, not entire rows. For analytics scanning millions of rows but using 3 columns out of 50, you read 94% less data. Columns also compress better (similar values together) and enable vectorized processing for faster computation."
+  - question: "What are examples of row and column store databases?"
+    answer: "Row stores: PostgreSQL, MySQL, Oracle, SQL Server - traditional OLTP databases. Column stores: ClickHouse, Amazon Redshift, Google BigQuery, Apache Parquet, Snowflake - designed for OLAP and analytics. Some databases like PostgreSQL offer columnar extensions for mixed workloads."
+  - question: "Can I use a column store for my main application database?"
+    answer: "Column stores aren't ideal as primary application databases. They're slow at inserting single rows, updating individual records, and fetching complete rows by ID - common transactional operations. Use a row store for your application and sync data to a column store for analytics."
 ---
 
 {% include explainer-head.html %}

@@ -11,6 +11,17 @@ permalink: /explainer/passkeys-explained/
 keywords: "passkeys, passwordless authentication, WebAuthn, FIDO2, login security, password replacement, biometric login"
 tags: ["Security"]
 social-share: true
+faq:
+  - question: "What is a passkey and how does it work?"
+    answer: "A passkey is a cryptographic credential that replaces passwords. It uses public-key cryptography: your device stores a private key (unlocked by biometrics or PIN), and the website stores the public key. During login, your device signs a challenge with the private key, proving identity without sending any secret."
+  - question: "Are passkeys safer than passwords?"
+    answer: "Yes, passkeys are significantly safer. They can't be phished (tied to specific domains), can't be leaked in database breaches (sites only have public keys), can't be guessed or cracked, and don't need to be remembered or typed. Each passkey is unique per site, eliminating password reuse risks."
+  - question: "What happens if I lose my device with passkeys?"
+    answer: "Passkeys can sync across devices via iCloud Keychain, Google Password Manager, or 1Password. If synced, access them from any linked device. If not synced, use account recovery options. Many sites let you register multiple passkeys or keep a backup authentication method."
+  - question: "What is the difference between passkeys and hardware security keys?"
+    answer: "Hardware security keys (like YubiKey) are physical devices you plug in or tap. Passkeys can be stored on phones/computers and synced via cloud. Both use the same WebAuthn/FIDO2 standard. Hardware keys are slightly more secure (no cloud sync), passkeys are more convenient."
+  - question: "Which websites and apps support passkeys?"
+    answer: "Major services supporting passkeys include Google, Apple, Microsoft, GitHub, PayPal, eBay, Best Buy, and many more. Support is growing rapidly. Check passkeys.directory for a current list of supporting services."
 ---
 
 {% include explainer-head.html %}

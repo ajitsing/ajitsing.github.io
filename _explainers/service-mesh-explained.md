@@ -11,6 +11,17 @@ permalink: /explainer/service-mesh-explained/
 keywords: "service mesh, microservices, istio, linkerd, kubernetes, service to service communication, sidecar proxy, traffic management"
 tags: ["DevOps", "Microservices"]
 social-share: true
+faq:
+  - question: "What is a Service Mesh?"
+    answer: "A Service Mesh is an infrastructure layer that handles service-to-service communication in microservices. It uses sidecar proxies (like Envoy) deployed alongside each service to manage traffic routing, load balancing, encryption, observability, and retry logic - all without changing application code."
+  - question: "What is a sidecar proxy in a service mesh?"
+    answer: "A sidecar proxy is a container that runs alongside your application container in the same pod. All incoming and outgoing traffic flows through it. The proxy handles mTLS encryption, load balancing, retries, circuit breaking, and metrics collection transparently. Envoy is the most common sidecar proxy."
+  - question: "When should I use a Service Mesh?"
+    answer: "Use a service mesh when you have many microservices (20+) needing consistent observability, security (mTLS), and traffic management. It's valuable for canary deployments, circuit breaking, and distributed tracing. Avoid for simple architectures - the complexity overhead isn't worth it for 5-10 services."
+  - question: "What is the difference between Istio and Linkerd?"
+    answer: "Istio is feature-rich with advanced traffic management and security policies but is more complex and resource-heavy. Linkerd is lightweight, simpler to operate, and uses less resources with its Rust-based proxy. Choose Linkerd for simplicity, Istio for advanced features and enterprise requirements."
+  - question: "Does a service mesh replace API Gateway?"
+    answer: "No, they serve different purposes. API Gateways handle north-south traffic (external clients to services) with authentication, rate limiting, and API management. Service Mesh handles east-west traffic (service to service) with mTLS, observability, and traffic control. Many architectures use both together."
 ---
 
 {% include explainer-head.html %}

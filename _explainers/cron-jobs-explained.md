@@ -12,6 +12,17 @@ canonical_url: "https://singhajit.com/explainer/cron-jobs-explained/"
 keywords: "cron job, crontab, cron expression, linux scheduler, scheduled tasks, cron syntax, unix cron"
 tags: ["Linux", "DevOps"]
 social-share: true
+faq:
+  - question: "What is a cron job?"
+    answer: "A cron job is a scheduled task that runs automatically at specific times on Linux and Unix systems. You define when to run using a cron expression (5 fields for minute, hour, day, month, weekday) and what command to execute. The cron daemon checks every minute and runs matching tasks."
+  - question: "How do I write a cron expression?"
+    answer: "A cron expression has 5 fields separated by spaces: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, Sunday=0). Use * for every value, */n for every n units, comma for lists, and hyphen for ranges. Example: 0 9 * * 1-5 means 9 AM on weekdays."
+  - question: "How do I view and edit my cron jobs?"
+    answer: "Use 'crontab -l' to list your cron jobs, 'crontab -e' to edit them in a text editor, and 'crontab -r' to remove all jobs. Each user has their own crontab. System-wide cron jobs are in /etc/crontab and /etc/cron.d/ directory."
+  - question: "What does */15 mean in a cron expression?"
+    answer: "The /15 is a step value meaning 'every 15 units'. So */15 * * * * means every 15 minutes (at 0, 15, 30, 45 minutes past each hour). You can use steps with ranges too: 0-30/10 means every 10 minutes from 0 to 30 (0, 10, 20, 30)."
+  - question: "Why is my cron job not running?"
+    answer: "Common reasons: wrong timezone (cron uses system time), missing execute permissions on script, environment variables not set (cron has minimal PATH), wrong file paths (use absolute paths), or syntax errors. Check /var/log/syslog or /var/log/cron for error messages."
 ---
 
 {% include explainer-head.html %}

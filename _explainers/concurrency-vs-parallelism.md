@@ -11,6 +11,17 @@ permalink: /explainer/concurrency-vs-parallelism/
 keywords: "concurrency, parallelism, multithreading, async, multitasking, parallel processing, concurrent programming"
 tags: ["Programming"]
 social-share: true
+faq:
+  - question: "What is the difference between concurrency and parallelism?"
+    answer: "Concurrency is about managing multiple tasks by switching between them on a single CPU core - tasks make progress but don't run simultaneously. Parallelism is about actually executing multiple tasks at the exact same time on different CPU cores. Concurrency deals with structure, parallelism deals with execution."
+  - question: "When should I use concurrency vs parallelism?"
+    answer: "Use concurrency for I/O-bound tasks like web requests, file operations, and database queries where tasks spend time waiting. Use parallelism for CPU-bound tasks like video encoding, data processing, and scientific calculations where you need raw computational power across multiple cores."
+  - question: "Can a single-core CPU do parallel processing?"
+    answer: "No, true parallelism requires multiple CPU cores to execute tasks simultaneously. A single-core CPU can only do concurrency by rapidly switching between tasks, creating the illusion of multitasking. For parallelism, you need multiple cores, each handling a different task at the same time."
+  - question: "What is async/await and is it concurrency or parallelism?"
+    answer: "Async/await is a concurrency pattern. It allows a single thread to manage multiple tasks by switching between them when one task is waiting (like for a network response). The tasks don't run simultaneously - the thread handles one at a time but doesn't block while waiting."
+  - question: "Can you use both concurrency and parallelism together?"
+    answer: "Yes, many applications combine both. For example, a web server might handle 1000 concurrent connections on each of 4 parallel worker processes. Use concurrency for I/O operations and parallelism for CPU-intensive work. Python's asyncio with multiprocessing is a common example."
 ---
 
 {% include explainer-head.html %}

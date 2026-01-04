@@ -11,6 +11,17 @@ permalink: /explainer/snowflake-ids-explained/
 keywords: "Snowflake ID, distributed systems, unique ID generation, Twitter Snowflake, Discord ID, UUID alternative"
 tags: ["Distributed Systems"]
 social-share: true
+faq:
+  - question: "What is a Snowflake ID?"
+    answer: "A Snowflake ID is a 64-bit unique identifier used in distributed systems. It combines a timestamp (41 bits), machine/datacenter ID (10 bits), and sequence number (12 bits). This structure allows multiple servers to generate unique IDs independently without coordination, while keeping IDs roughly time-ordered."
+  - question: "Why use Snowflake IDs instead of UUIDs?"
+    answer: "Snowflake IDs are smaller (64-bit vs 128-bit UUID), time-sortable (can sort by creation time), and more efficient as database primary keys. UUIDs are random, causing poor index performance. Snowflake IDs maintain locality of reference and work better with B-tree indexes."
+  - question: "How do Snowflake IDs stay unique across servers?"
+    answer: "Each server gets a unique machine ID (10 bits = 1024 possible IDs). Combined with millisecond timestamp and 12-bit sequence (4096 IDs per millisecond), each server can generate 4 million unique IDs per second without any coordination with other servers."
+  - question: "Can you extract the timestamp from a Snowflake ID?"
+    answer: "Yes, the first 41 bits contain milliseconds since a custom epoch. Right-shift the ID by 22 bits, add the epoch timestamp, and you get the creation time. This is useful for time-based queries and debugging. Discord and Twitter both expose this feature."
+  - question: "What happens when Snowflake ID sequence overflows?"
+    answer: "If a server generates more than 4096 IDs in the same millisecond (sequence exhausted), it waits until the next millisecond to continue. This is rare in practice - 4096 IDs per millisecond per server is extremely high throughput. The wait ensures uniqueness is never compromised."
 ---
 
 {% include explainer-head.html %}

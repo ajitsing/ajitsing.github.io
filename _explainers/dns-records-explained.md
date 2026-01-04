@@ -11,6 +11,17 @@ permalink: /explainer/dns-records-explained/
 keywords: "DNS records, A record, CNAME, MX record, TXT record, DNS explained, domain name system, nameserver"
 tags: ["Networking"]
 social-share: true
+faq:
+  - question: "What is the difference between A and CNAME records?"
+    answer: "An A record points a domain directly to an IP address (example.com → 192.168.1.1). A CNAME record points a domain to another domain name (www.example.com → example.com). Use A for root domains, CNAME for subdomains that should follow another domain."
+  - question: "What is an MX record used for?"
+    answer: "MX (Mail Exchange) records specify which mail servers handle email for your domain. They include a priority number - lower numbers have higher priority. When someone sends email to your domain, their mail server looks up your MX records to find where to deliver it."
+  - question: "What is a TXT record and why do I need it?"
+    answer: "TXT records store text data for various purposes: SPF records for email authentication, DKIM signatures, domain verification for services like Google Workspace, and DMARC policies. They're commonly required when setting up email or verifying domain ownership."
+  - question: "What is TTL in DNS records?"
+    answer: "TTL (Time To Live) specifies how long DNS resolvers should cache a record before requesting fresh data. Lower TTL (300 seconds) means faster propagation of changes but more DNS queries. Higher TTL (86400 seconds) reduces queries but delays change propagation."
+  - question: "What are NS records and do I need to change them?"
+    answer: "NS (Nameserver) records specify which DNS servers are authoritative for your domain. You typically set these when registering your domain or changing DNS providers. They point to your DNS host (like ns1.cloudflare.com) who manages your other DNS records."
 ---
 
 {% include explainer-head.html %}

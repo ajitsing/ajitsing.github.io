@@ -11,6 +11,17 @@ permalink: /explainer/change-data-capture/
 keywords: "CDC, change data capture, database sync, cache invalidation, real-time data, event-driven architecture, database replication"
 tags: ["Architecture"]
 social-share: true
+faq:
+  - question: "What is Change Data Capture (CDC)?"
+    answer: "Change Data Capture (CDC) is a pattern that tracks changes in your database and automatically updates other systems like caches, search indexes, or data warehouses. Instead of polling for changes, CDC detects changes the moment they happen by reading the database's transaction log."
+  - question: "How does CDC keep cache in sync with database?"
+    answer: "CDC reads the database's transaction log (WAL, binlog) to detect INSERT, UPDATE, and DELETE operations. When a change is detected, CDC sends an event to connected systems like Redis cache, which then updates or invalidates the affected data automatically without any polling."
+  - question: "What are the main CDC methods?"
+    answer: "The three main CDC methods are: Transaction Log reading (reads database WAL/binlog, most efficient), Triggers (database triggers write changes to a table, adds overhead), and Timestamp Polling (queries for rows with updated_at > last_check, not real-time). Transaction log is preferred for production."
+  - question: "What is Debezium and how does it work?"
+    answer: "Debezium is an open-source CDC tool that reads transaction logs from MySQL, PostgreSQL, MongoDB, and SQL Server. It captures row-level changes and streams them to Apache Kafka, allowing downstream systems to consume and react to database changes in real-time."
+  - question: "When should I use CDC vs polling?"
+    answer: "Use CDC when you need real-time data sync, have multiple systems consuming the same data, or want to avoid database load from polling queries. Use polling when data rarely changes, you need simplicity over real-time, or you cannot access database transaction logs."
 ---
 
 {% include explainer-head.html %}

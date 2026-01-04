@@ -11,6 +11,17 @@ permalink: /explainer/mcp-explained/
 keywords: "MCP, Model Context Protocol, AI tools, AI integrations, Claude, LLM tools, AI agents, function calling"
 tags: ["AI"]
 social-share: true
+faq:
+  - question: "What is Model Context Protocol (MCP)?"
+    answer: "MCP (Model Context Protocol) is an open standard created by Anthropic that allows AI assistants to connect with external tools, databases, and services. It provides a standardized way for LLMs to access real-time data, execute functions, and interact with external systems without custom integrations."
+  - question: "How is MCP different from function calling?"
+    answer: "Function calling requires developers to define functions in each AI application. MCP provides a universal protocol so tools can be built once and work with any MCP-compatible AI assistant. Think of function calling as app-specific, while MCP is a shared standard across the ecosystem."
+  - question: "What can you do with MCP servers?"
+    answer: "MCP servers can provide AI assistants with access to databases, file systems, APIs, browser automation, code execution, and any custom functionality. Examples include querying databases, reading local files, controlling web browsers, running shell commands, and integrating with external services."
+  - question: "Which AI assistants support MCP?"
+    answer: "Claude Desktop and Cursor IDE natively support MCP. The protocol is open-source, so any AI application can implement MCP client support. More tools are adding MCP compatibility as the standard gains adoption."
+  - question: "How do I create my own MCP server?"
+    answer: "You can build MCP servers using the official SDKs for Python or TypeScript. Define your tools as functions with input schemas, implement the logic, and run the server. The MCP SDK handles the protocol communication with AI clients automatically."
 ---
 
 {% include explainer-head.html %}

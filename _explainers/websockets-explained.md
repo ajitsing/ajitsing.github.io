@@ -11,6 +11,17 @@ permalink: /explainer/websockets-explained/
 keywords: "WebSockets, real-time communication, web development, HTTP vs WebSockets, socket programming, bidirectional communication"
 tags: ["Networking"]
 social-share: true
+faq:
+  - question: "What is WebSocket and how does it work?"
+    answer: "WebSocket is a protocol that provides persistent, full-duplex (two-way) communication between browser and server over a single TCP connection. Unlike HTTP's request-response model, WebSocket keeps the connection open so both sides can send messages anytime without waiting for the other."
+  - question: "When should I use WebSocket instead of HTTP?"
+    answer: "Use WebSocket for real-time applications: chat apps, live notifications, collaborative editing, gaming, live dashboards, and streaming data. Use HTTP for traditional request-response patterns, RESTful APIs, and when real-time updates aren't needed. WebSocket adds complexity, so only use when necessary."
+  - question: "What is the difference between WebSocket and HTTP polling?"
+    answer: "HTTP polling sends repeated requests to check for updates (wasteful). Long polling keeps requests open until data is available (better but still one-way). WebSocket maintains a permanent two-way connection with minimal overhead. WebSocket is more efficient for frequent updates but requires more infrastructure."
+  - question: "How do I handle WebSocket connection failures?"
+    answer: "Implement automatic reconnection with exponential backoff (1s, 2s, 4s delays). Use heartbeat messages (ping/pong) to detect dead connections. Queue messages during disconnection and resend on reconnect. Consider libraries like Socket.IO that handle reconnection automatically."
+  - question: "Are WebSockets supported by all browsers?"
+    answer: "Yes, all modern browsers support WebSockets (Chrome, Firefox, Safari, Edge). Support has been universal since around 2012. For older environments or when WebSocket is blocked by firewalls, libraries like Socket.IO fall back to HTTP long-polling automatically."
 ---
 
 {% include explainer-head.html %}

@@ -11,6 +11,17 @@ permalink: /explainer/linux-directory-structure/
 keywords: "linux, directory structure, file system, linux directories, unix file system, root directory, home directory"
 tags: ["Linux"]
 social-share: true
+faq:
+  - question: "What is the difference between /bin and /usr/bin in Linux?"
+    answer: "/bin contains essential system binaries needed for single-user mode and system recovery (ls, cp, cat). /usr/bin contains user command binaries for normal operation (git, python, vim). Historically separated for disk space, modern systems often merge them with symlinks."
+  - question: "Where are configuration files stored in Linux?"
+    answer: "System-wide configuration files are in /etc (like /etc/nginx/nginx.conf, /etc/ssh/sshd_config). User-specific configs are in home directories, often as dotfiles (~/.bashrc, ~/.gitconfig) or in ~/.config/ following XDG standards."
+  - question: "What is the /var directory used for in Linux?"
+    answer: "/var stores variable data that changes during system operation: log files (/var/log), mail (/var/mail), databases (/var/lib/mysql), web content (/var/www), and temporary files (/var/tmp). It grows over time and needs monitoring for disk space."
+  - question: "What is the difference between /tmp and /var/tmp?"
+    answer: "/tmp is for temporary files that can be deleted on reboot - many systems mount it as tmpfs (RAM-based). /var/tmp is for temporary files that should persist between reboots. Programs needing temporary storage that survives restarts use /var/tmp."
+  - question: "Where should I install custom software on Linux?"
+    answer: "Install system-wide custom software to /usr/local (binaries in /usr/local/bin, libs in /usr/local/lib). For user-only software, use ~/bin or ~/.local/bin. Package managers use /usr for their packages. Avoid modifying /usr directly."
 ---
 
 {% include explainer-head.html %}

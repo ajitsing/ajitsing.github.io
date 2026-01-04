@@ -11,6 +11,17 @@ permalink: /explainer/kubernetes-resource-units/
 keywords: "kubernetes resources, CPU units, memory units, millicores, mebibytes, k8s resource limits, kubernetes requests, Mi vs M, resource notation"
 tags: ["DevOps"]
 social-share: true
+faq:
+  - question: "What does 500m mean in Kubernetes CPU?"
+    answer: "500m means 500 millicores, which equals 0.5 CPU cores or 50% of one CPU core. The 'm' suffix stands for milli (1/1000). So 1000m = 1 core, 250m = 0.25 cores (25% of a core), and 100m = 0.1 cores (10% of a core)."
+  - question: "What is the difference between Mi and M in Kubernetes memory?"
+    answer: "Mi (Mebibytes) uses binary units (1 Mi = 1024 Ki = 1,048,576 bytes). M (Megabytes) uses decimal units (1 M = 1000 K = 1,000,000 bytes). Kubernetes prefers Mi/Gi (binary) over M/G (decimal). 128Mi is about 134MB."
+  - question: "What is the difference between requests and limits in Kubernetes?"
+    answer: "Requests are guaranteed resources for scheduling - Kubernetes ensures the node has this capacity before placing the pod. Limits are maximum allowed resources - the container gets throttled (CPU) or killed (memory) if exceeded. Set requests for normal operation, limits for burst protection."
+  - question: "What happens if a pod exceeds its memory limit?"
+    answer: "If a container exceeds its memory limit, Kubernetes kills it with an OOMKilled (Out Of Memory) error. The pod may restart based on its restartPolicy. To avoid this, monitor actual memory usage and set limits with appropriate headroom above normal usage."
+  - question: "How do I choose the right resource values for my pod?"
+    answer: "Start by monitoring actual resource usage in development. Set requests to cover normal operation (p50-p75 usage). Set limits 20-50% higher than peak observed usage. Use Vertical Pod Autoscaler recommendations or load testing data. Avoid setting limits equal to requests as this removes burst capacity."
 ---
 
 {% include explainer-head.html %}

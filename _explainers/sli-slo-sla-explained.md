@@ -11,6 +11,17 @@ permalink: /explainer/sli-slo-sla-explained/
 keywords: "SLI, SLO, SLA, service level indicator, service level objective, service level agreement, reliability, uptime, SRE"
 tags: ["DevOps", "SRE"]
 social-share: true
+faq:
+  - question: "What is the difference between SLI, SLO, and SLA?"
+    answer: "SLI (Service Level Indicator) is what you measure - like latency or error rate. SLO (Service Level Objective) is your internal target - like 99.9% availability. SLA (Service Level Agreement) is the external promise to customers with consequences - like refunds if uptime drops below 99.5%."
+  - question: "What is an Error Budget and how does it work?"
+    answer: "Error Budget is the allowed amount of unreliability based on your SLO. With 99.9% availability SLO, your error budget is 0.1% downtime (~43 minutes/month). Teams spend error budget on deployments and changes. When budget is exhausted, focus shifts to reliability over new features."
+  - question: "How do I choose good SLIs for my service?"
+    answer: "Choose SLIs that reflect user experience. For APIs: request latency (p99), error rate, and availability. For data pipelines: freshness and correctness. For storage: durability and read latency. Start with 3-5 key SLIs. More isn't better - focus on what users actually care about."
+  - question: "What is the difference between availability and uptime?"
+    answer: "Uptime measures if the service is running. Availability measures if the service is working correctly for users. A service can have 100% uptime but poor availability if it's responding with errors or too slowly. SLOs should measure availability from the user's perspective, not just uptime."
+  - question: "How do I set realistic SLO targets?"
+    answer: "Start by measuring current performance as a baseline. Set SLOs slightly below current performance to allow for variations. Consider dependencies - your SLO can't exceed your dependencies' reliability. Use 9s carefully: 99.9% (43 min/month downtime) is achievable, 99.99% (4 min/month) is very hard."
 ---
 
 {% include explainer-head.html %}

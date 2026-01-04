@@ -11,6 +11,17 @@ permalink: /explainer/cqrs-design-pattern/
 keywords: "CQRS design pattern, Command Query Responsibility Segregation, software architecture, system design, microservices, scalable applications, architectural patterns"
 tags: ["Architecture"]
 social-share: true
+faq:
+  - question: "What is CQRS and how does it work?"
+    answer: "CQRS (Command Query Responsibility Segregation) separates read and write operations into different models. Commands handle writes, updates, and deletes with business logic validation. Queries handle reads optimized for fast data retrieval. This separation allows each side to be optimized, scaled, and secured independently."
+  - question: "When should I use CQRS?"
+    answer: "Use CQRS for high-read, low-write applications, complex business logic on writes, when you need different data models for reads vs writes, performance-critical read operations, and event-driven architectures. Avoid it for simple CRUD apps, small teams, or when strong consistency is required."
+  - question: "What is the difference between CQRS and Event Sourcing?"
+    answer: "CQRS is about separating read and write models. Event Sourcing stores all changes as a sequence of events instead of current state. They are often used together but are independent patterns. CQRS can work without Event Sourcing, and Event Sourcing can work without CQRS."
+  - question: "What are the main challenges of implementing CQRS?"
+    answer: "The main challenges are eventual consistency between read and write models (data sync delays), increased complexity with more moving parts, debugging difficulties across separate systems, and additional infrastructure requirements. Start simple and evolve gradually."
+  - question: "How do you handle data consistency in CQRS?"
+    answer: "CQRS typically uses eventual consistency - the read model is updated asynchronously after writes. Handle this with proper event handling, monitoring for sync failures, compensating actions for errors, and designing UIs to accommodate slight delays. Some systems use synchronous updates for critical data."
 ---
 
 {% include explainer-head.html %}

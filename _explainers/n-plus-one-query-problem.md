@@ -11,6 +11,17 @@ permalink: /explainer/n-plus-one-query-problem/
 keywords: "N+1 query problem, database optimization, eager loading, lazy loading, ORM performance, SQL optimization, database performance"
 tags: ["Database"]
 social-share: true
+faq:
+  - question: "What is the N+1 query problem?"
+    answer: "The N+1 query problem occurs when code executes 1 query to get a list of N items, then N additional queries to get related data for each item. For 100 users with their posts, that's 1 query for users + 100 queries for posts = 101 database round trips instead of 2 queries with proper loading."
+  - question: "How do I fix the N+1 query problem?"
+    answer: "Use eager loading to fetch related data in one query. In Django use select_related() or prefetch_related(). In Rails use includes(). In SQLAlchemy use joinedload(). For GraphQL, use DataLoader to batch requests. The key is fetching all related data upfront instead of on-demand."
+  - question: "What is the difference between eager loading and lazy loading?"
+    answer: "Lazy loading fetches related data only when accessed - convenient but causes N+1 problems. Eager loading fetches related data immediately with the main query using JOINs or batch queries. Use eager loading when you know you'll need the related data to avoid multiple database round trips."
+  - question: "How do I detect N+1 queries in my application?"
+    answer: "Use query logging to count database queries per request. Tools like Django Debug Toolbar, Bullet gem for Rails, or SQLAlchemy's echo mode show query counts. Look for patterns of similar queries repeated N times. APM tools like New Relic also highlight N+1 issues."
+  - question: "Does N+1 only happen with ORMs?"
+    answer: "N+1 is most common with ORMs due to lazy loading defaults, but it can happen anywhere. GraphQL resolvers, manual loops with database calls, and API calls in loops all suffer from the same pattern. The fix is always batching - fetch data in bulk instead of one at a time."
 ---
 
 {% include explainer-head.html %}

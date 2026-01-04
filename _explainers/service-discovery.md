@@ -11,6 +11,17 @@ permalink: /explainer/service-discovery/
 keywords: "service discovery, microservices, distributed systems, load balancing, service registry, consul, eureka, kubernetes service discovery"
 tags: ["Microservices"]
 social-share: true
+faq:
+  - question: "What is Service Discovery in microservices?"
+    answer: "Service Discovery is a mechanism that allows services to automatically find and communicate with each other without hardcoded IP addresses. Services register themselves with a registry (like Consul or Eureka), and other services query the registry to find available instances. This enables dynamic scaling and deployment."
+  - question: "What is the difference between client-side and server-side discovery?"
+    answer: "In client-side discovery, the client queries the service registry directly and chooses which instance to call (e.g., Netflix Eureka). In server-side discovery, the client calls a load balancer/router which queries the registry and forwards requests (e.g., Kubernetes Services, AWS ELB). Server-side is simpler for clients but adds a network hop."
+  - question: "What is a Service Registry?"
+    answer: "A Service Registry is a database of available service instances with their network locations (IP:port). Services register on startup and deregister on shutdown. The registry performs health checks to remove unhealthy instances. Examples include Consul, etcd, ZooKeeper, and Netflix Eureka."
+  - question: "How does Kubernetes handle Service Discovery?"
+    answer: "Kubernetes provides built-in service discovery through DNS and Services. Each Service gets a stable DNS name (service-name.namespace.svc.cluster.local) that resolves to Pod IPs. kube-proxy handles load balancing across healthy pods. No external registry needed - Kubernetes acts as the registry."
+  - question: "When should I use Service Discovery vs a load balancer?"
+    answer: "Service Discovery is essential for dynamic microservices environments where instances frequently scale up/down. Traditional load balancers work for stable services with known endpoints. Modern solutions combine both - Kubernetes Services, Consul Connect, and Istio provide discovery with built-in load balancing."
 ---
 
 {% include explainer-head.html %}

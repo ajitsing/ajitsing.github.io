@@ -11,6 +11,17 @@ permalink: /explainer/curl-commands/
 keywords: "cURL commands, HTTP requests, API testing, REST API, command line tools, web development, developer tools, HTTP client, cURL tutorial, cURL examples, API authentication, file download, POST requests, curl, http, api, command-line, web-development, developer-tools"
 tags: ["Tools"]
 social-share: true
+faq:
+  - question: "What is cURL and what is it used for?"
+    answer: "cURL (Client URL) is a command-line tool for transferring data using various protocols like HTTP, HTTPS, FTP. Developers use it to test APIs, download files, debug web requests, and automate HTTP operations. It's available on Linux, macOS, and Windows."
+  - question: "How do I make a POST request with cURL?"
+    answer: "Use curl -X POST with -d for data: 'curl -X POST -H \"Content-Type: application/json\" -d '{\"name\":\"value\"}' https://api.example.com/endpoint'. Use -d for form data or JSON body. Add -H to set headers like Content-Type."
+  - question: "How do I send headers with cURL?"
+    answer: "Use the -H flag: 'curl -H \"Authorization: Bearer token123\" -H \"Content-Type: application/json\" https://api.example.com'. You can add multiple -H flags for multiple headers. Common headers include Authorization, Content-Type, and Accept."
+  - question: "How do I download a file with cURL?"
+    answer: "Use -O to save with the remote filename: 'curl -O https://example.com/file.zip'. Use -o to specify a custom filename: 'curl -o myfile.zip https://example.com/file.zip'. Add -L to follow redirects."
+  - question: "How do I see the response headers with cURL?"
+    answer: "Use -i to include response headers in output: 'curl -i https://example.com'. Use -I (capital i) to fetch only headers without body. Use -v for verbose output showing both request and response headers."
 ---
 
 {% include explainer-head.html %}

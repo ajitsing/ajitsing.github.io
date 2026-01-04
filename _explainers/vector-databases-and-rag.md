@@ -11,6 +11,17 @@ permalink: /explainer/vector-databases-and-rag/
 keywords: "vector database, RAG, retrieval augmented generation, embeddings, AI memory, ChatGPT, LLM"
 tags: ["AI", "Database"]
 social-share: true
+faq:
+  - question: "What is RAG (Retrieval Augmented Generation)?"
+    answer: "RAG is a technique that enhances AI responses by retrieving relevant information from your data before generating answers. Instead of relying only on training data, the AI searches a knowledge base for context, then uses that information to give accurate, up-to-date responses specific to your content."
+  - question: "What is a vector database?"
+    answer: "A vector database stores data as numerical vectors (embeddings) that capture semantic meaning. Unlike traditional databases that match exact keywords, vector databases find similar content by measuring distance between vectors. This enables semantic search - finding content by meaning, not just matching words."
+  - question: "How do embeddings work in vector search?"
+    answer: "Embeddings convert text into numerical vectors (arrays of numbers) using AI models. Similar meanings produce similar vectors. 'dog' and 'puppy' have close vectors, while 'dog' and 'computer' are far apart. Vector databases search by finding vectors closest to your query's embedding."
+  - question: "What is the difference between RAG and fine-tuning?"
+    answer: "RAG retrieves relevant context at query time from external data. Fine-tuning trains the model on your data, changing its weights. RAG is cheaper, faster to update, and works with any data. Fine-tuning is better for teaching new behaviors or styles. Many applications combine both approaches."
+  - question: "Which vector database should I use?"
+    answer: "Popular choices: Pinecone (fully managed, easy to start), Weaviate (open-source, feature-rich), Milvus (high performance, self-hosted), ChromaDB (lightweight, Python-native), pgvector (PostgreSQL extension). For prototypes use ChromaDB. For production, evaluate based on scale, hosting preference, and features needed."
 ---
 
 {% include explainer-head.html %}

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: "shell_session_update: command not found"
 description: "rvm issue: shell_session_update: command not found and its solutions."
 share-img: /assets/img/posts/terminal/cover.png
@@ -7,6 +8,15 @@ permalink: /shell_session_update-command-not-found/
 tags: [rvm, ruby, shell]
 comments: true
 keywords: "shell_session_update command not found, rvm shell error, rvm get head, rvm troubleshooting, ruby shell issues, direnv shell_session_update, rvm update solution, shell command not found fix, rvm mac error, ruby environment setup"
+faq:
+  - question: "How do I fix shell_session_update command not found?"
+    answer: "Run 'rvm get head' to update RVM to latest version. This pulls fixes for the shell_session_update issue. The error occurs when multiple RVM sessions are active in the same terminal."
+  - question: "What causes shell_session_update error?"
+    answer: "This occurs when RVM is initialized multiple times in the same terminal session. It happens if 'source $HOME/.rvm/scripts/rvm' appears in multiple shell config files (.bashrc, .bash_profile, .profile)."
+  - question: "How do I prevent RVM double initialization?"
+    answer: "Keep RVM initialization in only ONE file - either ~/.bashrc OR ~/.bash_profile OR ~/.profile. Remove duplicate 'source $HOME/.rvm/scripts/rvm' and 'export PATH=...rvm/bin' lines from other files."
+  - question: "What if rvm get head doesn't fix it?"
+    answer: "Try creating ~/.direnvrc with: 'shell_session_update() { :; }'. Or run 'rvm get stable' instead. Ensure RVM is sourced only once across your shell config files."
 ---
 
 This problem has troubled me a lot before I found the solution to it. And no forum provided the right solution for it, hence this post. You can go through the [rvm issue thread](https://github.com/direnv/direnv/issues/210){:target="_blank"} for more details about the issue.

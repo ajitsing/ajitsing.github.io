@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Vim modes - normal, insert and visual
 description: Vim modes - normal, insert and visual. What are the commands or mappings supported in each mode. What commands can be used to jump between the modes.
 share-img: /assets/img/posts/vim/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [vim]
 comments: true
 keywords: "vim modes, vim normal mode, vim insert mode, vim visual mode, vim commands, vim navigation, vim shortcuts, vim tutorial, vimrc tips, vim text editing"
+faq:
+  - question: "What are the three main modes in Vim?"
+    answer: "Normal mode (default) for navigation and commands. Insert mode for typing/editing text. Visual mode for selecting text. Press Escape to return to Normal mode, 'i' for Insert mode, 'v' for Visual mode."
+  - question: "How do I navigate in Vim Normal mode?"
+    answer: "Use h/j/k/l or arrow keys: j=down, k=up, h=left, l=right. Use w to jump words forward, b backward, e to end of word. Prefix with numbers: 10j moves 10 lines down, 5w jumps 5 words."
+  - question: "What are the different ways to enter Insert mode?"
+    answer: "i=at cursor, I=start of line, a=after cursor, A=end of line, o=new line below, O=new line above, s=delete char and insert, S=delete line and insert, C=delete to end and insert."
+  - question: "How do I select and copy text in Vim?"
+    answer: "Press v for character selection, V for line selection, Ctrl+v for block selection. Navigate to extend selection. Press y to copy (yank), d to cut/delete, p to paste. yy copies entire line, dd cuts line."
 ---
 
 This article covers all the basic modes of vim. commands or mappings supported in each mode and what commands we can use to jump between them. Or if you are looking for a well configured vim you can visit my github repo [here](https://github.com/ajitsing/vim-setup){:target="_blank"}.

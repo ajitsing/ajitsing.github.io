@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Is ruby monkey patching evil?
 description: The way we use ruby monkey patching, is it good or evil? Lets understand through some examples.
 share-img: /assets/img/posts/ruby_monkey_patching/cover.jpeg
@@ -7,6 +8,15 @@ permalink: /is-ruby-monkey-patching-evil/
 tags: [ruby]
 comments: true
 keywords: "ruby monkey patching, ruby open classes, monkey patching example, ruby best practices, ruby class extension, ruby util methods, monkey patching risks, ruby array replace, ruby code safety, ruby programming tips"
+faq:
+  - question: "What is monkey patching in Ruby?"
+    answer: "Monkey patching (or open classes) is Ruby's ability to reopen and modify existing classes, including built-in classes like String or Array. You can add new methods or override existing ones at runtime, making Ruby highly flexible but potentially dangerous."
+  - question: "Why is monkey patching considered dangerous?"
+    answer: "Monkey patching can accidentally override existing methods, breaking functionality elsewhere in your codebase or in gems you depend on. Without tests, these breakages may go unnoticed. It also confuses developers who expect standard behavior from built-in classes."
+  - question: "When should I use monkey patching in Ruby?"
+    answer: "Use monkey patching sparingly for adding genuinely useful utility methods to standard classes. Always check if a method with the same name already exists. Prefer Ruby refinements for scoped modifications, and ensure comprehensive test coverage."
+  - question: "What are Ruby refinements as an alternative to monkey patching?"
+    answer: "Refinements are a safer alternative introduced in Ruby 2.0. They scope modifications to specific files or classes using 'refine' and 'using' keywords. Changes only apply where explicitly activated, preventing global side effects of traditional monkey patching."
 ---
 
 We have been using monkey patching since we had exposure to it. Now the question is ruby monkey patching is it good or bad?.  Before answering the question lets understand what monkey patching is.

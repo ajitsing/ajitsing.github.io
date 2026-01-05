@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Pairing matrix for agile teams
 description: This blog shows how you can automate the creation of pairing matrix for your agile team. The pairing matrix is created using pairing_matrix rubygem.
 share-img: /assets/img/posts/pairing_matrix/thumbnail.png
@@ -11,6 +12,19 @@ gh-badge: [star, fork, follow]
 tags: [ruby, agile, rubygem]
 comments: true
 keywords: "pairing matrix, agile teams, pair programming, pairing_matrix gem, ruby gem, agile tools, team collaboration, git pairing matrix, extreme programming, automate pairing matrix"
+video:
+  id: "H8PpiUFBpyI"
+  title: "Pairing Matrix Ruby Gem Demo"
+  description: "Demo of the pairing_matrix Ruby gem that automatically generates a visual pairing matrix from git commits for agile teams."
+faq:
+  - question: "What is a pairing matrix?"
+    answer: "A pairing matrix visualizes who has paired with whom on a team. It helps agile teams practicing pair programming see if pairs are rotating frequently enough and identify if anyone is working alone too often or not pairing with certain team members."
+  - question: "How does the pairing_matrix gem work?"
+    answer: "It analyzes git commit messages for co-author patterns (like 'Author1/Author2' format). It generates a visual matrix where darker lines indicate more frequent pairing, and red circles around names show solo work. All data comes from your git history."
+  - question: "How do I install and use pairing_matrix?"
+    answer: "Add gem 'pairing_matrix' to your Gemfile, configure authors and repositories in config/pairing_matrix.yml, then run 'pairing_matrix' command. It starts a web server showing the interactive matrix visualization."
+  - question: "Can pairing_matrix work with multiple repositories?"
+    answer: "Yes, configure multiple repos in pairing_matrix.yml under the repos section. The gem aggregates pairing data across all configured repositories, giving a team-wide view of pairing patterns."
 ---
 
 I work in an agile team which follows [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming){:target="_blank"} practices like [pairing programming](https://en.wikipedia.org/wiki/Pair_programming){:target="_blank"}. But with pair programming comes the problem of switching pairs. Sometimes in big teams we do see that the individuals are not able to make the decision of with whom they should pair next. To overcome this problem we generally create pairing matrix which helps us figure out who is pairing with whom and wether team is switching pairs frequently or not.

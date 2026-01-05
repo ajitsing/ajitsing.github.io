@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Monitoring individual queue in sidekiq
 description: By default sidekiq does not allow you to monitor failures on individual queues. This article will help you monitor individual queue in sidekiq like a pro.
 share-img: /assets/img/posts/monitoring_sidekiq/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [rails, ruby, sidekiq, rubygem]
 comments: true
 keywords: "sidekiq queue monitoring, sidekiq queue metrics, sidekiq plugin, sidekiq failures, rails background jobs, sidekiq queue stats, ruby sidekiq gem, sidekiq dashboard, sidekiq job tracking, sidekiq development"
+faq:
+  - question: "How do I monitor individual Sidekiq queues?"
+    answer: "Use the sidekiq_queue_metrics gem. Add it to your Gemfile, initialize with Sidekiq::QueueMetrics.init(config) in your Sidekiq initializer. It adds a dashboard showing processed, failed, enqueued, retry, and scheduled jobs per queue."
+  - question: "How do I see failed jobs for a specific Sidekiq queue?"
+    answer: "With sidekiq_queue_metrics, click on a queue name in the dashboard to see its summary page. It shows recent failures with worker name, arguments, enqueued time, and error messages. Click on a failure to see the full stacktrace."
+  - question: "How do I get Sidekiq queue stats programmatically?"
+    answer: "Call Sidekiq::QueueMetrics.fetch to get a hash with stats for all queues. Each queue has processed, failed, enqueued, in_retry, and scheduled counts. Useful for building custom dashboards or alerting."
+  - question: "How many failed jobs does sidekiq_queue_metrics track?"
+    answer: "By default it shows 50 recent failures per queue. Configure with Sidekiq::QueueMetrics.max_recently_failed_jobs = 200 to change the limit. Older failures are still in Sidekiq's dead jobs (morgue)."
 ---
 
 The default interface of [sidekiq](https://github.com/mperham/sidekiq){:target="_blank"} allows you to see the number of processed and failed jobs with a morgue which has all the dead jobs. The interface is sufficient when you have few queues. But when you have more queues and the number of jobs in each queue is significant then it becomes difficult to track the progress of an individual queue in sidekiq. Also to group the failure for each queue becomes a challenge because sidekiq don't have the functionality to filter the dead jobs by the queue.

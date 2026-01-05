@@ -1,11 +1,22 @@
 ---
 layout: post
-title: Why aren’t you using binstubs yet?
+seo: true
+title: Why aren't you using binstubs yet?
+description: Stop typing bundle exec before every command. Learn how Rails binstubs work and how to create custom binstubs for any gem to run executables in your bundle context.
 share-img: /assets/img/posts/bin_stubs/cover.png
 permalink: /why-arent-you-using-binstubs-yet/
 tags: [rails, ruby]
 comments: true
 keywords: "rails binstubs, bundle exec alternative, ruby binstubs, rails 5 bin, ruby gem executables, rails project setup, binstubs vs bundle exec, rails rake tasks, ruby gem versioning, rails development tips"
+faq:
+  - question: "What are binstubs in Rails?"
+    answer: "Binstubs are wrapper scripts in the bin/ directory that run gem executables in the context of your current bundle. They eliminate the need for 'bundle exec' by loading your Gemfile and ensuring the correct gem versions are used."
+  - question: "Why do we need bundle exec?"
+    answer: "When you run a gem executable directly (like 'rake'), the system might use a different version than your project requires. 'bundle exec' ensures the command uses gem versions from your Gemfile. Binstubs achieve the same result without the prefix."
+  - question: "How do I create a binstub for a gem?"
+    answer: "Run 'bundle binstub <gem-name>' to generate binstubs for a gem's executables. For example, 'bundle binstub capistrano' creates bin/cap and bin/capify. Then run commands as bin/cap instead of bundle exec cap."
+  - question: "How do binstubs work internally?"
+    answer: "Binstubs require config/boot.rb which loads bundler/setup with your Gemfile. This sets up all gems from your bundle before executing the command. The script runs in your project's gem context automatically."
 ---
 
 If you have been using bundle exec to run any executable gem and tired of it then this post is for you. In this post I will show you the ways to avoid bundle exec command and run the executable directly instead.

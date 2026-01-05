@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: GIT revert multiple commits
 description: "Learn various ways to revert multiple commits in Git using command-line tools like grep, cut, xargs, and more. Explore new methods for efficient Git workflows."
 share-img: /assets/img/posts/git/cover.png
@@ -7,6 +8,19 @@ permalink: /git-revert-multiple-commits/
 tags: ["git", "shell", "version-control"]
 comments: true
 keywords: "git revert, revert multiple commits, git automation, git xargs, git grep, git cut, git command line, git tutorial, revert feature branch, git revert script, git reset, git cherry-pick"
+video:
+  id: "uVj9ut7mJgs"
+  title: "Git Revert Multiple Commits Tutorial"
+  description: "Learn how to revert multiple commits in Git using command-line tools like grep, cut, xargs, and git revert ranges."
+faq:
+  - question: "How do I revert multiple commits in Git?"
+    answer: "Use git revert with a range: 'git revert commit1..commit2'. Or use grep/xargs: 'git log --oneline | grep feature | cut -d\" \" -f1 | xargs -n1 git revert --no-edit'. For hard reset: 'git reset --hard <commit>'."
+  - question: "What is the difference between git revert and git reset?"
+    answer: "git revert creates new commits that undo changes - safe for shared branches. git reset moves HEAD pointer, potentially discarding commits - only safe for local branches. Revert preserves history, reset rewrites it."
+  - question: "How do I revert commits by feature name?"
+    answer: "Use: git log --pretty=oneline | grep 'feature_name' | cut -d ' ' -f1 | xargs -n1 git revert --no-edit. This finds commits matching the feature, extracts SHAs, and reverts each one automatically."
+  - question: "How do I revert a range of consecutive commits?"
+    answer: "Use git revert with range syntax: 'git revert SHA1..SHA2'. This reverts all commits between SHA1 (exclusive) and SHA2 (inclusive). Add --no-commit to batch changes before committing."
 ---
 
 Hello Folks, there are situations when you need to revert all the commits of a feature without checking out an earlier commit. This allows you to retain changes made for other features while isolating the problematic ones.

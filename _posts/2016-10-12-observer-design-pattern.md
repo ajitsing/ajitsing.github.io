@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Observer Design Pattern
 description: How observer design pattern works and what are the use cases. This article explains observer design pattern with the help of an example.
 share-img: /assets/img/posts/observer_design_pattern/observer-design-pattern.png
@@ -9,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [java, design pattern]
 comments: true
 keywords: "observer design pattern, java observer pattern, observable example, observer implementation, design patterns, event subscription, observer vs observable, java software architecture, observer use case, observer pattern tutorial"
+video:
+  id: "KSJJ3JO9Zpc"
+  title: "Observer Design Pattern Explained"
+  description: "Learn the Observer Design Pattern with a Java example - implement pub/sub pattern for event-driven architectures."
+faq:
+  - question: "What is the Observer Design Pattern?"
+    answer: "The Observer pattern defines a one-to-many relationship where a Subject (Observable) notifies all registered Observers when its state changes. Observers subscribe to the subject and receive automatic updates, enabling loose coupling between components."
+  - question: "When should I use the Observer pattern?"
+    answer: "Use it when multiple objects need to react to changes in another object. Common uses: event systems, UI updates, notification services, stock price updates. It decouples the subject from observers - subject doesn't need to know observer details."
+  - question: "What is the difference between Observer and Pub/Sub?"
+    answer: "Observer pattern has direct coupling - observers register with the subject. Pub/Sub adds a message broker between publishers and subscribers, enabling topics/channels. Pub/Sub is more scalable but Observer is simpler for in-process communication."
+  - question: "How do you implement Observer in Java?"
+    answer: "Create Subject interface with attach(), detach(), notify() methods. Create Observer interface with update() method. Subject maintains a list of observers and calls update() on each when state changes. Observers implement update() to react."
 ---
 
 # What is Observer Design Pattern?

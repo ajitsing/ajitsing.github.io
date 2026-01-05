@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Closure in Ruby
 description: Closure in Ruby, This article will explain what is closure in ruby and how it works.
 share-img: /assets/img/posts/ruby/cover.png
@@ -7,6 +8,15 @@ permalink: /closure-in-ruby/
 tags: [ruby]
 keywords: "ruby closure, ruby blocks, ruby lambda, closure in programming, ruby scope, ruby binding, ruby functional programming, ruby code examples, ruby tutorial, ruby advanced concepts"
 comments: true
+faq:
+  - question: "What is a closure in Ruby?"
+    answer: "A closure in Ruby is a block, lambda, or proc that captures the bindings (variables) from the scope where it's defined. The closure retains access to these variables even when executed in a different scope, allowing it to read and modify them."
+  - question: "Can a Ruby closure modify variables from its enclosing scope?"
+    answer: "Yes, closures in Ruby hold references to variables, not copies. When you modify a variable inside a closure, the change affects the original variable in the enclosing scope. This is because the block captures the variable's binding."
+  - question: "What is the difference between blocks, procs, and lambdas in Ruby?"
+    answer: "All three are closures, but differ in behavior. Blocks are anonymous code passed to methods. Procs are blocks stored in variables. Lambdas are stricter procs that check argument count and return only from themselves, not the enclosing method."
+  - question: "What is variable binding in Ruby closures?"
+    answer: "Variable binding means the closure captures references to variables available when it was defined. If a method has a local variable with the same name, the closure still uses its own captured variable, not the method's local variable."
 ---
 
 # What is Closure?

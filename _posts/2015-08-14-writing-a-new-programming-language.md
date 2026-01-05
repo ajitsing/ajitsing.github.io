@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Writing a new programming language
 description: In this article I will share my experience and learning from a small project about writing a new programming language using various concepts of automata.
 share-img: /assets/img/posts/soft/cover.jpg
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [experiment, language]
 keywords: "writing a programming language, create new language, compiler basics, automata theory, lexical analysis, programming language tutorial, language grammar, dfa nfa, custom language, language development, programming language project"
 comments: true
+faq:
+  - question: "What is lexical analysis in compiler design?"
+    answer: "Lexical analysis (scanning) is the first phase of compilation. It reads source code characters and groups them into tokens - meaningful units like keywords (class, while), identifiers (variable names), operators, and literals."
+  - question: "How do I build a lexer without tools like lex/yacc?"
+    answer: "Use DFAs (Deterministic Finite Automata) or state machines. Create machines for each token type (keywords, strings, numbers). Pass characters to machines, check which reaches a final state, and emit that token."
+  - question: "What is a token in compiler design?"
+    answer: "A token is a categorized piece of source code. For 'class Fruit', tokens are [KEY:class, ID:Fruit]. KEY indicates keyword, ID indicates identifier. Tokens include type, value, line number, and position for error reporting."
+  - question: "What steps are needed to create a programming language?"
+    answer: "1) Define grammar/syntax. 2) Build lexer to tokenize code. 3) Build parser to create AST from tokens. 4) Implement semantic analysis. 5) Generate target code or interpret the AST. Start with lexer - it's foundational."
 ---
 
 A few months back I was wondering how much big/difficult task it is to write a  new programming language from scratch. Then I thought I would never know if I don't write one by myself. Thats when I started reading about compilers, how it works and what are the phases involved in the code execution lifecycle.

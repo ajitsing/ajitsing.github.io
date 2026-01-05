@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Set up automation using cucumber and capybara
 description: This article is about setting up automation environment using cucumber and capybara (on chrome browser) with minimal config.
 share-img: /assets/img/posts/cucumber/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [testing, cucumber]
 comments: true
 keywords: "cucumber automation setup, capybara tutorial, ruby automation testing, cucumber chrome, capybara selenium, bdd ruby, cucumber step definitions, capybara configuration, ruby testing tools, cucumber feature file example"
+faq:
+  - question: "How do I set up Cucumber with Capybara for browser testing?"
+    answer: "Create a features/ directory with support/env.rb for configuration. In env.rb, require capybara/cucumber and selenium-webdriver, set Capybara.default_driver to :selenium, and register a driver for Chrome. Add cucumber, capybara, and selenium-webdriver gems."
+  - question: "What is the Cucumber directory structure?"
+    answer: "features/ contains .feature files and two subdirectories: step-definitions/ for Ruby step definition files, and support/ for configuration including env.rb which runs first. Feature files use Gherkin syntax (Given/When/Then)."
+  - question: "How do I use Capybara to interact with web elements?"
+    answer: "Use visit('url') to navigate, find('selector') to locate elements, .set('text') to fill inputs, and .click to click. Selectors can be CSS (#id, .class) or XPath. Use binding.pry to pause and debug in the browser."
+  - question: "How do I run Cucumber tests in Chrome?"
+    answer: "Download ChromeDriver and add it to your PATH. In env.rb, register a Selenium driver with browser: :chrome. Capybara will launch Chrome automatically when running tests with the 'cucumber' command."
 ---
 
 This article is about setting up automation environment using cucumber and capybara from scratch with minimal configuration and the code. For this tutorial I have created a sample project and code for that is available [here](https://github.com/ajitsing/cucumber_setup){:target="_blank"} on github. We will start from nothing and build eventually. So lets start

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Java custom annotations
 description: Learn how to create custom annotations in Java, with code examples and practical use cases for advanced Java development.
 share-img: /assets/img/posts/java_annotations/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [java]
 keywords: "java custom annotations, create annotation java, java annotation tutorial, java reflection, java test runner, java @interface, java code examples, java advanced, java programming, java annotations explained"
 comments: true
+faq:
+  - question: "How do I create a custom annotation in Java?"
+    answer: "Use @interface keyword to define an annotation. Add @Retention(RetentionPolicy.RUNTIME) to make it available at runtime. Example: @Retention(RUNTIME) public @interface MyAnnotation {}. You can add elements like value() with defaults."
+  - question: "What is @Retention in Java annotations?"
+    answer: "@Retention specifies how long the annotation is retained. SOURCE - discarded after compilation. CLASS - recorded in .class but not at runtime. RUNTIME - available via reflection at runtime. Use RUNTIME for annotations processed by your code."
+  - question: "How do I process custom annotations at runtime?"
+    answer: "Use Java reflection. Get methods/fields with getClass().getDeclaredMethods(). Check method.isAnnotationPresent(MyAnnotation.class). Retrieve annotation values with method.getAnnotation(MyAnnotation.class). Then execute your custom logic."
+  - question: "What are common uses for custom Java annotations?"
+    answer: "Test frameworks (@Test), dependency injection (@Autowired), serialization (@Expose, @JsonProperty), validation (@NotNull), documentation (@Deprecated), and any metadata that needs processing - either at compile time or runtime."
 ---
 
 We use a lot of java annotations in our day to day coding. Ever thought how these annotations works? How you can leverage their power by creating your own annotations? This article will explain how these java annotations works and how you can define your own java annotations.

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: How to integrate GraphQL with Sitecore using JSS
 description: Step by step instructions to integrate GraphQL with Sitecore using JSS
 share-img: /assets/img/posts/sitecore/sitecore-jss.png
@@ -7,6 +8,15 @@ permalink: /how-to-integrate-graphql-with-sitecore-using-jss/
 tags: [sitecore, graphql, jss]
 comments: true
 keywords: "sitecore graphql integration, sitecore jss, graphql with sitecore, sitecore tutorial, sitecore javascript services, graphql sitecore example, sitecore headless, sitecore data querying, sitecore development, install jss sitecore"
+faq:
+  - question: "How do I install JSS for Sitecore GraphQL?"
+    answer: "Download JSS package from Sitecore downloads (requires certified developer account). Check version compatibility table. Install via Sitecore Desktop -> Development Tools -> Installation Wizard. Fix any dependency issues like Newtonsoft.Json version."
+  - question: "How do I access GraphQL UI in Sitecore?"
+    answer: "After installing JSS, login to Sitecore and navigate to /sitecore/api/graph/items/master/ui. This opens the GraphQL IDE where you can write and test queries against your Sitecore content."
+  - question: "How do I set up API key for Sitecore GraphQL?"
+    answer: "In core database, go to /sitecore/system/Settings/Services/API Keys. Right-click and insert new API Key. Then enable API key auth in Sitecore.Services.GraphQL.config: set requireAuthentication=false and requireApiKey=true."
+  - question: "How do I query Sitecore GraphQL from Postman?"
+    answer: "POST to /sitecore/api/graph/items/master with sc_apikey query parameter set to your API key. Send GraphQL query in request body. Example query: { item(path: \"/sitecore\") { id name children { name } } }"
 ---
 
 This blog contains step by step instructions on how you can integrate GraphQL with Sitecore. Also how you can start using GraphQL for querying the sitecore data.

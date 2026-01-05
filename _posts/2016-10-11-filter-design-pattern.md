@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Filter Design Pattern
 description: How filter design pattern works and what are the use cases. This article explains filter design pattern with the help of an example.
 share-img: /assets/img/posts/filter_design_pattern/filter-design-pattern.png
@@ -8,6 +9,20 @@ gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]
 tags: [java, design pattern]
 comments: true
+keywords: "filter design pattern, criteria pattern, java filter pattern, design patterns, dynamic filtering, java criteria filter, specification pattern, reusable filters, filter chain pattern, software architecture"
+video:
+  id: "icgoR_vfh40"
+  title: "Filter Design Pattern Explained"
+  description: "Learn the Filter Design Pattern (also known as Criteria Pattern) with a Java example - build reusable, composable filter criteria."
+faq:
+  - question: "What is the Filter Design Pattern?"
+    answer: "The Filter (or Criteria) pattern lets you filter collections of objects using different criteria. Each criterion is a separate class implementing a filter interface, making filters reusable, testable, and composable through AND/OR combinations."
+  - question: "When should I use the Filter Design Pattern?"
+    answer: "Use it when you need dynamic filtering with multiple criteria, or when different features need different filter combinations. Instead of hardcoding filters in business logic, create reusable filter classes that can be combined as needed."
+  - question: "How do you combine multiple filters?"
+    answer: "Create composite filter classes like AndCriteria and OrCriteria that take multiple filters and combine their results. This lets you build complex filters from simple ones: filter.and(anotherFilter).or(thirdFilter)."
+  - question: "What are the benefits of Filter Design Pattern?"
+    answer: "Single Responsibility - each filter does one thing. Open/Closed - add new filters without modifying existing code. Reusability - same filter works across features. Testability - filters are easy to unit test in isolation."
 ---
 
 # What Is Filter Design Pattern?

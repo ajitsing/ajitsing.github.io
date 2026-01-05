@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Conway's Game Of Life
 description: Learn about Conway's Game of Life, its rules, and how to implement it in JavaScript with code and demo.
 share-img: /assets/img/posts/game_of_life/cover.png
@@ -9,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [javascript, game]
 keywords: "conway's game of life, game of life javascript, cellular automata, zero player games, game of life rules, game of life implementation, javascript game tutorial, conway simulation, coding games, game of life code"
 comments: false
+video:
+  id: "bwDfhsItfq4"
+  title: "Conway's Game of Life Demo"
+  description: "Interactive demo of Conway's Game of Life implemented in JavaScript - watch cells evolve through generations based on simple rules."
+faq:
+  - question: "What is Conway's Game of Life?"
+    answer: "Conway's Game of Life is a zero-player cellular automaton. It runs on a grid where cells live or die based on their neighbors. You set the initial configuration, then watch cells evolve automatically according to four simple rules."
+  - question: "What are the 4 rules of Conway's Game of Life?"
+    answer: "1) Under-population: live cell with <2 neighbors dies. 2) Survival: live cell with 2-3 neighbors lives. 3) Over-population: live cell with >3 neighbors dies. 4) Reproduction: dead cell with exactly 3 neighbors becomes alive."
+  - question: "How do you implement Game of Life in JavaScript?"
+    answer: "Create a 2D grid array to track cell states. For each generation, count neighbors for every cell. Apply the 4 rules to determine next state. Use canvas or DOM elements to render. Use setInterval or requestAnimationFrame for animation."
+  - question: "Why is Conway's Game of Life important in computer science?"
+    answer: "It demonstrates emergent complexity from simple rules - relevant to AI and complexity theory. It's Turing complete, meaning it can simulate any computation. It's used to teach programming, algorithms, and cellular automata concepts."
 ---
 
 Conway's game of life is a zero players game. It is played on a rectangular grid where each box is know as cell. A Cell can be alive or dead depending on its neighbours or initial configuration of the grid. It only needs an initial configuration and then the cells on the grid evolves on their own.

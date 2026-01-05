@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Add album cover to mp3 file
 description: Add album cover to mp3 file, We will discuss how we can attach album-cover-image file with mp3 file. And using it with multiple mp3 files.
 share-img: /assets/img/posts/fancy_audio/cover.png
@@ -9,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [ruby, rubygem]
 comments: true
 keywords: "add album cover mp3, mp3 album art, fancy_audio gem, ruby mp3 tools, embed image mp3, mp3 metadata, album cover script, mp3 file editing, ruby audio gem, mp3 batch album art"
+video:
+  id: "woqHqBDslWo"
+  title: "FancyAudio Demo - Add Album Cover to MP3"
+  description: "Demo of the fancy_audio Ruby gem that adds album cover images to MP3 files - supports batch processing multiple files."
+faq:
+  - question: "How do I add album cover to an MP3 file?"
+    answer: "Install fancy_audio gem: 'gem install fancy_audio'. Then run: 'fancy_audio path/to/song.mp3 path/to/cover.jpg'. The image is embedded as album art in the MP3 file's ID3 tags."
+  - question: "How do I add album art to multiple MP3 files at once?"
+    answer: "Put images with matching names (song.mp3 with song.jpg). Run 'fancy_audio' in that directory - it auto-matches and adds covers. Or use 'fancy_audio --all path/to/dir image.jpg' to add one image to all files."
+  - question: "What image formats does fancy_audio support?"
+    answer: "FancyAudio supports JPG, JPEG, and PNG formats for album covers. Name the image file the same as the MP3 (different extension) for automatic batch matching."
+  - question: "How do I add the same cover to all MP3s in a folder?"
+    answer: "Use the --all flag: 'fancy_audio --all /path/to/mp3s cover.jpg'. This applies the same album cover image to every MP3 file in the specified directory."
 ---
 
 Hi Guys, Here I am again with a new gem called [FancyAudio](https://rubygems.org/gems/fancy_audio){:target="_blank"}. Any guesses what this gem might do or how to use it. Let me explain it for you.

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Ruby gem to fetch information from gocd as rich models
 description: GoCD is a ruby gem to fetch information from gocd server as models. It will make the api calls on your behalf and get you the information that you want.
 share-img: /assets/img/posts/gocd_gem/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [ruby, gocd, rubygem]
 comments: true
 keywords: "gocd ruby gem, gocd api, gocd models, ruby gocd integration, gocd pipeline status, gocd automation, ruby gem gocd, gocd server info, gocd agents, gocd open source"
+faq:
+  - question: "What is the GoCD Ruby gem used for?"
+    answer: "The GoCD Ruby gem provides a clean interface to fetch information from GoCD server as rich Ruby models. Instead of parsing raw JSON/XML from GoCD APIs, you get objects like pipelines, agents, and their statuses that you can work with directly in Ruby code."
+  - question: "How do I check if any GoCD pipelines are red/failing?"
+    answer: "Use GOCD::PipelineGroup with pipeline names, then call any_red? method. Example: pipelines = GOCD::PipelineGroup.new(['Pipeline1 :: stage1']); pipelines.any_red? returns true if any pipeline is failing."
+  - question: "How can I use the GoCD gem to prevent pushing to a red build?"
+    answer: "Create a pre-push git hook that uses the GoCD gem to check pipeline status. If pipelines.any_red? returns true, exit with code 1 to block the push. This ensures no code is pushed when the build is broken."
+  - question: "What information can the GoCD gem provide?"
+    answer: "The gem provides: all pipelines and their statuses, status of specific pipeline groups, and information about GoCD agents including idle, missing, and disabled agents. Each is returned as a Ruby object with convenient methods."
 ---
 
 # What is GoCD?

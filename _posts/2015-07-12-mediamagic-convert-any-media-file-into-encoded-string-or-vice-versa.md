@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: "MediaMagic: Convert any media file into encoded string or vice-versa"
 description: MediaMagic Convert any media file into encoded string or vice-versa. Its a very small ruby gem. We will discuss how to use it to encode and decode.
 share-img: /assets/img/posts/fancy_audio/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [ruby, rubygem]
 comments: true
 keywords: "mediamagic gem, encode media file, decode media file, ruby media tools, file to string ruby, string to file ruby, media encoding ruby, ruby gem media, store media in database, media file conversion"
+faq:
+  - question: "How do I convert a file to a Base64 string in Ruby?"
+    answer: "Use the MediaMagic gem: require 'media-magic', include MediaMagic::Operations, then call encode('/path/to/file'). It returns a Base64 encoded string of the file content."
+  - question: "How do I decode a Base64 string back to a file?"
+    answer: "Use decode(encoded_string, 'filename.ext') from MediaMagic gem. It creates the file in the current directory. Works for images, videos, audio, or any file type."
+  - question: "What are use cases for encoding files to strings?"
+    answer: "Store images/videos/audio in databases, embed files in emails or chat messages, save entire web pages as single HTML files with embedded resources, or transfer binary data through text-only protocols."
+  - question: "Can MediaMagic encode files from URLs?"
+    answer: "Yes! Instead of a file path, pass a URL: encode('http://url/to/image.jpeg'). The gem downloads and encodes the file in one step, useful for processing remote resources."
 ---
 
 This [gem](https://rubygems.org/gems/media-magic){:target="_blank"} is  written with the intention of converting any kind of file into encoded string or vice versa. The code is available on [github](https://github.com/ajitsing/MediaMagic){:target="_blank"}.

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Print custom messages after executing git commands
 description: amusing_git will help you print custom messages after executing git commands. You can configure the messages which you want to show.
 share-img: /assets/img/posts/git/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [git, shell, rubygem]
 keywords: "git custom messages, amusing_git, git hooks, git automation, shell scripting git, ruby git tools, print message after git push, git productivity, git post-commit, git post-push"
 comments: true
+faq:
+  - question: "How do I print custom messages after git commands?"
+    answer: "Install the amusing_git Ruby gem. Run 'amusing_git start' in your repo to enable it. It uses git hooks (pre-push, post-merge, pre-rebase) to print messages. Run 'amusing_git stop' to disable."
+  - question: "How do I add my own messages to amusing_git?"
+    answer: "Edit the messages file path in ~/.amusing_git/config. Point it to your own text file containing messages (one per line). Next time a hook runs, it will randomly pick from your custom messages."
+  - question: "Which git hooks does amusing_git use?"
+    answer: "By default it uses pre-push, pre-rebase, and post-merge hooks. Configure hooks in ~/.amusing_git/config JSON file. It won't override existing hooks - it appends to them."
+  - question: "Can I use amusing_git in my own scripts?"
+    answer: "Yes! Run 'amusing_git amuse' in any script to print a random message. It's not limited to git hooks - use it anywhere you want to add fun messages to your automation."
 ---
 
 Wanna have fun while coding? then this post is for you!

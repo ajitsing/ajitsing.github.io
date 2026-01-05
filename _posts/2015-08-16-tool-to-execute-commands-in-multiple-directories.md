@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Tool to execute commands in multiple directories
 description: brint_it_on is a tool to execute commands in multiple directories, it takes a configuration file which provides all the info of the directories and commands.
 share-img: /assets/img/posts/bring_it_on/cover.jpg
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [nodejs, productivity]
 keywords: "execute commands multiple directories, bring_it_on tool, nodejs productivity, shell automation, run scripts multiple folders, service orchestration, command line tool, devops automation, nodejs tools, project workflow"
 comments: true
+faq:
+  - question: "How do I start multiple services from one command?"
+    answer: "Use bring_it_on tool. Create config.json listing each service with dir, command, kill command, log path, and alias. Run 'node bring_it_on.js config.json' to start all, or add aliases to start specific ones."
+  - question: "How does bring_it_on show logs from multiple services?"
+    answer: "It color-codes log output from each service and prepends the alias. All logs appear in one terminal with clear service identification. Press Ctrl+C to kill all services using their configured kill commands."
+  - question: "How do I start all services except specific ones?"
+    answer: "Use minus prefix: 'bring_it_on -cost' starts all services except 'cost'. Useful when you don't need certain services for your current task but want everything else running."
+  - question: "How do I configure a service in bring_it_on?"
+    answer: "Add JSON object to config with: dir (service directory), command (start command), kill (stop command), log (log file path), alias (short name). Example: {dir: '/path/', command: 'sh start.sh', alias: 'api'}."
 ---
 
 A few months back I was working on a project which had a SOA(Service Oriented Architecture). Which means I had to start 4 to 5 services from different directories to start my workflow. And it was important to monitor the logs as well. For a few days I just executed the commands by going in different directories but then after that I thought enough is enough. I am a programmer I can write programs to make my life easier. Thats when I wrote this tool called [bring_it_on](https://github.com/ajitsing/bring_it_on){:target="_blank"}. Its written in nodejs.

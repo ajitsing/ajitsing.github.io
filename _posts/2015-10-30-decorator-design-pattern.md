@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Decorator Design Pattern
 description: Decorator Design Pattern is very useful when it comes to modifying the characteristics or functionality of an object at runtime.
 share-img: /assets/img/posts/filter_design_pattern/cover.png
@@ -9,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [java, design pattern]
 comments: true
 keywords: "decorator design pattern, java decorator pattern, design patterns, java design patterns, decorator example, software architecture, decorator implementation"
+video:
+  id: "DX6zmUyIhZg"
+  title: "Decorator Design Pattern Explained"
+  description: "Learn how the Decorator Design Pattern works with a Java example - dynamically add functionality to objects without inheritance."
+faq:
+  - question: "What is the Decorator Design Pattern?"
+    answer: "The Decorator pattern dynamically adds behavior or responsibilities to objects at runtime without using inheritance. It wraps objects with decorator classes that implement the same interface, allowing you to combine multiple decorators for flexible functionality."
+  - question: "When should I use the Decorator pattern?"
+    answer: "Use it when you need to add features to objects dynamically and the combinations of features are too many for subclassing. For example, a flight seat with optional WiFi, TV, and headphones - 6 options means 720 possible combinations."
+  - question: "What is the difference between Decorator and inheritance?"
+    answer: "Inheritance adds behavior at compile time and creates rigid class hierarchies. Decorator adds behavior at runtime through composition, allowing flexible combinations. Decorator is preferred when feature combinations explode exponentially."
+  - question: "How does Decorator pattern work in Java?"
+    answer: "Create an interface for the component. Create concrete implementations. Create abstract decorator implementing the same interface with a wrapped component reference. Concrete decorators extend this and add behavior while delegating to the wrapped object."
 ---
 
 # What Is Decorator Pattern?

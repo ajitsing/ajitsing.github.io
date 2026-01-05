@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: nokogiri ERROR Failed to build gem native extension on MAC
 description: nokogiri ERROR Failed to build gem native extension on MAC, Find out how to solve this issue with a single command.
 share-img: /assets/img/posts/ruby/cover.png
@@ -7,6 +8,15 @@ permalink: /nokogiri-error-failed-to-build-gem-native-extension-on-mac/
 tags: [ruby]
 comments: true
 keywords: "nokogiri error mac, failed to build gem native extension, nokogiri install error, ruby gem install mac, xcode command line tools, nokogiri troubleshooting, mac gem native extension, nokogiri solution, ruby development tools mac, nokogiri mac fix"
+faq:
+  - question: "How do I fix 'Failed to build gem native extension' on Mac?"
+    answer: "Run 'xcode-select --install' in terminal. This installs Xcode Command Line Tools which provides the missing compilers and headers (like /usr/include/iconv) needed to build native gem extensions."
+  - question: "Why does nokogiri fail to install on Mac?"
+    answer: "Nokogiri requires native C extensions and libraries (libxml2, libxslt). If Xcode Command Line Tools aren't installed properly, the compiler can't find required headers and fails. Installing the tools with 'xcode-select --install' fixes this."
+  - question: "What other gems have this native extension error?"
+    answer: "Common gems with native extensions that fail similarly: pg (PostgreSQL), mysql2, rmagick, ffi, eventmachine, puma, thin. The solution is usually the same - install Xcode Command Line Tools."
+  - question: "How do I install Xcode Command Line Tools?"
+    answer: "Run 'xcode-select --install' in terminal. A GUI dialog appears - click Install. Wait for download and installation. You don't need full Xcode, just the command line tools which are much smaller."
 ---
 
 During `bundle install`, a lot of time we use to get following error because of `nokogiri` gem. This error generally occur on MAC OSX. There are few other gems as well which throw the same error like pg, rmagic etc. But the way we resolve this problem is same for most of them. So Lets see how we can resolve this issue.

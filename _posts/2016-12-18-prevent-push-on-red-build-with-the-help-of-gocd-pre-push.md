@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Prevent push on red build with the help of gocd_pre_push
 description: gocd_pre_push helps agile teams to prevent pushing the changes in the central repo when the build is red by checking the status of concerned pipelines.
 share-img: /assets/img/posts/gocd_pre_push/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [ruby, rubygem, continuous integration, git, gocd]
 comments: true
 keywords: "gocd pre push, prevent push on red build, git pre-push hook, continuous integration, gocd pipelines, ruby gem, gocd api, agile development, ci cd, gocd tutorial, git automation"
+faq:
+  - question: "How do I prevent git push when the build is red?"
+    answer: "Use gocd_pre_push gem. It creates a git pre-push hook that checks GoCD pipeline status before allowing push. If any configured pipeline is red, it blocks the push and shows which pipelines are failing."
+  - question: "How do I set up gocd_pre_push?"
+    answer: "Add gem 'gocd_pre_push' to Gemfile, run bundle install. In repo root, run 'gocd_pre_push create' to create hooks and pipelines.yml. Configure server URL and credentials in hooks/pre-push, list pipelines in pipelines.yml."
+  - question: "How do I configure which pipelines to check?"
+    answer: "Edit pipelines.yml in your repo. List each pipeline and its stages: '- pipeline: MyProject\\n  stages:\\n    - spec\\n    - integration'. Only listed pipelines/stages are checked before push."
+  - question: "How do team members start using gocd_pre_push?"
+    answer: "After initial setup is pushed, team members run 'bundle install' and 'gocd_pre_push use_hooks' in the repo root. This symlinks the pre-push hook. They're then protected from pushing on red builds."
 ---
 
 An agile team delivers their software as and when they are ready with a small feature or user feedback. This is achieved with the help of [Continuous integration](https://www.thoughtworks.com/continuous-integration){:target="_blank"} and [Continuos Delivery](https://www.thoughtworks.com/continuous-delivery){:target="_blank"}. The idea is whenever you make any change to your software, there is a continuous integration environment that checks if your changes integrates well with the rest of  the software or not. There are a lot of CI softwares available and one of them is [GoCD](https://www.go.cd/){:target="_blank"} which is open source and developed by [ThoughtWorks](https://www.thoughtworks.com/){:target="_blank"}.

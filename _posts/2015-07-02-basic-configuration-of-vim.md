@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Basic configuration of VIM
 description: Basic configuration of vim - This article will explain how to configure VIM for basic things like syntax highlighting, enabling numbers and a lot more.
 share-img: /assets/img/posts/vim/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [vim]
 keywords: "vim configuration, vimrc setup, vim syntax highlighting, vim line numbers, vim beginner guide, vim settings, vim editor tips, vim customization, vim tutorial, vim productivity"
 comments: true
+faq:
+  - question: "Where is the Vim configuration file located?"
+    answer: "Vim reads configuration from ~/.vimrc in your home directory. Create it with 'touch ~/.vimrc' if it doesn't exist. After editing, run 'source ~/.vimrc' to apply changes, or restart Vim."
+  - question: "How do I enable syntax highlighting in Vim?"
+    answer: "Add 'syntax on' to your ~/.vimrc file. Vim will automatically detect file types by extension (.rb, .java, .js, etc.) and apply appropriate syntax highlighting colors."
+  - question: "How do I show line numbers in Vim?"
+    answer: "Add 'set number' or 'set nu' to ~/.vimrc for absolute line numbers. Use 'set relativenumber' or 'set rnu' for relative numbers. Relative numbers help with commands like '10j' to jump lines."
+  - question: "How do I make Vim use the system clipboard?"
+    answer: "Add 'set clipboard=unnamed' to ~/.vimrc. This makes Vim's yank (y) and paste (p) commands use the system clipboard, allowing copy/paste between Vim and other applications."
 ---
 
 This article will explain about how we can configure vim for basic features like syntax highlighting, enabling numbers etc. To enable basic features of vim you need to make some configuration changes.

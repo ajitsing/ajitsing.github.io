@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Cool tips for vim users
 description: Cool tips for vim users, In this article we will cover some awesome tips & tricks vim users can use to make their life easier while using vim.
 share-img: /assets/img/posts/vim/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [vim]
 keywords: "vim tips, vim tricks, vim productivity, vim shortcuts, vim advanced usage, vim configuration, vim editor tips, vim json formatting, vim uppercase lowercase, vimrc tips, vim best practices"
 comments: true
+faq:
+  - question: "How do I beautify JSON in Vim?"
+    answer: "Add this mapping: nnoremap <leader>j :%!python -m json.tool<CR>. Press your leader key + j to format JSON. Requires Python installed. Invalid JSON will show an error message."
+  - question: "How do I stop Vim from creating swap and backup files?"
+    answer: "Add these to ~/.vimrc: 'set nobackup', 'set nowritebackup', 'set noswapfile'. This prevents .swp files and ~ backup files from cluttering your directories."
+  - question: "How do I convert text to uppercase or lowercase in Vim?"
+    answer: "Select text in visual mode, then press 'U' for uppercase or 'u' for lowercase. Or use gU{motion} and gu{motion} in normal mode. Example: gUiW converts the inner word to uppercase."
+  - question: "How do I auto-reload vimrc after saving it?"
+    answer: "Add an autocommand: 'autocmd BufWritePost $MYVIMRC source $MYVIMRC'. This automatically sources your vimrc whenever you save it, so changes take effect immediately without restarting Vim."
 ---
 
 Hello Folks, I have been using vim for about 2 years now. And it is my primary editor when it comes to editing text or coding(other than java ;) ). Since I have been exploring vim for 2 years, I have learned some cool tips which vim users can use. These things are small but makes a big difference when you use them. So let's go through them one by one.

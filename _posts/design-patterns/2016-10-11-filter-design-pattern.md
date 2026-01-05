@@ -3,11 +3,15 @@ layout: post
 seo: true
 title: Filter Design Pattern
 description: How filter design pattern works and what are the use cases. This article explains filter design pattern with the help of an example.
-share-img: /assets/img/posts/filter_design_pattern/filter-design-pattern.png
-permalink: /filter-design-pattern/
+share-img: /assets/img/posts/design-patterns/filter-design-pattern.png
+thumbnail-img: /assets/img/posts/design-patterns/filter-design-pattern.png
+permalink: /design-patterns/filter/
+redirect_from:
+  - /filter-design-pattern/
 gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]
-tags: [java, design pattern]
+tags: [java, design-patterns]
+pattern-category: "structural"
 comments: true
 keywords: "filter design pattern, criteria pattern, java filter pattern, design patterns, dynamic filtering, java criteria filter, specification pattern, reusable filters, filter chain pattern, software architecture"
 video:

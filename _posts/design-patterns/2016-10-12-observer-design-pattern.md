@@ -3,11 +3,15 @@ layout: post
 seo: true
 title: Observer Design Pattern
 description: How observer design pattern works and what are the use cases. This article explains observer design pattern with the help of an example.
-share-img: /assets/img/posts/observer_design_pattern/observer-design-pattern.png
-permalink: /observer-design-pattern/
+share-img: /assets/img/posts/design-patterns/observer-design-pattern.png
+thumbnail-img: /assets/img/posts/design-patterns/observer-design-pattern.png
+permalink: /design-patterns/observer/
+redirect_from:
+  - /observer-design-pattern/
 gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]
-tags: [java, design pattern]
+tags: [java, design-patterns]
+pattern-category: "behavioral"
 comments: true
 keywords: "observer design pattern, java observer pattern, observable example, observer implementation, design patterns, event subscription, observer vs observable, java software architecture, observer use case, observer pattern tutorial"
 video:

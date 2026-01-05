@@ -3,11 +3,15 @@ layout: post
 seo: true
 title: Decorator Design Pattern
 description: Decorator Design Pattern is very useful when it comes to modifying the characteristics or functionality of an object at runtime.
-share-img: /assets/img/posts/filter_design_pattern/cover.png
-permalink: /decorator-design-pattern/
+share-img: /assets/img/posts/design-patterns/decorator-design-pattern.png
+thumbnail-img: /assets/img/posts/design-patterns/decorator-design-pattern.png
+permalink: /design-patterns/decorator/
+redirect_from:
+  - /decorator-design-pattern/
 gh-repo: ajitsing/design_patterns
 gh-badge: [star, fork, follow]
-tags: [java, design pattern]
+tags: [java, design-patterns]
+pattern-category: "structural"
 comments: true
 keywords: "decorator design pattern, java decorator pattern, design patterns, java design patterns, decorator example, software architecture, decorator implementation"
 video:

@@ -17,6 +17,7 @@ navbar-links:
   Explainers: "explainers"
   Tools: "/tools/cron-expression"
   System Design: "/system-design"
+  Design Patterns: "/design-patterns"
   Tag Cloud: "/tags"
   Dev Weekly: "/software-development-news"
   # Android: "/tags/#android"
@@ -230,5 +231,6 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 

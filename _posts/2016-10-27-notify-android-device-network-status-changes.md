@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Notify when android device network status changes
 description: This article will show how you can listen network status and notify when android device network status changes using a snackbar notification.
 share-img: /assets/img/posts/android/cover.png
@@ -9,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android network status, android broadcast receiver, network change notification, android connectivity change, android snackbar notification, android offline detection, android network listener, android manifest receiver, android app notifications, android development"
+video:
+  id: "ubvWRlFnr74"
+  title: "Android Network Status Change Detection Tutorial"
+  description: "Learn how to detect network connectivity changes in Android and show offline/online notifications using BroadcastReceiver and Snackbar."
+faq:
+  - question: "How do I detect network changes in Android?"
+    answer: "Create a BroadcastReceiver that listens for android.net.conn.CONNECTIVITY_CHANGE action. Register it in AndroidManifest.xml. In onReceive(), use ConnectivityManager.getActiveNetworkInfo() to check if the device is connected. Broadcast locally to notify your activity."
+  - question: "What permissions are needed for network status in Android?"
+    answer: "Add three permissions to AndroidManifest.xml: android.permission.INTERNET, android.permission.ACCESS_NETWORK_STATE, and android.permission.ACCESS_WIFI_STATE. Without these permissions, ConnectivityManager will not work correctly."
+  - question: "How do I show a Snackbar when network status changes?"
+    answer: "In your Activity, register a LocalBroadcastManager receiver that listens for your custom network status action. When received, extract the boolean status from the intent and show a Snackbar with Snackbar.make(view, message, duration).show()."
+  - question: "What is LocalBroadcastManager used for?"
+    answer: "LocalBroadcastManager sends broadcasts within your app only, more efficient and secure than system broadcasts. Use it to communicate between BroadcastReceiver and Activity - the receiver detects network change and locally broadcasts to the active activity for UI updates."
 ---
 
 There are a lot of applications in the play store that notifies you when your mobile goes offline. This article will help you understand how all that happens. How app knows that device is offline and notifies the user about the same by showing a notification on the screen. To understand this clearly I have created this small [project on github](https://github.com/ajitsing/AndroidOfflineModeNotifications){:target="_blank"}.

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Schedule local notification in android
 description: What are the things you need to know to schedule local notification in android. Here we will discuss in detail about the android components involved int it.
 share-img: /assets/img/posts/android/cover.png
@@ -9,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [android]
 keywords: "android local notification, schedule notification android, android AlarmManager, android BroadcastReceiver, android notification tutorial, android PendingIntent, android app notifications, android development, android notification example"
 comments: true
+video:
+  id: "k-tREnlQsrk"
+  title: "Schedule Local Notifications in Android Tutorial"
+  description: "Learn how to schedule local notifications in Android using AlarmManager, BroadcastReceiver, and NotificationManager with complete code examples."
+faq:
+  - question: "How do I schedule a local notification in Android?"
+    answer: "Use AlarmManager with a PendingIntent that triggers a BroadcastReceiver. In the receiver's onReceive(), build a Notification using NotificationCompat.Builder and display it with NotificationManager. Set the alarm time using Calendar and alarmManager.setExact()."
+  - question: "What is AlarmManager in Android?"
+    answer: "AlarmManager is a system service that schedules your app to run at a specific time. It takes a PendingIntent and triggers it when the time arrives, even if your app is not running. Use getSystemService(ALARM_SERVICE) to get an instance."
+  - question: "What is a BroadcastReceiver in Android notifications?"
+    answer: "BroadcastReceiver listens for system or app broadcasts. For scheduled notifications, AlarmManager broadcasts an intent at the scheduled time, and your BroadcastReceiver catches it to display the notification. Register it in AndroidManifest.xml with an intent-filter."
+  - question: "What is PendingIntent used for in notifications?"
+    answer: "PendingIntent wraps an Intent and grants permission to execute it later on your app's behalf. For notifications, you need two: one for AlarmManager to trigger the BroadcastReceiver, and another for the notification to open an activity when tapped."
 ---
 
 Hello Folks, In this tutorial we will discuss how we can schedule local notification in android. Its a super easy job and involves few android components.

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android UI Design And Styling
 description: This tutorial covers DP, SP and Pixels in depth with examples. And what to use where. Android UI Design And Styling.
 share-img: /assets/img/posts/android_ui_styling/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android ui design, android styling, dp vs sp, android pixels, android screen density, android layout units, android design tutorial, android font size, android ui best practices"
+faq:
+  - question: "What is the difference between DP and SP in Android?"
+    answer: "DP (density-independent pixels) is for layout dimensions - it scales based on screen density. SP (scale-independent pixels) is for text sizes - it scales with both screen density AND user's font size preference. Always use SP for textSize and DP for everything else."
+  - question: "Why should I use DP instead of pixels in Android?"
+    answer: "Pixels vary by screen density - 100px looks large on low-density screens but tiny on high-density screens. DP provides consistent physical size across all densities. 1dp = 1 pixel on mdpi (160dpi), 2 pixels on xhdpi (320dpi), ensuring your UI looks the same everywhere."
+  - question: "What is screen density in Android?"
+    answer: "Screen density is pixels per inch (dpi). Android categories: ldpi (120dpi), mdpi (160dpi baseline), hdpi (240dpi), xhdpi (320dpi), xxhdpi (480dpi), xxxhdpi (640dpi). Higher density means more pixels in the same physical space, requiring density-independent units (dp/sp)."
+  - question: "When should I use SP vs DP for text?"
+    answer: "Always use SP for text sizes (textSize). SP respects the user's accessibility font size setting in system preferences. Using DP for text ignores user preferences and may make text unreadable for visually impaired users. Never use pixels for text."
 ---
 
 Hello friends, Recently I have been doing some Android UI Design And Styling training [sessions](https://github.com/ajitsing/AndroidUISessions){:target="_blank"}. So I thought to share it with the wider audience. And here I am with my first android ui design and styling tutorial. I will be writing more on the same topic. So, Lets get started...

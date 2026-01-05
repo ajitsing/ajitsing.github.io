@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android UI for beginners
 description: Android ui for beginners covers all the basic layouts you use all the time while developing android applications. How to choose a Layout for you use case.
 share-img: /assets/img/posts/android_ui_styling/cover.png
@@ -10,6 +11,15 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android ui basics, android layouts, android viewgroup, android beginner tutorial, android ui design, linear layout android, relative layout android, android ui components, android development, android ui guide"
+faq:
+  - question: "What is the difference between View and ViewGroup in Android?"
+    answer: "View is the base class for all UI components with their own appearance (TextView, Button, ImageView). ViewGroup is a special View that can contain multiple child Views and defines their layout. Examples include LinearLayout, RelativeLayout, and ConstraintLayout."
+  - question: "When should I use LinearLayout vs RelativeLayout?"
+    answer: "Use LinearLayout when arranging views in a single row or column (horizontal/vertical). Use RelativeLayout when positioning views relative to each other or parent (alignParentTop, toRightOf). For complex layouts, prefer ConstraintLayout as it's more performant than nested layouts."
+  - question: "What is layout_weight in Android LinearLayout?"
+    answer: "layout_weight distributes remaining space among child views proportionally. Set width/height to 0dp and assign weights. A view with weight=2 gets twice the space of weight=1. Total weights don't need to equal 1 - they're ratios relative to each other."
+  - question: "What is wrap_content vs match_parent in Android?"
+    answer: "wrap_content sizes the view to fit its content (text, image). match_parent expands the view to fill its parent container. Use wrap_content for content-driven sizing and match_parent to fill available space. Avoid match_parent height on ScrollView children."
 ---
 
 This article covers the basic Android UI which every android developer should know. Here we will discuss what are the basic android UI building blocks and how they can be used. With a little attention you can master the basics of android UI design. I have created a demo application to help learn the basics. You can look at the code on [github](https://github.com/ajitsing/AndroidUIPlayground){:target="_blank"}.

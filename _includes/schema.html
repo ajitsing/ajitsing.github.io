@@ -21,6 +21,18 @@
       ]
     },
     {% endif %}
+    {% if page.video %}
+    {
+      "@type": "VideoObject",
+      "@id": "{{ page.url | absolute_url }}#video",
+      "name": "{{ page.video.title | escape }}",
+      "description": "{{ page.video.description | escape }}",
+      "thumbnailUrl": "https://img.youtube.com/vi/{{ page.video.id }}/maxresdefault.jpg",
+      "uploadDate": "{{ page.date | date_to_xmlschema }}",
+      "embedUrl": "https://www.youtube.com/embed/{{ page.video.id }}",
+      "contentUrl": "https://www.youtube.com/watch?v={{ page.video.id }}"
+    },
+    {% endif %}
     {
       "@type": "{% if page.layout == 'explainer' %}TechArticle{% else %}BlogPosting{% endif %}",
       "@id": "{{ page.url | absolute_url }}#article",

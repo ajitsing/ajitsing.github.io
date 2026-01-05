@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android with sqlite database
 description: Android with sqlite database, How to use database in android in the right way with the best practices.
 share-img: /assets/img/posts/android/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android sqlite database, android database tutorial, sqlite android example, android data storage, android database best practices, android listview sqlite, android database demo, android sqlite CRUD, android app database, android development"
+faq:
+  - question: "How do I use SQLite database in Android?"
+    answer: "Create a class extending SQLiteOpenHelper. Override onCreate() to create tables with execSQL(), and onUpgrade() for migrations. Use getWritableDatabase() for inserts/updates, getReadableDatabase() for queries. Use ContentValues for inserts and Cursor for reading results."
+  - question: "What is SQLiteOpenHelper in Android?"
+    answer: "SQLiteOpenHelper is a helper class that manages database creation and version management. It handles opening the database, creating it if it doesn't exist, and upgrading it when version changes. Extend it and implement onCreate() and onUpgrade() methods."
+  - question: "How do I insert data into SQLite in Android?"
+    answer: "Get writable database with getWritableDatabase(). Create ContentValues and put column-value pairs. Call database.insert(tableName, null, contentValues). It returns the row ID of the inserted row, or -1 if an error occurred."
+  - question: "How do I query data from SQLite in Android?"
+    answer: "Use database.query() or rawQuery() which returns a Cursor. Move through results with cursor.moveToFirst() and cursor.moveToNext(). Get values with cursor.getString(columnIndex). Always close the cursor when done to prevent memory leaks."
 ---
 
 This article will cover how to use sqlite database with android. For this article I have created a [demo application](https://github.com/ajitsing/AndroidDatabaseDemo){:target="_blank"} which is available on my github account. The app just has a list view which contains a list of products with its price. We will fetch the products from sqlite database and display it on the screen.

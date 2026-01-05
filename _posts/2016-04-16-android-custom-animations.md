@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android Custom Animations
 description: Android Custom Animations will cover how to create custom animations using pure xml tags e.g "alpha", "scale", "translate" and "rotate".
 share-img: /assets/img/posts/android_ui_styling/cover.png
@@ -10,6 +11,15 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android custom animations, android xml animation, alpha animation, scale animation, rotate animation, translate animation, android UI effects, android animation tutorial, android UI design, android animation xml example"
+faq:
+  - question: "What are the 4 types of Android XML animations?"
+    answer: "The four animation types are: alpha (fade in/out, controls visibility), scale (grow/shrink size), rotate (spin around a pivot point), and translate (move position). Combine them in a set element for complex animations like fade-in while sliding up."
+  - question: "How do I create a fade-in animation in Android?"
+    answer: "Create an XML file in res/anim with an alpha element: <alpha android:fromAlpha='0.0' android:toAlpha='1.0' android:duration='300'/>. Load it with AnimationUtils.loadAnimation(context, R.anim.fade_in) and apply with view.startAnimation(animation)."
+  - question: "How do I combine multiple animations in Android?"
+    answer: "Use the <set> element to group animations. By default they run simultaneously. Add android:startOffset to delay specific animations. Set android:fillAfter='true' to keep the final state after animation completes."
+  - question: "What is pivotX and pivotY in Android animations?"
+    answer: "pivotX and pivotY define the center point for scale and rotate animations. Values can be absolute (pixels), percentage of view (50%), or percentage of parent (50%p). For rotation around center, use pivotX='50%' and pivotY='50%'."
 ---
 
 Hello Folks, Recently I have been writing around Android UI Styling and Design. This is my yet another article on Android UI styling. In this article I will cover how we can create custom animations using pure xml tags. Here is my [github repo](https://github.com/ajitsing/androiduisessions){:target="_blank"} which contains all the code related to these articles.

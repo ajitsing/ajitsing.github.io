@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android Build Process
 description: How Android build process works? What are the tools involved from android sdk and what they do? Lets understand all the steps involved in build process.
 share-img: /assets/img/posts/android_build_process/cover.jpg
@@ -7,6 +8,15 @@ permalink: /android-build-process/
 tags: [android]
 comments: true
 keywords: "android build process, android aapt tool, android sdk tools, android build steps, android R.java, android apk build, android development, android build tutorial, android asset packaging, android app compilation"
+faq:
+  - question: "What is the Android build process?"
+    answer: "The Android build process compiles your source code, resources, and libraries into an APK. Key steps: AAPT compiles resources and generates R.java, Java compiler creates .class files, dx/d8 converts to Dalvik bytecode (classes.dex), APK Builder packages everything, and finally the APK is signed."
+  - question: "What is AAPT in Android?"
+    answer: "AAPT (Android Asset Packaging Tool) is an SDK tool that compiles resources in the res/ directory and AndroidManifest.xml. It generates the R.java file containing resource IDs that you reference in code like R.layout.activity_main or R.drawable.icon."
+  - question: "What is R.java in Android?"
+    answer: "R.java is an auto-generated class containing integer IDs for all resources (layouts, drawables, strings, etc.). It's created by AAPT during build and lets you reference resources in code. Never edit R.java manually - it regenerates on each build."
+  - question: "What is classes.dex in an APK?"
+    answer: "classes.dex contains your compiled Java/Kotlin code converted to Dalvik bytecode. The dx or d8 tool converts .class files to .dex format optimized for Android's runtime. Large apps may have multiple dex files (multidex) due to the 65K method limit."
 ---
 
 There are a lot of steps involved in android build process. We will discuss them one by one. But before jumping to the explanation lets take a look at the below diagram first where I have tried to put all the steps of build process together.

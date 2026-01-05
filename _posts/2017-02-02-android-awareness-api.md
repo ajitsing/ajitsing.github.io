@@ -1,6 +1,8 @@
 ---
 layout: post
+seo: true
 title: Why your android application needs awareness api
+description: Learn how to use Android Awareness API to make your app context-aware. Use Fence API for geofencing and Snapshot API to get user's current context including location, activity, weather, and nearby beacons.
 share-img: /assets/img/posts/android/cover.png
 permalink: /android-awareness-api/
 gh-repo: ajitsing/LocationAwareApp
@@ -8,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android awareness api, android fence api, android snapshot api, android geofencing, android context api, android location aware, android user context, android api tutorial, android app features, android development"
+faq:
+  - question: "What is Android Awareness API?"
+    answer: "Awareness API is a Google API that provides context about the user including location, activity (walking, driving), weather, nearby beacons, headphone state, and time. It combines multiple signals efficiently in one unified API instead of multiple separate APIs."
+  - question: "What is the difference between Fence API and Snapshot API?"
+    answer: "Snapshot API gives you the user's current context on-demand (current location, activity, weather right now). Fence API triggers callbacks when conditions change (user enters/leaves location, connects headphones). Use Snapshot for one-time checks, Fence for continuous monitoring."
+  - question: "How do I use geofencing with Awareness API?"
+    answer: "Use Fence API to create a LocationFence with Fence.in() for enter or Fence.exiting() for leave. Register the fence with Awareness.getFenceClient().updateFences(). Your BroadcastReceiver will be called when user enters or exits the defined area."
+  - question: "What permissions are needed for Awareness API?"
+    answer: "Add google-play-services-awareness dependency. Request ACCESS_FINE_LOCATION for location features, ACTIVITY_RECOGNITION for activity detection. Get an API key from Google Console. Some features like weather don't need extra permissions."
 ---
 
 Google introduced android [awareness api](https://developers.google.com/awareness/){:target="_blank"} in I/O 16. It offers a lot of awesome features which can make your android application better and improve the user experience. Awareness API is a combination of two APIs

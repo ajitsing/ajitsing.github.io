@@ -1,6 +1,8 @@
 ---
 layout: post
+seo: true
 title: Integrating Sherlock with android apps
+description: Learn how to integrate Sherlock library for crash reporting in Android apps. Get instant crash notifications with full stack traces and device info that you can share via email or messaging apps.
 share-img: /assets/img/posts/android/cover.png
 permalink: /integrating-sherlock-with-android-apps-to-get-crash-reports/
 gh-repo: ajitsing/Sherlock
@@ -8,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android crash reporting, sherlock android library, android crash logs, crash notification android, crashlytics alternative, android app debugging, android error tracking, crash report sharing, android app stability, android development tools"
+video:
+  id: "cEQBJkTeRUQ"
+  title: "Sherlock Android Crash Reporter Demo"
+  description: "Demo of Sherlock library for Android crash reporting - get instant notifications with full crash details and share them via any app."
+faq:
+  - question: "What is Sherlock for Android?"
+    answer: "Sherlock is an open-source Android library that captures crashes and shows local notifications with full crash details including stack trace, device info, and app version. Unlike Crashlytics, crashes are stored locally and can be shared via email, WhatsApp, or any sharing app."
+  - question: "How do I integrate Sherlock in my Android app?"
+    answer: "Add the dependency compile('com.github.ajitsing:sherlock:1.0.1@aar') { transitive = true } to build.gradle. Then call Sherlock.init(this) in your Application class onCreate(). That's it - crashes will now show notifications."
+  - question: "How do I view all crashes with Sherlock?"
+    answer: "Start CrashListActivity from anywhere in your app: startActivity(new Intent(this, CrashListActivity.class)). You can also get crash objects programmatically with Sherlock.getInstance().getAllCrashes() to build custom reports."
+  - question: "Can I add custom app info to Sherlock crash reports?"
+    answer: "Yes, implement AppInfoProvider and call Sherlock.setAppInfoProvider(). Use AppInfo.Builder to add custom fields like version, build number, or environment. Call this after Sherlock.init() or you'll get SherlockNotInitializedException."
 ---
 
 Its always a challenge for an app tester to report crashes to the developers. Because most of the time they don't have enough info about the crash which can enable developers to start fixing the crash right away. Even if you are using Crashlytics, its hard to find the logs for your crash as crashlytics is the central server and has all the crashes and figuring out which one is yours is a nightmare.

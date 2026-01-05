@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Testing Android Database
 description: This article is about testing android database using instrumentation test. It also covers how to configure instrumentation test for the first time.
 share-img: /assets/img/posts/android/cover.png
@@ -7,6 +8,19 @@ permalink: /testing-android-database/
 tags: [android, testing]
 comments: true
 keywords: "testing android database, android instrumentation test, android database testing, android test configuration, android junit, android test tutorial, android sqlite test, android test automation, android database example, android testing best practices"
+video:
+  id: "gdsxVfq-yNM"
+  title: "Android Instrumentation Testing Tutorial"
+  description: "Complete video series on Android instrumentation testing including database testing, configuration, and best practices."
+faq:
+  - question: "How do I test an Android SQLite database?"
+    answer: "Use instrumentation tests with AndroidJUnit4 runner. Get context with InstrumentationRegistry.getTargetContext(), delete the database before each test for clean state, create your DatabaseHelper instance, perform operations, and assert the results. Run with ./gradlew connectedCheck."
+  - question: "How do I configure Android instrumentation tests?"
+    answer: "Add testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner' to defaultConfig in build.gradle. Add androidTestCompile dependencies for junit and com.android.support.test:runner. Place tests in src/androidTest/java directory."
+  - question: "What is the difference between unit tests and instrumentation tests in Android?"
+    answer: "Unit tests run on JVM without Android framework (fast, in src/test). Instrumentation tests run on device/emulator with full Android context (slower, in src/androidTest). Use instrumentation tests when you need Context, database, UI, or other Android APIs."
+  - question: "How do I run instrumentation tests from command line?"
+    answer: "Run './gradlew connectedCheck' or './gradlew cC' for short. This builds the test APK, installs it on connected device/emulator, runs all instrumentation tests, and generates a report in app/build/reports/androidTests/."
 ---
 
 Hello folks, In this article I want to discuss how to test android database. Android database can be tested easily using Instrumentation tests. If you are writing the instrumentation test for the first time then there are few things that you need to setup before getting started with the testing of android database. I have also recorded a series of videos for instrumentation testing [tutorials](https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR){:target="_blank"}.

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android Draggable View
 description: This tutorial covers how we can add a draggable view/button in the layout.
 share-img: /assets/img/posts/android/cover.png
@@ -9,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android draggable view, draggable button android, android onTouch event, android FrameLayout, android UI tutorial, draggable layout android, android viewgroup, android floating button, android custom view, android development"
+video:
+  id: "N8w0enp1Krg"
+  title: "Android Draggable View Tutorial"
+  description: "Learn how to create a draggable floating button in Android using FrameLayout and OnTouchListener. Complete tutorial with source code."
+faq:
+  - question: "How do I make a view draggable in Android?"
+    answer: "Implement View.OnTouchListener and handle MotionEvent.ACTION_DOWN to capture initial position, ACTION_MOVE to update view coordinates using setX() and setY() with the raw touch coordinates, and ACTION_UP for click detection. Use FrameLayout as the parent to allow free positioning."
+  - question: "What is FrameLayout used for in Android?"
+    answer: "FrameLayout is a ViewGroup that positions child views at the top-left corner by default. It's ideal for floating/draggable views because children can overlap and be positioned independently without affecting other views in the layout."
+  - question: "How do I handle both drag and click on the same view?"
+    answer: "Track the last action in onTouch. If ACTION_UP occurs immediately after ACTION_DOWN (without ACTION_MOVE), treat it as a click. If ACTION_MOVE occurred between them, it's a drag. You cannot use a separate OnClickListener as OnTouchListener overrides it."
+  - question: "What are getRawX() and getRawY() in Android?"
+    answer: "getRawX() and getRawY() return the touch coordinates relative to the screen, not the view. They're used in drag implementations to calculate the new position. The difference between view.getX() and event.getRawX() gives the offset needed for smooth dragging."
 ---
 
 Hello Folks, this blog will help you add a draggable view to your android page. It's fairly simple to add a draggable view to your layout if you know about FrameLayout and Android's ```onTouch``` event. You can find the code in this [Github repo](https://github.com/ajitsing/androiduisessions){:target="_blank"}.

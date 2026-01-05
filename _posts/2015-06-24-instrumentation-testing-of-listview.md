@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Instrumentation testing of list view
 description: Instrumentation testing of listView. It covers from checking the size of the list to clicking an item and viewing its details
 share-img: /assets/img/posts/android/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [android, testing]
 comments: true
 keywords: "android instrumentation testing, listview test android, android ui testing, android test automation, android junit, android activity test, android test example, android listview click, android test tutorial, android testing best practices"
+faq:
+  - question: "How do I test a ListView in Android instrumentation tests?"
+    answer: "Get the ListView with getActivity().findViewById(), check getCount() for item count, use performItemClick() to simulate clicks. For Espresso, use onData(anything()).atPosition(0).perform(click()) to interact with list items."
+  - question: "How do I verify list item count in Android tests?"
+    answer: "For basic instrumentation: ListView list = activity.findViewById(R.id.list); assertEquals(expectedCount, list.getAdapter().getCount()). For Espresso: onView(withId(R.id.list)).check(matches(hasChildCount(expectedCount)))."
+  - question: "How do I click on a ListView item in instrumentation test?"
+    answer: "Use getInstrumentation().runOnMainSync() to perform UI operations: ListView list = activity.findViewById(R.id.list); View item = list.getChildAt(position); list.performItemClick(item, position, item.getId()). This simulates user tap on the item."
+  - question: "How do I test navigation from ListView to detail screen?"
+    answer: "Click the list item, then verify the new Activity started. Use ActivityMonitor to intercept the Intent: monitor = getInstrumentation().addMonitor(DetailActivity.class.getName(), null, false). After click, check monitor.waitForActivity() returns the expected activity."
 ---
 
 In this post we will learn how to write simple instrumentation test. We will be testing an app which has a listView. We will test that list has items in it and on clicking on an item it goes to item's detail page. For this post I have created a demo application with a list view, the code can be found [here](https://github.com/ajitsing/InstrumentationTestDemo){:target="_blank"}. It has following activities.

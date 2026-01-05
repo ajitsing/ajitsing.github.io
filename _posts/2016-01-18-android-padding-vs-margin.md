@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android Padding vs Margin
 description: Android Padding vs Margin covers whats the difference between padding and margin in context of android UI with examples.
 share-img: /assets/img/posts/android_ui_styling/cover.png
@@ -8,6 +9,15 @@ permalink: /android-padding-vs-margin/
 tags: [android]
 keywords: "android padding vs margin, android margin vs padding, difference between padding and margin android, android ui layout margin, android ui layout padding, android view margin example, android view padding example, android layout tutorial, android xml margin, android xml padding, android beginner ui tips, android layout spacing, android design best practices, android user interface, android development basics"
 comments: true
+faq:
+  - question: "What is the difference between padding and margin in Android?"
+    answer: "Padding is space inside the view between its content and border - it makes the view larger. Margin is space outside the view between it and other views - it creates distance from siblings. Padding affects the view itself, margin affects positioning relative to others."
+  - question: "What are the types of margin in Android?"
+    answer: "Android has 5 margin attributes: margin (all sides), marginLeft, marginRight, marginTop, and marginBottom. Use android:layout_margin for equal spacing on all sides, or individual attributes for specific spacing. Values are in dp for density independence."
+  - question: "What are the types of padding in Android?"
+    answer: "Android has 5 padding attributes: padding (all sides), paddingLeft, paddingRight, paddingTop, and paddingBottom. Padding creates space between the view's border and its content. Use paddingStart/paddingEnd for RTL language support."
+  - question: "Should I use padding or margin for spacing in Android?"
+    answer: "Use margin to create space between views (layout spacing). Use padding to add space inside a view around its content (internal spacing). For a button, margin separates it from other buttons while padding separates text from button edges."
 ---
 
 Android padding vs margin is a very frequently asked question. Most of the beginners miss understand it. So here is a little help from my side. The idea behind android margin and padding is very similar to CSS margin and padding. Let's understand it with examples.

@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Github Actions for Android
 description: Designing and setting up CI/CD for Android using Github Actions is simple. In this post we will implement entire CI/CD pipeline using Github Actions.
 share-img: /assets/img/posts/android_github_actions/thumbnail.png
@@ -10,6 +11,22 @@ gh-repo: ajitsing/ExpenseManager
 gh-badge: [star, fork, follow]
 tags: [android, ci-cd, Github Actions]
 comments: true
+keywords: "android ci cd, github actions android, android continuous integration, android pipeline, android lint github actions, android instrumentation tests ci, android unit tests github actions, android app center deploy, android sonarqube, android build automation"
+video:
+  id: "2mCJZHEhsxc"
+  title: "Android CI/CD Pipeline Architecture with GitHub Actions"
+  description: "Learn how to design and implement a complete CI/CD pipeline for Android apps using GitHub Actions, including lint checks, unit tests, instrumentation tests, and deployment."
+faq:
+  - question: "How do I set up GitHub Actions for an Android project?"
+    answer: "Create a YAML file at .github/workflows/ci.yml in your repository. Define triggers (push/pull_request), specify runs-on: ubuntu-latest for most jobs, use actions/checkout@v2 to get your code, then run Gradle commands like ./gradlew lintDebug, ./gradlew test, etc."
+  - question: "How do I run Android instrumentation tests in GitHub Actions?"
+    answer: "Use macos-latest runner (for hardware acceleration) with reactivecircus/android-emulator-runner@v2 action. Specify the API level and run ./gradlew connectedCheck. macOS VMs have HAXM installed for fast x86 emulator performance."
+  - question: "How do I deploy an Android APK from GitHub Actions?"
+    answer: "First generate the APK with ./gradlew assembleDebug and upload it as an artifact. Then use actions like wzieba/AppCenter-Github-Action to deploy to App Center, or use Firebase App Distribution, or upload directly to Play Store using appropriate actions."
+  - question: "What CI/CD steps should an Android pipeline include?"
+    answer: "A typical Android CI/CD pipeline includes: Lint check (code quality), Unit tests, Instrumentation tests (on emulator), Static code analysis (SonarQube), APK generation, and Deployment. Add security scanning and functional tests as needed."
+  - question: "How do I add SonarQube to Android GitHub Actions?"
+    answer: "Set up Java 11 using actions/setup-java, then run ./gradlew app:sonarqube with your SONAR_TOKEN from secrets. Configure your project on SonarCloud and add the sonarqube plugin to your build.gradle file."
 ---
 
 CI/CD is a development practice that delivers software to the end user with speed and reliability. This is important for any kind of app be it web, mobile, console or desktop. In this post we will discuss how we can setup CI/CD for an Android Application using Github Actions.<br/>

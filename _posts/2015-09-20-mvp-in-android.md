@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: MVP in android
 description: How to use MVP in android, In this article we will discuss what is MVP in android and how we can implement it. MVP helps improve coverage of code too.
 share-img: /assets/img/posts/android/cover.png
@@ -7,6 +8,15 @@ permalink: /mvp-in-android/
 tags: [android, design pattern]
 comments: true
 keywords: "mvp in android, android mvp pattern, model view presenter, android architecture, mvp implementation android, android design patterns, android code organization, android unit testing, mvp tutorial, android presenter"
+faq:
+  - question: "What is MVP pattern in Android?"
+    answer: "MVP (Model-View-Presenter) separates Android code into three components: View (Activity/Fragment handling UI), Presenter (business logic, plain Java class), and Model (data layer). The Activity implements a View interface, and Presenter communicates through this interface, making code testable and organized."
+  - question: "What is the role of Presenter in MVP?"
+    answer: "Presenter is a plain Java class containing business logic. It receives commands from View, fetches data from Model, and returns presentable data to View. Since it has no Android dependencies, it can be easily unit tested with mocks."
+  - question: "How does MVP improve testability in Android?"
+    answer: "MVP moves business logic from Activity to Presenter, which is a plain Java class. You can unit test Presenter by mocking the View interface and Model. This provides much better test coverage than testing Activities directly which require Android framework."
+  - question: "What is the difference between MVP and MVVM in Android?"
+    answer: "In MVP, Presenter holds a reference to View and calls methods on it directly. In MVVM, ViewModel exposes observable data that View binds to automatically. MVVM uses Data Binding or LiveData for reactive updates, while MVP uses explicit interface callbacks."
 ---
 
 Hello Folks, In this article we will discuss what is MVP in android and how we can use it to make our code better organised and unit/integration tested ([video series](https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR){:target="_blank"} on android instrumentation testing). There are mainly three components involved in MVP pattern Model, View and Presenter. Lets discuss about each of them in detail.

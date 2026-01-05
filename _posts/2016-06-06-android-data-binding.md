@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android Data Binding
 description: Keep your android activities lean with Android Data Binding. Use ViewModels to render the data on UI and notify the UI when something changes in ViewModel
 share-img: /assets/img/posts/data_binding/cover.png
@@ -9,6 +10,21 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android data binding, android viewmodel, data binding tutorial, android ui binding, android databinding example, two way binding android, android handler, android mvvm, android layout binding, android development"
+video:
+  id: "NLfKxEprWB4"
+  title: "Android Data Binding Tutorial"
+  description: "Complete video tutorial on Android Data Binding. Learn how to use ViewModels, Handlers, and two-way binding to keep your activities lean and testable."
+faq:
+  - question: "What is Android Data Binding?"
+    answer: "Android Data Binding is a library that allows you to bind UI components in your layouts to data sources in your app using a declarative format. It eliminates the need for findViewById() calls and keeps your activities lean by moving UI logic to ViewModels."
+  - question: "How do I enable Data Binding in Android?"
+    answer: "Add dataBinding { enabled = true } inside the android block in your app's build.gradle file and sync. After syncing, Data Binding classes like DataBindingUtil will be available to use in your code."
+  - question: "What is two-way binding in Android?"
+    answer: "Two-way binding uses the @={expression} syntax to automatically sync data between the UI and ViewModel. When a user changes an EditText, the ViewModel field updates automatically, and vice versa. You need setters in your ViewModel for two-way binding to work."
+  - question: "What is the difference between ViewModel and Handler in Data Binding?"
+    answer: "ViewModel holds the data that will be displayed on the UI and extends BaseObservable to notify the UI of changes. Handler holds event listeners like onClick and TextWatcher. Both are defined as variables in the layout and set when inflating the view."
+  - question: "How do I use Data Binding with Fragments?"
+    answer: "Use DataBindingUtil.inflate() instead of setContentView() in onCreateView(). Set your variables on the binding object, then return binding.getRoot() as the fragment's view. The binding class is generated based on your layout file name."
 ---
 
 Hello friends, Recently I have tried android's new library Android Data Binding. My experience with data binding has been really good and I would like others to try it out too. It takes very less to integrate android data binding in your existing code. You don't need to download any extra dependency for it as it comes built in the android's gradle plugin. All the code used in this article is present in my [github repo](https://github.com/ajitsing/AndroidDataBinding){:target="_blank"}.

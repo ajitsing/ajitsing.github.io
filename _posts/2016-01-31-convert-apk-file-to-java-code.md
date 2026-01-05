@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: apkToJava - Gem to convert apk file to java code
 description: Ruby gem to convert apk file to java code and open it in a gui. It will setup your environment and process the apk file to java code. Mac and Linux
 share-img: /assets/img/posts/android/cover.png
@@ -9,6 +10,19 @@ gh-badge: [star, fork, follow]
 tags: [android, rubygem]
 keywords: "convert apk to java, apkToJava gem, android reverse engineering, apk decompiler, ruby android tools, java code from apk, jadx, dex2jar, android productivity, apk analysis"
 comments: true
+video:
+  id: "YDWg-bgsAfc"
+  title: "Convert APK to Java Code with apkToJava"
+  description: "Demo of apkToJava Ruby gem that converts Android APK files to readable Java source code using dex2jar and jadx."
+faq:
+  - question: "How do I convert an APK file to Java code?"
+    answer: "Install the apkToJava Ruby gem with 'gem install apkToJava', run 'apkToJava setup' to install dependencies (dex2jar and jadx), then run 'apkToJava /path/to/file.apk'. The tool extracts classes.dex, converts it to a jar, and opens the Java code in jadx GUI."
+  - question: "What tools does apkToJava use?"
+    answer: "apkToJava uses dex2jar to convert the Dalvik bytecode (classes.dex) to a standard Java JAR file, and jadx to decompile the JAR to readable Java source code with a GUI viewer. The gem automatically installs these tools on first run."
+  - question: "Can I decompile any Android APK?"
+    answer: "You can decompile most APKs, but obfuscated apps (using ProGuard or R8) will have renamed classes and methods making the code harder to understand. Some apps use additional protections that may prevent full decompilation."
+  - question: "Does apkToJava work on Windows?"
+    answer: "Currently apkToJava supports Mac and Linux only. Windows support is not yet available but could be added based on user demand. You can contribute to the GitHub repository to add Windows support."
 ---
 
 Hello Friends, here I am with another cool [ruby gem](https://rubygems.org/gems/apkToJava){:target="_blank"} [apkToJava](https://github.com/ajitsing/apkToJava){:target="_blank"} which will help you to improve your productivity while working on android project. This gem can convert apk file to java code and open it in a friendly GUI.

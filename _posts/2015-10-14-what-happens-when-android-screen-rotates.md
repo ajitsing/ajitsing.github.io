@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: What happens when android screen rotates?
 description: Understand with example and demo that what happens when android screen rotates? How it causes lose of data?
 share-img: /assets/img/posts/android/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [android]
 comments: true
 keywords: "android screen rotation, android activity recreation, android layout resources, android orientation change, android data loss, android onCreate, android configuration change, android ui rotation, android development, android screen orientation"
+faq:
+  - question: "What happens when Android screen rotates?"
+    answer: "Android destroys and recreates the Activity to load orientation-specific resources. It calls onDestroy() then onCreate() with new configuration. This allows loading different layouts from res/layout-land (landscape) vs res/layout (portrait), but causes data loss if not handled."
+  - question: "How do I prevent data loss on Android screen rotation?"
+    answer: "Use onSaveInstanceState() to save data before destruction, then restore in onCreate() from savedInstanceState Bundle. For complex data, use ViewModel from Android Architecture Components - it survives configuration changes. Avoid android:configChanges as it bypasses proper lifecycle."
+  - question: "What is the layout-land folder in Android?"
+    answer: "res/layout-land contains layout files for landscape orientation. When device rotates to landscape, Android automatically loads layouts from this folder instead of res/layout. Create the same filename in both folders with different designs for each orientation."
+  - question: "Why does onCreate get called on screen rotation?"
+    answer: "Screen rotation is a configuration change. Android destroys the Activity and recreates it to reload resources (layouts, drawables, strings) appropriate for the new configuration. This ensures your app displays correctly but requires saving/restoring state manually."
 ---
 
 Rotating the android device changes the device configuration. Android replaces the current resources with the best suited resources for that screen orientation. Thats why when we add a resource in android we add different versions of that resource. For example an image can be added in four formats(hdpi, mdpi, xhdpi, xxhdpi). The below screen shot shows the same resource for different screen sizes.

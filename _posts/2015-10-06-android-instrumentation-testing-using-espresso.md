@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Android Instrumentation Testing Using Espresso
 description: Recently people have started doing Android Instrumentation Testing Using Espresso. In this article we will see a demo of espresso testing.
 share-img: /assets/img/posts/android/cover.png
@@ -9,6 +10,15 @@ gh-badge: [star, fork, follow]
 tags: [android, testing, espresso]
 comments: true
 keywords: "android instrumentation testing, espresso testing, android ui testing, espresso framework, android test automation, android testing tutorial, espresso api, android test example, android test automation tools, android testing best practices"
+faq:
+  - question: "What is Espresso in Android testing?"
+    answer: "Espresso is Google's UI testing framework for Android. It provides APIs to find views, perform actions (click, type), and verify results. Espresso automatically waits for the main thread to be idle, eliminating the need for Thread.sleep() and making tests reliable."
+  - question: "How do I write an Espresso test?"
+    answer: "Use three steps: find the view with onView(withId(R.id.button)), perform action with .perform(click()), and verify with .check(matches(isDisplayed())). Example: onView(withId(R.id.submit)).perform(click()).check(matches(isDisplayed()))."
+  - question: "What is the difference between onView and onData in Espresso?"
+    answer: "onView works with views directly visible in the hierarchy. onData works with adapter-based views (ListView, RecyclerView) where items may not be loaded yet. Use onData for scrolling to and interacting with items in long lists."
+  - question: "How do I add Espresso to my Android project?"
+    answer: "Add to build.gradle: androidTestImplementation 'androidx.test.espresso:espresso-core:3.x.x' and androidTestImplementation 'androidx.test:runner:1.x.x'. Set testInstrumentationRunner in defaultConfig. Place tests in src/androidTest/java."
 ---
 
 Hello Folks, This is my second article on Android Instrumentation testing. My previous instrumentation testing [article](http://www.singhajit.com/instrumentation-testing-of-listview/){:target="_blank"} was about testing a list view with core instrumentation (without any external library or framework). In this I am going to discuss the Espresso framework which I use for android instrumentation testing. I have also recored a series of [videos](https://www.youtube.com/watch?v=gdsxVfq-yNM&list=PLFYf87MeyEq588ibGPTu5lEhnJZG6KsmR){:target="_blank"} on instrumentation testing in Android.

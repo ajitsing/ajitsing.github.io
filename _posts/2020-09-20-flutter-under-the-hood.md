@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Flutter under the hood
 description: Overview of Flutter architecture and how it executes Dart code behind the scenes on the mobile devices.
 share-img: /assets/img/posts/flutter/running_code_on_device.png
@@ -7,6 +8,15 @@ permalink: /flutter-under-the-hood/
 tags: [flutter, mobile-cross-platform]
 comments: true
 keywords: "flutter architecture, flutter engine, dart runtime, flutter framework, mobile cross platform, flutter layers, flutter under the hood, flutter internals, flutter mobile development, flutter vs react native"
+faq:
+  - question: "What are the three layers of Flutter architecture?"
+    answer: "Flutter has three layers: Framework (Dart - widgets, animations, Material/Cupertino), Engine (C++ - Skia graphics, Dart runtime, text rendering), and Embedder (platform-specific - iOS/Android integration, surface rendering, input handling)."
+  - question: "How does Flutter render UI on mobile devices?"
+    answer: "Flutter doesn't use native UI components. The Skia graphics engine renders every pixel directly to a canvas. Widgets describe the UI, Flutter builds a render tree, and Skia draws it at 60/120fps. This gives Flutter full control over appearance and consistency across platforms."
+  - question: "What is the Flutter Engine?"
+    answer: "The Flutter Engine is written in C++ and provides low-level rendering using Skia, Dart runtime for executing code, text layout, and platform channels for native communication. It's the bridge between your Dart code and the underlying platform."
+  - question: "How is Flutter different from React Native?"
+    answer: "React Native uses a JavaScript bridge to control native UI components. Flutter compiles Dart to native code and renders its own UI with Skia, no bridge needed. Flutter has consistent cross-platform appearance, while React Native uses platform-specific components."
 ---
 
 This blog is intended to provide an overview of Flutter architecture and how it executes Dart code behind the scenes on the mobile devices. The language used in this blog is very simplistic so that any mobile developer learning Flutter can understand how it works underneath.

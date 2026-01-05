@@ -1,5 +1,6 @@
 ---
 layout: post
+seo: true
 title: Cucumber and calabash for android app testing
 description: This article is about how we can use cucumber and calabash for android app testing. Here we build the testing environment using calabash with minimal config
 share-img: /assets/img/posts/cucumber/cover.png
@@ -7,6 +8,15 @@ permalink: /cucumber-and-calabash-for-android-app-testing/
 tags: [android, testing, cucumber]
 comments: true
 keywords: "cucumber android testing, calabash android, android app automation, cucumber setup android, calabash tutorial, android bdd testing, ruby android testing, calabash steps, cucumber feature android, android test automation"
+faq:
+  - question: "What is Calabash for Android testing?"
+    answer: "Calabash is a cross-platform automated testing framework for Android and iOS apps. It allows writing tests in Cucumber (Gherkin syntax) with Ruby step definitions. Tests describe behavior in plain English, making them readable by non-developers."
+  - question: "How do I set up Calabash for Android?"
+    answer: "Install Ruby, then add gems: calabash-android, calabash-cucumber, and cucumber to your Gemfile. Run 'bundle install'. Create a features folder with .feature files and step_definitions folder. Run tests with 'calabash-android run app.apk'."
+  - question: "What is the difference between Calabash and Espresso?"
+    answer: "Calabash uses Ruby and Cucumber for BDD-style tests readable by non-developers, supports cross-platform (iOS/Android). Espresso is Google's Java/Kotlin framework, faster execution, better IDE integration, but Android-only. Choose Calabash for cross-platform BDD, Espresso for pure Android."
+  - question: "How do I write Calabash step definitions?"
+    answer: "Create .rb files in step_definitions folder. Use regex patterns to match Gherkin steps: Given(/^I see the list$/) do ... end. Use Calabash APIs like query(), touch(), enter_text() to interact with the app. Run with 'cucumber' command."
 ---
 
 This article will cover how cucumber and calabash can be used for android testing. Code used in this post can be found on github using following urls.

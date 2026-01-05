@@ -32,33 +32,7 @@ What if you could just copy a template enemy and tweak it?
 
 Prototype creates new objects by cloning an existing object. You create a prototype, configure it once, then clone it to create new instances. The clone has the same state as the original.
 
-```mermaid
-classDiagram
-    class Prototype {
-        <<interface>>
-        +clone(): Prototype
-    }
-    
-    class ConcretePrototype1 {
-        -field1
-        -field2
-        +clone(): Prototype
-    }
-    
-    class ConcretePrototype2 {
-        -field1
-        -field2
-        +clone(): Prototype
-    }
-    
-    class Client {
-        +operation()
-    }
-    
-    Prototype <|.. ConcretePrototype1
-    Prototype <|.. ConcretePrototype2
-    Client --> Prototype : clones
-```
+![Prototype Design Pattern class diagram showing Prototype interface with clone method, concrete implementations PrototypeA and PrototypeB, and Client that clones prototypes](/assets/img/posts/design-patterns/prototype-class-diagram.png)
 
 The client works with the Prototype interface. It doesn't know the concrete class being cloned.
 

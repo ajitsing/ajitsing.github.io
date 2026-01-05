@@ -34,39 +34,7 @@ Builder solves this elegantly.
 
 Builder separates the construction of a complex object from its representation. It constructs the object step by step, and you only use the steps you need.
 
-```mermaid
-classDiagram
-    class Director {
-        -builder: Builder
-        +construct(): void
-    }
-    
-    class Builder {
-        <<interface>>
-        +buildPartA(): Builder
-        +buildPartB(): Builder
-        +buildPartC(): Builder
-        +getResult(): Product
-    }
-    
-    class ConcreteBuilder {
-        -product: Product
-        +buildPartA(): Builder
-        +buildPartB(): Builder
-        +buildPartC(): Builder
-        +getResult(): Product
-    }
-    
-    class Product {
-        -partA
-        -partB
-        -partC
-    }
-    
-    Director o-- Builder
-    Builder <|.. ConcreteBuilder
-    ConcreteBuilder ..> Product : creates
-```
+![Builder Design Pattern class diagram showing Builder interface with concrete HouseBuilder implementation that constructs House objects step by step](/assets/img/posts/design-patterns/builder-class-diagram.png)
 
 In practice, modern Java often simplifies this. The Director is optional, and the Builder is often a static inner class.
 

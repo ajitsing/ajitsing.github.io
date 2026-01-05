@@ -32,50 +32,9 @@ You can't mix a Windows button with a macOS text box. They need to come from the
 
 Abstract Factory provides an interface for creating families of related objects. Each concrete factory produces objects that work together. The client uses the factory interface without knowing which concrete factory it's using.
 
-```mermaid
-classDiagram
-    class AbstractFactory {
-        <<interface>>
-        +createProductA(): ProductA
-        +createProductB(): ProductB
-    }
-    
-    class ConcreteFactory1 {
-        +createProductA(): ProductA
-        +createProductB(): ProductB
-    }
-    
-    class ConcreteFactory2 {
-        +createProductA(): ProductA
-        +createProductB(): ProductB
-    }
-    
-    class ProductA {
-        <<interface>>
-    }
-    
-    class ProductB {
-        <<interface>>
-    }
-    
-    class ProductA1
-    class ProductA2
-    class ProductB1
-    class ProductB2
-    
-    AbstractFactory <|.. ConcreteFactory1
-    AbstractFactory <|.. ConcreteFactory2
-    ProductA <|.. ProductA1
-    ProductA <|.. ProductA2
-    ProductB <|.. ProductB1
-    ProductB <|.. ProductB2
-    ConcreteFactory1 ..> ProductA1 : creates
-    ConcreteFactory1 ..> ProductB1 : creates
-    ConcreteFactory2 ..> ProductA2 : creates
-    ConcreteFactory2 ..> ProductB2 : creates
-```
+![Abstract Factory Design Pattern class diagram showing UIFactory interface with WinFactory and MacFactory implementations creating platform-specific Button and TextBox products](/assets/img/posts/design-patterns/abstract-factory-class-diagram.png)
 
-The key: Factory1 creates ProductA1 and ProductB1 (they go together). Factory2 creates ProductA2 and ProductB2 (they go together). You never mix products from different factories.
+The key: WinFactory creates WinButton and WinTextBox (they go together). MacFactory creates MacButton and MacTextBox (they go together). You never mix products from different factories.
 
 ## When to Use Abstract Factory
 

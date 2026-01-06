@@ -13,7 +13,7 @@ author: Ajit Singh
 
 navbar-links:
   About Me: "aboutme"
-  Videos: "videos"
+  # Videos: "videos"
   Explainers: "explainers"
   Tools: "/tools/cron-expression"
   System Design: "/system-design"

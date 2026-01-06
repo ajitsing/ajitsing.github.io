@@ -34,32 +34,9 @@ Adapter converts the interface of a class into another interface that clients ex
 
 Think of a power adapter. Your laptop has a US plug. The outlet is European. The adapter sits in between, converting one interface to another.
 
-```mermaid
-classDiagram
-    class Client {
-        +doWork()
-    }
-    
-    class Target {
-        <<interface>>
-        +request()
-    }
-    
-    class Adapter {
-        -adaptee: Adaptee
-        +request()
-    }
-    
-    class Adaptee {
-        +specificRequest()
-    }
-    
-    Client --> Target : uses
-    Target <|.. Adapter
-    Adapter --> Adaptee : wraps
-```
+<img src="/assets/img/posts/design-patterns/adapter-class-diagram.png" alt="Adapter Design Pattern class diagram showing Target interface, Adapter class that wraps Legacy class, converting incompatible interfaces" title="Adapter Pattern UML Class Diagram - Make incompatible interfaces work together" loading="lazy" />
 
-The Client works with the Target interface. The Adapter implements Target and wraps the Adaptee, translating calls.
+The Client works with the Target interface. The Adapter implements Target and wraps the Legacy class, translating calls.
 
 ## When to Use Adapter
 

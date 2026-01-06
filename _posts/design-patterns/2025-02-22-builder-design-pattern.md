@@ -34,7 +34,7 @@ Builder solves this elegantly.
 
 Builder separates the construction of a complex object from its representation. It constructs the object step by step, and you only use the steps you need.
 
-![Builder Design Pattern class diagram showing Builder interface with concrete HouseBuilder implementation that constructs House objects step by step](/assets/img/posts/design-patterns/builder-class-diagram.png)
+<img src="/assets/img/posts/design-patterns/builder-class-diagram.png" alt="Builder Design Pattern class diagram showing Builder interface with concrete HouseBuilder implementation that constructs House objects step by step" title="Builder Pattern UML Class Diagram - Construct complex objects step by step" loading="lazy" />
 
 In practice, modern Java often simplifies this. The Director is optional, and the Builder is often a static inner class.
 

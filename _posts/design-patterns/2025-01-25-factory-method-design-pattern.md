@@ -32,7 +32,7 @@ This is where Factory Method shines.
 
 Factory Method defines an interface for creating objects, but lets subclasses decide which class to instantiate. Instead of calling a constructor directly, you call a factory method that handles the creation.
 
-![Factory Method Design Pattern class diagram showing abstract Factory with concrete FactoryA and FactoryB subclasses that create different Product implementations](/assets/img/posts/design-patterns/factory-method-class-diagram.png)
+<img src="/assets/img/posts/design-patterns/factory-method-class-diagram.png" alt="Factory Method Design Pattern class diagram showing abstract Factory with concrete FactoryA and FactoryB subclasses that create different Product implementations" title="Factory Method Pattern UML Class Diagram - Let subclasses decide which class to instantiate" loading="lazy" />
 
 The key insight: the `Creator` class doesn't know which concrete product it will create. Each subclass implements `createProduct()` to return the appropriate type.
 

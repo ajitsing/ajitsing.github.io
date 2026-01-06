@@ -32,7 +32,7 @@ You can't mix a Windows button with a macOS text box. They need to come from the
 
 Abstract Factory provides an interface for creating families of related objects. Each concrete factory produces objects that work together. The client uses the factory interface without knowing which concrete factory it's using.
 
-![Abstract Factory Design Pattern class diagram showing UIFactory interface with WinFactory and MacFactory implementations creating platform-specific Button and TextBox products](/assets/img/posts/design-patterns/abstract-factory-class-diagram.png)
+<img src="/assets/img/posts/design-patterns/abstract-factory-class-diagram.png" alt="Abstract Factory Design Pattern class diagram showing UIFactory interface with WinFactory and MacFactory implementations creating platform-specific Button and TextBox products" title="Abstract Factory Pattern UML Class Diagram - Create families of related objects" loading="lazy" />
 
 The key: WinFactory creates WinButton and WinTextBox (they go together). MacFactory creates MacButton and MacTextBox (they go together). You never mix products from different factories.
 

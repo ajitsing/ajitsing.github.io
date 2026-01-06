@@ -32,36 +32,9 @@ Iterator lets you traverse any collection without knowing how it's stored.
 
 Iterator provides a way to access collection elements sequentially without exposing the underlying representation. The iterator object tracks position and provides consistent access methods.
 
-```mermaid
-classDiagram
-    class Iterator {
-        <<interface>>
-        +hasNext(): boolean
-        +next(): Element
-    }
-    
-    class ConcreteIterator {
-        -collection
-        -currentPosition
-        +hasNext(): boolean
-        +next(): Element
-    }
-    
-    class Aggregate {
-        <<interface>>
-        +createIterator(): Iterator
-    }
-    
-    class ConcreteAggregate {
-        +createIterator(): Iterator
-    }
-    
-    Iterator <|.. ConcreteIterator
-    Aggregate <|.. ConcreteAggregate
-    ConcreteAggregate ..> ConcreteIterator : creates
-```
+<img src="/assets/img/posts/design-patterns/iterator-class-diagra.png" alt="Iterator Design Pattern class diagram showing Iterator interface with hasNext and next methods, Collection creating ListIter for sequential element access" title="Iterator Pattern UML Class Diagram - Traverse collections without exposing internals" loading="lazy" />
 
-The collection creates an iterator. Clients use the iterator to traverse, never accessing the collection's internals directly.
+MyList creates a ListIter. Clients use the iterator to traverse, never accessing the collection's internals directly.
 
 ## When to Use Iterator
 

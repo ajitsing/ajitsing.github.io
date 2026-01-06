@@ -32,38 +32,9 @@ You could write a giant switch statement. Or you could let each state handle its
 
 State allows an object to alter its behavior when its internal state changes. The object appears to change its class. Each state is a separate class that implements state-specific behavior.
 
-```mermaid
-classDiagram
-    class Context {
-        -state: State
-        +setState(State)
-        +request()
-    }
-    
-    class State {
-        <<interface>>
-        +handle(Context)
-    }
-    
-    class ConcreteStateA {
-        +handle(Context)
-    }
-    
-    class ConcreteStateB {
-        +handle(Context)
-    }
-    
-    class ConcreteStateC {
-        +handle(Context)
-    }
-    
-    Context o-- State
-    State <|.. ConcreteStateA
-    State <|.. ConcreteStateB
-    State <|.. ConcreteStateC
-```
+<img src="/assets/img/posts/design-patterns/state-class-diagram.png" alt="State Design Pattern class diagram showing Order context with State interface and Pending, Paid, Shipped concrete states for behavior changes" title="State Pattern UML Class Diagram - Change object behavior based on internal state" loading="lazy" />
 
-The Context holds a reference to the current State. When you call a method on the Context, it delegates to the current State object. State objects can change the Context's state.
+Order holds a reference to the current State (Pending, Paid, or Shipped). When you call next(), it delegates to the current State object. States can transition the Order to the next state.
 
 ## When to Use State
 

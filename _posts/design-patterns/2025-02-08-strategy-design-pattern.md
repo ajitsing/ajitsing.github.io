@@ -32,38 +32,9 @@ You could write a giant if-else chain. Or you could use Strategy.
 
 Strategy defines a family of algorithms, encapsulates each one, and makes them interchangeable. The client code works with a strategy interface. The actual algorithm can be swapped at runtime without changing the client.
 
-```mermaid
-classDiagram
-    class Context {
-        -strategy: Strategy
-        +setStrategy(Strategy): void
-        +executeStrategy(): void
-    }
-    
-    class Strategy {
-        <<interface>>
-        +execute(): void
-    }
-    
-    class ConcreteStrategyA {
-        +execute(): void
-    }
-    
-    class ConcreteStrategyB {
-        +execute(): void
-    }
-    
-    class ConcreteStrategyC {
-        +execute(): void
-    }
-    
-    Context o-- Strategy : uses
-    Strategy <|.. ConcreteStrategyA
-    Strategy <|.. ConcreteStrategyB
-    Strategy <|.. ConcreteStrategyC
-```
+<img src="/assets/img/posts/design-patterns/strategy-class-diagram.png" alt="Strategy Design Pattern class diagram showing Payment context with PayMethod interface and Card, PayPal, Crypto interchangeable strategies" title="Strategy Pattern UML Class Diagram - Define a family of interchangeable algorithms" loading="lazy" />
 
-The key insight: the Context doesn't know which algorithm it's using. It just knows the Strategy interface. You can add new strategies without touching existing code.
+Payment doesn't know which method it's using (Card, PayPal, or Crypto). It just knows the PayMethod interface. You can add new payment methods without touching existing code.
 
 ## When to Use Strategy
 

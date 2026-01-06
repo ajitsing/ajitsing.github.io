@@ -32,29 +32,9 @@ What if images loaded only when displayed? That's what a proxy does.
 
 Proxy provides a placeholder for another object. It controls access to the original, adding behavior like lazy loading, access control, or logging without changing the original's interface.
 
-```mermaid
-classDiagram
-    class Subject {
-        <<interface>>
-        +request()
-    }
-    
-    class RealSubject {
-        +request()
-    }
-    
-    class Proxy {
-        -realSubject: RealSubject
-        +request()
-    }
-    
-    Subject <|.. RealSubject
-    Subject <|.. Proxy
-    Proxy --> RealSubject : controls access to
-    Client --> Subject : uses
-```
+<img src="/assets/img/posts/design-patterns/proxy-class-diagram.png" alt="Proxy Design Pattern class diagram showing Service interface with RealService and Proxy implementations, where Proxy controls access to RealService" title="Proxy Pattern UML Class Diagram - Control access to objects with placeholder" loading="lazy" />
 
-The client works with the Subject interface. It doesn't know if it's talking to the real object or a proxy.
+The client works with the Service interface. It doesn't know if it's talking to the real object or a proxy.
 
 ## Types of Proxy
 

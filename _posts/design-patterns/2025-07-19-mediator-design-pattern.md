@@ -32,35 +32,9 @@ Mediator centralizes this communication. Components talk to the mediator, not to
 
 Mediator defines an object that encapsulates how a set of objects interact. Colleagues don't communicate directly; they go through the mediator. This reduces coupling and makes interactions easier to modify.
 
-```mermaid
-classDiagram
-    class Mediator {
-        <<interface>>
-        +notify(sender, event)
-    }
-    
-    class ConcreteMediator {
-        -colleague1: Colleague1
-        -colleague2: Colleague2
-        +notify(sender, event)
-    }
-    
-    class Colleague1 {
-        -mediator: Mediator
-    }
-    
-    class Colleague2 {
-        -mediator: Mediator
-    }
-    
-    Mediator <|.. ConcreteMediator
-    ConcreteMediator --> Colleague1
-    ConcreteMediator --> Colleague2
-    Colleague1 --> Mediator
-    Colleague2 --> Mediator
-```
+<img src="/assets/img/posts/design-patterns/mediator-class-diagram.png" alt="Mediator Design Pattern class diagram showing ChatRoom mediator coordinating communication between UserA and UserB without direct coupling" title="Mediator Pattern UML Class Diagram - Centralize complex object communication" loading="lazy" />
 
-Components don't know about each other. They only know the mediator.
+UserA and UserB don't know about each other. They only know the ChatRoom mediator.
 
 ## When to Use Mediator
 

@@ -32,42 +32,9 @@ Adding methods to each node class for each operation is chaos. Visitor keeps ope
 
 Visitor lets you define new operations on an object structure without changing the classes of the elements. You create a visitor with a method for each element type. Elements accept visitors and delegate to the appropriate method.
 
-```mermaid
-classDiagram
-    class Visitor {
-        <<interface>>
-        +visitElementA(ElementA)
-        +visitElementB(ElementB)
-    }
-    
-    class ConcreteVisitor1 {
-        +visitElementA(ElementA)
-        +visitElementB(ElementB)
-    }
-    
-    class Element {
-        <<interface>>
-        +accept(Visitor)
-    }
-    
-    class ElementA {
-        +accept(Visitor)
-        +operationA()
-    }
-    
-    class ElementB {
-        +accept(Visitor)
-        +operationB()
-    }
-    
-    Visitor <|.. ConcreteVisitor1
-    Element <|.. ElementA
-    Element <|.. ElementB
-    ElementA ..> Visitor : accept calls visitElementA
-    ElementB ..> Visitor : accept calls visitElementB
-```
+<img src="/assets/img/posts/design-patterns/visitor-class-diagram.png" alt="Visitor Design Pattern class diagram showing Visitor interface with visit methods for each Node type, enabling double dispatch to add operations without modifying elements" title="Visitor Pattern UML Class Diagram - Add operations to objects without changing their classes" loading="lazy" />
 
-The magic is double dispatch: `element.accept(visitor)` calls `visitor.visit(element)`, selecting the right method based on both types.
+The magic is double dispatch: `node.accept(visitor)` calls `visitor.visit(node)`, selecting the right method based on both types.
 
 ## When to Use Visitor
 

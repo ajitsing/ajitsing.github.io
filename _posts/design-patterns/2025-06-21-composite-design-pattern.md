@@ -32,29 +32,7 @@ The client shouldn't care whether it's dealing with a file or a folder. Both res
 
 Composite lets you treat individual objects and compositions of objects uniformly. Both leaf objects and composite containers implement the same interface. The client doesn't know if it's working with a single item or a tree.
 
-```mermaid
-classDiagram
-    class Component {
-        <<interface>>
-        +operation()
-    }
-    
-    class Leaf {
-        +operation()
-    }
-    
-    class Composite {
-        -children: List~Component~
-        +operation()
-        +add(Component)
-        +remove(Component)
-        +getChildren(): List~Component~
-    }
-    
-    Component <|.. Leaf
-    Component <|.. Composite
-    Composite o-- Component : contains
-```
+<img src="/assets/img/posts/design-patterns/composite-class-diagram.png" alt="Composite Design Pattern class diagram showing Component interface with Leaf and Composite implementations, where Composite contains child Components for tree structures" title="Composite Pattern UML Class Diagram - Treat individual objects and compositions uniformly" loading="lazy" />
 
 The Composite holds children that are also Components. This creates recursive tree structures where operations propagate through the hierarchy.
 

@@ -32,32 +32,7 @@ Most characters share the same formatting. Flyweight lets you share that common 
 
 Flyweight minimizes memory by sharing common state between multiple objects. Instead of each object storing all its data, objects share intrinsic (constant) state and receive extrinsic (varying) state from outside.
 
-```mermaid
-classDiagram
-    class FlyweightFactory {
-        -flyweights: Map
-        +getFlyweight(key): Flyweight
-    }
-    
-    class Flyweight {
-        <<interface>>
-        +operation(extrinsicState)
-    }
-    
-    class ConcreteFlyweight {
-        -intrinsicState
-        +operation(extrinsicState)
-    }
-    
-    class Client {
-        -extrinsicState
-    }
-    
-    FlyweightFactory --> Flyweight
-    Flyweight <|.. ConcreteFlyweight
-    Client --> Flyweight
-    Client --> FlyweightFactory
-```
+<img src="/assets/img/posts/design-patterns/flyweight-class-diagram.png" alt="Flyweight Design Pattern class diagram showing Factory caching shared Flyweight objects with intrinsic state while Client provides extrinsic state" title="Flyweight Pattern UML Class Diagram - Share common state to reduce memory usage" loading="lazy" />
 
 The factory ensures flyweights are shared. Clients store only extrinsic state and reference shared flyweights.
 

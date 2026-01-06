@@ -32,35 +32,7 @@ Bridge avoids this explosion by separating shape logic from rendering logic.
 
 Bridge decouples an abstraction from its implementation so they can vary independently. The abstraction contains a reference to an implementation object and delegates work to it.
 
-```mermaid
-classDiagram
-    class Abstraction {
-        #impl: Implementor
-        +operation()
-    }
-    
-    class RefinedAbstraction {
-        +operation()
-    }
-    
-    class Implementor {
-        <<interface>>
-        +operationImpl()
-    }
-    
-    class ConcreteImplementorA {
-        +operationImpl()
-    }
-    
-    class ConcreteImplementorB {
-        +operationImpl()
-    }
-    
-    Abstraction o-- Implementor : has
-    Abstraction <|-- RefinedAbstraction
-    Implementor <|.. ConcreteImplementorA
-    Implementor <|.. ConcreteImplementorB
-```
+<img src="/assets/img/posts/design-patterns/bridge-class-diagram.png" alt="Bridge Design Pattern class diagram showing Shape abstraction with Renderer implementation, allowing Circle to work with SVG or Canvas renderers independently" title="Bridge Pattern UML Class Diagram - Decouple abstraction from implementation" loading="lazy" />
 
 The Abstraction uses the Implementor. Both sides can be extended independently.
 

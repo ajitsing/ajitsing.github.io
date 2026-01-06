@@ -32,21 +32,7 @@ This is what the Singleton pattern solves.
 
 Singleton is a creational pattern that restricts a class to a single instance. It provides a global access point to that instance. The class itself controls instantiation, ensuring no one else can create additional instances.
 
-```mermaid
-classDiagram
-    class Singleton {
-        -static instance: Singleton
-        -Singleton()
-        +static getInstance(): Singleton
-        +doSomething(): void
-    }
-    
-    Client1 --> Singleton : uses
-    Client2 --> Singleton : uses
-    Client3 --> Singleton : uses
-    
-    note for Singleton "Only one instance exists"
-```
+![Singleton Design Pattern class diagram showing multiple clients accessing the same Singleton instance through getInstance method](/assets/img/posts/design-patterns/singleton-class-diagram.png)
 
 The key elements:
 - **Private constructor** prevents direct instantiation

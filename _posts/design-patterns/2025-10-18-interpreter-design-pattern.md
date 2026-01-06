@@ -32,33 +32,9 @@ Interpreter builds a language for these expressions.
 
 Interpreter defines a grammar as classes. Each rule becomes a class with an interpret method. Complex expressions are trees of these classes, evaluated recursively.
 
-```mermaid
-classDiagram
-    class Expression {
-        <<interface>>
-        +interpret(Context): Result
-    }
-    
-    class TerminalExpression {
-        +interpret(Context): Result
-    }
-    
-    class NonTerminalExpression {
-        -expression1: Expression
-        -expression2: Expression
-        +interpret(Context): Result
-    }
-    
-    class Context {
-        +variables: Map
-    }
-    
-    Expression <|.. TerminalExpression
-    Expression <|.. NonTerminalExpression
-    NonTerminalExpression o-- Expression
-```
+<img src="/assets/img/posts/design-patterns/interpreter-class-diagram.png" alt="Interpreter Design Pattern class diagram showing Expression interface with Terminal and Compound implementations that recursively evaluate grammar rules" title="Interpreter Pattern UML Class Diagram - Define grammar as classes for domain-specific languages" loading="lazy" />
 
-Terminal expressions are leaves (like numbers or variables). Non-terminal expressions combine other expressions (like AND, OR, or arithmetic operators).
+Terminal nodes are leaves (like numbers or variables). Compound nodes combine other expressions (like AND, OR, or arithmetic operators).
 
 ## When to Use Interpreter
 

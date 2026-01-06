@@ -32,37 +32,9 @@ How do you structure this? You turn each action into an object.
 
 Command encapsulates a request as an object. This lets you parameterize objects with operations, queue requests, log them, and support undo.
 
-```mermaid
-classDiagram
-    class Invoker {
-        -command: Command
-        +setCommand(Command)
-        +executeCommand()
-    }
-    
-    class Command {
-        <<interface>>
-        +execute()
-        +undo()
-    }
-    
-    class ConcreteCommand {
-        -receiver: Receiver
-        -state
-        +execute()
-        +undo()
-    }
-    
-    class Receiver {
-        +action()
-    }
-    
-    Invoker o-- Command
-    Command <|.. ConcreteCommand
-    ConcreteCommand --> Receiver
-```
+<img src="/assets/img/posts/design-patterns/command-class-diagram.png" alt="Command Design Pattern class diagram showing Button invoker with Command interface, SaveCmd concrete command, and Editor receiver for encapsulating requests" title="Command Pattern UML Class Diagram - Encapsulate requests as objects for undo and queuing" loading="lazy" />
 
-The key insight: operations become first-class objects. You can store them, pass them around, queue them, and reverse them.
+Button holds a Command. When clicked, it runs SaveCmd which calls Editor.save(). Commands are first-class objects you can store, queue, and reverse.
 
 ## When to Use Command
 

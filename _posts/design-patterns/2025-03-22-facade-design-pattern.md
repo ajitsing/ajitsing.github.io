@@ -34,36 +34,7 @@ That's the Facade pattern.
 
 Facade provides a simplified interface to a complex subsystem. It doesn't replace the subsystem; it wraps it with a friendlier API for common use cases.
 
-```mermaid
-classDiagram
-    class Client {
-        +doWork()
-    }
-    
-    class Facade {
-        +simpleOperation()
-    }
-    
-    class SubsystemA {
-        +operationA1()
-        +operationA2()
-    }
-    
-    class SubsystemB {
-        +operationB1()
-        +operationB2()
-        +operationB3()
-    }
-    
-    class SubsystemC {
-        +operationC1()
-    }
-    
-    Client --> Facade : uses
-    Facade --> SubsystemA : coordinates
-    Facade --> SubsystemB : coordinates
-    Facade --> SubsystemC : coordinates
-```
+<img src="/assets/img/posts/design-patterns/facade-class-diagram.png" alt="Facade Design Pattern class diagram showing Facade class providing simplified interface to complex subsystem components PartA, PartB, and PartC" title="Facade Pattern UML Class Diagram - Simplify complex subsystem with unified interface" loading="lazy" />
 
 The client calls the Facade. The Facade orchestrates the subsystem components. The complexity is hidden, not eliminated.
 

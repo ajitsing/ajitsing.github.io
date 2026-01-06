@@ -32,34 +32,9 @@ Chain of Responsibility lets you build processing pipelines where each step can 
 
 Chain of Responsibility passes requests along a chain of handlers. Each handler decides whether to process the request or pass it to the next handler. The request travels until a handler deals with it.
 
-```mermaid
-classDiagram
-    class Handler {
-        <<interface>>
-        -next: Handler
-        +setNext(Handler): Handler
-        +handle(Request)
-    }
-    
-    class ConcreteHandler1 {
-        +handle(Request)
-    }
-    
-    class ConcreteHandler2 {
-        +handle(Request)
-    }
-    
-    class ConcreteHandler3 {
-        +handle(Request)
-    }
-    
-    Handler <|.. ConcreteHandler1
-    Handler <|.. ConcreteHandler2
-    Handler <|.. ConcreteHandler3
-    Handler --> Handler : next
-```
+<img src="/assets/img/posts/design-patterns/chain-of-responsibility-class-diagram.png" alt="Chain of Responsibility Design Pattern class diagram showing Handler interface with Auth, Log, and Rate handlers linked in a processing chain" title="Chain of Responsibility Pattern UML Class Diagram - Pass requests through a chain of handlers" loading="lazy" />
 
-The client sends to the first handler. Each handler either handles the request, passes it on, or does both.
+The client sends to Auth first. Each handler (Auth, Log, Rate) either handles the request, passes it on, or does both.
 
 ## When to Use Chain of Responsibility
 

@@ -32,31 +32,9 @@ Memento captures snapshots that can be restored later.
 
 Memento saves an object's state without exposing its implementation. The object creates a memento (snapshot). A caretaker stores mementos. The object can restore from any stored memento.
 
-```mermaid
-classDiagram
-    class Originator {
-        -state
-        +save(): Memento
-        +restore(Memento)
-    }
-    
-    class Memento {
-        -state
-        +getState()
-    }
-    
-    class Caretaker {
-        -mementos: List
-        +push(Memento)
-        +pop(): Memento
-    }
-    
-    Originator ..> Memento : creates
-    Caretaker o-- Memento : stores
-    Originator <-- Caretaker : restores
-```
+<img src="/assets/img/posts/design-patterns/memento-class-diagram.png" alt="Memento Design Pattern class diagram showing Editor creating Snapshots stored by History for undo and restore functionality" title="Memento Pattern UML Class Diagram - Capture and restore object state without violating encapsulation" loading="lazy" />
 
-The Memento is opaque to the Caretaker. Only the Originator can read its contents.
+The Snapshot is opaque to the History. Only the Editor can read its contents.
 
 ## When to Use Memento
 

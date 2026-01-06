@@ -27,25 +27,23 @@
   width: 100%;
 }
 
-.content-block,
-.footer-block {
+.post-mid-ad {
   margin: 40px 0;
   padding: 20px 0;
   text-align: center;
 }
 
-.content-block ins,
-.footer-block ins {
+.post-mid-ad .adsbygoogle {
   min-height: 100px;
 }
 
-.feed-block {
-  margin: 20px 0;
-  padding: 15px 0;
+.post-bottom-ad {
+  margin: 40px 0 20px 0;
+  padding: 20px 0;
   text-align: center;
 }
 
-.feed-block ins {
+.post-bottom-ad .adsbygoogle {
   min-height: 100px;
 }
 
@@ -54,14 +52,9 @@
     padding: 15px 12px 30px;
   }
 
-  .content-block,
-  .footer-block {
+  .post-mid-ad,
+  .post-bottom-ad {
     margin: 32px 0;
     padding: 16px 0;
-  }
-
-  .feed-block {
-    margin: 16px 0;
-    padding: 12px 0;
   }
 }

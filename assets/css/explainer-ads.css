@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.explainer-main-content .content-block {
+.explainer-top-ad {
   margin: 20px auto;
   padding: 10px 0;
   text-align: center;
@@ -16,7 +16,7 @@
   max-width: 728px;
 }
 
-.explainer-main-content .content-block ins {
+.explainer-top-ad .adsbygoogle {
   display: block;
   width: 100%;
 }
@@ -48,25 +48,25 @@
   text-decoration: none;
 }
 
-.explainer-main-content .footer-block {
+.explainer-bottom-ad {
   margin: 40px 0 20px 0;
   padding: 20px 0;
   text-align: center;
   width: 100%;
 }
 
-.explainer-main-content .footer-block ins {
+.explainer-bottom-ad .adsbygoogle {
   width: 100%;
   display: block;
 }
 
 @media (max-width: 768px) {
-  .explainer-main-content .content-block {
+  .explainer-top-ad {
     margin: 10px auto;
     padding: 5px 0;
   }
 
-  .explainer-main-content .footer-block {
+  .explainer-bottom-ad {
     margin: 32px 0;
     padding: 16px 0;
   }

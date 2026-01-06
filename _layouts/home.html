@@ -212,7 +212,15 @@ layout: page
   {% comment %} Insert in-feed ad after every 5th post {% endcomment %}
   {% assign mod_check = post_counter | modulo: 5 %}
   {% if mod_check == 0 %}
-  <div class="feed-block" aria-label="Sponsored content"></div>
+  <div class="in-feed-ad" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-fz-16+2s-di+qa"
+         data-ad-client="ca-pub-2886086145980317"
+         data-ad-slot="7281945758"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
   {% endif %}
 
   {% endunless %}
@@ -234,5 +242,4 @@ layout: page
 </ul>
 {% endif %}
 
-<script src="{{ '/assets/js/ad-loader.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/in-feed-ads.js' | relative_url }}"></script>

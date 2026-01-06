@@ -32,31 +32,9 @@ Do you copy the boilerplate to each processor? Or do you define the skeleton onc
 
 Template Method defines the skeleton of an algorithm in a base class. Subclasses override specific steps without changing the structure. The base class controls the flow; subclasses provide implementations.
 
-```mermaid
-classDiagram
-    class AbstractClass {
-        +templateMethod()
-        #primitiveOperation1()*
-        #primitiveOperation2()*
-        #hook()
-    }
-    
-    class ConcreteClassA {
-        #primitiveOperation1()
-        #primitiveOperation2()
-    }
-    
-    class ConcreteClassB {
-        #primitiveOperation1()
-        #primitiveOperation2()
-        #hook()
-    }
-    
-    AbstractClass <|-- ConcreteClassA
-    AbstractClass <|-- ConcreteClassB
-```
+<img src="/assets/img/posts/design-patterns/template-class-diagram.png" alt="Template Method Design Pattern class diagram showing Base class with run template method and abstract steps doA and doB implemented by ImplX and ImplY subclasses" title="Template Method Pattern UML Class Diagram - Define algorithm skeleton with customizable steps" loading="lazy" />
 
-The template method calls primitive operations. Subclasses implement those operations. The algorithm structure stays fixed.
+Base.run() calls doA() and doB(). ImplX and ImplY provide their own implementations. The algorithm structure stays fixed.
 
 ## When to Use Template Method
 

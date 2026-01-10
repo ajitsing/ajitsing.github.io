@@ -9,6 +9,7 @@ hide-explore-posts: true
 <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/page-navigation.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/featured-post.css' | relative_url }}">
 
 <!-- SEO: Structured Data for Homepage -->
 <script type="application/ld+json">
@@ -166,6 +167,9 @@ hide-explore-posts: true
 <div class="rss-section-home">
   {% include rss-subscribe.html %}
 </div>
+
+<!-- Featured Post Section -->
+{% include featured-post.html %}
 
 <!-- Two-column layout: Posts + Sidebar -->
 <div class="home-layout">

@@ -89,6 +89,28 @@ YANDEX_RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" -X POST \
 YANDEX_STATUS=$(echo "$YANDEX_RESPONSE" | grep "HTTP_STATUS" | cut -d: -f2)
 echo "Yandex Response Status: $YANDEX_STATUS"
 
+# Notify Seznam (Czech search engine, supports IndexNow)
+echo ""
+echo "Sending to Seznam IndexNow..."
+SEZNAM_RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" -X POST \
+    "https://search.seznam.cz/indexnow" \
+    -H "Content-Type: application/json; charset=utf-8" \
+    -d "$JSON_PAYLOAD")
+
+SEZNAM_STATUS=$(echo "$SEZNAM_RESPONSE" | grep "HTTP_STATUS" | cut -d: -f2)
+echo "Seznam Response Status: $SEZNAM_STATUS"
+
+# Notify Naver (Korean search engine, supports IndexNow)
+echo ""
+echo "Sending to Naver IndexNow..."
+NAVER_RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" -X POST \
+    "https://searchadvisor.naver.com/indexnow" \
+    -H "Content-Type: application/json; charset=utf-8" \
+    -d "$JSON_PAYLOAD")
+
+NAVER_STATUS=$(echo "$NAVER_RESPONSE" | grep "HTTP_STATUS" | cut -d: -f2)
+echo "Naver Response Status: $NAVER_STATUS"
+
 echo ""
 echo "Done! Status codes:"
 echo "  200 = URL submitted successfully"

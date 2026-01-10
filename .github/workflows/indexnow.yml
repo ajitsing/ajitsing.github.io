@@ -139,6 +139,28 @@ jobs:
             }"
           
           echo ""
+          echo "Notifying Seznam IndexNow..."
+          curl -s -X POST "https://search.seznam.cz/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"singhajit.com\",
+              \"key\": \"c7cba40954d441c6866b7aa29ed5c8d6\",
+              \"keyLocation\": \"https://singhajit.com/c7cba40954d441c6866b7aa29ed5c8d6.txt\",
+              \"urlList\": [${URL_LIST}]
+            }"
+          
+          echo ""
+          echo "Notifying Naver IndexNow..."
+          curl -s -X POST "https://searchadvisor.naver.com/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{
+              \"host\": \"singhajit.com\",
+              \"key\": \"c7cba40954d441c6866b7aa29ed5c8d6\",
+              \"keyLocation\": \"https://singhajit.com/c7cba40954d441c6866b7aa29ed5c8d6.txt\",
+              \"urlList\": [${URL_LIST}]
+            }"
+          
+          echo ""
           echo "IndexNow notifications sent!"
 
       - name: Notify Google PubSubHubbub
@@ -156,7 +178,7 @@ jobs:
         run: |
           echo "### Search Engine Notification Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "The following URLs were submitted to Bing, Yandex, and Google:" >> $GITHUB_STEP_SUMMARY
+          echo "The following URLs were submitted to Bing, Yandex, Seznam, Naver, and Google:" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           IFS=',' read -ra URL_ARRAY <<< "${{ steps.get-urls.outputs.urls }}"
           for url in "${URL_ARRAY[@]}"; do

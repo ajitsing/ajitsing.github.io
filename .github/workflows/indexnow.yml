@@ -24,7 +24,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0  # Full history to compare all commits in push
+
+      - name: Restore last indexed commit
+        id: cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: .last-indexed-commit
+          key: last-indexed-commit-${{ github.run_id }}
+          restore-keys: |
+            last-indexed-commit-
 
       - name: Get recently changed posts
         id: get-urls
@@ -33,14 +42,30 @@ jobs:
             # Use manually provided URLs
             URLS="${{ github.event.inputs.urls }}"
           else
-            # Find recently modified markdown files in _posts and _explainers
-            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' '_explainers/*.md' 2>/dev/null || echo "")
+            # Get the last indexed commit (from cache) or fall back to HEAD~1
+            if [ -f .last-indexed-commit ]; then
+              LAST_COMMIT=$(cat .last-indexed-commit)
+              echo "Last indexed commit: $LAST_COMMIT"
+              # Verify commit exists in history
+              if git rev-parse --verify "$LAST_COMMIT^{commit}" >/dev/null 2>&1; then
+                CHANGED_FILES=$(git diff --name-only "$LAST_COMMIT" HEAD -- '_posts/*.md' '_explainers/*.md' 2>/dev/null || echo "")
+              else
+                echo "Cached commit not in history, falling back to HEAD~1"
+                CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' '_explainers/*.md' 2>/dev/null || echo "")
+              fi
+            else
+              echo "No cached commit found, using HEAD~1"
+              CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' '_explainers/*.md' 2>/dev/null || echo "")
+            fi
             
             if [ -z "$CHANGED_FILES" ]; then
               echo "No new posts found"
               echo "has_urls=false" >> $GITHUB_OUTPUT
               exit 0
             fi
+            
+            echo "Changed files:"
+            echo "$CHANGED_FILES"
             
             # Convert file paths to URLs by reading permalink from frontmatter
             URLS=""
@@ -137,4 +162,17 @@ jobs:
           for url in "${URL_ARRAY[@]}"; do
             echo "- $url" >> $GITHUB_STEP_SUMMARY
           done
+
+      - name: Save current commit for next run
+        if: always()
+        run: |
+          git rev-parse HEAD > .last-indexed-commit
+          echo "Saved commit $(cat .last-indexed-commit) for next run"
+
+      - name: Cache current commit
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .last-indexed-commit
+          key: last-indexed-commit-${{ github.run_id }}
 

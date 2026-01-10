@@ -1,0 +1,74 @@
+<aside class="sidebar-popular">
+  <h3 class="sidebar-title">
+    <i class="fas fa-fire-alt"></i>
+    Popular Posts
+  </h3>
+  <ul class="popular-posts-list">
+    {% assign popular_count = 0 %}
+    {% for post in site.posts %}
+      {% if post.popular and popular_count < 6 %}
+        <li class="popular-post-item">
+          <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
+            {% if post.thumbnail-img %}
+            <div class="popular-post-thumb">
+              <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            </div>
+            {% elsif post.share-img %}
+            <div class="popular-post-thumb">
+              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            </div>
+            {% else %}
+            <div class="popular-post-thumb popular-post-thumb-placeholder">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            {% endif %}
+            <div class="popular-post-content">
+              <span class="popular-post-title">{{ post.title }}</span>
+              <span class="popular-post-meta">
+                <span class="popular-post-date">{{ post.date | date: "%b %Y" }}</span>
+                {% if post.tags.size > 0 %}
+                  <span class="popular-post-tag">{{ post.tags.first }}</span>
+                {% endif %}
+              </span>
+            </div>
+          </a>
+        </li>
+        {% assign popular_count = popular_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    
+    {% comment %} Fallback: if no posts marked as popular, show recent posts {% endcomment %}
+    {% if popular_count == 0 %}
+      {% for post in site.posts limit: 6 %}
+        {% unless post.tags contains "dev-weekly" %}
+        <li class="popular-post-item">
+          <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
+            {% if post.thumbnail-img %}
+            <div class="popular-post-thumb">
+              <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            </div>
+            {% elsif post.share-img %}
+            <div class="popular-post-thumb">
+              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            </div>
+            {% else %}
+            <div class="popular-post-thumb popular-post-thumb-placeholder">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            {% endif %}
+            <div class="popular-post-content">
+              <span class="popular-post-title">{{ post.title }}</span>
+              <span class="popular-post-meta">
+                <span class="popular-post-date">{{ post.date | date: "%b %Y" }}</span>
+                {% if post.tags.size > 0 %}
+                  <span class="popular-post-tag">{{ post.tags.first }}</span>
+                {% endif %}
+              </span>
+            </div>
+          </a>
+        </li>
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+  </ul>
+</aside>

@@ -12,6 +12,7 @@ description: "Complete guide to all 23 Gang of Four design patterns. Learn creat
 keywords: "gang of four design patterns, gof patterns, design patterns, creational patterns, structural patterns, behavioral patterns, singleton pattern, factory pattern, strategy pattern, observer pattern, decorator pattern, software design, object oriented design"
 tags: ["design-patterns"]
 comments: true
+popular: true
 faq:
   - question: "What are the Gang of Four design patterns?"
     answer: "The Gang of Four (GoF) design patterns are 23 classic software design patterns documented by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides in their 1994 book 'Design Patterns: Elements of Reusable Object-Oriented Software'. They are divided into three categories: Creational (5 patterns), Structural (7 patterns), and Behavioral (11 patterns)."

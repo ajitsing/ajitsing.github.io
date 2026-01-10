@@ -153,6 +153,54 @@ img {
   font-size: 1.125rem;
 }
 
+/* Home button styling */
+.navbar-custom .navbar-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.navbar-custom .navbar-home-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.navbar-custom .navbar-home-btn i {
+  font-size: 1rem;
+}
+
+/* Mobile: icon only, minimal styling */
+@media (max-width: 767px) {
+  .navbar-custom .navbar-home-btn {
+    background: transparent;
+    border: none;
+    padding: 0.5rem !important;
+    gap: 0;
+  }
+  
+  .navbar-custom .navbar-home-btn span {
+    display: none;
+  }
+  
+  .navbar-custom .navbar-home-btn i {
+    font-size: 1.25rem;
+  }
+  
+  .navbar-custom .navbar-home-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: none;
+  }
+}
+
 .navbar-custom .navbar-brand-logo {
   -webkit-transition: padding .5s ease-in-out;
   -moz-transition: padding .5s ease-in-out;
@@ -1350,5 +1398,80 @@ h1 + h3 {
 @media (min-width: 768px) {
   .in-feed-ad {
     padding: 1.5rem 0;
+  }
+}
+
+/* --- Home Page Layout Override for Sidebar --- */
+
+/* Home page container - constrains all content to same max-width */
+.container-home {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Two-column layout for posts + sidebar */
+.home-layout {
+  display: flex;
+  gap: 3rem;
+}
+
+.home-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 720px;
+}
+
+.home-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+/* Hide sidebar on smaller screens */
+@media (max-width: 1199px) {
+  .container-home {
+    max-width: 720px;
+  }
+  
+  .home-layout {
+    display: block;
+  }
+  
+  .home-sidebar {
+    display: none;
+  }
+  
+  .home-main {
+    max-width: 100%;
+  }
+}
+
+/* Adjust for medium-large screens */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .container-home {
+    max-width: 1020px;
+  }
+  
+  .home-layout {
+    gap: 2rem;
+  }
+  
+  .home-sidebar {
+    width: 260px;
+  }
+}
+
+/* Full width on large screens */
+@media (min-width: 1400px) {
+  .container-home {
+    max-width: 1150px;
+  }
+  
+  .home-layout {
+    gap: 3.5rem;
+  }
+  
+  .home-sidebar {
+    width: 300px;
   }
 }

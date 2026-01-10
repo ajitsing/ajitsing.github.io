@@ -12,6 +12,7 @@ description: "Learn how to build AI agents from scratch. Understand the ReAct lo
 keywords: "AI agents, building AI agents, AI agent development, LLM agents, autonomous AI, agentic AI, function calling, tool use AI, ReAct pattern, LangChain, AutoGen, CrewAI, AI agent architecture, multi-agent systems, AI agent frameworks, LLM tool calling, AI agent memory, AI coding assistant, ChatGPT agents, Claude AI, OpenAI function calling"
 tags: ["AI", "software-engineering"]
 comments: true
+popular: true
 faq:
   - question: "What is an AI agent?"
     answer: "An AI agent is a software system that uses a large language model (LLM) to reason about tasks and take actions autonomously. Unlike simple chatbots that only respond to prompts, agents can use tools, access external data, maintain memory, and work through multi-step problems without constant human input."

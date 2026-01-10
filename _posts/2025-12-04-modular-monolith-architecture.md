@@ -14,6 +14,7 @@ keywords: "modular monolith, monolith vs microservices, software architecture, d
 seo: true
 social-share: true
 comments: true
+popular: true
 faq:
   - question: "What is a modular monolith?"
     answer: "A modular monolith is a single deployable application divided into well-defined modules with clear boundaries. Each module owns its domain and communicates through explicit interfaces. It combines the simplicity of monoliths (single deployment, no network calls between modules) with the organization of microservices (clear boundaries, team autonomy)."

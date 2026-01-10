@@ -1,9 +1,14 @@
 ---
-layout: page
+layout: base
+hide-explore-posts: true
 ---
 
+{% include header.html type="page" %}
+
+<div class="container-home" role="main">
 <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/page-navigation.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/sidebar.css' | relative_url }}">
 
 <!-- SEO: Structured Data for Homepage -->
 <script type="application/ld+json">
@@ -105,10 +110,10 @@ layout: page
 
 {{ content }}
 
-<!-- Search Section -->
+<!-- Search Section (Full Width) -->
 {% include search-bar.html %}
 
-<!-- Page Navigation Section -->
+<!-- Page Navigation Section (Full Width) -->
 <section class="page-navigation">
   <div class="nav-cards-container">
     {% assign explainers_count = site.explainers | size %}
@@ -138,6 +143,15 @@ layout: page
       </div>
     </a>
     
+    {% assign design_patterns_count = site.posts | where_exp: "post", "post.tags contains 'design-patterns'" | size %}
+    <a href="{{ '/design-patterns/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Design Patterns Card'});">
+      <div class="nav-card-icon"><i class="fas fa-puzzle-piece"></i></div>
+      <h3 class="nav-card-title">Design Patterns</h3>
+      <div class="nav-card-meta">
+        <span class="nav-card-count">{{ design_patterns_count }} Patterns</span>
+      </div>
+    </a>
+    
     <a href="{{ '/tools/cron-expression/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Tools Card'});">
       <div class="nav-card-icon"><i class="fas fa-wrench"></i></div>
       <h3 class="nav-card-title">Dev Tools</h3>
@@ -148,98 +162,110 @@ layout: page
   </div>
 </section>
 
-<!-- RSS Subscribe Section -->
+<!-- RSS Subscribe Section (Full Width) -->
 <div class="rss-section-home">
   {% include rss-subscribe.html %}
 </div>
 
-{% assign posts = paginator.posts | default: site.posts %}
+<!-- Two-column layout: Posts + Sidebar -->
+<div class="home-layout">
+  <!-- Main Content: Posts List -->
+  <main class="home-main">
+    {% assign posts = paginator.posts | default: site.posts %}
 
-<div class="posts-list">
-  {% assign post_counter = 0 %}
-  {% for post in posts %}
-  {% unless post.tags contains "dev-weekly" %}
-  {% assign post_counter = post_counter | plus: 1 %}
-  <article class="post-preview">
-    <a href="{{ post.url | relative_url }}" class="post-preview-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
-      <div class="post-content">
-        <h2 class="post-title">{{ post.title }}</h2>
+    <div class="posts-list">
+      {% assign post_counter = 0 %}
+      {% for post in posts %}
+      {% unless post.tags contains "dev-weekly" %}
+      {% assign post_counter = post_counter | plus: 1 %}
+      <article class="post-preview">
+        <a href="{{ post.url | relative_url }}" class="post-preview-link" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">
+          <div class="post-content">
+            <h2 class="post-title">{{ post.title }}</h2>
 
-        {% if post.subtitle %}
-          <p class="post-subtitle">{{ post.subtitle }}</p>
-        {% else %}
-          <p class="post-excerpt">
-            {% assign excerpt_length = site.excerpt_length | default: 30 %}
-            {{ post.excerpt | strip_html | xml_escape | truncatewords: excerpt_length }}
-          </p>
-        {% endif %}
+            {% if post.subtitle %}
+              <p class="post-subtitle">{{ post.subtitle }}</p>
+            {% else %}
+              <p class="post-excerpt">
+                {% assign excerpt_length = site.excerpt_length | default: 30 %}
+                {{ post.excerpt | strip_html | xml_escape | truncatewords: excerpt_length }}
+              </p>
+            {% endif %}
 
-        <div class="post-meta-row">
-          <span class="post-date">
-            {{ post.date | date: "%b %-d, %Y" }}
-          </span>
+            <div class="post-meta-row">
+              <span class="post-date">
+                {{ post.date | date: "%b %-d, %Y" }}
+              </span>
+            </div>
+          </div>
+
+          {% if post["thumbnail-img"] %}
+          <div class="post-thumbnail">
+            <img src="{{ post["thumbnail-img"] | relative_url }}" alt="{{ post.title }}" loading="lazy">
+          </div>
+          {% elsif post["share-img"] %}
+          <div class="post-thumbnail">
+            <img src="{{ post["share-img"] | relative_url }}" alt="{{ post.title }}" loading="lazy">
+          </div>
+          {% elsif post.image %}
+          <div class="post-thumbnail">
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+          </div>
+          {% else %}
+          <div class="post-thumbnail post-thumbnail-placeholder">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          {% endif %}
+        </a>
+        
+        {% if post.tags.size > 0 %}
+        <div class="post-tags-row">
+          {% for tag in post.tags limit:2 %}
+          <a href="{{ '/tags' | relative_url }}#{{- tag -}}" class="post-tag" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{ tag }}</a>
+          {% endfor %}
         </div>
-      </div>
+        {% endif %}
+      </article>
 
-      {% if post["thumbnail-img"] %}
-      <div class="post-thumbnail">
-        <img src="{{ post["thumbnail-img"] | relative_url }}" alt="{{ post.title }}" loading="lazy">
-      </div>
-      {% elsif post["share-img"] %}
-      <div class="post-thumbnail">
-        <img src="{{ post["share-img"] | relative_url }}" alt="{{ post.title }}" loading="lazy">
-      </div>
-      {% elsif post.image %}
-      <div class="post-thumbnail">
-        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
-      </div>
-      {% else %}
-      <div class="post-thumbnail post-thumbnail-placeholder">
-        <i class="fas fa-file-alt"></i>
+      {% comment %} Insert in-feed ad after every 5th post {% endcomment %}
+      {% assign mod_check = post_counter | modulo: 5 %}
+      {% if mod_check == 0 %}
+      <div class="in-feed-ad" aria-label="Advertisement">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-format="fluid"
+             data-ad-layout-key="-fz-16+2s-di+qa"
+             data-ad-client="ca-pub-2886086145980317"
+             data-ad-slot="7281945758"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
       {% endif %}
-    </a>
-    
-    {% if post.tags.size > 0 %}
-    <div class="post-tags-row">
-      {% for tag in post.tags limit:2 %}
-      <a href="{{ '/tags' | relative_url }}#{{- tag -}}" class="post-tag" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{ tag }}</a>
+
+      {% endunless %}
       {% endfor %}
     </div>
+
+    {% if paginator.total_pages > 1 %}
+    <ul class="pagination main-pager">
+      {% if paginator.previous_page %}
+      <li class="page-item previous">
+        <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer Posts</a>
+      </li>
+      {% endif %}
+      {% if paginator.next_page %}
+      <li class="page-item next">
+        <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Older Posts &rarr;</a>
+      </li>
+      {% endif %}
+    </ul>
     {% endif %}
-  </article>
+  </main>
 
-  {% comment %} Insert in-feed ad after every 5th post {% endcomment %}
-  {% assign mod_check = post_counter | modulo: 5 %}
-  {% if mod_check == 0 %}
-  <div class="in-feed-ad" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-format="fluid"
-         data-ad-layout-key="-fz-16+2s-di+qa"
-         data-ad-client="ca-pub-2886086145980317"
-         data-ad-slot="7281945758"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-  {% endif %}
-
-  {% endunless %}
-  {% endfor %}
+  <!-- Right Sidebar -->
+  <aside class="home-sidebar">
+    {% include sidebar-popular.html %}
+  </aside>
 </div>
-
-{% if paginator.total_pages > 1 %}
-<ul class="pagination main-pager">
-  {% if paginator.previous_page %}
-  <li class="page-item previous">
-    <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer Posts</a>
-  </li>
-  {% endif %}
-  {% if paginator.next_page %}
-  <li class="page-item next">
-    <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Older Posts &rarr;</a>
-  </li>
-  {% endif %}
-</ul>
-{% endif %}
+</div>
 
 <script src="{{ '/assets/js/in-feed-ads.js' | relative_url }}"></script>

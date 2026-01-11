@@ -90,12 +90,27 @@ body:has(.cron-tool) {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 40px 30px;
   background: linear-gradient(135deg, #292524 0%, #44403c 100%);
   border-radius: 16px;
   color: #faf8f5;
   box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+}
+
+/* Tool Introduction - SEO-rich paragraph */
+.tool-intro {
+  text-align: center;
+  color: #57534e;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+}
+
+.tool-intro strong {
+  color: #44403c;
 }
 
 .tool-title {

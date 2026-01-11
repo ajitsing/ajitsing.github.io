@@ -13,7 +13,6 @@ keywords: "AI agents, building AI agents, AI agent development, LLM agents, auto
 tags: ["AI", "software-engineering"]
 comments: true
 popular: true
-featured: true
 faq:
   - question: "What is an AI agent?"
     answer: "An AI agent is a software system that uses a large language model (LLM) to reason about tasks and take actions autonomously. Unlike simple chatbots that only respond to prompts, agents can use tools, access external data, maintain memory, and work through multi-step problems without constant human input."

@@ -14,7 +14,6 @@ keywords: "Shopify system design, e-commerce architecture, modular monolith, pod
 seo: true
 social-share: true
 comments: true
-popular: true
 faq:
   - question: "How does Shopify handle millions of stores?"
     answer: "Shopify uses a pod architecture where stores are grouped into isolated 'pods' - each pod is a complete copy of the application stack with its own databases. This provides tenant isolation (one store's traffic spike doesn't affect others), enables horizontal scaling by adding more pods, and limits blast radius if issues occur."

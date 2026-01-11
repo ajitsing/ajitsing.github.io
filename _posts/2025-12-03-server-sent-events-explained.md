@@ -14,6 +14,7 @@ keywords: "what is SSE, server-sent events, server sent events, SSE, EventSource
 seo: true
 social-share: true
 comments: true
+popular: true
 faq:
   - question: "What is SSE (Server-Sent Events)?"
     answer: "SSE (Server-Sent Events) is a web technology that allows servers to push real-time updates to browsers over a single HTTP connection. Unlike WebSockets, SSE is one-way (server to client only) and uses the text/event-stream format. It's ideal for live dashboards, notifications, stock prices, and any scenario where the server needs to push data without the client requesting it."

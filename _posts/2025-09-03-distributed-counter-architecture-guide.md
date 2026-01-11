@@ -13,6 +13,7 @@ keywords: "distributed counter, distributed counter system design, sharded count
 tags: [system-design]
 seo: true
 comments: true
+popular: true
 faq:
   - question: "What is a distributed counter?"
     answer: "A distributed counter is a data structure that tracks counts across multiple servers or nodes in a distributed system. Unlike a simple counter that runs on one machine, distributed counters handle concurrent increments from many sources while maintaining consistency, fault tolerance, and high availability."

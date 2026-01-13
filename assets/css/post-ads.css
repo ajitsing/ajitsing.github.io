@@ -1,16 +1,17 @@
-.header-section .intro-header .container-md {
-  max-width: 780px;
+/* Post page header - align with sidebar layout */
+.post-page .header-section .intro-header .container-md {
+  max-width: 1100px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.header-section .intro-header .row {
+.post-page .header-section .intro-header .row {
   margin: 0;
 }
 
-.header-section .intro-header .col-xl-8,
-.header-section .intro-header .col-lg-10 {
-  max-width: 100%;
+.post-page .header-section .intro-header .col-xl-8,
+.post-page .header-section .intro-header .col-lg-10 {
+  max-width: 780px;
   margin-left: 0;
   padding-left: 0;
   padding-right: 0;
@@ -18,13 +19,22 @@
 }
 
 .post-page-wrapper {
-  max-width: 780px;
+  display: flex;
+  gap: 3rem;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px 15px 40px;
 }
 
 .post-main-content {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
+  max-width: 780px;
+}
+
+.post-sidebar {
+  width: 280px;
+  flex-shrink: 0;
 }
 
 .post-mid-ad {
@@ -45,6 +55,62 @@
 
 .post-bottom-ad .adsbygoogle {
   min-height: 100px;
+}
+
+/* Hide sidebar on smaller screens */
+@media (max-width: 1199px) {
+  .post-page .header-section .intro-header .container-md {
+    max-width: 780px;
+  }
+
+  .post-page .header-section .intro-header .col-xl-8,
+  .post-page .header-section .intro-header .col-lg-10 {
+    max-width: 100%;
+  }
+
+  .post-page-wrapper {
+    max-width: 780px;
+  }
+
+  .post-sidebar {
+    display: none;
+  }
+
+  .post-main-content {
+    max-width: 100%;
+  }
+}
+
+/* Adjust for medium-large screens */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .post-page .header-section .intro-header .container-md {
+    max-width: 1000px;
+  }
+
+  .post-page-wrapper {
+    gap: 2rem;
+    max-width: 1000px;
+  }
+
+  .post-sidebar {
+    width: 260px;
+  }
+}
+
+/* Full width on large screens */
+@media (min-width: 1400px) {
+  .post-page .header-section .intro-header .container-md {
+    max-width: 1150px;
+  }
+
+  .post-page-wrapper {
+    max-width: 1150px;
+    gap: 3.5rem;
+  }
+
+  .post-sidebar {
+    width: 300px;
+  }
 }
 
 @media (max-width: 768px) {

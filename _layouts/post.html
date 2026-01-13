@@ -1,5 +1,6 @@
 ---
 layout: base
+body-class: post-page
 ---
 
 {% include schema.html %}
@@ -94,6 +95,9 @@ layout: base
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </main>
+  <aside class="post-sidebar">
+    {% include sidebar-popular.html %}
+  </aside>
 </div>
 
 <script src="{{ '/assets/js/post-ads.js' | relative_url }}"></script>

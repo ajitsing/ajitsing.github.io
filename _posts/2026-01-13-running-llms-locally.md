@@ -3,7 +3,7 @@ layout: post
 seo: true
 title: "How to Run LLMs on Your Own Computer"
 subtitle: "How to run Llama, Mistral, and other open source models on your own hardware"
-date: 2026-01-14
+date: 2026-01-13
 categories: artificial-intelligence
 permalink: /running-llms-locally/
 share-img: /assets/img/posts/artificial-intelligence/local-llm-thumbnail.png
@@ -13,6 +13,7 @@ keywords: "run LLM locally, local LLM, Ollama tutorial, llama.cpp guide, LM Stud
 tags: ["AI", "software-engineering"]
 comments: true
 featured: true
+popular: true
 faq:
   - question: "Can I run LLMs on my laptop?"
     answer: "Yes, you can run LLMs on most modern laptops. For smaller models (7B parameters), you need at least 8GB RAM. For larger models, 16-32GB RAM is recommended. Apple Silicon Macs (M1/M2/M3/M4) are particularly good for local LLMs because of their unified memory architecture."

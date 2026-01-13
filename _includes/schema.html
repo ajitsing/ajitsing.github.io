@@ -21,6 +21,55 @@
       ]
     },
     {% endif %}
+    {% if page.howto %}
+    {
+      "@type": "HowTo",
+      "@id": "{{ page.url | absolute_url }}#howto",
+      "name": "{{ page.title | escape }}",
+      {% if page.description %}
+      "description": "{{ page.description | escape }}",
+      {% elsif page.subtitle %}
+      "description": "{{ page.subtitle | escape }}",
+      {% endif %}
+      {% if page.howto-time %}
+      "totalTime": "{{ page.howto-time }}",
+      {% endif %}
+      {% if page.share-img %}
+      "image": "{{ page.share-img | absolute_url }}",
+      {% elsif page.thumbnail %}
+      "image": "{{ page.thumbnail | absolute_url }}",
+      {% endif %}
+      "step": [
+        {% for step in page.howto %}
+        {
+          "@type": "HowToStep",
+          "position": {{ forloop.index }},
+          "name": "{{ step.name | escape }}",
+          "text": "{{ step.text | escape }}"{% if step.image %},
+          "image": "{{ step.image | absolute_url }}"{% endif %}{% if step.url %},
+          "url": "{{ step.url | absolute_url }}"{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {% endif %}
+    {% if page.definitions %}
+    {
+      "@type": "DefinedTermSet",
+      "@id": "{{ page.url | absolute_url }}#definitions",
+      "name": "Key Terms and Definitions",
+      "hasDefinedTerm": [
+        {% for def in page.definitions %}
+        {
+          "@type": "DefinedTerm",
+          "name": "{{ def.term | escape }}",
+          "description": "{{ def.definition | escape }}"{% if def.url %},
+          "url": "{{ def.url }}"{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {% endif %}
     {% if page.video %}
     {
       "@type": "VideoObject",
@@ -85,6 +134,36 @@
         "@id": "{{ site.url }}#author",
         "name": "{{ site.author }}",
         "url": "{{ site.url }}/aboutme",
+        {% if site.author-job-title %}
+        "jobTitle": "{{ site.author-job-title }}",
+        {% endif %}
+        {% if site.author-description %}
+        "description": "{{ site.author-description }}",
+        {% endif %}
+        {% if page.expertise-areas or site.author-expertise %}
+        "knowsAbout": [{% if page.expertise-areas %}{% for area in page.expertise-areas %}"{{ area }}"{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}{% for area in site.author-expertise %}"{{ area }}"{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}],
+        {% endif %}
+        {% if site.author-credentials %}
+        "hasCredential": [
+          {% for cred in site.author-credentials %}
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "{{ cred.type | default: 'certification' }}",
+            "name": "{{ cred.name | escape }}"{% if cred.issuer %},
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "{{ cred.issuer | escape }}"
+            }{% endif %}
+          }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ],
+        {% endif %}
+        {% if site.author-employer %}
+        "worksFor": {
+          "@type": "Organization",
+          "name": "{{ site.author-employer }}"
+        },
+        {% endif %}
         {% if site.social-network-links.twitter %}
         "sameAs": [
           "https://twitter.com/{{ site.social-network-links.twitter }}",
@@ -121,7 +200,18 @@
       {% endif %}
       "wordCount": {{ page.content | number_of_words }},
       "articleSection": "{% if page.tags %}{{ page.tags | first }}{% else %}Technology{% endif %}",
-      "inLanguage": "en-US"
+      "inLanguage": "en-US"{% if page.speakable or site.speakable_default %},
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "article h1",
+          "article h2",
+          ".key-takeaways",
+          ".post-content > p:first-of-type",
+          ".explainer-intro",
+          "article .lead"
+        ]
+      }{% endif %}
     },
     {
       "@type": "BreadcrumbList",

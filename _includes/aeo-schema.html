@@ -1,0 +1,85 @@
+{% if page.layout == "post" or page.layout == "explainer" %}
+
+{% if page.list-items %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ page.title | escape }}",
+  "description": "{% if page.description %}{{ page.description | escape }}{% else %}{{ page.subtitle | escape }}{% endif %}",
+  "numberOfItems": {{ page.list-items.size }},
+  "itemListElement": [
+    {% for item in page.list-items %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "name": "{{ item.name | escape }}"{% if item.description %},
+      "description": "{{ item.description | escape }}"{% endif %}{% if item.url %},
+      "url": "{{ item.url | absolute_url }}"{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+{% if page.qa %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "{{ page.qa.question | escape }}",
+    "text": "{{ page.qa.question | escape }}",
+    "answerCount": 1,
+    "dateCreated": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}"
+    },
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "{{ page.qa.answer | escape }}",
+      "dateCreated": "{{ page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ site.author }}",
+        "url": "{{ site.url }}/aboutme"
+      }
+    }
+  }
+}
+</script>
+{% endif %}
+
+{% if page.comparison-table %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Table",
+  "name": "{{ page.comparison-table.name | escape }}",
+  "about": "{{ page.comparison-table.description | escape }}"
+}
+</script>
+{% endif %}
+
+{% if page.main-answer %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ page.title | escape }}",
+  "mainEntity": {
+    "@type": "Answer",
+    "text": "{{ page.main-answer | escape }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}"
+    }
+  }
+}
+</script>
+{% endif %}
+
+{% endif %}

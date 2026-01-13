@@ -9,6 +9,23 @@ description: Insights on various technologies to improve developer's knowledge a
 # Your name to show in the footer
 author: Ajit Singh
 
+author-job-title: "Staff Software Engineer"
+author-description: "Software engineer with expertise in system design, distributed systems, and developer productivity tools."
+author-expertise:
+  - "System Design"
+  - "Distributed Systems"
+  - "Software Architecture"
+  - "DevOps"
+  - "Mobile Development"
+author-employer: "Agoda"
+# author-credentials:
+#   - name: "AWS Solutions Architect"
+#     type: "certification"
+#     issuer: "Amazon Web Services"
+
+# Enable speakable schema by default for voice search
+speakable_default: true
+
 # --- List of links in the navigation bar --- #
 
 navbar-links:

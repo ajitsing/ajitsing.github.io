@@ -1,0 +1,126 @@
+{% if page.key-takeaways %}
+<aside class="key-takeaways visually-hidden" role="complementary" aria-label="Key Takeaways" hidden>
+  <div class="key-takeaways-header">
+    <svg class="key-takeaways-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="16" x2="12" y2="12"></line>
+      <line x1="12" y1="8" x2="12.01" y2="8"></line>
+    </svg>
+    <h2 class="key-takeaways-title">Key Takeaways</h2>
+  </div>
+  <ul class="key-takeaways-list">
+    {% for takeaway in page.key-takeaways %}
+    <li>{{ takeaway }}</li>
+    {% endfor %}
+  </ul>
+</aside>
+
+<style>
+.key-takeaways.visually-hidden {
+  display: none !important;
+}
+
+.key-takeaways {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 2px solid #0ea5e9;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0 32px 0;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+}
+
+.key-takeaways-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.key-takeaways-icon {
+  width: 24px;
+  height: 24px;
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.key-takeaways-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0369a1;
+  line-height: 1.2;
+}
+
+.key-takeaways-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.key-takeaways-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1e3a5f;
+  border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.key-takeaways-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.key-takeaways-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: #0ea5e9;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .key-takeaways {
+    background: linear-gradient(135deg, #0c1929 0%, #0f172a 100%);
+    border-color: #38bdf8;
+  }
+  
+  .key-takeaways-icon {
+    color: #38bdf8;
+  }
+  
+  .key-takeaways-title {
+    color: #7dd3fc;
+  }
+  
+  .key-takeaways-list li {
+    color: #e0f2fe;
+    border-bottom-color: rgba(56, 189, 248, 0.2);
+  }
+  
+  .key-takeaways-list li::before {
+    color: #38bdf8;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .key-takeaways {
+    padding: 18px;
+    margin: 20px 0 28px 0;
+  }
+  
+  .key-takeaways-title {
+    font-size: 1.1rem;
+  }
+  
+  .key-takeaways-list li {
+    font-size: 0.95rem;
+    padding: 6px 0 6px 24px;
+  }
+}
+</style>
+{% endif %}

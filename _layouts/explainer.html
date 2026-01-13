@@ -3,6 +3,8 @@ layout: default
 ---
 
 {% include schema.html %}
+{% include aeo-schema.html %}
+{% include geo-schema.html %}
 
 <style>
   .post-header, .post-title, .post-subtitle, .post-meta { display: none !important; }
@@ -14,6 +16,7 @@ layout: default
 
 <div class="explainer-page-wrapper">
   <main class="explainer-main-content">
+    {% include key-takeaways.html %}
     {{ content }}
 
     <div class="rss-section-explainer">

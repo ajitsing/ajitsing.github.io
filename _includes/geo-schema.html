@@ -1,0 +1,108 @@
+{% if page.layout == "post" or page.layout == "explainer" %}
+
+{% if page.citations %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ page.url | absolute_url }}#citations",
+  "headline": "{{ page.title | escape }}",
+  "citation": [
+    {% for cite in page.citations %}
+    {
+      "@type": "{% if cite.type %}{{ cite.type }}{% else %}WebPage{% endif %}",
+      "name": "{{ cite.name | escape }}",
+      "url": "{{ cite.url }}"{% if cite.author %},
+      "author": {
+        "@type": "{% if cite.author-type %}{{ cite.author-type }}{% else %}Organization{% endif %}",
+        "name": "{{ cite.author | escape }}"
+      }{% endif %}{% if cite.date %},
+      "datePublished": "{{ cite.date }}"{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+{% if page.key-takeaways %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ page.url | absolute_url }}#summary",
+  "headline": "{{ page.title | escape }}",
+  "abstract": "{{ page.key-takeaways | join: ' ' | escape }}",
+  "about": {
+    "@type": "Thing",
+    "name": "{{ page.title | escape }}",
+    "description": "{% if page.description %}{{ page.description | escape }}{% else %}{{ page.subtitle | escape }}{% endif %}"
+  }
+}
+</script>
+{% endif %}
+
+{% if page.related-concepts %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ page.url | absolute_url }}#related",
+  "headline": "{{ page.title | escape }}",
+  "mentions": [
+    {% for concept in page.related-concepts %}
+    {
+      "@type": "Thing",
+      "name": "{{ concept.name | escape }}"{% if concept.url %},
+      "sameAs": "{{ concept.url }}"{% endif %}{% if concept.description %},
+      "description": "{{ concept.description | escape }}"{% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+{% if page.review-process or page.fact-checked %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ page.url | absolute_url }}#trust",
+  "headline": "{{ page.title | escape }}",
+  {% if page.fact-checked %}
+  "review": {
+    "@type": "Review",
+    "reviewAspect": "accuracy",
+    "reviewBody": "Content has been fact-checked and verified."
+  },
+  {% endif %}
+  "potentialAction": {
+    "@type": "ReadAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ page.url | absolute_url }}"
+    }
+  }
+}
+</script>
+{% endif %}
+
+{% if page.expertise-areas %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ page.url | absolute_url }}#expertise",
+  "headline": "{{ page.title | escape }}",
+  "author": {
+    "@type": "Person",
+    "@id": "{{ site.url }}#author",
+    "name": "{{ site.author }}",
+    "knowsAbout": [{% for area in page.expertise-areas %}"{{ area | escape }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
+  }
+}
+</script>
+{% endif %}
+
+{% endif %}

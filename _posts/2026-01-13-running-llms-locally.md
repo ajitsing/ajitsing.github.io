@@ -14,6 +14,67 @@ tags: ["AI", "software-engineering"]
 comments: true
 featured: true
 popular: true
+
+key-takeaways:
+  - "Ollama is the easiest way to run LLMs locally - install and run with one command"
+  - "You need 8GB RAM for 7B models, 16GB for 13B, and 32GB+ for 70B models"
+  - "Q4_K_M quantization offers the best balance of size and quality for most use cases"
+  - "Local LLMs are free after hardware costs and keep your data completely private"
+  - "Ollama provides an OpenAI-compatible API for easy integration with existing code"
+
+citations:
+  - name: "Ollama Official Documentation"
+    url: "https://ollama.ai/docs"
+    author: "Ollama"
+  - name: "llama.cpp GitHub Repository"
+    url: "https://github.com/ggerganov/llama.cpp"
+    author: "Georgi Gerganov"
+  - name: "Hugging Face GGUF Documentation"
+    url: "https://huggingface.co/docs/transformers/main/en/gguf"
+    author: "Hugging Face"
+  - name: "Meta Llama Model Card"
+    url: "https://github.com/meta-llama/llama-models"
+    author: "Meta AI"
+
+expertise-areas:
+  - "AI/ML Deployment"
+  - "Local LLM Infrastructure"
+  - "Model Optimization"
+  - "Developer Tools"
+
+related-concepts:
+  - name: "Large Language Models"
+    description: "AI models trained on vast amounts of text data"
+  - name: "Quantization"
+    description: "Reducing model precision to decrease memory usage"
+  - name: "GGUF Format"
+    description: "File format for efficient local LLM deployment"
+
+speakable: true
+
+definitions:
+  - term: "LLM"
+    definition: "Large Language Model - an AI model trained on vast amounts of text that can understand and generate human language"
+  - term: "GGUF"
+    definition: "GPT-Generated Unified Format - a file format for storing quantized LLM models that run efficiently on consumer hardware"
+  - term: "Quantization"
+    definition: "The process of reducing model weight precision from 32-bit or 16-bit to 4-bit or 8-bit to reduce memory usage and increase inference speed"
+  - term: "Ollama"
+    definition: "A tool for running large language models locally with automatic model management and an OpenAI-compatible API"
+  - term: "Inference"
+    definition: "The process of running a trained model to generate predictions or outputs from input data"
+
+howto:
+  - name: "Install Ollama"
+    text: "Download and install Ollama from ollama.ai. On macOS and Linux, run: curl -fsSL https://ollama.ai/install.sh | sh"
+  - name: "Download a model"
+    text: "Use 'ollama pull llama3.3' to download the Llama 3.3 model. Choose model size based on your RAM: 7B for 8GB RAM, 13B for 16GB RAM."
+  - name: "Run the model"
+    text: "Execute 'ollama run llama3.3' to start an interactive chat session with the model."
+  - name: "Use the API"
+    text: "Ollama automatically starts an API server on localhost:11434. Use it with curl or any OpenAI-compatible client library."
+howto-time: "PT15M"
+
 faq:
   - question: "Can I run LLMs on my laptop?"
     answer: "Yes, you can run LLMs on most modern laptops. For smaller models (7B parameters), you need at least 8GB RAM. For larger models, 16-32GB RAM is recommended. Apple Silicon Macs (M1/M2/M3/M4) are particularly good for local LLMs because of their unified memory architecture."

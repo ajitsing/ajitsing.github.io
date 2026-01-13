@@ -4,6 +4,8 @@ body-class: post-page
 ---
 
 {% include schema.html %}
+{% include aeo-schema.html %}
+{% include geo-schema.html %}
 {% include header.html type="post" %}
 
 <div class="post-page-wrapper">
@@ -30,6 +32,7 @@ body-class: post-page
     {% endif %}
 
     <article role="main" class="blog-post">
+      {% include key-takeaways.html %}
       {{ content }}
     </article>
 

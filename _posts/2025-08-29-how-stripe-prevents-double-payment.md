@@ -1,512 +1,735 @@
 ---
 layout: post
 seo: true
-title: "How Stripe Prevents Double Payments"
-subtitle: "Learn the engineering patterns that prevent duplicate charges and how to implement them in your payment systems"
+title: "How Stripe Prevents Double Payments With Idempotency Keys"
+subtitle: "The engineering patterns behind Stripe's payment reliability and how to implement them in your systems"
 date: 2025-08-29
-last-modified-date: 2025-12-23
+last-modified-date: 2026-01-14
 categories: system-design
 thumbnail-img: /assets/img/posts/stripe-double-payment/stripe-thumbnail.png
 share-img: /assets/img/posts/stripe-double-payment/stripe-thumbnail.png
 permalink: /how-stripe-prevents-double-payment/
-description: "Discover how Stripe's engineering team prevents double payments using idempotency keys, database constraints, and smart retry logic. Practical lessons for building reliable payment systems."
-keywords: "Stripe double payment, idempotency keys, payment processing, duplicate transactions, financial engineering, payment systems, idempotent requests, payment idempotency"
+description: "Learn how Stripe prevents double payments using idempotency keys. Complete guide to stripe idempotency with code examples using tok_visa, database constraints, and retry logic. Prevent duplicate charges in your payment systems."
+keywords: "stripe idempotency keys, stripe idempotency, stripe duplicate payments, duplicate payment stripe, stripe tok_visa, idempotent api, prevent duplicate charges, stripe idempotency key, payment idempotency, stripe api idempotency"
 tags: [system-design]
 comments: true
 faq:
-  - question: "How does Stripe prevent double payments?"
-    answer: "Stripe uses a three-layer defense: idempotency keys that cache responses for duplicate requests, database unique constraints on idempotency keys to prevent duplicates at the data layer, and smart retry logic that only retries on appropriate errors. When the same idempotency key is used twice, Stripe returns the cached result instead of processing the payment again."
-  - question: "What are idempotency keys and how do they work?"
-    answer: "Idempotency keys are unique identifiers sent with API requests. When Stripe receives a request with an idempotency key, it checks if that key was used before. If yes, it returns the cached response from the original request. If no, it processes the request and stores the result. This ensures that retrying a request with the same key doesn't create duplicate charges."
-  - question: "How do you prevent duplicate transactions in payment systems?"
-    answer: "To prevent duplicate transactions, use idempotency keys on all payment requests, implement database unique constraints on transaction identifiers, use smart retry logic that only retries on network errors (not business logic errors), and cache responses for idempotency keys. Multiple layers of defense ensure no single point of failure."
-  - question: "What happens if a payment request is retried multiple times?"
-    answer: "If a payment request is retried with the same idempotency key, Stripe returns the cached response from the first successful request. The payment is only processed once, and subsequent retries with the same key return the same charge object. This prevents double charging even if network issues cause multiple retry attempts."
-  - question: "How does Stripe handle network failures during payment processing?"
-    answer: "Stripe handles network failures by: requiring idempotency keys so retries are safe, categorizing errors to determine if retry is appropriate (network timeouts yes, card declined no), using exponential backoff between retries, and caching successful responses. Clients should preserve the same idempotency key across all retry attempts."
+  - question: "What are Stripe idempotency keys and how do they prevent duplicate charges?"
+    answer: "Stripe idempotency keys are unique identifiers you send with API requests. When Stripe receives a request with an idempotency key it has seen before, it returns the cached response from the original request instead of processing the payment again. This prevents duplicate charges even if you retry the same request multiple times due to network failures."
+  - question: "How do I use idempotency keys with Stripe tok_visa for testing?"
+    answer: "When testing with tok_visa or other Stripe test tokens, include an Idempotency-Key header with a unique value like a UUID. Example: curl -X POST https://api.stripe.com/v1/charges -H 'Idempotency-Key: unique-key-123' -d source=tok_visa -d amount=1000 -d currency=usd. The same key with the same parameters will return the cached result."
+  - question: "How long does Stripe store idempotency keys?"
+    answer: "Stripe stores idempotency keys for 24 hours. After 24 hours, using the same key will process the request as new. This window is long enough to handle retries during outages but short enough to prevent storage issues. Generate new keys for genuinely new transactions."
+  - question: "What happens if I send different parameters with the same idempotency key?"
+    answer: "Stripe returns a 400 error if you send a request with an existing idempotency key but different parameters. This is a safety feature. It prevents bugs where you accidentally reuse a key for a different transaction. Always generate a new idempotency key for each unique operation."
+  - question: "How do I prevent duplicate payments in Stripe when the network fails?"
+    answer: "Use idempotency keys on every payment request. Generate the key before making the request and store it. If the request fails or times out, retry with the same key. Stripe will either process the payment (if the first request never arrived) or return the cached result (if it did). This makes retries safe."
+  - question: "What is the best format for Stripe idempotency keys?"
+    answer: "Stripe recommends using V4 UUIDs for idempotency keys. Alternatively, use a combination of your order ID and attempt number, like order_12345_v1. The key must be unique per operation. Using predictable patterns like order IDs alone risks key reuse if a customer places multiple orders."
 ---
 
-You're checking out online. Click "Pay Now". Nothing happens. Click again. Boom - charged twice.
+You are testing your payment integration. You send a charge request with `tok_visa`, your test token. The request times out. You are not sure if it went through. You send it again.
 
-We've all been there. But when you use Stripe, this rarely happens. Why? Because preventing double payments isn't just good UX - it's critical engineering that can make or break a business.
+Now your test account shows two charges.
 
-Let's dig into how Stripe's engineers solved this problem and what we can learn from it.
+This is the duplicate payment problem. It happens in production too, and when real money is involved, it creates angry customers and support tickets.
 
-## The Problem is Real
+Stripe processes billions of dollars in payments. They cannot afford duplicate charges. So they built a system to prevent them. Understanding how it works will make you a better developer, whether you use Stripe or build your own payment system.
 
-Picture this: Your customer clicks "Buy Now" for a $500 course. Their network hiccups. They see a spinner for 10 seconds, then nothing. Naturally, they click again.
+## Why Duplicate Payments Happen
 
-Without proper safeguards:
-- Customer gets charged $1000
-- You get an angry refund request  
-- Your support team gets overwhelmed
-- Trust in your product drops
+Networks are unreliable. This is the fundamental problem.
 
-Stripe processes billions of dollars annually. Even a 0.1% double charge rate would mean millions in customer disputes and refunds.
-
-## How Networks Create Chaos
-
-<div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; border: 1px solid #e9ecef;">
-<h3 style="margin-top: 0; color: #333; font-size: 18px;">Network Reality Check</h3>
-
-<!-- Desktop Layout -->
-<div style="display: flex; align-items: center; gap: 10px; margin: 20px 0;">
-  <div style="min-width: 80px; height: 45px; background: #e3f2fd; border: 2px solid #2196f3; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; color: #2196f3; text-align: center;">Client</div>
-  
-  <div style="flex: 1; position: relative; text-align: center; min-height: 50px;">
-    <div style="height: 2px; background: #ddd; margin: 20px 0;"></div>
-    <div style="position: absolute; top: -15px; left: 15%; background: #dc3545; color: white; padding: 3px 6px; border-radius: 3px; font-size: 10px; white-space: nowrap; transform: translateX(-50%);">Timeout</div>
-    <div style="position: absolute; top: 25px; left: 70%; background: #dc3545; color: white; padding: 3px 6px; border-radius: 3px; font-size: 9px; white-space: nowrap; transform: translateX(-50%);">Connection Lost</div>
-    <div style="margin-top: 10px; font-size: 11px; color: #666;">Network Issues</div>
-  </div>
-  
-  <div style="min-width: 80px; height: 45px; background: #e8f5e8; border: 2px solid #28a745; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; color: #28a745; text-align: center;">Stripe API</div>
-</div>
-
-<!-- Mobile Layout (Hidden on Desktop, Visible on Mobile) -->
-<div style="display: none;">
-  <div style="text-align: center; margin: 15px 0;">
-    <div style="display: inline-block; width: 100px; height: 40px; background: #e3f2fd; border: 2px solid #2196f3; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; color: #2196f3;">Client</div>
-    <div style="margin: 10px 0; font-size: 12px; color: #666;">↓ Request</div>
-    <div style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 3px; font-size: 11px; margin: 5px; display: inline-block;">Network Timeout</div>
-    <div style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 3px; font-size: 11px; margin: 5px; display: inline-block;">Connection Lost</div>
-    <div style="margin: 10px 0; font-size: 12px; color: #666;">↓ Issues</div>
-    <div style="display: inline-block; width: 100px; height: 40px; background: #e8f5e8; border: 2px solid #28a745; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; color: #28a745;">Stripe API</div>
-  </div>
-</div>
-
-<div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; padding: 12px; margin: 15px 0;">
-  <strong style="color: #856404;">Reality Check:</strong> <span style="color: #856404;">Networks fail, connections drop, timeouts happen. Your payment system must handle this gracefully.</span>
-</div>
-
-<style>
-@media (max-width: 768px) {
-  .network-desktop { display: none !important; }
-  .network-mobile { display: block !important; }
-}
-</style>
-</div>
-
-Here's what happens in the real world:
-
-1. **Request sent** - Payment API call goes out
-2. **Processing happens** - Stripe charges the card successfully  
-3. **Response lost** - Network drops before client gets confirmation
-4. **Client retries** - Sees no response, assumes failure, tries again
-5. **Double charge** - Second request goes through
-
-The tricky part? The first payment actually succeeded, but the client never knew.
-
-## Stripe's Three-Layer Defense
-
-Stripe doesn't rely on one solution. They use multiple layers of protection:
-
-### Layer 1: Idempotency Keys
-
-This is the star of the show. Every Stripe API request can include an idempotency key:
-
-```javascript
-// First request - goes through
-await stripe.charges.create({
-  amount: 500,
-  currency: 'usd',
-  source: 'tok_visa'
-}, {
-  idempotencyKey: 'order_12345_attempt_1'
-});
-
-// Retry with same key - returns cached result
-await stripe.charges.create({
-  amount: 500,
-  currency: 'usd', 
-  source: 'tok_visa'
-}, {
-  idempotencyKey: 'order_12345_attempt_1'  // Same key!
-});
-```
-
-Here's exactly what happens step by step:
-
-<div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-<style>
-  @media (max-width: 768px) {
-    .mobile-idempotency-grid {
-      grid-template-columns: 1fr !important;
-      gap: 15px !important;
-    }
-    .mobile-idempotency-card {
-      padding: 12px !important;
-    }
-    .mobile-idempotency-header {
-      padding: 6px !important;
-      font-size: 14px !important;
-      margin: -12px -12px 8px !important;
-    }
-    .mobile-idempotency-content {
-      font-size: 12px !important;
-      margin: 4px 0 !important;
-    }
-    .mobile-idempotency-action {
-      padding: 6px !important;
-      font-size: 11px !important;
-      margin-top: 8px !important;
-    }
-    .mobile-idempotency-detail {
-      font-size: 10px !important;
-      margin-top: 6px !important;
-    }
-    .mobile-idempotency-code {
-      padding: 6px !important;
-      font-size: 9px !important;
-    }
-  }
-</style>
-
-<h4 style="margin-top: 0;">Idempotency Flow: Step by Step</h4>
-
-<div class="mobile-idempotency-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 20px 0;">
-  
-  <!-- Request 1 -->
-  <div class="mobile-idempotency-card" style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 15px;">
-    <div class="mobile-idempotency-header" style="background: #4caf50; color: white; padding: 8px; text-align: center; margin: -15px -15px 10px; border-radius: 6px 6px 0 0; font-weight: bold;">Request 1</div>
-    <div class="mobile-idempotency-content" style="font-size: 13px; margin: 5px 0;"><strong>Key:</strong> order_12345_attempt_1</div>
-    <div class="mobile-idempotency-content" style="font-size: 13px; margin: 5px 0;"><strong>Amount:</strong> $500</div>
-    <div class="mobile-idempotency-action" style="background: #e8f5e8; padding: 8px; border-radius: 4px; text-align: center; font-size: 12px; margin-top: 10px;">✓ Process Payment</div>
-    <div class="mobile-idempotency-detail" style="font-size: 11px; color: #666; margin-top: 8px; text-align: center;">Creates charge_abc123</div>
-  </div>
-
-  <!-- Database -->
-  <div class="mobile-idempotency-card" style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 15px;">
-    <div class="mobile-idempotency-header" style="background: #2196f3; color: white; padding: 8px; text-align: center; margin: -15px -15px 10px; border-radius: 6px 6px 0 0; font-weight: bold;">Database</div>
-    <div class="mobile-idempotency-content" style="font-size: 12px; margin: 5px 0;">idempotency_keys</div>
-    <div class="mobile-idempotency-code" style="background: #f5f5f5; padding: 8px; border-radius: 4px; font-family: monospace; font-size: 10px;">
-      order_12345_attempt_1<br>
-      ↓<br>
-      charge_id: charge_abc123<br>
-      status: succeeded<br>
-      response: {cached}
-    </div>
-  </div>
-
-  <!-- Request 2 -->
-  <div class="mobile-idempotency-card" style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 15px;">
-    <div class="mobile-idempotency-header" style="background: #ff9800; color: white; padding: 8px; text-align: center; margin: -15px -15px 10px; border-radius: 6px 6px 0 0; font-weight: bold;">Request 2</div>
-    <div class="mobile-idempotency-content" style="font-size: 13px; margin: 5px 0;"><strong>Key:</strong> order_12345_attempt_1</div>
-    <div class="mobile-idempotency-content" style="font-size: 13px; margin: 5px 0;"><strong>Amount:</strong> $500</div>
-    <div class="mobile-idempotency-action" style="background: #fff3e0; padding: 8px; border-radius: 4px; text-align: center; font-size: 12px; margin-top: 10px;">↩ Return Cached Result</div>
-    <div class="mobile-idempotency-detail" style="font-size: 11px; color: #666; margin-top: 8px; text-align: center;">Returns charge_abc123</div>
-  </div>
-
-</div>
-
-<div style="background: #e3f2fd; padding: 15px; border-radius: 6px; border-left: 4px solid #2196f3;">
-<strong>What happens here:</strong><br>
-1. <strong>Request 1:</strong> Stripe sees new idempotency key → processes payment → stores result<br>
-2. <strong>Database:</strong> Maps key to charge ID and caches the full response<br>
-3. <strong>Request 2:</strong> Stripe sees existing key → skips processing → returns cached response<br><br>
-<em>Result: Same charge object returned, no double payment!</em>
-</div>
-
-</div>
-
-**Key insight**: The idempotency key acts like a unique fingerprint. If Stripe sees the same key twice, it returns the original result instead of processing again.
+When you make a payment request, several things can go wrong:
 
 ```mermaid
 sequenceDiagram
     participant Client
-    participant API as Stripe API
-    participant Cache as Idempotency Cache
-    participant DB as Database
-    participant Payment as Payment Processor
+    participant Network
+    participant Stripe
+    participant Bank
+
+    Client->>Network: POST /v1/charges
+    Network->>Stripe: Request arrives
+    Stripe->>Bank: Charge card
+    Bank-->>Stripe: Success
+    Stripe-->>Network: 200 OK
+    Network--xClient: Connection dropped
     
-    Note over Client,Payment: Request 1 - First Attempt
-    Client->>API: POST /charges<br/>idempotencyKey: order_123
-    API->>Cache: Check key: order_123
-    Cache-->>API: Key not found
-    API->>DB: Check unique constraint
-    DB-->>API: OK
-    API->>Payment: Process payment $500
-    Payment-->>API: charge_abc123 created
-    API->>DB: Store charge + cache response
-    API->>Cache: Store: order_123 → charge_abc123
-    API-->>Client: Response (network timeout)
+    Note over Client: No response received
+    Note over Client: Did it work?
     
-    Note over Client,Payment: Request 2 - Retry with Same Key
-    Client->>API: POST /charges<br/>idempotencyKey: order_123
-    API->>Cache: Check key: order_123
-    Cache-->>API: Found! charge_abc123
-    API-->>Client: Return cached response<br/>(Same charge_abc123)
+    Client->>Network: POST /v1/charges (retry)
+    Network->>Stripe: Same request again
+    Stripe->>Bank: Charge card again
+    Bank-->>Stripe: Success
+    Stripe-->>Network: 200 OK
+    Network-->>Client: 200 OK
     
-    Note over Client,Payment: Result: No double charge!
+    Note over Client: Customer charged twice
 ```
+
+The payment succeeded. The card was charged. But the response never made it back to your server. From your perspective, the request failed. So you retry. And now the customer is charged twice.
+
+This is not a rare edge case. It happens constantly:
+
+- Mobile users on flaky connections
+- Servers restarting during deployments
+- Load balancers timing out slow requests
+- DNS issues causing connection failures
+
+Any system that makes network requests needs to handle this problem.
+
+## Stripe Idempotency Keys: The Core Solution
+
+Stripe solves this with idempotency keys. An idempotency key is a unique string you include with your request. If Stripe receives the same key twice, it returns the result from the first request instead of processing the payment again.
+
+Here is how it works:
+
+```javascript
+const stripe = require('stripe')('sk_test_...');
+
+// Generate a unique key for this payment
+const idempotencyKey = 'order_12345_payment_v1';
+
+// First request
+const charge = await stripe.charges.create({
+  amount: 2000,
+  currency: 'usd',
+  source: 'tok_visa',
+  description: 'Order #12345'
+}, {
+  idempotencyKey: idempotencyKey
+});
+
+console.log(charge.id); // ch_1abc...
+
+// Network fails, you retry with the same key
+const retryCharge = await stripe.charges.create({
+  amount: 2000,
+  currency: 'usd',
+  source: 'tok_visa',
+  description: 'Order #12345'
+}, {
+  idempotencyKey: idempotencyKey  // Same key
+});
+
+console.log(retryCharge.id); // ch_1abc... (same charge!)
+```
+
+The second request returns the same charge object. No duplicate payment.
+
+### How Stripe Processes Idempotent Requests
+
+When a request arrives with an idempotency key, Stripe follows this logic:
+
+```mermaid
+flowchart TD
+    A[Request arrives] --> B{Has idempotency key?}
+    B -->|No| C[Process normally]
+    B -->|Yes| D{Key exists in cache?}
+    D -->|No| E[Process request]
+    E --> F[Store result with key]
+    F --> G[Return response]
+    D -->|Yes| H{Same parameters?}
+    H -->|Yes| I[Return cached response]
+    H -->|No| J[Return 400 error]
+    
+    C --> K[Return response]
+```
+
+The key points:
+
+1. **New key**: Process the request, store the result, return the response
+2. **Existing key, same parameters**: Return the cached response without processing
+3. **Existing key, different parameters**: Return an error (this is a bug in your code)
+
+### The 24 Hour Window
+
+Stripe stores idempotency keys for 24 hours. This is a practical tradeoff:
+
+- **Long enough** to handle retries during extended outages
+- **Short enough** to not consume infinite storage
+- **Predictable** so you know when keys expire
+
+After 24 hours, using the same key will process the request as new. For most applications, this is fine. If your system might retry after 24 hours, you need additional safeguards at your application layer.
+
+## Implementing Idempotency in Different Languages
+
+Here are practical examples for common languages. All examples use `tok_visa` for testing.
+
+### Python
+
+```python
+import stripe
+import uuid
+
+stripe.api_key = 'sk_test_...'
+
+def create_payment(order_id: str, amount: int) -> stripe.Charge:
+    """Create a payment with idempotency protection."""
+    
+    # Generate a key tied to this specific order and amount
+    idempotency_key = f"order_{order_id}_amount_{amount}"
+    
+    try:
+        charge = stripe.Charge.create(
+            amount=amount,
+            currency='usd',
+            source='tok_visa',
+            description=f'Payment for order {order_id}',
+            idempotency_key=idempotency_key
+        )
+        return charge
+    except stripe.error.IdempotencyError as e:
+        # Same key was used with different parameters
+        # This indicates a bug in your code
+        raise ValueError(f"Idempotency conflict: {e}")
+    except stripe.error.StripeError as e:
+        # Other Stripe errors - safe to retry with same key
+        raise
+
+# Usage
+charge = create_payment("12345", 2000)
+print(f"Charge created: {charge.id}")
+
+# Safe to call again - returns same charge
+charge_retry = create_payment("12345", 2000)
+print(f"Same charge: {charge_retry.id}")
+```
+
+### Node.js
+
+```javascript
+const Stripe = require('stripe');
+const stripe = Stripe('sk_test_...');
+
+async function createPayment(orderId, amount) {
+  // Key includes order ID and amount to prevent accidental reuse
+  const idempotencyKey = `order_${orderId}_amount_${amount}`;
+  
+  try {
+    const charge = await stripe.charges.create({
+      amount: amount,
+      currency: 'usd',
+      source: 'tok_visa',
+      description: `Payment for order ${orderId}`
+    }, {
+      idempotencyKey: idempotencyKey
+    });
+    
+    return charge;
+  } catch (error) {
+    if (error.type === 'IdempotencyError') {
+      // Same key used with different parameters
+      throw new Error(`Idempotency conflict: ${error.message}`);
+    }
+    throw error;
+  }
+}
+
+// Usage
+const charge = await createPayment('12345', 2000);
+console.log(`Charge: ${charge.id}`);
+
+// Retry returns same charge
+const retry = await createPayment('12345', 2000);
+console.log(`Same: ${retry.id}`);
+```
+
+### Go
+
+```go
+package main
+
+import (
+    "fmt"
+    "github.com/stripe/stripe-go/v74"
+    "github.com/stripe/stripe-go/v74/charge"
+)
+
+func createPayment(orderID string, amount int64) (*stripe.Charge, error) {
+    stripe.Key = "sk_test_..."
+    
+    // Build idempotency key from order details
+    idempotencyKey := fmt.Sprintf("order_%s_amount_%d", orderID, amount)
+    
+    params := &stripe.ChargeParams{
+        Amount:      stripe.Int64(amount),
+        Currency:    stripe.String(string(stripe.CurrencyUSD)),
+        Description: stripe.String(fmt.Sprintf("Payment for order %s", orderID)),
+    }
+    params.SetSource("tok_visa")
+    params.SetIdempotencyKey(idempotencyKey)
+    
+    ch, err := charge.New(params)
+    if err != nil {
+        return nil, err
+    }
+    
+    return ch, nil
+}
+
+func main() {
+    ch, err := createPayment("12345", 2000)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf("Charge: %s\n", ch.ID)
+    
+    // Retry returns same charge
+    retry, _ := createPayment("12345", 2000)
+    fmt.Printf("Same: %s\n", retry.ID)
+}
+```
+
+### cURL (for testing)
+
+```bash
+# First request
+curl https://api.stripe.com/v1/charges \
+  -u sk_test_your_key: \
+  -H "Idempotency-Key: order_12345_v1" \
+  -d amount=2000 \
+  -d currency=usd \
+  -d source=tok_visa \
+  -d description="Order 12345"
+
+# Retry with same key returns same result
+curl https://api.stripe.com/v1/charges \
+  -u sk_test_your_key: \
+  -H "Idempotency-Key: order_12345_v1" \
+  -d amount=2000 \
+  -d currency=usd \
+  -d source=tok_visa \
+  -d description="Order 12345"
+```
+
+## Beyond Idempotency Keys: Defense in Depth
+
+Idempotency keys are the first line of defense. But Stripe uses multiple layers to prevent duplicate payments.
+
+### Layer 1: Idempotency Keys (API Level)
+
+The idempotency cache catches duplicate requests at the API gateway. Fast, simple, and handles most cases.
 
 ### Layer 2: Database Constraints
 
-Even if idempotency keys fail, database-level constraints provide backup:
+Even if the idempotency cache fails, the database prevents duplicates:
 
 ```sql
--- Unique constraint prevents duplicate charges
-CREATE TABLE charges (
+CREATE TABLE payments (
     id VARCHAR(255) PRIMARY KEY,
     idempotency_key VARCHAR(255) UNIQUE NOT NULL,
     amount INTEGER NOT NULL,
     currency VARCHAR(3) NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    UNIQUE INDEX idx_idempotency_key (idempotency_key)
+    status VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT uk_idempotency_key UNIQUE (idempotency_key)
 );
 ```
 
-If someone bypasses the application logic, the database will reject the duplicate:
+If you try to insert two payments with the same idempotency key, the database rejects the second one:
 
 ```sql
--- First insert: Success
-INSERT INTO charges (id, idempotency_key, amount, currency) 
-VALUES ('ch_123', 'order_456', 500, 'usd');
+-- First insert succeeds
+INSERT INTO payments (id, idempotency_key, amount, currency, status)
+VALUES ('ch_abc', 'order_123', 2000, 'usd', 'succeeded');
 
--- Second insert with same key: ERROR
-INSERT INTO charges (id, idempotency_key, amount, currency) 
-VALUES ('ch_124', 'order_456', 500, 'usd');
--- Error: Duplicate entry 'order_456' for key 'idx_idempotency_key'
+-- Second insert fails
+INSERT INTO payments (id, idempotency_key, amount, currency, status)
+VALUES ('ch_def', 'order_123', 2000, 'usd', 'succeeded');
+-- ERROR: Duplicate entry 'order_123' for key 'uk_idempotency_key'
 ```
+
+This is your safety net. Even if there is a bug in the application logic, the database catches it.
 
 ### Layer 3: Smart Retry Logic
 
-Stripe's clients are built to handle retries intelligently. But not all failures should be retried - this is where smart logic comes in.
+Not all errors should trigger a retry. Stripe categorizes errors and only retries when appropriate:
 
-**When to Retry:**
-- Network timeouts or connection errors
-- Temporary server errors (5xx status codes)
-- Rate limiting errors (when told to wait and retry)
+<div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0;">
 
-**When NOT to Retry:**
-- Card declined (the card simply doesn't have funds)
-- Invalid request data (malformed payload)
-- Authentication failures (wrong API key)
-- Business logic errors (trying to charge $0)
+<h4 style="margin-top: 0; display: flex; align-items: center; gap: 8px;">
+<i class="fas fa-check-circle" style="color: #28a745;"></i> Safe to Retry
+</h4>
 
-**The Smart Approach:**
+<ul style="margin-bottom: 20px;">
+<li>Network timeout (request may not have arrived)</li>
+<li>Connection reset (server did not respond)</li>
+<li>5xx errors (server had a temporary problem)</li>
+<li>Rate limiting (wait and try again)</li>
+</ul>
 
-Instead of blindly retrying every failure, Stripe's system:
+<h4 style="display: flex; align-items: center; gap: 8px;">
+<i class="fas fa-times-circle" style="color: #dc3545;"></i> Do Not Retry
+</h4>
 
-1. **Categorizes Errors**: Distinguishes between temporary network issues and permanent business failures
-2. **Uses Exponential Backoff**: Waits 1 second, then 2 seconds, then 4 seconds between retries to avoid overwhelming servers
-3. **Limits Retry Attempts**: Typically 3 attempts maximum to prevent infinite loops
-4. **Preserves Idempotency**: Uses the same idempotency key across all retry attempts
+<ul style="margin-bottom: 0;">
+<li>Card declined (the card does not have funds)</li>
+<li>Invalid card number (the input is wrong)</li>
+<li>Authentication required (needs 3D Secure)</li>
+<li>Invalid API key (configuration error)</li>
+</ul>
 
-**Real-World Example:**
+</div>
 
-Your customer clicks "Pay". The request times out after 30 seconds. Your frontend sees no response and assumes failure. Instead of immediately retrying, smart logic:
+Retrying a card decline will not magically add money to the card. It will just annoy the customer.
 
-- Waits 1 second (maybe it was just a brief network hiccup)
-- Retries with the same idempotency key
-- If it fails again, waits 2 seconds
-- Final retry after 4 seconds
-- If all attempts fail, shows a meaningful error message
+Here is how to implement smart retry logic:
 
-This prevents the "rapid-fire clicking" problem where frustrated users click the pay button 10 times in a row.
+```python
+import time
+import stripe
 
-
-## The Architecture in Action
-
-Here's how all three layers work together:
-
-```mermaid
-flowchart TB
-    subgraph Layer1["Layer 1: Client"]
-        C[Client Application]
-        IK[Idempotency Key<br/>Generation]
-        SR[Smart Retry Logic]
-    end
+def create_payment_with_retry(order_id: str, amount: int, max_retries: int = 3):
+    """Create payment with exponential backoff retry."""
     
-    subgraph Layer2["Layer 2: API Gateway"]
-        AG[API Gateway]
-        IC[Idempotency Cache<br/>Check]
-        VR[Request Validation]
-    end
+    idempotency_key = f"order_{order_id}_amount_{amount}"
     
-    subgraph Layer3["Layer 3: Payment Service"]
-        PS[Payment Service]
-        PC[Process Charge]
-        SC[Store in Cache]
-    end
+    for attempt in range(max_retries):
+        try:
+            return stripe.Charge.create(
+                amount=amount,
+                currency='usd',
+                source='tok_visa',
+                idempotency_key=idempotency_key
+            )
+        except stripe.error.RateLimitError:
+            # Rate limited - wait and retry
+            wait_time = (2 ** attempt) + 1  # Exponential backoff
+            time.sleep(wait_time)
+            continue
+        except stripe.error.APIConnectionError:
+            # Network error - safe to retry
+            wait_time = (2 ** attempt) + 1
+            time.sleep(wait_time)
+            continue
+        except stripe.error.CardError as e:
+            # Card was declined - do not retry
+            raise
+        except stripe.error.InvalidRequestError as e:
+            # Bad request - do not retry
+            raise
     
-    subgraph Layer4["Layer 4: Database"]
-        DB[(Database)]
-        UC[Unique Constraint<br/>on idempotency_key]
-    end
-    
-    C --> IK
-    IK --> SR
-    SR --> AG
-    AG --> IC
-    IC -->|New Key| VR
-    IC -->|Existing Key| SC
-    VR --> PS
-    PS --> PC
-    PC --> DB
-    DB --> UC
-    PC --> SC
-    SC --> IC
-    
-    style Layer1 fill:#c8e6c9
-    style Layer2 fill:#fff9c4
-    style Layer3 fill:#e1f5ff
-    style Layer4 fill:#f3e5f5
+    raise Exception(f"Failed after {max_retries} attempts")
 ```
 
-<div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin: 25px 0; border: 1px solid #e9ecef;">
-<style>
-  @media (max-width: 768px) {
-    .mobile-arch-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 10px !important;
-    }
-    .mobile-arch-component {
-      padding: 12px !important;
-      font-size: 14px !important;
-    }
-    .mobile-arch-title {
-      font-size: 13px !important;
-      margin-bottom: 8px !important;
-    }
-    .mobile-arch-feature {
-      padding: 6px !important;
-      font-size: 10px !important;
-      margin: 4px 0 !important;
-    }
-    .mobile-arch-steps {
-      display: flex !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      gap: 8px !important;
-    }
-    .mobile-arch-step-connector {
-      display: none !important;
-    }
-    .mobile-flow-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 10px !important;
-      font-size: 11px !important;
-    }
-    .mobile-flow-step {
-      margin-bottom: 3px !important;
-    }
-  }
-  @media (max-width: 480px) {
-    .mobile-arch-grid {
-      grid-template-columns: 1fr !important;
-    }
-    .mobile-flow-grid {
-      grid-template-columns: 1fr !important;
-    }
-  }
-</style>
+## The Architecture
 
-<h4 style="margin-top: 0; text-align: center; color: #333;">Stripe's Multi-Layer Defense System</h4>
+Here is how the three layers work together:
 
-<!-- Step flow -->
-<div style="display: flex; justify-content: center; margin-bottom: 25px;">
-  <div class="mobile-arch-steps" style="display: flex; align-items: center; gap: 15px;">
-    <div style="background: #4CAF50; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">1</div>
-    <div class="mobile-arch-step-connector" style="width: 30px; height: 2px; background: #ddd;"></div>
-    <div style="background: #FF9800; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">2</div>
-    <div class="mobile-arch-step-connector" style="width: 30px; height: 2px; background: #ddd;"></div>
-    <div style="background: #2196F3; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">3</div>
-    <div class="mobile-arch-step-connector" style="width: 30px; height: 2px; background: #ddd;"></div>
-    <div style="background: #9C27B0; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">4</div>
-  </div>
-</div>
+```mermaid
+flowchart TD
+    A[Client sends payment request] --> B[API Gateway receives request]
+    B --> C{Check idempotency cache}
+    
+    C -->|Key exists| D[Return cached response]
+    C -->|Key not found| E[Forward to Payment Service]
+    
+    E --> F{Check database constraint}
+    
+    F -->|Unique key| G[Process payment]
+    F -->|Duplicate key| H[Reject as duplicate]
+    
+    G --> I[Store response in cache]
+    I --> D
+    
+    D --> J[Response sent to client]
+```
 
-<!-- Main components -->
-<div class="mobile-arch-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 20px 0;">
-  
-  <!-- Client -->
-  <div class="mobile-arch-component" style="background: white; border: 2px solid #4CAF50; border-radius: 8px; padding: 18px; text-align: center;">
-    <div class="mobile-arch-title" style="font-weight: bold; color: #4CAF50; margin-bottom: 12px; font-size: 16px;">CLIENT</div>
-    <div class="mobile-arch-feature" style="background: #f1f8e9; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Payment Request</div>
-    <div class="mobile-arch-feature" style="background: #f1f8e9; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Idempotency Key</div>
-    <div class="mobile-arch-feature" style="background: #f1f8e9; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Smart Retry</div>
-  </div>
+**How the layers protect you:**
 
-  <!-- API Gateway -->
-  <div class="mobile-arch-component" style="background: white; border: 2px solid #FF9800; border-radius: 8px; padding: 18px; text-align: center;">
-    <div class="mobile-arch-title" style="font-weight: bold; color: #FF9800; margin-bottom: 12px; font-size: 16px;">API GATEWAY</div>
-    <div class="mobile-arch-feature" style="background: #fff8e1; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Check Cache</div>
-    <div class="mobile-arch-feature" style="background: #fff8e1; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Validate Request</div>
-    <div class="mobile-arch-feature" style="background: #fff8e1; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Route to Service</div>
-  </div>
+| Layer | What it does | When it helps |
+|-------|--------------|---------------|
+| Idempotency Cache | Returns stored response for duplicate keys | Fast path for retries |
+| Database Constraint | Rejects duplicate idempotency keys | Safety net if cache fails |
+| Smart Retry Logic | Only retries appropriate errors | Prevents unnecessary duplicates |
 
-  <!-- Payment Service -->
-  <div class="mobile-arch-component" style="background: white; border: 2px solid #2196F3; border-radius: 8px; padding: 18px; text-align: center;">
-    <div class="mobile-arch-title" style="font-weight: bold; color: #2196F3; margin-bottom: 12px; font-size: 16px;">PAYMENT SERVICE</div>
-    <div class="mobile-arch-feature" style="background: #e3f2fd; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Check Idempotency</div>
-    <div class="mobile-arch-feature" style="background: #e3f2fd; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Process Charge</div>
-    <div class="mobile-arch-feature" style="background: #e3f2fd; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Store Result</div>
-  </div>
+Each layer catches what the previous layer might miss:
 
-  <!-- Database -->
-  <div class="mobile-arch-component" style="background: white; border: 2px solid #9C27B0; border-radius: 8px; padding: 18px; text-align: center;">
-    <div class="mobile-arch-title" style="font-weight: bold; color: #9C27B0; margin-bottom: 12px; font-size: 16px;">DATABASE</div>
-    <div class="mobile-arch-feature" style="background: #f3e5f5; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Unique Constraints</div>
-    <div class="mobile-arch-feature" style="background: #f3e5f5; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Transaction Logs</div>
-    <div class="mobile-arch-feature" style="background: #f3e5f5; padding: 8px; border-radius: 4px; margin: 6px 0; font-size: 12px; color: #333;">Cached Responses</div>
-  </div>
+| Layer | Catches | Speed | Reliability |
+|-------|---------|-------|-------------|
+| Idempotency Cache | Most duplicates | Fast (ms) | Depends on cache |
+| Database Constraints | Cache failures | Medium | Very high |
+| Retry Logic | Inappropriate retries | N/A | Prevents issues |
 
-</div>
+## Generating Good Idempotency Keys
 
-<!-- Flow explanation -->
-<div style="background: #ffffff; border: 1px solid #e9ecef; border-radius: 6px; padding: 20px; margin: 20px 0;">
-  <div style="text-align: center; margin-bottom: 15px;">
-    <h5 style="color: #333; margin: 0;">How the Request Flows</h5>
-  </div>
-  <div class="mobile-flow-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; font-size: 13px; color: #555;">
-    <div style="text-align: center;">
-      <div class="mobile-flow-step" style="font-weight: bold; margin-bottom: 5px; color: #4CAF50;">Step 1</div>
-      <div>Client sends payment request with unique idempotency key</div>
-    </div>
-    <div style="text-align: center;">
-      <div class="mobile-flow-step" style="font-weight: bold; margin-bottom: 5px; color: #FF9800;">Step 2</div>
-      <div>Gateway validates request and checks for cached response</div>
-    </div>
-    <div style="text-align: center;">
-      <div class="mobile-flow-step" style="font-weight: bold; margin-bottom: 5px; color: #2196F3;">Step 3</div>
-      <div>Service checks idempotency and processes if new</div>
-    </div>
-    <div style="text-align: center;">
-      <div class="mobile-flow-step" style="font-weight: bold; margin-bottom: 5px; color: #9C27B0;">Step 4</div>
-      <div>Database enforces constraints and caches result</div>
-    </div>
-  </div>
-</div>
+The quality of your idempotency keys matters. Bad keys cause problems.
 
-<div style="text-align: center; color: #666; font-size: 14px; margin-top: 15px;">
-  <strong>Defense in Depth:</strong> Multiple layers ensure no single point of failure
-</div>
+### Good Patterns
 
-</div>
+```javascript
+// Pattern 1: UUID (simple, always unique)
+const key = crypto.randomUUID();
+// "550e8400-e29b-41d4-a716-446655440000"
 
-## The Business Impact
+// Pattern 2: Order ID + version (traceable)
+const key = `order_${orderId}_v${version}`;
+// "order_12345_v1"
 
-Why does this matter beyond preventing double charges?
+// Pattern 3: User + action + timestamp window (prevents rapid duplicates)
+const window = Math.floor(Date.now() / 60000); // 1 minute window
+const key = `user_${userId}_checkout_${window}`;
+// "user_789_checkout_29574832"
+```
 
-**Customer Trust**: Users know their payments are safe. They're more likely to complete purchases and return.
+### Bad Patterns
 
-**Support Cost**: Fewer duplicate charge complaints means your support team can focus on real issues.
+```javascript
+// Bad: Just the order ID (what if order is modified and repaid?)
+const key = `order_${orderId}`;
 
-**Compliance**: Financial regulations often require preventing duplicate transactions.
+// Bad: Timestamp alone (two requests in same ms = collision)
+const key = `${Date.now()}`;
 
-**Scale**: As your business grows, network issues become more frequent. These patterns keep you reliable at scale.
+// Bad: Random on every request (defeats the purpose)
+const key = Math.random().toString();
+```
+
+### Key Storage
+
+You need to store the idempotency key so retries use the same one:
+
+```python
+class PaymentService:
+    def __init__(self, cache):
+        self.cache = cache
+    
+    def get_or_create_idempotency_key(self, order_id: str) -> str:
+        """Get existing key or create new one."""
+        
+        cache_key = f"idempotency:order:{order_id}"
+        
+        # Try to get existing key
+        existing = self.cache.get(cache_key)
+        if existing:
+            return existing
+        
+        # Create new key and store it
+        new_key = f"order_{order_id}_{uuid.uuid4()}"
+        self.cache.set(cache_key, new_key, ttl=86400)  # 24 hours
+        
+        return new_key
+    
+    def create_payment(self, order_id: str, amount: int):
+        key = self.get_or_create_idempotency_key(order_id)
+        
+        return stripe.Charge.create(
+            amount=amount,
+            currency='usd',
+            source='tok_visa',
+            idempotency_key=key
+        )
+```
+
+## Common Mistakes and How to Avoid Them
+
+### Mistake 1: Generating New Keys on Retry
+
+```python
+# Wrong: New key on every attempt defeats the purpose
+for attempt in range(3):
+    key = str(uuid.uuid4())  # New key each time!
+    try:
+        stripe.Charge.create(..., idempotency_key=key)
+    except:
+        continue
+
+# Right: Same key across all attempts
+key = str(uuid.uuid4())  # Generate once
+for attempt in range(3):
+    try:
+        stripe.Charge.create(..., idempotency_key=key)
+    except:
+        continue
+```
+
+### Mistake 2: Reusing Keys for Different Operations
+
+```python
+# Wrong: Same key for different customers
+key = "payment_key"
+stripe.Charge.create(amount=1000, customer="cus_alice", idempotency_key=key)
+stripe.Charge.create(amount=2000, customer="cus_bob", idempotency_key=key)  # Error!
+
+# Right: Unique key per operation
+stripe.Charge.create(amount=1000, customer="cus_alice", 
+                     idempotency_key="alice_order_123")
+stripe.Charge.create(amount=2000, customer="cus_bob", 
+                     idempotency_key="bob_order_456")
+```
+
+### Mistake 3: Not Handling Idempotency Errors
+
+```python
+# Wrong: Ignoring the specific error type
+try:
+    stripe.Charge.create(...)
+except Exception as e:
+    log.error(e)
+    return None
+
+# Right: Handle idempotency conflicts specifically
+try:
+    stripe.Charge.create(...)
+except stripe.error.IdempotencyError as e:
+    # This is a bug - same key used with different params
+    alert_engineering(f"Idempotency bug detected: {e}")
+    raise
+except stripe.error.CardError as e:
+    # Card declined - show message to user
+    return {"error": e.user_message}
+except stripe.error.APIConnectionError as e:
+    # Network issue - safe to retry
+    return retry_payment()
+```
+
+## Building Your Own Idempotent API
+
+The same patterns work for any API, not just payments.
+
+```python
+from functools import wraps
+import hashlib
+import json
+
+class IdempotencyService:
+    def __init__(self, cache, ttl=86400):
+        self.cache = cache
+        self.ttl = ttl
+    
+    def get_cached_response(self, key: str, request_hash: str):
+        """Get cached response if key exists and request matches."""
+        
+        cached = self.cache.get(f"idempotency:{key}")
+        if not cached:
+            return None
+        
+        if cached['request_hash'] != request_hash:
+            raise IdempotencyConflictError(
+                "Same key used with different request parameters"
+            )
+        
+        return cached['response']
+    
+    def cache_response(self, key: str, request_hash: str, response: dict):
+        """Store response for this idempotency key."""
+        
+        self.cache.set(
+            f"idempotency:{key}",
+            {'request_hash': request_hash, 'response': response},
+            ttl=self.ttl
+        )
+
+def idempotent(get_key):
+    """Decorator to make an endpoint idempotent."""
+    
+    def decorator(func):
+        @wraps(func)
+        def wrapper(request, *args, **kwargs):
+            key = get_key(request)
+            if not key:
+                return func(request, *args, **kwargs)
+            
+            # Hash the request body
+            request_hash = hashlib.sha256(
+                json.dumps(request.body, sort_keys=True).encode()
+            ).hexdigest()
+            
+            # Check cache
+            cached = idempotency_service.get_cached_response(key, request_hash)
+            if cached:
+                return cached
+            
+            # Process request
+            response = func(request, *args, **kwargs)
+            
+            # Cache response
+            idempotency_service.cache_response(key, request_hash, response)
+            
+            return response
+        return wrapper
+    return decorator
+
+# Usage
+@idempotent(lambda req: req.headers.get('Idempotency-Key'))
+def create_order(request):
+    # This will only execute once per idempotency key
+    order = Order.create(request.body)
+    return {"order_id": order.id}
+```
+
+## Real World Considerations
+
+### Webhooks and Idempotency
+
+Stripe sends webhooks that can also be duplicated. Handle them idempotently too:
+
+```python
+def handle_webhook(event):
+    """Process Stripe webhook idempotently."""
+    
+    # Use event ID as idempotency key
+    event_id = event['id']
+    
+    if already_processed(event_id):
+        return {"status": "already_processed"}
+    
+    # Process the event
+    if event['type'] == 'payment_intent.succeeded':
+        fulfill_order(event['data']['object'])
+    
+    # Mark as processed
+    mark_processed(event_id)
+    
+    return {"status": "processed"}
+```
+
+### Idempotency Across Microservices
+
+When your payment flow spans multiple services, each service needs idempotency:
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant OrderService
+    participant PaymentService
+    participant FulfillmentService
+    
+    Client->>OrderService: Create order (key: order_123)
+    OrderService->>OrderService: Store idempotency key
+    OrderService->>PaymentService: Charge (key: order_123_payment)
+    PaymentService->>PaymentService: Store idempotency key
+    PaymentService-->>OrderService: Charge succeeded
+    OrderService->>FulfillmentService: Fulfill (key: order_123_fulfill)
+    FulfillmentService->>FulfillmentService: Store idempotency key
+    FulfillmentService-->>OrderService: Fulfilled
+    OrderService-->>Client: Order complete
+```
+
+Each service derives its key from the original, maintaining the idempotency chain.
 
 ## Key Takeaways
 
-Stripe's approach teaches us:
+**1. Always use idempotency keys for payment requests.** This is not optional. Network failures happen, and retries are inevitable.
 
-1. **Defense in depth works** - Don't rely on one solution
-2. **Make idempotency keys mandatory** - Treat them as first-class citizens in your API design  
-3. **Database constraints are your safety net** - They catch what application logic misses
-4. **Smart retries are better than dumb retries** - Know when to give up
-5. **Cache responses** - Returning the same result for duplicate requests is faster than processing twice
+**2. Generate keys once, reuse on retry.** Store the key before making the request so retries use the same one.
+
+**3. Include enough context in your keys.** Order ID plus version or UUID. Not just timestamps or random values.
+
+**4. Defense in depth works.** Idempotency keys, database constraints, and smart retry logic together catch more issues than any single solution.
+
+**5. Not all errors should be retried.** Card declines and validation errors will not succeed on retry. Only retry network and server errors.
+
+**6. Stripe keys expire after 24 hours.** This is usually fine, but know your system's retry windows.
+
+**7. Handle idempotency conflicts as bugs.** If you get an IdempotencyError, your code is reusing keys incorrectly. Fix it.
 
 ---
 
-*Want to dive deeper? Check out [Stripe's API documentation](https://stripe.com/docs/api/idempotent_requests) on idempotent requests. Their engineering blog also has great posts on building reliable financial systems.*
+*For more on building reliable systems, check out [CQRS Pattern Guide](/cqrs-pattern-guide/) for separating reads and writes, [Caching Strategies Explained](/caching-strategies-explained/) for response caching patterns, and [Snowflake ID Guide](/snowflake-id-guide/) for generating unique IDs at scale.*
+
+*References: [Stripe Idempotency Keys Documentation](https://stripe.com/docs/api/idempotent_requests), [Stripe API Error Handling](https://stripe.com/docs/error-handling)*

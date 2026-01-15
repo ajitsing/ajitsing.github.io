@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var AD_POSITIONS = [0.25, 0.75];
+  var AD_POSITIONS = [0.40];
   var AD_LOAD_TIMEOUT_MS = 3000;
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
@@ -11,7 +11,7 @@
   function createAdElement(className) {
     var container = document.createElement('div');
     container.className = className;
-    container.innerHTML = '<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2886086145980317" data-ad-slot="7962308891"></ins>';
+    container.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="1787846424" data-ad-format="auto" data-full-width-responsive="true"></ins>';
     return container;
   }
 
@@ -56,26 +56,10 @@
     var children = Array.from(article.children);
     if (children.length === 0) return;
 
-    var insertionIndices = AD_POSITIONS.map(function(position) {
-      return findInsertionIndex(children, position);
-    });
-
-    if (insertionIndices[1] <= insertionIndices[0]) {
-      insertionIndices[1] = Math.min(
-        insertionIndices[0] + Math.floor(children.length * 0.25),
-        children.length
-      );
-    }
-
-    var ads = AD_POSITIONS.map(function() {
-      return createAdElement(AD_CLASS);
-    });
-
-    insertAdAtIndex(article, ads[1], children, insertionIndices[1]);
-    children = Array.from(article.children);
-    insertAdAtIndex(article, ads[0], children, insertionIndices[0]);
-
-    ads.forEach(pushToAdSense);
+    var insertionIndex = findInsertionIndex(children, AD_POSITIONS[0]);
+    var ad = createAdElement(AD_CLASS);
+    insertAdAtIndex(article, ad, children, insertionIndex);
+    pushToAdSense();
   }
 
   function isAdEmpty(adSlot) {
@@ -99,7 +83,7 @@
   }
 
   function hideEmptyContentAds() {
-    var contentAds = document.querySelectorAll('.post-mid-ad, .post-bottom-ad');
+    var contentAds = document.querySelectorAll('.post-mid-ad');
     var hasBlockedAds = false;
     var hasLoadedAds = false;
     

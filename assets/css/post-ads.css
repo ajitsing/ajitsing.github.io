@@ -37,6 +37,43 @@
   flex-shrink: 0;
 }
 
+.floating-sidebar-ad {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.floating-sidebar-ad .adsbygoogle {
+  display: inline-block;
+  width: 300px;
+  height: 250px;
+}
+
+/* Hide floating ad on mobile/tablet */
+@media (max-width: 1199px) {
+  .floating-sidebar-ad {
+    display: none;
+  }
+}
+
+.post-header-ad {
+  margin: 20px auto;
+  padding: 90px 0 10px 0;
+  text-align: center;
+  max-width: 1100px;
+}
+
+.post-header-ad .adsbygoogle {
+  display: block;
+  width: 100%;
+}
+
 .post-mid-ad {
   margin: 40px 0;
   padding: 20px 0;
@@ -47,15 +84,6 @@
   min-height: 100px;
 }
 
-.post-bottom-ad {
-  margin: 40px 0 20px 0;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.post-bottom-ad .adsbygoogle {
-  min-height: 100px;
-}
 
 /* Hide sidebar on smaller screens */
 @media (max-width: 1199px) {
@@ -118,8 +146,12 @@
     padding: 15px 12px 30px;
   }
 
-  .post-mid-ad,
-  .post-bottom-ad {
+  .post-header-ad {
+    margin: 10px auto;
+    padding: 5px 0;
+  }
+
+  .post-mid-ad {
     margin: 32px 0;
     padding: 16px 0;
   }

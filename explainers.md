@@ -145,6 +145,17 @@ social-share: true
 </div>
 {% endif %}
 
+<div class="explainers-above-rss-ad">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-format="autorelaxed"
+       data-ad-client="ca-pub-2886086145980317"
+       data-ad-slot="9096626276"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
 <!-- RSS Subscribe Section -->
 <div class="rss-section-home">
   {% include rss-subscribe.html %}

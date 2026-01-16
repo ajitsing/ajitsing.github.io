@@ -6,7 +6,7 @@
   <ul class="popular-posts-list">
     {% assign popular_count = 0 %}
     {% for post in site.posts %}
-      {% if post.popular and popular_count < 6 %}
+      {% if post.popular and popular_count < 5 %}
         <li class="popular-post-item">
           <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
             {% if post.thumbnail-img %}
@@ -39,7 +39,7 @@
     
     {% comment %} Fallback: if no posts marked as popular, show recent posts {% endcomment %}
     {% if popular_count == 0 %}
-      {% for post in site.posts limit: 6 %}
+      {% for post in site.posts limit: 5 %}
         {% unless post.tags contains "dev-weekly" %}
         <li class="popular-post-item">
           <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">

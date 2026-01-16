@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var AD_POSITIONS = [0.40];
+  var AD_POSITIONS = [0.20, 0.50];
   var AD_LOAD_TIMEOUT_MS = 3000;
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
@@ -56,9 +56,15 @@
     var children = Array.from(article.children);
     if (children.length === 0) return;
 
-    var insertionIndex = findInsertionIndex(children, AD_POSITIONS[0]);
-    var ad = createAdElement(AD_CLASS);
-    insertAdAtIndex(article, ad, children, insertionIndex);
+    // Insert ads at each position (in reverse order to maintain correct indices)
+    for (var i = AD_POSITIONS.length - 1; i >= 0; i--) {
+      var insertionIndex = findInsertionIndex(children, AD_POSITIONS[i]);
+      var ad = createAdElement(AD_CLASS);
+      insertAdAtIndex(article, ad, children, insertionIndex);
+      // Update children array after each insertion
+      children = Array.from(article.children);
+    }
+    
     pushToAdSense();
   }
 

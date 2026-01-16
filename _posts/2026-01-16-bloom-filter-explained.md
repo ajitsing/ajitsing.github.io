@@ -429,6 +429,6 @@ If "yes" means letting someone into a system they should not access, do not use 
 
 ---
 
-*For more on probabilistic data structures, check out [HyperLogLog for cardinality estimation](/hyperloglog-explained/) and [Count-Min Sketch for frequency counting](/count-min-sketch-explained/). For related system design patterns, see [How Stripe Prevents Double Payments](/how-stripe-prevents-double-payment/) and [Caching Strategies Explained](/caching-strategies-explained/).*
+*For related topics, check out [Hash Table Collisions Explained](/hashtable-collisions-explained/) and [Database Indexing Explained](/database-indexing-explained/). For system design patterns, see [How Stripe Prevents Double Payments](/how-stripe-prevents-double-payment/) and [Caching Strategies Explained](/caching-strategies-explained/).*
 
 *References: [Bloom Filter on Wikipedia](https://en.wikipedia.org/wiki/Bloom_filter), [Apache Cassandra Bloom Filters](https://cassandra.apache.org/doc/stable/cassandra/operating/bloom_filters.html), [Redis Bloom Filter](https://redis.io/docs/stack/bloom/)*

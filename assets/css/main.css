@@ -1387,12 +1387,12 @@ h1 + h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100px;
 }
 
 .in-feed-ad .adsbygoogle {
   width: 100%;
   max-width: 100%;
+  display: block;
 }
 
 @media (min-width: 768px) {

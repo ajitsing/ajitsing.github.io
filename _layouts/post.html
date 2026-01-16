@@ -50,11 +50,11 @@ body-class: post-page
       {{ content }}
     </article>
 
+    {% include new-post-alert.html %}
+    
     <div class="rss-section-footer">
       {% include rss-subscribe.html %}
     </div>
-    
-    {% include new-post-alert.html %}
 
     {% if page.tags.size > 0 %}
       <div class="blog-tags">
@@ -99,10 +99,9 @@ body-class: post-page
         <!-- Below Related Posts Ad -->
         <ins class="adsbygoogle"
              style="display:block"
+             data-ad-format="autorelaxed"
              data-ad-client="ca-pub-2886086145980317"
-             data-ad-slot="1787846424"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             data-ad-slot="9096626276"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>

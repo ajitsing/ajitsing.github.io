@@ -1,5 +1,5 @@
 {% if page.comments %}        
-  {% include disqus.html %}
+  {% comment %}{% include disqus.html %}{% endcomment %}
   {% include fb-comment.html %}
   {% include staticman-comments.html %}
   {% include utterances-comment.html %}

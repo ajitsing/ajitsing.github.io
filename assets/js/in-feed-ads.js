@@ -26,7 +26,7 @@
     }
   }
 
-  function hideBlockedInFeedAds() {
+  function checkAdStatus() {
     var inFeedAds = document.querySelectorAll(AD_CONTAINER_SELECTOR);
     var hasBlockedAds = false;
     var hasLoadedAds = false;
@@ -34,7 +34,6 @@
     inFeedAds.forEach(function(container) {
       var adSlot = container.querySelector('.adsbygoogle');
       if (isAdBlocked(adSlot)) {
-        container.style.display = 'none';
         hasBlockedAds = true;
       } else {
         hasLoadedAds = true;
@@ -49,7 +48,7 @@
 
   function init() {
     setTimeout(function() {
-      requestAnimationFrame(hideBlockedInFeedAds);
+      requestAnimationFrame(checkAdStatus);
     }, AD_LOAD_TIMEOUT_MS);
   }
 

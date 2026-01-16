@@ -2,10 +2,10 @@
   'use strict';
 
   var AD_POSITIONS = [0.20, 0.50];
-  var AD_LOAD_TIMEOUT_MS = 3000;
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
   var VALID_INSERTION_TAGS = ['P', 'H2', 'H3', 'DIV'];
+  var AD_LOAD_TIMEOUT_MS = 3000;
   var ANALYTICS_SENT_KEY = 'adblock_analytics_sent';
 
   function createAdElement(className) {
@@ -88,7 +88,7 @@
     }
   }
 
-  function hideEmptyContentAds() {
+  function checkAdStatus() {
     var contentAds = document.querySelectorAll('.post-mid-ad');
     var hasBlockedAds = false;
     var hasLoadedAds = false;
@@ -96,7 +96,6 @@
     contentAds.forEach(function(container) {
       var adSlot = container.querySelector('.adsbygoogle');
       if (adSlot && isAdEmpty(adSlot)) {
-        container.style.display = 'none';
         hasBlockedAds = true;
       } else if (adSlot) {
         hasLoadedAds = true;
@@ -109,15 +108,12 @@
     }
   }
 
-  function scheduleEmptyAdCheck() {
-    setTimeout(function() {
-      requestAnimationFrame(hideEmptyContentAds);
-    }, AD_LOAD_TIMEOUT_MS);
-  }
-
   function init() {
     injectContentAds();
-    scheduleEmptyAdCheck();
+    
+    setTimeout(function() {
+      requestAnimationFrame(checkAdStatus);
+    }, AD_LOAD_TIMEOUT_MS);
   }
 
   if (document.readyState === 'loading') {

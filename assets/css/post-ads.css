@@ -78,7 +78,8 @@
 }
 
 .post-mid-ad .adsbygoogle {
-  min-height: 100px;
+  width: 100%;
+  display: block;
 }
 
 .post-below-related-ad {

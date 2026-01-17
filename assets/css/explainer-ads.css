@@ -48,6 +48,17 @@
   text-decoration: none;
 }
 
+.explainer-above-rss-ad {
+  margin: 40px 0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.explainer-above-rss-ad .adsbygoogle {
+  width: 100%;
+  display: block;
+}
+
 .explainer-bottom-ad {
   margin: 40px 0 20px 0;
   padding: 20px 0;

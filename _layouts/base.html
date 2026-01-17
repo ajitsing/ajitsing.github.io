@@ -43,7 +43,7 @@ common-js:
 
     {% include footer.html %}
   
-    {% unless page.layout == 'home' %}
+    {% unless page.layout == 'home' or page.layout == 'post' %}
     <div class="floating-sidebar-ad">
       <!-- Floating Sidebar Ad -->
       <ins class="adsbygoogle"

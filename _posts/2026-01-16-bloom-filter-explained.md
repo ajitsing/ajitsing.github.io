@@ -28,7 +28,7 @@ citations:
     url: "https://dl.acm.org/doi/10.1145/362686.362692"
     author: "Burton H. Bloom"
   - name: "Apache Cassandra Bloom Filters"
-    url: "https://cassandra.apache.org/doc/stable/cassandra/operating/bloom_filters.html"
+    url: "https://cassandra.apache.org/doc/4.1/cassandra/operating/bloom_filters.html"
     author: "Apache Cassandra"
 
 faq:
@@ -429,6 +429,6 @@ If "yes" means letting someone into a system they should not access, do not use 
 
 ---
 
-*For related topics, check out [Hash Table Collisions Explained](/hashtable-collisions-explained/) and [Database Indexing Explained](/database-indexing-explained/). For system design patterns, see [How Stripe Prevents Double Payments](/how-stripe-prevents-double-payment/) and [Caching Strategies Explained](/caching-strategies-explained/).*
+*For more on probabilistic data structures, check out [HyperLogLog Explained](/hyperloglog-explained/) for cardinality estimation and [Count-Min Sketch Explained](/count-min-sketch-explained/) for frequency counting. For related topics, see [Hash Table Collisions Explained](/hashtable-collisions-explained/) and [Database Indexing Explained](/database-indexing-explained/).*
 
-*References: [Bloom Filter on Wikipedia](https://en.wikipedia.org/wiki/Bloom_filter), [Apache Cassandra Bloom Filters](https://cassandra.apache.org/doc/stable/cassandra/operating/bloom_filters.html), [Redis Bloom Filter](https://redis.io/docs/stack/bloom/)*
+*References: [Bloom Filter on Wikipedia](https://en.wikipedia.org/wiki/Bloom_filter), [Apache Cassandra Bloom Filters](https://cassandra.apache.org/doc/4.1/cassandra/operating/bloom_filters.html), [Redis Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/)*

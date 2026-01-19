@@ -7,7 +7,9 @@ date: 2026-01-16
 categories: data-structures
 thumbnail-img: /assets/img/posts/data_structures/bloom-filter-thumbnail.png
 share-img: /assets/img/posts/data_structures/bloom-filter-thumbnail.png
-permalink: /bloom-filter-explained/
+permalink: /data-structures/bloom-filter/
+redirect_from:
+  - /bloom-filter-explained/
 description: "What is a Bloom filter and how does it work? A simple guide to this space-efficient data structure used in databases, caches, and web browsers."
 keywords: "bloom filter, bloom filter explained, probabilistic data structure, false positive rate, hash function, membership test, space efficient data structure, bloom filter example, bloom filter use cases, bloom filter implementation, bloom filter database, cassandra bloom filter, redis bloom filter, how bloom filter works, bloom filter false positive, bloom filter vs hash set, bloom filter applications"
 tags: [data-structures]
@@ -429,6 +431,6 @@ If "yes" means letting someone into a system they should not access, do not use 
 
 ---
 
-*For more on probabilistic data structures, check out [HyperLogLog Explained](/hyperloglog-explained/) for cardinality estimation and [Count-Min Sketch Explained](/count-min-sketch-explained/) for frequency counting. For related topics, see [Hash Table Collisions Explained](/hashtable-collisions-explained/) and [Database Indexing Explained](/database-indexing-explained/).*
+*For more on probabilistic data structures, check out [HyperLogLog Explained](/data-structures/hyperloglog/) for cardinality estimation and [Count-Min Sketch Explained](/data-structures/count-min-sketch/) for frequency counting. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
 
 *References: [Bloom Filter on Wikipedia](https://en.wikipedia.org/wiki/Bloom_filter), [Apache Cassandra Bloom Filters](https://cassandra.apache.org/doc/4.1/cassandra/operating/bloom_filters.html), [Redis Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/)*

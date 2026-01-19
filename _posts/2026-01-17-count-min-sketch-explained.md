@@ -7,7 +7,9 @@ date: 2026-01-17
 categories: data-structures
 thumbnail-img: /assets/img/posts/data_structures/count-min-sketch-thumbnail.png
 share-img: /assets/img/posts/data_structures/count-min-sketch-thumbnail.png
-permalink: /count-min-sketch-explained/
+permalink: /data-structures/count-min-sketch/
+redirect_from:
+  - /count-min-sketch-explained/
 description: "Learn how Count-Min Sketch estimates item frequencies in data streams using minimal memory. Find heavy hitters and track counts without storing every item."
 keywords: "count min sketch, count-min sketch, frequency estimation, streaming algorithm, heavy hitters, probabilistic data structure, approximate counting, top k items, frequency counting, streaming data structure, cms algorithm, sketch data structure"
 tags: [data-structures]
@@ -441,6 +443,6 @@ Use Count-Min Sketch when you need frequencies. Use Bloom Filter for membership.
 
 ---
 
-*For more on probabilistic data structures, check out [Bloom Filters Explained](/bloom-filter-explained/) for membership testing and [HyperLogLog Explained](/hyperloglog-explained/) for cardinality estimation. For related topics, see [Hash Table Collisions Explained](/hashtable-collisions-explained/) and [Database Indexing Explained](/database-indexing-explained/).*
+*For more on probabilistic data structures, check out [Bloom Filters Explained](/data-structures/bloom-filter/) for membership testing and [HyperLogLog Explained](/data-structures/hyperloglog/) for cardinality estimation. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
 
 *References: [Count-Min Sketch on Wikipedia](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch), [Original Paper by Cormode and Muthukrishnan](http://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf), [Redis Count-Min Sketch](https://redis.io/docs/latest/develop/data-types/probabilistic/count-min-sketch/)*

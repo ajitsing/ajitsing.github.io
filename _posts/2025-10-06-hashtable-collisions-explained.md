@@ -8,7 +8,9 @@ last-modified-date: 2026-01-03
 categories: data-structures
 thumbnail-img: /assets/img/posts/data_structures/hashtable-collision.png
 share-img: /assets/img/posts/data_structures/hashtable-collision.png
-permalink: /hashtable-collisions-explained/
+permalink: /data-structures/hashtable-collisions/
+redirect_from:
+  - /hashtable-collisions-explained/
 description: "Deep dive into hash table collisions - understand why they happen, how they slow down your application, and practical techniques to handle them. Learn from real-world attacks, performance benchmarks, and production implementations."
 keywords: "hash table collision, collision resolution, separate chaining, open addressing, hash function, load factor, performance optimization, hash collision attack, data structures"
 tags: [data-structures]

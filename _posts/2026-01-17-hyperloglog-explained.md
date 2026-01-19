@@ -7,7 +7,9 @@ date: 2026-01-17
 categories: data-structures
 thumbnail-img: /assets/img/posts/data_structures/hyperloglog-thumbnail.png
 share-img: /assets/img/posts/data_structures/hyperloglog-thumbnail.png
-permalink: /hyperloglog-explained/
+permalink: /data-structures/hyperloglog/
+redirect_from:
+  - /hyperloglog-explained/
 description: "Learn how HyperLogLog estimates unique counts in massive datasets using minimal memory. Used by Redis, Presto, and BigQuery for cardinality estimation."
 keywords: "hyperloglog, hyperloglog algorithm, cardinality estimation, count distinct, unique count, probabilistic data structure, redis hyperloglog, pfcount, pfadd, distinct count algorithm, approximate counting, streaming algorithms, big data counting"
 tags: [data-structures]
@@ -409,6 +411,6 @@ HyperLogLog is the clear winner when you only need the count and can tolerate sm
 
 ---
 
-*For more on probabilistic data structures, check out [Bloom Filters Explained](/bloom-filter-explained/) for membership testing and [Count-Min Sketch Explained](/count-min-sketch-explained/) for frequency counting. For related topics, see [Hash Table Collisions Explained](/hashtable-collisions-explained/) and [Database Indexing Explained](/database-indexing-explained/).*
+*For more on probabilistic data structures, check out [Bloom Filters Explained](/data-structures/bloom-filter/) for membership testing and [Count-Min Sketch Explained](/data-structures/count-min-sketch/) for frequency counting. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
 
 *References: [HyperLogLog on Wikipedia](https://en.wikipedia.org/wiki/HyperLogLog), [Redis HyperLogLog](https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/), [HyperLogLog in Practice (Google)](https://research.google/pubs/pub40671/)*

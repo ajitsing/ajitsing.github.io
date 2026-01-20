@@ -314,9 +314,17 @@
   margin: 40px 0;
   padding: 20px 0;
   text-align: center;
+  width: 100%;
 }
 
 .explainers-above-rss-ad .adsbygoogle {
   width: 100%;
   display: block;
+}
+
+@media (max-width: 576px) {
+  .explainers-above-rss-ad {
+    margin: 24px 0;
+    padding: 12px 0;
+  }
 }

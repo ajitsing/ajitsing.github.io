@@ -93,6 +93,18 @@
   display: block;
 }
 
+/* Below Title Ad - appears right after post header */
+.post-below-title-ad {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.post-below-title-ad .adsbygoogle {
+  width: 100%;
+  display: block;
+}
 
 /* Hide sidebar on smaller screens */
 @media (max-width: 1199px) {
@@ -168,5 +180,9 @@
   .post-below-related-ad {
     margin: 32px 0;
     padding: 16px 0;
+  }
+
+  .post-below-title-ad {
+    padding: 12px 12px;
   }
 }

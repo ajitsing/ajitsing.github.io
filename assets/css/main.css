@@ -1401,6 +1401,27 @@ h1 + h3 {
   }
 }
 
+/* --- Home Bottom Ad --- */
+
+.home-bottom-ad {
+  margin: 40px 0;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.home-bottom-ad .adsbygoogle {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .home-bottom-ad {
+    margin: 24px 0;
+    padding: 12px 0;
+  }
+}
+
 /* --- Home Page Layout Override for Sidebar --- */
 
 /* Home page container - constrains all content to same max-width */

@@ -75,10 +75,16 @@
   .explainer-top-ad {
     margin: 10px auto;
     padding: 5px 0;
+    max-width: 100%;
+  }
+
+  .explainer-above-rss-ad {
+    margin: 24px 0;
+    padding: 12px 0;
   }
 
   .explainer-bottom-ad {
-    margin: 32px 0;
-    padding: 16px 0;
+    margin: 24px 0;
+    padding: 12px 0;
   }
 }

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var AD_POSITIONS = [0.20, 0.50];
+  var AD_POSITIONS = [0.05, 0.30];
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
   var VALID_INSERTION_TAGS = ['P', 'H2', 'H3', 'DIV'];
@@ -56,16 +56,22 @@
     var children = Array.from(article.children);
     if (children.length === 0) return;
 
+    var adsInserted = 0;
+
     // Insert ads at each position (in reverse order to maintain correct indices)
     for (var i = AD_POSITIONS.length - 1; i >= 0; i--) {
       var insertionIndex = findInsertionIndex(children, AD_POSITIONS[i]);
       var ad = createAdElement(AD_CLASS);
       insertAdAtIndex(article, ad, children, insertionIndex);
+      adsInserted++;
       // Update children array after each insertion
       children = Array.from(article.children);
     }
     
-    pushToAdSense();
+    // Push to AdSense for each ad inserted
+    for (var j = 0; j < adsInserted; j++) {
+      pushToAdSense();
+    }
   }
 
   function isAdEmpty(adSlot) {

@@ -13,6 +13,7 @@ keywords: "X algorithm, Twitter algorithm, For You feed, recommendation system, 
 tags: [system-design]
 comments: true
 featured: true
+popular: true
 faq:
   - question: "How does the X For You algorithm work?"
     answer: "The X For You algorithm uses a three-stage pipeline: candidate sourcing (fetching posts from accounts you follow and ML-discovered content), ranking (scoring each post using a Grok-based transformer model), and filtering (removing duplicates, blocked content, and applying diversity rules). The system processes 500 million daily posts to create a personalized feed of around 1,500 candidates."

@@ -146,6 +146,7 @@ social-share: true
 {% endif %}
 
 <div class="explainers-above-rss-ad">
+  <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-format="autorelaxed"

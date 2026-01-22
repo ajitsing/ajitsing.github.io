@@ -11,7 +11,6 @@ thumbnail-img: /assets/img/posts/dev_weekly/tech-news-12-18jan-2026.png
 description: "Microsoft Patch Tuesday fixes 114 vulnerabilities including zero-days. Cloudflare acquires Astro. LambdaTest rebrands to TestMu AI. GitHub restructures for AI. OpenAI acquires Torch. Developer news Jan 12-18, 2026."
 keywords: "Microsoft Patch Tuesday January 2026, 114 Windows vulnerabilities zero-day, Cloudflare acquires Astro, Astro web framework acquisition, LambdaTest TestMu AI rebrand, agentic AI quality engineering, GitHub CoreAI restructuring, OpenAI acquires Torch, Anthropic Claude Healthcare, Meta Reality Labs layoffs 2026, Firefox 147 release WebGPU, Visual Studio 2026 update, Gogs vulnerability CISA, Target developer server breach, Verizon outage January 2026, dev weekly January 2026"
 comments: true
-featured: true
 tags: ["dev-weekly", "tech-news", "software-development-news"]
 faq:
   - question: "What is TestMu AI and why did LambdaTest rebrand?"

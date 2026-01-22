@@ -1,0 +1,82 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f0f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ff88;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="200" fill="#00d4ff" fill-opacity="0.05"/>
+  <circle cx="1100" cy="530" r="250" fill="#00ff88" fill-opacity="0.05"/>
+  
+  <!-- X Logo -->
+  <g transform="translate(540, 80)">
+    <path d="M 60 0 L 110 60 L 60 120 L 75 120 L 115 72 L 155 120 L 170 120 L 120 60 L 170 0 L 155 0 L 115 48 L 75 0 Z" 
+          fill="#ffffff"/>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="600" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="700" fill="#ffffff" text-anchor="middle">
+    Inside X's For You Algorithm
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#b0b0b0" text-anchor="middle">
+    How 500M Daily Posts Become Your Feed
+  </text>
+  
+  <!-- Architecture diagram hint -->
+  <g transform="translate(250, 380)">
+    <!-- Pipeline boxes -->
+    <rect x="0" y="0" width="140" height="60" rx="8" fill="#1e3a5f" stroke="#00d4ff" stroke-width="2"/>
+    <text x="70" y="35" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Thunder</text>
+    
+    <rect x="180" y="0" width="140" height="60" rx="8" fill="#1e3a5f" stroke="#00d4ff" stroke-width="2"/>
+    <text x="250" y="35" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Phoenix</text>
+    
+    <rect x="360" y="0" width="140" height="60" rx="8" fill="#1e3a5f" stroke="#00d4ff" stroke-width="2"/>
+    <text x="430" y="35" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Home Mixer</text>
+    
+    <rect x="540" y="0" width="140" height="60" rx="8" fill="#1e3a5f" stroke="#00d4ff" stroke-width="2"/>
+    <text x="610" y="35" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Feed</text>
+    
+    <!-- Arrows -->
+    <path d="M 145 30 L 175 30" stroke="#00d4ff" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 325 30 L 355 30" stroke="#00d4ff" stroke-width="2" fill="none"/>
+    <path d="M 505 30 L 535 30" stroke="#00d4ff" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Tags -->
+  <g transform="translate(350, 520)">
+    <rect x="0" y="0" width="100" height="32" rx="16" fill="#00d4ff" fill-opacity="0.2" stroke="#00d4ff" stroke-width="1"/>
+    <text x="50" y="21" font-family="system-ui, sans-serif" font-size="14" fill="#00d4ff" text-anchor="middle">Rust</text>
+    
+    <rect x="120" y="0" width="100" height="32" rx="16" fill="#00ff88" fill-opacity="0.2" stroke="#00ff88" stroke-width="1"/>
+    <text x="170" y="21" font-family="system-ui, sans-serif" font-size="14" fill="#00ff88" text-anchor="middle">Python</text>
+    
+    <rect x="240" y="0" width="130" height="32" rx="16" fill="#ffd700" fill-opacity="0.2" stroke="#ffd700" stroke-width="1"/>
+    <text x="305" y="21" font-family="system-ui, sans-serif" font-size="14" fill="#ffd700" text-anchor="middle">Transformer</text>
+    
+    <rect x="390" y="0" width="100" height="32" rx="16" fill="#ff6b6b" fill-opacity="0.2" stroke="#ff6b6b" stroke-width="1"/>
+    <text x="440" y="21" font-family="system-ui, sans-serif" font-size="14" fill="#ff6b6b" text-anchor="middle">Open Source</text>
+  </g>
+  
+  <!-- Author/Site -->
+  <text x="600" y="590" font-family="system-ui, sans-serif" font-size="16" fill="#666666" text-anchor="middle">
+    singhajit.com
+  </text>
+</svg>

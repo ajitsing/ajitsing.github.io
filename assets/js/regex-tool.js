@@ -42,6 +42,8 @@
   };
 
   let currentFlags = { g: true, i: false, m: true, s: false, u: false };
+  let lastTrackedPattern = '';
+  let patternTrackTimeout = null;
 
   function trackEvent(action, label, value) {
     if (typeof gtag === 'function') {
@@ -51,6 +53,16 @@
         value: value
       });
     }
+  }
+
+  function trackPatternTest(pattern, matchCount) {
+    if (patternTrackTimeout) clearTimeout(patternTrackTimeout);
+    patternTrackTimeout = setTimeout(() => {
+      if (pattern && pattern !== lastTrackedPattern) {
+        lastTrackedPattern = pattern;
+        trackEvent('test_pattern', pattern, matchCount);
+      }
+    }, 1500);
   }
 
   function getFlagsString(flags) {
@@ -344,6 +356,7 @@
       elements.highlightedResult.innerHTML = '<span class="placeholder">Fix the pattern error above</span>';
       elements.captureGroups.innerHTML = '<span class="placeholder">Fix the pattern error</span>';
       renderExplanation(pattern);
+      trackEvent('pattern_error', pattern);
       return;
     }
     
@@ -369,6 +382,7 @@
     
     renderCaptureGroups(matches);
     renderExplanation(pattern);
+    trackPatternTest(pattern, matches.length);
   }
 
   function getStateFromURL() {
@@ -401,7 +415,10 @@
   function loadFromURL() {
     const state = getStateFromURL();
     
-    if (state.pattern) elements.regexInput.value = state.pattern;
+    if (state.pattern) {
+      elements.regexInput.value = state.pattern;
+      trackEvent('url_load', state.pattern);
+    }
     if (state.test) elements.testString.value = state.test;
     
     if (state.flags) {

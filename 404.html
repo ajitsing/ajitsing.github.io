@@ -7,6 +7,20 @@ description: "Page not found - The requested page doesn't exist on this site."
 
 <link rel="stylesheet" href="{{ '/assets/css/404.css' | relative_url }}">
 
+{% if site.gtag %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', '404_error', {
+        'page_location': window.location.href,
+        'page_path': window.location.pathname,
+        'page_referrer': document.referrer || 'direct'
+      });
+    }
+  });
+</script>
+{% endif %}
+
 <div class="error-404">
   <h1>404</h1>
   <h2>Whoops, this page doesn't exist.</h2>

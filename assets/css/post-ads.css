@@ -37,27 +37,6 @@
   flex-shrink: 0;
 }
 
-.floating-sidebar-ad {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  border-radius: 12px;
-  padding: 10px;
-}
-
-.floating-sidebar-ad .adsbygoogle {
-  display: inline-block;
-  width: 300px;
-  height: 250px;
-}
-
-/* Hide floating ad on mobile/tablet */
-@media (max-width: 1199px) {
-  .floating-sidebar-ad {
-    display: none;
-  }
-}
 
 .post-header-ad {
   margin: 20px auto;

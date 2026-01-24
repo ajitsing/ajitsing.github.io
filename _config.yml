@@ -32,7 +32,7 @@ navbar-links:
   About Me: "aboutme"
   # Videos: "videos"
   Explainers: "explainers"
-  Tools: "/tools/cron-expression"
+  Tools: "/tools/"
   System Design: "/system-design"
   Design Patterns: "/design-patterns"
   Tag Cloud: "/tags"

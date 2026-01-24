@@ -1,0 +1,687 @@
+---
+layout: default
+title: "Test, debug, and build regular expressions"
+subtitle: "Test, debug, and build regular expressions with real-time matching"
+seo: true
+description: "Free online regex tester and debugger. Test regular expressions with real-time highlighting, pattern explanation, and capture group visualization. Works with JavaScript regex syntax. No data stored - 100% client-side."
+keywords: "regex tester, regex debugger, regular expression tester, regex validator, regex builder, regex pattern tester, regex online, regex checker, regex match, regex replace, regex capture groups, javascript regex, regex examples, regex cheat sheet"
+thumbnail: /assets/img/tools/regex-tool-thumbnail.png
+share-img: /assets/img/tools/regex-tool-thumbnail.png
+permalink: /tools/regex-tester/
+social-share: true
+hide-explore-posts: true
+---
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Regex Tester & Debugger",
+  "alternateName": ["Regular Expression Tester", "Regex Validator", "Regex Builder", "Pattern Matcher", "Regex Debugger", "Online Regex Tester", "Regex Checker"],
+  "description": "Free online regex tester and debugger. Test regular expressions with real-time highlighting, pattern explanation, and capture group visualization.",
+  "url": "https://singhajit.com/tools/regex-tester/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Real-time regex pattern matching",
+    "Visual match highlighting",
+    "Pattern explanation in plain English",
+    "Capture group visualization",
+    "Multiple regex flags support (g, i, m, s, u)",
+    "Common regex examples library",
+    "Quick reference cheat sheet",
+    "Shareable URLs for patterns",
+    "100% client-side - no data stored",
+    "Works offline after loading"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/regex-tool-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "Regex Syntax Reference",
+    "text": "Regular expressions use special characters to define patterns: ^ (start), $ (end), . (any character), * (zero or more), + (one or more), ? (optional), [] (character class), () (capture group), | (or), \\ (escape)."
+  },
+  "keywords": "regex tester, regex debugger, regular expression, pattern matcher, regex validator, regex builder"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Test and Debug Regular Expressions",
+  "description": "Learn how to test regex patterns, debug matching issues, and understand capture groups using this online regex tester tool.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your regex pattern",
+      "text": "Type or paste your regular expression pattern in the pattern input field. The pattern will be validated in real-time and any syntax errors will be highlighted."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Add test string",
+      "text": "Enter the text you want to test against your pattern in the test string area. Matches will be highlighted automatically as you type."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Configure regex flags",
+      "text": "Toggle regex flags as needed: g (global - find all matches), i (case-insensitive), m (multiline), s (dotAll - dot matches newlines), u (unicode)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Review matches and capture groups",
+      "text": "View all matches highlighted in your test string. Check the capture groups panel to see values captured by parentheses in your pattern. The pattern explanation helps you understand what each part of your regex does."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Regex Tester & Debugger"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a regular expression (regex)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A regular expression (regex or regexp) is a sequence of characters that defines a search pattern. It's used for pattern matching within strings, such as validating email addresses, extracting data, or finding and replacing text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I test a regex pattern?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your regex pattern in the pattern field, then type or paste your test string. Matches will be highlighted in real-time. Use the flags (g, i, m, s, u) to modify matching behavior."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the regex flags mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main regex flags are: g (global) finds all matches instead of stopping at the first; i (case-insensitive) ignores letter case; m (multiline) makes ^ and $ match line starts/ends; s (dotAll) makes . match newlines; u (unicode) enables full Unicode support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a capture group in regex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A capture group is created by wrapping part of a pattern in parentheses (). It captures the matched text so you can reference it later, either in the same pattern (backreference) or in replacement strings using $1, $2, etc."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I match any character in regex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the dot (.) to match any single character except newlines. To match literally any character including newlines, use the 's' flag (dotAll mode) or the pattern [\\s\\S]."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I match the start or end of a string?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use ^ to match the start of a string and $ to match the end. With the multiline flag (m), these also match the start and end of each line within the string."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between * and + in regex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The asterisk (*) matches zero or more of the preceding element, while plus (+) matches one or more. For example, 'a*' matches '', 'a', 'aa', etc., but 'a+' requires at least one 'a'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I match a literal special character?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a backslash (\\) to escape special characters. For example, \\. matches a literal dot, \\* matches an asterisk, and \\\\ matches a backslash itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a character class in regex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A character class is defined with square brackets [] and matches any single character within the brackets. For example, [aeiou] matches any vowel, [0-9] matches any digit, and [^abc] matches any character except a, b, or c."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a regex pattern case-insensitive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add the 'i' flag to your regex. In JavaScript, this looks like /pattern/i. In this tool, simply toggle the 'i' flag button to enable case-insensitive matching."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a non-capturing group?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A non-capturing group (?:...) groups parts of a pattern without capturing the match. It's useful when you need grouping for alternation or quantifiers but don't need to extract the matched text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use regex for find and replace?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Replace mode in this tool. Enter your pattern, test string, and replacement string. Use $1, $2, etc. to insert captured groups. For example, pattern '(\\w+)@(\\w+)' with replacement '$2-$1' swaps the parts around the @."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a lookahead in regex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A lookahead checks if a pattern exists ahead without consuming characters. Positive lookahead (?=...) asserts that what follows matches the pattern. Negative lookahead (?!...) asserts that what follows doesn't match."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I validate an email address with regex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A common email regex pattern is: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$ This matches standard email formats, though perfect email validation is complex due to the full email specification."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Regex Tester & Debugger",
+      "item": "https://singhajit.com/tools/regex-tester/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Table",
+  "about": "Common regex patterns with examples and descriptions",
+  "name": "Regular Expression Examples",
+  "description": "A reference table of commonly used regex patterns for validation, extraction, and text manipulation.",
+  "keywords": "regex examples, regex patterns, regular expression examples, common regex",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 20,
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "item": {"@type": "Thing", "name": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "description": "Email address validation"}},
+      {"@type": "ListItem", "position": 2, "item": {"@type": "Thing", "name": "^https?://[^\\s/$.?#].[^\\s]*$", "description": "URL validation"}},
+      {"@type": "ListItem", "position": 3, "item": {"@type": "Thing", "name": "^\\+?[1-9]\\d{1,14}$", "description": "International phone number (E.164)"}},
+      {"@type": "ListItem", "position": 4, "item": {"@type": "Thing", "name": "^\\d{4}-\\d{2}-\\d{2}$", "description": "Date format YYYY-MM-DD"}},
+      {"@type": "ListItem", "position": 5, "item": {"@type": "Thing", "name": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$", "description": "Strong password (8+ chars, upper, lower, digit)"}},
+      {"@type": "ListItem", "position": 6, "item": {"@type": "Thing", "name": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$", "description": "IPv4 address format"}},
+      {"@type": "ListItem", "position": 7, "item": {"@type": "Thing", "name": "^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$", "description": "Hex color code"}},
+      {"@type": "ListItem", "position": 8, "item": {"@type": "Thing", "name": "^[a-zA-Z0-9_-]{3,16}$", "description": "Username (3-16 chars, alphanumeric)"}},
+      {"@type": "ListItem", "position": 9, "item": {"@type": "Thing", "name": "^\\d{5}(-\\d{4})?$", "description": "US ZIP code"}},
+      {"@type": "ListItem", "position": 10, "item": {"@type": "Thing", "name": "^\\d+\\.\\d{2}$", "description": "Currency amount (2 decimals)"}},
+      {"@type": "ListItem", "position": 11, "item": {"@type": "Thing", "name": "\\b\\d{3}[-.]?\\d{3}[-.]?\\d{4}\\b", "description": "US phone number"}},
+      {"@type": "ListItem", "position": 12, "item": {"@type": "Thing", "name": "<[^>]+>", "description": "HTML tag"}},
+      {"@type": "ListItem", "position": 13, "item": {"@type": "Thing", "name": "\\b[A-Z][a-z]*\\b", "description": "Capitalized word"}},
+      {"@type": "ListItem", "position": 14, "item": {"@type": "Thing", "name": "^-?\\d+(\\.\\d+)?$", "description": "Integer or decimal number"}},
+      {"@type": "ListItem", "position": 15, "item": {"@type": "Thing", "name": "\\s+", "description": "Whitespace (one or more)"}},
+      {"@type": "ListItem", "position": 16, "item": {"@type": "Thing", "name": "^[a-z0-9-]+$", "description": "URL slug"}},
+      {"@type": "ListItem", "position": 17, "item": {"@type": "Thing", "name": "\\b\\w+@\\w+\\.\\w+\\b", "description": "Simple email extraction"}},
+      {"@type": "ListItem", "position": 18, "item": {"@type": "Thing", "name": "([\"'])(?:(?=(\\\\?))\\2.)*?\\1", "description": "Quoted string"}},
+      {"@type": "ListItem", "position": 19, "item": {"@type": "Thing", "name": "<!--[\\s\\S]*?-->", "description": "HTML comment"}},
+      {"@type": "ListItem", "position": 20, "item": {"@type": "Thing", "name": "^\\s*$", "description": "Empty or whitespace-only line"}}
+    ]
+  }
+}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/regex-tool.css' | relative_url }}">
+
+<div class="regex-page-wrapper">
+  <div class="regex-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-code"></i>
+        Regex Tester & Debugger
+      </h1>
+      <p class="tool-subtitle">Test, debug, and build regular expressions with real-time pattern matching</p>
+    </header>
+    
+    <p class="tool-intro">
+      Use this <strong>regex tester</strong> to build and debug regular expressions in real-time. See matches highlighted instantly, understand your pattern with our <strong>regex explainer</strong>, and visualize capture groups. 100% client-side — your data never leaves your browser.
+    </p>
+
+    <div class="top-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section id="test-mode" class="regex-tester-main">
+      <div class="input-section">
+        <label for="regex-input">Regular Expression Pattern:</label>
+        <div class="pattern-input-wrapper">
+          <span class="pattern-delimiter">/</span>
+          <input 
+            type="text" 
+            id="regex-input" 
+            placeholder="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <span class="pattern-delimiter">/</span>
+          <div class="flags-container">
+            <button class="flag-btn active" data-flag="g" title="Global - find all matches">g</button>
+            <button class="flag-btn" data-flag="i" title="Case-insensitive">i</button>
+            <button class="flag-btn active" data-flag="m" title="Multiline - ^ and $ match line boundaries">m</button>
+            <button class="flag-btn" data-flag="s" title="DotAll - dot matches newlines">s</button>
+            <button class="flag-btn" data-flag="u" title="Unicode support">u</button>
+          </div>
+        </div>
+        <div id="pattern-error" class="pattern-error"></div>
+      </div>
+
+      <div class="input-section">
+        <label for="test-string">Test String:</label>
+        <div class="test-string-wrapper">
+          <textarea 
+            id="test-string" 
+            rows="6" 
+            placeholder="Enter text to test your regex against...
+
+Example: john.doe@example.com, jane_smith@company.org"
+            spellcheck="false"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="results-section">
+        <div class="result-card matches-card">
+          <h3>
+            <i class="fas fa-highlighter"></i> 
+            Matches 
+            <span id="match-count" class="match-count">0</span>
+          </h3>
+          <div id="highlighted-result" class="highlighted-result">
+            <span class="placeholder">Enter a pattern and test string to see matches</span>
+          </div>
+        </div>
+
+        <div class="result-card groups-card">
+          <h3><i class="fas fa-layer-group"></i> Capture Groups</h3>
+          <div id="capture-groups" class="capture-groups">
+            <span class="placeholder">Capture groups will appear here</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="explanation-section">
+        <h3><i class="fas fa-book-open"></i> Pattern Explanation</h3>
+        <div id="pattern-explanation" class="pattern-explanation">
+          <span class="placeholder">Enter a regex pattern to see its explanation</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="share-section">
+      <button id="copy-pattern-btn" class="btn-secondary" title="Copy pattern">
+        <i class="fas fa-copy"></i>
+        Copy Pattern
+      </button>
+      <button id="share-btn" class="btn-secondary" title="Copy shareable link">
+        <i class="fas fa-share-alt"></i>
+        Share Link
+      </button>
+    </div>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Quick Reference</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Anchors</h4>
+          <table>
+            <tr><td><code>^</code></td><td>Start of string/line</td></tr>
+            <tr><td><code>$</code></td><td>End of string/line</td></tr>
+            <tr><td><code>\b</code></td><td>Word boundary</td></tr>
+            <tr><td><code>\B</code></td><td>Not word boundary</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Quantifiers</h4>
+          <table>
+            <tr><td><code>*</code></td><td>0 or more</td></tr>
+            <tr><td><code>+</code></td><td>1 or more</td></tr>
+            <tr><td><code>?</code></td><td>0 or 1 (optional)</td></tr>
+            <tr><td><code>{n}</code></td><td>Exactly n times</td></tr>
+            <tr><td><code>{n,m}</code></td><td>Between n and m</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Character Classes</h4>
+          <table>
+            <tr><td><code>.</code></td><td>Any character</td></tr>
+            <tr><td><code>\d</code></td><td>Digit [0-9]</td></tr>
+            <tr><td><code>\w</code></td><td>Word char [a-zA-Z0-9_]</td></tr>
+            <tr><td><code>\s</code></td><td>Whitespace</td></tr>
+            <tr><td><code>[abc]</code></td><td>Any of a, b, or c</td></tr>
+            <tr><td><code>[^abc]</code></td><td>Not a, b, or c</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Groups & Lookaround</h4>
+          <table>
+            <tr><td><code>(abc)</code></td><td>Capture group</td></tr>
+            <tr><td><code>(?:abc)</code></td><td>Non-capturing group</td></tr>
+            <tr><td><code>(?=abc)</code></td><td>Positive lookahead</td></tr>
+            <tr><td><code>(?!abc)</code></td><td>Negative lookahead</td></tr>
+            <tr><td><code>a|b</code></td><td>a or b</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="reference-section examples-table-section">
+      <h3><i class="fas fa-lightbulb"></i> Common Regex Patterns</h3>
+      <p class="examples-intro">Click any pattern to load it into the <strong>regex tester</strong> above. These patterns cover common validation and extraction use cases.</p>
+      
+      <table class="regex-examples-table" id="regex-examples-table">
+        <thead>
+          <tr>
+            <th>Pattern</th>
+            <th>Description</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="example-row" data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" data-test="test@example.com&#10;invalid-email&#10;user.name+tag@domain.org">
+            <td><code>^[a-zA-Z0-9._%+-]+@...</code></td><td>Email address</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="^https?:\/\/[^\s/$.?#].[^\s]*$" data-test="https://example.com&#10;http://test.org/path?q=1&#10;not a url">
+            <td><code>^https?:\/\/...</code></td><td>URL</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="\b\d{3}[-.]?\d{3}[-.]?\d{4}\b" data-test="Call me at 555-123-4567 or 555.987.6543">
+            <td><code>\b\d{3}[-.]?\d{3}...</code></td><td>US Phone Number</td><td>Extraction</td>
+          </tr>
+          <tr class="example-row" data-pattern="^\d{4}-\d{2}-\d{2}$" data-test="2024-01-15&#10;2024-12-31&#10;invalid-date">
+            <td><code>^\d{4}-\d{2}-\d{2}$</code></td><td>Date (YYYY-MM-DD)</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" data-test="StrongPass1&#10;weakpass&#10;NoDigits">
+            <td><code>^(?=.*[a-z])(?=.*[A-Z])...</code></td><td>Strong Password</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$" data-test="192.168.1.1&#10;10.0.0.255&#10;256.1.1.1">
+            <td><code>^\d{1,3}\.\d{1,3}...</code></td><td>IPv4 Address</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" data-test="#FF5733&#10;#fff&#10;abc123&#10;#GGG">
+            <td><code>^#?([a-fA-F0-9]{6}...</code></td><td>Hex Color Code</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="^[a-zA-Z0-9_-]{3,16}$" data-test="john_doe&#10;user123&#10;ab&#10;this-is-way-too-long-username">
+            <td><code>^[a-zA-Z0-9_-]{3,16}$</code></td><td>Username</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="^\d{5}(-\d{4})?$" data-test="12345&#10;12345-6789&#10;1234&#10;123456">
+            <td><code>^\d{5}(-\d{4})?$</code></td><td>US ZIP Code</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="^\$?\d+(\.\d{2})?$" data-test="$19.99&#10;100&#10;$5.00&#10;$5.999">
+            <td><code>^\$?\d+(\.\d{2})?$</code></td><td>Currency Amount</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="<([a-z]+)[^>]*>(.*?)<\/\1>" data-test="<div>Hello</div> and <span class='x'>World</span>">
+            <td><code>&lt;([a-z]+)[^&gt;]*&gt;...</code></td><td>HTML Tag with Content</td><td>Extraction</td>
+          </tr>
+          <tr class="example-row" data-pattern="\b[A-Z][a-z]+\b" data-test="Hello World, this is a Test String">
+            <td><code>\b[A-Z][a-z]+\b</code></td><td>Capitalized Words</td><td>Extraction</td>
+          </tr>
+          <tr class="example-row" data-pattern="^-?\d+(\.\d+)?$" data-test="42&#10;-17&#10;3.14159&#10;-0.5&#10;abc">
+            <td><code>^-?\d+(\.\d+)?$</code></td><td>Integer or Decimal</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="\s+" data-test="Split   these    words   apart">
+            <td><code>\s+</code></td><td>Whitespace (1+)</td><td>Utility</td>
+          </tr>
+          <tr class="example-row" data-pattern="^[a-z0-9]+(?:-[a-z0-9]+)*$" data-test="my-url-slug&#10;another-one&#10;Invalid Slug">
+            <td><code>^[a-z0-9]+(?:-[a-z0-9]+)*$</code></td><td>URL Slug</td><td>Validation</td>
+          </tr>
+          <tr class="example-row" data-pattern="(['\"])(.*?)\1" data-test="He said &quot;hello&quot; and 'goodbye' today">
+            <td><code>(['\"])(.*?)\1</code></td><td>Quoted String</td><td>Extraction</td>
+          </tr>
+          <tr class="example-row" data-pattern="<!--[\s\S]*?-->" data-test="<div><!-- This is a comment --></div>">
+            <td><code>&lt;!--[\s\S]*?--&gt;</code></td><td>HTML Comment</td><td>Extraction</td>
+          </tr>
+          <tr class="example-row" data-pattern="^\s*$" data-test="&#10;   &#10;not empty">
+            <td><code>^\s*$</code></td><td>Empty/Whitespace Line</td><td>Utility</td>
+          </tr>
+          <tr class="example-row" data-pattern="\b\w+\b" data-test="Extract all words from this sentence!">
+            <td><code>\b\w+\b</code></td><td>All Words</td><td>Extraction</td>
+          </tr>
+          <tr class="example-row" data-pattern="(?<=@)\w+" data-test="email@domain gets domain, user@example gets example">
+            <td><code>(?&lt;=@)\w+</code></td><td>Domain from Email (lookbehind)</td><td>Advanced</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="dedicated-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Regular Expression Guide</h3>
+      <div class="syntax-guide-content">
+        
+        <article class="guide-article">
+          <h2>What is a Regular Expression?</h2>
+          <p>A <strong>regular expression</strong> (regex or regexp) is a sequence of characters that defines a search pattern. Originally developed in theoretical computer science, regex is now a fundamental tool used across programming languages for text processing, validation, and data extraction.</p>
+          <p>Regular expressions are used everywhere: form validation in web applications, log file analysis, search-and-replace in text editors, data parsing in ETL pipelines, and URL routing in web frameworks.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Understanding Regex Syntax</h2>
+          
+          <h3>Literal Characters</h3>
+          <p>Most characters match themselves literally. The pattern <code>hello</code> matches the string "hello" exactly. However, certain characters have special meanings and must be escaped with a backslash to match literally.</p>
+          
+          <h3>Special Characters (Metacharacters)</h3>
+          <p>These characters have special meanings in regex: <code>. ^ $ * + ? { } [ ] \ | ( )</code>. To match them literally, escape with a backslash: <code>\.</code> matches a period, <code>\*</code> matches an asterisk.</p>
+          
+          <h3>Character Classes</h3>
+          <p>Square brackets define a character class that matches any single character within. <code>[aeiou]</code> matches any vowel. Ranges work too: <code>[a-z]</code> matches any lowercase letter, <code>[0-9]</code> matches any digit. Negate with <code>^</code>: <code>[^0-9]</code> matches any non-digit.</p>
+          
+          <h3>Shorthand Character Classes</h3>
+          <p>Common patterns have shortcuts: <code>\d</code> (digit), <code>\w</code> (word character: letters, digits, underscore), <code>\s</code> (whitespace). Uppercase versions negate: <code>\D</code> (non-digit), <code>\W</code> (non-word), <code>\S</code> (non-whitespace).</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Quantifiers</h2>
+          <p>Quantifiers specify how many times the preceding element should match:</p>
+          <ul>
+            <li><strong><code>*</code></strong> — Zero or more times (greedy)</li>
+            <li><strong><code>+</code></strong> — One or more times (greedy)</li>
+            <li><strong><code>?</code></strong> — Zero or one time (optional)</li>
+            <li><strong><code>{n}</code></strong> — Exactly n times</li>
+            <li><strong><code>{n,}</code></strong> — n or more times</li>
+            <li><strong><code>{n,m}</code></strong> — Between n and m times</li>
+          </ul>
+          <p>Add <code>?</code> after any quantifier to make it lazy (non-greedy): <code>.*?</code> matches as few characters as possible.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Groups and Capturing</h2>
+          <p>Parentheses create groups that can be quantified together and capture their match for later use:</p>
+          <ul>
+            <li><strong><code>(abc)</code></strong> — Capturing group: matches "abc" and saves it</li>
+            <li><strong><code>(?:abc)</code></strong> — Non-capturing group: groups without saving</li>
+            <li><strong><code>(?&lt;name&gt;abc)</code></strong> — Named capture group</li>
+            <li><strong><code>\1</code>, <code>\2</code></strong> — Backreferences to captured groups</li>
+            <li><strong><code>$1</code>, <code>$2</code></strong> — References in replacement strings</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Lookahead and Lookbehind</h2>
+          <p>Lookaround assertions match a position without consuming characters:</p>
+          <ul>
+            <li><strong><code>(?=abc)</code></strong> — Positive lookahead: assert "abc" follows</li>
+            <li><strong><code>(?!abc)</code></strong> — Negative lookahead: assert "abc" doesn't follow</li>
+            <li><strong><code>(?&lt;=abc)</code></strong> — Positive lookbehind: assert "abc" precedes</li>
+            <li><strong><code>(?&lt;!abc)</code></strong> — Negative lookbehind: assert "abc" doesn't precede</li>
+          </ul>
+          <p>Example: <code>\d+(?= dollars)</code> matches digits only if followed by " dollars".</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Regex Flags</h2>
+          <p>Flags modify how the pattern is interpreted:</p>
+          <ul>
+            <li><strong><code>g</code> (global)</strong> — Find all matches, not just the first</li>
+            <li><strong><code>i</code> (case-insensitive)</strong> — Ignore letter case when matching</li>
+            <li><strong><code>m</code> (multiline)</strong> — <code>^</code> and <code>$</code> match line boundaries</li>
+            <li><strong><code>s</code> (dotAll)</strong> — Dot <code>.</code> matches newline characters too</li>
+            <li><strong><code>u</code> (unicode)</strong> — Enable full Unicode matching</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> Regex FAQ — Common Questions Answered</h2>
+      
+      <div class="faq-item">
+        <h3>What is a regular expression (regex)?</h3>
+        <p>A <strong>regular expression</strong> is a pattern that describes a set of strings. It's a powerful tool for searching, matching, and manipulating text. Regex is supported in virtually all programming languages and many text editors.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>How do I test a regex pattern?</h3>
+        <p>Enter your pattern in the input field above, then add your test string. Matches will be highlighted in real-time. Toggle the flags (g, i, m, s, u) to adjust matching behavior.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>What do the regex flags mean?</h3>
+        <p><code>g</code> (global) finds all matches; <code>i</code> ignores case; <code>m</code> (multiline) makes ^ and $ match line boundaries; <code>s</code> (dotAll) makes . match newlines; <code>u</code> enables Unicode support.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>What is a capture group?</h3>
+        <p>Parentheses <code>()</code> create capture groups that save the matched text. You can reference captured text with <code>$1</code>, <code>$2</code>, etc. in replacements, or use backreferences <code>\1</code>, <code>\2</code> within the same pattern.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>How do I match a literal special character?</h3>
+        <p>Escape special characters with a backslash. For example: <code>\.</code> matches a period, <code>\*</code> matches an asterisk, <code>\\</code> matches a backslash, <code>\(</code> matches an opening parenthesis.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>What is the difference between * and +?</h3>
+        <p><code>*</code> matches zero or more occurrences (including none), while <code>+</code> requires at least one occurrence. Pattern <code>a*</code> matches "", "a", "aa", but <code>a+</code> requires at least one "a".</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>How do I match the start or end of a string?</h3>
+        <p>Use <code>^</code> for the start and <code>$</code> for the end. With the <code>m</code> (multiline) flag, these also match line boundaries within the string.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>How do I make my regex case-insensitive?</h3>
+        <p>Enable the <code>i</code> flag. This makes <code>Hello</code> match "hello", "HELLO", "HeLLo", etc. Click the "i" button in this tool to toggle it.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>What is a non-greedy (lazy) match?</h3>
+        <p>By default, quantifiers are greedy — they match as much as possible. Adding <code>?</code> after a quantifier makes it lazy: <code>.*?</code> matches as few characters as possible.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>What is a lookahead?</h3>
+        <p>A lookahead checks if a pattern exists ahead without consuming characters. <code>(?=pattern)</code> is positive lookahead (pattern must follow), <code>(?!pattern)</code> is negative lookahead (pattern must not follow).</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>How do I validate an email with regex?</h3>
+        <p>A common pattern is <code>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>. Note that perfect email validation is complex; for production use, consider additional validation or using your language's built-in validators.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>Is my data safe using this tool?</h3>
+        <p>Yes! This regex tester runs entirely in your browser. Your patterns and test strings are never sent to any server. Everything is processed client-side using JavaScript.</p>
+      </div>
+    </section>
+
+    <div class="bottom-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function hideEmptyAds() {
+    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section').forEach(function(container) {
+      var adSlot = container.querySelector('.adsbygoogle');
+      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
+        container.style.display = 'none';
+      }
+    });
+  }
+  setTimeout(function() { requestAnimationFrame(hideEmptyAds); }, 3000);
+})();
+</script>
+
+<script src="{{ '/assets/js/regex-tool.js' | relative_url }}"></script>

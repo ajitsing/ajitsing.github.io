@@ -3,47 +3,13 @@
  * Matches the explainer theme: clean, professional, developer-focused
  */
 
-/* ==========================================================================
-   Page Wrapper with Sidebars
-   ========================================================================== */
-
+/* Page Layout */
 .cron-page-wrapper {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 900px) 1fr;
-  gap: 24px;
-  max-width: 1320px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px 15px 40px;
   background: #faf8f5;
   min-height: 100vh;
-}
-
-/* Empty left spacer for visual balance */
-.cron-page-wrapper::before {
-  content: "";
-  display: block;
-  max-width: 160px;
-}
-
-/* ==========================================================================
-   Sidebar Ads
-   ========================================================================== */
-
-.cron-sidebar {
-  position: sticky;
-  top: 100px;
-  height: fit-content;
-  max-height: calc(100vh - 120px);
-  max-width: 160px;
-  justify-self: start;
-}
-
-.sidebar-ad-container {
-  /* Container collapses if ad is blocked */
-}
-
-.sidebar-ad-container .adsbygoogle {
-  min-height: 250px;
 }
 
 /* ==========================================================================
@@ -88,6 +54,11 @@
 .bottom-ad-section {
   margin: 40px 0 20px 0;
   padding: 16px 0;
+}
+
+.top-ad-section {
+  margin: 0 0 24px 0;
+  min-height: 90px;
 }
 
 /* ==========================================================================
@@ -991,26 +962,7 @@ body:has(.cron-tool) {
   color: #fef3c7;
 }
 
-/* ==========================================================================
-   Responsive Design
-   ========================================================================== */
-
-/* Hide sidebar on smaller screens */
-@media (max-width: 1200px) {
-  .cron-page-wrapper {
-    grid-template-columns: minmax(0, 900px);
-    padding: 20px 15px 40px;
-  }
-
-  .cron-page-wrapper::before {
-    display: none;
-  }
-
-  .cron-sidebar {
-    display: none;
-  }
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
   .cron-page-wrapper {
     padding: 15px 12px 30px;

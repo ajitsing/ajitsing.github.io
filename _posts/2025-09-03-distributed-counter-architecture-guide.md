@@ -27,7 +27,7 @@ faq:
 
 You've probably implemented counters dozens of times. A simple `count++` here, a database increment there. But what happens when your humble counter needs to handle millions of increments per second across multiple data centers? Welcome to the fascinating world of distributed counters.
 
-Whether you're building the next social media platform, tracking inventory for an e-commerce giant, or implementing rate limiting for your API, understanding distributed counters is essential. Let's dive deep into the patterns, pitfalls, and practical solutions.
+Whether you're building the next social media platform, tracking inventory for an e-commerce giant, or implementing [rate limiting](/dynamic-rate-limiter-system-design/) for your API, understanding distributed counters is essential. Let's dive deep into the patterns, pitfalls, and practical solutions.
 
 ## The Deceptively Simple Problem
 

@@ -115,7 +115,7 @@ Imagine you and 4 friends are trying to decide where to go for dinner using a gr
 But there are rules to prevent chaos:
 - Only one dinner decision at a time
 - Once you say "yes, let's decide", you can't ignore that for an older suggestion
-- You need majority agreement (3 out of 5) to confirm the restaurant
+- You need majority agreement (3 out of 5) to confirm the restaurant. (This [majority quorum](/distributed-systems/majority-quorum/) principle is fundamental to distributed consensus.)
 - If someone was offline, they see the final decision when they check their phone
 
 That's essentially how Paxos works.

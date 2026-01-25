@@ -198,6 +198,8 @@ They drastically reduced what gets sent during reconnection:
 ### 3. Connection Pooling
 RTM servers pool WebSocket connections for efficient reuse.
 
+For more on handling traffic spikes and backoff strategies, see [Building a Dynamic Rate Limiter](/dynamic-rate-limiter-system-design/).
+
 ## Database Design: MySQL at Scale
 
 Slack chose **MySQL over NoSQL** and made it work through smart sharding.
@@ -243,7 +245,7 @@ graph TD
 
 ## Real-Time Magic: WebSockets Done Right
 
-The real-time experience is where Slack shines. Here's how they make it feel instant:
+The real-time experience is where Slack shines. Here's how they make it feel instant. (For WebSocket fundamentals, check out [WebSockets Explained](/explainer/websockets-explained/).)
 
 ### Connection State Management
 

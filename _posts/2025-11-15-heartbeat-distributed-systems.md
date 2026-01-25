@@ -438,7 +438,7 @@ This is called **split brain**, and it's dangerous. Both nodes think they're the
 
 #### 1. Quorum-Based Decision
 
-Don't declare a node dead unless a majority of nodes agree. This prevents isolated nodes from making unilateral decisions.
+Don't declare a node dead unless a [majority of nodes agree](/distributed-systems/majority-quorum/). This prevents isolated nodes from making unilateral decisions.
 
 **How it works:**
 

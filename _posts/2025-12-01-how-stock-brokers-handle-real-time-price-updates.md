@@ -182,7 +182,7 @@ This doesn't scale. If 100,000 users are watching AAPL and you're processing upd
 
 ### The Solution: Message Brokers
 
-Brokers use message queues like Kafka or Redis Pub/Sub to decouple data producers from consumers.
+Brokers use message queues like [Kafka](/distributed-systems/how-kafka-works/) or Redis Pub/Sub to decouple data producers from consumers.
 
 <pre><code class="language-mermaid">
 flowchart TD

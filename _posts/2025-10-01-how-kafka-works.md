@@ -66,7 +66,7 @@ Databases become the bottleneck. They're solving the wrong problem.
 
 Here's the key insight that makes Kafka different: **Everything is a log**.
 
-Not a log file you grep through. Not application logs. We're talking about an **append-only sequence of records**.
+Not a log file you grep through. Not application logs. We're talking about an **append-only sequence of records**. This is the same fundamental pattern behind the [Write-Ahead Log](/distributed-systems/write-ahead-log/) that databases use for durability.
 
 This simple shift changes everything. With a log:
 - **Producers append** at the end (blazing fast)

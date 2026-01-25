@@ -335,7 +335,7 @@ This is why ZooKeeper clusters are always odd-sized. Their documentation explici
 
 ### etcd and Kubernetes: Raft Consensus
 
-etcd, the brain of Kubernetes, uses the Raft consensus algorithm. Raft relies heavily on majority quorum.
+etcd, the brain of Kubernetes, uses the Raft consensus algorithm. Raft relies heavily on majority quorum. (For a deeper look at consensus algorithms, see [Paxos: The Democracy of Distributed Systems](/distributed-systems/paxos/).)
 
 Every Kubernetes cluster state change (pod created, service updated, deployment scaled) goes through etcd:
 

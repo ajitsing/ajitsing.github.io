@@ -132,7 +132,7 @@ GPS can jump around wildly. Uber applies smoothing algorithms (similar to Kalman
 The clean GPS coordinate gets converted to an H3 cell ID at the appropriate resolution (usually level 8 or 9 for city-level matching).
 
 **Step 4: Streaming Updates**
-All these location updates flow through Kafka (Uber's message broker of choice) to multiple consumers. One consumer updates the real-time search index, another writes to long-term storage for analytics.
+All these location updates flow through Kafka to multiple consumers. One consumer updates the real-time search index, another writes to long-term storage for analytics. (For a deeper dive on how Kafka handles this scale, see [How Kafka Works](/distributed-systems/how-kafka-works/).)
 
 The key insight: they separate the fast path (real-time matching) from the slow path (analytics and logging). Your ride request only touches the fast path.
 

@@ -27,7 +27,7 @@ faq:
 
 Microservices aren't always the answer. For most teams, they bring network latency, distributed debugging nightmares, and operational overhead that outweighs the benefits. But a tangled monolith where everything depends on everything isn't great either.
 
-There's a middle ground: the modular monolith. Clear boundaries and team autonomy without the distributed systems tax. It's how Shopify handles billions in Black Friday sales with a single deployable application—and why companies like Basecamp and GitHub chose this path too.
+There's a middle ground: the modular monolith. Clear boundaries and team autonomy without the distributed systems tax. It's how [Shopify handles billions in Black Friday sales](/shopify-system-design/) with a single deployable application—and why companies like Basecamp and GitHub chose this path too.
 
 ## What is a Modular Monolith?
 

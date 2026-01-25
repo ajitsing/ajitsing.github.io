@@ -23,7 +23,7 @@ faq:
   - question: "How do I match the start or end of a line?"
     answer: "Use ^ for the start and $ for the end. The pattern ^Hello matches 'Hello world' but not 'Say Hello'. The pattern world$ matches 'Hello world' but not 'world peace'."
   - question: "What are capture groups in regex?"
-    answer: "Capture groups are created with parentheses (). They save the matched text so you can reference it later. In the pattern (\\d{3})-(\\d{4}), the first group captures the area code and the second captures the rest of the phone number."
+    answer: "Capture groups are created with parentheses (). They save the matched text so you can reference it later. For example, in the pattern (hello)-(world), the first group captures 'hello' and the second captures 'world'. Use groups to extract specific parts of a match."
 ---
 
 {% include explainer-head.html %}

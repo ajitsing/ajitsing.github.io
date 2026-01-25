@@ -1,0 +1,105 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f0f23;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.06">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f59e0b" stroke-width="1"/>
+    </pattern>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+  </g>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="120" fill="#f59e0b" opacity="0.05"/>
+  <circle cx="1100" cy="530" r="150" fill="#10b981" opacity="0.05"/>
+  <circle cx="1050" cy="120" r="80" fill="#f59e0b" opacity="0.08"/>
+  
+  <!-- Search/magnifying glass icon -->
+  <g transform="translate(120, 180)">
+    <circle cx="100" cy="100" r="70" fill="none" stroke="url(#accentGradient)" stroke-width="12" filter="url(#glow)"/>
+    <line x1="150" y1="150" x2="200" y2="200" stroke="url(#accentGradient)" stroke-width="12" stroke-linecap="round" filter="url(#glow)"/>
+    <!-- Pattern inside magnifying glass -->
+    <text x="100" y="115" font-family="Monaco, monospace" font-size="28" fill="#fef3c7" text-anchor="middle" filter="url(#softGlow)">.*</text>
+  </g>
+  
+  <!-- Regex pattern display box -->
+  <g transform="translate(380, 160)">
+    <rect x="0" y="0" width="700" height="80" rx="12" fill="#1e293b" stroke="#374151" stroke-width="2"/>
+    <text x="20" y="50" font-family="Monaco, monospace" font-size="28" fill="#94a3b8">/</text>
+    <text x="45" y="50" font-family="Monaco, monospace" font-size="28" fill="#fef3c7">\w+@\w+\.\w+</text>
+    <text x="340" y="50" font-family="Monaco, monospace" font-size="28" fill="#94a3b8">/g</text>
+  </g>
+  
+  <!-- Match highlights visualization -->
+  <g transform="translate(380, 260)">
+    <rect x="0" y="0" width="700" height="60" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+    <text x="20" y="40" font-family="Monaco, monospace" font-size="22" fill="#94a3b8">Contact: </text>
+    <rect x="145" y="10" width="220" height="40" rx="4" fill="#f59e0b" opacity="0.3"/>
+    <text x="150" y="40" font-family="Monaco, monospace" font-size="22" fill="#fef3c7">john@example.com</text>
+    <text x="375" y="40" font-family="Monaco, monospace" font-size="22" fill="#94a3b8"> or </text>
+    <rect x="425" y="10" width="200" height="40" rx="4" fill="#f59e0b" opacity="0.3"/>
+    <text x="430" y="40" font-family="Monaco, monospace" font-size="22" fill="#fef3c7">test@site.org</text>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="600" y="410" font-family="Arial Black, sans-serif" font-size="80" font-weight="900" fill="#ffffff" text-anchor="middle" filter="url(#softGlow)">REGEX</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="470" font-family="Arial, sans-serif" font-size="32" fill="#fcd34d" text-anchor="middle">REGULAR EXPRESSIONS</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="520" font-family="Arial, sans-serif" font-size="22" fill="#a1a1aa" text-anchor="middle">Pattern matching made simple</text>
+  
+  <!-- Common regex symbols decorations -->
+  <g font-family="Monaco, monospace" font-size="32" fill="#f59e0b" opacity="0.4">
+    <text x="80" y="480" filter="url(#softGlow)">^</text>
+    <text x="80" y="530" filter="url(#softGlow)">$</text>
+    <text x="1080" y="350" filter="url(#softGlow)">.*</text>
+    <text x="1080" y="400" filter="url(#softGlow)">\d+</text>
+    <text x="1080" y="450" filter="url(#softGlow)">[a-z]</text>
+  </g>
+  
+  <!-- Match count badge -->
+  <g transform="translate(950, 180)">
+    <rect x="0" y="0" width="120" height="50" rx="25" fill="url(#greenGradient)" filter="url(#softGlow)"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">2 matches</text>
+  </g>
+  
+  <!-- Decorative brackets -->
+  <text x="50" y="320" font-family="Monaco, monospace" font-size="100" fill="#f59e0b" opacity="0.15">(</text>
+  <text x="1100" y="320" font-family="Monaco, monospace" font-size="100" fill="#f59e0b" opacity="0.15">)</text>
+  
+  <!-- Brand watermark -->
+  <text x="1170" y="600" font-family="Arial, sans-serif" font-size="16" fill="#f59e0b" text-anchor="end" opacity="0.6">singhajit.com</text>
+</svg>

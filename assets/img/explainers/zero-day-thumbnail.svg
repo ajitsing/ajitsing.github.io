@@ -1,0 +1,116 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#312e81;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1b4b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dangerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4f46e5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.08">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#a5b4fc" stroke-width="1"/>
+    </pattern>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+  </g>
+  
+  <!-- Decorative circles -->
+  <circle cx="150" cy="100" r="80" fill="#ef4444" opacity="0.1"/>
+  <circle cx="1050" cy="530" r="100" fill="#ef4444" opacity="0.08"/>
+  <circle cx="1100" cy="150" r="60" fill="#6366f1" opacity="0.1"/>
+  
+  <!-- Shield with crack (main visual) -->
+  <g transform="translate(180, 180)">
+    <!-- Shield shape -->
+    <path d="M120 0 L240 40 L240 140 C240 220 180 280 120 320 C60 280 0 220 0 140 L0 40 Z" 
+          fill="url(#shieldGradient)" filter="url(#glow)" opacity="0.9"/>
+    
+    <!-- Shield highlight -->
+    <path d="M120 20 L220 52 L220 140 C220 200 170 250 120 280 C70 250 20 200 20 140 L20 52 Z" 
+          fill="none" stroke="#a5b4fc" stroke-width="2" opacity="0.5"/>
+    
+    <!-- Crack in the shield -->
+    <path d="M120 60 L140 120 L110 140 L150 200 L120 220 L130 260" 
+          fill="none" stroke="#ef4444" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)"/>
+    
+    <!-- Small cracks -->
+    <path d="M140 120 L160 110" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+    <path d="M110 140 L90 145" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+    <path d="M150 200 L165 195" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Bug icon -->
+  <g transform="translate(120, 420)" opacity="0.7">
+    <circle cx="30" cy="30" r="25" fill="#ef4444" opacity="0.3"/>
+    <text x="30" y="40" font-family="Arial, sans-serif" font-size="28" fill="#fca5a5" text-anchor="middle">🐛</text>
+  </g>
+  
+  <!-- Binary code decoration -->
+  <g font-family="Monaco, monospace" font-size="14" fill="#6366f1" opacity="0.3">
+    <text x="950" y="180">01001000</text>
+    <text x="970" y="200">10110101</text>
+    <text x="930" y="220">01101110</text>
+    <text x="980" y="240">11010010</text>
+  </g>
+  
+  <!-- Zero with strikethrough -->
+  <g transform="translate(860, 280)">
+    <text x="0" y="80" font-family="Arial Black, sans-serif" font-size="120" font-weight="900" fill="#ef4444" filter="url(#glow)">0</text>
+    <line x1="-10" y1="50" x2="85" y2="50" stroke="#fef2f2" stroke-width="8" opacity="0.9"/>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="500" y="300" font-family="Arial Black, sans-serif" font-size="72" font-weight="900" fill="#ffffff" filter="url(#softGlow)">ZERO-DAY</text>
+  
+  <!-- Subtitle -->
+  <text x="500" y="380" font-family="Arial, sans-serif" font-size="36" fill="#c7d2fe">VULNERABILITY</text>
+  
+  <!-- Tagline -->
+  <text x="500" y="450" font-family="Arial, sans-serif" font-size="24" fill="#a5b4fc" opacity="0.8">The security flaw no one knows about</text>
+  
+  <!-- Warning triangles -->
+  <g transform="translate(460, 480)" opacity="0.6">
+    <polygon points="20,0 40,35 0,35" fill="none" stroke="#fbbf24" stroke-width="2"/>
+    <text x="20" y="28" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#fbbf24" text-anchor="middle">!</text>
+  </g>
+  <g transform="translate(700, 480)" opacity="0.6">
+    <polygon points="20,0 40,35 0,35" fill="none" stroke="#fbbf24" stroke-width="2"/>
+    <text x="20" y="28" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#fbbf24" text-anchor="middle">!</text>
+  </g>
+  
+  <!-- Clock showing "0" days -->
+  <g transform="translate(1000, 350)">
+    <circle cx="60" cy="60" r="50" fill="none" stroke="#a5b4fc" stroke-width="3" opacity="0.5"/>
+    <text x="60" y="75" font-family="Arial Black, sans-serif" font-size="40" font-weight="bold" fill="#a5b4fc" text-anchor="middle">0</text>
+    <text x="60" y="100" font-family="Arial, sans-serif" font-size="12" fill="#a5b4fc" text-anchor="middle">DAYS</text>
+  </g>
+  
+  <!-- Brand watermark -->
+  <text x="1170" y="600" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="end" opacity="0.6">singhajit.com</text>
+</svg>

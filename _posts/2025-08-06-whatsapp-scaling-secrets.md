@@ -505,10 +505,10 @@ You probably will not rewrite your app in Erlang. But you can apply these princi
 - [Slack System Design](/slack-system-design/) - Different approach to messaging at scale
 - [Shopify System Design](/shopify-system-design/) - How they handle massive traffic spikes
 - [Role of Queues in System Design](/role-of-queues-in-system-design/) - Deep dive into message queues
-- [WebSockets Explained](/websockets-explained/) - The protocol behind real-time messaging
+- [WebSockets Explained](/explainer/websockets-explained/) - The protocol behind real-time messaging
 
 ---
 
 WhatsApp proved that a small team with the right technology choices can outperform armies of engineers with conventional stacks. The lesson is not to copy their exact stack. It is to think critically about your tools, embrace simplicity, and design for the problems you actually have.
 
-*Building a messaging system or preparing for system design interviews? Check out our other [system design posts](/tags#system-design) for more architecture deep dives.*
+*Building a messaging system or preparing for system design interviews? Check out our other [system design posts](/system-design/) for more architecture deep dives.*

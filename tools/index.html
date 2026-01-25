@@ -3,8 +3,8 @@ layout: default
 title: "Developer Tools"
 subtitle: "Free online tools for developers"
 seo: true
-description: "Free online developer tools including regex tester, cron expression generator, and more. Test regex patterns, build cron schedules, and debug code with these browser-based utilities. No signup required, 100% client-side."
-keywords: "developer tools, online tools, regex tester, cron expression generator, cron tool, regex debugger, dev tools, programming tools, code tools, web developer tools, free developer tools"
+description: "Free online developer tools including JSON validator, regex tester, cron expression generator, and more. Validate JSON online, test regex patterns, build cron schedules with these browser-based utilities. No signup required, 100% client-side."
+keywords: "developer tools, online tools, json validator, validate json online, json formatter, regex tester, cron expression generator, cron tool, regex debugger, dev tools, programming tools, code tools, web developer tools, free developer tools"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
 permalink: /tools/
@@ -22,7 +22,7 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Developer Tools",
-  "description": "Free online developer tools including regex tester, cron expression generator, and more. All tools run 100% in your browser with no data sent to servers.",
+  "description": "Free online developer tools including JSON validator, regex tester, cron expression generator, and more. All tools run 100% in your browser with no data sent to servers.",
   "url": "https://singhajit.com/tools/",
   "author": {
     "@type": "Person",
@@ -55,6 +55,19 @@ hide-explore-posts: true
   "hasPart": [
     {
       "@type": "WebApplication",
+      "name": "JSON Validator & Formatter",
+      "description": "Validate JSON online with detailed error messages. Format and beautify JSON data instantly.",
+      "url": "https://singhajit.com/tools/json-validator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "WebApplication",
       "name": "Regex Tester & Debugger",
       "description": "Test regular expressions with real-time highlighting, pattern explanation, and capture group visualization.",
       "url": "https://singhajit.com/tools/regex-tester/",
@@ -80,17 +93,23 @@ hide-explore-posts: true
       }
     }
   ],
-  "numberOfItems": 2,
+  "numberOfItems": 3,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
+      "url": "https://singhajit.com/tools/json-validator/",
+      "name": "JSON Validator & Formatter"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
       "url": "https://singhajit.com/tools/regex-tester/",
       "name": "Regex Tester & Debugger"
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "position": 3,
       "url": "https://singhajit.com/tools/cron-expression/",
       "name": "Cron Expression Generator"
     }
@@ -132,6 +151,25 @@ hide-explore-posts: true
   </div>
 
   <div class="tools-grid">
+    <!-- JSON Validator Tool -->
+    <a href="{{ '/tools/json-validator/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'JSON Validator'});">
+      <div class="tool-icon">
+        <i class="fas fa-file-code"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">JSON Validator & Formatter</h2>
+        <p class="tool-description">Validate JSON online with detailed error messages showing line and column numbers. Format and beautify JSON data instantly.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-check-circle"></i> Validator</span>
+          <span class="feature-tag"><i class="fas fa-indent"></i> Formatter</span>
+          <span class="feature-tag"><i class="fas fa-map-marker-alt"></i> Error Location</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
     <!-- Regex Tester Tool -->
     <a href="{{ '/tools/regex-tester/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'Regex Tester'});">
       <div class="tool-icon">

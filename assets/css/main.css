@@ -707,6 +707,28 @@ footer .footer-custom-content {
   }
 }
 
+/* Page Views Counter */
+.page-views {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #666;
+  margin: 1rem 0;
+}
+
+.page-views .views-icon {
+  display: flex;
+  align-items: center;
+  color: #888;
+}
+
+.page-views .views-badge {
+  height: 20px;
+  border-radius: 3px;
+}
+
 @media (max-width: 500px) {
   .post-image, .post-image img {
     height: 5rem;

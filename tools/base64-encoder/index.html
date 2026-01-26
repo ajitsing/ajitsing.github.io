@@ -241,15 +241,22 @@ hide-explore-posts: true
       </button>
     </div>
 
-    <section class="base64-main">
+    <form class="base64-main" autocomplete="off" onsubmit="return false;">
       <div class="input-section">
         <label for="base64-input" id="input-label">Text to encode:</label>
         <div class="input-wrapper">
           <textarea 
             id="base64-input" 
+            name="base64_text_input"
             rows="6" 
             placeholder="Enter text to encode to Base64..."
             spellcheck="false"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            data-form-type="other"
+            data-1p-ignore
+            data-lpignore="true"
           ></textarea>
         </div>
       </div>
@@ -284,14 +291,21 @@ hide-explore-posts: true
         <div class="output-wrapper">
           <textarea 
             id="base64-output" 
+            name="base64_text_output"
             rows="6" 
             placeholder="Result will appear here..."
             readonly
             spellcheck="false"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            data-form-type="other"
+            data-1p-ignore
+            data-lpignore="true"
           ></textarea>
         </div>
       </div>
-    </section>
+    </form>
 
     <section class="reference-section">
       <h3><i class="fas fa-book"></i> Base64 Quick Reference</h3>

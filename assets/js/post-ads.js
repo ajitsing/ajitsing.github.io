@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var AD_POSITIONS = [0.05, 0.30];
+  var AD_POSITIONS = [0.05, 0.30, 0.60];
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
   var VALID_INSERTION_TAGS = ['P', 'H2', 'H3', 'DIV'];

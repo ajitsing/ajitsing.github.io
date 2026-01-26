@@ -40,9 +40,9 @@
    ========================================================================== */
 
 .tools-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
   margin-bottom: 48px;
 }
 
@@ -52,9 +52,10 @@
 
 .tool-card {
   display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 28px 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 28px;
   background: linear-gradient(135deg, #fffdf9 0%, #faf8f5 100%);
   border: 2px solid #e7e0d5;
   border-radius: 16px;
@@ -110,15 +111,15 @@
 
 .tool-icon {
   flex-shrink: 0;
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f5f0e8;
   border: 2px solid #e7e0d5;
-  border-radius: 16px;
-  font-size: 1.75rem;
+  border-radius: 14px;
+  font-size: 1.5rem;
   color: #44403c;
   transition: all 0.3s ease;
 }
@@ -134,7 +135,7 @@
 
 .tool-title {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #44403c;
   margin: 0 0 8px 0;
@@ -183,18 +184,20 @@
    ========================================================================== */
 
 .tool-arrow {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f5f0e8;
   border-radius: 50%;
   color: #78716c;
-  font-size: 1rem;
+  font-size: 0.9rem;
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateX(-8px);
   transition: all 0.3s ease;
 }
 
@@ -299,10 +302,12 @@
     padding: 15px 12px 30px;
   }
 
-  .tool-card {
-    flex-direction: column;
-    align-items: flex-start;
+  .tools-grid {
+    grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .tool-card {
     padding: 24px;
   }
 
@@ -314,7 +319,7 @@
   }
 
   .tool-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .tool-description {
@@ -348,7 +353,7 @@
   }
 
   .tool-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .tool-features {

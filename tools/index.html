@@ -3,8 +3,8 @@ layout: default
 title: "Developer Tools"
 subtitle: "Free online tools for developers"
 seo: true
-description: "Free online developer tools including JSON validator, regex tester, cron expression generator, and more. Validate JSON online, test regex patterns, build cron schedules with these browser-based utilities. No signup required, 100% client-side."
-keywords: "developer tools, online tools, json validator, validate json online, json formatter, regex tester, cron expression generator, cron tool, regex debugger, dev tools, programming tools, code tools, web developer tools, free developer tools"
+description: "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, and more. Validate JSON online, test regex patterns, build cron schedules, encode and decode Base64 with these browser-based utilities. No signup required, 100% client-side."
+keywords: "developer tools, online tools, json validator, validate json online, json formatter, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, dev tools, programming tools, code tools, web developer tools, free developer tools"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
 permalink: /tools/
@@ -22,7 +22,7 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Developer Tools",
-  "description": "Free online developer tools including JSON validator, regex tester, cron expression generator, and more. All tools run 100% in your browser with no data sent to servers.",
+  "description": "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, and more. All tools run 100% in your browser with no data sent to servers.",
   "url": "https://singhajit.com/tools/",
   "author": {
     "@type": "Person",
@@ -91,9 +91,22 @@ hide-explore-posts: true
         "price": "0",
         "priceCurrency": "USD"
       }
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Base64 Encoder & Decoder",
+      "description": "Encode text to Base64 or decode Base64 to text instantly. Supports UTF-8 characters.",
+      "url": "https://singhajit.com/tools/base64-encoder/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
   ],
-  "numberOfItems": 3,
+  "numberOfItems": 4,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -112,6 +125,12 @@ hide-explore-posts: true
       "position": 3,
       "url": "https://singhajit.com/tools/cron-expression/",
       "name": "Cron Expression Generator"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "url": "https://singhajit.com/tools/base64-encoder/",
+      "name": "Base64 Encoder & Decoder"
     }
   ],
   "breadcrumb": {
@@ -201,6 +220,25 @@ hide-explore-posts: true
           <span class="feature-tag"><i class="fas fa-language"></i> Translator</span>
           <span class="feature-tag"><i class="fas fa-wrench"></i> Builder</span>
           <span class="feature-tag"><i class="fas fa-calendar-alt"></i> Scheduler</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- Base64 Encoder & Decoder Tool -->
+    <a href="{{ '/tools/base64-encoder/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'Base64 Encoder'});">
+      <div class="tool-icon">
+        <i class="fas fa-exchange-alt"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">Base64 Encoder & Decoder</h2>
+        <p class="tool-description">Encode text to Base64 or decode Base64 to text instantly. Supports UTF-8 characters including emojis and special characters.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-lock"></i> Encoder</span>
+          <span class="feature-tag"><i class="fas fa-unlock"></i> Decoder</span>
+          <span class="feature-tag"><i class="fas fa-globe"></i> UTF-8</span>
         </div>
       </div>
       <div class="tool-arrow">

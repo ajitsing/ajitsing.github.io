@@ -39,7 +39,7 @@
   {% if page.image and (layout.show-avatar or page.show-avatar) %}
     <div class="avatar-container">
       <div class="avatar-img-border">
-        <a href="{{ '' | absolute_url }}">
+        <a href="{{ '/aboutme' | relative_url }}" title="About Me">
           <img alt="Navbar avatar" class="avatar-img" src="{{ page.image | relative_url }}" loading="lazy" />
         </a>
       </div>
@@ -47,7 +47,7 @@
   {% elsif site.avatar and (layout.show-avatar or page.show-avatar) %}
     <div class="avatar-container">
       <div class="avatar-img-border">
-        <a href="{{ '' | absolute_url }}">
+        <a href="{{ '/aboutme' | relative_url }}" title="About Me">
           <img alt="Navbar avatar" class="avatar-img" src="{{ site.avatar | relative_url }}" loading="lazy" />
         </a>
       </div>

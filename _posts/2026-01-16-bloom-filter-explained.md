@@ -431,6 +431,6 @@ If "yes" means letting someone into a system they should not access, do not use 
 
 ---
 
-*For more on probabilistic data structures, check out [HyperLogLog Explained](/data-structures/hyperloglog/) for cardinality estimation and [Count-Min Sketch Explained](/data-structures/count-min-sketch/) for frequency counting. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
+*For more on probabilistic data structures, check out [HyperLogLog Explained](/data-structures/hyperloglog/) for cardinality estimation, [Count-Min Sketch Explained](/data-structures/count-min-sketch/) for frequency counting, and [Skip List Explained](/data-structures/skip-list/) for probabilistic sorted data. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
 
 *References: [Bloom Filter on Wikipedia](https://en.wikipedia.org/wiki/Bloom_filter), [Apache Cassandra Bloom Filters](https://cassandra.apache.org/doc/4.1/cassandra/operating/bloom_filters.html), [Redis Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/)*

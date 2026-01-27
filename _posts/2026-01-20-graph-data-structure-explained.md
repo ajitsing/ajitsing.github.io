@@ -1222,6 +1222,7 @@ If you found this guide helpful, check out these related topics to deepen your u
 
 **Related Data Structures**:
 - [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) - Essential for implementing adjacency lists efficiently
+- [Skip List Explained](/data-structures/skip-list/) - Probabilistic sorted data structure used by Redis and LevelDB
 - [Bloom Filter Explained](/data-structures/bloom-filter/) - Probabilistic data structure for membership testing
 - [HyperLogLog Explained](/data-structures/hyperloglog/) - Cardinality estimation in large graphs
 - [Count-Min Sketch Explained](/data-structures/count-min-sketch/) - Frequency estimation for graph analytics

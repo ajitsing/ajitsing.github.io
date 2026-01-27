@@ -558,5 +558,5 @@ Used by Chrome (malicious URLs), Cassandra (reducing disk reads), and Bitcoin wa
 
 ---
 
-*For more on data structures and algorithms, check out our posts on [Distributed Systems](/distributed-systems/paxos/), [Write-Ahead Logs](/distributed-systems/write-ahead-log/), and [System Design at Scale](/whatsapp-scaling-secrets/).*
+*For more on data structures and algorithms, check out our posts on [Skip Lists](/data-structures/skip-list/) (when you need sorted data with O(log n) operations), [Distributed Systems](/distributed-systems/paxos/), [Write-Ahead Logs](/distributed-systems/write-ahead-log/), and [System Design at Scale](/whatsapp-scaling-secrets/).*
 

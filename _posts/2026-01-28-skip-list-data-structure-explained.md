@@ -8,8 +8,8 @@ categories: data-structures
 thumbnail-img: /assets/img/posts/data_structures/skip-list-thumbnail.png
 share-img: /assets/img/posts/data_structures/skip-list-thumbnail.png
 permalink: /data-structures/skip-list/
-description: "Learn how skip list data structure works. Understand skip list search, insertion, and deletion operations. See why Redis and LevelDB use skip lists instead of balanced trees for sorted data."
-keywords: "skip list data structure, skip list explained, skip list implementation, skip list vs balanced tree, probabilistic data structure, skip list search algorithm, skip list insertion, skip list deletion, skip list time complexity, Redis sorted set, LevelDB memtable, skip list tutorial, linked list optimization, skip list levels, skip list probability, concurrent data structure, skip list performance"
+description: "Learn how the skip list (skiplist) data structure works. Understand why Redis uses skip lists instead of red-black trees for sorted sets, and why LevelDB uses a skip list for its MemTable. Complete guide with implementation."
+keywords: "skip list data structure, skiplist data structure, skip list explained, skip list implementation, skip list vs balanced tree, skip list vs red-black tree, does redis use skip lists, redis skip list red-black tree, probabilistic data structure, skip list search algorithm, skip list insertion, skip list deletion, skip list time complexity, Redis sorted set, LevelDB memtable skip list, leveldb skip list memtable, skip list tutorial, linked list optimization, skip list levels, skip list probability, concurrent data structure, skip list performance"
 tags: [data-structures, algorithms]
 comments: true
 
@@ -48,6 +48,10 @@ faq:
     answer: "Skip list space complexity is O(n) on average. Each node has an expected 2 pointers on average when using probability p = 0.5, making the total space about 2n pointers. This is comparable to a binary search tree. The space overhead is predictable and does not require pre-allocation."
   - question: "Can skip lists handle duplicate keys?"
     answer: "Yes, skip lists can handle duplicate keys in multiple ways. You can store all duplicates at the same position, chain them in a secondary list, or append a unique identifier to make each key unique. Redis sorted sets handle duplicates by requiring unique member names but allowing duplicate scores."
+  - question: "Does Redis use skip lists instead of red-black trees?"
+    answer: "Yes, Redis uses skip lists instead of red-black trees for its sorted set (ZSET) implementation. Redis creator Salvatore Sanfilippo (antirez) chose skip lists because they are simpler to implement, easier to debug, and perform comparably to balanced trees in practice. Skip lists also make it easier to implement range operations and maintain the code long-term."
+  - question: "Why does LevelDB use a skip list for its MemTable?"
+    answer: "LevelDB uses a skip list for its MemTable (in-memory write buffer) because skip lists provide fast O(log n) insertions and maintain sorted order. When the MemTable fills up, LevelDB flushes it to disk as a sorted SSTable file. The skip list structure makes this flush operation efficient since data is already sorted. RocksDB, a fork of LevelDB, also uses skip lists for its MemTable implementation."
 ---
 
 You have a sorted linked list with a million elements. Finding any element takes O(n) time because you have to traverse from the head. That is slow.
@@ -60,7 +64,7 @@ That is what skip lists do. And they work well enough that Redis, LevelDB, and o
 
 ## What is a Skip List?
 
-A skip list is a data structure that extends a sorted linked list with multiple levels of forward pointers. Think of it as adding express lanes on top of a regular linked list.
+A skip list (also written as skiplist) is a data structure that extends a sorted linked list with multiple levels of forward pointers. Think of it as adding express lanes on top of a regular linked list.
 
 ```mermaid
 graph LR
@@ -354,9 +358,9 @@ The expected number of comparisons for a search is:
 
 With p = 0.5, this is roughly 2 log₂ n comparisons. Very close to a perfectly balanced binary search tree.
 
-## Skip List vs Balanced Trees
+## Skip List vs Red-Black Tree and Balanced Trees
 
-Why would you choose a skip list over a red-black tree or AVL tree?
+Why would you choose a skip list over a red-black tree or AVL tree? This is a common question, especially since both provide O(log n) operations.
 
 | Feature | Skip List | Red-Black Tree | AVL Tree |
 |---------|-----------|----------------|----------|
@@ -387,9 +391,11 @@ Why would you choose a skip list over a red-black tree or AVL tree?
 
 ## Real World Skip List Usage
 
-### <i class="fas fa-database"></i> Redis Sorted Sets
+### <i class="fas fa-database"></i> Redis Sorted Sets: Skip List vs Red-Black Tree
 
-Redis uses skip lists for its sorted set (ZSET) implementation. When you run commands like:
+Does Redis use skip lists instead of red-black trees? Yes. Redis uses skip lists for its sorted set (ZSET) implementation rather than red-black trees or other balanced tree structures.
+
+When you run commands like:
 
 ```
 ZADD leaderboard 1000 "player1"
@@ -402,21 +408,26 @@ Redis stores this in a skip list. The skip list allows:
 - O(log n) rank queries
 - O(log n) range queries by score
 
-Antirez (Redis creator) chose skip lists over balanced trees because they are simpler to implement and debug, and perform well in practice.
+Why did Redis choose skip lists over red-black trees? Antirez (Redis creator Salvatore Sanfilippo) explained that skip lists are simpler to implement correctly, easier to debug, and perform just as well as red-black trees in practice. The code is more maintainable, and the performance difference is negligible for real workloads. For a complex system like Redis, code simplicity matters more than theoretical optimality.
 
-### <i class="fas fa-layer-group"></i> LevelDB and RocksDB
+### <i class="fas fa-layer-group"></i> LevelDB MemTable Skip List
 
-Google's LevelDB and Facebook's RocksDB use skip lists for their MemTable (in-memory buffer before flushing to disk).
+Google's LevelDB uses a skip list for its MemTable, the in-memory write buffer that stores recent writes before flushing to disk. The LevelDB skip list MemTable is a critical component of the LSM-tree architecture.
 
 When you write to LevelDB:
-1. Data goes into a skip list in memory
-2. When the skip list reaches a size threshold, it flushes to disk as a sorted file
-3. The skip list provides fast writes and ordered iteration
+1. Data goes into the skip list MemTable in memory
+2. When the MemTable reaches a size threshold (typically 4MB), it becomes immutable
+3. The skip list is flushed to disk as a sorted SSTable file
+4. A new empty skip list MemTable is created for incoming writes
 
-Skip lists are ideal here because:
-- Writes are frequent and must be fast
-- Data needs to be iterated in sorted order during flush
-- Simple implementation reduces bugs
+Why does LevelDB use a skip list for its MemTable instead of a balanced tree?
+
+- **Fast concurrent writes**: Skip lists handle concurrent insertions efficiently
+- **Sorted iteration**: Data is already sorted when flushing to disk
+- **Simple implementation**: Fewer bugs in critical storage code
+- **No rebalancing overhead**: Insertions are purely local operations
+
+RocksDB, Facebook's fork of LevelDB, also uses skip lists for its MemTable. The skiplist data structure has become the standard choice for LSM-tree based storage engines.
 
 ### <i class="fas fa-search"></i> Apache Lucene
 

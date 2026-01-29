@@ -12,7 +12,7 @@ description: "Learn graph data structure from basics to advanced. Understand adj
 keywords: "graph data structure, directed acyclic graphs, adjacency list, adjacency list graph, adjacency list in data structure, adjacency list representation of graph, adjacency matrix, bfs and dfs in data structure, BFS DFS, graph algorithms, Dijkstra algorithm, Union-Find, Kruskal algorithm, Prim algorithm, graph traversal, shortest path algorithm, topological sort, minimum spanning tree, graph fundamentals, graph algorithm implementation, adjacency list vs matrix, cycle detection, connected components, graph algorithm complexity, DAG, graph representation, graph data structure explained, graph theory algorithms"
 tags: [data-structures, algorithms]
 comments: true
-popular: true
+
 faq:
   - question: "What is a graph data structure?"
     answer: "A graph is a data structure that represents relationships between objects. It consists of nodes (vertices) connected by edges. Graphs model real-world relationships like social networks (users connected by friendships), road maps (locations connected by roads), and dependency graphs (packages connected by dependencies)."

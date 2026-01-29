@@ -461,11 +461,11 @@ Real-time stock price systems are a masterclass in distributed systems engineeri
 - Horizontal scaling
 - Graceful failure handling
 
-The same patterns that power your stock trading app also power live sports scores, multiplayer games, and collaborative tools like Figma and Google Docs.
+The same patterns that power your stock trading app also power live sports scores, multiplayer games, and collaborative tools like Figma and [Google Docs](/how-google-docs-works/).
 
 Next time you watch a stock price flicker on your screen, you'll know the journey it took to get there. And maybe you'll appreciate the engineering that makes it look so effortless.
 
 ---
 
-*Want to dive deeper into real-time systems? Check out [WebSockets Explained](/explainer/websockets-explained/) for the protocol basics and [Building a Dynamic Rate Limiter](/dynamic-rate-limiter-system-design/) for protecting these systems at scale.*
+*Want to dive deeper into real-time systems? Check out [WebSockets Explained](/explainer/websockets-explained/) for the protocol basics, [How Google Docs Works](/how-google-docs-works/) for collaborative editing at scale, and [Building a Dynamic Rate Limiter](/dynamic-rate-limiter-system-design/) for protecting these systems at scale.*
 

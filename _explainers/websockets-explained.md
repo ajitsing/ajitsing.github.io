@@ -439,7 +439,7 @@ sequenceDiagram
             <strong><i class="fas fa-chart-line" style="color: #059669; margin-right: 10px;"></i>Live Data & Dashboards:</strong> Stock prices, sports scores, analytics dashboards, multiplayer game updates.
           </li>
           <li style="background: white; border: 2px solid #d1d5db; border-radius: 12px; padding: 20px; margin-bottom: 15px; font-size: 1.1rem; line-height: 1.6; color: #374151; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(148, 163, 184, 0.1);">
-            <strong><i class="fas fa-users" style="color: #059669; margin-right: 10px;"></i>Collaborative Tools:</strong> Google Docs, Figma, Notion - see everyone's changes live as they type or edit.
+            <strong><i class="fas fa-users" style="color: #059669; margin-right: 10px;"></i>Collaborative Tools:</strong> <a href="/how-google-docs-works/" style="color: #0284c7; text-decoration: none;">Google Docs</a>, Figma, Notion - see everyone's changes live as they type or edit.
           </li>
         </ul>
       </div>

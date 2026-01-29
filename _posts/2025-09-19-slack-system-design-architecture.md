@@ -414,4 +414,4 @@ The result? A system handling billions of messages that feels instant.
 
 ---
 
-*Want to dive deeper into system design? Check out our other architecture deep-dives and learn how the world's biggest platforms solve impossible problems.*
+*Want to dive deeper into system design? Check out [How Google Docs Works](/how-google-docs-works/) for real-time collaborative editing, [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/) for high-throughput data streaming, and [WebSockets Explained](/explainer/websockets-explained/) for the underlying protocol that powers these systems.*

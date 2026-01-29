@@ -605,7 +605,7 @@ Long Polling isn't the future of real-time web. But it's a reliable, battle-test
 
 ---
 
-*Want to understand other real-time communication approaches? Check out [Server-Sent Events Explained](/server-sent-events-explained/) for one-way server push, [WebSockets Explained](/explainer/websockets-explained/) for the persistent connection alternative, and [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/) to see WebSockets in action at massive scale.*
+*Want to understand other real-time communication approaches? Check out [Server-Sent Events Explained](/server-sent-events-explained/) for one-way server push, [WebSockets Explained](/explainer/websockets-explained/) for the persistent connection alternative, [How Google Docs Works](/how-google-docs-works/) for collaborative editing architecture, and [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/) to see WebSockets in action at massive scale.*
 
 *References: [Comet (Wikipedia)](https://en.wikipedia.org/wiki/Comet_(programming)), [RFC 6202: HTTP Long Polling](https://tools.ietf.org/html/rfc6202), [Facebook Engineering Blog](https://engineering.fb.com/)*
 

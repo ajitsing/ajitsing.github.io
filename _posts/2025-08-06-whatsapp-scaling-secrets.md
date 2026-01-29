@@ -13,6 +13,7 @@ keywords: "WhatsApp system design, WhatsApp architecture, messaging app architec
 comments: true
 seo: true
 social-share: true
+popular: true
 tags: [system-design]
 
 key-takeaways:

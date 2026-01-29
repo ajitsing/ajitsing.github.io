@@ -14,7 +14,7 @@ keywords: "what is SSE, server-sent events, server sent events, SSE, EventSource
 seo: true
 social-share: true
 comments: true
-popular: true
+
 faq:
   - question: "What is SSE (Server-Sent Events)?"
     answer: "SSE (Server-Sent Events) is a web technology that allows servers to push real-time updates to browsers over a single HTTP connection. Unlike WebSockets, SSE is one-way (server to client only) and uses the text/event-stream format. It's ideal for live dashboards, notifications, stock prices, and any scenario where the server needs to push data without the client requesting it."
@@ -673,7 +673,7 @@ Sometimes the right tool is the one that's been there all along.
 
 ---
 
-*Building real-time systems? Check out [Long Polling Explained](/long-polling-explained/) for the fallback option and [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/) to see how financial systems push millions of updates per second.*
+*Building real-time systems? Check out [Long Polling Explained](/long-polling-explained/) for the fallback option, [How Google Docs Works](/how-google-docs-works/) for collaborative editing at scale, and [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/) to see how financial systems push millions of updates per second.*
 
 *References: [MDN EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource), [HTML Living Standard](https://html.spec.whatwg.org/multipage/server-sent-events.html), [Can I Use SSE](https://caniuse.com/eventsource)*
 

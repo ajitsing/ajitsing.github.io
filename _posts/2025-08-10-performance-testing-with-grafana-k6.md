@@ -13,7 +13,7 @@ keywords: "k6 ramping-arrival-rate, k6 constant-arrival-rate, k6 ramping-vus, k6
 tags: ["performance-testing", "testing"]
 social-share: true
 comments: true
-popular: true
+
 faq:
   - question: "What is the k6 ramping-arrival-rate executor?"
     answer: "The ramping-arrival-rate executor in k6 gradually increases the request rate (RPS) over time. Unlike ramping-vus which controls user count, this executor maintains a target throughput by dynamically adjusting VUs as response times change."

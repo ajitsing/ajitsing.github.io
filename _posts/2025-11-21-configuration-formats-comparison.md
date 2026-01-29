@@ -4,21 +4,25 @@ seo: true
 title: "HOCON vs YAML vs TOML vs JSON: Complete Configuration Format Comparison"
 subtitle: "Why Docker uses YAML, Rust picks TOML, and Akka chose HOCON over JSON"
 date: 2025-11-21
-last-modified-date: 2026-01-03
+last-modified-date: 2026-01-29
 categories: software-engineering
 permalink: /configuration-file-formats-comparison/
 share-img: /assets/img/posts/config-formats-comparison.png
 thumbnail-img: /assets/img/posts/config-formats-comparison.png
 description: "HOCON vs YAML vs TOML vs JSON comparison guide. Learn which configuration format to use with syntax examples, performance benchmarks, and real-world use cases from Docker, Kubernetes, Rust, and Akka."
-keywords: "HOCON vs YAML, HOCON vs JSON, TOML vs YAML, TOML vs JSON, JSON vs YAML, YAML vs TOML, configuration formats comparison, config file formats, HOCON configuration, YAML configuration, TOML configuration, JSON configuration, Docker compose YAML, Kubernetes config, Akka HOCON, Rust TOML, Cargo.toml, pyproject.toml"
+keywords: "HOCON vs JSON, HOCON vs YAML, HOCON vs JSON vs YAML, TOML vs YAML, TOML vs JSON, JSON vs YAML, YAML vs TOML, configuration formats comparison, config file formats, HOCON configuration, YAML configuration, TOML configuration, JSON configuration, Docker compose YAML, Kubernetes config, Akka HOCON, Rust TOML, HOCON JSON difference, HOCON YAML difference"
 tags: ["software-engineering"]
 social-share: true
 comments: true
 faq:
   - question: "What is the difference between HOCON and JSON?"
     answer: "HOCON is a JSON superset that adds comments (# and //), trailing commas, unquoted keys, variable substitution (${var}), and file includes. All valid JSON is valid HOCON, but HOCON is more human-friendly for configuration files. JSON is better for APIs and data exchange due to universal parsing support. HOCON is primarily used in JVM ecosystems like Akka and Play Framework."
+  - question: "HOCON vs JSON: Which should I choose?"
+    answer: "Choose HOCON over JSON when you need comments in config files, want cleaner syntax without excessive quotes, or need configuration inheritance and variable substitution in JVM applications (Akka, Play Framework). Choose JSON over HOCON for REST APIs, browser applications, machine-generated configs, and when you need maximum parsing speed or universal cross-platform compatibility. Since all JSON is valid HOCON, migrating from JSON to HOCON is straightforward."
   - question: "What is the difference between HOCON and YAML?"
     answer: "HOCON is a JSON superset designed for JVM applications (Akka, Play Framework) with built-in variable substitution and config includes. It uses brace-based syntax and is not whitespace-sensitive. YAML is indentation-based and used primarily in DevOps tools like Docker, Kubernetes, and GitHub Actions. HOCON offers features like ${variable} substitutions and file includes, while YAML has broader ecosystem support across programming languages."
+  - question: "HOCON vs YAML: Which should I choose?"
+    answer: "Choose HOCON over YAML when building Scala or Java applications with Akka or Play Framework, when you need configuration inheritance and variable substitution (${var}), or when you want to include shared config files. Choose YAML over HOCON when working with Docker, Kubernetes, or GitHub Actions, when your team is more familiar with YAML syntax, or when using DevOps tools that expect YAML format."
   - question: "Is HOCON better than JSON for configuration files?"
     answer: "HOCON is better than JSON for human-edited configuration files because it supports comments (# and //), allows trailing commas, doesn't require quoted keys, and provides variable substitution with ${var} syntax. However, JSON is better for APIs and data exchange due to universal browser support, faster parsing, and maximum cross-platform compatibility. All valid JSON is valid HOCON, making migration easy."
   - question: "Should I use TOML or YAML for my configuration?"

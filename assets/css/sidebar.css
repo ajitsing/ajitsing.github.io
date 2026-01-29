@@ -227,3 +227,96 @@
 .sidebar-popular::-webkit-scrollbar-thumb:hover {
   background: #adb5bd;
 }
+
+/* --- Sidebar Divider --- */
+
+.sidebar-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e0e0e0 20%, #e0e0e0 80%, transparent);
+  margin: 1.25rem 0;
+}
+
+/* --- Dev Tools Section --- */
+
+.sidebar-title-tools {
+  margin-top: 0;
+}
+
+.sidebar-title-tools i {
+  color: #0085A1;
+}
+
+.sidebar-tools-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-tool-item {
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-tool-item:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-tool-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.625rem;
+  margin: -0.625rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-tool-link:hover {
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  text-decoration: none;
+}
+
+.sidebar-tool-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0085A1 0%, #00a8cc 100%);
+  color: white;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-tool-link:hover .sidebar-tool-icon {
+  transform: scale(1.05);
+}
+
+.sidebar-tool-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.sidebar-tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2c3e50;
+  transition: color 0.15s ease;
+}
+
+.sidebar-tool-link:hover .sidebar-tool-title {
+  color: #0085A1;
+}
+
+.sidebar-tool-desc {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  color: #868e96;
+}

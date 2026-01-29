@@ -6,7 +6,7 @@
   <ul class="popular-posts-list">
     {% assign popular_count = 0 %}
     {% for post in site.posts %}
-      {% if post.popular and popular_count < 6 %}
+      {% if post.popular and popular_count < 4 %}
         <li class="popular-post-item">
           <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
             {% if post.thumbnail-img %}
@@ -39,7 +39,7 @@
     
     {% comment %} Fallback: if no posts marked as popular, show recent posts {% endcomment %}
     {% if popular_count == 0 %}
-      {% for post in site.posts limit: 6 %}
+      {% for post in site.posts limit: 4 %}
         {% unless post.tags contains "dev-weekly" %}
         <li class="popular-post-item">
           <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
@@ -70,5 +70,36 @@
         {% endunless %}
       {% endfor %}
     {% endif %}
+  </ul>
+
+  <div class="sidebar-divider"></div>
+
+  <h3 class="sidebar-title sidebar-title-tools">
+    <i class="fas fa-wrench"></i>
+    Dev Tools
+  </h3>
+  <ul class="sidebar-tools-list">
+    <li class="sidebar-tool-item">
+      <a href="{{ '/tools/json-validator/' | relative_url }}" class="sidebar-tool-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar Tools', 'event_label': 'JSON Validator'});">
+        <div class="sidebar-tool-icon">
+          <i class="fas fa-file-code"></i>
+        </div>
+        <div class="sidebar-tool-content">
+          <span class="sidebar-tool-title">JSON Formatter</span>
+          <span class="sidebar-tool-desc">Validate & format JSON</span>
+        </div>
+      </a>
+    </li>
+    <li class="sidebar-tool-item">
+      <a href="{{ '/tools/base64-encoder/' | relative_url }}" class="sidebar-tool-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar Tools', 'event_label': 'Base64 Encoder'});">
+        <div class="sidebar-tool-icon">
+          <i class="fas fa-exchange-alt"></i>
+        </div>
+        <div class="sidebar-tool-content">
+          <span class="sidebar-tool-title">Base64 Encoder</span>
+          <span class="sidebar-tool-desc">Encode & decode Base64</span>
+        </div>
+      </a>
+    </li>
   </ul>
 </aside>

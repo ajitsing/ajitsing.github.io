@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Android Draggable View
 description: This tutorial covers how we can add a draggable view/button in the layout.

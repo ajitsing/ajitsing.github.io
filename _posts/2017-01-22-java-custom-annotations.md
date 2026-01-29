@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: java
 seo: true
 title: Java custom annotations
 description: Learn how to create custom annotations in Java, with code examples and practical use cases for advanced Java development.

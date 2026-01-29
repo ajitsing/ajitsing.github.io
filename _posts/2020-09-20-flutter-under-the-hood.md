@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Flutter under the hood
 description: Overview of Flutter architecture and how it executes Dart code behind the scenes on the mobile devices.

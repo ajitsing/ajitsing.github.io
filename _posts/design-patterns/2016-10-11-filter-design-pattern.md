@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: design-patterns
 seo: true
 title: Filter Design Pattern
 description: How filter design pattern works and what are the use cases. This article explains filter design pattern with the help of an example.

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: How to Exclude a Single Module from `sbt test` in a Multi-Module Scala Project
 description: Learn different approaches to exclude specific modules from sbt test execution in multi-module Scala projects, with code examples and CI-friendly solutions.

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: Tool to execute commands in multiple directories
 description: brint_it_on is a tool to execute commands in multiple directories, it takes a configuration file which provides all the info of the directories and commands.

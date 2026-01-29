@@ -5,7 +5,7 @@ title: "HOCON vs YAML vs TOML vs JSON: Complete Configuration Format Comparison"
 subtitle: "Why Docker uses YAML, Rust picks TOML, and Akka chose HOCON over JSON"
 date: 2025-11-21
 last-modified-date: 2026-01-29
-categories: software-engineering
+categories: devops
 permalink: /configuration-file-formats-comparison/
 share-img: /assets/img/posts/config-formats-comparison.png
 thumbnail-img: /assets/img/posts/config-formats-comparison.png

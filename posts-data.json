@@ -1,0 +1,20 @@
+---
+layout: null
+---
+[
+  {%- assign is_first = true -%}
+  {%- for post in site.posts -%}
+  {%- unless is_first -%},{%- endunless -%}
+  {%- assign is_first = false -%}
+  {
+    "title": {{ post.title | jsonify }},
+    "subtitle": {{ post.subtitle | default: "" | jsonify }},
+    "url": "{{ post.url | relative_url }}",
+    "date": "{{ post.date | date: '%b %-d, %Y' }}",
+    "dateISO": "{{ post.date | date_to_xmlschema }}",
+    "excerpt": {{ post.excerpt | strip_html | strip_newlines | truncatewords: 30 | jsonify }},
+    "categories": {{ post.categories | jsonify }},
+    "thumbnail": "{{ post.thumbnail-img | default: post.share-img | default: post.image | relative_url }}"
+  }
+  {%- endfor -%}
+]

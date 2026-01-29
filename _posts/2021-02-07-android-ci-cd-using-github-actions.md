@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Github Actions for Android
 description: Designing and setting up CI/CD for Android using Github Actions is simple. In this post we will implement entire CI/CD pipeline using Github Actions.

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Android Custom Animations
 description: Android Custom Animations will cover how to create custom animations using pure xml tags e.g "alpha", "scale", "translate" and "rotate".

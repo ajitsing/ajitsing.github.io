@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: "shell_session_update: command not found"
 description: "rvm issue: shell_session_update: command not found and its solutions."

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: ruby
 seo: true
 title: Monitoring individual queue in sidekiq
 description: By default sidekiq does not allow you to monitor failures on individual queues. This article will help you monitor individual queue in sidekiq like a pro.

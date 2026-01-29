@@ -4,7 +4,7 @@ seo: true
 title: "CQRS Pattern: Splitting Read and Write Models"
 subtitle: "Separate your reads from writes and stop fighting with your database"
 date: 2025-12-23
-categories: architecture
+categories: system-design
 permalink: /cqrs-pattern-guide/
 share-img: /assets/img/explainers/cqrs-thumbnail.png
 thumbnail-img: /assets/img/explainers/cqrs-thumbnail.png

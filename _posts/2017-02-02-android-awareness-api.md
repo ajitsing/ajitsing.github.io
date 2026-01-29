@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Why your android application needs awareness api
 description: Learn how to use Android Awareness API to make your app context-aware. Use Fence API for geofencing and Snapshot API to get user's current context including location, activity, weather, and nearby beacons.

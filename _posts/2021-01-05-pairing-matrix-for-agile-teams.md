@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: ruby
 seo: true
 title: Pairing matrix for agile teams
 description: This blog shows how you can automate the creation of pairing matrix for your agile team. The pairing matrix is created using pairing_matrix rubygem.

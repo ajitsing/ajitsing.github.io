@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: "The Complete Guide to k6 Load Testing"
 subtitle: "From panic to performance confidence – scripting, scaling, observing, and automating load tests with k6"

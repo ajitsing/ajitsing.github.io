@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: apkToJava - Gem to convert apk file to java code
 description: Ruby gem to convert apk file to java code and open it in a gui. It will setup your environment and process the apk file to java code. Mac and Linux

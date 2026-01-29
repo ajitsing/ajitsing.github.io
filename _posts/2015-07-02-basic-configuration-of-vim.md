@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: Basic configuration of VIM
 description: Basic configuration of vim - This article will explain how to configure VIM for basic things like syntax highlighting, enabling numbers and a lot more.

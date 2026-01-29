@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: ruby
 seo: true
 title: nokogiri ERROR Failed to build gem native extension on MAC
 description: nokogiri ERROR Failed to build gem native extension on MAC, Find out how to solve this issue with a single command.

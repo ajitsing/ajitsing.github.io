@@ -1,0 +1,34 @@
+<section class="category-filters">
+  <div class="nav-pills-row">
+    <a href="{{ '/explainers/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Explainers'});">
+      <i class="fas fa-lightbulb"></i> Explainers
+    </a>
+    <a href="{{ '/software-development-news/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Weekly'});">
+      <i class="fas fa-newspaper"></i> Dev Weekly
+    </a>
+    <a href="{{ '/system-design/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'System Design'});">
+      <i class="fas fa-cubes"></i> System Design
+    </a>
+    <a href="{{ '/design-patterns/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Design Patterns'});">
+      <i class="fas fa-puzzle-piece"></i> Design Patterns
+    </a>
+    <a href="{{ '/tools/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Tools'});">
+      <i class="fas fa-wrench"></i> Dev Tools
+    </a>
+  </div>
+
+  <div class="category-pills-container">
+    {%- assign total_posts = site.posts | size -%}
+    <button class="category-pill active" data-category="all" onclick="filterByCategory('all', this)">
+      All <span class="pill-count">({{ total_posts }})</span>
+    </button>
+    {%- assign sorted_categories = site.categories | sort -%}
+    {%- for category in sorted_categories -%}
+    {%- assign category_name = category[0] -%}
+    {%- assign category_count = category[1].size -%}
+    <button class="category-pill" data-category="{{ category_name }}" onclick="filterByCategory('{{ category_name }}', this)">
+      {{ category_name | replace: "-", " " | capitalize }} <span class="pill-count">({{ category_count }})</span>
+    </button>
+    {%- endfor -%}
+  </div>
+</section>

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Schedule local notification in android
 description: What are the things you need to know to schedule local notification in android. Here we will discuss in detail about the android components involved int it.

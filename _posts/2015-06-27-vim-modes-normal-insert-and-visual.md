@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: Vim modes - normal, insert and visual
 description: Vim modes - normal, insert and visual. What are the commands or mappings supported in each mode. What commands can be used to jump between the modes.

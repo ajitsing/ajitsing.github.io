@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: ruby
 seo: true
 title: Why aren't you using binstubs yet?
 description: Stop typing bundle exec before every command. Learn how Rails binstubs work and how to create custom binstubs for any gem to run executables in your bundle context.

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Testing Android Database
 description: This article is about testing android database using instrumentation test. It also covers how to configure instrumentation test for the first time.

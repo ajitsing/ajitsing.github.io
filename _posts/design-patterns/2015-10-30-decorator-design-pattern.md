@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: design-patterns
 seo: true
 title: Decorator Design Pattern
 description: Decorator Design Pattern is very useful when it comes to modifying the characteristics or functionality of an object at runtime.

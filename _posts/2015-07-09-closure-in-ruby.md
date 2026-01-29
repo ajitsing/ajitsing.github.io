@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: ruby
 seo: true
 title: Closure in Ruby
 description: Closure in Ruby, This article will explain what is closure in ruby and how it works.

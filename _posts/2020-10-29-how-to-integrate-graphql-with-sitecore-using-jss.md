@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: web-development
 seo: true
 title: How to integrate GraphQL with Sitecore using JSS
 description: Step by step instructions to integrate GraphQL with Sitecore using JSS

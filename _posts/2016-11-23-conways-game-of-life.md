@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: web-development
 seo: true
 title: Conway's Game Of Life
 description: Learn about Conway's Game of Life, its rules, and how to implement it in JavaScript with code and demo.

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Integrating Sherlock with android apps
 description: Learn how to integrate Sherlock library for crash reporting in Android apps. Get instant crash notifications with full stack traces and device info that you can share via email or messaging apps.

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: web-development
 seo: true
 title: Add album cover to mp3 file
 description: Add album cover to mp3 file, We will discuss how we can attach album-cover-image file with mp3 file. And using it with multiple mp3 files.

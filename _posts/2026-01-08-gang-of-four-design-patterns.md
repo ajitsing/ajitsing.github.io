@@ -4,7 +4,7 @@ seo: true
 title: "23 Must-Know Gang of Four Design Patterns"
 subtitle: "23 battle tested solutions that every developer should know"
 date: 2026-01-08
-categories: software-engineering
+categories: design-patterns
 permalink: /gang-of-four-design-patterns/
 share-img: /assets/img/posts/design-patterns/gang-of-four-design-patterns.png
 thumbnail-img: /assets/img/posts/design-patterns/gang-of-four-design-patterns.png

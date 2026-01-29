@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: Cool tips for vim users
 description: Cool tips for vim users, In this article we will cover some awesome tips & tricks vim users can use to make their life easier while using vim.

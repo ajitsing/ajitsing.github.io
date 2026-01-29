@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: design-patterns
 seo: true
 title: Observer Design Pattern
 description: How observer design pattern works and what are the use cases. This article explains observer design pattern with the help of an example.

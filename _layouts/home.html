@@ -7,11 +7,9 @@ hide-explore-posts: true
 
 <div class="container-home" role="main">
 <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/page-navigation.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sidebar.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/featured-post.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/category-filters.css' | relative_url }}">
 
-<!-- SEO: Structured Data for Homepage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -94,7 +92,6 @@ hide-explore-posts: true
 }
 </script>
 
-<!-- SEO: Additional Meta Tags -->
 <meta name="robots" content="index, follow">
 <meta name="author" content="Ajit Singh">
 <meta property="article:author" content="Ajit Singh">
@@ -111,69 +108,10 @@ hide-explore-posts: true
 
 {{ content }}
 
-<!-- Search Section (Full Width) -->
 {% include search-bar.html %}
+{% include category-filters.html %}
 
-<!-- Page Navigation Section (Full Width) -->
-<section class="page-navigation">
-  <div class="nav-cards-container">
-    {% assign explainers_count = site.explainers | size %}
-    <a href="{{ '/explainers/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Explainers Card'});">
-      <div class="nav-card-icon"><i class="fas fa-lightbulb"></i></div>
-      <h3 class="nav-card-title">Explainers</h3>
-      <div class="nav-card-meta">
-        <span class="nav-card-count">{{ explainers_count }} Guides</span>
-      </div>
-    </a>
-    
-    {% assign tech_news_count = site.tags.dev-weekly | size %}
-    <a href="{{ '/software-development-news/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Weekly Card'});">
-      <div class="nav-card-icon"><i class="fas fa-newspaper"></i></div>
-      <h3 class="nav-card-title">Dev Weekly</h3>
-      <div class="nav-card-meta">
-        <span class="nav-card-count">{{ tech_news_count }} Articles</span>
-      </div>
-    </a>
-    
-    {% assign system_design_count = site.posts | where_exp: "post", "post.tags contains 'system-design'" | size %}
-    <a href="{{ '/system-design/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'System Design Card'});">
-      <div class="nav-card-icon"><i class="fas fa-cubes"></i></div>
-      <h3 class="nav-card-title">System Design</h3>
-      <div class="nav-card-meta">
-        <span class="nav-card-count">{{ system_design_count }} Case Studies</span>
-      </div>
-    </a>
-    
-    {% assign design_patterns_count = site.posts | where_exp: "post", "post.tags contains 'design-patterns'" | size %}
-    <a href="{{ '/design-patterns/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Design Patterns Card'});">
-      <div class="nav-card-icon"><i class="fas fa-puzzle-piece"></i></div>
-      <h3 class="nav-card-title">Design Patterns</h3>
-      <div class="nav-card-meta">
-        <span class="nav-card-count">{{ design_patterns_count }} Patterns</span>
-      </div>
-    </a>
-    
-    <a href="{{ '/tools/' | relative_url }}" class="nav-card nav-card-compact" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Tools Card'});">
-      <div class="nav-card-icon"><i class="fas fa-wrench"></i></div>
-      <h3 class="nav-card-title">Dev Tools</h3>
-      <div class="nav-card-meta">
-        <span class="nav-card-count">4 Tools</span>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- RSS Subscribe Section (Full Width) -->
-<div class="rss-section-home">
-  {% include rss-subscribe.html %}
-</div>
-
-<!-- Featured Post Section -->
-{% include featured-post.html %}
-
-<!-- Two-column layout: Posts + Sidebar -->
 <div class="home-layout">
-  <!-- Main Content: Posts List -->
   <main class="home-main">
     {% assign posts = paginator.posts | default: site.posts %}
 
@@ -231,7 +169,6 @@ hide-explore-posts: true
         {% endif %}
       </article>
 
-      {% comment %} Insert in-feed ad after every 5th post {% endcomment %}
       {% assign mod_check = post_counter | modulo: 5 %}
       {% if mod_check == 0 %}
       <div class="in-feed-ad" aria-label="Advertisement">
@@ -249,21 +186,6 @@ hide-explore-posts: true
       {% endfor %}
     </div>
 
-    {% if paginator.total_pages > 1 %}
-    <ul class="pagination main-pager">
-      {% if paginator.previous_page %}
-      <li class="page-item previous">
-        <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer Posts</a>
-      </li>
-      {% endif %}
-      {% if paginator.next_page %}
-      <li class="page-item next">
-        <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Older Posts &rarr;</a>
-      </li>
-      {% endif %}
-    </ul>
-    {% endif %}
-
     <div class="home-bottom-ad">
       <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
       <ins class="adsbygoogle"
@@ -277,7 +199,6 @@ hide-explore-posts: true
     </div>
   </main>
 
-  <!-- Right Sidebar -->
   <aside class="home-sidebar">
     {% include sidebar-popular.html %}
   </aside>
@@ -285,3 +206,4 @@ hide-explore-posts: true
 </div>
 
 <script src="{{ '/assets/js/in-feed-ads.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/category-filter.js' | relative_url }}"></script>

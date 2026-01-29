@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Android Padding vs Margin
 description: Android Padding vs Margin covers whats the difference between padding and margin in context of android UI with examples.

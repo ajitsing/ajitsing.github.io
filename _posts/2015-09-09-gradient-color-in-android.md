@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Gradient color in android
 description: How to use Gradient color in android as background or any component's background. Its very simple task to create a gradient color.

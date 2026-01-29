@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Notify when android device network status changes
 description: This article will show how you can listen network status and notify when android device network status changes using a snackbar notification.

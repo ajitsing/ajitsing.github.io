@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Android with sqlite database
 description: Android with sqlite database, How to use database in android in the right way with the best practices.

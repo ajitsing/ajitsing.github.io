@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: MVP in android
 description: How to use MVP in android, In this article we will discuss what is MVP in android and how we can implement it. MVP helps improve coverage of code too.

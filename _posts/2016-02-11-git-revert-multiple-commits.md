@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: git
 seo: true
 title: GIT revert multiple commits
 description: "Learn various ways to revert multiple commits in Git using command-line tools like grep, cut, xargs, and more. Explore new methods for efficient Git workflows."

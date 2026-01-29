@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Android Instrumentation Testing Using Espresso
 description: Recently people have started doing Android Instrumentation Testing Using Espresso. In this article we will see a demo of espresso testing.

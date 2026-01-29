@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Android UI Design And Styling
 description: This tutorial covers DP, SP and Pixels in depth with examples. And what to use where. Android UI Design And Styling.

@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Instrumentation testing of list view
 description: Instrumentation testing of listView. It covers from checking the size of the list to clicking an item and viewing its details

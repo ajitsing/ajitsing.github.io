@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: ruby
 seo: true
 title: Prevent push on red build with the help of gocd_pre_push
 description: gocd_pre_push helps agile teams to prevent pushing the changes in the central repo when the build is red by checking the status of concerned pipelines.

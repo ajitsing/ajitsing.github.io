@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: ruby
 seo: true
 title: Set up automation using cucumber and capybara
 description: This article is about setting up automation environment using cucumber and capybara (on chrome browser) with minimal config.

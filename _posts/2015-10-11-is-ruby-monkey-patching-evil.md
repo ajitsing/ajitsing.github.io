@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: ruby
 seo: true
 title: Is ruby monkey patching evil?
 description: The way we use ruby monkey patching, is it good or evil? Lets understand through some examples.

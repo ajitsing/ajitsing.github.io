@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: Print custom messages after executing git commands
 description: amusing_git will help you print custom messages after executing git commands. You can configure the messages which you want to show.

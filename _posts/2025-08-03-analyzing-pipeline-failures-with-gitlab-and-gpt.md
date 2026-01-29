@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: devops
 seo: true
 title: "Taming Pipeline Chaos: How I Used GitLab APIs and GPT to Analyze Thousands of Failures and Boost Stability"
 description: "Learn how I leveraged GitLab APIs and GPT to analyze thousands of pipeline failures, identify patterns, and implement solutions that significantly improved stability."

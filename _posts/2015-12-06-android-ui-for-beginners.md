@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 seo: true
 title: Android UI for beginners
 description: Android ui for beginners covers all the basic layouts you use all the time while developing android applications. How to choose a Layout for you use case.

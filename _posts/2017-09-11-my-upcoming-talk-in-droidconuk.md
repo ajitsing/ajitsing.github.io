@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: mobile-development
 title: My upcoming talk in DroidConUK
 description: Sharing learnings on building offline mode in Android apps at DroidConUK, including design, challenges, and best practices.
 share-img: /assets/img/posts/droidconuk/cover.jpg

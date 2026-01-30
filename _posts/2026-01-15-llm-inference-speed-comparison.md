@@ -4,7 +4,7 @@ seo: true
 title: "Local LLM Speed: Qwen2 & Llama 3.1 Real Benchmark Results"
 subtitle: "What tokens per second you can actually expect when running Qwen2, Llama 3.1, and other models locally"
 date: 2026-01-15
-categories: artificial-intelligence
+categories: ai
 thumbnail-img: /assets/img/posts/artificial-intelligence/llm-inference-speed-thumbnail.png
 share-img: /assets/img/posts/artificial-intelligence/llm-inference-speed-thumbnail.png
 permalink: /llm-inference-speed-comparison/

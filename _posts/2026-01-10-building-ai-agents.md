@@ -4,7 +4,7 @@ seo: true
 title: "How to Build AI Agents That Actually Work"
 subtitle: "A practical guide to agent architecture, tool calling, and the patterns that matter"
 date: 2026-01-10
-categories: artificial-intelligence
+categories: ai
 permalink: /building-ai-agents/
 share-img: /assets/img/posts/artificial-intelligence/building-ai-agents-thumb.png
 thumbnail-img: /assets/img/posts/artificial-intelligence/building-ai-agents-thumb.png

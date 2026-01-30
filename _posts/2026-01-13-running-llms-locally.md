@@ -4,7 +4,7 @@ seo: true
 title: "How to Run LLMs on Your Own Computer"
 subtitle: "How to run Llama, Mistral, and other open source models on your own hardware"
 date: 2026-01-13
-categories: artificial-intelligence
+categories: ai
 permalink: /running-llms-locally/
 share-img: /assets/img/posts/artificial-intelligence/local-llm-thumbnail.png
 thumbnail-img: /assets/img/posts/artificial-intelligence/local-llm-thumbnail.png
@@ -12,7 +12,6 @@ description: "Learn how to run large language models locally on your own hardwar
 keywords: "run LLM locally, local LLM, Ollama tutorial, llama.cpp guide, LM Studio, run Llama locally, run Mistral locally, local AI, offline LLM, private LLM, self-hosted LLM, GGUF models, quantization explained, local language model, run GPT locally, local chatbot, LLM on laptop, LLM without cloud, open source LLM, Llama 3 local, Mistral local, DeepSeek local, local AI assistant, edge AI, on-device LLM, LLM hardware requirements, GPU for LLM, Apple Silicon LLM, M1 M2 M3 LLM, NVIDIA GPU LLM, local inference, LLM API server, Ollama API, local RAG, private AI, enterprise LLM, LLM privacy, LLM cost savings"
 tags: ["AI", "software-engineering"]
 comments: true
-popular: true
 
 key-takeaways:
   - "Ollama is the easiest way to run LLMs locally - install and run with one command"

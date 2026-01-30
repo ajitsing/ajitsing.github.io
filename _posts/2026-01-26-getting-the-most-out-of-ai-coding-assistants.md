@@ -4,7 +4,7 @@ seo: true
 title: "Getting the Most Out of AI Coding Assistants"
 subtitle: "Practical lessons from developers who actually use GitHub Copilot, Cursor, and other AI tools daily"
 date: 2026-01-26
-categories: artificial-intelligence
+categories: ai
 permalink: /ai-coding-assistants-guide/
 share-img: /assets/img/posts/artificial-intelligence/ai-coding-assistants-thumb.png
 thumbnail-img: /assets/img/posts/artificial-intelligence/ai-coding-assistants-thumb.png
@@ -12,7 +12,6 @@ description: "Learn how to use AI coding assistants effectively. Practical tips 
 keywords: "AI coding assistant, GitHub Copilot tips, Cursor AI, how to use AI for coding, AI pair programming, prompt engineering for developers, AI code generation, developer productivity AI, best AI coding tools, Copilot best practices, AI assisted development, code completion AI, AI programming assistant, Codeium, Tabnine, AI code review, software development AI tools, how to write better prompts, AI developer workflow"
 tags: ["AI", "software-engineering"]
 comments: true
-popular: true
 
 key-takeaways:
   - "AI coding assistants work best when you plan first. Write a markdown file with requirements before coding."

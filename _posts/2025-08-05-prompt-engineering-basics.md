@@ -4,7 +4,7 @@ seo: true
 title: "Prompt Engineering Basics for Software Developers"
 description: "Learn the fundamentals of prompt engineering and how it can enhance your interaction with AI models. Discover best practices, examples, and tips tailored for software developers."
 date: 2025-08-05
-categories: artificial-intelligence
+categories: ai
 thumbnail-img: /assets/img/posts/prompt-engineering/prompt-thumbnail.png
 share-img: /assets/img/posts/prompt-engineering/prompt-thumbnail.png
 permalink: /prompt-engineering-basics/

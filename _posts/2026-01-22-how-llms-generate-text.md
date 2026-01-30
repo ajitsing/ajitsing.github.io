@@ -4,7 +4,7 @@ seo: true
 title: "How Does an LLM Generate Text?"
 subtitle: "What actually happens inside GPT, Claude, and Llama when you hit enter"
 date: 2026-01-22
-categories: artificial-intelligence
+categories: ai
 permalink: /how-llms-generate-text/
 share-img: /assets/img/posts/artificial-intelligence/how-llms-generate-text-thumb.png
 thumbnail-img: /assets/img/posts/artificial-intelligence/how-llms-generate-text-thumb.png

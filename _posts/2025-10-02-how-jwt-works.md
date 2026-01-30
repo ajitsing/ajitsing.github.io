@@ -5,7 +5,7 @@ title: "Why JWT Replaced Sessions: Building Auth That Scales"
 subtitle: "How stateless tokens solved the scaling problem that broke every session-based system"
 date: 2025-10-02
 last-modified-date: 2026-01-03
-categories: web-development
+categories: security
 thumbnail-img: /assets/img/posts/security/jwt-thumbnail.png
 share-img: /assets/img/posts/security/jwt-thumbnail.png
 permalink: /how-jwt-works/
@@ -561,4 +561,4 @@ What started as RFC 7519 became the foundation of modern API authentication. Com
 
 ---
 
-*For more on distributed systems, check out our posts on [Kafka for event streaming](/distributed-systems/how-kafka-works/), [Paxos consensus algorithm](/distributed-systems/paxos/), and [Distributed counter architecture](/distributed-systems/distributed-counter/).*
+*For more on distributed systems, check out our posts on [Kafka for event streaming](/distributed-systems/how-kafka-works/), [Paxos consensus algorithm](/distributed-systems/paxos/), and [Distributed counter architecture](/distributed-systems/distributed-counter/). For the complete picture on authorization, see [OAuth 2.0 Explained](/oauth-2-explained/).*

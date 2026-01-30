@@ -12,7 +12,7 @@ keywords: "how uber find nearby drivers, finding you nearby drivers, uber nearby
 comments: true
 tags: [system-design]
 seo: true
-popular: true
+
 faq:
   - question: "How does Uber find nearby drivers?"
     answer: "When you request a ride, Uber converts your GPS location into an H3 hexagonal cell ID. The system then searches that cell and its neighboring hexagons to find all available drivers nearby. This geospatial indexing approach means Uber doesn't need to calculate distances to every driver in the city - just those in nearby hexagonal cells, making the search extremely fast."

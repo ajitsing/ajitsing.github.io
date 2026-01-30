@@ -12,7 +12,7 @@ description: "How does Google Docs let multiple people edit the same document at
 keywords: "Google Docs system design, real-time collaboration, Operational Transform, OT algorithm, collaborative editing, CRDT, conflict resolution, document synchronization, WebSocket, concurrent editing, distributed systems, Google Docs architecture, real-time editing, collaborative document editor, system design interview"
 tags: [system-design]
 comments: true
-popular: true
+
 faq:
   - question: "How does Google Docs handle multiple users editing at the same time?"
     answer: "Google Docs uses Operational Transform (OT) to handle concurrent edits. Each keystroke is converted into an operation with a position and content. When two users edit simultaneously, the server receives both operations, transforms them to account for each other's changes, and broadcasts the transformed operations back. This ensures all users see the same final document without losing any edits."

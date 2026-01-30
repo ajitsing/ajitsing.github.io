@@ -4,7 +4,7 @@ seo: true
 title: "Context Engineering Guide for AI Developers"
 subtitle: "What every developer needs to know about feeding AI the right information"
 date: 2026-01-09
-categories: artificial-intelligence
+categories: ai
 permalink: /context-engineering/
 share-img: /assets/img/posts/artificial-intelligence/context-engineering-thumb.png
 thumbnail-img: /assets/img/posts/artificial-intelligence/context-engineering-thumb.png

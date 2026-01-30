@@ -4,7 +4,7 @@ seo: true
 title: "Universal Commerce Protocol (UCP) Explained"
 subtitle: "Google's new open standard for AI-driven shopping and how to integrate it"
 date: 2026-01-12
-categories: artificial-intelligence
+categories: ai
 permalink: /universal-commerce-protocol-explained/
 share-img: /assets/img/posts/artificial-intelligence/ucp-thumbnail.png
 thumbnail-img: /assets/img/posts/artificial-intelligence/ucp-thumbnail.png

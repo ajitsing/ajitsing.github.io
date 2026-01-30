@@ -5,7 +5,7 @@ title: "Your JSON is Costing You Thousands: Why TOON Might Save Your Budget"
 subtitle: "How a simple format change can reduce LLM API costs by 40-50%"
 date: 2025-11-14
 last-modified-date: 2026-01-03
-categories: artificial-intelligence
+categories: ai
 thumbnail-img: /assets/img/posts/artificial-intelligence/toon-thumbnail.png
 share-img: /assets/img/posts/artificial-intelligence/toon-thumbnail.png
 permalink: /toon-vs-json-token-efficient-format/

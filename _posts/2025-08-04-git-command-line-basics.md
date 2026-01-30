@@ -337,6 +337,8 @@ Mastering Git command-line basics empowers you to work efficiently, understand i
 
 Whether you're a beginner or an experienced developer, the command line is a valuable tool that complements your development workflow. Embrace the power of CLI and take your version control skills to the next level!
 
+If you want to expand your terminal skills beyond Git, check out the [Linux Commands Cheat Sheet](/linux-commands-cheat-sheet/) for essential commands covering file management, process control, networking, and more.
+
 ---
 
 *What are your favorite commands? Share your thoughts in the comments below!*

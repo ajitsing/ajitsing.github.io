@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="terminalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#334155"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="150" fill="#0ea5e9" opacity="0.05"/>
+  <circle cx="1100" cy="530" r="200" fill="#10b981" opacity="0.05"/>
+  
+  <!-- Terminal Window -->
+  <rect x="150" y="80" width="900" height="470" rx="12" fill="url(#terminalGrad)" stroke="#475569" stroke-width="2"/>
+  
+  <!-- Terminal Header -->
+  <rect x="150" y="80" width="900" height="40" rx="12" fill="#334155"/>
+  <rect x="150" y="108" width="900" height="12" fill="#334155"/>
+  
+  <!-- Window Controls -->
+  <circle cx="180" cy="100" r="8" fill="#ef4444"/>
+  <circle cx="210" cy="100" r="8" fill="#eab308"/>
+  <circle cx="240" cy="100" r="8" fill="#22c55e"/>
+  
+  <!-- Terminal Title -->
+  <text x="600" y="106" font-family="SF Mono, Monaco, Consolas, monospace" font-size="14" fill="#94a3b8" text-anchor="middle">bash — linux-commands</text>
+  
+  <!-- Terminal Content -->
+  <text x="180" y="170" font-family="SF Mono, Monaco, Consolas, monospace" font-size="20" fill="#22c55e">$</text>
+  <text x="210" y="170" font-family="SF Mono, Monaco, Consolas, monospace" font-size="20" fill="#e2e8f0">ls -la /var/log</text>
+  
+  <text x="180" y="210" font-family="SF Mono, Monaco, Consolas, monospace" font-size="18" fill="#94a3b8">drwxr-xr-x  12 root root 4096 Jan 30</text>
+  <text x="180" y="240" font-family="SF Mono, Monaco, Consolas, monospace" font-size="18" fill="#94a3b8">-rw-r--r--   1 root root  24K Jan 30</text>
+  
+  <text x="180" y="290" font-family="SF Mono, Monaco, Consolas, monospace" font-size="20" fill="#22c55e">$</text>
+  <text x="210" y="290" font-family="SF Mono, Monaco, Consolas, monospace" font-size="20" fill="#e2e8f0">grep -r "error" ./src</text>
+  
+  <text x="180" y="330" font-family="SF Mono, Monaco, Consolas, monospace" font-size="18" fill="#94a3b8">src/app.js:42: </text>
+  <text x="380" y="330" font-family="SF Mono, Monaco, Consolas, monospace" font-size="18" fill="#f87171">error</text>
+  <text x="450" y="330" font-family="SF Mono, Monaco, Consolas, monospace" font-size="18" fill="#94a3b8"> handling</text>
+  
+  <text x="180" y="380" font-family="SF Mono, Monaco, Consolas, monospace" font-size="20" fill="#22c55e">$</text>
+  <text x="210" y="380" font-family="SF Mono, Monaco, Consolas, monospace" font-size="20" fill="#e2e8f0">ps aux | head -5</text>
+  
+  <text x="180" y="420" font-family="SF Mono, Monaco, Consolas, monospace" font-size="18" fill="#94a3b8">USER  PID  %CPU  %MEM  COMMAND</text>
+  <text x="180" y="450" font-family="SF Mono, Monaco, Consolas, monospace" font-size="18" fill="#94a3b8">root    1   0.0   0.1  /sbin/init</text>
+  
+  <text x="180" y="500" font-family="SF Mono, Monaco, Consolas, monospace" font-size="20" fill="#22c55e">$</text>
+  <text x="210" y="500" font-family="SF Mono, Monaco, Consolas, monospace" font-size="20" fill="#e2e8f0">_</text>
+  
+  <!-- Cursor blink animation -->
+  <rect x="210" y="485" width="12" height="22" fill="#22c55e">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Title Text -->
+  <text x="600" y="590" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#f1f5f9" text-anchor="middle">Linux Commands Cheat Sheet</text>
+  
+  <!-- Linux Penguin Icon (simplified) -->
+  <g transform="translate(1050, 160)">
+    <!-- Body -->
+    <ellipse cx="0" cy="30" rx="35" ry="45" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+    <!-- Belly -->
+    <ellipse cx="0" cy="35" rx="22" ry="32" fill="#f1f5f9"/>
+    <!-- Head -->
+    <circle cx="0" cy="-25" r="28" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+    <!-- Eyes -->
+    <circle cx="-10" cy="-30" r="8" fill="#f1f5f9"/>
+    <circle cx="10" cy="-30" r="8" fill="#f1f5f9"/>
+    <circle cx="-8" cy="-30" r="4" fill="#1e293b"/>
+    <circle cx="12" cy="-30" r="4" fill="#1e293b"/>
+    <!-- Beak -->
+    <ellipse cx="0" cy="-15" rx="10" ry="6" fill="#f59e0b"/>
+    <!-- Feet -->
+    <ellipse cx="-15" cy="75" rx="15" ry="8" fill="#f59e0b"/>
+    <ellipse cx="15" cy="75" rx="15" ry="8" fill="#f59e0b"/>
+  </g>
+</svg>

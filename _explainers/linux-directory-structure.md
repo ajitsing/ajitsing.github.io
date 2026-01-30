@@ -447,6 +447,21 @@ graph LR
         </div>
       </div>
 
+      <div class="white-container" style="margin-top: 40px; padding: 30px; background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 12px;">
+        <h2 class="section-title" style="margin-top: 0;">Keep Learning</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6; color: #374151; margin-bottom: 20px;">
+          Now that you understand where files live, learn how to work with them:
+        </p>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="background: white; border: 2px solid #d1d5db; border-radius: 12px; padding: 15px 20px; margin-bottom: 10px; font-size: 1rem; line-height: 1.6; color: #374151;">
+            <strong><i class="fas fa-terminal" style="color: #059669; margin-right: 10px;"></i><a href="/linux-commands-cheat-sheet/" style="color: #0284c7; text-decoration: none;">Linux Commands Cheat Sheet</a></strong> - Essential terminal commands for file management, process control, and more
+          </li>
+          <li style="background: white; border: 2px solid #d1d5db; border-radius: 12px; padding: 15px 20px; margin-bottom: 10px; font-size: 1rem; line-height: 1.6; color: #374151;">
+            <strong><i class="fas fa-clock" style="color: #059669; margin-right: 10px;"></i><a href="/explainer/cron-jobs-explained/" style="color: #0284c7; text-decoration: none;">Cron Jobs Explained</a></strong> - Schedule tasks to run automatically
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </div>

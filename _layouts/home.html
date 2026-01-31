@@ -163,7 +163,7 @@ hide-explore-posts: true
         {% if post.tags.size > 0 %}
         <div class="post-tags-row">
           {% for tag in post.tags limit:2 %}
-          <a href="{{ '/tags' | relative_url }}#{{- tag -}}" class="post-tag" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{ tag }}</a>
+          <a href="{{ '/archive' | relative_url }}#{{- tag -}}" class="post-tag" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{ tag }}</a>
           {% endfor %}
         </div>
         {% endif %}

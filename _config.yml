@@ -30,18 +30,10 @@ speakable_default: true
 
 navbar-links:
   About Me: "aboutme"
-  # Videos: "videos"
-  Explainers: "explainers"
-  Tools: "/tools/"
+  Archive: "/archive"
   System Design: "/system-design"
-  Design Patterns: "/design-patterns"
-  Tag Cloud: "/tags"
-  Dev Weekly: "/software-development-news"
-  # Android: "/tags/#android"
-  # Ruby: "/tags/#ruby"
-  # Java: "/tags/#java"
-  # Design Patterns: "/tags/#design%20pattern"
-  
+  Tools: "/tools/"
+  Tech News: "/software-development-news"
 
 # --- Logo --- #
 

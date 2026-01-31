@@ -1,125 +1,22 @@
 ---
-layout: page
-title: 'Tag Cloud'
-subtitle: 'Browse posts by topic and technology'
-description: 'Explore all blog posts organized by tags and topics. Find content about Java, Ruby, Node.js, Android development, system design, programming tutorials, and software engineering concepts.'
-seo: true
-keywords: 'blog tags, programming topics, Java tutorials, Ruby guides, Node.js examples, Android development, system design, software engineering, programming languages, technology topics'
-thumbnail: /assets/img/tags/tags-thumbnail.png
-share-img: /assets/img/tags/tags-thumbnail.png
+layout: null
 permalink: /tags/
-social-share: true
-canonical-url: "{{ site.url }}/tags/"
+sitemap: false
 ---
-
-<!-- SEO: Structured Data for Tag Index -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "headline": "Tag Cloud - Browse Posts by Topic",
-  "description": "Explore all blog posts organized by tags and topics. Find content about Java, Ruby, Node.js, Android development, system design, programming tutorials, and software engineering concepts.",
-  "author": {
-    "@type": "Person",
-    "name": "Ajit Singh",
-    "url": "https://github.com/ajitsing"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Ajit Singh",
-    "url": "{{ site.url }}"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ site.url }}{{ page.url }}"
-  },
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "Programming Tutorials"
-    },
-    {
-      "@type": "Thing",
-      "name": "Software Engineering"
-    },
-    {
-      "@type": "Thing",
-      "name": "Technology Topics"
-    }
-  ],
-  "numberOfItems": {{ site.tags.size }},
-  "itemListElement": [
-    {% for tag in site.tags %}
-    {
-      "@type": "ListItem",
-      "position": {{ forloop.index }},
-      "name": "{{ tag[0] }}",
-      "description": "{{ tag[1].size }} posts tagged with {{ tag[0] }}",
-      "url": "{{ site.url }}/tags/#{{ tag[0] }}"
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ],
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": {
-          "@type": "WebSite",
-          "@id": "{{ site.url }}",
-          "name": "Home"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ page.title | escape }}",
-        "item": {
-          "@type": "CollectionPage",
-          "@id": "{{ site.url }}{{ page.url }}",
-          "name": "{{ page.title | escape }}"
-        }
-      }
-    ]
-  }
-}
-</script>
-
-{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
-
-{%- capture site_tags -%}
-    {%- for tag in site.tags -%}
-        {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%}
-    {%- endfor -%}
-{%- endcapture -%}
-{%- assign tags_list = site_tags | split:',' | sort -%}
-
-{%- for tag in tags_list -%}
-    <a href="#{{- tag -}}" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;{{- tag -}}&nbsp;({{site.tags[tag].size}})</a>
-{%- endfor -%}
-
-<div class="rss-section-footer">
-  {% include rss-subscribe.html %}
-</div>
-
-<div id="full-tags-list">
-{%- for tag in tags_list -%}
-    <h2 id="{{- tag -}}" class="linked-section">
-        <i class="fas fa-tag" aria-hidden="true"></i>
-        &nbsp;{{- tag -}}&nbsp;({{site.tags[tag].size}})
-    </h2>
-    <div class="post-list">
-        {%- for post in site.tags[tag] -%}
-            <div class="tag-entry">
-                <a href="{{ post.url | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'Blog Post', 'event_label': '{{ post.title | escape }}'});">{{- post.title -}}</a>
-                <div class="entry-date">
-                    <time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: date_format -}}</time>
-                </div>
-            </div>
-        {%- endfor -%}
-    </div>
-{%- endfor -%}
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url={{ '/archive/' | relative_url }}">
+  <link rel="canonical" href="{{ site.url }}/archive/">
+  <title>Redirecting to Archive...</title>
+  <script>
+    // Preserve any hash for tag filtering
+    var hash = window.location.hash;
+    window.location.replace('{{ "/archive/" | relative_url }}' + hash);
+  </script>
+</head>
+<body>
+  <p>This page has moved. Redirecting to <a href="{{ '/archive/' | relative_url }}">Archive</a>...</p>
+</body>
+</html>

@@ -1,0 +1,294 @@
+---
+layout: base
+title: 'Archive'
+meta-title: 'Archive - All Blog Posts & Explainers | Code Chronicles'
+subtitle: 'Browse all content'
+description: 'Complete archive of all blog posts and explainers. Browse 170+ articles on system design, programming, software engineering, DevOps, and more. Filter by category or search to find exactly what you need.'
+seo: true
+keywords: 'blog archive, all posts, programming tutorials, system design articles, software engineering blog, Java tutorials, Ruby guides, Android development, architecture patterns, coding explainers, tech blog archive'
+thumbnail: /assets/img/ajit-singh-blog-og.png
+share-img: /assets/img/ajit-singh-blog-og.png
+permalink: /archive/
+social-share: true
+hide-explore-posts: true
+sitemap:
+  priority: 0.8
+  changefreq: weekly
+---
+
+{% include header.html type="page" %}
+
+<link rel="stylesheet" href="{{ '/assets/css/archive.css' | relative_url }}">
+
+{% assign total_content = site.posts.size | plus: site.explainers.size | plus: 4 %}
+{% assign sorted_categories = site.categories | sort %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Archive - All Blog Posts & Explainers",
+  "headline": "Complete Archive of Blog Posts and Explainers",
+  "description": "{{ page.description }}",
+  "url": "{{ site.url }}/archive/",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ site.url }}/#website",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Software Engineering and Programming"
+  },
+  "author": {
+    "@type": "Person",
+    "@id": "https://x.com/ajit5ingh",
+    "name": "Ajit Singh",
+    "url": "https://x.com/ajit5ingh",
+    "sameAs": ["https://x.com/ajit5ingh", "https://github.com/ajitsing", "https://linkedin.com/in/ajitsingh"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://x.com/ajit5ingh",
+    "name": "Ajit Singh",
+    "url": "https://x.com/ajit5ingh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}/archive/"
+  },
+  "numberOfItems": {{ total_content }},
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}" },
+      { "@type": "ListItem", "position": 2, "name": "Archive", "item": "{{ site.url }}/archive/" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "All Blog Posts",
+  "description": "Complete list of all blog posts and explainers",
+  "numberOfItems": {{ total_content }},
+  "itemListElement": [
+    {% for explainer in site.explainers limit:50 %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "url": "{{ site.url }}{{ explainer.url }}",
+      "name": "{{ explainer.title | escape }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+    {% if site.explainers.size > 0 %},{% endif %}
+    {% for post in site.posts limit:50 %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index | plus: site.explainers.size }},
+      "url": "{{ site.url }}{{ post.url }}",
+      "name": "{{ post.title | escape }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+
+<div class="archive-container">
+  <header class="archive-header">
+    <p class="archive-intro">Explore <strong>{{ total_content }}</strong> articles covering system design, programming patterns, software engineering, and developer tools.</p>
+  </header>
+
+  <div class="archive-search" role="search">
+    <label for="archiveSearch" class="visually-hidden">Search content</label>
+    <i class="fas fa-search search-icon" aria-hidden="true"></i>
+    <input type="text" id="archiveSearch" placeholder="Search content..." autocomplete="off">
+    <button class="search-clear" id="searchClear" aria-label="Clear search">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <nav class="archive-filters" aria-label="Filter by category">
+    <button class="filter-pill active" data-category="all">
+      All <span class="pill-count">({{ total_content }})</span>
+    </button>
+    <button class="filter-pill" data-category="explainers">
+      <i class="fas fa-lightbulb" aria-hidden="true"></i> Explainers <span class="pill-count">({{ site.explainers.size }})</span>
+    </button>
+    <button class="filter-pill" data-category="dev-tools">
+      <i class="fas fa-wrench" aria-hidden="true"></i> Dev Tools <span class="pill-count">(4)</span>
+    </button>
+    {% for category in sorted_categories %}
+      {% assign category_name = category[0] %}
+      {% assign category_count = category[1] | size %}
+      <button class="filter-pill" data-category="{{ category_name }}">
+        {{ category_name | replace: "-", " " | capitalize }} <span class="pill-count">({{ category_count }})</span>
+      </button>
+    {% endfor %}
+  </nav>
+
+  <div class="archive-results" aria-live="polite">
+    <span id="resultsCount">Showing all {{ total_content }} items</span>
+  </div>
+
+  <main id="archiveContent" role="feed" aria-label="Archive content">
+    <section class="archive-section" data-section="explainers">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          Explainers
+        </h2>
+        <span class="section-count">{{ site.explainers.size }} articles</span>
+      </div>
+      <div class="archive-grid">
+        {% for explainer in site.explainers %}
+        <article class="archive-card" data-categories="explainers" data-title="{{ explainer.title | downcase }}" data-type="explainer" itemscope itemtype="https://schema.org/Article">
+          <a href="{{ explainer.url | relative_url }}" class="archive-card-link" itemprop="url">
+            {% if explainer.thumbnail %}
+            <div class="archive-card-image">
+              <img src="{{ explainer.thumbnail | relative_url }}" alt="{{ explainer.title }}" loading="lazy" itemprop="image">
+            </div>
+            {% elsif explainer.share-img %}
+            <div class="archive-card-image">
+              <img src="{{ explainer.share-img | relative_url }}" alt="{{ explainer.title }}" loading="lazy" itemprop="image">
+            </div>
+            {% else %}
+            <div class="archive-card-image archive-card-placeholder explainer-placeholder">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i>
+            </div>
+            {% endif %}
+            <div class="archive-card-content">
+              <h3 class="archive-card-title" itemprop="headline">{{ explainer.title }}</h3>
+              <div class="archive-card-meta">
+                <time class="archive-card-date" datetime="{{ explainer.date | date_to_xmlschema }}" itemprop="datePublished">{{ explainer.date | date: "%b %d, %Y" }}</time>
+              </div>
+            </div>
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="archive-section" data-section="dev-tools">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-wrench" aria-hidden="true"></i>
+          Dev Tools
+        </h2>
+        <span class="section-count">4 tools</span>
+      </div>
+      <div class="archive-grid">
+        <article class="archive-card" data-categories="dev-tools" data-title="json validator & formatter" data-type="tool" itemscope itemtype="https://schema.org/WebApplication">
+          <a href="{{ '/tools/json-validator/' | relative_url }}" class="archive-card-link" itemprop="url">
+            <div class="archive-card-image">
+              <img src="{{ '/assets/img/tools/json-validator-thumbnail.png' | relative_url }}" alt="JSON Validator & Formatter" loading="lazy" itemprop="image">
+            </div>
+            <div class="archive-card-content">
+              <h3 class="archive-card-title" itemprop="name">JSON Validator & Formatter</h3>
+              <div class="archive-card-meta">
+                <span class="archive-card-type tool-badge">Tool</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="archive-card" data-categories="dev-tools" data-title="regex tester & debugger" data-type="tool" itemscope itemtype="https://schema.org/WebApplication">
+          <a href="{{ '/tools/regex-tester/' | relative_url }}" class="archive-card-link" itemprop="url">
+            <div class="archive-card-image">
+              <img src="{{ '/assets/img/tools/regex-tool-thumbnail.png' | relative_url }}" alt="Regex Tester & Debugger" loading="lazy" itemprop="image">
+            </div>
+            <div class="archive-card-content">
+              <h3 class="archive-card-title" itemprop="name">Regex Tester & Debugger</h3>
+              <div class="archive-card-meta">
+                <span class="archive-card-type tool-badge">Tool</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="archive-card" data-categories="dev-tools" data-title="cron expression generator" data-type="tool" itemscope itemtype="https://schema.org/WebApplication">
+          <a href="{{ '/tools/cron-expression/' | relative_url }}" class="archive-card-link" itemprop="url">
+            <div class="archive-card-image">
+              <img src="{{ '/assets/img/tools/cron-tool-thumbnail.png' | relative_url }}" alt="Cron Expression Generator" loading="lazy" itemprop="image">
+            </div>
+            <div class="archive-card-content">
+              <h3 class="archive-card-title" itemprop="name">Cron Expression Generator</h3>
+              <div class="archive-card-meta">
+                <span class="archive-card-type tool-badge">Tool</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="archive-card" data-categories="dev-tools" data-title="base64 encoder & decoder" data-type="tool" itemscope itemtype="https://schema.org/WebApplication">
+          <a href="{{ '/tools/base64-encoder/' | relative_url }}" class="archive-card-link" itemprop="url">
+            <div class="archive-card-image">
+              <img src="{{ '/assets/img/tools/base64-tool-thumbnail.png' | relative_url }}" alt="Base64 Encoder & Decoder" loading="lazy" itemprop="image">
+            </div>
+            <div class="archive-card-content">
+              <h3 class="archive-card-title" itemprop="name">Base64 Encoder & Decoder</h3>
+              <div class="archive-card-meta">
+                <span class="archive-card-type tool-badge">Tool</span>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    {% for category in sorted_categories %}
+      {% assign category_name = category[0] %}
+      {% assign category_posts = category[1] %}
+    <section class="archive-section" data-section="{{ category_name }}">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-folder" aria-hidden="true"></i>
+          {{ category_name | replace: "-", " " | capitalize }}
+        </h2>
+        <span class="section-count">{{ category_posts.size }} articles</span>
+      </div>
+      <div class="archive-grid">
+        {% for post in category_posts %}
+        <article class="archive-card" data-categories="{{ post.categories | join: ',' }}" data-title="{{ post.title | downcase }}" data-type="post" itemscope itemtype="https://schema.org/BlogPosting">
+          <a href="{{ post.url | relative_url }}" class="archive-card-link" itemprop="url">
+            {% if post.thumbnail-img %}
+            <div class="archive-card-image">
+              <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" loading="lazy" itemprop="image">
+            </div>
+            {% elsif post.share-img %}
+            <div class="archive-card-image">
+              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy" itemprop="image">
+            </div>
+            {% else %}
+            <div class="archive-card-image archive-card-placeholder">
+              <i class="fas fa-file-alt" aria-hidden="true"></i>
+            </div>
+            {% endif %}
+            <div class="archive-card-content">
+              <h3 class="archive-card-title" itemprop="headline">{{ post.title }}</h3>
+              <div class="archive-card-meta">
+                <time class="archive-card-date" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %d, %Y" }}</time>
+              </div>
+            </div>
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endfor %}
+  </main>
+
+  <div class="archive-no-results" id="noResults" role="alert">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <p>No content found matching your criteria.</p>
+    <button class="reset-filters-btn" id="resetFilters">Clear Filters</button>
+  </div>
+</div>
+
+<script src="{{ '/assets/js/archive-filter.js' | relative_url }}"></script>

@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% endif %}">
 
   {%- if site.title-img -%}
-    <a class="navbar-brand navbar-brand-logo" href="{{ '' | absolute_url }}" onclick="gtag('event', 'click', {'event_category': 'Navigation', 'event_label': 'Home Logo'});"><img alt="{{ site.title }} Logo" src="{{ site.title-img }}"/></a>
+    <a class="navbar-brand navbar-brand-logo" href="/" onclick="gtag('event', 'click', {'event_category': 'Navigation', 'event_label': 'Home Logo'});"><img alt="{{ site.title }} Logo" src="{{ site.title-img }}"/></a>
   {%- else -%}
-    <a class="navbar-brand navbar-home-btn" href="{{ '' | absolute_url }}" onclick="gtag('event', 'click', {'event_category': 'Navigation', 'event_label': 'Home Button'});">
+    <a class="navbar-brand navbar-home-btn" href="/" onclick="gtag('event', 'click', {'event_category': 'Navigation', 'event_label': 'Home Button'});">
       <i class="fas fa-home"></i>
       <span>Home</span>
     </a>

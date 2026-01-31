@@ -49,7 +49,7 @@ hide-explore-posts: true
         Tags:
         {% if site.link-tags %}
           {% for tag in page.tags %}
-            <a href="{{ '/tags' | relative_url }}#{{- tag -}}" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{- tag -}}</a>
+            <a href="{{ '/archive' | relative_url }}#{{- tag -}}" onclick="gtag('event', 'click', {'event_category': 'Tag', 'event_label': '{{ tag | escape }}'});">{{- tag -}}</a>
           {% endfor %}
         {% else %}
           {{ page.tags | join: ", " }}

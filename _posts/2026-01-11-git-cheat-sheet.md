@@ -6,8 +6,8 @@ subtitle: "The practical guide to Git commands you will actually use at work"
 date: 2026-01-11
 categories: git
 permalink: /git-cheat-sheet/
-share-img: /assets/img/posts/git-commands/git-thumbnail.png
-thumbnail-img: /assets/img/posts/git-commands/git-thumbnail.png
+share-img: /assets/img/posts/git-commands/git-cheat-sheet.png
+thumbnail-img: /assets/img/posts/git-commands/git-cheat-sheet.png
 description: "A practical Git cheat sheet with examples. Learn essential Git commands for branching, merging, undoing changes, and working with remote repositories. Includes common workflows and tips for solving everyday problems."
 keywords: "git cheat sheet, git commands, git tutorial, git branching, git merge, git rebase, git commit, git push, git pull, git stash, git reset, git revert, undo git commit, git workflow, git for beginners, git version control, git cherry pick, git log, git diff, git fetch vs pull, git merge vs rebase"
 tags: ["git", "version-control", "devops"]

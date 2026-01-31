@@ -6,8 +6,8 @@ subtitle: "Configure Git the right way and never think about it again"
 date: 2026-01-11
 categories: git
 permalink: /git-config-guide/
-share-img: /assets/img/posts/git-commands/git-thumbnail.png
-thumbnail-img: /assets/img/posts/git-commands/git-thumbnail.png
+share-img: /assets/img/posts/git-commands/git-config-thumb.png
+thumbnail-img: /assets/img/posts/git-commands/git-config-thumb.png
 description: "A complete guide to Git configuration. Learn how to set up gitconfig for user identity, aliases, colors, editors, credentials, and more. Includes a sample config file you can copy."
 keywords: "git config, gitconfig, git configuration, git setup, git config file, git global config, git config user, git aliases, git config editor, git credential helper, how to configure git, git settings, gitconfig example, git config list, git config email, git config username"
 tags: ["git", "version-control", "devops"]

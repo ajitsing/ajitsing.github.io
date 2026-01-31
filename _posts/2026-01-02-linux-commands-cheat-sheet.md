@@ -1,14 +1,14 @@
 ---
 layout: post
 seo: true
-title: "Linux Commands Cheat Sheet: Essential Terminal Commands for Developers"
+title: "50+ Linux Commands Cheat Sheet: The Complete Developer Guide"
 subtitle: "Master the command line with these practical Linux commands every developer should know"
 date: 2026-01-02
 categories: devops
 thumbnail-img: /assets/img/posts/linux-commands/linux-commands-thumbnail.svg
 share-img: /assets/img/posts/linux-commands/linux-commands-thumbnail.svg
 permalink: /linux-commands-cheat-sheet/
-description: "Complete Linux commands cheat sheet for software developers. Learn essential terminal commands for file management, process control, networking, text processing, and system administration with practical examples."
+description: "Master 50+ essential Linux commands with practical examples. Covers file management, process control, networking, permissions, grep, find, SSH, and system administration for developers."
 keywords: "linux commands cheat sheet, linux terminal commands, linux command line, bash commands, linux shell commands, linux basics for developers, ssh commands, grep command, linux file management, process management linux, linux networking commands"
 tags: ["linux", "devops", "command-line"]
 comments: true

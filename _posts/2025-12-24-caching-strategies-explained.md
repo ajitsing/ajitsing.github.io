@@ -861,5 +861,5 @@ Cache-Control: public, max-age=3600, s-maxage=86400
 - [AWS ElastiCache Best Practices](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/BestPractices.html) - Production caching guidance
 - [Memcached Wiki](https://github.com/memcached/memcached/wiki) - Memcached patterns and usage
 
-*Building a high-traffic system? Check out [How Stripe Prevents Double Payments](/how-stripe-prevents-double-payment/) for idempotency patterns and [Write-Ahead Log](/distributed-systems/write-ahead-log/) for durability patterns that complement caching.*
+*Building a high-traffic system? Check out the [System Design Cheat Sheet](/system-design-cheat-sheet/) for a complete reference, [How Stripe Prevents Double Payments](/how-stripe-prevents-double-payment/) for idempotency patterns, and [Write-Ahead Log](/distributed-systems/write-ahead-log/) for durability patterns that complement caching.*
 

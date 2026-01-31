@@ -658,7 +658,7 @@ def delete_message(message):
 
 ---
 
-*Want to learn more about distributed systems patterns? Check out [How Kafka Works](/distributed-systems/how-kafka-works/) for log-based messaging, [Two-Phase Commit](/distributed-systems/two-phase-commit-distributed-systems/) for distributed transactions, and [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns.*
+*Want to learn more about distributed systems patterns? Check out the [System Design Cheat Sheet](/system-design-cheat-sheet/) for a complete reference, [How Kafka Works](/distributed-systems/how-kafka-works/) for log-based messaging, [Two-Phase Commit](/distributed-systems/two-phase-commit-distributed-systems/) for distributed transactions, and [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns.*
 
 **Further Reading**:
 - [RabbitMQ Tutorials](https://www.rabbitmq.com/getstarted.html)

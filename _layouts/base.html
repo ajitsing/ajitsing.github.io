@@ -37,7 +37,7 @@ common-js:
 
     {{ content }}
 
-    {% unless page["hide-explore-posts"] %}
+    {% unless page["hide-explore-posts"] or layout["hide-explore-posts"] %}
     {% include explore-posts.html %}
     {% endunless %}
 

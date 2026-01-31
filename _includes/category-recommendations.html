@@ -1,0 +1,72 @@
+{% comment %}
+  Category-based recommendations component
+  Shows posts from the same category as the current page
+  Excludes the current post and any posts already shown in related posts
+{% endcomment %}
+
+{% if page.categories.size > 0 %}
+  {% assign current_category = page.categories.first %}
+  {% assign category_display_name = current_category | replace: "-", " " | capitalize %}
+  
+  {% comment %} Collect posts from the same category {% endcomment %}
+  {% assign category_posts = "" | split: ',' %}
+  {% for post in site.posts %}
+    {% if post.categories contains current_category %}
+      {% if post.url != page.url %}
+        {% assign category_posts = category_posts | push: post %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  
+  {% comment %} Filter out posts already shown in related posts if variable is passed {% endcomment %}
+  {% if include.exclude_urls %}
+    {% assign filtered_category_posts = "" | split: ',' %}
+    {% for post in category_posts %}
+      {% unless include.exclude_urls contains post.url %}
+        {% assign filtered_category_posts = filtered_category_posts | push: post %}
+      {% endunless %}
+    {% endfor %}
+    {% assign category_posts = filtered_category_posts %}
+  {% endif %}
+  
+  {% if category_posts.size > 0 %}
+  <section class="category-recommendations">
+    <div class="category-recommendations-header">
+      <h3 class="category-recommendations-title">
+        <i class="fas fa-layer-group"></i>
+        More from {{ category_display_name }}
+      </h3>
+      {% assign category_url = '/tags#' | append: current_category %}
+      <a href="{{ category_url | relative_url }}" class="category-view-all" onclick="gtag('event', 'click', {'event_category': 'Category View All', 'event_label': '{{ category_display_name | escape }}'});">
+        View All <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    
+    <div class="category-posts-scroll">
+      <div class="category-posts-track">
+        {% for post in category_posts limit:6 %}
+          <a href="{{ post.url | relative_url }}" class="category-post-card" onclick="gtag('event', 'click', {'event_category': 'Category Recommendation', 'event_label': '{{ post.title | escape }}'});">
+            {% if post.thumbnail-img %}
+            <div class="category-post-image">
+              <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            </div>
+            {% elsif post.share-img %}
+            <div class="category-post-image">
+              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            </div>
+            {% else %}
+            <div class="category-post-image category-post-placeholder">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            {% endif %}
+            <div class="category-post-content">
+              <span class="category-post-card-title">{{ post.title }}</span>
+              <span class="category-post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+{% endif %}

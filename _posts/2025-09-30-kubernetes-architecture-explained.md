@@ -424,6 +424,8 @@ While this article focused on Deployments and Pods, Kubernetes supports other wo
 
 Kubernetes might seem complex at first, but its architecture is actually quite elegant. By separating concerns between the control plane (decision making) and worker nodes (execution), it creates a scalable, resilient platform for running distributed applications.
 
+For practical commands and debugging workflows, check out the [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/).
+
 ---
 
 *Want to dive deeper? Check out the [official Kubernetes documentation](https://kubernetes.io/docs/) and try running a local cluster with [kind](https://kind.sigs.k8s.io/) or [minikube](https://minikube.sigs.k8s.io/).*

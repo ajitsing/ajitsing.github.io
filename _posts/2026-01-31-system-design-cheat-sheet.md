@@ -865,6 +865,11 @@ These posts go deeper into specific topics:
 - [Two-Phase Commit](/distributed-systems/two-phase-commit/)
 - [Distributed Counter Architecture](/distributed-counter-architecture-guide/)
 
+**Operations and Deployment**:
+- [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/)
+- [Kubernetes Architecture](/devops/kubernetes-architecture/)
+- [Linux Commands Cheat Sheet](/linux-commands-cheat-sheet/)
+
 ---
 
 **External Resources**:

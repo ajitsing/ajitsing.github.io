@@ -608,4 +608,4 @@ New result:
 - [MySQL Documentation: Optimization and Indexes](https://dev.mysql.com/doc/refman/8.0/en/optimization-indexes.html)
 - [Use The Index, Luke](https://use-the-index-luke.com/) - Excellent free resource on SQL indexing
 
-*Building a high-traffic application? Understanding indexing is just the start. Check out [How Uber Finds Nearby Drivers](/how-uber-finds-nearby-drivers-1-million-requests-per-second/) to see how geospatial indexing works at massive scale.*
+*Building a high-traffic application? Understanding indexing is just the start. Check out [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/) for connection pooling, sharding, and query optimization at massive scale, or [How Uber Finds Nearby Drivers](/how-uber-finds-nearby-drivers-1-million-requests-per-second/) for geospatial indexing patterns.*

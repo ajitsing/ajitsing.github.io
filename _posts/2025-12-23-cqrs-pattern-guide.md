@@ -384,5 +384,5 @@ Start with logical separation. Prove it works. Then add the infrastructure compl
 - [Microsoft CQRS Pattern Documentation](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) - Detailed guide with Azure examples
 - [Greg Young on CQRS](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) - From the person who coined the term
 
-*For a quick visual summary, see the [CQRS Pattern Explainer](/explainer/cqrs-design-pattern/). For more system design patterns and concepts, check out the [System Design Cheat Sheet](/system-design-cheat-sheet/).*
+*For a quick visual summary, see the [CQRS Pattern Explainer](/explainer/cqrs-design-pattern/). For a real-world example of read/write separation at scale, see [How OpenAI Scales PostgreSQL](/how-openai-scales-postgresql/). For more patterns, check out the [System Design Cheat Sheet](/system-design-cheat-sheet/).*
 

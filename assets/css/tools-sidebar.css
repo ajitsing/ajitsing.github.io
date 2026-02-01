@@ -1,0 +1,131 @@
+.container-md:has(.tools-layout) {
+  max-width: none;
+  padding: 0;
+}
+
+.tools-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+}
+
+.tools-sidebar {
+  position: fixed;
+  left: 24px;
+  top: 168px;
+  width: 200px;
+}
+
+.tools-main {
+  width: 100%;
+}
+
+.tools-nav {
+  position: sticky;
+  top: 100px;
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.tools-nav-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #44403c;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.tools-nav-header:hover {
+  background: #f5f0e8;
+  text-decoration: none;
+  color: #44403c;
+}
+
+.tools-nav-header i {
+  font-size: 1rem;
+  color: #78716c;
+}
+
+.tools-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #e7e0d5;
+  padding-top: 12px;
+}
+
+.tools-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #57534e;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.tools-nav-item:last-child {
+  margin-bottom: 0;
+}
+
+.tools-nav-item:hover {
+  background: #f5f0e8;
+  color: #292524;
+  text-decoration: none;
+}
+
+.tools-nav-item i {
+  width: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #78716c;
+  transition: color 0.15s ease;
+}
+
+.tools-nav-item:hover i {
+  color: #44403c;
+}
+
+.tools-nav-item.active {
+  background: #292524;
+  color: #faf8f5;
+}
+
+.tools-nav-item.active i {
+  color: #fef3c7;
+}
+
+.tools-nav-item.active:hover {
+  background: #44403c;
+  color: #faf8f5;
+}
+
+@media (max-width: 1199px) {
+  .tools-layout {
+    padding: 20px 24px 40px;
+  }
+  
+  .tools-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-layout {
+    padding: 15px 12px 30px;
+  }
+}

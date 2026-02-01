@@ -205,8 +205,12 @@ hide-explore-posts: true
 }
 </script>
 
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/base64-tool.css' | relative_url }}">
 
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
 <div class="base64-page-wrapper">
   <div class="base64-tool">
     <header class="tool-header">
@@ -454,3 +458,5 @@ hide-explore-posts: true
 </script>
 
 <script src="{{ '/assets/js/base64-tool.js' | relative_url }}"></script>
+</div>
+</div>

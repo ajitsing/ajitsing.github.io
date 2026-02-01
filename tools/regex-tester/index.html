@@ -282,8 +282,12 @@ hide-explore-posts: true
 }
 </script>
 
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/regex-tool.css' | relative_url }}">
 
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
 <div class="regex-page-wrapper">
   <div class="regex-tool">
     <header class="tool-header">
@@ -685,3 +689,5 @@ Example: john.doe@example.com, jane_smith@company.org"
 </script>
 
 <script src="{{ '/assets/js/regex-tool.js' | relative_url }}"></script>
+</div>
+</div>

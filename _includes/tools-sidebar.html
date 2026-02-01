@@ -1,0 +1,35 @@
+<aside class="tools-sidebar">
+  <nav class="tools-nav">
+    <a href="{{ '/tools/' | relative_url }}" class="tools-nav-header">
+      <i class="fas fa-th-large"></i>
+      <span>All Tools</span>
+    </a>
+    
+    <ul class="tools-nav-list">
+      <li>
+        <a href="{{ '/tools/json-validator/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/json-validator/' %} active{% endif %}">
+          <i class="fas fa-file-code"></i>
+          <span class="tools-nav-title">JSON Validator</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tools/regex-tester/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/regex-tester/' %} active{% endif %}">
+          <i class="fas fa-code"></i>
+          <span class="tools-nav-title">Regex Tester</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tools/base64-encoder/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/base64-encoder/' %} active{% endif %}">
+          <i class="fas fa-exchange-alt"></i>
+          <span class="tools-nav-title">Base64 Encoder</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tools/cron-expression/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/cron-expression/' %} active{% endif %}">
+          <i class="fas fa-clock"></i>
+          <span class="tools-nav-title">Cron Generator</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>

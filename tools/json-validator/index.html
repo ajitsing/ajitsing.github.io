@@ -188,8 +188,12 @@ hide-explore-posts: true
 }
 </script>
 
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/json-validator.css' | relative_url }}">
 
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
 <div class="json-page-wrapper">
   <div class="json-tool">
     <header class="tool-header">
@@ -443,3 +447,5 @@ hide-explore-posts: true
 </script>
 
 <script src="{{ '/assets/js/json-validator.js' | relative_url }}"></script>
+</div>
+</div>

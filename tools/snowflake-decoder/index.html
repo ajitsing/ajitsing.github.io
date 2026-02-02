@@ -1,0 +1,629 @@
+---
+layout: default
+title: "Snowflake ID Decoder | Discord, Twitter & Instagram ID to Timestamp"
+subtitle: "Decode Snowflake IDs to timestamps and understand their bit structure"
+seo: true
+description: "Free Snowflake ID decoder tool. Decode Discord IDs, Twitter IDs, and Instagram IDs to timestamps instantly. Generate sample Snowflake IDs and visualize the 64-bit structure. Learn how distributed ID generation works."
+keywords: "snowflake id decoder, discord id to timestamp, twitter id decoder, decode snowflake id, discord id decoder, instagram id decoder, snowflake timestamp, discord snowflake, twitter snowflake, id generator, distributed id"
+thumbnail: /assets/img/tools/snowflake-decoder-thumbnail.png
+share-img: /assets/img/tools/snowflake-decoder-thumbnail.png
+permalink: /tools/snowflake-decoder/
+social-share: true
+hide-explore-posts: true
+---
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Snowflake ID Decoder",
+  "alternateName": ["Discord ID Decoder", "Twitter ID Decoder", "Snowflake Timestamp Decoder", "Discord ID to Timestamp", "Instagram ID Decoder", "Snowflake ID Generator"],
+  "description": "Free Snowflake ID decoder tool. Decode Discord IDs, Twitter IDs, and Instagram IDs to timestamps instantly. Generate sample Snowflake IDs and visualize the 64-bit structure.",
+  "url": "https://singhajit.com/tools/snowflake-decoder/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Decode Discord Snowflake IDs to timestamps",
+    "Decode Twitter/X Snowflake IDs to timestamps",
+    "Decode Instagram IDs to timestamps",
+    "Visual bit structure breakdown",
+    "Generate sample Snowflake IDs",
+    "Support for custom epochs",
+    "Display timestamps in multiple formats",
+    "100% client-side - no data stored",
+    "Works offline after loading"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/snowflake-decoder-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "Snowflake ID Reference",
+    "text": "Snowflake IDs are 64-bit unique identifiers composed of: timestamp (41 bits), machine/datacenter ID (10 bits), and sequence number (12 bits). They enable distributed ID generation without coordination."
+  },
+  "keywords": "snowflake id decoder, discord id to timestamp, twitter id decoder, decode snowflake id, instagram id decoder"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Decode a Snowflake ID",
+  "description": "Learn how to decode Discord, Twitter, or Instagram Snowflake IDs to extract timestamps and understand their structure.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter the Snowflake ID",
+      "text": "Paste or type any Snowflake ID (from Discord, Twitter/X, or Instagram) into the input field. The ID should be a large number, typically 18-19 digits."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Select the platform epoch",
+      "text": "Choose the correct platform (Discord, Twitter, or Instagram) as each uses a different epoch timestamp for their Snowflake IDs."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View decoded information",
+      "text": "The tool instantly displays the creation timestamp in UTC, local time, and relative format. You'll also see the extracted worker ID, process ID, and sequence number."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Explore the bit structure",
+      "text": "View the visual bit breakdown showing how the 64-bit ID is composed of timestamp, machine ID, and sequence components."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Snowflake ID Decoder"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Snowflake ID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Snowflake ID is a 64-bit unique identifier used in distributed systems. It combines a timestamp (41 bits), machine/datacenter ID (10 bits), and sequence number (12 bits). This structure allows multiple servers to generate unique IDs independently without coordination."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I decode a Discord ID to timestamp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To decode a Discord ID: take the ID, right-shift by 22 bits to get the timestamp, then add Discord's epoch (1420070400000, January 1, 2015). This tool does this automatically - just paste any Discord ID and select 'Discord' as the platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Discord's Snowflake epoch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Discord's epoch is 1420070400000 (January 1, 2015, 00:00:00 UTC). All Discord Snowflake timestamps are measured in milliseconds since this date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Twitter's Snowflake epoch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twitter's epoch is 1288834974657 (November 4, 2010, 01:42:54.657 UTC). This is when Twitter launched their Snowflake ID system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I find when a Discord account was created from the user ID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Every Discord user ID, message ID, server ID, and channel ID is a Snowflake that contains its creation timestamp. Just paste the ID into this tool and select Discord to see exactly when it was created."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are Snowflake IDs generated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Snowflake IDs are generated by combining the current timestamp, a machine/worker ID, and a sequence number. Each component is bit-shifted and OR'd together to create the final 64-bit ID. This allows 4096 unique IDs per millisecond per machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do companies use Snowflake IDs instead of UUIDs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Snowflake IDs are smaller (64-bit vs 128-bit), time-sortable, and more efficient as database primary keys. UUIDs are random causing poor index performance, while Snowflakes maintain locality of reference and work better with B-tree indexes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the sequence number in a Snowflake ID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The sequence number (12 bits) is a counter that increments when multiple IDs are generated in the same millisecond on the same machine. It allows up to 4096 unique IDs per millisecond per machine (2^12 = 4096)."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Snowflake ID Decoder",
+      "item": "https://singhajit.com/tools/snowflake-decoder/"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/snowflake-tool.css' | relative_url }}">
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="snowflake-page-wrapper">
+  <div class="snowflake-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-snowflake"></i>
+        Snowflake ID Decoder
+      </h1>
+      <p class="tool-subtitle">Decode Discord, Twitter & Instagram IDs to timestamps</p>
+    </header>
+    
+    <p class="tool-intro">
+      Decode <strong>Discord IDs</strong>, <strong>Twitter IDs</strong>, and <strong>Instagram IDs</strong> to reveal when they were created. Snowflake IDs contain embedded timestamps — this tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
+    </p>
+
+    <div class="top-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="decoder-main">
+      <div class="input-section">
+        <label for="snowflake-input">Enter Snowflake ID:</label>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="snowflake-input" 
+            placeholder="e.g. 1091234567890123456"
+            autocomplete="off"
+            spellcheck="false"
+            inputmode="numeric"
+          >
+          <button id="paste-btn" class="btn-icon" title="Paste from clipboard">
+            <i class="fas fa-paste"></i>
+          </button>
+          <button id="clear-btn" class="btn-icon" title="Clear">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="platform-selector">
+          <label>Platform Epoch:</label>
+          <div class="platform-buttons">
+            <button class="platform-btn active" data-platform="discord" data-epoch="1420070400000">
+              <i class="fab fa-discord"></i>
+              Discord
+            </button>
+            <button class="platform-btn" data-platform="twitter" data-epoch="1288834974657">
+              <i class="fab fa-twitter"></i>
+              Twitter/X
+            </button>
+            <button class="platform-btn" data-platform="instagram" data-epoch="0">
+              <i class="fab fa-instagram"></i>
+              Instagram
+            </button>
+            <button class="platform-btn" data-platform="custom" data-epoch="0">
+              <i class="fas fa-cog"></i>
+              Custom
+            </button>
+          </div>
+          <div id="custom-epoch-container" class="custom-epoch-container hidden">
+            <label for="custom-epoch">Custom Epoch (ms since Unix epoch):</label>
+            <input type="text" id="custom-epoch" placeholder="e.g. 1420070400000" inputmode="numeric">
+          </div>
+        </div>
+        
+        <div id="error-message" class="error-message hidden">
+          <i class="fas fa-exclamation-circle"></i>
+          <span id="error-text"></span>
+        </div>
+      </div>
+
+      <div id="result-section" class="result-section hidden">
+        <h3><i class="fas fa-clock"></i> Decoded Timestamp</h3>
+        
+        <div class="timestamp-cards">
+          <div class="timestamp-card primary">
+            <div class="timestamp-label">Creation Time (UTC)</div>
+            <div class="timestamp-value" id="utc-time">—</div>
+          </div>
+          <div class="timestamp-card">
+            <div class="timestamp-label">Local Time</div>
+            <div class="timestamp-value" id="local-time">—</div>
+          </div>
+          <div class="timestamp-card">
+            <div class="timestamp-label">Relative</div>
+            <div class="timestamp-value" id="relative-time">—</div>
+          </div>
+          <div class="timestamp-card">
+            <div class="timestamp-label">Unix Timestamp (ms)</div>
+            <div class="timestamp-value mono" id="unix-time">—</div>
+          </div>
+        </div>
+
+        <h3><i class="fas fa-microchip"></i> Bit Breakdown</h3>
+        
+        <div class="bit-visualization">
+          <div class="bit-bar">
+            <div class="bit-segment sign" title="Sign bit (always 0)">
+              <span class="bit-value" id="bit-sign">0</span>
+            </div>
+            <div class="bit-segment timestamp" title="Timestamp (41 bits)">
+              <span class="bit-label">Timestamp</span>
+              <span class="bit-value" id="bit-timestamp">—</span>
+            </div>
+            <div class="bit-segment worker" title="Worker/Datacenter ID (10 bits)">
+              <span class="bit-label">Worker</span>
+              <span class="bit-value" id="bit-worker">—</span>
+            </div>
+            <div class="bit-segment sequence" title="Sequence (12 bits)">
+              <span class="bit-label">Sequence</span>
+              <span class="bit-value" id="bit-sequence">—</span>
+            </div>
+          </div>
+          <div class="bit-legend">
+            <span class="legend-item"><span class="legend-color sign"></span>Sign (1 bit)</span>
+            <span class="legend-item"><span class="legend-color timestamp"></span>Timestamp (41 bits)</span>
+            <span class="legend-item"><span class="legend-color worker"></span>Worker ID (10 bits)</span>
+            <span class="legend-item"><span class="legend-color sequence"></span>Sequence (12 bits)</span>
+          </div>
+        </div>
+
+        <div class="component-details">
+          <div class="component-card">
+            <div class="component-icon"><i class="fas fa-server"></i></div>
+            <div class="component-info">
+              <span class="component-label">Worker ID</span>
+              <span class="component-value" id="worker-id">—</span>
+            </div>
+          </div>
+          <div class="component-card">
+            <div class="component-icon"><i class="fas fa-database"></i></div>
+            <div class="component-info">
+              <span class="component-label">Process ID</span>
+              <span class="component-value" id="process-id">—</span>
+            </div>
+          </div>
+          <div class="component-card">
+            <div class="component-icon"><i class="fas fa-sort-numeric-up"></i></div>
+            <div class="component-info">
+              <span class="component-label">Sequence</span>
+              <span class="component-value" id="sequence-num">—</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="binary-display">
+          <label>Binary Representation (64 bits):</label>
+          <div class="binary-value" id="binary-value">—</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="generator-section">
+      <h3><i class="fas fa-plus-circle"></i> Generate Sample Snowflake ID</h3>
+      <p class="section-desc">Generate a Snowflake ID for any timestamp to see how they're constructed.</p>
+      
+      <div class="generator-controls">
+        <div class="generator-input">
+          <label for="gen-datetime">Date & Time:</label>
+          <input type="datetime-local" id="gen-datetime">
+        </div>
+        <div class="generator-input">
+          <label for="gen-worker">Worker ID (0-31):</label>
+          <input type="number" id="gen-worker" value="1" min="0" max="31">
+        </div>
+        <div class="generator-input">
+          <label for="gen-process">Process ID (0-31):</label>
+          <input type="number" id="gen-process" value="1" min="0" max="31">
+        </div>
+        <div class="generator-input">
+          <label for="gen-sequence">Sequence (0-4095):</label>
+          <input type="number" id="gen-sequence" value="0" min="0" max="4095">
+        </div>
+      </div>
+      
+      <button id="generate-btn" class="btn-primary">
+        <i class="fas fa-snowflake"></i>
+        Generate Snowflake ID
+      </button>
+      
+      <div id="generated-result" class="generated-result hidden">
+        <div class="generated-id-wrapper">
+          <span class="generated-label">Generated ID:</span>
+          <code class="generated-id" id="generated-id">—</code>
+          <button id="copy-generated-btn" class="btn-icon" title="Copy to clipboard">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+        <button id="decode-generated-btn" class="btn-secondary">
+          <i class="fas fa-search"></i>
+          Decode This ID
+        </button>
+      </div>
+    </section>
+
+    <section class="examples-section">
+      <h3><i class="fas fa-lightbulb"></i> Try These Examples</h3>
+      <div class="examples-grid">
+        <button class="example-btn" data-id="1091815470714572810" data-platform="discord">
+          <span class="example-platform"><i class="fab fa-discord"></i> Discord</span>
+          <span class="example-desc">Message ID</span>
+          <code>1091815470714572810</code>
+        </button>
+        <button class="example-btn" data-id="1234567890123456789" data-platform="twitter">
+          <span class="example-platform"><i class="fab fa-twitter"></i> Twitter</span>
+          <span class="example-desc">Tweet ID</span>
+          <code>1234567890123456789</code>
+        </button>
+        <button class="example-btn" data-id="175928629301739520" data-platform="discord">
+          <span class="example-platform"><i class="fab fa-discord"></i> Discord</span>
+          <span class="example-desc">Early User ID (2016)</span>
+          <code>175928629301739520</code>
+        </button>
+        <button class="example-btn" data-id="20" data-platform="twitter">
+          <span class="example-platform"><i class="fab fa-twitter"></i> Twitter</span>
+          <span class="example-desc">@jack's first tweet (pre-Snowflake)</span>
+          <code>20</code>
+        </button>
+      </div>
+    </section>
+
+    <div class="dedicated-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Snowflake ID Structure</h3>
+      <div class="structure-diagram">
+        <div class="structure-row">
+          <div class="structure-cell sign">
+            <span class="cell-bits">1</span>
+            <span class="cell-name">Sign</span>
+            <span class="cell-desc">Always 0</span>
+          </div>
+          <div class="structure-cell timestamp">
+            <span class="cell-bits">41</span>
+            <span class="cell-name">Timestamp</span>
+            <span class="cell-desc">Milliseconds since epoch</span>
+          </div>
+          <div class="structure-cell worker">
+            <span class="cell-bits">5</span>
+            <span class="cell-name">Worker</span>
+            <span class="cell-desc">Machine ID (0-31)</span>
+          </div>
+          <div class="structure-cell process">
+            <span class="cell-bits">5</span>
+            <span class="cell-name">Process</span>
+            <span class="cell-desc">Process ID (0-31)</span>
+          </div>
+          <div class="structure-cell sequence">
+            <span class="cell-bits">12</span>
+            <span class="cell-name">Sequence</span>
+            <span class="cell-desc">Counter (0-4095)</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="epoch-reference">
+        <h4>Platform Epochs</h4>
+        <table class="epoch-table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Epoch (Unix ms)</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="fab fa-discord"></i> Discord</td>
+              <td><code>1420070400000</code></td>
+              <td>Jan 1, 2015 00:00:00 UTC</td>
+            </tr>
+            <tr>
+              <td><i class="fab fa-twitter"></i> Twitter/X</td>
+              <td><code>1288834974657</code></td>
+              <td>Nov 4, 2010 01:42:54 UTC</td>
+            </tr>
+            <tr>
+              <td><i class="fab fa-instagram"></i> Instagram</td>
+              <td><code>0</code></td>
+              <td>Unix epoch (custom sharding)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Understanding Snowflake IDs</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a Snowflake ID?</h2>
+          <p>A <strong>Snowflake ID</strong> is a 64-bit unique identifier designed for distributed systems. Created by Twitter in 2010, it allows multiple servers to generate unique IDs independently without any coordination. Discord, Instagram, and many other platforms have adopted this approach.</p>
+          <p>Unlike auto-increment IDs that require a central database, or random UUIDs that can't be sorted by time, Snowflake IDs are both distributed and time-ordered — you can sort them chronologically and extract the creation timestamp.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>How to Decode a Discord ID</h2>
+          <p>Every Discord ID — whether it's a user, message, server, or channel — is a Snowflake containing its creation time. To decode manually:</p>
+          <ul>
+            <li><strong>Right-shift by 22 bits:</strong> This extracts the timestamp portion</li>
+            <li><strong>Add Discord's epoch:</strong> 1420070400000 (January 1, 2015)</li>
+            <li><strong>Convert to date:</strong> The result is Unix milliseconds</li>
+          </ul>
+          <p>Or just paste the ID above and let this tool do it for you!</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Why Companies Use Snowflake IDs</h2>
+          <ul>
+            <li><strong>No coordination needed:</strong> Each server generates IDs independently using its worker ID</li>
+            <li><strong>Time-sortable:</strong> Newer IDs are always larger — great for chronological queries</li>
+            <li><strong>Compact:</strong> 64 bits vs 128-bit UUIDs — fits in a single database integer</li>
+            <li><strong>High throughput:</strong> 4,096 IDs per millisecond per machine (4M+ IDs/second cluster-wide)</li>
+            <li><strong>Embedded metadata:</strong> Extract creation time without a database lookup</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>The Math Behind Decoding</h2>
+          <p>A Snowflake ID encodes data using bit positions:</p>
+          <ul>
+            <li><strong>Bits 63:</strong> Sign bit (always 0 for positive numbers)</li>
+            <li><strong>Bits 22-62:</strong> Timestamp — milliseconds since platform epoch</li>
+            <li><strong>Bits 17-21:</strong> Worker ID — which machine generated this</li>
+            <li><strong>Bits 12-16:</strong> Process ID — which process on that machine</li>
+            <li><strong>Bits 0-11:</strong> Sequence — counter for same-millisecond IDs</li>
+          </ul>
+          <p>To extract each component, use bit shifting and masking. This tool performs these operations automatically.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> Snowflake ID FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a Snowflake ID?</h3>
+        <p>A <strong>Snowflake ID</strong> is a 64-bit unique identifier that encodes a timestamp, machine ID, and sequence number. It allows distributed systems to generate unique IDs without central coordination. Discord, Twitter/X, and Instagram all use variations of this format.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I decode a Discord ID to timestamp?</h3>
+        <p>Paste the Discord ID into this tool and select "Discord" as the platform. The tool extracts the timestamp by right-shifting the ID by 22 bits and adding Discord's epoch (January 1, 2015). You'll see the exact creation date and time.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I find when a Discord account was created?</h3>
+        <p>Yes! Every Discord user ID contains the account creation timestamp. Just paste the user ID into this tool. This works for all Discord IDs: users, servers, channels, messages, roles, and more.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between Discord and Twitter Snowflakes?</h3>
+        <p>Both use the same 64-bit structure, but with different epochs. Discord uses January 1, 2015 as their epoch, while Twitter uses November 4, 2010. The internal bit layout for worker/process IDs may also differ slightly.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why do Snowflake IDs look like random numbers?</h3>
+        <p>They're not random — they're carefully structured. The large numbers result from packing a timestamp, machine ID, and sequence into 64 bits. The timestamp alone can be billions of milliseconds, making the numbers appear random but they're actually sequential over time.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I generate my own Snowflake IDs?</h3>
+        <p>Yes! Use the generator section above. You can specify a custom timestamp, worker ID, and sequence number. This is useful for understanding how Snowflakes are constructed or for testing purposes.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data safe using this tool?</h3>
+        <p>Absolutely. This Snowflake decoder runs entirely in your browser using JavaScript. No data is sent to any server. All decoding happens locally on your device.</p>
+      </div>
+    </section>
+
+    <div class="cta-section">
+      <h3>Want to learn more?</h3>
+      <p>Understand how Snowflake IDs work in distributed systems, why they're better than UUIDs for databases, and how companies like Twitter and Discord scale with them.</p>
+      <a href="/snowflake-id-guide/" class="btn-cta">
+        <i class="fas fa-book-reader"></i>
+        Read the Full Guide
+      </a>
+    </div>
+
+    <div class="bottom-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function hideEmptyAds() {
+    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section').forEach(function(container) {
+      var adSlot = container.querySelector('.adsbygoogle');
+      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
+        container.style.display = 'none';
+      }
+    });
+  }
+  setTimeout(function() { requestAnimationFrame(hideEmptyAds); }, 3000);
+})();
+</script>
+
+<script src="{{ '/assets/js/snowflake-tool.js' | relative_url }}"></script>
+</div>
+
+<aside class="tools-right-sidebar">
+  {% include sidebar-popular.html %}
+</aside>
+</div>

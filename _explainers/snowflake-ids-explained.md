@@ -279,6 +279,7 @@ faq:
         <h3><i class="fas fa-snowflake"></i> What are Snowflake IDs?</h3>
         <p><strong>Snowflake IDs</strong> are 64-bit unique identifiers designed for distributed systems. Instead of asking a central database "what's the next ID?", each server can generate its own IDs independently - and they're guaranteed to be unique. Twitter created this approach in 2010 to handle their massive scale.</p>
         <p style="font-size: 0.9rem; color: #6b7280; margin-top: 10px;"><strong>Example ID:</strong> <code>1541815603606036480</code> - looks like a random number, but it contains a timestamp, machine ID, and sequence number packed together.</p>
+        <p style="margin-top: 15px;"><a href="/tools/snowflake-decoder/" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #292524; color: #fef3c7; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem;"><i class="fas fa-tools"></i> Try Snowflake ID Decoder →</a></p>
       </div>
 
       <div class="content-container">
@@ -418,7 +419,7 @@ sequenceDiagram
             <i class="fas fa-history"></i>
             Embedded Timestamp
           </h3>
-          <p class="feature-description">You can extract when an ID was created just by looking at it. No need to store a separate created_at field.</p>
+          <p class="feature-description">You can extract when an ID was created just by looking at it. No need to store a separate created_at field. <a href="/tools/snowflake-decoder/" style="color: #0c4a6e; font-weight: 600;">Try  decoder tool →</a></p>
         </div>
       </div>
 

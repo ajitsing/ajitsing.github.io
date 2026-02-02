@@ -13,6 +13,7 @@ keywords: "PostgreSQL scaling, database scaling, ChatGPT database architecture, 
 comments: true
 seo: true
 social-share: true
+popular: true
 tags: [database, system-design]
 
 key-takeaways:

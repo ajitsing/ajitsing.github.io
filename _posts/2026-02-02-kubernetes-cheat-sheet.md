@@ -12,7 +12,6 @@ description: "Complete Kubernetes cheat sheet with essential kubectl commands, d
 keywords: "kubernetes cheat sheet, kubectl commands, kubernetes tutorial, container orchestration, kubectl cheat sheet, kubernetes pods, kubernetes deployments, kubernetes services, kubectl debugging, kubernetes troubleshooting, kubernetes for developers, k8s commands, kubernetes namespaces, kubernetes cluster management"
 tags: ["kubernetes", "devops", "containers"]
 comments: true
-popular: true
 
 key-takeaways:
   - "kubectl get, describe, and logs form your core debugging workflow. Master these three commands first"

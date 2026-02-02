@@ -101,15 +101,42 @@ a.category-pill.nav-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  font-weight: 600;
+  background: #292524;
+  border: 1.5px solid #292524;
+  color: #faf8f5;
+  transition: all 0.2s ease;
 }
 
 a.category-pill.nav-pill i {
-  font-size: 0.75rem;
-  color: var(--cf-color-icon);
+  font-size: 0.8rem;
 }
 
-a.category-pill.nav-pill:hover i {
-  color: var(--cf-color-dark);
+a.category-pill.nav-pill:hover {
+  background: #44403c;
+  border-color: #44403c;
+  color: #faf8f5;
+}
+
+/* Colorful icons for each category */
+a.category-pill.nav-pill[href*="explainers"] i {
+  color: #fbbf24; /* Amber/Yellow - lightbulb */
+}
+
+a.category-pill.nav-pill[href*="software-development-news"] i {
+  color: #60a5fa; /* Blue - newspaper */
+}
+
+a.category-pill.nav-pill[href*="system-design"] i {
+  color: #a78bfa; /* Purple - cubes */
+}
+
+a.category-pill.nav-pill[href*="design-patterns"] i {
+  color: #34d399; /* Green - puzzle */
+}
+
+a.category-pill.nav-pill[href*="/tools/"] i {
+  color: #fb923c; /* Orange - wrench */
 }
 
 .posts-list.loading {

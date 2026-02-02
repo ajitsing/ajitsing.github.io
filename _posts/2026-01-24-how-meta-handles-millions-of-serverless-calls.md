@@ -12,6 +12,7 @@ description: "Deep dive into Meta's XFaaS serverless platform. Learn how they ha
 keywords: "Meta serverless, XFaaS, serverless at scale, function as a service, FaaS architecture, serverless cold start, AWS Lambda alternative, serverless performance, distributed systems, Meta infrastructure, Facebook serverless, serverless best practices, cloud functions, serverless optimization, high throughput serverless, load balancing serverless, worker pool, serverless scheduling"
 tags: [system-design, distributed-systems]
 comments: true
+popular: true
 
 key-takeaways:
   - "Meta's XFaaS processes 11.5 million function calls per second across 100,000+ servers"

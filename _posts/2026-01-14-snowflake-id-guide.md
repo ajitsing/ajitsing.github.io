@@ -13,6 +13,7 @@ keywords: "snowflake id, snowflake ids, discord snowflake id length, twitter sno
 seo: true
 social-share: true
 comments: true
+popular: true
 faq:
   - question: "What is a Snowflake ID?"
     answer: "A Snowflake ID is a 64-bit unique identifier used in distributed systems. It combines a 41-bit timestamp, 10-bit machine ID, and 12-bit sequence number. This structure allows multiple servers to generate unique IDs independently without coordination, while keeping IDs time-sortable. Twitter created this approach in 2010."

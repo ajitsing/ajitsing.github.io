@@ -3,8 +3,7 @@ layout: post
 title: "How Netflix Video Processing Pipeline Works"
 subtitle: "Inside the architecture that encodes 17,000+ titles for 280 million viewers"
 description: "Deep dive into Netflix video encoding pipeline architecture. Learn how Netflix uses microservices, parallel processing, VMAF quality metrics, and the Cosmos platform to process thousands of video titles at scale. Practical lessons for software developers."
-date: 2026-02-02
-last-modified-date: 2026-02-02
+date: 2026-02-03
 categories: system-design
 thumbnail-img: /assets/img/posts/system-design/netflix-video-pipeline-thumbnail.png
 share-img: /assets/img/posts/system-design/netflix-video-pipeline-thumbnail.png

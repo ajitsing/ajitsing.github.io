@@ -854,6 +854,7 @@ These posts go deeper into specific topics:
 - [How Amazon S3 Works](/how-amazon-s3-works/)
 
 **Scaling Case Studies**:
+- [How Netflix Video Processing Pipeline Works](/netflix-video-processing-pipeline/)
 - [How OpenAI Scales PostgreSQL to 800M Users](/how-openai-scales-postgresql/)
 - [How Uber Finds Nearby Drivers at 1M RPS](/how-uber-finds-nearby-drivers-1-million-requests-per-second/)
 - [Slack System Design Architecture](/slack-system-design/)

@@ -502,6 +502,7 @@ You probably will not rewrite your app in Erlang. But you can apply these princi
 
 ## Further Reading
 
+- [How Netflix Video Processing Pipeline Works](/netflix-video-processing-pipeline/) - Another look at microservices and parallel processing at scale
 - [How OpenAI Scales PostgreSQL to 800M Users](/how-openai-scales-postgresql/) - Connection pooling, sharding, and database scaling
 - [Slack System Design](/slack-system-design/) - Different approach to messaging at scale
 - [Shopify System Design](/shopify-system-design/) - How they handle massive traffic spikes

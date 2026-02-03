@@ -13,6 +13,9 @@ description: "Deep dive into Google Spanner architecture. Learn how Google Ads h
 keywords: "google spanner, google ads, distributed database, truetime, paxos, distributed sql, global database, horizontal scaling, acid transactions, cloud spanner, database sharding"
 seo: true
 comments: true
+
+quick-answer: "Google Spanner is a globally distributed SQL database with strong consistency. It uses **TrueTime** (atomic clocks + GPS in every datacenter) to order transactions globally and **Paxos** for consensus. Unlike traditional sharding, Spanner handles it automatically while providing full SQL with joins and ACID transactions across shards."
+
 faq:
   - question: "What is Google Spanner?"
     answer: "Google Spanner is a globally distributed SQL database that provides strong consistency, horizontal scaling, and full ACID transactions across data centers worldwide. It powers Google Ads, serving 4.8 billion users. Unlike traditional databases, Spanner offers both SQL flexibility and NoSQL scale."

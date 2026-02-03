@@ -8,6 +8,9 @@ share-img: /assets/img/posts/scala/cover.png
 thumbnail-img: /assets/img/posts/scala/cover.png
 permalink: /exclude-single-module-sbt-test-scala/
 tags: [scala, sbt, testing, ci-cd]
+
+quick-answer: "Use `sbt 'set moduleName / Test / skip := true' test` to exclude a specific module from sbt test. This command-line approach requires no code changes and works perfectly in CI/CD pipelines."
+
 keywords: "sbt test exclude module, scala multi-module testing, sbt skip tests, scala build configuration, sbt aggregate exclude, scala testing best practices, sbt multi-project setup, scala ci cd testing"
 comments: true
 faq:

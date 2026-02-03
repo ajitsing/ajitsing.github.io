@@ -13,6 +13,9 @@ description: "Learn how Stripe prevents double payments using idempotency keys. 
 keywords: "stripe idempotency keys, stripe idempotency, stripe duplicate payments, duplicate payment stripe, stripe tok_visa, idempotent api, prevent duplicate charges, stripe idempotency key, payment idempotency, stripe api idempotency"
 tags: [system-design]
 comments: true
+
+quick-answer: "Stripe prevents duplicate charges using **idempotency keys** - unique identifiers sent with each API request. If Stripe receives a request with a key it has seen before (within 24 hours), it returns the cached response instead of processing again. Generate a UUID for each payment attempt and retry with the same key on failures."
+
 faq:
   - question: "What are Stripe idempotency keys and how do they prevent duplicate charges?"
     answer: "Stripe idempotency keys are unique identifiers you send with API requests. When Stripe receives a request with an idempotency key it has seen before, it returns the cached response from the original request instead of processing the payment again. This prevents duplicate charges even if you retry the same request multiple times due to network failures."

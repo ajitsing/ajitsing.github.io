@@ -15,6 +15,8 @@ keywords: "count min sketch, count-min sketch, frequency estimation, streaming a
 tags: [data-structures]
 comments: true
 
+quick-answer: "Count-Min Sketch estimates item frequencies in streams using a 2D array of counters and multiple hash functions. Query returns the **minimum** of all hash positions. Never underestimates, may overestimate due to collisions. Perfect for finding heavy hitters (most frequent items). Sketches can be merged by adding counters."
+
 key-takeaways:
   - "Count-Min Sketch estimates how often each item appears in a stream using fixed memory"
   - "It uses multiple hash functions and a 2D array of counters, taking the minimum count as the estimate"

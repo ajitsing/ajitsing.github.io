@@ -14,6 +14,9 @@ keywords: "stock broker system design, real-time stock prices, WebSocket archite
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "Stock prices flow through: **Exchange** → **Ticker Plant** (normalizes formats) → **Kafka** (distributes) → **Broker Backend** → **WebSocket** → **Client**. The fan-out problem (1 update to millions of users) is solved by Kafka topics and connection-per-user WebSockets. Total latency: 300-500ms from exchange to screen."
+
 faq:
   - question: "How do stock brokers handle millions of real-time price updates?"
     answer: "Stock brokers use a multi-layered architecture: exchanges broadcast price updates to ticker plants that normalize and filter data, message brokers (like Kafka) distribute updates to broker backends, WebSocket connections push updates to clients, and clients buffer and batch updates for efficient rendering. The entire journey from exchange to user screen takes 300-500 milliseconds."

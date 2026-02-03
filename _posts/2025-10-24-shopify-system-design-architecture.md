@@ -14,6 +14,9 @@ keywords: "Shopify system design, e-commerce architecture, modular monolith, pod
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "Shopify uses a **pod architecture** where stores are grouped into isolated pods, each with its own database cluster. They chose a **modular monolith** over microservices for simpler operations. MySQL sharded by shop_id. Black Friday handled via extensive caching, pre-scaling, load shedding, and queue-based order processing."
+
 faq:
   - question: "How does Shopify handle millions of stores?"
     answer: "Shopify uses a pod architecture where stores are grouped into isolated 'pods' - each pod is a complete copy of the application stack with its own databases. This provides tenant isolation (one store's traffic spike doesn't affect others), enables horizontal scaling by adding more pods, and limits blast radius if issues occur."

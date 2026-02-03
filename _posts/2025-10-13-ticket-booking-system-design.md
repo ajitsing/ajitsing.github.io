@@ -14,6 +14,9 @@ keywords: "ticket booking system design, seat reservation architecture, concurre
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "Ticket systems prevent double-booking using **distributed locks** (Redis) with TTL. When you select a seat, a lock is acquired for ~5 minutes. Payment completes the booking; timeout releases the seat. Virtual queues control traffic, and database constraints provide final safety. The Taylor Swift crash happened when 14M users exceeded all capacity limits."
+
 faq:
   - question: "How do ticket booking systems prevent double booking?"
     answer: "Ticket systems use distributed locks (often Redis-based) to ensure only one user can hold a seat at a time. When you select a seat, the system acquires a lock with a TTL (e.g., 5 minutes). If payment completes, the booking is finalized. If the lock expires, the seat returns to available. Database constraints provide a final safety net."

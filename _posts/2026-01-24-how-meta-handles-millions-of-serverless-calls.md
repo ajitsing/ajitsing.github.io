@@ -14,6 +14,8 @@ tags: [system-design, distributed-systems]
 comments: true
 popular: true
 
+quick-answer: "Meta's XFaaS handles **11.5M function calls/sec** across 100K+ servers with 66% CPU utilization. Key innovations: **universal workers** eliminate cold starts, load spreading across **time** (defer to off-peak) and **space** (route to other datacenters), and congestion control. Only used for non-user-facing functions due to variable latency."
+
 key-takeaways:
   - "Meta's XFaaS processes 11.5 million function calls per second across 100,000+ servers"
   - "They achieve 66% average CPU utilization, far higher than typical cloud FaaS platforms"

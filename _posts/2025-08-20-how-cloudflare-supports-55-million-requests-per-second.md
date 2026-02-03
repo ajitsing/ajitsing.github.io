@@ -12,6 +12,9 @@ keywords: "cloudflare architecture, cloudflare system design, distributed system
 seo: true
 comments: true
 tags: [system-design]
+
+quick-answer: "Cloudflare handles 55M RPS with only 15 PostgreSQL clusters through **PgBouncer** connection pooling, **bare metal servers** (no virtualization overhead), **Anycast routing** across 330+ data centers, and **HAProxy** load balancing. Users are automatically routed to the nearest datacenter, and connection pooling prevents database exhaustion."
+
 faq:
   - question: "How does Cloudflare handle 55 million requests per second?"
     answer: "Cloudflare handles 55 million RPS using a combination of connection pooling with PgBouncer, bare metal PostgreSQL servers, HAProxy load balancing, Anycast routing across 330+ data centers, and intelligent caching. They use only 15 PostgreSQL clusters by efficiently managing connections and distributing traffic globally."

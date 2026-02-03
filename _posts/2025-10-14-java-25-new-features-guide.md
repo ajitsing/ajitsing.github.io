@@ -14,6 +14,9 @@ keywords: "Java 25, JDK 25, Java LTS 2025, Java 25 features, JEP 512, JEP 513, S
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "Java 25 LTS brings: simplified `void main()` without class boilerplate, flexible constructors with code before `super()`, **Scoped Values** replacing ThreadLocal for virtual threads, compact object headers saving 8-12% memory, and built-in PBKDF2 password hashing. First LTS since Java 21."
+
 faq:
   - question: "What are the main features in Java 25 LTS?"
     answer: "Java 25 LTS includes simplified main methods (no class or public static required), flexible constructors (code before super()), Scoped Values replacing ThreadLocal for virtual threads, compact object headers saving 8-12% memory, built-in password hashing with PBKDF2, and module imports for cleaner code. It's the first LTS since Java 21."

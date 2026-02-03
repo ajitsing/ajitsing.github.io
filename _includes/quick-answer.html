@@ -1,0 +1,100 @@
+{% comment %}
+  Quick Answer Component for Answer Engine Optimization (AEO)
+  
+  Usage in post frontmatter:
+  quick-answer: "Your concise answer here that directly answers the main question of the post."
+  
+  Or use the first key-takeaway if quick-answer is not set.
+{% endcomment %}
+
+{% if page.quick-answer or page.key-takeaways %}
+<div class="quick-answer visually-hidden" hidden itemscope itemtype="https://schema.org/Answer">
+  <div class="quick-answer-header">
+    <svg class="quick-answer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 16v-4M12 8h.01"/>
+    </svg>
+    <span class="quick-answer-label">Quick Answer</span>
+  </div>
+  <div class="quick-answer-content" itemprop="text">
+    {% if page.quick-answer %}
+      {{ page.quick-answer | markdownify }}
+    {% elsif page.key-takeaways.first %}
+      {{ page.key-takeaways.first | markdownify }}
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.quick-answer.visually-hidden {
+  display: none !important;
+}
+
+.quick-answer {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 4px solid #0ea5e9;
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0 2rem 0;
+  position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  .quick-answer {
+    background: linear-gradient(135deg, #0c2d48 0%, #1a3a52 100%);
+    border-left-color: #38bdf8;
+  }
+}
+
+.quick-answer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.quick-answer-icon {
+  width: 18px;
+  height: 18px;
+  color: #0ea5e9;
+  flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .quick-answer-icon {
+    color: #38bdf8;
+  }
+}
+
+.quick-answer-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0369a1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .quick-answer-label {
+    color: #7dd3fc;
+  }
+}
+
+.quick-answer-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1e3a5f;
+}
+
+.quick-answer-content p {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .quick-answer-content {
+    color: #e2e8f0;
+  }
+}
+
+</style>
+{% endif %}

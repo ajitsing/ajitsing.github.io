@@ -13,6 +13,9 @@ description: "Deep dive into message queues in system design. Learn when and why
 keywords: "message queue, system design, rabbitmq, kafka, sqs, async processing, distributed systems, microservices, producer consumer pattern, pub sub, dead letter queue, event driven architecture"
 seo: true
 comments: true
+
+quick-answer: "Message queues decouple services, absorb traffic spikes, and enable async processing. **Kafka**: high-throughput streaming with replay. **RabbitMQ**: complex routing and request-reply. **SQS**: simple AWS-native. Dead letter queues store failed messages for debugging. Pub/sub broadcasts to all subscribers; point-to-point delivers to one consumer."
+
 faq:
   - question: "Why use message queues in system design?"
     answer: "Message queues decouple services, enabling asynchronous processing. They absorb traffic spikes (buffering requests during peaks), improve resilience (failed consumers don't crash producers), reduce latency (non-critical work happens in background), and enable horizontal scaling (add more consumers to process faster)."

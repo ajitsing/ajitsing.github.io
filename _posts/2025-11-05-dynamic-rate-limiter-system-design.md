@@ -14,6 +14,9 @@ keywords: "rate limiter, API rate limiting, dynamic throttling, token bucket, le
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "Rate limiters control request volume using **token bucket** (allows bursts, refills steadily) or **leaky bucket** (constant output rate). For distributed systems, use Redis with INCR+TTL or Lua scripts for atomicity. Return HTTP 429 with `X-RateLimit-*` headers and `Retry-After` to help clients back off properly."
+
 faq:
   - question: "What is a rate limiter in system design?"
     answer: "A rate limiter controls how many requests a client can make to an API within a time window. It protects servers from overload, prevents abuse, and ensures fair resource distribution. Common implementations include token bucket, leaky bucket, fixed window, and sliding window algorithms."

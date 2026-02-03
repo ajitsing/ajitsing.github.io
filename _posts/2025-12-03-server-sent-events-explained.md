@@ -15,6 +15,8 @@ seo: true
 social-share: true
 comments: true
 
+quick-answer: "SSE (Server-Sent Events) enables **server-to-client streaming** over a single HTTP connection using `text/event-stream`. Browser's EventSource API auto-reconnects (default 3000ms retry), sends Last-Event-ID for replay. One-way only (server→client). Use for dashboards, notifications, live scores. Simpler than WebSockets when bidirectional isn't needed."
+
 faq:
   - question: "What is SSE (Server-Sent Events)?"
     answer: "SSE (Server-Sent Events) is a web technology that allows servers to push real-time updates to browsers over a single HTTP connection. Unlike WebSockets, SSE is one-way (server to client only) and uses the text/event-stream format. It's ideal for live dashboards, notifications, stock prices, and any scenario where the server needs to push data without the client requesting it."

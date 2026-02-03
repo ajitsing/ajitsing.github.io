@@ -15,6 +15,8 @@ keywords: "bloom filter, bloom filter explained, probabilistic data structure, f
 tags: [data-structures]
 comments: true
 
+quick-answer: "Bloom filters answer 'is X in the set?' using a bit array and multiple hash functions. If it says **NO**, definitely not present. If **YES**, probably present (false positives possible). 1 billion items at 1% false positive rate = ~1.2 GB. Used by Cassandra, Bigtable, Chrome. Cannot delete items from standard Bloom filter."
+
 key-takeaways:
   - "Bloom filters answer 'is this in the set?' using minimal memory, but with a small chance of false positives"
   - "If a Bloom filter says NO, the element is definitely not present. If it says YES, the element is probably present"

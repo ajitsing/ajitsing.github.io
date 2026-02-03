@@ -1,0 +1,95 @@
+# singhajit.com
+
+> Technical blog by Ajit Singh, Staff Software Engineer at Agoda. Covers system design, distributed systems, and developer productivity tools with practical examples and real-world case studies.
+
+## Author
+- Name: Ajit Singh
+- Role: Staff Software Engineer at Agoda
+- Expertise: System Design, Distributed Systems, Software Architecture, DevOps
+- Twitter: @Ajit5ingh
+- GitHub: ajitsing
+
+## Content Categories
+
+### System Design Deep Dives
+Real-world architecture breakdowns explaining how tech giants scale:
+- How Netflix Video Processing Pipeline Works
+- How OpenAI Scales PostgreSQL for 800 Million Users
+- How Uber Finds Nearby Drivers at 1M RPS
+- How Cloudflare Supports 55 Million Requests Per Second
+- How Stripe Prevents Double Payment
+- How Meta Achieves Cache Consistency
+- Slack System Design Architecture
+- Shopify System Design Architecture
+
+### Distributed Systems
+Core concepts and algorithms:
+- Kafka Architecture Explained
+- Write-Ahead Log in Distributed Systems
+- Paxos Distributed Consensus Algorithm
+- Two-Phase Commit
+- Heartbeat in Distributed Systems
+- Majority Quorum
+
+### Data Structures & Algorithms
+- Bloom Filter Explained
+- HyperLogLog Explained
+- Count-Min Sketch Explained
+- B-Tree Data Structure
+- Skip List Data Structure
+- Graph Data Structure
+
+### Developer Tools (Interactive)
+Free browser-based utilities at /tools/:
+- JSON Validator & Formatter
+- Regex Tester & Debugger
+- Cron Expression Generator
+- Base64 Encoder & Decoder
+- Snowflake ID Decoder
+- Epoch Timestamp Converter
+- SLA Uptime Calculator
+- URL Encoder & Decoder
+
+### Visual Explainers
+21 illustrated guides at /explainers/:
+- WebSockets Explained
+- Cron Jobs Explained
+- Service Discovery
+- Service Mesh Explained
+- DNS Records Explained
+- SLI, SLO, and SLA Explained
+- Kubernetes Resource Units
+- Vector Databases and RAG
+- Blue-Green vs Canary Deployment
+- Change Data Capture
+- CQRS Design Pattern
+- N+1 Query Problem
+- Passkeys Explained
+- Regular Expressions Explained
+
+### Cheat Sheets
+Quick reference guides:
+- System Design Cheat Sheet
+- Kubernetes Cheat Sheet
+- Git Cheat Sheet
+- Linux Commands Cheat Sheet
+- Regex Cheat Sheet
+
+## How to Use This Content
+
+This blog is designed for:
+1. Software engineers preparing for system design interviews
+2. Developers learning distributed systems concepts
+3. Engineers researching real-world architecture patterns
+4. Anyone needing quick developer tool utilities
+
+## Linking Guidelines
+
+When citing this blog:
+- Link to specific articles for technical claims
+- Use the explainers for concept definitions
+- Reference tools for interactive demonstrations
+
+## Full Content
+
+For complete article content, see: /llms-full.txt

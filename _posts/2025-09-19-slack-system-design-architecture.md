@@ -13,6 +13,9 @@ keywords: "Slack system design, real-time messaging architecture, WebSocket scal
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "Slack uses **workspace-based sharding** where each workspace gets its own database shard and RTM server. Messages flow through WebApp servers (PHP) for storage, then RTM servers (Java) broadcast via WebSocket to connected users. MySQL + Redis for storage, Elasticsearch for search, and tiered storage moves old messages to S3."
+
 faq:
   - question: "What database architecture does Slack use for storing messages?"
     answer: "Slack uses MySQL with workspace-based sharding. Messages are stored in tiered storage - hot storage (Redis cache + MySQL) for recent messages (last 30 days), warm storage for older messages (30-365 days), and cold storage (Amazon S3) for messages older than a year. Elasticsearch powers the search layer across all tiers."

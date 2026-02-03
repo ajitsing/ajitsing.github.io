@@ -12,6 +12,9 @@ description: "Deep dive into Kubernetes architecture - understand how the contro
 keywords: "kubernetes architecture, k8s components, control plane, worker nodes, etcd, kube-apiserver, container orchestration, microservices, cloud native, system design"
 tags: [system-design, devops]
 comments: true
+
+quick-answer: "Kubernetes has two parts: the **Control Plane** (API server, etcd, scheduler, controller manager) that makes decisions, and **Worker Nodes** (kubelet, kube-proxy, container runtime) that run workloads. etcd stores all cluster state, the scheduler assigns pods to nodes, and controllers ensure desired state matches reality."
+
 faq:
   - question: "What are the main components of Kubernetes architecture?"
     answer: "Kubernetes has two main parts: the Control Plane (kube-apiserver, etcd, kube-scheduler, kube-controller-manager) which makes decisions about the cluster, and Worker Nodes (kubelet, kube-proxy, container runtime) which run the actual containerized workloads."

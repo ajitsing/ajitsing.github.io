@@ -9,6 +9,9 @@ thumbnail-img: /assets/img/posts/git-commands/git-thumbnail.png
 share-img: /assets/img/posts/git-commands/git-thumbnail.png
 permalink: /git-command-line-basics/
 tags: ["git", "version-control"]
+
+quick-answer: "Essential Git commands: `git init` (create repo), `git clone` (copy remote), `git add` (stage), `git commit` (save), `git push/pull` (sync with remote), `git branch` (manage branches), `git merge` (combine). The command line offers speed, full feature access, and scripting capabilities over GUI tools."
+
 keywords: "git basics, git command line, git commands for beginners, git tutorial, git version control, git cli, git gui vs command line, git workflow, git cheat sheet"
 comments: true
 faq:

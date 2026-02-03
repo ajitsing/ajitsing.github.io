@@ -14,6 +14,8 @@ tags: ["AI", "software-engineering"]
 comments: true
 popular: true
 
+quick-answer: "LLMs generate text **one token at a time** in an autoregressive loop. Tokenization → Embedding → Transformer (attention mechanism) → Softmax probabilities → Sample next token → Repeat. **Temperature** controls randomness (low=focused, high=creative). **Top-p** limits sampling pool. LLMs predict likely tokens, not accurate ones - causing hallucinations."
+
 key-takeaways:
   - "LLMs generate text one token at a time in an autoregressive loop, not all at once"
   - "Tokenization breaks text into subwords, which explains many strange LLM behaviors"

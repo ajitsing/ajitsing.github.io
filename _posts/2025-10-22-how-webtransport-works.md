@@ -14,6 +14,9 @@ keywords: "WebTransport, HTTP/3, QUIC protocol, WebSocket alternative, real-time
 tags: [web-development, networking]
 social-share: true
 comments: true
+
+quick-answer: "WebTransport is built on HTTP/3 and QUIC, eliminating TCP's head-of-line blocking. Unlike WebSockets where one lost packet blocks everything, WebTransport uses **independent streams** - a lost packet in stream A doesn't block streams B and C. It also supports unreliable datagrams for real-time data like game positions."
+
 faq:
   - question: "What is WebTransport and how is it different from WebSockets?"
     answer: "WebTransport is a modern web API built on HTTP/3 and QUIC that provides bidirectional communication without TCP's head-of-line blocking. Unlike WebSockets where one lost packet blocks everything, WebTransport uses independent streams - a lost packet in one stream doesn't affect others. It also supports unreliable datagrams for real-time data like game positions."

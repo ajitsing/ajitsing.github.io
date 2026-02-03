@@ -13,6 +13,9 @@ description: "HTMX tutorial and guide with practical examples. Learn HTMX from z
 keywords: "htmx tutorial, htmx guide, htmx vs react, htmx examples, hypermedia driven applications, htmx attributes, hx-get hx-post, htmx ajax, server side rendering htmx, htmx web development, frontend without javascript, htmx architecture"
 seo: true
 comments: true
+
+quick-answer: "HTMX extends HTML with attributes (`hx-get`, `hx-post`, `hx-target`, `hx-swap`) that make AJAX requests and swap HTML fragments without writing JavaScript. Server returns HTML, not JSON. Ideal for CRUD apps, admin panels, and teams with backend strength. 14KB gzipped, no build step. Use React/Vue for complex client-side state."
+
 faq:
   - question: "Where can I find a good HTMX tutorial?"
     answer: "This complete HTMX tutorial covers everything from basics to production patterns. You'll learn core attributes (hx-get, hx-post, hx-target, hx-swap), triggers, loading states, form handling, and real-world examples like infinite scroll, live search, and shopping carts. No prior HTMX experience required."

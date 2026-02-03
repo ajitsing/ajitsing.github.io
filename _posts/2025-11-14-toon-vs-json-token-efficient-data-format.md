@@ -14,6 +14,9 @@ keywords: "TOON format, JSON alternative, token optimization, LLM cost reduction
 tags: [artificial-intelligence]
 social-share: true
 comments: true
+
+quick-answer: "TOON (Token-Oriented Object Notation) reduces LLM token usage by 30-60% by separating headers from values in arrays. Instead of repeating `{\"name\":\"...\",\"age\":...}` for each item, TOON uses `name|age` header and pipe-separated rows. A 1000-user dataset can drop from 15,400 to 6,200 tokens."
+
 faq:
   - question: "What is TOON format?"
     answer: "TOON (Token-Oriented Object Notation) is a data format designed to minimize token usage when communicating with LLMs. It eliminates repeated field names in arrays by separating headers from values. For arrays with many objects, TOON can reduce token usage by 30-60% compared to JSON, directly cutting API costs."

@@ -12,7 +12,8 @@ description: "A practical Git cheat sheet with examples. Learn essential Git com
 keywords: "git cheat sheet, git commands, git tutorial, git branching, git merge, git rebase, git commit, git push, git pull, git stash, git reset, git revert, undo git commit, git workflow, git for beginners, git version control, git cherry pick, git log, git diff, git fetch vs pull, git merge vs rebase"
 tags: ["git", "version-control", "devops"]
 comments: true
-popular: true
+
+quick-answer: "Key commands: `git status` (check state), `git log --oneline` (history), `git stash` (save work temporarily), `git reset --soft HEAD~1` (undo commit, keep changes), `git reset --hard` (discard changes), `git rebase -i` (clean history). `fetch` downloads without merging; `pull` = fetch + merge. Never rebase shared commits."
 
 key-takeaways:
   - "git status and git log are your best friends for understanding what is going on"

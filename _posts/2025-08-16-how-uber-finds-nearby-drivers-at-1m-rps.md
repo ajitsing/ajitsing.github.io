@@ -13,6 +13,8 @@ comments: true
 tags: [system-design]
 seo: true
 
+quick-answer: "Uber uses **H3 hexagonal grid indexing** to find nearby drivers. Your GPS location is converted to a hexagon cell ID, then the system searches that cell and its neighbors for available drivers. This avoids checking every driver in the city, reducing search time from 10-15 seconds to under 3 seconds at 1M+ requests per second."
+
 faq:
   - question: "How does Uber find nearby drivers?"
     answer: "When you request a ride, Uber converts your GPS location into an H3 hexagonal cell ID. The system then searches that cell and its neighboring hexagons to find all available drivers nearby. This geospatial indexing approach means Uber doesn't need to calculate distances to every driver in the city - just those in nearby hexagonal cells, making the search extremely fast."

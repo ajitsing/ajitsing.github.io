@@ -13,6 +13,9 @@ keywords: "majority quorum, distributed systems, quorum consensus, fault toleran
 tags: [distributed-systems]
 comments: true
 social-share: true
+
+quick-answer: "Majority quorum requires **floor(N/2)+1** nodes to agree. For 5 nodes, quorum is 3. The **W+R>N** formula ensures consistency: if Write quorum + Read quorum > Total nodes, at least one read node has the latest write. Odd node counts (3, 5, 7) are preferred to prevent ties during network splits."
+
 faq:
   - question: "What is a majority quorum in distributed systems?"
     answer: "A majority quorum is a consensus pattern where more than half of the nodes in a distributed system must agree on an operation for it to be valid. For a cluster with N nodes, the quorum size is floor(N/2) + 1. This ensures that any two quorums always overlap by at least one node, preventing conflicting decisions and maintaining data consistency."

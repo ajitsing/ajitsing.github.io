@@ -12,6 +12,9 @@ thumbnail-img: /assets/img/posts/performance_testing/cover.png
 description: "Master k6 executors: ramping-arrival-rate, constant-arrival-rate, and ramping-vus explained with examples. Complete guide to k6 load testing scenarios, thresholds, and CI/CD."
 keywords: "k6 ramping-arrival-rate, k6 constant-arrival-rate, k6 ramping-vus, k6 executors, performance testing, load testing, Grafana k6, k6 scenarios, k6 thresholds"
 tags: ["performance-testing", "testing"]
+
+quick-answer: "k6 offers three main executors: **ramping-vus** (gradually increase users), **constant-arrival-rate** (fixed RPS), and **ramping-arrival-rate** (gradually increase RPS). Use VU-based for user simulation, arrival-rate for guaranteed throughput testing. k6 automatically scales VUs to maintain target RPS when latency increases."
+
 social-share: true
 comments: true
 

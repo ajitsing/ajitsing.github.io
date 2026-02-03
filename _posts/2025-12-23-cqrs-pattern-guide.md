@@ -12,6 +12,9 @@ description: "Learn the CQRS pattern with practical examples. Understand when to
 keywords: "CQRS pattern, CQRS vs CRUD, command query responsibility segregation, CQRS example, when to use CQRS, CQRS event sourcing, CQRS architecture, CQRS implementation"
 tags: ["architecture", "system-design"]
 comments: true
+
+quick-answer: "CQRS (Command Query Responsibility Segregation) uses separate models for reads and writes. Commands modify state; Queries retrieve it. Optimize each independently - denormalized read models for fast queries, normalized write models for consistency. Start with logical separation in one database; add physical separation only when needed."
+
 faq:
   - question: "What is the difference between CQRS and CRUD?"
     answer: "CRUD uses a single model for all operations (Create, Read, Update, Delete). CQRS separates the model into two parts: Commands for writes and Queries for reads. This separation allows you to optimize each side independently for its specific workload."

@@ -15,6 +15,8 @@ keywords: "hyperloglog, hyperloglog algorithm, cardinality estimation, count dis
 tags: [data-structures]
 comments: true
 
+quick-answer: "HyperLogLog estimates unique item count using only **12 KB** of memory regardless of dataset size. It tracks max leading zeros in hashed values across buckets. Standard error ~1-2%. Used by Redis (`PFADD`/`PFCOUNT`), BigQuery, Presto for COUNT DISTINCT. Sketches can be merged for distributed counting."
+
 key-takeaways:
   - "HyperLogLog estimates the number of unique items in a dataset using only 12 KB of memory"
   - "It works by tracking the maximum number of leading zeros in hashed values across multiple buckets"

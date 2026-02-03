@@ -14,6 +14,9 @@ seo: true
 social-share: true
 comments: true
 popular: true
+
+quick-answer: "Snowflake IDs are 64-bit unique identifiers: **41-bit timestamp** + **10-bit machine ID** + **12-bit sequence**. Each server generates IDs independently without coordination. IDs are time-sortable, smaller than UUIDs (64 vs 128 bits), and efficient as database primary keys. Extract timestamp by right-shifting 22 bits and adding epoch."
+
 faq:
   - question: "What is a Snowflake ID?"
     answer: "A Snowflake ID is a 64-bit unique identifier used in distributed systems. It combines a 41-bit timestamp, 10-bit machine ID, and 12-bit sequence number. This structure allows multiple servers to generate unique IDs independently without coordination, while keeping IDs time-sortable. Twitter created this approach in 2010."

@@ -13,6 +13,8 @@ keywords: "Google Docs system design, real-time collaboration, Operational Trans
 tags: [system-design]
 comments: true
 
+quick-answer: "Google Docs uses **Operational Transform (OT)** for real-time collaboration. Each keystroke becomes an operation with position and content. When concurrent edits arrive, the server transforms them to account for each other's changes. WebSocket connections push updates within 50-200ms. Version history uses snapshots + operation logs."
+
 faq:
   - question: "How does Google Docs handle multiple users editing at the same time?"
     answer: "Google Docs uses Operational Transform (OT) to handle concurrent edits. Each keystroke is converted into an operation with a position and content. When two users edit simultaneously, the server receives both operations, transforms them to account for each other's changes, and broadcasts the transformed operations back. This ensures all users see the same final document without losing any edits."

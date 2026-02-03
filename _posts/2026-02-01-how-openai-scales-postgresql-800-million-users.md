@@ -16,6 +16,8 @@ social-share: true
 popular: true
 tags: [database, system-design]
 
+quick-answer: "OpenAI scales PostgreSQL using: **PgBouncer** connection pooling (thousands of app instances share hundreds of DB connections), **read replicas** for read-heavy workloads, **horizontal sharding** by user_id across multiple instances, and aggressive query optimization with proper indexing. Monitor slow queries and connection limits proactively."
+
 key-takeaways:
   - "Connection pooling with PgBouncer lets thousands of app instances share a smaller pool of database connections"
   - "Read replicas handle read-heavy workloads while the primary handles writes"

@@ -13,6 +13,8 @@ keywords: "ollama qwen2 1.5b tokens per second m1, qwen2 1.5b tokens per second 
 tags: [AI, performance, benchmarks]
 comments: true
 
+quick-answer: "Real benchmarks: **Qwen2 1.5B on M1 Mac** = 30-60 tokens/sec (not billions). **Llama 3.1 8B Q4 on RTX 4070** = ~68 tokens/sec. MLX backend on Apple Silicon is 50% faster than Ollama GGUF. Q4_K_M quantization offers best size/quality balance. Context length significantly affects speed - longer prompts mean slower generation."
+
 key-takeaways:
   - "Qwen2 1.5B on M1 Mac runs at 30-60 tokens/sec, not the billions some claims suggest"
   - "Llama 3.1 8B on RTX 4070 delivers around 68 tokens/sec with Q4 quantization"

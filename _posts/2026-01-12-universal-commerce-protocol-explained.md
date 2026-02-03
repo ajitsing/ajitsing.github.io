@@ -12,6 +12,9 @@ description: "Learn what Universal Commerce Protocol (UCP) is and how it enables
 keywords: "Universal Commerce Protocol, UCP, Google UCP, agentic commerce, AI shopping, AI checkout, ecommerce API, AI shopping agents, UCP integration, UCP API, AI ecommerce, commerce protocol, shopping AI, AI payment processing, checkout API, order management API, identity linking OAuth, Shopify UCP, ecommerce interoperability, AI agent commerce, UCP specification, UCP developer guide, REST API ecommerce, JSON-RPC commerce, Agent2Agent protocol, A2A protocol, AP2 payment protocol, MCP commerce, Model Context Protocol, AI retail, AI powered shopping, automated checkout, AI product discovery, ecommerce automation, smart shopping, conversational commerce, voice commerce, visual commerce, UCP vs MCP, MCP vs UCP, difference between UCP and MCP, UCP MCP comparison, UCP and MCP together, when to use UCP vs MCP"
 tags: ["AI", "software-engineering"]
 comments: true
+
+quick-answer: "UCP is Google's open standard for AI-driven shopping. Core capabilities: **Checkout** (cart, pricing, payments via AP2), **Identity Linking** (OAuth 2.0), **Order Management** (webhooks for status/shipping/returns). Partners: Shopify, Etsy, Wayfair, Target, Walmart. Works with MCP and A2A protocols. One integration works everywhere."
+
 faq:
   - question: "What is Universal Commerce Protocol (UCP)?"
     answer: "Universal Commerce Protocol (UCP) is an open standard launched by Google in collaboration with Shopify, Etsy, Wayfair, Target, and Walmart. It provides a common language for AI agents, businesses, and payment providers to interact throughout the shopping journey, from product discovery to checkout and post-purchase support."

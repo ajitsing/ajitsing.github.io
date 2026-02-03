@@ -13,6 +13,9 @@ description: "What is 2 phase commit? Complete guide to the two phase commit pro
 keywords: "two phase commit protocol, two-phase commit, 2 phase commit, 2 phase commit protocol, what is 2 phase commit, 2PC protocol, 2PC, distributed transactions, distributed systems, database consistency, atomic commit, transaction coordinator, prepare commit, XA transactions, saga pattern, distributed database, ACID transactions, commit protocol, database replication, microservices transactions"
 tags: [distributed-systems]
 comments: true
+
+quick-answer: "Two-Phase Commit (2PC) coordinates distributed transactions: **Phase 1 (Prepare)** - coordinator asks participants to vote YES/NO. **Phase 2 (Commit)** - if all vote YES, coordinator sends commit; otherwise abort. Ensures atomicity but is blocking - participants wait indefinitely if coordinator fails. Saga pattern is the non-blocking alternative."
+
 faq:
   - question: "What is the two phase commit protocol?"
     answer: "The two phase commit protocol (2PC) is a distributed algorithm that coordinates all processes in a distributed transaction to either commit or abort together. Phase 1 (Prepare): the coordinator asks all participants to vote. Phase 2 (Commit): based on votes, the coordinator tells all participants to commit or abort. This ensures atomicity across multiple databases or services."

@@ -14,6 +14,8 @@ tags: ["system-design", "architecture"]
 comments: true
 popular: true
 
+quick-answer: "Key concepts: **Horizontal scaling** > vertical. **CAP theorem** = pick 2 of consistency/availability/partition-tolerance. **Caching** with Cache-Aside pattern. **SQL** for transactions, **NoSQL** for scale. **Load balancer** distributes traffic. **Sharding** splits data across DBs. Design for 3-5x expected peak. Always start with requirements."
+
 key-takeaways:
   - "Start every design with requirements. Functional requirements define what the system does, non-functional requirements define how well it does it"
   - "Horizontal scaling beats vertical scaling for most production systems. Add more machines instead of bigger machines"

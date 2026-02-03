@@ -9,6 +9,9 @@ thumbnail-img: /assets/img/posts/prompt-engineering/prompt-thumbnail.png
 share-img: /assets/img/posts/prompt-engineering/prompt-thumbnail.png
 permalink: /prompt-engineering-basics/
 tags: ["prompt-engineering", "artificial-intelligence", "machine-learning"]
+
+quick-answer: "Effective prompt engineering requires being specific, providing examples, setting constraints, and iterating. For code generation, include the language, input/output specs, libraries to use, and example data. Avoid vague prompts and break complex tasks into focused sub-prompts."
+
 keywords: "prompt engineering, ai prompts, prompt engineering for developers, ai prompt examples, prompt engineering tutorial, ai interaction, machine learning prompts, software development ai"
 comments: true
 faq:

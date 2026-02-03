@@ -13,6 +13,8 @@ keywords: "AI coding assistant, GitHub Copilot tips, Cursor AI, how to use AI fo
 tags: ["AI", "software-engineering"]
 comments: true
 
+quick-answer: "Best practices: **Plan first** (write requirements in markdown before coding), **keep prompts short and specific** (don't dump entire codebases), **review like a PR from a junior dev**, use **test-first workflow** (AI writes failing test, you review, AI makes it pass), and **document your codebase** (AI learns your patterns from docs/comments)."
+
 key-takeaways:
   - "AI coding assistants work best when you plan first. Write a markdown file with requirements before coding."
   - "Keep prompts short and specific. Dumping entire codebases into context kills accuracy."

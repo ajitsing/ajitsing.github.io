@@ -15,6 +15,9 @@ description: "Deep dive into hash table collisions - understand why they happen,
 keywords: "hash table collision, collision resolution, separate chaining, open addressing, hash function, load factor, performance optimization, hash collision attack, data structures"
 tags: [data-structures]
 comments: true
+
+quick-answer: "Hash collisions occur when different keys map to the same bucket. Handle them with **separate chaining** (linked lists per bucket) or **open addressing** (probe for next slot). Keep load factor below 0.75 and resize when exceeded. Modern languages use randomized hash seeds to prevent collision attacks."
+
 faq:
   - question: "What is a hash collision?"
     answer: "A hash collision occurs when two different keys produce the same hash value and map to the same bucket in a hash table. Since hash functions map an infinite set of possible keys to a finite set of buckets, collisions are mathematically inevitable. How you handle them determines whether your O(1) lookups stay fast or degrade to O(n)."

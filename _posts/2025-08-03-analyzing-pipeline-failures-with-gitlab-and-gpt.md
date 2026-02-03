@@ -8,6 +8,9 @@ share-img: /assets/img/posts/pipeline_failure_analysis/thumbnail.png
 thumbnail-img: /assets/img/posts/pipeline_failure_analysis/thumbnail.png
 permalink: /analyzing-pipeline-failures-with-gitlab-and-gpt/
 tags: [ci-cd, openai, ai-application]
+
+quick-answer: "Use GitLab's REST APIs to fetch failed job logs programmatically, then feed them to GPT with a structured prompt to categorize failures by type (network, dependency, config). This automated analysis can reveal patterns like '40% of failures stem from external dependencies' and help prioritize fixes."
+
 keywords: "gitlab pipeline failures, gitlab api automation, ci cd pipeline analysis, openai gpt pipeline debugging, gitlab job logs analysis, pipeline failure patterns, devops automation tools, gitlab rest api, ci cd troubleshooting, pipeline stability improvement, automated failure analysis, gitlab pipeline monitoring, openai api integration, pipeline debugging automation, ci cd failure detection"
 comments: true
 faq:

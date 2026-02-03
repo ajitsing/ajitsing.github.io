@@ -14,6 +14,9 @@ keywords: "DNS, domain name system, DNS resolution, DNS caching, DNS records, A 
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "DNS translates domain names to IPs through a hierarchy: browser cache → OS cache → recursive resolver → root servers → TLD servers (.com) → authoritative nameserver. Records are cached by TTL. A records point to IPs directly; CNAMEs alias to other domains. Lower TTL before DNS changes for faster propagation."
+
 faq:
   - question: "How does DNS work?"
     answer: "DNS translates domain names (like google.com) to IP addresses. When you visit a website, your browser checks local caches first, then queries a recursive resolver, which contacts root servers, TLD servers (.com, .org), and finally the authoritative nameserver for the domain. The IP address is returned and cached at multiple levels for faster future lookups."

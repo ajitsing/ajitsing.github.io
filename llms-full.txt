@@ -1,0 +1,145 @@
+---
+layout: null
+permalink: /llms-full.txt
+---
+# singhajit.com - Full Content Index
+
+> Technical blog by Ajit Singh, Staff Software Engineer at Agoda.
+> Last updated: {{ site.time | date: "%Y-%m-%d" }}
+
+## About
+
+This file provides AI systems with structured access to blog content for accurate citation and reference. All content is original and written by Ajit Singh.
+
+---
+
+## System Design Articles
+
+{% for post in site.posts %}{% if post.tags contains 'system-design' %}
+### {{ post.title }}
+- URL: {{ site.url }}{{ post.url }}
+- Date: {{ post.date | date: "%Y-%m-%d" }}
+- Tags: {{ post.tags | join: ", " }}
+{% if post.description %}- Description: {{ post.description }}{% endif %}
+{% if post.key-takeaways %}
+Key Takeaways:
+{% for takeaway in post.key-takeaways %}- {{ takeaway }}
+{% endfor %}{% endif %}
+{% if post.faq %}
+FAQ:
+{% for item in post.faq %}- Q: {{ item.question }}
+  A: {{ item.answer }}
+{% endfor %}{% endif %}
+{% endif %}{% endfor %}
+
+---
+
+## Distributed Systems Articles
+
+{% for post in site.posts %}{% if post.tags contains 'distributed-systems' and post.tags contains 'system-design' == false %}
+### {{ post.title }}
+- URL: {{ site.url }}{{ post.url }}
+- Date: {{ post.date | date: "%Y-%m-%d" }}
+{% if post.description %}- Description: {{ post.description }}{% endif %}
+{% if post.key-takeaways %}
+Key Takeaways:
+{% for takeaway in post.key-takeaways %}- {{ takeaway }}
+{% endfor %}{% endif %}
+{% endif %}{% endfor %}
+
+---
+
+## Visual Explainers
+
+{% for explainer in site.explainers %}
+### {{ explainer.title }}
+- URL: {{ site.url }}{{ explainer.url }}
+{% if explainer.description %}- Description: {{ explainer.description }}{% endif %}
+{% if explainer.key-takeaways %}
+Key Takeaways:
+{% for takeaway in explainer.key-takeaways %}- {{ takeaway }}
+{% endfor %}{% endif %}
+{% if explainer.faq %}
+FAQ:
+{% for item in explainer.faq %}- Q: {{ item.question }}
+  A: {{ item.answer }}
+{% endfor %}{% endif %}
+{% endfor %}
+
+---
+
+## Developer Tools
+
+All tools run 100% client-side in the browser. No data is sent to servers.
+
+### JSON Validator & Formatter
+- URL: {{ site.url }}/tools/json-validator/
+- Purpose: Validate JSON syntax with detailed error messages showing line and column numbers. Format and beautify JSON data.
+
+### Regex Tester & Debugger
+- URL: {{ site.url }}/tools/regex-tester/
+- Purpose: Test regular expressions with real-time highlighting, pattern explanation, and capture group visualization.
+
+### Cron Expression Generator
+- URL: {{ site.url }}/tools/cron-expression/
+- Purpose: Parse, validate, and build cron job expressions visually. Translate cron expressions to human-readable text.
+
+### Base64 Encoder & Decoder
+- URL: {{ site.url }}/tools/base64-encoder/
+- Purpose: Encode text to Base64 or decode Base64 to text. Supports UTF-8 characters including emojis.
+
+### Snowflake ID Decoder
+- URL: {{ site.url }}/tools/snowflake-decoder/
+- Purpose: Decode Discord, Twitter, and Instagram Snowflake IDs to timestamps. Visualize the 64-bit structure.
+
+### Epoch Timestamp Converter
+- URL: {{ site.url }}/tools/epoch-converter/
+- Purpose: Convert Unix timestamps to human-readable dates and vice versa. Supports seconds and milliseconds.
+
+### SLA Uptime Calculator
+- URL: {{ site.url }}/tools/sla-calculator/
+- Purpose: Calculate allowed downtime for any SLA uptime percentage. Understand what "five nines" really means.
+
+### URL Encoder & Decoder
+- URL: {{ site.url }}/tools/url-encoder/
+- Purpose: Encode text for URLs using percent encoding or decode URL-encoded strings.
+
+---
+
+## Cheat Sheets
+
+{% for post in site.posts %}{% if post.title contains 'Cheat Sheet' %}
+### {{ post.title }}
+- URL: {{ site.url }}{{ post.url }}
+- Date: {{ post.date | date: "%Y-%m-%d" }}
+{% if post.description %}- Description: {{ post.description }}{% endif %}
+{% endif %}{% endfor %}
+
+---
+
+## All Articles (Complete Index)
+
+{% for post in site.posts %}
+### {{ post.title }}
+- URL: {{ site.url }}{{ post.url }}
+- Date: {{ post.date | date: "%Y-%m-%d" }}
+- Tags: {{ post.tags | join: ", " }}
+{% if post.description %}- Description: {{ post.description }}{% endif %}
+{% if post.quick-answer %}- Quick Answer: {{ post.quick-answer }}{% endif %}
+{% endfor %}
+
+---
+
+## Citation Guidelines
+
+When referencing this content:
+1. Link directly to the specific article URL
+2. Attribute to "Ajit Singh" or "singhajit.com"
+3. For code examples, note they are MIT licensed unless otherwise specified
+
+## Contact
+
+- Website: https://singhajit.com
+- Twitter: https://twitter.com/Ajit5ingh
+- GitHub: https://github.com/ajitsing
+- LinkedIn: https://linkedin.com/in/ajit-singh-11620570

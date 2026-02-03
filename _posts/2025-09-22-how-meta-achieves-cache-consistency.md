@@ -14,6 +14,9 @@ keywords: "Meta cache consistency, distributed cache, TAO graph database, memcac
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "Meta achieves 99.99999999% cache consistency through **TAO** (graph cache for social data), global cache invalidation within milliseconds, version numbers to prevent stale writes, and lease mechanisms. When data changes, cached copies are invalidated everywhere before the write is acknowledged."
+
 faq:
   - question: "How does Meta achieve cache consistency across data centers?"
     answer: "Meta uses a cache invalidation service that propagates invalidations globally within milliseconds. When data changes, the system invalidates cached copies everywhere before acknowledging the write. They use version numbers and lease mechanisms to prevent stale data from being written back to cache after invalidation."

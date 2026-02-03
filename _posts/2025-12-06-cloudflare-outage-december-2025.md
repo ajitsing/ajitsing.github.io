@@ -11,6 +11,9 @@ thumbnail-img: /assets/img/tech-news/cloudflare-outage.png
 description: "Complete technical analysis of the December 5, 2025 Cloudflare outage that affected 28% of global HTTP traffic. Deep dive into how a Lua nil value exception, dormant for years, was triggered by a killswitch applied to an execute action for the first time. Timeline, root cause analysis, and lessons for developers on type safety, feature flags, and deployment strategies."
 keywords: "Cloudflare outage December 2025, nil value exception, Lua error, type safety, Rust vs Lua, killswitch testing, feature flags, gradual rollouts, WAF outage, React Server Components CVE, CVE-2025-55182, developer lessons, infrastructure failure"
 tags: ["tech-news"]
+
+quick-answer: "A Lua nil value exception dormant for years was triggered when a killswitch was applied to an 'execute' action for the first time. The code assumed action='execute' meant the execute field existed, but the killswitch made it nil. 28% of global HTTP traffic affected for 25 minutes. Rust's type system prevents this class of bug."
+
 faq:
   - question: "What caused the Cloudflare outage in December 2025?"
     answer: "A Lua nil value exception that had been dormant for years was triggered when a killswitch was applied to an 'execute' action rule for the first time. The code assumed that if action equals 'execute', then the execute field would exist, but the killswitch caused it to be nil."

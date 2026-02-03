@@ -13,6 +13,8 @@ keywords: "AI agents, building AI agents, AI agent development, LLM agents, auto
 tags: ["AI", "software-engineering"]
 comments: true
 
+quick-answer: "AI agents use the **ReAct loop**: Observe → Think → Act → Observe result → Repeat. Key components: **Tools** (functions the agent can call), **Memory** (working, short-term, long-term via vector DB), **Planning** (reasoning about next steps). Frameworks: LangChain, LangGraph, AutoGen, CrewAI. Or build from scratch with OpenAI function calling."
+
 faq:
   - question: "What is an AI agent?"
     answer: "An AI agent is a software system that uses a large language model (LLM) to reason about tasks and take actions autonomously. Unlike simple chatbots that only respond to prompts, agents can use tools, access external data, maintain memory, and work through multi-step problems without constant human input."

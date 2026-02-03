@@ -13,6 +13,8 @@ keywords: "graph data structure, directed acyclic graphs, adjacency list, adjace
 tags: [data-structures, algorithms]
 comments: true
 
+quick-answer: "Graphs = nodes + edges. **Adjacency list** = O(V+E) space, best for sparse graphs. **Adjacency matrix** = O(V²) space, fast edge lookup. **BFS** = level-by-level, shortest path in unweighted graphs. **DFS** = go deep, used for cycle detection and topological sort. **DAG** (directed acyclic graph) = can be topologically sorted."
+
 faq:
   - question: "What is a graph data structure?"
     answer: "A graph is a data structure that represents relationships between objects. It consists of nodes (vertices) connected by edges. Graphs model real-world relationships like social networks (users connected by friendships), road maps (locations connected by roads), and dependency graphs (packages connected by dependencies)."

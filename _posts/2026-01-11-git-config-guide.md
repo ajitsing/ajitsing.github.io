@@ -13,6 +13,8 @@ keywords: "git config, gitconfig, git configuration, git setup, git config file,
 tags: ["git", "version-control", "devops"]
 comments: true
 
+quick-answer: "Git config levels: system < global < local (local wins). Essential settings: `user.name`, `user.email`, `core.editor`, `pull.rebase=true`, `fetch.prune=true`. Create aliases: `git config --global alias.co checkout`. Use conditional includes for different work/personal settings. Config files: `~/.gitconfig` (global), `.git/config` (local)."
+
 key-takeaways:
   - "Git reads config from three places: system, global, and local. Local always wins."
   - "Set your user.name and user.email before your first commit or your history will look weird"

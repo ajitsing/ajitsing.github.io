@@ -12,6 +12,9 @@ description: "Context engineering explained for developers. Learn to provide AI 
 keywords: "context engineering, prompt engineering, ChatGPT tips, LLM context window, AI agents, RAG retrieval augmented generation, large language models, AI coding assistant, GitHub Copilot, Cursor AI, OpenAI API, Claude AI, token limit, system prompt, how to use ChatGPT, AI for developers, agentic AI, LLM memory, vector database, embeddings, AI application development, improve AI responses, semantic search, AI context management"
 tags: ["AI", "software-engineering"]
 comments: true
+
+quick-answer: "Context engineering = designing what information AI sees. Components: **system instructions** (behavior), **RAG** (retrieved docs), **memory** (conversation history), **tools** (capabilities), **user query**. Prompt engineering is a subset. The real skill is dynamically loading the right context within token limits."
+
 faq:
   - question: "What is context engineering?"
     answer: "Context engineering is the practice of designing systems that provide AI with the right information at the right time. It goes beyond writing prompts to include retrieving relevant data, managing conversation history, providing tools, and structuring all this information so the AI can use it effectively."

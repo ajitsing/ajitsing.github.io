@@ -11,6 +11,9 @@ thumbnail-img: /assets/img/posts/android_github_actions/thumbnail.png
 description: "Learn GitHub Actions fundamentals with practical examples. Master CI/CD automation, workflow triggers, and best practices for software developers."
 keywords: "GitHub Actions, CI/CD, automation, workflows, continuous integration, continuous deployment, DevOps"
 tags: ["github-actions", "ci-cd", "devops"]
+
+quick-answer: "GitHub Actions automates CI/CD through YAML workflow files in `.github/workflows/`. Workflows trigger on events (push, PR, schedule), run jobs on virtual machines, and execute steps. Use `actions/checkout` to get code, matrix builds for multi-version testing, and secrets for sensitive data. Free tier includes 2,000 minutes/month."
+
 faq:
   - question: "What is GitHub Actions and how does it work?"
     answer: "GitHub Actions is a CI/CD platform built into GitHub that automates workflows based on repository events. Workflows are defined in YAML files in .github/workflows/ directory. When events occur (push, pull request, schedule), GitHub runs your workflow on virtual machines, executing jobs and steps you define."

@@ -12,6 +12,9 @@ description: "Learn how database indexing works, from B-tree internals to practi
 keywords: "database indexing, what is database index, how database indexing works, SQL indexing explained, B-tree index, clustered index vs non-clustered index, composite index, covering index, database query optimization, EXPLAIN query, MySQL indexing best practices, PostgreSQL indexing, index performance, when to use database index, database index types, index scan vs table scan, partial index, unique index, database performance optimization, SQL query optimization"
 tags: ["software-engineering", "database"]
 comments: true
+
+quick-answer: "Indexes are B-tree structures giving O(log n) lookups instead of O(n) scans. **Clustered** = physical row order (one per table). **Composite** = multi-column (leftmost prefix rule). **Covering** = includes all needed columns. Use `EXPLAIN` to verify index usage. Avoid indexing: small tables, low-cardinality columns, write-heavy tables."
+
 faq:
   - question: "What is a database index?"
     answer: "A database index is a data structure that improves the speed of data retrieval operations on a table. It works like a book's index, allowing the database to find rows quickly without scanning the entire table. Indexes are created on columns that are frequently used in WHERE clauses, JOIN conditions, and ORDER BY statements."

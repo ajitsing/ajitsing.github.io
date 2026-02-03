@@ -14,6 +14,9 @@ keywords: "HOCON vs JSON, HOCON vs YAML, HOCON vs JSON vs YAML, TOML vs YAML, TO
 tags: ["software-engineering"]
 social-share: true
 comments: true
+
+quick-answer: "**JSON**: fastest parsing, best for APIs. **YAML**: DevOps standard (Docker, K8s), indentation-based. **TOML**: Rust/Python configs, explicit types, no ambiguity. **HOCON**: JVM apps (Akka, Play), supports variables `${var}` and file includes. All valid JSON is valid HOCON. Choose based on ecosystem, not features."
+
 faq:
   - question: "What is the difference between HOCON and JSON?"
     answer: "HOCON is a JSON superset that adds comments (# and //), trailing commas, unquoted keys, variable substitution (${var}), and file includes. All valid JSON is valid HOCON, but HOCON is more human-friendly for configuration files. JSON is better for APIs and data exchange due to universal parsing support. HOCON is primarily used in JVM ecosystems like Akka and Play Framework."

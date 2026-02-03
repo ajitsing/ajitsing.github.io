@@ -14,6 +14,8 @@ tags: [system-design]
 seo: true
 comments: true
 
+quick-answer: "Design distributed counters using **sharded counters** (split count across multiple shards to avoid hotspots), **local aggregation** (batch updates locally before syncing), or **CRDTs** (conflict-free replicated data types). For high-traffic like social media likes, sharded counters with periodic aggregation offer the best write throughput."
+
 faq:
   - question: "What is a distributed counter?"
     answer: "A distributed counter is a data structure that tracks counts across multiple servers or nodes in a distributed system. Unlike a simple counter that runs on one machine, distributed counters handle concurrent increments from many sources while maintaining consistency, fault tolerance, and high availability."

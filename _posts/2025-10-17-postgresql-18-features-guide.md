@@ -14,6 +14,9 @@ keywords: "Postgres 18, PostgreSQL 18, database performance, async I/O, skip sca
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "PostgreSQL 18 brings **async I/O** (3x faster sequential scans), **skip scan** (use multicolumn indexes without leading column), virtual generated columns, OAuth 2.0 auth, temporal constraints, UUIDv7 support, and faster pg_upgrade. Major performance gains for I/O-bound workloads."
+
 faq:
   - question: "What are the main features in PostgreSQL 18?"
     answer: "PostgreSQL 18 introduces async I/O for 3x faster sequential scans, skip scan for multicolumn indexes, virtual generated columns that don't consume storage, OAuth 2.0 authentication, temporal constraints for time-based data, UUIDv7 support for time-ordered IDs, and faster pg_upgrade. It's a significant performance-focused release."

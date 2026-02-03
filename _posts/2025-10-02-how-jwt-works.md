@@ -13,6 +13,9 @@ description: "Deep dive into JSON Web Tokens (JWT) - understand the structure, s
 keywords: "jwt, json web token, authentication, authorization, web security, stateless authentication, token based authentication, jwt signature, jwt security, oauth, api authentication"
 tags: [security]
 comments: true
+
+quick-answer: "JWT is a stateless token with three parts: **header** (algorithm), **payload** (claims like user ID), and **signature**. The server signs tokens at login; on each request, it verifies the signature without database lookup. Store in httpOnly cookies to prevent XSS. Use short expiration + refresh tokens for security."
+
 faq:
   - question: "What is a JWT and how does it work?"
     answer: "A JWT (JSON Web Token) is a compact, URL-safe token with three parts: header (algorithm), payload (claims like user ID and expiration), and signature. The server creates and signs the token at login. On each request, the server verifies the signature without storing session state - the token itself carries the proof of authenticity."

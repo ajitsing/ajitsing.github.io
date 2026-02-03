@@ -34,6 +34,7 @@ hide-explore-posts: true
     {% endif %}
 
     <article role="main" class="blog-post">
+      {% include quick-answer.html %}
       {% include key-takeaways.html %}
       {{ content }}
     </article>

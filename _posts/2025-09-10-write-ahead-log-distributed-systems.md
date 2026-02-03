@@ -12,6 +12,9 @@ description: "Learn how Write-Ahead Log (WAL) prevents data loss in distributed 
 keywords: "write-ahead log, WAL, distributed systems, database durability, transaction logging, PostgreSQL WAL, Kafka logs, data recovery, system reliability, ACID properties, database patterns"
 tags: [distributed-systems]
 comments: true
+
+quick-answer: "Write-Ahead Log (WAL) writes all changes to a log file **before** applying them to data. If the system crashes, the log is replayed to recover. PostgreSQL, MySQL, SQLite, MongoDB, and Kafka all use WAL. The key rule: no data modification happens until it's safely in the log on disk."
+
 faq:
   - question: "What is a Write-Ahead Log (WAL) and why is it important?"
     answer: "A Write-Ahead Log is a pattern where changes are written to a log file before being applied to the actual data. This ensures durability because if the system crashes, the log can be replayed to recover any incomplete transactions. WAL is fundamental to databases like PostgreSQL, MySQL, and systems like Kafka."

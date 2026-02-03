@@ -13,6 +13,8 @@ keywords: "regex cheat sheet, regular expressions, regex patterns, regex tutoria
 tags: ["programming", "regex"]
 comments: true
 
+quick-answer: "Core regex: `.` matches any char, `*` = 0+, `+` = 1+, `?` = 0 or 1, `\\d` = digit, `\\w` = word char, `\\s` = whitespace, `^` = start, `$` = end. Use `()` for capture groups, `(?:)` for non-capturing. Lazy: `*?`, `+?`. Flags: `i` (case-insensitive), `g` (global), `m` (multiline)."
+
 key-takeaways:
   - "Start simple and build up. Test each piece of your pattern as you add it"
   - "Use non-greedy quantifiers (*? and +?) when you want the shortest match"

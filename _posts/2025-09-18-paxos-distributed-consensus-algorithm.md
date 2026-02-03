@@ -12,6 +12,9 @@ description: "Learn how Paxos algorithm achieves consensus in distributed system
 keywords: "paxos algorithm, distributed consensus, distributed systems, fault tolerance, Byzantine fault tolerance, Google Chubby, consensus algorithms, distributed computing, system reliability"
 tags: [distributed-systems]
 comments: true
+
+quick-answer: "Paxos achieves consensus through a two-phase voting process: **Prepare** (proposer asks acceptors for permission) and **Accept** (if majority agrees, proposer sends the value). Once a majority accepts, the value is chosen. Used by Google Chubby, Cassandra, and Spanner. Raft is a simpler alternative commonly used in newer systems."
+
 faq:
   - question: "What is the Paxos algorithm and what problem does it solve?"
     answer: "Paxos is a consensus algorithm that allows multiple distributed nodes to agree on a single value even when some nodes fail or network messages are delayed. It solves the distributed consensus problem, ensuring all nodes eventually agree on the same decision without a single point of failure."

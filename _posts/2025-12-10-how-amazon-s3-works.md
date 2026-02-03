@@ -13,6 +13,9 @@ description: "Deep dive into Amazon S3 architecture. Learn how S3 achieves 11 ni
 keywords: "amazon s3, s3 architecture, object storage, aws s3, s3 durability, distributed storage, cloud storage, s3 consistency, s3 multipart upload, s3 storage classes, s3 presigned url"
 seo: true
 comments: true
+
+quick-answer: "S3 achieves **11 nines durability** (99.999999999%) by storing objects redundantly across multiple AZs, checksumming data, and auto-repairing corruption. Since Dec 2020, S3 is **strongly consistent** - reads immediately reflect writes. Use multipart upload for files >100MB (parallel, resumable). Storage classes: Standard → Intelligent-Tiering → Glacier → Deep Archive."
+
 faq:
   - question: "How does Amazon S3 achieve 11 nines durability?"
     answer: "S3 achieves 99.999999999% durability by storing each object redundantly across multiple devices in multiple Availability Zones within a region. Data is checksummed, automatically repaired if corruption is detected, and replicated to maintain redundancy even when hardware fails. This means losing one object out of 10 million would take about 10,000 years."

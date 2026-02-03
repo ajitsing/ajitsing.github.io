@@ -13,6 +13,9 @@ description: "Deep dive into Apache Kafka architecture - understand topics, part
 keywords: "apache kafka, kafka architecture, distributed systems, message broker, event streaming, kafka topics, kafka partitions, consumer groups, data pipelines, real-time processing, kafka performance, log-based messaging"
 tags: [distributed-systems]
 comments: true
+
+quick-answer: "Kafka is a distributed commit log, not a message queue. **Topics** are split into **partitions** distributed across brokers. Producers append messages; consumers read at their own pace using offsets. Unlike queues, Kafka retains messages for replay. Consumer groups enable parallel processing with automatic rebalancing on failures."
+
 faq:
   - question: "What is Apache Kafka and how does it work?"
     answer: "Apache Kafka is a distributed event streaming platform that works as a commit log. Producers write messages to topics, which are split into partitions distributed across brokers. Consumers read from partitions at their own pace using offsets. Unlike traditional queues, Kafka retains messages for a configurable period, allowing multiple consumers and message replay."

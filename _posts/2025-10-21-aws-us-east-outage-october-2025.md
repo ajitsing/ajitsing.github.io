@@ -11,6 +11,9 @@ thumbnail-img: /assets/img/tech-news/aws-outage-oct.png
 description: "Complete analysis of the October 20, 2025 AWS US-East-1 outage that disrupted Netflix, Snapchat, Reddit, Robinhood, Fortnite, and major services worldwide. Timeline, root cause analysis, impact assessment, and critical lessons for developers on building resilient cloud architectures."
 keywords: "AWS outage October 2025, US-East-1 failure, AWS network load balancer issue, cloud infrastructure failure, multi-region architecture, AWS DynamoDB outage, DNS resolution failure, cloud resilience, disaster recovery, AWS EC2 outage, developer lessons cloud outage"
 tags: ["tech-news"]
+
+quick-answer: "A network load balancer bug incorrectly marked healthy servers as dead, causing DNS resolution failures for DynamoDB that cascaded to Lambda, API Gateway, and CloudWatch. The 12-hour outage affected Netflix, Snapchat, Robinhood, and millions of users. Lesson: deploy multi-region with external monitoring."
+
 faq:
   - question: "What caused the AWS US-East-1 outage in October 2025?"
     answer: "A network load balancer health check bug caused the system to incorrectly mark healthy servers as dead. This led to DNS resolution failures for DynamoDB, which cascaded to Lambda, API Gateway, CloudWatch, and dependent services. The issue took 12 hours to fully resolve."

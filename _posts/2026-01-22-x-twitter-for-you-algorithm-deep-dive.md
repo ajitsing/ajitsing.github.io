@@ -14,6 +14,9 @@ tags: [system-design]
 comments: true
 featured: true
 popular: true
+
+quick-answer: "X's For You algorithm: **Candidate sourcing** (500M daily posts → ~1,500 candidates from follows + ML discovery), **Ranking** (Grok-based Phoenix transformer predicts engagement), **Filtering** (remove duplicates, blocked content, apply diversity). Written in Rust (62.9%) + Python (37.1%). Two-Tower model finds out-of-network content."
+
 faq:
   - question: "How does the X For You algorithm work?"
     answer: "The X For You algorithm uses a three-stage pipeline: candidate sourcing (fetching posts from accounts you follow and ML-discovered content), ranking (scoring each post using a Grok-based transformer model), and filtering (removing duplicates, blocked content, and applying diversity rules). The system processes 500 million daily posts to create a personalized feed of around 1,500 candidates."

@@ -14,6 +14,9 @@ keywords: "heartbeat distributed systems, failure detection, health checks, dist
 tags: [distributed-systems]
 social-share: true
 comments: true
+
+quick-answer: "Heartbeats are periodic signals indicating a node is alive. **Push-based**: nodes send 'I'm alive' to a monitor. **Pull-based**: monitor queries nodes. Timeout = ~3x heartbeat interval. Quorum prevents split-brain (both sides thinking the other is dead). Kubernetes uses liveness probes (restart if dead) and readiness probes (stop traffic if unready)."
+
 faq:
   - question: "What is a heartbeat in distributed systems?"
     answer: "A heartbeat is a periodic signal sent between nodes to indicate they're alive and functioning. If a node stops sending heartbeats or fails to respond to health checks, other nodes assume it has failed and take corrective action (failover, rebalancing). Heartbeats are the foundation of failure detection in distributed systems."

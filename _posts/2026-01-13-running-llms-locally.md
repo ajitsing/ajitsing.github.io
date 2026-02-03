@@ -13,6 +13,8 @@ keywords: "run LLM locally, local LLM, Ollama tutorial, llama.cpp guide, LM Stud
 tags: ["AI", "software-engineering"]
 comments: true
 
+quick-answer: "**Ollama** is the easiest way: `brew install ollama` then `ollama run llama3`. Hardware: 8GB RAM for 7B models, 16GB for 13B, 32GB+ for 70B. Use **Q4_K_M quantization** for best size/quality balance. Ollama provides an OpenAI-compatible API. Benefits: free, private, works offline. Alternative: LM Studio for GUI."
+
 key-takeaways:
   - "Ollama is the easiest way to run LLMs locally - install and run with one command"
   - "You need 8GB RAM for 7B models, 16GB for 13B, and 32GB+ for 70B models"

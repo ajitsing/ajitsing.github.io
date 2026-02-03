@@ -13,6 +13,8 @@ keywords: "skip list data structure, skiplist data structure, skip list explaine
 tags: [data-structures, algorithms]
 comments: true
 
+quick-answer: "Skip lists are multi-level linked lists with O(log n) search/insert/delete. Each node gets a **random height**. Higher levels act as express lanes for faster traversal. No complex rebalancing like red-black trees. Redis uses skip lists for sorted sets because they're simpler and equally fast. LevelDB uses them for MemTable. Great for concurrent access."
+
 key-takeaways:
   - "Skip lists provide O(log n) search, insert, and delete operations using a simple probabilistic approach"
   - "Unlike balanced trees, skip lists require no complex rotations or rebalancing operations"

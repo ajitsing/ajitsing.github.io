@@ -4,3 +4,6 @@ Allow: /
 # Sitemap location
 Sitemap: https://singhajit.com/sitemap.xml
 
+# LLMs.txt for AI crawlers
+# See https://llmstxt.org for specification
+LLMs-Txt: https://singhajit.com/llms.txt

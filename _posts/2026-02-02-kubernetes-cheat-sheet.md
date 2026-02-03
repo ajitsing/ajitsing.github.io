@@ -13,6 +13,8 @@ keywords: "kubernetes cheat sheet, kubectl commands, kubernetes tutorial, contai
 tags: ["kubernetes", "devops", "containers"]
 comments: true
 
+quick-answer: "Core debugging: `kubectl get pods`, `kubectl describe pod NAME`, `kubectl logs NAME`. Use `kubectl apply -f` with YAML (declarative) over `kubectl create` (imperative). **Pod** = container(s), **Deployment** = manages pods with replicas, **Service** = stable network endpoint. Always set resource limits. Labels connect everything."
+
 key-takeaways:
   - "kubectl get, describe, and logs form your core debugging workflow. Master these three commands first"
   - "Use declarative YAML manifests with kubectl apply instead of imperative commands. Version control your manifests"

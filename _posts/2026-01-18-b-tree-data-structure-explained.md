@@ -12,6 +12,9 @@ description: "Learn how the B-tree data structure powers database indexing. Cove
 keywords: "B-tree data structure, B-tree explained, B+ tree, database indexing, B-tree vs binary search tree, B-tree insertion, B-tree deletion, B-tree properties, self-balancing tree, disk access optimization, B-tree order, B-tree height, database index, MySQL B-tree, PostgreSQL B-tree, B-tree operations, B-tree time complexity, tree data structure, B-tree implementation, B-tree search"
 tags: [data-structures, algorithms]
 comments: true
+
+quick-answer: "B-trees are self-balancing trees where nodes can have many children, minimizing tree height and disk access. A billion records = ~3-4 levels vs 30 in binary tree. **B+ trees** store data only in leaves and link them for fast range queries. PostgreSQL and MySQL use B+ trees for indexes. All operations O(log n)."
+
 faq:
   - question: "What is a B-tree data structure?"
     answer: "A B-tree is a self-balancing tree data structure that keeps data sorted and allows searches, insertions, and deletions in logarithmic time. Unlike binary trees where each node has at most 2 children, B-tree nodes can have many children. This makes B-trees ideal for storage systems that read and write large blocks of data, like databases and file systems."

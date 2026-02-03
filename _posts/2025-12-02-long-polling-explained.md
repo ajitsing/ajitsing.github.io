@@ -14,6 +14,9 @@ keywords: "long polling, real-time communication, HTTP polling, comet, reverse a
 seo: true
 social-share: true
 comments: true
+
+quick-answer: "Long polling: client sends request, server **holds connection open** until data arrives or timeout, then client immediately reconnects. Works everywhere HTTP works, even through restrictive firewalls/proxies. Use when WebSockets are blocked, updates are infrequent (<1/sec), or on serverless. More overhead than WebSockets due to HTTP headers per request."
+
 faq:
   - question: "What is long polling?"
     answer: "Long polling is a technique where the client sends a request to the server and the server holds the connection open until new data is available (or a timeout occurs). When data arrives or timeout hits, the server responds and the client immediately opens a new request. This provides near-real-time updates using standard HTTP."

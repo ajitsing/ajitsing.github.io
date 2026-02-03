@@ -3,8 +3,8 @@ layout: default
 title: "Developer Tools"
 subtitle: "Free online tools for developers"
 seo: true
-description: "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, and more. Validate JSON online, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs with these browser-based utilities. No signup required, 100% client-side."
-keywords: "developer tools, online tools, json validator, validate json online, json formatter, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, dev tools, programming tools, code tools, web developer tools, free developer tools"
+description: "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, and more. Validate JSON online, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps with these browser-based utilities. No signup required, 100% client-side."
+keywords: "developer tools, online tools, json validator, validate json online, json formatter, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, dev tools, programming tools, code tools, web developer tools, free developer tools"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
 permalink: /tools/
@@ -22,7 +22,7 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Developer Tools",
-  "description": "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, and more. All tools run 100% in your browser with no data sent to servers.",
+  "description": "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, and more. All tools run 100% in your browser with no data sent to servers.",
   "url": "https://singhajit.com/tools/",
   "author": {
     "@type": "Person",
@@ -117,9 +117,22 @@ hide-explore-posts: true
         "price": "0",
         "priceCurrency": "USD"
       }
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Epoch Timestamp Converter",
+      "description": "Convert Unix timestamps to human-readable dates and dates to Unix timestamps. Supports seconds, milliseconds, and multiple output formats.",
+      "url": "https://singhajit.com/tools/epoch-converter/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
   ],
-  "numberOfItems": 5,
+  "numberOfItems": 6,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -150,6 +163,12 @@ hide-explore-posts: true
       "position": 5,
       "url": "https://singhajit.com/tools/snowflake-decoder/",
       "name": "Snowflake ID Decoder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "url": "https://singhajit.com/tools/epoch-converter/",
+      "name": "Epoch Timestamp Converter"
     }
   ],
   "breadcrumb": {
@@ -277,6 +296,25 @@ hide-explore-posts: true
           <span class="feature-tag"><i class="fab fa-discord"></i> Discord</span>
           <span class="feature-tag"><i class="fab fa-twitter"></i> Twitter</span>
           <span class="feature-tag"><i class="fas fa-clock"></i> Timestamp</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- Epoch Timestamp Converter Tool -->
+    <a href="{{ '/tools/epoch-converter/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'Epoch Converter'});">
+      <div class="tool-icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">Epoch Timestamp Converter</h2>
+        <p class="tool-description">Convert Unix timestamps to human-readable dates and dates to Unix timestamps. Supports seconds, milliseconds, and multiple formats.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-calendar-alt"></i> Date</span>
+          <span class="feature-tag"><i class="fas fa-hashtag"></i> Timestamp</span>
+          <span class="feature-tag"><i class="fas fa-globe"></i> Timezone</span>
         </div>
       </div>
       <div class="tool-arrow">

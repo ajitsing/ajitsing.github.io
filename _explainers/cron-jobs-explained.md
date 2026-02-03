@@ -416,7 +416,7 @@ flowchart LR
         
         <div style="background: #fef3c7; border: 1px solid #fbbf24; border-radius: 8px; padding: 15px; margin-top: 20px;">
           <p style="margin: 0; color: #374151; font-size: 0.95rem;">
-            <strong>⚠️ Watch out:</strong> Cron uses the system timezone. If your server is in UTC but you want 9 AM New York time, you'll need to convert.
+            <strong>⚠️ Watch out:</strong> Cron uses the system timezone. If your server is in UTC but you want 9 AM New York time, you'll need to convert. Use an <a href="/tools/epoch-converter/" style="color: #92400e; font-weight: 600;">epoch timestamp converter</a> to see how times translate between UTC and your local timezone.
           </p>
         </div>
       </div>

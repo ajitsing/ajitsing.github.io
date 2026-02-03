@@ -1,0 +1,652 @@
+---
+layout: default
+title: "Epoch Timestamp Converter | Unix Time to Date & Date to Unix"
+subtitle: "Convert Unix timestamps to dates and dates to Unix timestamps"
+seo: true
+description: "Free online Epoch timestamp converter. Convert Unix timestamps to human-readable dates and dates to Unix timestamps instantly. Supports seconds and milliseconds. Shows UTC, local time, ISO 8601, and relative formats. 100% client-side — your data never leaves your browser."
+keywords: "epoch converter, unix timestamp converter, epoch to date, date to epoch, timestamp to date online, unix time converter, epoch time converter, unix timestamp to date, convert timestamp to date, timestamp converter online, epoch timestamp, unix epoch, date to timestamp, milliseconds to date, seconds to date"
+thumbnail: /assets/img/tools/epoch-converter-thumbnail.png
+share-img: /assets/img/tools/epoch-converter-thumbnail.png
+permalink: /tools/epoch-converter/
+social-share: true
+hide-explore-posts: true
+---
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<!-- Structured Data: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Epoch Timestamp Converter",
+  "alternateName": ["Unix Timestamp Converter", "Epoch to Date Converter", "Date to Epoch Converter", "Unix Time Converter", "Timestamp to Date Online", "Epoch Time Converter", "Unix Epoch Converter", "Milliseconds to Date Converter"],
+  "description": "Free online Epoch timestamp converter. Convert Unix timestamps to human-readable dates and dates to Unix timestamps instantly. Supports seconds and milliseconds.",
+  "url": "https://singhajit.com/tools/epoch-converter/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Convert Unix timestamps to human-readable dates",
+    "Convert dates to Unix timestamps",
+    "Auto-detect seconds vs milliseconds",
+    "Display current timestamp live",
+    "Show UTC and local timezone",
+    "ISO 8601 and RFC 2822 formats",
+    "Relative time display (e.g., 2 hours ago)",
+    "Support for dates before 1970 (negative timestamps)",
+    "Copy results to clipboard",
+    "100% client-side - no data sent to servers",
+    "Works offline after loading"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/epoch-converter-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "Unix Timestamp Reference",
+    "text": "Unix timestamps (also called Epoch time) represent the number of seconds (or milliseconds) since January 1, 1970 00:00:00 UTC. They are widely used in programming for storing and comparing dates."
+  },
+  "keywords": "epoch converter, unix timestamp converter, epoch to date, date to epoch, timestamp to date online, unix time converter"
+}
+</script>
+
+<!-- Structured Data: HowTo for Featured Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert Unix Timestamp to Date",
+  "description": "Learn how to convert Unix/Epoch timestamps to human-readable dates using this free online converter tool.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter the Unix timestamp",
+      "text": "Paste or type your Unix timestamp (in seconds or milliseconds) into the input field. The tool auto-detects whether your timestamp is in seconds or milliseconds."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "View the converted date",
+      "text": "The tool instantly displays the date in multiple formats: UTC time, your local timezone, ISO 8601 format, and relative time (e.g., '3 days ago')."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy the result",
+      "text": "Click the Copy button to copy any format to your clipboard for use in your code or documentation."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Epoch Timestamp Converter"
+  }
+}
+</script>
+
+<!-- Structured Data: FAQPage for Rich Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Unix timestamp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Unix timestamp (also called Epoch time or POSIX time) is the number of seconds that have elapsed since January 1, 1970 at 00:00:00 UTC. This date is known as the Unix Epoch. For example, the timestamp 1704067200 represents January 1, 2024 00:00:00 UTC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a Unix timestamp to a date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your Unix timestamp in the converter above. The tool automatically detects if it's in seconds or milliseconds and displays the corresponding date in UTC, your local timezone, ISO 8601 format, and as relative time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between seconds and milliseconds timestamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unix timestamps in seconds are 10 digits (e.g., 1704067200), while milliseconds timestamps are 13 digits (e.g., 1704067200000). Milliseconds provide more precision. JavaScript uses milliseconds, while many server-side languages use seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Unix Epoch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Unix Epoch is January 1, 1970 at 00:00:00 UTC. It's the reference point from which Unix timestamps are calculated. Dates before this time have negative timestamps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert dates before 1970?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Dates before January 1, 1970 are represented as negative Unix timestamps. For example, December 31, 1969 23:59:59 UTC is timestamp -1. This converter fully supports negative timestamps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get the current Unix timestamp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The current Unix timestamp is displayed at the top of this tool and updates in real-time. In JavaScript, use Date.now() for milliseconds or Math.floor(Date.now() / 1000) for seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do programmers use Unix timestamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unix timestamps are timezone-independent, easy to store (single number), simple to compare and sort, and can be easily converted to any timezone. They avoid timezone confusion when storing dates in databases or transferring between systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Year 2038 problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Year 2038 problem affects systems using 32-bit signed integers for Unix timestamps. On January 19, 2038 at 03:14:07 UTC, the timestamp will overflow. Modern systems use 64-bit integers which extend the range to billions of years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe using this converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely safe. This converter runs entirely in your browser using JavaScript. No data is sent to any server. All conversions happen locally on your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is ISO 8601 format?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISO 8601 is an international standard for date and time representation. The format is YYYY-MM-DDTHH:mm:ss.sssZ (e.g., 2024-01-01T00:00:00.000Z). The 'T' separates date and time, and 'Z' indicates UTC timezone."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Epoch Timestamp Converter",
+      "item": "https://singhajit.com/tools/epoch-converter/"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/epoch-tool.css' | relative_url }}">
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="epoch-page-wrapper">
+  <div class="epoch-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-clock"></i>
+        Epoch Timestamp Converter
+      </h1>
+      <p class="tool-subtitle">Convert Unix timestamps to dates and dates to Unix timestamps</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>Epoch converter</strong> to convert <strong>Unix timestamps</strong> to human-readable dates or convert dates back to <strong>Unix timestamps</strong>. Supports both seconds and milliseconds. Shows UTC, local time, ISO 8601, and relative formats. 100% client-side — your data never leaves your browser.
+    </p>
+
+    <div class="top-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Current Timestamp Display -->
+    <section class="current-timestamp-section">
+      <div class="current-timestamp-card">
+        <div class="current-label">
+          <i class="fas fa-broadcast-tower"></i>
+          Current Unix Timestamp
+        </div>
+        <div class="current-values">
+          <div class="current-value-item">
+            <span class="value-label">Seconds</span>
+            <code class="value-display" id="current-seconds">—</code>
+            <button class="btn-copy-mini" data-copy="current-seconds" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="current-value-item">
+            <span class="value-label">Milliseconds</span>
+            <code class="value-display" id="current-milliseconds">—</code>
+            <button class="btn-copy-mini" data-copy="current-milliseconds" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode Tabs -->
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="timestamp-to-date">
+        <i class="fas fa-arrow-right"></i>
+        Timestamp to Date
+      </button>
+      <button class="mode-tab" data-mode="date-to-timestamp">
+        <i class="fas fa-arrow-left"></i>
+        Date to Timestamp
+      </button>
+    </div>
+
+    <!-- Timestamp to Date Section -->
+    <section id="timestamp-to-date-mode" class="mode-content active">
+      <div class="input-section">
+        <label for="timestamp-input">Enter Unix Timestamp:</label>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="timestamp-input" 
+            placeholder="e.g. 1704067200 or 1704067200000"
+            autocomplete="off"
+            spellcheck="false"
+            inputmode="numeric"
+          >
+          <button id="convert-timestamp-btn" class="btn-primary">
+            <i class="fas fa-exchange-alt"></i>
+            Convert
+          </button>
+        </div>
+        <div class="input-hint">
+          <i class="fas fa-info-circle"></i>
+          Enter a timestamp in seconds (10 digits) or milliseconds (13 digits). Negative values for dates before 1970.
+        </div>
+      </div>
+
+      <div id="timestamp-error" class="error-message hidden">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="timestamp-error-text"></span>
+      </div>
+
+      <div id="timestamp-result" class="result-section hidden">
+        <h3><i class="fas fa-calendar-alt"></i> Converted Date</h3>
+        
+        <div class="timestamp-cards">
+          <div class="timestamp-card primary">
+            <div class="timestamp-label">UTC Time</div>
+            <div class="timestamp-value" id="result-utc">—</div>
+            <button class="btn-copy-card" data-copy="result-utc" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="timestamp-card">
+            <div class="timestamp-label">Local Time</div>
+            <div class="timestamp-value" id="result-local">—</div>
+            <button class="btn-copy-card" data-copy="result-local" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="timestamp-card">
+            <div class="timestamp-label">ISO 8601</div>
+            <div class="timestamp-value mono" id="result-iso">—</div>
+            <button class="btn-copy-card" data-copy="result-iso" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="timestamp-card">
+            <div class="timestamp-label">Relative</div>
+            <div class="timestamp-value" id="result-relative">—</div>
+          </div>
+        </div>
+
+        <div class="additional-formats">
+          <h4>Additional Formats</h4>
+          <div class="format-grid">
+            <div class="format-item">
+              <span class="format-label">RFC 2822</span>
+              <code class="format-value" id="result-rfc2822">—</code>
+              <button class="btn-copy-mini" data-copy="result-rfc2822" title="Copy">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+            <div class="format-item">
+              <span class="format-label">Day of Week</span>
+              <span class="format-value" id="result-day">—</span>
+            </div>
+            <div class="format-item">
+              <span class="format-label">Week of Year</span>
+              <span class="format-value" id="result-week">—</span>
+            </div>
+            <div class="format-item">
+              <span class="format-label">Day of Year</span>
+              <span class="format-value" id="result-dayofyear">—</span>
+            </div>
+            <div class="format-item">
+              <span class="format-label">Detected Format</span>
+              <span class="format-value" id="result-format">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="examples-section">
+        <h3><i class="fas fa-lightbulb"></i> Example Timestamps</h3>
+        <div class="examples-grid">
+          <button class="example-btn" data-timestamp="0">
+            <span class="example-label">Unix Epoch</span>
+            <code>0</code>
+            <span class="example-date">Jan 1, 1970</span>
+          </button>
+          <button class="example-btn" data-timestamp="1000000000">
+            <span class="example-label">1 Billion</span>
+            <code>1000000000</code>
+            <span class="example-date">Sep 9, 2001</span>
+          </button>
+          <button class="example-btn" data-timestamp="1704067200">
+            <span class="example-label">2024 Start</span>
+            <code>1704067200</code>
+            <span class="example-date">Jan 1, 2024</span>
+          </button>
+          <button class="example-btn" data-timestamp="2147483647">
+            <span class="example-label">Y2K38</span>
+            <code>2147483647</code>
+            <span class="example-date">Jan 19, 2038</span>
+          </button>
+          <button class="example-btn" data-timestamp="-86400">
+            <span class="example-label">Pre-Epoch</span>
+            <code>-86400</code>
+            <span class="example-date">Dec 31, 1969</span>
+          </button>
+          <button class="example-btn" data-timestamp="1704067200000">
+            <span class="example-label">Milliseconds</span>
+            <code>1704067200000</code>
+            <span class="example-date">Jan 1, 2024</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Date to Timestamp Section -->
+    <section id="date-to-timestamp-mode" class="mode-content">
+      <div class="input-section">
+        <label for="date-input">Select Date and Time:</label>
+        <div class="date-inputs">
+          <div class="date-input-group">
+            <label for="date-picker">Date</label>
+            <input type="date" id="date-picker">
+          </div>
+          <div class="date-input-group">
+            <label for="time-picker">Time</label>
+            <input type="time" id="time-picker" step="1">
+          </div>
+          <div class="date-input-group">
+            <label for="timezone-select">Timezone</label>
+            <select id="timezone-select">
+              <option value="local">Local Time</option>
+              <option value="utc">UTC</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-actions">
+          <button id="convert-date-btn" class="btn-primary">
+            <i class="fas fa-exchange-alt"></i>
+            Convert to Timestamp
+          </button>
+          <button id="now-btn" class="btn-secondary">
+            <i class="fas fa-clock"></i>
+            Use Current Time
+          </button>
+        </div>
+      </div>
+
+      <div id="date-result" class="result-section hidden">
+        <h3><i class="fas fa-hashtag"></i> Unix Timestamp</h3>
+        
+        <div class="timestamp-output-cards">
+          <div class="timestamp-output-card">
+            <div class="output-label">Seconds</div>
+            <div class="output-value-wrapper">
+              <code class="output-value" id="output-seconds">—</code>
+              <button class="btn-copy-output" data-copy="output-seconds" title="Copy">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+          <div class="timestamp-output-card">
+            <div class="output-label">Milliseconds</div>
+            <div class="output-value-wrapper">
+              <code class="output-value" id="output-milliseconds">—</code>
+              <button class="btn-copy-output" data-copy="output-milliseconds" title="Copy">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-snippets">
+          <h4>Code Snippets</h4>
+          <div class="snippet-tabs">
+            <button class="snippet-tab active" data-lang="javascript">JavaScript</button>
+            <button class="snippet-tab" data-lang="python">Python</button>
+            <button class="snippet-tab" data-lang="php">PHP</button>
+            <button class="snippet-tab" data-lang="java">Java</button>
+          </div>
+          <div class="snippet-content">
+            <pre><code id="code-snippet">// JavaScript
+const timestamp = <span id="snippet-value">0</span>;
+const date = new Date(timestamp * 1000);
+console.log(date.toISOString());</code></pre>
+            <button class="btn-copy-snippet" id="copy-snippet-btn" title="Copy code">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="dedicated-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Quick Reference Section -->
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Quick Reference</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Common Timestamps</h4>
+          <table>
+            <tr><td><code>0</code></td><td>Jan 1, 1970 (Epoch)</td></tr>
+            <tr><td><code>86400</code></td><td>1 day in seconds</td></tr>
+            <tr><td><code>604800</code></td><td>1 week in seconds</td></tr>
+            <tr><td><code>2592000</code></td><td>30 days in seconds</td></tr>
+            <tr><td><code>31536000</code></td><td>1 year in seconds</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Format Detection</h4>
+          <table>
+            <tr><td>10 digits</td><td>Seconds (Unix standard)</td></tr>
+            <tr><td>13 digits</td><td>Milliseconds (JavaScript)</td></tr>
+            <tr><td>Negative</td><td>Before Jan 1, 1970</td></tr>
+            <tr><td>Max 32-bit</td><td>2147483647 (Y2K38)</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Syntax Guide Section -->
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Understanding Unix Timestamps</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a Unix Timestamp?</h2>
+          <p>A <strong>Unix timestamp</strong> (also known as <strong>Epoch time</strong>, <strong>POSIX time</strong>, or <strong>Unix Epoch time</strong>) is the number of seconds that have elapsed since January 1, 1970 at 00:00:00 UTC. This reference point is called the <strong>Unix Epoch</strong>.</p>
+          <p>For example, the timestamp <code>1704067200</code> represents January 1, 2024 at 00:00:00 UTC. Unix timestamps are timezone-independent, making them ideal for storing dates in databases and APIs.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Seconds vs Milliseconds</h2>
+          <p>Unix timestamps can be expressed in two common formats:</p>
+          <ul>
+            <li><strong>Seconds (10 digits):</strong> The traditional Unix format. Used by most server-side languages like PHP, Python, and Ruby. Example: <code>1704067200</code></li>
+            <li><strong>Milliseconds (13 digits):</strong> Provides more precision. Used by JavaScript's <code>Date.now()</code> and Java. Example: <code>1704067200000</code></li>
+          </ul>
+          <p>This converter auto-detects which format you're using based on the number of digits.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>The Year 2038 Problem (Y2K38)</h2>
+          <p>Systems using <strong>32-bit signed integers</strong> to store Unix timestamps will overflow on January 19, 2038 at 03:14:07 UTC. At this moment, the timestamp reaches 2,147,483,647 (the maximum 32-bit signed integer), and incrementing it causes overflow.</p>
+          <p>Modern systems use 64-bit integers, extending the range to approximately 292 billion years in either direction — more than enough for any practical application.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Why Use Unix Timestamps?</h2>
+          <ul>
+            <li><strong>Timezone independence:</strong> A single number represents the same moment everywhere in the world.</li>
+            <li><strong>Easy comparison:</strong> Simply compare two numbers to determine which date is earlier or later.</li>
+            <li><strong>Storage efficiency:</strong> A single integer uses less space than date strings.</li>
+            <li><strong>No ambiguity:</strong> Avoids confusion from different date formats (MM/DD vs DD/MM).</li>
+            <li><strong>Easy arithmetic:</strong> Add or subtract seconds to calculate future or past dates.</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Getting Current Timestamp in Code</h2>
+          <p>Here's how to get the current Unix timestamp in various programming languages:</p>
+          <ul>
+            <li><strong>JavaScript:</strong> <code>Math.floor(Date.now() / 1000)</code> (seconds) or <code>Date.now()</code> (milliseconds)</li>
+            <li><strong>Python:</strong> <code>import time; int(time.time())</code></li>
+            <li><strong>PHP:</strong> <code>time()</code></li>
+            <li><strong>Java:</strong> <code>System.currentTimeMillis() / 1000</code></li>
+            <li><strong>Go:</strong> <code>time.Now().Unix()</code></li>
+            <li><strong>Ruby:</strong> <code>Time.now.to_i</code></li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> Unix Timestamp FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a Unix timestamp?</h3>
+        <p>A <strong>Unix timestamp</strong> (also called Epoch time) is the number of seconds that have elapsed since January 1, 1970 at 00:00:00 UTC. It's a universal way to represent time as a single number, making it easy to store, compare, and transfer dates between systems.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I convert a Unix timestamp to a date?</h3>
+        <p>Enter your timestamp in the converter above and click Convert. The tool automatically detects if it's in seconds or milliseconds and displays the date in multiple formats including UTC, local time, ISO 8601, and relative time.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What's the difference between seconds and milliseconds?</h3>
+        <p>Seconds timestamps are 10 digits (e.g., <code>1704067200</code>), while milliseconds are 13 digits (e.g., <code>1704067200000</code>). JavaScript uses milliseconds, while most server languages use seconds. This tool handles both automatically.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I convert dates before 1970?</h3>
+        <p>Yes! Dates before the Unix Epoch (January 1, 1970) are represented as <strong>negative timestamps</strong>. For example, <code>-86400</code> represents December 31, 1969. This converter fully supports negative values.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the Year 2038 problem?</h3>
+        <p>The <strong>Y2K38 problem</strong> affects systems using 32-bit signed integers for timestamps. On January 19, 2038 at 03:14:07 UTC, the timestamp 2,147,483,647 overflows. Modern 64-bit systems are not affected.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data safe with this tool?</h3>
+        <p>Absolutely. This converter runs <strong>100% in your browser</strong> using JavaScript. No data is sent to any server. All conversions happen locally on your device.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is ISO 8601 format?</h3>
+        <p><strong>ISO 8601</strong> is an international standard for date/time representation: <code>YYYY-MM-DDTHH:mm:ss.sssZ</code>. The 'T' separates date and time, and 'Z' indicates UTC. Example: <code>2024-01-01T00:00:00.000Z</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why do developers use Unix timestamps?</h3>
+        <p>Unix timestamps are <strong>timezone-independent</strong>, easy to compare (just compare numbers), efficient to store, and avoid date format ambiguity. They're the standard for APIs, databases, and log files.</p>
+      </div>
+    </section>
+
+    <div class="bottom-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function hideEmptyAds() {
+    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section').forEach(function(container) {
+      var adSlot = container.querySelector('.adsbygoogle');
+      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
+        container.style.display = 'none';
+      }
+    });
+  }
+  setTimeout(function() { requestAnimationFrame(hideEmptyAds); }, 3000);
+})();
+</script>
+
+<script src="{{ '/assets/js/epoch-tool.js' | relative_url }}"></script>
+</div>
+
+<aside class="tools-right-sidebar">
+  {% include sidebar-popular.html %}
+</aside>
+</div>

@@ -1,0 +1,463 @@
+---
+layout: default
+title: "SLA Uptime Calculator | Downtime Calculator & Error Budget"
+subtitle: "Calculate allowed downtime for any SLA uptime percentage"
+seo: true
+description: "Free SLA uptime calculator. Convert uptime percentages to allowed downtime per day, week, month, and year. Calculate error budgets, composite SLAs, and understand the nines (99.9%, 99.99%, 99.999%). Essential tool for SREs and DevOps engineers. 100% client-side."
+keywords: "sla calculator, uptime calculator, downtime calculator, 99.9 uptime, 99.99 uptime, nines calculator, error budget calculator, sla downtime, availability calculator, sre tools, devops calculator, uptime percentage, service level agreement calculator, five nines, four nines, three nines"
+thumbnail: /assets/img/tools/sla-calculator-thumbnail.png
+share-img: /assets/img/tools/sla-calculator-thumbnail.png
+permalink: /tools/sla-calculator/
+social-share: true
+hide-explore-posts: true
+---
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<!-- Structured Data: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SLA Uptime Calculator",
+  "alternateName": ["Uptime Calculator", "Downtime Calculator", "Nines Calculator", "Error Budget Calculator", "SLA Downtime Calculator", "Availability Calculator", "99.9 Uptime Calculator"],
+  "description": "Free SLA uptime calculator. Convert uptime percentages to allowed downtime per day, week, month, and year. Calculate error budgets and composite SLAs.",
+  "url": "https://singhajit.com/tools/sla-calculator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Convert uptime percentage to allowed downtime",
+    "Calculate downtime per day, week, month, quarter, year",
+    "Quick presets for common SLA tiers (99%, 99.9%, 99.99%, 99.999%)",
+    "Nines classification (two nines, three nines, etc.)",
+    "Interactive reference table",
+    "Copy results to clipboard",
+    "100% client-side - no data sent to servers"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/sla-calculator-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "SLA Uptime Reference",
+    "text": "SLA uptime is measured in 'nines'. Three nines (99.9%) allows 8.76 hours downtime per year. Four nines (99.99%) allows 52.6 minutes per year. Five nines (99.999%) allows only 5.26 minutes per year."
+  },
+  "keywords": "sla calculator, uptime calculator, downtime calculator, 99.9 uptime, nines calculator, error budget"
+}
+</script>
+
+<!-- Structured Data: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Calculate SLA Downtime",
+  "description": "Learn how to calculate allowed downtime for any SLA uptime percentage using this free calculator.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your SLA uptime percentage",
+      "text": "Enter your target uptime percentage (e.g., 99.9%) or click one of the preset buttons for common SLA tiers like three nines, four nines, or five nines."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "View allowed downtime",
+      "text": "The calculator instantly shows your allowed downtime per day, week, month, quarter, and year. This is your error budget - the maximum time your service can be unavailable."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Explore common SLA tiers",
+      "text": "Reference the nines table to understand common SLA targets like three nines (99.9%) or four nines (99.99%) and their corresponding allowed downtimes."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "SLA Uptime Calculator"
+  }
+}
+</script>
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does 99.9% uptime mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "99.9% uptime (three nines) means your service can be down for a maximum of 8 hours and 45 minutes per year, or about 43 minutes per month. This is a common SLA target for many web services and APIs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between 99.9% and 99.99% uptime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "99.9% (three nines) allows 8.76 hours of downtime per year. 99.99% (four nines) allows only 52.6 minutes per year. That extra 9 reduces your allowed downtime by 10x, making it significantly harder to achieve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an error budget?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An error budget is the maximum amount of downtime allowed by your SLO before you breach it. For example, with a 99.9% SLO, your error budget is 0.1% of total time - about 43 minutes per month. Teams use error budgets to balance reliability work against feature development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the 'nines' in SLA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 'nines' refer to the number of 9s in an uptime percentage. Two nines = 99%, three nines = 99.9%, four nines = 99.99%, five nines = 99.999%. Each additional nine reduces allowed downtime by 10x and is exponentially harder to achieve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much downtime is allowed for five nines (99.999%)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five nines (99.999%) allows only 5 minutes and 15 seconds of downtime per year, or about 26 seconds per month. This level of availability is extremely difficult and expensive to achieve, typically requiring redundant systems across multiple regions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 100% uptime possible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "100% uptime is practically impossible for any real-world system. Even the most reliable services experience some downtime due to hardware failures, software bugs, network issues, or required maintenance. This is why SLAs always specify a percentage below 100%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do dependencies affect my SLA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your effective SLA cannot exceed your least reliable dependency. If you depend on a service with 99.9% uptime, your service cannot achieve better than 99.9% without redundancy. Multiple dependencies multiply together, reducing overall availability."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SLA Uptime Calculator",
+      "item": "https://singhajit.com/tools/sla-calculator/"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/sla-tool.css' | relative_url }}">
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="sla-page-wrapper">
+  <div class="sla-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-tachometer-alt"></i>
+        SLA Uptime Calculator
+      </h1>
+      <p class="tool-subtitle">Calculate allowed downtime for any SLA uptime percentage</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>SLA calculator</strong> to convert uptime percentages to allowed <strong>downtime</strong> per day, week, month, and year. Understand what "three nines" or "five nines" really means for your service. Essential for <strong>SREs</strong> and <strong>DevOps</strong> engineers. 100% client-side — your data never leaves your browser.
+    </p>
+
+    <div class="top-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Main Calculator Section -->
+    <section class="calculator-main">
+      <div class="input-section">
+        <label for="uptime-input">Enter SLA Uptime Percentage:</label>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="uptime-input" 
+            placeholder="99.9"
+            autocomplete="off"
+            spellcheck="false"
+            inputmode="decimal"
+          >
+          <span class="input-suffix">%</span>
+        </div>
+        
+        <div class="preset-buttons">
+          <span class="preset-label">Quick presets:</span>
+          <div class="preset-options">
+            <button class="preset-btn" data-value="99">99%<span class="preset-nines">2 nines</span></button>
+            <button class="preset-btn" data-value="99.9">99.9%<span class="preset-nines">3 nines</span></button>
+            <button class="preset-btn" data-value="99.95">99.95%<span class="preset-nines">3½ nines</span></button>
+            <button class="preset-btn" data-value="99.99">99.99%<span class="preset-nines">4 nines</span></button>
+            <button class="preset-btn" data-value="99.999">99.999%<span class="preset-nines">5 nines</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div id="results-section" class="results-section">
+        <h3><i class="fas fa-clock"></i> Allowed Downtime</h3>
+        
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-period">Per Year</div>
+            <div class="result-value" id="downtime-year">—</div>
+            <button class="btn-copy-result" data-copy="downtime-year" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="result-card">
+            <div class="result-period">Per Quarter</div>
+            <div class="result-value" id="downtime-quarter">—</div>
+            <button class="btn-copy-result" data-copy="downtime-quarter" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="result-card">
+            <div class="result-period">Per Month</div>
+            <div class="result-value" id="downtime-month">—</div>
+            <button class="btn-copy-result" data-copy="downtime-month" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="result-card">
+            <div class="result-period">Per Week</div>
+            <div class="result-value" id="downtime-week">—</div>
+            <button class="btn-copy-result" data-copy="downtime-week" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="result-card">
+            <div class="result-period">Per Day</div>
+            <div class="result-value" id="downtime-day">—</div>
+            <button class="btn-copy-result" data-copy="downtime-day" title="Copy">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Nines Reference Table -->
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> SLA "Nines" Quick Reference</h3>
+      <div class="reference-table-wrapper">
+        <table class="nines-table">
+          <thead>
+            <tr>
+              <th>Uptime %</th>
+              <th>Name</th>
+              <th>Downtime/Day</th>
+              <th>Downtime/Month</th>
+              <th>Downtime/Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="clickable-row" data-uptime="99">
+              <td><code>99%</code></td>
+              <td>Two nines</td>
+              <td>14m 24s</td>
+              <td>7h 18m</td>
+              <td>3d 15h 36m</td>
+            </tr>
+            <tr class="clickable-row" data-uptime="99.5">
+              <td><code>99.5%</code></td>
+              <td>Two and a half nines</td>
+              <td>7m 12s</td>
+              <td>3h 39m</td>
+              <td>1d 19h 48m</td>
+            </tr>
+            <tr class="clickable-row" data-uptime="99.9">
+              <td><code>99.9%</code></td>
+              <td>Three nines</td>
+              <td>1m 26s</td>
+              <td>43m 50s</td>
+              <td>8h 45m 36s</td>
+            </tr>
+            <tr class="clickable-row" data-uptime="99.95">
+              <td><code>99.95%</code></td>
+              <td>Three and a half nines</td>
+              <td>43s</td>
+              <td>21m 55s</td>
+              <td>4h 22m 48s</td>
+            </tr>
+            <tr class="clickable-row" data-uptime="99.99">
+              <td><code>99.99%</code></td>
+              <td>Four nines</td>
+              <td>8.6s</td>
+              <td>4m 23s</td>
+              <td>52m 34s</td>
+            </tr>
+            <tr class="clickable-row" data-uptime="99.999">
+              <td><code>99.999%</code></td>
+              <td>Five nines</td>
+              <td>0.86s</td>
+              <td>26s</td>
+              <td>5m 15s</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-hint"><i class="fas fa-hand-pointer"></i> Click any row to calculate its downtime</p>
+    </section>
+
+    <div class="dedicated-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Understanding SLAs Guide -->
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Understanding SLA Uptime</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is SLA Uptime?</h2>
+          <p><strong>SLA (Service Level Agreement) uptime</strong> is a contractual promise about how available a service will be. It's expressed as a percentage of total time. For example, 99.9% uptime means the service is expected to be available 99.9% of the time, allowing for 0.1% downtime.</p>
+          <p>The remaining percentage (100% - uptime%) is your <strong>error budget</strong> — the maximum amount of downtime you can have before breaching your SLA.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>The "Nines" Explained</h2>
+          <p>In the industry, we refer to uptime levels by counting the number of 9s:</p>
+          <ul>
+            <li><strong>Two nines (99%):</strong> ~3.65 days downtime per year. Basic availability, acceptable for internal tools.</li>
+            <li><strong>Three nines (99.9%):</strong> ~8.76 hours downtime per year. Standard for most SaaS products and APIs.</li>
+            <li><strong>Four nines (99.99%):</strong> ~52 minutes downtime per year. Enterprise-grade, requires significant investment.</li>
+            <li><strong>Five nines (99.999%):</strong> ~5 minutes downtime per year. Mission-critical systems, extremely expensive to achieve.</li>
+          </ul>
+          <p>Each additional nine is exponentially harder to achieve and typically costs 10x more in infrastructure and engineering effort.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Error Budgets in Practice</h2>
+          <p>Error budgets help teams balance reliability with feature velocity:</p>
+          <ul>
+            <li><strong>Budget remaining:</strong> Deploy new features, run experiments, take risks.</li>
+            <li><strong>Budget exhausted:</strong> Focus on reliability, fix issues, reduce change velocity.</li>
+            <li><strong>Monthly reset:</strong> Most teams track error budgets on a rolling 30-day window.</li>
+          </ul>
+          <p>This creates a data-driven way to decide when to prioritize stability over new features.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> SLA Calculator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What does 99.9% uptime mean?</h3>
+        <p><strong>99.9% uptime</strong> (three nines) allows approximately 8 hours and 45 minutes of downtime per year, or about 43 minutes per month. This is a common SLA target for web services, APIs, and SaaS products.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between 99.9% and 99.99%?</h3>
+        <p>That extra nine makes a huge difference. <strong>99.9%</strong> allows 8.76 hours of downtime per year, while <strong>99.99%</strong> allows only 52 minutes. Achieving four nines typically requires redundant infrastructure, automated failover, and 24/7 on-call support.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is an error budget?</h3>
+        <p>An <strong>error budget</strong> is the maximum allowed downtime for a given period based on your SLO. With a 99.9% monthly SLO, your error budget is 43 minutes. If you use it all on incidents, you should pause risky deployments until the budget resets.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can any service achieve 100% uptime?</h3>
+        <p><strong>No.</strong> 100% uptime is practically impossible. Even the most reliable services (AWS, Google Cloud) experience some downtime. This is why SLAs always specify a percentage below 100% and include compensation terms for breaches.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I choose the right SLA target?</h3>
+        <p>Start with your current performance, consider your dependencies (you can't exceed their SLAs), and factor in cost. Going from three nines to four nines typically requires 10x the infrastructure investment. Match your SLA to your customers' actual needs.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What's the difference between SLI, SLO, and SLA?</h3>
+        <p><strong>SLI</strong> is what you measure (e.g., uptime percentage). <strong>SLO</strong> is your internal target (e.g., aim for 99.9%). <strong>SLA</strong> is the contractual promise to customers with penalties (e.g., refund if below 99.5%). <a href="/explainer/sli-slo-sla-explained/" style="color: #0c4a6e; font-weight: 600;">Learn more →</a></p>
+      </div>
+    </section>
+
+    <div class="bottom-ad-section">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function hideEmptyAds() {
+    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section').forEach(function(container) {
+      var adSlot = container.querySelector('.adsbygoogle');
+      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
+        container.style.display = 'none';
+      }
+    });
+  }
+  setTimeout(function() { requestAnimationFrame(hideEmptyAds); }, 3000);
+})();
+</script>
+
+<script src="{{ '/assets/js/sla-tool.js' | relative_url }}"></script>
+</div>
+
+<aside class="tools-right-sidebar">
+  {% include sidebar-popular.html %}
+</aside>
+</div>

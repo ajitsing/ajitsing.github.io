@@ -1,0 +1,638 @@
+/* ==============================================
+   SLA Uptime Calculator Tool Styles
+   Matches existing tool theme (warm cream/beige)
+   ============================================== */
+
+.sla-page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+}
+
+.sla-tool {
+  max-width: 900px;
+  width: 100%;
+  padding: 0;
+  background: #faf8f5;
+}
+
+body:has(.sla-tool) {
+  background: #faf8f5 !important;
+}
+
+/* Tool Header */
+.sla-tool .tool-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 16px;
+  color: #faf8f5;
+  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.sla-tool .tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #faf8f5;
+  position: relative;
+  z-index: 1;
+}
+
+.sla-tool .tool-title i {
+  font-size: 1.6rem;
+  color: #fef3c7;
+  animation: pulse-gauge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-gauge {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.85; }
+}
+
+.sla-tool .tool-subtitle {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #d6d3d1;
+  margin: 0;
+  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tool Intro */
+.sla-tool .tool-intro {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #57534e;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+  max-width: 800px;
+}
+
+.sla-tool .tool-intro strong {
+  color: #44403c;
+}
+
+/* Main Calculator Section */
+.sla-tool .calculator-main {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.sla-tool .input-section {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.sla-tool .input-section label {
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.sla-tool .input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 300px;
+  margin: 0 auto 16px;
+}
+
+.sla-tool .input-wrapper input {
+  flex: 1;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1.3rem;
+  padding: 14px 18px;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fff;
+  color: #292524;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.sla-tool .input-wrapper input:focus {
+  outline: none;
+  border-color: #a8a29e;
+  box-shadow: 0 0 0 3px rgba(168, 162, 158, 0.15);
+}
+
+.sla-tool .input-suffix {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1.2rem;
+  color: #78716c;
+  font-weight: 600;
+}
+
+/* Preset Buttons */
+.sla-tool .preset-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.sla-tool .preset-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #78716c;
+}
+
+.sla-tool .preset-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sla-tool .preset-btn {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #57534e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 52px;
+}
+
+.sla-tool .preset-btn:hover {
+  border-color: #78716c;
+  background: #f5f0e8;
+  color: #44403c;
+}
+
+.sla-tool .preset-btn.active {
+  border-color: #292524;
+  background: #292524;
+  color: #faf8f5;
+}
+
+.sla-tool .preset-nines {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
+/* Results Section */
+.sla-tool .results-section {
+  padding-top: 20px;
+  border-top: 1px solid #e7e0d5;
+}
+
+.sla-tool .results-section h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sla-tool .results-section h3 i {
+  color: #78716c;
+}
+
+.sla-tool .results-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sla-tool .result-card {
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  padding: 12px 10px;
+  text-align: center;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.sla-tool .result-card:hover {
+  border-color: #78716c;
+  box-shadow: 0 2px 8px rgba(120, 113, 108, 0.15);
+}
+
+.sla-tool .result-period {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.sla-tool .result-value {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #292524;
+}
+
+.sla-tool .btn-copy-result {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  color: #a8a29e;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.sla-tool .result-card:hover .btn-copy-result {
+  opacity: 1;
+}
+
+.sla-tool .btn-copy-result:hover {
+  color: #44403c;
+}
+
+/* Reference Table */
+.sla-tool .reference-section {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.sla-tool .reference-section h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sla-tool .reference-section h3 i {
+  color: #78716c;
+}
+
+.sla-tool .reference-table-wrapper {
+  overflow-x: auto;
+}
+
+.sla-tool .nines-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.sla-tool .nines-table th,
+.sla-tool .nines-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.sla-tool .nines-table th {
+  background: #f5f0e8;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sla-tool .nines-table td {
+  color: #57534e;
+}
+
+.sla-tool .nines-table code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
+  background: #292524;
+  color: #fef3c7;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.sla-tool .nines-table .clickable-row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sla-tool .nines-table .clickable-row:hover {
+  background: #f5f0e8;
+}
+
+.sla-tool .table-hint {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  color: #a8a29e;
+  text-align: center;
+  margin: 12px 0 0 0;
+}
+
+.sla-tool .table-hint i {
+  margin-right: 4px;
+}
+
+/* Syntax Guide Section */
+.sla-tool .syntax-guide-section {
+  margin-bottom: 32px;
+}
+
+.sla-tool .syntax-guide-section > h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sla-tool .syntax-guide-section > h3 i {
+  color: #7c3aed;
+}
+
+.sla-tool .syntax-guide-content {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sla-tool .guide-article {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.sla-tool .guide-article:last-child {
+  border-bottom: none;
+}
+
+.sla-tool .guide-article h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+}
+
+.sla-tool .guide-article p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+}
+
+.sla-tool .guide-article p:last-child {
+  margin-bottom: 0;
+}
+
+.sla-tool .guide-article ul {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0;
+}
+
+.sla-tool .guide-article li {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  padding: 8px 0 8px 20px;
+  position: relative;
+  border-bottom: 1px solid #f5f0e8;
+}
+
+.sla-tool .guide-article li:last-child {
+  border-bottom: none;
+}
+
+.sla-tool .guide-article li::before {
+  content: "•";
+  color: #059669;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.sla-tool .guide-article li strong {
+  color: #292524;
+}
+
+/* FAQ Section */
+.sla-tool .faq-section {
+  margin-bottom: 32px;
+  padding: 30px;
+  background: #f5f0e8;
+  border-radius: 16px;
+  border: 2px solid #e7e0d5;
+}
+
+.sla-tool .faq-section > h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sla-tool .faq-section > h2 i {
+  color: #78716c;
+}
+
+.sla-tool .faq-item {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.sla-tool .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.sla-tool .faq-item h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 10px 0;
+}
+
+.sla-tool .faq-item p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Ad Sections */
+.sla-tool .top-ad-section,
+.sla-tool .dedicated-ad-section,
+.sla-tool .bottom-ad-section {
+  margin: 24px 0;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sla-tool .ad-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sla-tool .ad-label::before,
+.sla-tool .ad-label::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d1d5db, transparent);
+}
+
+.sla-tool .ad-label-text {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sla-tool .tool-header {
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+
+  .sla-tool .tool-title {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sla-tool .input-wrapper {
+    max-width: 100%;
+  }
+
+  .sla-tool .input-wrapper input {
+    font-size: 1.1rem;
+    padding: 12px 14px;
+  }
+
+  .sla-tool .preset-buttons {
+    justify-content: center;
+  }
+
+  .sla-tool .preset-btn {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .sla-tool .results-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sla-tool .results-grid .result-card:nth-child(4),
+  .sla-tool .results-grid .result-card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .sla-tool .nines-table {
+    font-size: 0.8rem;
+  }
+
+  .sla-tool .nines-table th,
+  .sla-tool .nines-table td {
+    padding: 10px 6px;
+  }
+
+  .sla-tool .calculator-main {
+    padding: 20px 16px;
+  }
+
+  .sla-tool .faq-section {
+    padding: 20px;
+  }
+
+  .sla-tool .guide-article {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sla-tool .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sla-tool .results-grid .result-card:first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 420px) {
+  .sla-tool .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sla-tool .results-grid .result-card:first-child {
+    grid-column: span 1;
+  }
+
+  .sla-tool .btn-copy-result {
+    opacity: 1;
+  }
+
+  .sla-tool .tool-title i {
+    font-size: 1.5rem;
+  }
+}

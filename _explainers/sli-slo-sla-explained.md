@@ -434,6 +434,11 @@ graph TD
           <p style="margin: 0; color: #374151; line-height: 1.6;">Look at your data. If you're at 99.8% uptime now, don't promise 99.99%. Set SLOs based on reality.</p>
         </div>
         
+        <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #7dd3fc; border-radius: 12px; padding: 25px; margin-bottom: 20px;">
+          <h4 style="color: #0c4a6e; margin: 0 0 15px 0; font-size: 1.2rem;"><i class="fas fa-calculator"></i> Calculate Your Downtime Budget</h4>
+          <p style="margin: 0; color: #374151; line-height: 1.6;">What does 99.9% uptime actually mean in practice? Use our <a href="/tools/sla-calculator/" style="color: #0c4a6e; font-weight: 600;">SLA Uptime Calculator</a> to see exactly how much downtime you can afford per day, month, and year for any uptime percentage.</p>
+        </div>
+        
         <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 25px; margin-bottom: 20px;">
           <h4 style="color: #334155; margin: 0 0 15px 0; font-size: 1.2rem;"><i class="fas fa-users"></i> Focus on what users actually care about</h4>
           <p style="margin: 0; color: #374151; line-height: 1.6;">Users care if the page loads and works. They don't care about your CPU usage or memory. Pick metrics that affect user experience.</p>

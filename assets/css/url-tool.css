@@ -1,0 +1,611 @@
+/* ==============================================
+   URL Encoder/Decoder Tool Styles
+   Matches existing tool theme (warm cream/beige)
+   ============================================== */
+
+.url-page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+}
+
+.url-tool {
+  max-width: 900px;
+  width: 100%;
+  padding: 0;
+  background: #faf8f5;
+}
+
+body:has(.url-tool) {
+  background: #faf8f5 !important;
+}
+
+/* Tool Header */
+.url-tool .tool-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 16px;
+  color: #faf8f5;
+  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.url-tool .tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #faf8f5;
+}
+
+.url-tool .tool-title i {
+  font-size: 1.6rem;
+  color: #fef3c7;
+}
+
+.url-tool .tool-subtitle {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #d6d3d1;
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* Tool Intro */
+.url-tool .tool-intro {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #57534e;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+  max-width: 800px;
+}
+
+.url-tool .tool-intro strong {
+  color: #44403c;
+}
+
+/* Mode Tabs */
+.url-tool .mode-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  background: #f5f0e8;
+  padding: 6px;
+  border-radius: 12px;
+  border: 2px solid #e7e0d5;
+}
+
+.url-tool .mode-tab {
+  flex: 1;
+  padding: 14px 20px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #78716c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.url-tool .mode-tab:hover {
+  color: #44403c;
+  background: #e7e0d5;
+}
+
+.url-tool .mode-tab.active {
+  background: #292524;
+  color: #faf8f5;
+  box-shadow: 0 2px 8px rgba(41, 37, 36, 0.2);
+}
+
+/* Converter Section */
+.url-tool .converter-section {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+/* Input/Output Groups */
+.url-tool .input-group,
+.url-tool .output-group {
+  margin-bottom: 20px;
+}
+
+.url-tool .output-group {
+  margin-bottom: 0;
+}
+
+.url-tool .input-group label,
+.url-tool .output-group label {
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.url-tool textarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #292524;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.url-tool textarea:focus {
+  outline: none;
+  border-color: #a8a29e;
+  box-shadow: 0 0 0 3px rgba(168, 162, 158, 0.15);
+}
+
+.url-tool textarea::placeholder {
+  color: #a8a29e;
+}
+
+.url-tool textarea[readonly] {
+  background: #f5f0e8;
+  cursor: default;
+}
+
+/* Input Actions */
+.url-tool .input-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.url-tool .btn-secondary {
+  padding: 10px 16px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #f5f0e8;
+  color: #44403c;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.url-tool .btn-secondary:hover {
+  background: #e7e0d5;
+  border-color: #d6cfc4;
+}
+
+/* Encoding Options */
+.url-tool .encoding-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f5f0e8;
+  border-radius: 8px;
+}
+
+.url-tool .options-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #57534e;
+}
+
+.url-tool .radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.url-tool .radio-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #292524;
+  cursor: pointer;
+}
+
+.url-tool .radio-label {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.85rem;
+  color: #292524;
+  font-weight: 500;
+}
+
+.url-tool .radio-hint {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  color: #78716c;
+}
+
+/* Output Wrapper */
+.url-tool .output-wrapper {
+  position: relative;
+}
+
+.url-tool .btn-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 14px;
+  background: #292524;
+  border: none;
+  border-radius: 6px;
+  color: #fef3c7;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.url-tool .btn-copy:hover {
+  background: #44403c;
+  transform: translateY(-1px);
+}
+
+/* Error Message */
+.url-tool .error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #fef2f2;
+  border: 2px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+.url-tool .error-message.hidden {
+  display: none;
+}
+
+.url-tool .error-message i {
+  font-size: 1.1rem;
+}
+
+/* Reference Table */
+.url-tool .reference-section {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.url-tool .reference-section h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.url-tool .reference-section h3 i {
+  color: #78716c;
+}
+
+.url-tool .reference-table-wrapper {
+  overflow-x: auto;
+}
+
+.url-tool .encoding-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.url-tool .encoding-table th,
+.url-tool .encoding-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.url-tool .encoding-table th {
+  background: #f5f0e8;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.url-tool .encoding-table td {
+  color: #57534e;
+}
+
+.url-tool .encoding-table code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
+  background: #292524;
+  color: #fef3c7;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Syntax Guide Section */
+.url-tool .syntax-guide-section {
+  margin-bottom: 24px;
+}
+
+.url-tool .syntax-guide-section > h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.url-tool .syntax-guide-section > h3 i {
+  color: #7c3aed;
+}
+
+.url-tool .syntax-guide-content {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.url-tool .guide-article {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.url-tool .guide-article:last-child {
+  border-bottom: none;
+}
+
+.url-tool .guide-article h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+}
+
+.url-tool .guide-article p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+}
+
+.url-tool .guide-article p:last-child {
+  margin-bottom: 0;
+}
+
+.url-tool .guide-article ul {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0;
+}
+
+.url-tool .guide-article li {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  padding: 8px 0 8px 20px;
+  position: relative;
+  border-bottom: 1px solid #f5f0e8;
+}
+
+.url-tool .guide-article li:last-child {
+  border-bottom: none;
+}
+
+.url-tool .guide-article li::before {
+  content: "•";
+  color: #059669;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.url-tool .guide-article li strong {
+  color: #292524;
+}
+
+.url-tool .guide-article code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* FAQ Section */
+.url-tool .faq-section {
+  margin-bottom: 24px;
+  padding: 30px;
+  background: #f5f0e8;
+  border-radius: 16px;
+  border: 2px solid #e7e0d5;
+}
+
+.url-tool .faq-section > h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.url-tool .faq-section > h2 i {
+  color: #78716c;
+}
+
+.url-tool .faq-item {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.url-tool .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.url-tool .faq-item h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 10px 0;
+}
+
+.url-tool .faq-item p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.url-tool .faq-item code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* Ad Sections */
+.url-tool .top-ad-section,
+.url-tool .dedicated-ad-section,
+.url-tool .bottom-ad-section {
+  margin: 24px 0;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.url-tool .ad-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.url-tool .ad-label::before,
+.url-tool .ad-label::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d1d5db, transparent);
+}
+
+.url-tool .ad-label-text {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .url-tool .tool-header {
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+
+  .url-tool .tool-title {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .url-tool .mode-tabs {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .url-tool .converter-section {
+    padding: 20px 16px;
+  }
+
+  .url-tool .encoding-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .url-tool .radio-option {
+    width: 100%;
+  }
+
+  .url-tool .faq-section {
+    padding: 20px;
+  }
+
+  .url-tool .guide-article {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .url-tool .tool-title i {
+    font-size: 1.5rem;
+  }
+
+  .url-tool .input-actions {
+    flex-direction: column;
+  }
+
+  .url-tool .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

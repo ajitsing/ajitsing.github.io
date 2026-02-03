@@ -3,8 +3,8 @@ layout: default
 title: "Developer Tools"
 subtitle: "Free online tools for developers"
 seo: true
-description: "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, and more. Validate JSON online, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime with these browser-based utilities. No signup required, 100% client-side."
-keywords: "developer tools, online tools, json validator, validate json online, json formatter, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, dev tools, programming tools, code tools, web developer tools, free developer tools"
+description: "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. Validate JSON online, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs with these browser-based utilities. No signup required, 100% client-side."
+keywords: "developer tools, online tools, json validator, validate json online, json formatter, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, url encoder, url decoder, percent encoding, urlencode, dev tools, programming tools, code tools, web developer tools, free developer tools"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
 permalink: /tools/
@@ -22,7 +22,7 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Developer Tools",
-  "description": "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, and more. All tools run 100% in your browser with no data sent to servers.",
+  "description": "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. All tools run 100% in your browser with no data sent to servers.",
   "url": "https://singhajit.com/tools/",
   "author": {
     "@type": "Person",
@@ -143,9 +143,22 @@ hide-explore-posts: true
         "price": "0",
         "priceCurrency": "USD"
       }
+    },
+    {
+      "@type": "WebApplication",
+      "name": "URL Encoder & Decoder",
+      "description": "Encode text for URLs using percent encoding or decode URL-encoded strings. Supports encodeURIComponent and encodeURI modes.",
+      "url": "https://singhajit.com/tools/url-encoder/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
   ],
-  "numberOfItems": 7,
+  "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -188,6 +201,12 @@ hide-explore-posts: true
       "position": 7,
       "url": "https://singhajit.com/tools/sla-calculator/",
       "name": "SLA Uptime Calculator"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "url": "https://singhajit.com/tools/url-encoder/",
+      "name": "URL Encoder & Decoder"
     }
   ],
   "breadcrumb": {
@@ -353,6 +372,25 @@ hide-explore-posts: true
           <span class="feature-tag"><i class="fas fa-percentage"></i> Nines</span>
           <span class="feature-tag"><i class="fas fa-clock"></i> Downtime</span>
           <span class="feature-tag"><i class="fas fa-table"></i> Reference</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- URL Encoder & Decoder Tool -->
+    <a href="{{ '/tools/url-encoder/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'URL Encoder'});">
+      <div class="tool-icon">
+        <i class="fas fa-link"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">URL Encoder & Decoder</h2>
+        <p class="tool-description">Encode text for URLs using percent encoding or decode URL-encoded strings back to readable text. Supports encodeURIComponent and encodeURI.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-lock"></i> Encode</span>
+          <span class="feature-tag"><i class="fas fa-unlock"></i> Decode</span>
+          <span class="feature-tag"><i class="fas fa-percent"></i> Percent</span>
         </div>
       </div>
       <div class="tool-arrow">

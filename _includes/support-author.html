@@ -1,0 +1,187 @@
+<div class="support-author" id="support-banner">
+  <button class="support-author-close" id="support-banner-close" aria-label="Close">&times;</button>
+  <div class="support-author-content">
+    <div class="support-author-icon">☕</div>
+    <div class="support-author-text">
+      <p class="support-author-message">
+        <strong>Finding this useful?</strong> Support this blog with a coffee.
+      </p>
+      <a href="https://buymeacoffee.com/ajit5ingh" target="_blank" rel="noopener" class="support-author-btn" id="support-banner-btn">
+        <span>Buy me a coffee</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+.support-author {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  max-width: 320px;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.support-author.visible {
+  display: block;
+}
+
+.support-author-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.support-author-close:hover {
+  color: #fff;
+}
+
+.support-author-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.support-author-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.support-author-text {
+  flex: 1;
+}
+
+.support-author-message {
+  margin: 0 0 0.6rem 0;
+  color: #e2e8f0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.support-author-message strong {
+  color: #fff;
+}
+
+.support-author-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  background: #FF813F;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.support-author-btn:hover {
+  background: #e6722f;
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  .support-author {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .support-author-close {
+    color: #64748b;
+  }
+  
+  .support-author-close:hover {
+    color: #1e293b;
+  }
+  
+  .support-author-message {
+    color: #475569;
+  }
+  
+  .support-author-message strong {
+    color: #1e293b;
+  }
+}
+
+@media (max-width: 480px) {
+  .support-author {
+    left: 10px;
+    right: 10px;
+    max-width: none;
+    bottom: 10px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  var banner = document.getElementById('support-banner');
+  var closeBtn = document.getElementById('support-banner-close');
+  var coffeeBtn = document.getElementById('support-banner-btn');
+  var shown = false;
+  
+  function trackEvent(action, label) {
+    if (typeof gtag === 'function') {
+      gtag('event', action, {
+        'event_category': 'Support Banner',
+        'event_label': label || ''
+      });
+    }
+  }
+  
+  function checkScroll() {
+    if (shown) return;
+    
+    var scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    
+    if (scrollPercent >= 75) {
+      banner.classList.add('visible');
+      shown = true;
+      trackEvent('view', 'Banner Shown');
+      window.removeEventListener('scroll', checkScroll);
+    }
+  }
+  
+  closeBtn.addEventListener('click', function() {
+    banner.style.display = 'none';
+    trackEvent('dismiss', 'Banner Closed');
+  });
+  
+  coffeeBtn.addEventListener('click', function() {
+    trackEvent('click', 'Buy Me a Coffee');
+  });
+  
+  window.addEventListener('scroll', checkScroll);
+})();
+</script>

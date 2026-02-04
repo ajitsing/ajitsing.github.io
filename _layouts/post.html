@@ -64,6 +64,8 @@ hide-explore-posts: true
       {% include social-share.html %}
     {% endif %}
 
+    {% include support-author.html %}
+
     {% assign related_posts = "" | split: ',' %}
     {% for tag in page.tags %}
       {% for post in site.tags[tag] limit:10 %}

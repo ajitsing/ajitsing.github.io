@@ -1,6 +1,17 @@
 (function() {
   'use strict';
 
+  // Google Analytics event tracking
+  function trackEvent(action, label, value) {
+    if (typeof gtag === 'function') {
+      gtag('event', action, {
+        event_category: 'Snowflake Decoder',
+        event_label: label,
+        value: value
+      });
+    }
+  }
+
   // Platform epochs (milliseconds since Unix epoch)
   const EPOCHS = {
     discord: 1420070400000n,   // January 1, 2015 00:00:00 UTC
@@ -115,6 +126,7 @@
     try {
       const text = await navigator.clipboard.readText();
       snowflakeInput.value = text.trim();
+      trackEvent('paste', 'Paste from clipboard');
       handleDecode();
     } catch (err) {
       showError('Could not access clipboard. Please paste manually.');
@@ -132,6 +144,7 @@
   function handlePlatformChange(btn) {
     const platform = btn.dataset.platform;
     setActivePlatform(platform);
+    trackEvent('platform_change', 'Platform: ' + platform);
     handleDecode();
   }
 
@@ -206,10 +219,12 @@
       displayResults(decoded, snowflakeId);
       hideError();
       resultSection.classList.remove('hidden');
+      trackEvent('decode', 'Platform: ' + currentPlatform, input.length);
 
     } catch (err) {
       showError('Invalid Snowflake ID: ' + err.message);
       resultSection.classList.add('hidden');
+      trackEvent('decode_error', err.message);
     }
   }
 
@@ -373,6 +388,7 @@
 
     generatedId.textContent = id.toString();
     generatedResult.classList.remove('hidden');
+    trackEvent('generate', 'Platform: ' + currentPlatform, 1);
   }
 
   // Handle copy generated
@@ -381,6 +397,7 @@
     try {
       await navigator.clipboard.writeText(id);
       copyGeneratedBtn.innerHTML = '<i class="fas fa-check"></i>';
+      trackEvent('copy', 'Copy generated ID', id.length);
       setTimeout(() => {
         copyGeneratedBtn.innerHTML = '<i class="fas fa-copy"></i>';
       }, 2000);
@@ -393,6 +410,7 @@
   function handleDecodeGenerated() {
     const id = generatedId.textContent;
     snowflakeInput.value = id;
+    trackEvent('decode_generated', 'Decode generated ID');
     handleDecode();
     snowflakeInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
@@ -404,6 +422,7 @@
 
     setActivePlatform(platform);
     snowflakeInput.value = id;
+    trackEvent('example_click', 'Example: ' + platform + ' - ' + id);
     handleDecode();
     snowflakeInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }

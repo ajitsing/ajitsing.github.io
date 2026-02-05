@@ -109,3 +109,7 @@ With tools like Wrangler CLI, you can write a function locally, test it, and dep
 Cloudflare's journey from a three-person startup to handling 20% of internet traffic offers profound lessons for every developer. It's not about having the biggest infrastructure or the most advanced technology—it's about making smart architectural choices and optimizing ruthlessly for what matters most.
 
 The fact that they handle 55 million requests per second with just 15 database clusters isn't just an impressive technical achievement—it's a testament to the power of thoughtful engineering. And the best part? The principles they've pioneered are now available to developers everywhere, democratizing the ability to build internet-scale applications.
+
+---
+
+*Want to see more of what Cloudflare is building? Check out [Self-Hosted AI Agents with Moltworker](/moltworker-self-hosted-ai-agent/) to learn how Cloudflare Workers can run personal AI assistants, or dive into [How Kafka Works](/how-kafka-works/) to understand another system built for massive scale.*

@@ -1,0 +1,13 @@
+<script>
+(function() {
+  function hideEmptyAds() {
+    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section').forEach(function(container) {
+      var adSlot = container.querySelector('.adsbygoogle');
+      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
+        container.style.display = 'none';
+      }
+    });
+  }
+  setTimeout(function() { requestAnimationFrame(hideEmptyAds); }, 3000);
+})();
+</script>

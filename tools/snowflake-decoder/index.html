@@ -215,18 +215,7 @@ hide-explore-posts: true
     <p class="tool-intro">
       Decode <strong>Discord IDs</strong>, <strong>Twitter IDs</strong>, and <strong>Instagram IDs</strong> to reveal when they were created. Snowflake IDs contain embedded timestamps. This tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
     </p>
-    {% include support-tools.html %}
-
-    <div class="top-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-layout="in-article"
-           data-ad-format="fluid"
-           data-ad-client="ca-pub-2886086145980317"
-           data-ad-slot="7962308891"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    {% include tool-ad-top.html %}
 
     <section class="decoder-main">
       <div class="input-section">
@@ -430,14 +419,7 @@ hide-explore-posts: true
       </div>
     </section>
 
-    <div class="dedicated-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    {% include tool-ad-mid.html %}
 
     <section class="reference-section">
       <h3><i class="fas fa-book"></i> Snowflake ID Structure</h3>
@@ -598,30 +580,11 @@ hide-explore-posts: true
       </a>
     </div>
 
-    <div class="bottom-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    {% include tool-ad-bottom.html %}
   </div>
 </div>
 
-<script>
-(function() {
-  function hideEmptyAds() {
-    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section').forEach(function(container) {
-      var adSlot = container.querySelector('.adsbygoogle');
-      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
-        container.style.display = 'none';
-      }
-    });
-  }
-  setTimeout(function() { requestAnimationFrame(hideEmptyAds); }, 3000);
-})();
-</script>
+{% include tool-hide-empty-ads.html %}
 
 <script src="{{ '/assets/js/snowflake-tool.js' | relative_url }}"></script>
 </div>

@@ -81,14 +81,12 @@ body:has(.epoch-tool) {
   color: #57534e;
   font-size: 0.95rem;
   line-height: 1.7;
-  max-width: 800px;
   margin: 0 auto 24px;
   padding: 0 16px;
 }
 
 @media (min-width: 1024px) {
   .epoch-tool .tool-intro {
-    max-width: 900px;
     font-size: 1rem;
   }
 }

@@ -202,18 +202,7 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this free <strong>URL encoder</strong> to convert text to URL-safe format using <strong>percent encoding</strong>, or decode URL-encoded strings back to readable text. Essential for working with query parameters, form data, and APIs. 100% client-side. Your data never leaves your browser.
     </p>
-    {% include support-tools.html %}
-
-    <div class="top-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-layout="in-article"
-           data-ad-format="fluid"
-           data-ad-client="ca-pub-2886086145980317"
-           data-ad-slot="7962308891"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    {% include tool-ad-top.html %}
 
     <!-- Mode Tabs -->
     <div class="mode-tabs">
@@ -273,14 +262,7 @@ hide-explore-posts: true
       </div>
     </section>
 
-    <div class="dedicated-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    {% include tool-ad-mid.html %}
 
     <!-- Common Encodings Reference -->
     <section class="reference-section">
@@ -374,30 +356,11 @@ hide-explore-posts: true
       </div>
     </section>
 
-    <div class="bottom-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    {% include tool-ad-bottom.html %}
   </div>
 </div>
 
-<script>
-(function() {
-  function hideEmptyAds() {
-    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section').forEach(function(container) {
-      var adSlot = container.querySelector('.adsbygoogle');
-      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
-        container.style.display = 'none';
-      }
-    });
-  }
-  setTimeout(function() { requestAnimationFrame(hideEmptyAds); }, 3000);
-})();
-</script>
+{% include tool-hide-empty-ads.html %}
 
 <script src="{{ '/assets/js/url-tool.js' | relative_url }}"></script>
 </div>

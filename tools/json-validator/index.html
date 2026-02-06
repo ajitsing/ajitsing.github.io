@@ -190,7 +190,7 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/json-validator.css' | relative_url }}">
-
+{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -207,18 +207,7 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this free <strong>JSON validator</strong> to check your JSON syntax instantly. <strong>Validate JSON online</strong> with detailed error messages showing the exact line and column where problems occur. Format and beautify JSON for better readability. 100% client-side. Your data never leaves your browser.
     </p>
-    {% include support-tools.html %}
 
-    <div class="top-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-layout="in-article"
-           data-ad-format="fluid"
-           data-ad-client="ca-pub-2886086145980317"
-           data-ad-slot="7962308891"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
 
     <section class="json-validator-main">
       <div class="main-controls">
@@ -324,14 +313,7 @@ hide-explore-posts: true
       </div>
     </section>
 
-    <div class="dedicated-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    {% include tool-ad-mid.html %}
 
     <section class="syntax-guide-section">
       <h3><i class="fas fa-graduation-cap"></i> JSON Syntax Guide</h3>
@@ -424,30 +406,11 @@ hide-explore-posts: true
       </div>
     </section>
 
-    <div class="bottom-ad-section">
-
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    {% include tool-ad-bottom.html %}
   </div>
 </div>
 
-<script>
-(function() {
-  function hideEmptyAds() {
-    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section').forEach(function(container) {
-      var adSlot = container.querySelector('.adsbygoogle');
-      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
-        container.style.display = 'none';
-      }
-    });
-  }
-  setTimeout(function() { requestAnimationFrame(hideEmptyAds); }, 3000);
-})();
-</script>
+{% include tool-hide-empty-ads.html %}
 
 <script src="{{ '/assets/js/json-validator.js' | relative_url }}"></script>
 </div>

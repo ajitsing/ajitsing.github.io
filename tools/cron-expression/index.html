@@ -331,18 +331,7 @@ hide-explore-posts: true
   <p class="tool-intro">
     Use this <strong>cron expression translator</strong> and <strong>cron checker</strong> to convert cron expressions to human-readable text, validate your <strong>cron job expression</strong> syntax for errors, and see exactly when your cron jobs will run. Our free <strong>cron job translator</strong> helps you build and evaluate <strong>crontab expressions</strong> visually. No server required.
   </p>
-  {% include support-tools.html %}
-
-  <div class="top-ad-section">
-
-    <ins class="adsbygoogle"
-         style="display:block; text-align:center;"
-         data-ad-layout="in-article"
-         data-ad-format="fluid"
-         data-ad-client="ca-pub-2886086145980317"
-         data-ad-slot="7962308891"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+  {% include tool-ad-top.html %}
 
 <div class="mode-tabs">
     <button class="mode-tab active" data-mode="parse">
@@ -648,15 +637,7 @@ hide-explore-posts: true
       </table>
   </section>
 
-  <!-- Dedicated Ad Section Below Examples -->
-  <div class="dedicated-ad-section">
-
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+  {% include tool-ad-mid.html %}
 
 <section class="syntax-guide-section">
     <h3><i class="fas fa-graduation-cap"></i> Cron Expression & Crontab Syntax Guide</h3>
@@ -818,38 +799,11 @@ hide-explore-posts: true
     </div>
   </section>
 
-  <!-- Bottom Ad Section -->
-  <div class="bottom-ad-section">
-
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+  {% include tool-ad-bottom.html %}
 </div>
 </div>
 
-<!-- Hide empty ad containers when ads are blocked (SEO-friendly: no layout shift) -->
-<script>
-(function() {
-  // Check quickly before first paint to avoid layout shift
-  function hideEmptyAds() {
-    var adContainers = document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section');
-    adContainers.forEach(function(container) {
-      var adSlot = container.querySelector('.adsbygoogle');
-      if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
-        container.style.display = 'none';
-      }
-    });
-  }
-  
-  // Run after ads have had time to load, but use requestAnimationFrame to batch with paint
-  setTimeout(function() {
-    requestAnimationFrame(hideEmptyAds);
-  }, 3000);
-})();
-</script>
+{% include tool-hide-empty-ads.html %}
 
 <script src="{{ '/assets/js/cron-tool.js' | relative_url }}"></script>
 </div>

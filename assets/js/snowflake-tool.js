@@ -1,7 +1,6 @@
 (function() {
   'use strict';
 
-  // Google Analytics event tracking
   function trackEvent(action, label, value) {
     if (typeof gtag === 'function') {
       gtag('event', action, {
@@ -12,15 +11,13 @@
     }
   }
 
-  // Platform epochs (milliseconds since Unix epoch)
   const EPOCHS = {
-    discord: 1420070400000n,   // January 1, 2015 00:00:00 UTC
-    twitter: 1288834974657n,   // November 4, 2010 01:42:54.657 UTC
-    instagram: 0n,             // Unix epoch (Instagram uses custom sharding)
+    discord: 1420070400000n,
+    twitter: 1288834974657n,
+    instagram: 0n,
     custom: 0n
   };
 
-  // DOM Elements
   const snowflakeInput = document.getElementById('snowflake-input');
   const pasteBtn = document.getElementById('paste-btn');
   const clearBtn = document.getElementById('clear-btn');
@@ -31,7 +28,6 @@
   const errorText = document.getElementById('error-text');
   const resultSection = document.getElementById('result-section');
 
-  // Result elements
   const utcTime = document.getElementById('utc-time');
   const localTime = document.getElementById('local-time');
   const relativeTime = document.getElementById('relative-time');
@@ -45,7 +41,6 @@
   const sequenceNum = document.getElementById('sequence-num');
   const binaryValue = document.getElementById('binary-value');
 
-  // Generator elements
   const genDatetime = document.getElementById('gen-datetime');
   const genWorker = document.getElementById('gen-worker');
   const genProcess = document.getElementById('gen-process');
@@ -56,21 +51,16 @@
   const copyGeneratedBtn = document.getElementById('copy-generated-btn');
   const decodeGeneratedBtn = document.getElementById('decode-generated-btn');
 
-  // Example buttons
   const exampleBtns = document.querySelectorAll('.example-btn');
 
-  // State
   let currentPlatform = 'discord';
   let currentEpoch = EPOCHS.discord;
 
-  // Initialize
   function init() {
-    // Set default datetime to now
     const now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     genDatetime.value = now.toISOString().slice(0, 16);
 
-    // Event listeners
     snowflakeInput.addEventListener('input', debounce(handleDecode, 150));
     snowflakeInput.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') handleDecode();
@@ -93,7 +83,6 @@
       btn.addEventListener('click', () => handleExample(btn));
     });
 
-    // Check URL params
     const urlParams = new URLSearchParams(window.location.search);
     const idParam = urlParams.get('id');
     const platformParam = urlParams.get('platform');
@@ -104,11 +93,13 @@
 
     if (idParam) {
       snowflakeInput.value = idParam;
+      trackEvent('url_load', idParam);
       handleDecode();
     }
+
+    trackEvent('tool_load', 'snowflake_decoder_tool');
   }
 
-  // Utility: Debounce
   function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -121,7 +112,6 @@
     };
   }
 
-  // Handle paste from clipboard
   async function handlePaste() {
     try {
       const text = await navigator.clipboard.readText();
@@ -133,14 +123,12 @@
     }
   }
 
-  // Handle clear
   function handleClear() {
     snowflakeInput.value = '';
     hideError();
     resultSection.classList.add('hidden');
   }
 
-  // Handle platform change
   function handlePlatformChange(btn) {
     const platform = btn.dataset.platform;
     setActivePlatform(platform);
@@ -148,7 +136,6 @@
     handleDecode();
   }
 
-  // Set active platform
   function setActivePlatform(platform) {
     currentPlatform = platform;
     currentEpoch = EPOCHS[platform] || 0n;
@@ -162,7 +149,6 @@
       }
     }
 
-    // Show/hide custom epoch input
     if (platform === 'custom') {
       customEpochContainer.classList.remove('hidden');
       if (customEpochInput.value) {
@@ -173,7 +159,6 @@
     }
   }
 
-  // Handle custom epoch input
   function handleCustomEpoch() {
     const value = customEpochInput.value.trim();
     if (value && /^\d+$/.test(value)) {
@@ -182,7 +167,6 @@
     }
   }
 
-  // Handle decode
   function handleDecode() {
     const input = snowflakeInput.value.trim();
     
@@ -192,7 +176,6 @@
       return;
     }
 
-    // Validate input
     if (!/^\d+$/.test(input)) {
       showError('Please enter a valid Snowflake ID (numbers only)');
       resultSection.classList.add('hidden');
@@ -202,7 +185,6 @@
     try {
       const snowflakeId = BigInt(input);
       
-      // Check if ID is valid (not too small or too large)
       if (snowflakeId < 0n) {
         showError('Snowflake ID cannot be negative');
         resultSection.classList.add('hidden');
@@ -228,17 +210,12 @@
     }
   }
 
-  // Decode Snowflake ID
   function decodeSnowflake(id, epoch) {
-    // Extract components using bit shifting
-    // Snowflake structure: 1 bit sign + 41 bits timestamp + 10 bits worker + 12 bits sequence
-    // But commonly: 1 bit sign + 41 bits timestamp + 5 bits datacenter + 5 bits worker + 12 bits sequence
-    
     const timestamp = (id >> 22n) + epoch;
-    const workerIdRaw = (id >> 12n) & 0x3FFn; // 10 bits for combined worker/datacenter
-    const datacenter = (id >> 17n) & 0x1Fn; // 5 bits
-    const worker = (id >> 12n) & 0x1Fn; // 5 bits
-    const sequence = id & 0xFFFn; // 12 bits
+    const workerIdRaw = (id >> 12n) & 0x3FFn;
+    const datacenter = (id >> 17n) & 0x1Fn;
+    const worker = (id >> 12n) & 0x1Fn;
+    const sequence = id & 0xFFFn;
 
     const date = new Date(Number(timestamp));
 
@@ -254,26 +231,21 @@
     };
   }
 
-  // Display results
   function displayResults(decoded, id) {
-    // Timestamp displays
     utcTime.textContent = formatUTC(decoded.date);
     localTime.textContent = formatLocal(decoded.date);
     relativeTime.textContent = formatRelative(decoded.date);
     unixTime.textContent = decoded.timestamp.toString();
 
-    // Bit breakdown
     bitSign.textContent = '0';
     bitTimestamp.textContent = decoded.timestampBits.toLocaleString();
     bitWorker.textContent = decoded.workerIdCombined;
     bitSequence.textContent = decoded.sequence;
 
-    // Component details
     workerId.textContent = decoded.workerId;
     processId.textContent = decoded.datacenterId;
     sequenceNum.textContent = decoded.sequence;
 
-    // Binary representation with formatting
     const binary = decoded.binary;
     const formatted = [
       `<span style="color:#9ca3af">${binary.substring(0, 1)}</span>`,
@@ -283,23 +255,19 @@
     ].join(' ');
     binaryValue.innerHTML = formatted;
 
-    // Update URL for sharing
     updateURL(id.toString());
   }
 
-  // Format UTC time
   function formatUTC(date) {
     if (isNaN(date.getTime())) return 'Invalid date';
     return date.toUTCString().replace('GMT', 'UTC');
   }
 
-  // Format local time
   function formatLocal(date) {
     if (isNaN(date.getTime())) return 'Invalid date';
     return date.toLocaleString();
   }
 
-  // Format relative time
   function formatRelative(date) {
     if (isNaN(date.getTime())) return 'Invalid date';
     
@@ -344,14 +312,12 @@
     }
   }
 
-  // Handle generate
   function handleGenerate() {
     const datetimeValue = genDatetime.value;
     const workerValue = parseInt(genWorker.value, 10) || 0;
     const processValue = parseInt(genProcess.value, 10) || 0;
     const sequenceValue = parseInt(genSequence.value, 10) || 0;
 
-    // Validate
     if (!datetimeValue) {
       alert('Please select a date and time');
       return;
@@ -380,7 +346,6 @@
       return;
     }
 
-    // Generate Snowflake ID
     const id = (timestamp << 22n) | 
                (BigInt(processValue) << 17n) | 
                (BigInt(workerValue) << 12n) | 
@@ -391,7 +356,6 @@
     trackEvent('generate', 'Platform: ' + currentPlatform, 1);
   }
 
-  // Handle copy generated
   async function handleCopyGenerated() {
     const id = generatedId.textContent;
     try {
@@ -406,7 +370,6 @@
     }
   }
 
-  // Handle decode generated
   function handleDecodeGenerated() {
     const id = generatedId.textContent;
     snowflakeInput.value = id;
@@ -415,7 +378,6 @@
     snowflakeInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  // Handle example click
   function handleExample(btn) {
     const id = btn.dataset.id;
     const platform = btn.dataset.platform;
@@ -427,18 +389,15 @@
     snowflakeInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  // Show error
   function showError(message) {
     errorText.textContent = message;
     errorMessage.classList.remove('hidden');
   }
 
-  // Hide error
   function hideError() {
     errorMessage.classList.add('hidden');
   }
 
-  // Update URL with current ID
   function updateURL(id) {
     const url = new URL(window.location);
     url.searchParams.set('id', id);
@@ -446,7 +405,6 @@
     window.history.replaceState({}, '', url);
   }
 
-  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

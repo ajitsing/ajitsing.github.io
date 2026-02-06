@@ -36,6 +36,7 @@
     setupEventListeners();
     loadFromURL();
     updateCharCount();
+    trackEvent('tool_load', 'base64_tool');
   }
 
   function setupEventListeners() {
@@ -226,6 +227,7 @@
       const decodedInput = decodeURIComponent(input);
       inputTextarea.value = decodedInput;
       state[currentMode].input = decodedInput;
+      trackEvent('url_load', currentMode);
       convert();
     }
   }

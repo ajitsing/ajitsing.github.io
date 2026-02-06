@@ -5,8 +5,6 @@
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
   var VALID_INSERTION_TAGS = ['P', 'H2', 'H3', 'DIV'];
-  var AD_LOAD_TIMEOUT_MS = 3000;
-  var ANALYTICS_SENT_KEY = 'adblock_analytics_sent';
 
   function createAdElement(className) {
     var container = document.createElement('div');
@@ -58,68 +56,21 @@
 
     var adsInserted = 0;
 
-    // Insert ads at each position (in reverse order to maintain correct indices)
     for (var i = AD_POSITIONS.length - 1; i >= 0; i--) {
       var insertionIndex = findInsertionIndex(children, AD_POSITIONS[i]);
       var ad = createAdElement(AD_CLASS);
       insertAdAtIndex(article, ad, children, insertionIndex);
       adsInserted++;
-      // Update children array after each insertion
       children = Array.from(article.children);
     }
     
-    // Push to AdSense for each ad inserted
     for (var j = 0; j < adsInserted; j++) {
       pushToAdSense();
     }
   }
 
-  function isAdEmpty(adSlot) {
-    var hasIframe = adSlot.querySelector('iframe');
-    var isLoaded = adSlot.dataset.adStatus === 'done' || adSlot.dataset.adStatus === 'filled';
-    return adSlot.offsetHeight === 0 && !hasIframe && !isLoaded;
-  }
-
-  function sendAnalyticsEvent(hasAdBlocker) {
-    // Only send once per session to avoid duplicate events
-    if (sessionStorage.getItem(ANALYTICS_SENT_KEY)) return;
-
-    if (typeof gtag === 'function') {
-      gtag('event', hasAdBlocker ? 'ad_blocker_detected' : 'ad_blocker_not_detected', {
-        'event_category': 'Ad Blocker',
-        'event_label': hasAdBlocker ? 'Using Ad Blocker' : 'No Ad Blocker',
-        'non_interaction': true
-      });
-      sessionStorage.setItem(ANALYTICS_SENT_KEY, 'true');
-    }
-  }
-
-  function checkAdStatus() {
-    var contentAds = document.querySelectorAll('.post-mid-ad');
-    var hasBlockedAds = false;
-    var hasLoadedAds = false;
-    
-    contentAds.forEach(function(container) {
-      var adSlot = container.querySelector('.adsbygoogle');
-      if (adSlot && isAdEmpty(adSlot)) {
-        hasBlockedAds = true;
-      } else if (adSlot) {
-        hasLoadedAds = true;
-      }
-    });
-
-    // Send analytics event based on ad status
-    if (contentAds.length > 0) {
-      sendAnalyticsEvent(hasBlockedAds && !hasLoadedAds);
-    }
-  }
-
   function init() {
     injectContentAds();
-    
-    setTimeout(function() {
-      requestAnimationFrame(checkAdStatus);
-    }, AD_LOAD_TIMEOUT_MS);
   }
 
   if (document.readyState === 'loading') {

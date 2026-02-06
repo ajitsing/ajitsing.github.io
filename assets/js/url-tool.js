@@ -1,9 +1,4 @@
-/**
- * URL Encoder/Decoder Tool
- * Encodes text to URL-safe format and decodes URL-encoded strings.
- */
 document.addEventListener('DOMContentLoaded', () => {
-    // DOM Elements
     const modeTabs = document.querySelectorAll('.mode-tab');
     const inputText = document.getElementById('input-text');
     const outputText = document.getElementById('output-text');
@@ -20,17 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMode = 'encode';
     let debounceTimeout = null;
 
-    /**
-     * Get the current encoding type
-     */
+    function trackEvent(action, label, value) {
+        if (typeof gtag === 'function') {
+            gtag('event', action, {
+                'event_category': 'URL Encoder',
+                'event_label': label,
+                'value': value
+            });
+        }
+    }
+
     function getEncodeType() {
         const selected = document.querySelector('input[name="encode-type"]:checked');
         return selected ? selected.value : 'component';
     }
 
-    /**
-     * Encode text based on selected encoding type
-     */
     function encodeText(text) {
         if (!text) return '';
         
@@ -47,9 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Decode URL-encoded text
-     */
     function decodeText(text) {
         if (!text) return '';
         
@@ -60,13 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Process the input and update output
-     */
     function processInput() {
         const input = inputText.value;
-        
-        // Hide any previous error
         hideError();
         
         if (!input) {
@@ -78,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let result;
             if (currentMode === 'encode') {
                 result = encodeText(input);
-                trackEvent('URL Encoder', 'Encode');
+                trackEvent('encode', 'Encode text', input.length);
             } else {
                 result = decodeText(input);
-                trackEvent('URL Encoder', 'Decode');
+                trackEvent('decode', 'Decode text', input.length);
             }
             outputText.value = result;
         } catch (e) {
@@ -90,28 +81,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Show error message
-     */
     function showError(message) {
         errorText.textContent = message;
         errorMessage.classList.remove('hidden');
     }
 
-    /**
-     * Hide error message
-     */
     function hideError() {
         errorMessage.classList.add('hidden');
     }
 
-    /**
-     * Switch between encode and decode modes
-     */
     function switchMode(mode) {
         currentMode = mode;
         
-        // Update tab states
         modeTabs.forEach(tab => {
             if (tab.dataset.mode === mode) {
                 tab.classList.add('active');
@@ -120,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Show/hide encoding options (only in encode mode)
         if (mode === 'encode') {
             encodingOptions.style.display = 'flex';
             labelEncode.style.display = 'inline';
@@ -133,35 +113,25 @@ document.addEventListener('DOMContentLoaded', () => {
             inputText.placeholder = 'Enter URL-encoded text to decode...';
         }
 
-        // Clear and re-process
         hideError();
         processInput();
-        
-        trackEvent('URL Encoder', 'Mode: ' + mode);
+        trackEvent('mode_switch', mode);
     }
 
-    /**
-     * Copy output to clipboard
-     */
     function copyToClipboard() {
         const text = outputText.value;
-        
         if (!text) return;
 
         navigator.clipboard.writeText(text).then(() => {
             showCopyFeedback();
-            trackEvent('URL Encoder', 'Copy Result');
+            trackEvent('copy', 'Copy result');
         }).catch(() => {
-            // Fallback for older browsers
             outputText.select();
             document.execCommand('copy');
             showCopyFeedback();
         });
     }
 
-    /**
-     * Show copy feedback
-     */
     function showCopyFeedback() {
         const originalHTML = copyBtn.innerHTML;
         copyBtn.innerHTML = '<i class="fas fa-check"></i>';
@@ -173,9 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     }
 
-    /**
-     * Clear input and output
-     */
     function clearAll() {
         inputText.value = '';
         outputText.value = '';
@@ -183,9 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         inputText.focus();
     }
 
-    /**
-     * Paste from clipboard
-     */
     async function pasteFromClipboard() {
         try {
             const text = await navigator.clipboard.readText();
@@ -193,14 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
             processInput();
             inputText.focus();
         } catch (e) {
-            // Clipboard API not available or permission denied
             inputText.focus();
         }
     }
 
-    /**
-     * Debounced input handler
-     */
     function handleInput() {
         if (debounceTimeout) {
             clearTimeout(debounceTimeout);
@@ -208,19 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
         debounceTimeout = setTimeout(processInput, 150);
     }
 
-    /**
-     * Track Google Analytics event
-     */
-    function trackEvent(category, label) {
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'action', {
-                'event_category': category,
-                'event_label': label
-            });
-        }
-    }
-
-    // Event Listeners
     modeTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             switchMode(tab.dataset.mode);
@@ -237,14 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
     clearBtn.addEventListener('click', clearAll);
     pasteBtn.addEventListener('click', pasteFromClipboard);
 
-    // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
-        // Ctrl/Cmd + Enter to copy result
         if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
             copyToClipboard();
         }
     });
 
-    // Initialize
     switchMode('encode');
+    trackEvent('tool_load', 'url_encoder_tool');
 });

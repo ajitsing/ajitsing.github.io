@@ -1,15 +1,15 @@
 (function() {
   'use strict';
 
-  var AD_POSITIONS = [0.05, 0.30, 0.60];
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
-  var VALID_INSERTION_TAGS = ['P', 'H2', 'H3', 'DIV'];
+  var HEADING_TAGS = ['H2', 'H3'];
+  var TARGET_POSITIONS = [0.25, 0.50, 0.75];
 
-  function createAdElement(className) {
+  function createAdElement() {
     var container = document.createElement('div');
-    container.className = className;
-    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="1787846424" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    container.className = AD_CLASS;
+    container.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="1787846424" data-ad-format="auto" data-full-width-responsive="true"></ins>';
     return container;
   }
 
@@ -19,28 +19,27 @@
     }
   }
 
-  function isValidInsertionPoint(element) {
-    return VALID_INSERTION_TAGS.indexOf(element.tagName) !== -1;
-  }
-
-  function findInsertionIndex(children, targetPercent) {
-    var targetIndex = Math.max(1, Math.floor(children.length * targetPercent));
-    
-    for (var i = targetIndex; i < Math.min(children.length, targetIndex + 3); i++) {
-      if (isValidInsertionPoint(children[i])) {
-        return i + 1;
+  function getHeadingIndices(children) {
+    var indices = [];
+    for (var i = 0; i < children.length; i++) {
+      if (HEADING_TAGS.indexOf(children[i].tagName) !== -1) {
+        indices.push(i);
       }
     }
-    
-    return targetIndex;
+    return indices;
   }
 
-  function insertAdAtIndex(container, ad, children, index) {
-    if (index < children.length) {
-      container.insertBefore(ad, children[index]);
-    } else {
-      container.appendChild(ad);
+  function findNearestHeading(headingIndices, targetIndex) {
+    var best = -1;
+    var bestDist = Infinity;
+    for (var i = 0; i < headingIndices.length; i++) {
+      var dist = Math.abs(headingIndices[i] - targetIndex);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = headingIndices[i];
+      }
     }
+    return best;
   }
 
   function adsAlreadyInjected(container) {
@@ -54,17 +53,42 @@
     var children = Array.from(article.children);
     if (children.length === 0) return;
 
-    var adsInserted = 0;
+    var headingIndices = getHeadingIndices(children);
+    if (headingIndices.length === 0) return;
 
-    for (var i = AD_POSITIONS.length - 1; i >= 0; i--) {
-      var insertionIndex = findInsertionIndex(children, AD_POSITIONS[i]);
-      var ad = createAdElement(AD_CLASS);
-      insertAdAtIndex(article, ad, children, insertionIndex);
-      adsInserted++;
-      children = Array.from(article.children);
+    var insertBeforeIndices = [];
+
+    if (headingIndices[0] > 0) {
+      insertBeforeIndices.push(headingIndices[0]);
     }
-    
-    for (var j = 0; j < adsInserted; j++) {
+
+    var usedIndices = {};
+    if (insertBeforeIndices.length > 0) {
+      usedIndices[insertBeforeIndices[0]] = true;
+    }
+
+    for (var i = 0; i < TARGET_POSITIONS.length; i++) {
+      var targetIndex = Math.floor(children.length * TARGET_POSITIONS[i]);
+      var nearest = findNearestHeading(headingIndices, targetIndex);
+      if (nearest > 0 && !usedIndices[nearest]) {
+        insertBeforeIndices.push(nearest);
+        usedIndices[nearest] = true;
+      }
+    }
+
+    insertBeforeIndices.sort(function(a, b) { return b - a; });
+
+    for (var j = 0; j < insertBeforeIndices.length; j++) {
+      var ad = createAdElement();
+      var idx = insertBeforeIndices[j];
+      if (idx < children.length) {
+        article.insertBefore(ad, children[idx]);
+      } else {
+        article.appendChild(ad);
+      }
+    }
+
+    for (var k = 0; k < insertBeforeIndices.length; k++) {
       pushToAdSense();
     }
   }

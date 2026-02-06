@@ -522,7 +522,6 @@ body:has(.url-tool) {
 .url-tool .dedicated-ad-section,
 .url-tool .bottom-ad-section {
   margin: 24px 0;
-  min-height: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;

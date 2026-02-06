@@ -1,5 +1,5 @@
 .base64-page-wrapper {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px 24px 40px;
   background: #faf8f5;
@@ -47,7 +47,7 @@
 }
 
 .base64-tool {
-  max-width: 900px;
+  max-width: 1200px;
   width: 100%;
   padding: 0;
   background: #faf8f5;

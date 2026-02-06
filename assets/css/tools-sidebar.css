@@ -21,13 +21,8 @@
 .tools-main {
   flex: 1;
   min-width: 0;
-  max-width: 900px;
+  max-width: 1060px;
   margin: 0 auto;
-}
-
-.tools-right-sidebar {
-  width: 280px;
-  flex-shrink: 0;
 }
 
 .tools-nav {
@@ -124,22 +119,24 @@
   color: #faf8f5;
 }
 
-/* Hide right sidebar on screens smaller than 1400px */
-@media (max-width: 1399px) {
-  .tools-right-sidebar {
-    display: none;
-  }
-  
+@media (min-width: 1200px) and (max-width: 1399px) {
   .tools-layout {
-    max-width: 1200px;
-  }
-  
-  .tools-main {
-    max-width: 900px;
+    max-width: 1400px;
   }
 }
 
-/* Hide left sidebar on screens smaller than 1200px */
+@media (min-width: 1400px) {
+  .tools-layout {
+    max-width: 1800px;
+    padding-left: 240px;
+    padding-right: 240px;
+  }
+  
+  .tools-main {
+    max-width: 1200px;
+  }
+}
+
 @media (max-width: 1199px) {
   .tools-layout {
     padding: 20px 24px 40px;
@@ -148,34 +145,14 @@
   .tools-sidebar {
     display: none;
   }
+  
+  .tools-main {
+    max-width: 900px;
+  }
 }
 
 @media (max-width: 768px) {
   .tools-layout {
     padding: 15px 12px 30px;
   }
-}
-
-/* Adjust right sidebar styling to match tools theme */
-.tools-right-sidebar .sidebar-popular {
-  background: #fffdf9;
-  border: 2px solid #e7e0d5;
-  top: 168px;
-}
-
-.tools-right-sidebar .sidebar-title {
-  color: #44403c;
-  border-bottom-color: #e7e0d5;
-}
-
-.tools-right-sidebar .popular-post-link:hover {
-  background: #f5f0e8;
-}
-
-.tools-right-sidebar .popular-post-title {
-  color: #44403c;
-}
-
-.tools-right-sidebar .popular-post-link:hover .popular-post-title {
-  color: #292524;
 }

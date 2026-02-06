@@ -1,6 +1,6 @@
 /* Page Layout */
 .regex-page-wrapper {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px 15px 40px;
   background: #faf8f5;
@@ -50,7 +50,7 @@
 
 /* Main Container */
 .regex-tool {
-  max-width: 900px;
+  max-width: 1200px;
   width: 100%;
   padding: 0;
   background: #faf8f5;

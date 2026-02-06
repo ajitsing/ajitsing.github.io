@@ -44,7 +44,7 @@ hide-explore-posts: true
     "Generate sample Snowflake IDs",
     "Support for custom epochs",
     "Display timestamps in multiple formats",
-    "100% client-side - no data stored",
+    "100% client-side. No data stored",
     "Works offline after loading"
   ],
   "screenshot": "https://singhajit.com/assets/img/tools/snowflake-decoder-thumbnail.png",
@@ -114,7 +114,7 @@ hide-explore-posts: true
       "name": "How do I decode a Discord ID to timestamp?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "To decode a Discord ID: take the ID, right-shift by 22 bits to get the timestamp, then add Discord's epoch (1420070400000, January 1, 2015). This tool does this automatically - just paste any Discord ID and select 'Discord' as the platform."
+        "text": "To decode a Discord ID: take the ID, right-shift by 22 bits to get the timestamp, then add Discord's epoch (1420070400000, January 1, 2015). This tool does this automatically. just paste any Discord ID and select 'Discord' as the platform."
       }
     },
     {
@@ -213,7 +213,7 @@ hide-explore-posts: true
     </header>
     
     <p class="tool-intro">
-      Decode <strong>Discord IDs</strong>, <strong>Twitter IDs</strong>, and <strong>Instagram IDs</strong> to reveal when they were created. Snowflake IDs contain embedded timestamps — this tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
+      Decode <strong>Discord IDs</strong>, <strong>Twitter IDs</strong>, and <strong>Instagram IDs</strong> to reveal when they were created. Snowflake IDs contain embedded timestamps. This tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
     </p>
     {% include support-tools.html %}
 
@@ -509,12 +509,12 @@ hide-explore-posts: true
         <article class="guide-article">
           <h2>What is a Snowflake ID?</h2>
           <p>A <strong>Snowflake ID</strong> is a 64-bit unique identifier designed for distributed systems. Created by Twitter in 2010, it allows multiple servers to generate unique IDs independently without any coordination. Discord, Instagram, and many other platforms have adopted this approach.</p>
-          <p>Unlike auto-increment IDs that require a central database, or random UUIDs that can't be sorted by time, Snowflake IDs are both distributed and time-ordered — you can sort them chronologically and extract the creation timestamp.</p>
+          <p>Unlike auto-increment IDs that require a central database, or random UUIDs that can't be sorted by time, Snowflake IDs are both distributed and time-ordered. You can sort them chronologically and extract the creation timestamp.</p>
         </article>
 
         <article class="guide-article">
           <h2>How to Decode a Discord ID</h2>
-          <p>Every Discord ID — whether it's a user, message, server, or channel — is a Snowflake containing its creation time. To decode manually:</p>
+          <p>Every Discord ID, whether it's a user, message, server, or channel, is a Snowflake containing its creation time. To decode manually:</p>
           <ul>
             <li><strong>Right-shift by 22 bits:</strong> This extracts the timestamp portion</li>
             <li><strong>Add Discord's epoch:</strong> 1420070400000 (January 1, 2015)</li>
@@ -527,8 +527,8 @@ hide-explore-posts: true
           <h2>Why Companies Use Snowflake IDs</h2>
           <ul>
             <li><strong>No coordination needed:</strong> Each server generates IDs independently using its worker ID</li>
-            <li><strong>Time-sortable:</strong> Newer IDs are always larger — great for chronological queries</li>
-            <li><strong>Compact:</strong> 64 bits vs 128-bit UUIDs — fits in a single database integer</li>
+            <li><strong>Time-sortable:</strong> Newer IDs are always larger. Great for chronological queries</li>
+            <li><strong>Compact:</strong> 64 bits vs 128-bit UUIDs. Fits in a single database integer</li>
             <li><strong>High throughput:</strong> 4,096 IDs per millisecond per machine (4M+ IDs/second cluster-wide)</li>
             <li><strong>Embedded metadata:</strong> Extract creation time without a database lookup</li>
           </ul>
@@ -539,10 +539,10 @@ hide-explore-posts: true
           <p>A Snowflake ID encodes data using bit positions:</p>
           <ul>
             <li><strong>Bits 63:</strong> Sign bit (always 0 for positive numbers)</li>
-            <li><strong>Bits 22-62:</strong> Timestamp — milliseconds since platform epoch</li>
-            <li><strong>Bits 17-21:</strong> Worker ID — which machine generated this</li>
-            <li><strong>Bits 12-16:</strong> Process ID — which process on that machine</li>
-            <li><strong>Bits 0-11:</strong> Sequence — counter for same-millisecond IDs</li>
+            <li><strong>Bits 22-62:</strong> Timestamp. milliseconds since platform epoch</li>
+            <li><strong>Bits 17-21:</strong> Worker ID. Which machine generated this</li>
+            <li><strong>Bits 12-16:</strong> Process ID. Which process on that machine</li>
+            <li><strong>Bits 0-11:</strong> Sequence. counter for same-millisecond IDs</li>
           </ul>
           <p>To extract each component, use bit shifting and masking. This tool performs these operations automatically.</p>
         </article>
@@ -575,7 +575,7 @@ hide-explore-posts: true
 
       <div class="faq-item">
         <h3>Why do Snowflake IDs look like random numbers?</h3>
-        <p>They're not random — they're carefully structured. The large numbers result from packing a timestamp, machine ID, and sequence into 64 bits. The timestamp alone can be billions of milliseconds, making the numbers appear random but they're actually sequential over time.</p>
+        <p>They're not random. They're carefully structured. The large numbers result from packing a timestamp, machine ID, and sequence into 64 bits. The timestamp alone can be billions of milliseconds, making the numbers appear random but they're actually sequential over time.</p>
       </div>
 
       <div class="faq-item">

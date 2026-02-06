@@ -3,7 +3,7 @@ layout: default
 title: "Test, debug, and build regular expressions"
 subtitle: "Test, debug, and build regular expressions with real-time matching"
 seo: true
-description: "Free online regex tester and debugger. Test regular expressions with real-time highlighting, pattern explanation, and capture group visualization. Works with JavaScript regex syntax. No data stored - 100% client-side."
+description: "Free online regex tester and debugger. Test regular expressions with real-time highlighting, pattern explanation, and capture group visualization. Works with JavaScript regex syntax. No data stored. 100% client-side."
 keywords: "regex tester, regex debugger, regular expression tester, regex validator, regex builder, regex pattern tester, regex online, regex checker, regex match, regex replace, regex capture groups, javascript regex, regex examples, regex cheat sheet"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
@@ -45,7 +45,7 @@ hide-explore-posts: true
     "Common regex examples library",
     "Quick reference cheat sheet",
     "Shareable URLs for patterns",
-    "100% client-side - no data stored",
+    "100% client-side. No data stored",
     "Works offline after loading"
   ],
   "screenshot": "https://singhajit.com/assets/img/tools/regex-tool-thumbnail.png",
@@ -81,7 +81,7 @@ hide-explore-posts: true
       "@type": "HowToStep",
       "position": 3,
       "name": "Configure regex flags",
-      "text": "Toggle regex flags as needed: g (global - find all matches), i (case-insensitive), m (multiline), s (dotAll - dot matches newlines), u (unicode)."
+      "text": "Toggle regex flags as needed: g (global. find all matches), i (case-insensitive), m (multiline), s (dotAll. dot matches newlines), u (unicode)."
     },
     {
       "@type": "HowToStep",
@@ -299,7 +299,7 @@ hide-explore-posts: true
     </header>
     
     <p class="tool-intro">
-      Use this <strong>regex tester</strong> to build and debug regular expressions in real-time. See matches highlighted instantly, understand your pattern with our <strong>regex explainer</strong>, and visualize capture groups. 100% client-side — your data never leaves your browser.
+      Use this <strong>regex tester</strong> to build and debug regular expressions in real-time. See matches highlighted instantly, understand your pattern with our <strong>regex explainer</strong>, and visualize capture groups. 100% client-side. Your data never leaves your browser.
     </p>
     {% include support-tools.html %}
 
@@ -328,10 +328,10 @@ hide-explore-posts: true
           >
           <span class="pattern-delimiter">/</span>
           <div class="flags-container">
-            <button class="flag-btn active" data-flag="g" title="Global - find all matches">g</button>
+            <button class="flag-btn active" data-flag="g" title="Global. find all matches">g</button>
             <button class="flag-btn" data-flag="i" title="Case-insensitive">i</button>
-            <button class="flag-btn active" data-flag="m" title="Multiline - ^ and $ match line boundaries">m</button>
-            <button class="flag-btn" data-flag="s" title="DotAll - dot matches newlines">s</button>
+            <button class="flag-btn active" data-flag="m" title="Multiline. ^ and $ match line boundaries">m</button>
+            <button class="flag-btn" data-flag="s" title="DotAll. dot matches newlines">s</button>
             <button class="flag-btn" data-flag="u" title="Unicode support">u</button>
           </div>
         </div>
@@ -553,12 +553,12 @@ Example: john.doe@example.com, jane_smith@company.org"
           <h2>Quantifiers</h2>
           <p>Quantifiers specify how many times the preceding element should match:</p>
           <ul>
-            <li><strong><code>*</code></strong> — Zero or more times (greedy)</li>
-            <li><strong><code>+</code></strong> — One or more times (greedy)</li>
-            <li><strong><code>?</code></strong> — Zero or one time (optional)</li>
-            <li><strong><code>{n}</code></strong> — Exactly n times</li>
-            <li><strong><code>{n,}</code></strong> — n or more times</li>
-            <li><strong><code>{n,m}</code></strong> — Between n and m times</li>
+            <li><strong><code>*</code></strong>. Zero or more times (greedy)</li>
+            <li><strong><code>+</code></strong>. One or more times (greedy)</li>
+            <li><strong><code>?</code></strong>. Zero or one time (optional)</li>
+            <li><strong><code>{n}</code></strong>. Exactly n times</li>
+            <li><strong><code>{n,}</code></strong>. n or more times</li>
+            <li><strong><code>{n,m}</code></strong>. Between n and m times</li>
           </ul>
           <p>Add <code>?</code> after any quantifier to make it lazy (non-greedy): <code>.*?</code> matches as few characters as possible.</p>
         </article>
@@ -567,11 +567,11 @@ Example: john.doe@example.com, jane_smith@company.org"
           <h2>Groups and Capturing</h2>
           <p>Parentheses create groups that can be quantified together and capture their match for later use:</p>
           <ul>
-            <li><strong><code>(abc)</code></strong> — Capturing group: matches "abc" and saves it</li>
-            <li><strong><code>(?:abc)</code></strong> — Non-capturing group: groups without saving</li>
-            <li><strong><code>(?&lt;name&gt;abc)</code></strong> — Named capture group</li>
-            <li><strong><code>\1</code>, <code>\2</code></strong> — Backreferences to captured groups</li>
-            <li><strong><code>$1</code>, <code>$2</code></strong> — References in replacement strings</li>
+            <li><strong><code>(abc)</code></strong>. Capturing group: matches "abc" and saves it</li>
+            <li><strong><code>(?:abc)</code></strong>. Non-capturing group: groups without saving</li>
+            <li><strong><code>(?&lt;name&gt;abc)</code></strong>. Named capture group</li>
+            <li><strong><code>\1</code>, <code>\2</code></strong>. Backreferences to captured groups</li>
+            <li><strong><code>$1</code>, <code>$2</code></strong>. References in replacement strings</li>
           </ul>
         </article>
 
@@ -579,10 +579,10 @@ Example: john.doe@example.com, jane_smith@company.org"
           <h2>Lookahead and Lookbehind</h2>
           <p>Lookaround assertions match a position without consuming characters:</p>
           <ul>
-            <li><strong><code>(?=abc)</code></strong> — Positive lookahead: assert "abc" follows</li>
-            <li><strong><code>(?!abc)</code></strong> — Negative lookahead: assert "abc" doesn't follow</li>
-            <li><strong><code>(?&lt;=abc)</code></strong> — Positive lookbehind: assert "abc" precedes</li>
-            <li><strong><code>(?&lt;!abc)</code></strong> — Negative lookbehind: assert "abc" doesn't precede</li>
+            <li><strong><code>(?=abc)</code></strong>. Positive lookahead: assert "abc" follows</li>
+            <li><strong><code>(?!abc)</code></strong>. Negative lookahead: assert "abc" doesn't follow</li>
+            <li><strong><code>(?&lt;=abc)</code></strong>. Positive lookbehind: assert "abc" precedes</li>
+            <li><strong><code>(?&lt;!abc)</code></strong>. Negative lookbehind: assert "abc" doesn't precede</li>
           </ul>
           <p>Example: <code>\d+(?= dollars)</code> matches digits only if followed by " dollars".</p>
         </article>
@@ -591,11 +591,11 @@ Example: john.doe@example.com, jane_smith@company.org"
           <h2>Regex Flags</h2>
           <p>Flags modify how the pattern is interpreted:</p>
           <ul>
-            <li><strong><code>g</code> (global)</strong> — Find all matches, not just the first</li>
-            <li><strong><code>i</code> (case-insensitive)</strong> — Ignore letter case when matching</li>
-            <li><strong><code>m</code> (multiline)</strong> — <code>^</code> and <code>$</code> match line boundaries</li>
-            <li><strong><code>s</code> (dotAll)</strong> — Dot <code>.</code> matches newline characters too</li>
-            <li><strong><code>u</code> (unicode)</strong> — Enable full Unicode matching</li>
+            <li><strong><code>g</code> (global)</strong>. Find all matches, not just the first</li>
+            <li><strong><code>i</code> (case-insensitive)</strong>. Ignore letter case when matching</li>
+            <li><strong><code>m</code> (multiline)</strong>. <code>^</code> and <code>$</code> match line boundaries</li>
+            <li><strong><code>s</code> (dotAll)</strong>. Dot <code>.</code> matches newline characters too</li>
+            <li><strong><code>u</code> (unicode)</strong>. Enable full Unicode matching</li>
           </ul>
         </article>
 
@@ -603,7 +603,7 @@ Example: john.doe@example.com, jane_smith@company.org"
     </section>
 
     <section class="faq-section">
-      <h2><i class="fas fa-question-circle"></i> Regex FAQ — Common Questions Answered</h2>
+      <h2><i class="fas fa-question-circle"></i> Regex FAQ. Common Questions Answered</h2>
       
       <div class="faq-item">
         <h3>What is a regular expression (regex)?</h3>
@@ -647,7 +647,7 @@ Example: john.doe@example.com, jane_smith@company.org"
       
       <div class="faq-item">
         <h3>What is a non-greedy (lazy) match?</h3>
-        <p>By default, quantifiers are greedy — they match as much as possible. Adding <code>?</code> after a quantifier makes it lazy: <code>.*?</code> matches as few characters as possible.</p>
+        <p>By default, quantifiers are greedy. They match as much as possible. Adding <code>?</code> after a quantifier makes it lazy: <code>.*?</code> matches as few characters as possible.</p>
       </div>
       
       <div class="faq-item">

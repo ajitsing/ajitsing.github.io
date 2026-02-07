@@ -3,8 +3,8 @@ layout: default
 title: "Developer Tools"
 subtitle: "Free online tools for developers"
 seo: true
-description: "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. Validate JSON online, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs with these browser-based utilities. No signup required, 100% client-side."
-keywords: "developer tools, online tools, json validator, validate json online, json formatter, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, url encoder, url decoder, percent encoding, urlencode, dev tools, programming tools, code tools, web developer tools, free developer tools"
+description: "Free online developer tools including JSON validator, YAML validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. Validate JSON and YAML online, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs with these browser-based utilities. No signup required, 100% client-side."
+keywords: "developer tools, online tools, json validator, validate json online, json formatter, yaml validator, validate yaml online, yaml formatter, yaml to json, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, url encoder, url decoder, percent encoding, urlencode, dev tools, programming tools, code tools, web developer tools, free developer tools"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
 permalink: /tools/
@@ -22,7 +22,7 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Developer Tools",
-  "description": "Free online developer tools including JSON validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. All tools run 100% in your browser with no data sent to servers.",
+  "description": "Free online developer tools including JSON validator, YAML validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. All tools run 100% in your browser with no data sent to servers.",
   "url": "https://singhajit.com/tools/",
   "author": {
     "@type": "Person",
@@ -58,6 +58,19 @@ hide-explore-posts: true
       "name": "JSON Validator & Formatter",
       "description": "Validate JSON online with detailed error messages. Format and beautify JSON data instantly.",
       "url": "https://singhajit.com/tools/json-validator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "name": "YAML Validator & Formatter",
+      "description": "Validate YAML online with detailed error messages. Format YAML and convert to JSON instantly. Perfect for Kubernetes, Docker Compose, and CI/CD configuration files.",
+      "url": "https://singhajit.com/tools/yaml-validator/",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Any",
       "offers": {
@@ -158,7 +171,7 @@ hide-explore-posts: true
       }
     }
   ],
-  "numberOfItems": 8,
+  "numberOfItems": 9,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -169,42 +182,48 @@ hide-explore-posts: true
     {
       "@type": "ListItem",
       "position": 2,
+      "url": "https://singhajit.com/tools/yaml-validator/",
+      "name": "YAML Validator & Formatter"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "url": "https://singhajit.com/tools/regex-tester/",
       "name": "Regex Tester & Debugger"
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "url": "https://singhajit.com/tools/cron-expression/",
       "name": "Cron Expression Generator"
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
       "url": "https://singhajit.com/tools/base64-encoder/",
       "name": "Base64 Encoder & Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "url": "https://singhajit.com/tools/snowflake-decoder/",
       "name": "Snowflake ID Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "url": "https://singhajit.com/tools/epoch-converter/",
       "name": "Epoch Timestamp Converter"
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "url": "https://singhajit.com/tools/sla-calculator/",
       "name": "SLA Uptime Calculator"
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
       "url": "https://singhajit.com/tools/url-encoder/",
       "name": "URL Encoder & Decoder"
     }
@@ -258,6 +277,25 @@ hide-explore-posts: true
           <span class="feature-tag"><i class="fas fa-check-circle"></i> Validator</span>
           <span class="feature-tag"><i class="fas fa-indent"></i> Formatter</span>
           <span class="feature-tag"><i class="fas fa-map-marker-alt"></i> Error Location</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- YAML Validator & Formatter Tool -->
+    <a href="{{ '/tools/yaml-validator/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'YAML Validator'});">
+      <div class="tool-icon">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">YAML Validator & Formatter</h2>
+        <p class="tool-description">Validate YAML online with detailed error messages. Format YAML and convert to JSON instantly. Perfect for Kubernetes, Docker Compose, and CI/CD configs.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-check-circle"></i> Validator</span>
+          <span class="feature-tag"><i class="fas fa-indent"></i> Formatter</span>
+          <span class="feature-tag"><i class="fas fa-exchange-alt"></i> YAML → JSON</span>
         </div>
       </div>
       <div class="tool-arrow">

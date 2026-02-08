@@ -3,8 +3,8 @@ layout: default
 title: "Developer Tools"
 subtitle: "Free online tools for developers"
 seo: true
-description: "Free online developer tools including JSON validator, YAML validator, JWT decoder, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. Validate JSON and YAML online, decode JWT tokens, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs with these browser-based utilities. No signup required, 100% client-side."
-keywords: "developer tools, online tools, json validator, validate json online, json formatter, yaml validator, validate yaml online, yaml formatter, yaml to json, jwt decoder, decode jwt token, jwt debugger, jwt inspector, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, url encoder, url decoder, percent encoding, urlencode, dev tools, programming tools, code tools, web developer tools, free developer tools"
+description: "Free online developer tools including JSON validator, YAML validator, JWT decoder, UUID generator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. Validate JSON and YAML online, decode JWT tokens, generate UUIDs, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs with these browser-based utilities. No signup required, 100% client-side."
+keywords: "developer tools, online tools, json validator, validate json online, json formatter, yaml validator, validate yaml online, yaml formatter, yaml to json, jwt decoder, decode jwt token, jwt debugger, jwt inspector, uuid generator, uuid v4 generator, uuid v7 generator, guid generator, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, url encoder, url decoder, percent encoding, urlencode, dev tools, programming tools, code tools, web developer tools, free developer tools"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
 permalink: /tools/
@@ -22,7 +22,7 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Developer Tools",
-  "description": "Free online developer tools including JSON validator, YAML validator, JWT decoder, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. All tools run 100% in your browser with no data sent to servers.",
+  "description": "Free online developer tools including JSON validator, YAML validator, JWT decoder, UUID generator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. All tools run 100% in your browser with no data sent to servers.",
   "url": "https://singhajit.com/tools/",
   "author": {
     "@type": "Person",
@@ -146,6 +146,19 @@ hide-explore-posts: true
     },
     {
       "@type": "WebApplication",
+      "name": "UUID Generator & Decoder",
+      "description": "Generate UUID v4 (random) and UUID v7 (timestamp-based). Bulk generate, decode versions, extract timestamps, and validate format.",
+      "url": "https://singhajit.com/tools/uuid-generator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "WebApplication",
       "name": "Epoch Timestamp Converter",
       "description": "Convert Unix timestamps to human-readable dates and dates to Unix timestamps. Supports seconds, milliseconds, and multiple output formats.",
       "url": "https://singhajit.com/tools/epoch-converter/",
@@ -184,7 +197,7 @@ hide-explore-posts: true
       }
     }
   ],
-  "numberOfItems": 10,
+  "numberOfItems": 11,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -231,18 +244,24 @@ hide-explore-posts: true
     {
       "@type": "ListItem",
       "position": 8,
+      "url": "https://singhajit.com/tools/uuid-generator/",
+      "name": "UUID Generator & Decoder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
       "url": "https://singhajit.com/tools/epoch-converter/",
       "name": "Epoch Timestamp Converter"
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "url": "https://singhajit.com/tools/sla-calculator/",
       "name": "SLA Uptime Calculator"
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 11,
       "url": "https://singhajit.com/tools/url-encoder/",
       "name": "URL Encoder & Decoder"
     }
@@ -410,6 +429,25 @@ hide-explore-posts: true
           <span class="feature-tag"><i class="fab fa-discord"></i> Discord</span>
           <span class="feature-tag"><i class="fab fa-twitter"></i> Twitter</span>
           <span class="feature-tag"><i class="fas fa-clock"></i> Timestamp</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- UUID Generator & Decoder Tool -->
+    <a href="{{ '/tools/uuid-generator/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'UUID Generator'});">
+      <div class="tool-icon">
+        <i class="fas fa-fingerprint"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">UUID Generator & Decoder</h2>
+        <p class="tool-description">Generate UUID v4 (random) and UUID v7 (timestamp-based). Bulk generate, decode versions, extract timestamps, and validate format.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-random"></i> v4 Random</span>
+          <span class="feature-tag"><i class="fas fa-clock"></i> v7 Timestamp</span>
+          <span class="feature-tag"><i class="fas fa-layer-group"></i> Bulk</span>
         </div>
       </div>
       <div class="tool-arrow">

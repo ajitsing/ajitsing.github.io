@@ -1,0 +1,427 @@
+---
+layout: default
+title: "UUID Generator & Decoder | Generate UUID v4, v7 Online Free"
+subtitle: "Generate, decode, and validate UUIDs instantly"
+seo: true
+description: "Free online UUID generator and decoder. Generate UUID v4 (random) and UUID v7 (timestamp-based) instantly. Bulk generate UUIDs, decode UUID versions, extract timestamps from v1/v7, and validate UUID format. 100% client-side, your data never leaves your browser."
+keywords: "uuid generator, uuid v4 generator, uuid v7 generator, generate uuid online, uuid decoder, uuid parser, uuid validator, random uuid, uuid bulk generator, uuid to timestamp, uuid version checker, uuid format, uuid v1 decoder, uuid v7 decoder, guid generator, unique id generator, free uuid generator, online uuid tool"
+thumbnail: /assets/img/tools/uuid-generator-thumbnail.png
+share-img: /assets/img/tools/uuid-generator-thumbnail.png
+permalink: /tools/uuid-generator/
+social-share: true
+hide-explore-posts: true
+---
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "UUID Generator & Decoder",
+  "alternateName": ["UUID Generator", "UUID v4 Generator", "UUID v7 Generator", "GUID Generator", "UUID Decoder", "UUID Validator", "Random UUID Generator", "Bulk UUID Generator", "UUID Online Tool"],
+  "description": "Free online UUID generator and decoder. Generate UUID v4 (random) and UUID v7 (timestamp-based) instantly. Bulk generate, decode versions, extract timestamps, and validate format.",
+  "url": "https://singhajit.com/tools/uuid-generator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Generate UUID v4 (random) with one click",
+    "Generate UUID v7 (timestamp-based, new standard)",
+    "Bulk generate up to 100 UUIDs at once",
+    "Decode any UUID: version, variant, and timestamp",
+    "Validate UUID format",
+    "Copy single or bulk UUIDs to clipboard",
+    "Uppercase and lowercase formatting options",
+    "100% client-side, no data sent to servers",
+    "Free to use with no signup required"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/uuid-generator-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "UUID Reference",
+    "text": "UUID (Universally Unique Identifier) is a 128-bit identifier standardized in RFC 9562. UUID v4 uses random bits for uniqueness. UUID v7 combines a Unix timestamp with random bits, making IDs time-sortable. UUIDs are formatted as 32 hex digits in 5 groups: 8-4-4-4-12."
+  },
+  "keywords": "uuid generator, uuid v4 generator, uuid v7 generator, guid generator, uuid decoder, uuid validator"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Generate a UUID Online",
+  "description": "Learn how to generate and decode UUIDs using this free online UUID generator tool.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Choose UUID version",
+      "text": "Select UUID v4 (random, most common) or UUID v7 (timestamp-based, time-sortable). UUID v4 is suitable for most use cases. UUID v7 is ideal for database primary keys where time-ordering matters."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Generate UUIDs",
+      "text": "Click Generate to create a single UUID, or use Bulk Generate to create up to 100 UUIDs at once. Each UUID is cryptographically random and unique."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy or decode",
+      "text": "Copy the generated UUID to your clipboard with one click. You can also paste any existing UUID into the decoder to check its version, variant, and extract timestamps from v1 or v7 UUIDs."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "UUID Generator & Decoder"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a UUID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A UUID (Universally Unique Identifier) is a 128-bit identifier that is unique across space and time. It is formatted as 32 hexadecimal digits displayed in 5 groups separated by hyphens: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx. UUIDs are standardized in RFC 9562 and are commonly used as database primary keys, API identifiers, and distributed system IDs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between UUID v4 and UUID v7?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UUID v4 uses 122 random bits, making each UUID statistically unique but not time-sortable. UUID v7 combines a 48-bit Unix timestamp (millisecond precision) with random bits, making UUIDs both unique and chronologically sortable. UUID v7 is better for database primary keys because sequential IDs improve B-tree index performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which UUID version should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use UUID v4 for general-purpose unique identifiers where time ordering does not matter. Use UUID v7 for database primary keys, event IDs, or any case where chronological sorting is beneficial. UUID v7 is the recommended choice for new applications because it combines uniqueness with time-sortability and better database performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a UUID the same as a GUID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. GUID (Globally Unique Identifier) is Microsoft's term for UUID. They are the same 128-bit format with the same structure. UUID is the standard term used in RFC 9562 and most programming languages. GUID is primarily used in Microsoft technologies like .NET, SQL Server, and Windows APIs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can two UUIDs ever be the same?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Theoretically yes, but practically no. UUID v4 has 122 random bits, giving 5.3 x 10^36 possible values. You would need to generate 2.71 x 10^18 UUIDs to have a 50% chance of a collision. That is about 2.71 quintillion UUIDs. For all practical purposes, UUID collisions do not happen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I extract a timestamp from a UUID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UUID v1 and v7 contain timestamps. For UUID v7, the first 48 bits (12 hex characters) encode a Unix timestamp in milliseconds. This decoder tool automatically extracts and displays the timestamp in human-readable format when you paste a v1 or v7 UUID."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are UUIDs bad for database primary keys?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Random UUIDs (v4) cause poor B-tree index performance because new IDs are inserted at random positions, causing page splits and fragmentation. UUID v7 solves this by using timestamp-prefixed IDs that are naturally sequential, similar to auto-increment IDs but distributed. For more on this, see our post on Snowflake IDs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the UUID format?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A UUID is 128 bits (16 bytes) displayed as 32 hexadecimal characters in 5 groups separated by hyphens: 8-4-4-4-12. Example: 550e8400-e29b-41d4-a716-446655440000. The 13th character indicates the version (1-7), and the 17th character indicates the variant (8, 9, a, or b for RFC 9562)."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "UUID Generator & Decoder",
+      "item": "https://singhajit.com/tools/uuid-generator/"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/uuid-generator.css' | relative_url }}">
+{% include tool-ad-top.html %}
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="uuid-page-wrapper">
+  <div class="uuid-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-fingerprint"></i>
+        UUID Generator & Decoder
+      </h1>
+      <p class="tool-subtitle">Generate UUID v4 and v7, bulk generate, decode versions, and extract timestamps</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>UUID generator</strong> to create universally unique identifiers instantly. Generate <strong>UUID v4</strong> (random) or <strong>UUID v7</strong> (timestamp-based) with one click. Bulk generate up to 100 UUIDs, decode any UUID version, and validate format. 100% client-side, your data never leaves your browser.
+    </p>
+
+    <section class="uuid-generator-main">
+      <!-- Generator Section -->
+      <div class="generator-section">
+        <div class="section-header">
+          <label><i class="fas fa-plus-circle"></i> Generate UUID</label>
+        </div>
+
+        <!-- Row 1: Version + Generate + Options -->
+        <div class="generator-row">
+          <div class="version-selector">
+            <button id="v4-btn" class="version-btn active" data-version="4">
+              <span class="version-label">v4</span>
+              <span class="version-desc">Random</span>
+            </button>
+            <button id="v7-btn" class="version-btn" data-version="7">
+              <span class="version-label">v7</span>
+              <span class="version-desc">Timestamp</span>
+            </button>
+          </div>
+
+          <button id="generate-btn" class="btn-primary">
+            <i class="fas fa-sync-alt"></i>
+            Generate
+          </button>
+
+          <div class="format-options">
+            <label class="checkbox-label">
+              <input type="checkbox" id="uppercase-toggle">
+              <span>Uppercase</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="no-hyphens-toggle">
+              <span>No hyphens</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Single UUID Output -->
+        <div class="uuid-output-single" id="single-output">
+          <div class="uuid-display" id="uuid-display">
+            <span class="uuid-text" id="uuid-text">Click Generate to create a UUID</span>
+            <button class="btn-copy" id="copy-single-btn" title="Copy UUID">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="uuid-meta" id="uuid-meta"></div>
+        </div>
+      </div>
+
+      <!-- Bulk Generator Section -->
+      <div class="generator-section">
+        <div class="section-header">
+          <label><i class="fas fa-layer-group"></i> Bulk Generate</label>
+        </div>
+
+        <div class="bulk-row">
+          <select id="bulk-count">
+            <option value="5">5 UUIDs</option>
+            <option value="10" selected>10 UUIDs</option>
+            <option value="25">25 UUIDs</option>
+            <option value="50">50 UUIDs</option>
+            <option value="100">100 UUIDs</option>
+          </select>
+          <button id="bulk-btn" class="btn-primary">
+            <i class="fas fa-layer-group"></i>
+            Generate
+          </button>
+          <button class="btn-copy" id="copy-bulk-btn" title="Copy all UUIDs" style="display:none;">
+            <i class="fas fa-copy"></i> Copy All
+          </button>
+          <span id="bulk-count-label" class="bulk-count-label"></span>
+        </div>
+
+        <div id="bulk-output" style="display:none;">
+          <pre class="bulk-list" id="bulk-list"></pre>
+        </div>
+      </div>
+
+      <!-- Decoder Section -->
+      <div class="decoder-section">
+        <div class="section-header">
+          <label><i class="fas fa-search"></i> Decode & Validate UUID</label>
+        </div>
+        <div class="decoder-input-container">
+          <input
+            type="text"
+            id="decode-input"
+            placeholder="Paste a UUID to decode (e.g., 550e8400-e29b-41d4-a716-446655440000)"
+            spellcheck="false"
+          >
+          <button id="decode-btn" class="btn-primary">
+            <i class="fas fa-search"></i> Decode
+          </button>
+        </div>
+        <div id="decode-result" class="decode-result" style="display:none;"></div>
+      </div>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> UUID Version Comparison</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>UUID Versions</h4>
+          <table>
+            <tr><td><code>v1</code></td><td>Timestamp + MAC address</td></tr>
+            <tr><td><code>v3</code></td><td>MD5 hash of namespace + name</td></tr>
+            <tr><td><code>v4</code></td><td>Random (most widely used)</td></tr>
+            <tr><td><code>v5</code></td><td>SHA-1 hash of namespace + name</td></tr>
+            <tr><td><code>v7</code></td><td>Timestamp + random (new standard)</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>UUID v4 vs v7</h4>
+          <table>
+            <tr><td>Sortable</td><td>v4: No, v7: Yes (time-ordered)</td></tr>
+            <tr><td>DB perf</td><td>v4: Poor (random), v7: Great</td></tr>
+            <tr><td>Timestamp</td><td>v4: None, v7: Millisecond</td></tr>
+            <tr><td>Randomness</td><td>v4: 122 bits, v7: 74 bits</td></tr>
+            <tr><td>Best for</td><td>v4: General, v7: Primary keys</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    {% include tool-ad-mid.html %}
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> UUID Guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a UUID?</h2>
+          <p><strong>UUID (Universally Unique Identifier)</strong> is a 128-bit identifier standardized in <a href="https://datatracker.ietf.org/doc/html/rfc9562" target="_blank" rel="noopener">RFC 9562</a>. UUIDs are formatted as 32 hexadecimal digits in 5 groups separated by hyphens: <code>xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx</code>, where <code>M</code> is the version and <code>N</code> indicates the variant.</p>
+          <p>UUIDs are used everywhere: database primary keys, API resource identifiers, session tokens, file names, and distributed system IDs. They can be generated independently on any machine without coordination.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>UUID v4: Random</h2>
+          <p>UUID v4 is the most widely used version. It fills 122 of the 128 bits with cryptographically secure random data (6 bits are reserved for version and variant). The probability of generating two identical v4 UUIDs is astronomically low: you would need to generate about 2.71 quintillion UUIDs for a 50% collision chance.</p>
+          <p>UUID v4 is suitable for most use cases but has one drawback: random values cause fragmentation in B-tree database indexes. For database primary keys, consider UUID v7 instead.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>UUID v7: Timestamp-Based</h2>
+          <p>UUID v7 is the newest version, combining a <strong>48-bit Unix timestamp</strong> (millisecond precision) with random bits. This makes UUIDs both unique and chronologically sortable. Because new IDs are always greater than previous ones, they perform well as database primary keys without causing B-tree page splits.</p>
+          <p>UUID v7 is the recommended choice for new applications that need unique identifiers with natural time ordering. For more on time-sortable distributed IDs, see our post on <a href="/snowflake-id-guide/">How Snowflake IDs Work</a>.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>UUID vs Snowflake ID</h2>
+          <ul>
+            <li><strong>Size:</strong> UUID is 128 bits (36 characters with hyphens). Snowflake ID is 64 bits (up to 19 digits).</li>
+            <li><strong>Sortability:</strong> UUID v7 and Snowflake IDs are both time-sortable. UUID v4 is not.</li>
+            <li><strong>Database performance:</strong> Snowflake IDs are more compact and efficient as primary keys. UUID v7 is a good middle ground.</li>
+            <li><strong>Adoption:</strong> UUIDs are universally supported. Snowflake IDs require custom generation logic.</li>
+          </ul>
+          <p>Use our <a href="/tools/snowflake-decoder/">Snowflake ID Decoder</a> to decode Discord, Twitter, and Instagram IDs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> UUID Generator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a UUID?</h3>
+        <p>A <strong>UUID (Universally Unique Identifier)</strong> is a 128-bit identifier that is unique across space and time. It is displayed as 32 hex characters in 5 groups: <code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>. UUIDs are used as database primary keys, API identifiers, and distributed system IDs.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between UUID v4 and UUID v7?</h3>
+        <p><strong>UUID v4</strong> uses 122 random bits, making each UUID unique but not time-sortable. <strong>UUID v7</strong> combines a 48-bit timestamp with random bits, making UUIDs both unique and chronologically sortable. UUID v7 is better for database primary keys because sequential IDs improve index performance.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is a UUID the same as a GUID?</h3>
+        <p>Yes. <strong>GUID</strong> (Globally Unique Identifier) is Microsoft's term for UUID. They are the same 128-bit format. UUID is the standard term from RFC 9562. GUID is primarily used in .NET, SQL Server, and Windows APIs.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can two UUIDs ever be the same?</h3>
+        <p>Theoretically yes, but practically no. UUID v4 has 5.3 x 10<sup>36</sup> possible values. You would need to generate about 2.71 quintillion UUIDs for a 50% collision chance. UUID collisions do not happen in practice.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Which UUID version should I use?</h3>
+        <p>Use <strong>UUID v4</strong> for general-purpose unique identifiers. Use <strong>UUID v7</strong> for database primary keys, event IDs, or any case where time-ordering improves performance. UUID v7 is the recommended choice for new applications.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why are random UUIDs bad for databases?</h3>
+        <p>Random UUIDs (v4) cause poor B-tree index performance because new IDs insert at random positions, causing page splits and fragmentation. UUID v7 solves this with timestamp-prefixed IDs that are naturally sequential. See our <a href="/snowflake-id-guide/">Snowflake ID guide</a> for more on this topic.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I extract a timestamp from a UUID?</h3>
+        <p>UUID v1 and v7 contain embedded timestamps. Paste any UUID into the decoder above and it will automatically detect the version and extract the timestamp. For UUID v7, the first 48 bits encode Unix milliseconds.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is it safe to generate UUIDs online?</h3>
+        <p>Yes. This tool uses <code>crypto.getRandomValues()</code> for cryptographically secure random number generation. All UUIDs are generated entirely in your browser. No data is sent to any server.</p>
+      </div>
+    </section>
+
+    {% include tool-ad-bottom.html %}
+  </div>
+</div>
+
+{% include tool-hide-empty-ads.html %}
+
+<script src="{{ '/assets/js/uuid-generator.js' | relative_url }}"></script>
+</div>
+
+</div>

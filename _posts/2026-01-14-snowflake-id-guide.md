@@ -211,7 +211,7 @@ This is incredibly useful for:
 - Time-based sharding and partitioning
 - Rate limiting by creation time
 
-**Quick tip:** You can also use our [Snowflake ID Decoder tool](/tools/snowflake-decoder/) to decode any Discord, Twitter, or Instagram ID instantly without writing code.
+**Quick tip:** You can also use [Snowflake ID Decoder tool](/tools/snowflake-decoder/) to decode any Discord, Twitter, or Instagram ID instantly without writing code.
 
 ## Snowflake ID Generation in Java
 
@@ -323,6 +323,9 @@ Here's a direct comparison:
 - Working with systems that expect UUIDs
 - Simpler setup is more important than performance
 - You're using UUID-native databases like PostgreSQL
+
+> **Need UUIDs?** Use [UUID Generator](/tools/uuid-generator/) to generate UUID v4 (random) or UUID v7 (timestamp-based, time-sortable like Snowflake IDs but in UUID format).
+{: .box-note}
 
 ## The Clock Skew Problem
 
@@ -556,6 +559,6 @@ Snowflake IDs aren't the answer for every system. But when you're building somet
 
 ---
 
-*Want to learn more about distributed systems? Check out [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns, [Long Polling Explained](/long-polling-explained/) for real-time communication, and [Kubernetes Architecture Explained](/kubernetes-architecture-explained/) for container orchestration at scale.*
+*Want to learn more about distributed systems? Check out [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns, [Long Polling Explained](/long-polling-explained/) for real-time communication, and [Kubernetes Architecture Explained](/kubernetes-architecture-explained/) for container orchestration at scale. Try our [Snowflake ID Decoder](/tools/snowflake-decoder/) and [UUID Generator](/tools/uuid-generator/) tools.*
 
 *References: [Twitter Snowflake (GitHub Archive)](https://github.com/twitter-archive/snowflake), [Discord Developer Docs](https://discord.com/developers/docs/reference#snowflakes), [Instagram Engineering Blog](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c)*

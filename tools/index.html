@@ -3,8 +3,8 @@ layout: default
 title: "Developer Tools"
 subtitle: "Free online tools for developers"
 seo: true
-description: "Free online developer tools including JSON validator, YAML validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. Validate JSON and YAML online, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs with these browser-based utilities. No signup required, 100% client-side."
-keywords: "developer tools, online tools, json validator, validate json online, json formatter, yaml validator, validate yaml online, yaml formatter, yaml to json, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, url encoder, url decoder, percent encoding, urlencode, dev tools, programming tools, code tools, web developer tools, free developer tools"
+description: "Free online developer tools including JSON validator, YAML validator, JWT decoder, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. Validate JSON and YAML online, decode JWT tokens, test regex patterns, build cron schedules, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs with these browser-based utilities. No signup required, 100% client-side."
+keywords: "developer tools, online tools, json validator, validate json online, json formatter, yaml validator, validate yaml online, yaml formatter, yaml to json, jwt decoder, decode jwt token, jwt debugger, jwt inspector, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, url encoder, url decoder, percent encoding, urlencode, dev tools, programming tools, code tools, web developer tools, free developer tools"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
 permalink: /tools/
@@ -22,7 +22,7 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Developer Tools",
-  "description": "Free online developer tools including JSON validator, YAML validator, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. All tools run 100% in your browser with no data sent to servers.",
+  "description": "Free online developer tools including JSON validator, YAML validator, JWT decoder, regex tester, cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, and more. All tools run 100% in your browser with no data sent to servers.",
   "url": "https://singhajit.com/tools/",
   "author": {
     "@type": "Person",
@@ -120,6 +120,19 @@ hide-explore-posts: true
     },
     {
       "@type": "WebApplication",
+      "name": "JWT Decoder & Inspector",
+      "description": "Decode JWT tokens instantly. Inspect header, payload, and signature. View claims with human-readable timestamps and check expiration status.",
+      "url": "https://singhajit.com/tools/jwt-decoder/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "WebApplication",
       "name": "Snowflake ID Decoder",
       "description": "Decode Discord, Twitter, and Instagram Snowflake IDs to timestamps. Visualize the 64-bit structure and generate sample IDs.",
       "url": "https://singhajit.com/tools/snowflake-decoder/",
@@ -171,7 +184,7 @@ hide-explore-posts: true
       }
     }
   ],
-  "numberOfItems": 9,
+  "numberOfItems": 10,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -206,24 +219,30 @@ hide-explore-posts: true
     {
       "@type": "ListItem",
       "position": 6,
+      "url": "https://singhajit.com/tools/jwt-decoder/",
+      "name": "JWT Decoder & Inspector"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
       "url": "https://singhajit.com/tools/snowflake-decoder/",
       "name": "Snowflake ID Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "url": "https://singhajit.com/tools/epoch-converter/",
       "name": "Epoch Timestamp Converter"
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
       "url": "https://singhajit.com/tools/sla-calculator/",
       "name": "SLA Uptime Calculator"
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "url": "https://singhajit.com/tools/url-encoder/",
       "name": "URL Encoder & Decoder"
     }
@@ -353,6 +372,25 @@ hide-explore-posts: true
           <span class="feature-tag"><i class="fas fa-lock"></i> Encoder</span>
           <span class="feature-tag"><i class="fas fa-unlock"></i> Decoder</span>
           <span class="feature-tag"><i class="fas fa-globe"></i> UTF-8</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- JWT Decoder & Inspector Tool -->
+    <a href="{{ '/tools/jwt-decoder/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'JWT Decoder'});">
+      <div class="tool-icon">
+        <i class="fas fa-key"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">JWT Decoder & Inspector</h2>
+        <p class="tool-description">Decode JWT tokens instantly. Inspect header, payload, and signature with color-coded visualization. Check expiration and view claims.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-unlock-alt"></i> Decoder</span>
+          <span class="feature-tag"><i class="fas fa-clock"></i> Expiration</span>
+          <span class="feature-tag"><i class="fas fa-list-alt"></i> Claims</span>
         </div>
       </div>
       <div class="tool-arrow">

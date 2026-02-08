@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "SLA Uptime Calculator | Downtime Calculator & Error Budget"
+title: "Uptime Calculator | Downtime Calculator & SLA Calculator"
 subtitle: "Calculate allowed downtime for any SLA uptime percentage"
 seo: true
-description: "Free SLA uptime calculator. Convert uptime percentages to allowed downtime per day, week, month, and year. Calculate error budgets, composite SLAs, and understand the nines (99.9%, 99.99%, 99.999%). Essential tool for SREs and DevOps engineers. 100% client-side."
-keywords: "sla calculator, uptime calculator, downtime calculator, 99.9 uptime, 99.99 uptime, nines calculator, error budget calculator, sla downtime, availability calculator, sre tools, devops calculator, uptime percentage, service level agreement calculator, five nines, four nines, three nines"
+description: "Free uptime calculator and downtime calculator. Calculate downtime percentage for any SLA (99.5%, 99.9%, 99.99%). Convert uptime to allowed downtime per day, week, month, and year. Learn how to calculate downtime percentage. Essential for SREs and DevOps."
+keywords: "uptime calculator, downtime calculator, sla calculator, how to calculate downtime percentage, calculate downtime, 99.5 uptime, 99.5 sla downtime, sla 99.5 downtime, 99.5 uptime in hours, 99.9 uptime, 99.99 uptime, nines calculator, error budget calculator, sla downtime, availability calculator, sre tools, devops calculator, uptime percentage, service level agreement calculator, five nines, four nines, three nines"
 thumbnail: /assets/img/tools/sla-calculator-thumbnail.png
 share-img: /assets/img/tools/sla-calculator-thumbnail.png
 permalink: /tools/sla-calculator/
@@ -22,8 +22,8 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "SLA Uptime Calculator",
-  "alternateName": ["Uptime Calculator", "Downtime Calculator", "Nines Calculator", "Error Budget Calculator", "SLA Downtime Calculator", "Availability Calculator", "99.9 Uptime Calculator"],
-  "description": "Free SLA uptime calculator. Convert uptime percentages to allowed downtime per day, week, month, and year. Calculate error budgets and composite SLAs.",
+  "alternateName": ["Downtime Calculator", "Uptime Calculator", "99.5 Uptime Calculator", "SLA Calculator", "Nines Calculator", "Error Budget Calculator", "SLA Downtime Calculator", "Availability Calculator", "99.9 Uptime Calculator"],
+  "description": "Free uptime calculator and downtime calculator. Calculate downtime percentage for any SLA (99.5%, 99.9%, 99.99%). Convert uptime to allowed downtime per day, week, month, and year. Learn how to calculate downtime percentage.",
   "url": "https://singhajit.com/tools/sla-calculator/",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
@@ -40,7 +40,7 @@ hide-explore-posts: true
   "featureList": [
     "Convert uptime percentage to allowed downtime",
     "Calculate downtime per day, week, month, quarter, year",
-    "Quick presets for common SLA tiers (99%, 99.9%, 99.99%, 99.999%)",
+    "Quick presets for common SLA tiers (99%, 99.5%, 99.9%, 99.99%, 99.999%)",
     "Nines classification (two nines, three nines, etc.)",
     "Interactive reference table",
     "Copy results to clipboard",
@@ -52,7 +52,7 @@ hide-explore-posts: true
     "name": "SLA Uptime Reference",
     "text": "SLA uptime is measured in 'nines'. Three nines (99.9%) allows 8.76 hours downtime per year. Four nines (99.99%) allows 52.6 minutes per year. Five nines (99.999%) allows only 5.26 minutes per year."
   },
-  "keywords": "sla calculator, uptime calculator, downtime calculator, 99.9 uptime, nines calculator, error budget"
+  "keywords": "uptime calculator, downtime calculator, sla calculator, how to calculate downtime percentage, calculate downtime, 99.5 uptime, 99.5 sla downtime, sla 99.5 downtime, 99.5 uptime in hours, 99.9 uptime, nines calculator, error budget"
 }
 </script>
 
@@ -62,7 +62,7 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "How to Calculate SLA Downtime",
-  "description": "Learn how to calculate allowed downtime for any SLA uptime percentage using this free calculator.",
+  "description": "Learn how to calculate downtime percentage and allowed downtime for any SLA uptime percentage using this free calculator.",
   "step": [
     {
       "@type": "HowToStep",
@@ -102,6 +102,30 @@ hide-explore-posts: true
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "99.9% uptime (three nines) means your service can be down for a maximum of 8 hours and 45 minutes per year, or about 43 minutes per month. This is a common SLA target for many web services and APIs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate downtime percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To calculate downtime percentage, subtract your uptime percentage from 100%. For example, if you have 99.5% uptime, your downtime percentage is 100% - 99.5% = 0.5%. Then multiply this percentage by the total time period to get actual downtime. For a year: 0.5% × 8,760 hours = 43.8 hours of allowed downtime. Use this calculator to instantly convert any uptime percentage to downtime."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 99.5% uptime in hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "99.5% uptime allows approximately 43.8 hours of downtime per year, which equals about 3.6 hours per month, 1.2 hours per week, or 10.3 minutes per day. This is a common SLA target for many services, offering a balance between reliability and cost. Use the calculator and select 99.5% to see the exact breakdown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much downtime is allowed for 99.5% SLA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With a 99.5% SLA, you're allowed 0.5% downtime, which translates to approximately 43.8 hours per year, 3.6 hours per month, 1.2 hours per week, or 10.3 minutes per day. This is often called 'two and a half nines' and is a popular choice for services that need good availability without the extreme cost of four or five nines."
       }
     },
     {
@@ -197,11 +221,11 @@ hide-explore-posts: true
         <i class="fas fa-tachometer-alt"></i>
         SLA Uptime Calculator
       </h1>
-      <p class="tool-subtitle">Calculate allowed downtime for any SLA uptime percentage</p>
+      <p class="tool-subtitle">Calculate downtime percentage and uptime for any SLA</p>
     </header>
 
     <p class="tool-intro">
-      Use this free <strong>SLA calculator</strong> to convert uptime percentages to allowed <strong>downtime</strong> per day, week, month, and year. Understand what "three nines" or "five nines" really means for your service. Essential for <strong>SREs</strong> and <strong>DevOps</strong> engineers. 100% client-side. Your data never leaves your browser.
+      Use this free <strong>uptime calculator</strong> and <strong>downtime calculator</strong> to convert any SLA percentage (99.5%, 99.9%, 99.99%) to allowed downtime per day, week, month, and year. Learn how to calculate downtime percentage and understand what "three nines" or "five nines" really means for your service. Essential for <strong>SREs</strong> and <strong>DevOps</strong> engineers. 100% client-side. Your data never leaves your browser.
     </p>
     {% include tool-ad-top.html %}
 
@@ -225,6 +249,7 @@ hide-explore-posts: true
           <span class="preset-label">Quick presets:</span>
           <div class="preset-options">
             <button class="preset-btn" data-value="99">99%<span class="preset-nines">2 nines</span></button>
+            <button class="preset-btn" data-value="99.5">99.5%<span class="preset-nines">2½ nines</span></button>
             <button class="preset-btn" data-value="99.9">99.9%<span class="preset-nines">3 nines</span></button>
             <button class="preset-btn" data-value="99.95">99.95%<span class="preset-nines">3½ nines</span></button>
             <button class="preset-btn" data-value="99.99">99.99%<span class="preset-nines">4 nines</span></button>
@@ -354,6 +379,21 @@ hide-explore-posts: true
         </article>
 
         <article class="guide-article">
+          <h2>How to Calculate Downtime Percentage</h2>
+          <p>Calculating downtime percentage is straightforward once you understand the relationship between uptime and downtime:</p>
+          <ol>
+            <li><strong>Start with your uptime percentage:</strong> For example, 99.5% uptime</li>
+            <li><strong>Calculate downtime percentage:</strong> Downtime % = 100% - Uptime % = 100% - 99.5% = 0.5%</li>
+            <li><strong>Convert to actual time:</strong> Multiply the downtime percentage by the total time period</li>
+            <li><strong>For a year (365 days):</strong> 0.5% × 365 days × 24 hours = 43.8 hours of downtime allowed per year</li>
+            <li><strong>For a month (30 days):</strong> 0.5% × 30 days × 24 hours = 3.6 hours of downtime allowed per month</li>
+          </ol>
+          <p><strong>Formula:</strong> Allowed Downtime = (100% - Uptime%) × Total Time Period</p>
+          <p>For example, with 99.5% uptime over a year: (100% - 99.5%) × 8,760 hours = 0.5% × 8,760 = 43.8 hours per year.</p>
+          <p>Use this calculator above to instantly convert any uptime percentage to downtime for different time periods (day, week, month, year).</p>
+        </article>
+
+        <article class="guide-article">
           <h2>The "Nines" Explained</h2>
           <p>In the industry, we refer to uptime levels by counting the number of 9s:</p>
           <ul>
@@ -386,6 +426,21 @@ hide-explore-posts: true
       <div class="faq-item">
         <h3>What does 99.9% uptime mean?</h3>
         <p><strong>99.9% uptime</strong> (three nines) allows approximately 8 hours and 45 minutes of downtime per year, or about 43 minutes per month. This is a common SLA target for web services, APIs, and SaaS products.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I calculate downtime percentage?</h3>
+        <p>To calculate downtime percentage, subtract your uptime percentage from 100%. For example, if you have 99.5% uptime, your downtime percentage is 100% - 99.5% = 0.5%. Then multiply this percentage by the total time period to get actual downtime. For a year: 0.5% × 8,760 hours = 43.8 hours of allowed downtime. Use this calculator above to instantly convert any uptime percentage to downtime.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is 99.5% uptime in hours?</h3>
+        <p><strong>99.5% uptime</strong> allows approximately 43.8 hours of downtime per year, which equals about 3.6 hours per month, 1.2 hours per week, or 10.3 minutes per day. This is a common SLA target for many services, offering a balance between reliability and cost. Use the calculator above and select 99.5% to see the exact breakdown.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How much downtime is allowed for 99.5% SLA?</h3>
+        <p>With a <strong>99.5% SLA</strong>, you're allowed 0.5% downtime, which translates to approximately 43.8 hours per year, 3.6 hours per month, 1.2 hours per week, or 10.3 minutes per day. This is often called "two and a half nines" and is a popular choice for services that need good availability without the extreme cost of four or five nines.</p>
       </div>
 
       <div class="faq-item">

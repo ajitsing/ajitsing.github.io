@@ -342,7 +342,7 @@ spec:
 
         <article class="guide-article">
           <h2>YAML vs JSON</h2>
-          <p>YAML is actually a superset of JSON — every valid JSON document is also valid YAML. Key differences include:</p>
+          <p>YAML is actually a superset of JSON. Every valid JSON document is also valid YAML. Key differences include:</p>
           <ul>
             <li><strong>Readability:</strong> YAML uses indentation instead of braces, making deeply nested structures more readable.</li>
             <li><strong>Comments:</strong> YAML supports comments with <code>#</code>, while JSON does not support comments at all.</li>
@@ -410,7 +410,7 @@ spec:
 
       <div class="faq-item">
         <h3>What is the difference between YAML and JSON?</h3>
-        <p>YAML uses indentation for structure while JSON uses braces and brackets. YAML supports <strong>comments</strong> (with #), multi-line strings, and anchors/aliases. JSON is stricter but more widely supported. YAML is a superset of JSON — every valid JSON is also valid YAML.</p>
+        <p>YAML uses indentation for structure while JSON uses braces and brackets. YAML supports <strong>comments</strong> (with #), multi-line strings, and anchors/aliases. JSON is stricter but more widely supported. YAML is a superset of JSON, so every valid JSON is also valid YAML.</p>
       </div>
 
       <div class="faq-item">
@@ -420,7 +420,7 @@ spec:
 
       <div class="faq-item">
         <h3>Can I validate Kubernetes YAML files?</h3>
-        <p>Yes, this tool validates the YAML syntax of any Kubernetes manifest including Deployments, Services, ConfigMaps, Pods, Ingresses, and all other Kubernetes resources. It checks YAML syntax correctness — for Kubernetes-specific schema validation, use <code>kubectl --dry-run</code>.</p>
+        <p>Yes, this tool validates the YAML syntax of any Kubernetes manifest including Deployments, Services, ConfigMaps, Pods, Ingresses, and all other Kubernetes resources. It checks YAML syntax correctness. For Kubernetes-specific schema validation, use <code>kubectl --dry-run</code>.</p>
       </div>
     </section>
 

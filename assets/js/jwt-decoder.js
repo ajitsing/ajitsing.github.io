@@ -21,13 +21,13 @@
   var SAMPLE_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFiYzEyMyJ9.eyJzdWIiOiJ1c2VyXzEyMzQ1Njc4OTAiLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5AZXhhbXBsZS5jb20iLCJyb2xlIjoiYWRtaW4iLCJpc3MiOiJodHRwczovL2F1dGguZXhhbXBsZS5jb20iLCJhdWQiOiJodHRwczovL2FwaS5leGFtcGxlLmNvbSIsImlhdCI6MTcwNzM1MDQwMCwiZXhwIjoxNzA3MzU0MDAwLCJuYmYiOjE3MDczNTA0MDAsImp0aSI6InRva2VuXzk4NzY1NDMyMTAifQ.dummysignaturevalue';
 
   var STANDARD_CLAIMS = {
-    iss: 'Issuer — who created the token',
-    sub: 'Subject — user identifier',
-    aud: 'Audience — intended recipient',
+    iss: 'Issuer: who created the token',
+    sub: 'Subject: user identifier',
+    aud: 'Audience: intended recipient',
     exp: 'Expiration time',
     nbf: 'Not valid before',
     iat: 'Issued at',
-    jti: 'JWT ID — unique token identifier',
+    jti: 'JWT ID: unique token identifier',
     name: 'Full name',
     email: 'Email address',
     role: 'User role',
@@ -173,7 +173,7 @@
   function showStatus(payload) {
     if (!payload.exp) {
       elements.tokenStatus.innerHTML =
-        '<span class="status-badge no-exp"><i class="fas fa-exclamation-triangle"></i> No expiration claim (exp) — token never expires</span>';
+        '<span class="status-badge no-exp"><i class="fas fa-exclamation-triangle"></i> No expiration claim (exp), token never expires</span>';
       return;
     }
 
@@ -199,7 +199,7 @@
       else remStr = Math.floor(remaining / 86400) + ' days';
 
       elements.tokenStatus.innerHTML =
-        '<span class="status-badge valid"><i class="fas fa-check-circle"></i> Valid — expires in ' + remStr + ' (' + formatTimestamp(exp) + ')</span>';
+        '<span class="status-badge valid"><i class="fas fa-check-circle"></i> Valid, expires in ' + remStr + ' (' + formatTimestamp(exp) + ')</span>';
     }
   }
 
@@ -260,7 +260,7 @@
 
     var parts = token.split('.');
     if (parts.length !== 3) {
-      showError('Invalid JWT — expected 3 parts (header.payload.signature), found ' + parts.length);
+      showError('Invalid JWT: expected 3 parts (header.payload.signature), found ' + parts.length);
       currentHeader = null;
       currentPayload = null;
       return;
@@ -272,7 +272,7 @@
       var headerJson = base64UrlDecode(parts[0]);
       header = JSON.parse(headerJson);
     } catch (e) {
-      showError('Failed to decode header — invalid Base64URL or JSON');
+      showError('Failed to decode header: invalid Base64URL or JSON');
       return;
     }
 
@@ -280,7 +280,7 @@
       var payloadJson = base64UrlDecode(parts[1]);
       payload = JSON.parse(payloadJson);
     } catch (e) {
-      showError('Failed to decode payload — invalid Base64URL or JSON');
+      showError('Failed to decode payload: invalid Base64URL or JSON');
       return;
     }
 

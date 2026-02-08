@@ -1,0 +1,214 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Main background gradient - deep blue/dark -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#0d1033;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#0a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Globe gradient -->
+    <radialGradient id="globeGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#0f2847;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#071428;stop-opacity:0.3" />
+    </radialGradient>
+    
+    <!-- Globe glow -->
+    <radialGradient id="globeGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#4a90d9;stop-opacity:0.3" />
+      <stop offset="40%" style="stop-color:#2d5a8a;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0a1628;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Teal accent glow -->
+    <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#14b8a6;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#0d5a52;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Orange/gold gradient for date -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="nodeGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Circuit board patterns - Left side -->
+  <g stroke="#3b82f6" stroke-width="1" fill="none" opacity="0.3">
+    <!-- Left circuits -->
+    <path d="M 0 200 L 80 200 L 100 180 L 150 180" />
+    <path d="M 0 250 L 60 250 L 80 270 L 120 270" />
+    <path d="M 0 300 L 100 300 L 120 280 L 180 280" />
+    <path d="M 0 350 L 70 350 L 90 370 L 140 370" />
+    <path d="M 0 400 L 90 400 L 110 420 L 160 420" />
+    <path d="M 0 450 L 50 450 L 70 430 L 130 430" />
+    <!-- Circuit nodes -->
+    <circle cx="150" cy="180" r="4" fill="#3b82f6"/>
+    <circle cx="120" cy="270" r="3" fill="#60a5fa"/>
+    <circle cx="180" cy="280" r="4" fill="#3b82f6"/>
+    <circle cx="140" cy="370" r="3" fill="#60a5fa"/>
+    <circle cx="160" cy="420" r="4" fill="#3b82f6"/>
+    <circle cx="130" cy="430" r="3" fill="#60a5fa"/>
+  </g>
+  
+  <!-- Circuit board patterns - Right side -->
+  <g stroke="#3b82f6" stroke-width="1" fill="none" opacity="0.3">
+    <path d="M 1200 200 L 1120 200 L 1100 180 L 1050 180" />
+    <path d="M 1200 250 L 1140 250 L 1120 270 L 1080 270" />
+    <path d="M 1200 300 L 1100 300 L 1080 280 L 1020 280" />
+    <path d="M 1200 350 L 1130 350 L 1110 370 L 1060 370" />
+    <path d="M 1200 400 L 1110 400 L 1090 420 L 1040 420" />
+    <path d="M 1200 450 L 1150 450 L 1130 430 L 1070 430" />
+    <!-- Circuit nodes -->
+    <circle cx="1050" cy="180" r="4" fill="#3b82f6"/>
+    <circle cx="1080" cy="270" r="3" fill="#60a5fa"/>
+    <circle cx="1020" cy="280" r="4" fill="#3b82f6"/>
+    <circle cx="1060" cy="370" r="3" fill="#60a5fa"/>
+    <circle cx="1040" cy="420" r="4" fill="#3b82f6"/>
+    <circle cx="1070" cy="430" r="3" fill="#60a5fa"/>
+  </g>
+  
+  <!-- Data streams - Left side -->
+  <g opacity="0.5">
+    <path d="M 0 280 Q 150 300 250 315" stroke="url(#goldGradient)" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M 0 320 Q 180 340 280 315" stroke="#f59e0b" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M 0 360 Q 200 370 300 315" stroke="#14b8a6" stroke-width="1" fill="none" opacity="0.3"/>
+  </g>
+  
+  <!-- Data streams - Right side -->
+  <g opacity="0.5">
+    <path d="M 1200 280 Q 1050 300 950 315" stroke="url(#goldGradient)" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M 1200 320 Q 1020 340 920 315" stroke="#f59e0b" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M 1200 360 Q 1000 370 900 315" stroke="#14b8a6" stroke-width="1" fill="none" opacity="0.3"/>
+  </g>
+  
+  <!-- Globe outer glow -->
+  <ellipse cx="600" cy="315" rx="280" ry="280" fill="url(#globeGlow)"/>
+  
+  <!-- Teal accent glow on globe -->
+  <ellipse cx="700" cy="250" rx="150" ry="150" fill="url(#tealGlow)"/>
+  
+  <!-- Globe base circle -->
+  <circle cx="600" cy="315" r="200" fill="url(#globeGradient)" stroke="#2d5a8a" stroke-width="1" opacity="0.8"/>
+  
+  <!-- Globe grid lines - Horizontal (latitude) -->
+  <g stroke="#4a90d9" stroke-width="0.8" fill="none" opacity="0.4">
+    <ellipse cx="600" cy="315" rx="200" ry="40"/>
+    <ellipse cx="600" cy="315" rx="200" ry="100"/>
+    <ellipse cx="600" cy="315" rx="200" ry="160"/>
+    <ellipse cx="600" cy="250" rx="170" ry="30"/>
+    <ellipse cx="600" cy="380" rx="170" ry="30"/>
+  </g>
+  
+  <!-- Globe grid lines - Vertical (longitude) -->
+  <g stroke="#4a90d9" stroke-width="0.8" fill="none" opacity="0.4">
+    <ellipse cx="600" cy="315" rx="40" ry="200"/>
+    <ellipse cx="600" cy="315" rx="100" ry="200"/>
+    <ellipse cx="600" cy="315" rx="160" ry="200"/>
+  </g>
+  
+  <!-- Network nodes on globe -->
+  <g filter="url(#nodeGlow)">
+    <!-- Main nodes - blue and teal color scheme -->
+    <circle cx="520" cy="250" r="5" fill="#60a5fa"/>
+    <circle cx="680" cy="260" r="4" fill="#22d3d1"/>
+    <circle cx="550" cy="350" r="4" fill="#60a5fa"/>
+    <circle cx="650" cy="380" r="5" fill="#14b8a6"/>
+    <circle cx="480" cy="310" r="3" fill="#38bdf8"/>
+    <circle cx="720" cy="320" r="4" fill="#60a5fa"/>
+    <circle cx="600" cy="200" r="4" fill="#22d3d1"/>
+    <circle cx="590" cy="430" r="3" fill="#60a5fa"/>
+    <circle cx="530" cy="280" r="3" fill="#38bdf8"/>
+    <circle cx="670" cy="340" r="3" fill="#14b8a6"/>
+    <circle cx="450" cy="350" r="3" fill="#60a5fa"/>
+    <circle cx="750" cy="280" r="3" fill="#22d3d1"/>
+  </g>
+  
+  <!-- Network connection lines -->
+  <g stroke="#60a5fa" stroke-width="0.8" opacity="0.5">
+    <line x1="520" y1="250" x2="680" y2="260"/>
+    <line x1="520" y1="250" x2="550" y2="350"/>
+    <line x1="680" y1="260" x2="650" y2="380"/>
+    <line x1="550" y1="350" x2="650" y2="380"/>
+    <line x1="480" y1="310" x2="520" y2="250"/>
+    <line x1="720" y1="320" x2="680" y2="260"/>
+    <line x1="600" y1="200" x2="520" y2="250"/>
+    <line x1="600" y1="200" x2="680" y2="260"/>
+    <line x1="590" y1="430" x2="550" y2="350"/>
+    <line x1="590" y1="430" x2="650" y2="380"/>
+    <line x1="530" y1="280" x2="520" y2="250"/>
+    <line x1="530" y1="280" x2="550" y2="350"/>
+    <line x1="670" y1="340" x2="680" y2="260"/>
+    <line x1="670" y1="340" x2="650" y2="380"/>
+    <line x1="450" y1="350" x2="480" y2="310"/>
+    <line x1="750" y1="280" x2="720" y2="320"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <g fill="#60a5fa" opacity="0.6">
+    <circle cx="200" cy="150" r="2"/>
+    <circle cx="350" cy="100" r="1.5"/>
+    <circle cx="150" cy="500" r="2"/>
+    <circle cx="280" cy="550" r="1.5"/>
+    <circle cx="1000" cy="150" r="2"/>
+    <circle cx="850" cy="100" r="1.5"/>
+    <circle cx="1050" cy="500" r="2"/>
+    <circle cx="920" cy="550" r="1.5"/>
+  </g>
+  
+  <!-- Teal accent particles -->
+  <g fill="#14b8a6" opacity="0.5">
+    <circle cx="250" cy="180" r="1.5"/>
+    <circle cx="180" cy="420" r="2"/>
+    <circle cx="950" cy="180" r="1.5"/>
+    <circle cx="1020" cy="420" r="2"/>
+  </g>
+  
+  <!-- Main Title: DEV WEEKLY -->
+  <text x="600" y="290" font-family="Arial Black, Impact, sans-serif" font-size="95" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="8" filter="url(#textGlow)">DEV WEEKLY</text>
+  
+  <!-- Date: FEB 2-8, 2026 -->
+  <text x="600" y="380" font-family="Arial Black, Impact, sans-serif" font-size="50" font-weight="900" fill="url(#goldGradient)" text-anchor="middle" letter-spacing="4" filter="url(#textGlow)">FEB 2-8, 2026</text>
+  
+  <!-- Binary/code decorations -->
+  <g font-family="monospace" font-size="10" fill="#3b82f6" opacity="0.2">
+    <text x="50" y="150">01101001</text>
+    <text x="30" y="170">10110010</text>
+    <text x="60" y="190">01001101</text>
+    <text x="1080" y="150">10010110</text>
+    <text x="1100" y="170">01101001</text>
+    <text x="1070" y="190">11010010</text>
+    <text x="40" y="480">01101001</text>
+    <text x="1090" y="480">10010110</text>
+  </g>
+</svg>

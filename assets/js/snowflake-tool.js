@@ -53,8 +53,8 @@
 
   const exampleBtns = document.querySelectorAll('.example-btn');
 
-  let currentPlatform = 'discord';
-  let currentEpoch = EPOCHS.discord;
+  let currentPlatform = 'twitter';
+  let currentEpoch = EPOCHS.twitter;
 
   function init() {
     const now = new Date();

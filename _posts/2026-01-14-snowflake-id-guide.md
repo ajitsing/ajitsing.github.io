@@ -160,7 +160,7 @@ The exact length depends on when the ID was created. Older accounts have shorter
 One of the most useful features of Snowflake IDs is that you can extract the creation time just by looking at the ID. No database lookup required.
 
 <div style="background: #f5f0e8; border: 2px solid #d6cfc4; border-radius: 10px; padding: 16px 20px; margin: 20px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-  <span style="color: #292524;"><i class="fas fa-snowflake" style="margin-right: 8px; color: #78716c;"></i><strong>Snowflake ID Decoder</strong> — Decode Discord, Twitter & Instagram IDs instantly</span>
+  <span style="color: #292524;"><i class="fas fa-snowflake" style="margin-right: 8px; color: #78716c;"></i><strong>Snowflake ID Decoder</strong> — <a href="/tools/snowflake-decoder/" style="color: #292524; text-decoration: underline;">Convert Twitter Snowflake IDs to Date</a> and decode Discord & Instagram IDs instantly</span>
   <a href="/tools/snowflake-decoder/" style="padding: 8px 16px; background: #292524; color: #fef3c7; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">Try it →</a>
 </div>
 

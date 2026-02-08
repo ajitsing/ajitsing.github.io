@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Snowflake ID Decoder | Discord, Twitter & Instagram ID to Timestamp"
+title: "Twitter Snowflake ID to Date Decoder"
 subtitle: "Decode Snowflake IDs to timestamps and understand their bit structure"
 seo: true
-description: "Free Snowflake ID decoder tool. Decode Discord IDs, Twitter IDs, and Instagram IDs to timestamps instantly. Generate sample Snowflake IDs and visualize the 64-bit structure. Learn how distributed ID generation works."
-keywords: "snowflake id decoder, discord id to timestamp, twitter id decoder, decode snowflake id, discord id decoder, instagram id decoder, snowflake timestamp, discord snowflake, twitter snowflake, id generator, distributed id"
+description: "Free online Twitter Snowflake ID decoder. Convert any tweet ID or Twitter snowflake ID to date and timestamp instantly. Also supports Discord and Instagram IDs. Decode snowflake ID 1529877576591609861 and more."
+keywords: "twitter snowflake id to date, twitter snowflake decoder, convert twitter snowflake id to date, twitter snowflake id decoder online, twitter snowflake id to timestamp converter, twitter snowflake id to timestamp calculator, decode twitter snowflake id, snowflake id decoder, discord id decoder, instagram id decoder"
 thumbnail: /assets/img/tools/snowflake-decoder-thumbnail.png
 share-img: /assets/img/tools/snowflake-decoder-thumbnail.png
 permalink: /tools/snowflake-decoder/
@@ -21,8 +21,8 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Snowflake ID Decoder",
-  "alternateName": ["Discord ID Decoder", "Twitter ID Decoder", "Snowflake Timestamp Decoder", "Discord ID to Timestamp", "Instagram ID Decoder", "Snowflake ID Generator"],
-  "description": "Free Snowflake ID decoder tool. Decode Discord IDs, Twitter IDs, and Instagram IDs to timestamps instantly. Generate sample Snowflake IDs and visualize the 64-bit structure.",
+  "alternateName": ["Twitter Snowflake ID to Date Decoder", "Twitter ID Decoder", "Twitter Snowflake Decoder", "Convert Twitter Snowflake ID to Date", "Discord ID Decoder", "Snowflake Timestamp Decoder", "Discord ID to Timestamp", "Instagram ID Decoder", "Snowflake ID Generator"],
+  "description": "Free online Twitter Snowflake ID decoder. Convert any tweet ID or Twitter snowflake ID to date and timestamp instantly. Also supports Discord and Instagram IDs. Generate sample Snowflake IDs and visualize the 64-bit structure.",
   "url": "https://singhajit.com/tools/snowflake-decoder/",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
@@ -37,8 +37,9 @@ hide-explore-posts: true
     "url": "https://singhajit.com"
   },
   "featureList": [
-    "Decode Discord Snowflake IDs to timestamps",
     "Decode Twitter/X Snowflake IDs to timestamps",
+    "Convert Twitter tweet IDs to date and time",
+    "Decode Discord Snowflake IDs to timestamps",
     "Decode Instagram IDs to timestamps",
     "Visual bit structure breakdown",
     "Generate sample Snowflake IDs",
@@ -53,7 +54,7 @@ hide-explore-posts: true
     "name": "Snowflake ID Reference",
     "text": "Snowflake IDs are 64-bit unique identifiers composed of: timestamp (41 bits), machine/datacenter ID (10 bits), and sequence number (12 bits). They enable distributed ID generation without coordination."
   },
-  "keywords": "snowflake id decoder, discord id to timestamp, twitter id decoder, decode snowflake id, instagram id decoder"
+  "keywords": "twitter snowflake id to date, twitter snowflake decoder, convert twitter snowflake id to date, twitter snowflake id decoder online, twitter snowflake id to timestamp converter, twitter snowflake id to timestamp calculator, decode twitter snowflake id, snowflake id decoder, discord id decoder, instagram id decoder"
 }
 </script>
 
@@ -62,19 +63,19 @@ hide-explore-posts: true
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "How to Decode a Snowflake ID",
-  "description": "Learn how to decode Discord, Twitter, or Instagram Snowflake IDs to extract timestamps and understand their structure.",
+  "description": "Learn how to decode Twitter/X, Discord, or Instagram Snowflake IDs to extract timestamps and understand their structure.",
   "step": [
     {
       "@type": "HowToStep",
       "position": 1,
       "name": "Enter the Snowflake ID",
-      "text": "Paste or type any Snowflake ID (from Discord, Twitter/X, or Instagram) into the input field. The ID should be a large number, typically 18-19 digits."
+      "text": "Paste or type any Snowflake ID (from Twitter/X, Discord, or Instagram) into the input field. For Twitter, this is typically a tweet ID. The ID should be a large number, typically 18-19 digits."
     },
     {
       "@type": "HowToStep",
       "position": 2,
       "name": "Select the platform epoch",
-      "text": "Choose the correct platform (Discord, Twitter, or Instagram) as each uses a different epoch timestamp for their Snowflake IDs."
+      "text": "Choose the correct platform (Twitter/X, Discord, or Instagram) as each uses a different epoch timestamp for their Snowflake IDs. Twitter uses November 4, 2010 as their epoch."
     },
     {
       "@type": "HowToStep",
@@ -107,6 +108,30 @@ hide-explore-posts: true
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "A Snowflake ID is a 64-bit unique identifier used in distributed systems. It combines a timestamp (41 bits), machine/datacenter ID (10 bits), and sequence number (12 bits). This structure allows multiple servers to generate unique IDs independently without coordination."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a Twitter Snowflake ID to a date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste any Twitter/X Snowflake ID (like a tweet ID) into this tool and select 'Twitter/X' as the platform. The tool automatically extracts the timestamp by right-shifting the ID by 22 bits and adding Twitter's epoch (November 4, 2010). You'll see the exact date and time when the tweet was posted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I decode a tweet ID to find when it was posted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every Twitter/X tweet ID is a Snowflake containing its creation timestamp. Just paste the tweet ID into this decoder tool, select 'Twitter/X' as the platform, and you'll instantly see when the tweet was posted in UTC, local time, and relative format. No API calls needed!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Twitter's Snowflake ID format?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twitter uses the standard Snowflake ID structure: 41 bits for timestamp (milliseconds since November 4, 2010), 10 bits for machine/datacenter ID, and 12 bits for sequence number. This allows Twitter to generate millions of unique tweet IDs per second across their distributed infrastructure."
       }
     },
     {
@@ -209,11 +234,11 @@ hide-explore-posts: true
         <i class="fas fa-snowflake"></i>
         Snowflake ID Decoder
       </h1>
-      <p class="tool-subtitle">Decode Discord, Twitter & Instagram IDs to timestamps</p>
+      <p class="tool-subtitle">Convert Twitter, Discord & Instagram Snowflake IDs to Date & Timestamp</p>
     </header>
     
     <p class="tool-intro">
-      Decode <strong>Discord IDs</strong>, <strong>Twitter IDs</strong>, and <strong>Instagram IDs</strong> to reveal when they were created. Snowflake IDs contain embedded timestamps. This tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
+      Convert <strong>Twitter/X Snowflake IDs</strong> to dates and timestamps instantly. Every tweet ID contains its creation time. Also decode <strong>Discord IDs</strong> and <strong>Instagram IDs</strong> to reveal when they were created. Snowflake IDs contain embedded timestamps. This tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
     </p>
     {% include tool-ad-top.html %}
 
@@ -240,13 +265,13 @@ hide-explore-posts: true
         <div class="platform-selector">
           <label>Platform Epoch:</label>
           <div class="platform-buttons">
-            <button class="platform-btn active" data-platform="discord" data-epoch="1420070400000">
-              <i class="fab fa-discord"></i>
-              Discord
-            </button>
-            <button class="platform-btn" data-platform="twitter" data-epoch="1288834974657">
+            <button class="platform-btn active" data-platform="twitter" data-epoch="1288834974657">
               <i class="fab fa-twitter"></i>
               Twitter/X
+            </button>
+            <button class="platform-btn" data-platform="discord" data-epoch="1420070400000">
+              <i class="fab fa-discord"></i>
+              Discord
             </button>
             <button class="platform-btn" data-platform="instagram" data-epoch="0">
               <i class="fab fa-instagram"></i>
@@ -396,25 +421,30 @@ hide-explore-posts: true
     <section class="examples-section">
       <h3><i class="fas fa-lightbulb"></i> Try These Examples</h3>
       <div class="examples-grid">
-        <button class="example-btn" data-id="1091815470714572810" data-platform="discord">
-          <span class="example-platform"><i class="fab fa-discord"></i> Discord</span>
-          <span class="example-desc">Message ID</span>
-          <code>1091815470714572810</code>
+        <button class="example-btn" data-id="1529877576591609861" data-platform="twitter">
+          <span class="example-platform"><i class="fab fa-twitter"></i> Twitter</span>
+          <span class="example-desc">Popular Tweet ID</span>
+          <code>1529877576591609861</code>
         </button>
         <button class="example-btn" data-id="1234567890123456789" data-platform="twitter">
           <span class="example-platform"><i class="fab fa-twitter"></i> Twitter</span>
           <span class="example-desc">Tweet ID</span>
           <code>1234567890123456789</code>
         </button>
-        <button class="example-btn" data-id="175928629301739520" data-platform="discord">
-          <span class="example-platform"><i class="fab fa-discord"></i> Discord</span>
-          <span class="example-desc">Early User ID (2016)</span>
-          <code>175928629301739520</code>
-        </button>
         <button class="example-btn" data-id="20" data-platform="twitter">
           <span class="example-platform"><i class="fab fa-twitter"></i> Twitter</span>
           <span class="example-desc">@jack's first tweet (pre-Snowflake)</span>
           <code>20</code>
+        </button>
+        <button class="example-btn" data-id="1091815470714572810" data-platform="discord">
+          <span class="example-platform"><i class="fab fa-discord"></i> Discord</span>
+          <span class="example-desc">Message ID</span>
+          <code>1091815470714572810</code>
+        </button>
+        <button class="example-btn" data-id="175928629301739520" data-platform="discord">
+          <span class="example-platform"><i class="fab fa-discord"></i> Discord</span>
+          <span class="example-desc">Early User ID (2016)</span>
+          <code>175928629301739520</code>
         </button>
       </div>
     </section>
@@ -495,6 +525,17 @@ hide-explore-posts: true
         </article>
 
         <article class="guide-article">
+          <h2>How to Decode a Twitter/X Snowflake ID</h2>
+          <p>Every Twitter/X tweet ID, user ID, and other entity ID is a Snowflake containing its creation timestamp. Twitter created the Snowflake system in 2010 to handle their massive scale. To decode a Twitter Snowflake ID manually:</p>
+          <ul>
+            <li><strong>Right-shift by 22 bits:</strong> This extracts the timestamp portion from the 64-bit ID</li>
+            <li><strong>Add Twitter's epoch:</strong> 1288834974657 (November 4, 2010, 01:42:54.657 UTC) - this is when Twitter launched Snowflake</li>
+            <li><strong>Convert to date:</strong> The result is Unix milliseconds, which you can convert to a readable date</li>
+          </ul>
+          <p>For example, to find when a tweet was posted, just paste the tweet ID into this tool above and select "Twitter/X" as the platform. The tool automatically extracts the date and time when the tweet was created!</p>
+        </article>
+
+        <article class="guide-article">
           <h2>How to Decode a Discord ID</h2>
           <p>Every Discord ID, whether it's a user, message, server, or channel, is a Snowflake containing its creation time. To decode manually:</p>
           <ul>
@@ -538,6 +579,21 @@ hide-explore-posts: true
       <div class="faq-item">
         <h3>What is a Snowflake ID?</h3>
         <p>A <strong>Snowflake ID</strong> is a 64-bit unique identifier that encodes a timestamp, machine ID, and sequence number. It allows distributed systems to generate unique IDs without central coordination. Discord, Twitter/X, and Instagram all use variations of this format.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I convert a Twitter Snowflake ID to a date?</h3>
+        <p>Paste any Twitter/X Snowflake ID (like a tweet ID) into this tool and select "Twitter/X" as the platform. The tool automatically extracts the timestamp by right-shifting the ID by 22 bits and adding Twitter's epoch (November 4, 2010). You'll see the exact date and time when the tweet was posted.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I decode a tweet ID to find when it was posted?</h3>
+        <p>Every Twitter/X tweet ID is a Snowflake containing its creation timestamp. Just paste the tweet ID into this decoder tool, select "Twitter/X" as the platform, and you'll instantly see when the tweet was posted in UTC, local time, and relative format. No API calls needed!</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is Twitter's Snowflake ID format?</h3>
+        <p>Twitter uses the standard Snowflake ID structure: 41 bits for timestamp (milliseconds since November 4, 2010), 10 bits for machine/datacenter ID, and 12 bits for sequence number. This allows Twitter to generate millions of unique tweet IDs per second across their distributed infrastructure.</p>
       </div>
 
       <div class="faq-item">

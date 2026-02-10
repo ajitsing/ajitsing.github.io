@@ -25,6 +25,7 @@
   };
 
   let currentErrorLine = null;
+  let currentFormattedJson = null;
 
   function trackEvent(action, label, value) {
     if (typeof gtag === 'function') {
@@ -173,8 +174,12 @@
       elements.jsonOutput.innerHTML = '<span class="output-placeholder">Formatted JSON will appear here</span>';
       elements.charCount.textContent = '';
       updateOutputLineNumbers(0);
+      currentFormattedJson = null;
       return;
     }
+    
+    // Store the formatted JSON for copying
+    currentFormattedJson = formattedJson;
     
     if (parsedData !== undefined) {
       var html = renderCollapsibleJson(parsedData, 0);
@@ -294,27 +299,51 @@
     return { line, column, position };
   }
 
+  function normalizeInvisibleChars(str) {
+    // Replace non-breaking space (U+00a0) with regular space
+    // Replace other common invisible whitespace characters
+    return str
+      .replace(/\u00a0/g, ' ')  // Non-breaking space
+      .replace(/\u2000/g, ' ')  // En quad
+      .replace(/\u2001/g, ' ')  // Em quad
+      .replace(/\u2002/g, ' ')  // En space
+      .replace(/\u2003/g, ' ')  // Em space
+      .replace(/\u2004/g, ' ')  // Three-per-em space
+      .replace(/\u2005/g, ' ')  // Four-per-em space
+      .replace(/\u2006/g, ' ')  // Six-per-em space
+      .replace(/\u2007/g, ' ')  // Figure space
+      .replace(/\u2008/g, ' ')  // Punctuation space
+      .replace(/\u2009/g, ' ')  // Thin space
+      .replace(/\u200a/g, ' ')  // Hair space
+      .replace(/\ufeff/g, '');  // Zero-width no-break space (BOM)
+  }
+
   function validateJSON(jsonString) {
     if (!jsonString.trim()) {
       return { valid: false, error: 'Please enter some JSON to validate', position: null };
     }
 
+    // Normalize invisible characters before parsing
+    const normalized = normalizeInvisibleChars(jsonString);
+
     try {
-      const parsed = JSON.parse(jsonString);
+      const parsed = JSON.parse(normalized);
       return { valid: true, parsed, error: null };
     } catch (e) {
-      const position = parseErrorPosition(e.message, jsonString);
+      const position = parseErrorPosition(e.message, normalized);
       return { valid: false, error: e.message, position };
     }
   }
 
   function formatJSON(jsonString) {
-    const result = validateJSON(jsonString);
+    // Normalize invisible characters before formatting
+    const normalized = normalizeInvisibleChars(jsonString);
+    const result = validateJSON(normalized);
     if (!result.valid) {
       return result;
     }
     const formatted = JSON.stringify(result.parsed, null, 2);
-    return { valid: true, formatted, error: null };
+    return { valid: true, formatted, parsed: result.parsed, error: null };
   }
 
   function showResult(isValid, message, errorPosition) {
@@ -363,6 +392,11 @@
     if (result.valid) {
       const formatted = JSON.stringify(result.parsed, null, 2);
       updateOutput(formatted, result.parsed);
+      // Update input field with normalized version if it had invisible characters
+      const normalized = normalizeInvisibleChars(jsonString);
+      if (normalized !== jsonString) {
+        elements.jsonInput.value = normalized;
+      }
     } else {
       updateOutput(null);
     }
@@ -377,8 +411,13 @@
     trackEvent('format', result.valid ? 'valid' : 'invalid');
     
     if (result.valid) {
-      const parsed = JSON.parse(jsonString);
-      updateOutput(result.formatted, parsed);
+      // Use the parsed result from formatJSON (already normalized)
+      updateOutput(result.formatted, result.parsed);
+      // Update input field with normalized version to show what was actually processed
+      const normalized = normalizeInvisibleChars(jsonString);
+      if (normalized !== jsonString) {
+        elements.jsonInput.value = normalized;
+      }
       showResult(true, null, null);
     } else {
       updateOutput(null);
@@ -387,11 +426,17 @@
   }
 
   function handleCopy() {
-    var outputText = elements.jsonOutput.textContent;
-    if (!outputText || outputText === 'Formatted JSON will appear here') {
+    var outputText = currentFormattedJson;
+    if (!outputText) {
       var inputText = elements.jsonInput.value;
       if (!inputText.trim()) return;
-      outputText = inputText;
+      // Try to format the input if it's valid JSON
+      var result = formatJSON(inputText);
+      if (result.valid) {
+        outputText = result.formatted;
+      } else {
+        outputText = inputText;
+      }
     }
     
     trackEvent('copy', 'json_content');

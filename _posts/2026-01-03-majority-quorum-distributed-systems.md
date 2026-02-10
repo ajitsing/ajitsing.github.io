@@ -550,7 +550,7 @@ The next time your database says "quorum achieved," you'll know exactly what it 
 
 ---
 
-*For more on distributed systems patterns, check out [Heartbeat: Detecting Failures](/distributed-systems/heartbeat/), [Paxos Consensus Algorithm](/distributed-systems/paxos/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), and [Two-Phase Commit](/distributed-systems/two-phase-commit/). Building high-availability systems? See [How Kafka Works](/distributed-systems/how-kafka-works/) for durable message queuing.*
+*For more on distributed systems patterns, check out [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Heartbeat: Detecting Failures](/distributed-systems/heartbeat/), [Paxos Consensus Algorithm](/distributed-systems/paxos/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), and [Two-Phase Commit](/distributed-systems/two-phase-commit/). Building high-availability systems? See [How Kafka Works](/distributed-systems/how-kafka-works/) for durable message queuing.*
 
 *References: [Martin Kleppmann's Designing Data-Intensive Applications](https://dataintensive.net/), [Raft Consensus Algorithm](https://raft.github.io/), [Apache Cassandra Documentation](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html), [etcd Design](https://etcd.io/docs/v3.5/learning/design-learner/)*
 

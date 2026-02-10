@@ -712,7 +712,7 @@ Understanding 2PC isn't just academic. It's the foundation for understanding why
 
 ---
 
-*For more on distributed systems patterns, check out our posts on [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Paxos Consensus](/distributed-systems/paxos/), [How Kafka Works](/distributed-systems/how-kafka-works/), and [Distributed Counter Architecture](/distributed-counter-architecture-guide/). Building payment systems? See [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns.*
+*For more on distributed systems patterns, check out our posts on [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Paxos Consensus](/distributed-systems/paxos/), [How Kafka Works](/distributed-systems/how-kafka-works/), and [Distributed Counter Architecture](/distributed-counter-architecture-guide/). Building payment systems? See [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns.*
 
 *References: [Gray & Reuter's Transaction Processing](https://www.amazon.com/Transaction-Processing-Concepts-Techniques-Management/dp/1558601902), [Martin Kleppmann's Designing Data-Intensive Applications](https://dataintensive.net/), [PostgreSQL PREPARE TRANSACTION docs](https://www.postgresql.org/docs/current/sql-prepare-transaction.html)*
 

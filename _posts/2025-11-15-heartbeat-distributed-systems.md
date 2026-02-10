@@ -738,7 +738,9 @@ Remember: in distributed systems, things will fail. Heartbeat mechanisms ensure 
 
 ---
 
-*Want to dive deeper into distributed systems? Check out [Paxos: The Democracy of Distributed Systems](/distributed-systems/paxos/) and [Write-Ahead Log: The Golden Rule of Durable Systems](/distributed-systems/write-ahead-log/).*
+*Want to dive deeper into distributed systems? Check out [Gossip Dissemination: How Clusters Spread Information](/distributed-systems/gossip-dissemination/) for the protocol that Cassandra uses for peer-to-peer failure detection without a central monitor.*
+
+*Also see [Paxos: The Democracy of Distributed Systems](/distributed-systems/paxos/) and [Write-Ahead Log: The Golden Rule of Durable Systems](/distributed-systems/write-ahead-log/).*
 
 *Building reliable systems? Read [Stop Blocking Your Paying Customers: Build a Smart Rate Limiter](/dynamic-rate-limiter-system-design/).*
 

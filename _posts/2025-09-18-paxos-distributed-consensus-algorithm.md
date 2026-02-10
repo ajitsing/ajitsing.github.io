@@ -351,4 +351,6 @@ graph TD
 Paxos is like democracy for distributed systems. It can be complex and sometimes slow, but it reliably achieves consensus even when networks fail and servers crash. While it's challenging to implement correctly, it's the foundation that keeps many of the world's largest systems running smoothly.
 
 
+*For more distributed systems patterns, check out [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Majority Quorum](/distributed-systems/majority-quorum/), and [Write-Ahead Log](/distributed-systems/write-ahead-log/).*
+
 *Have you implemented Paxos in your systems? Share your experiences in the comments below!*

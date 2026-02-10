@@ -209,6 +209,8 @@ Cloudflare's killswitch had been used many times. But never on an `execute` acti
 
 A killswitch that has never been tested is a bug waiting to happen.
 
+For a complete guide on implementing and testing feature flags safely, see [Feature Flags: How to Deploy Code Without Releasing Features](/feature-flags-guide/).
+
 ### 2. Gradual Rollouts Are Not Just for Code
 
 Cloudflare had two deployment systems:
@@ -226,6 +228,8 @@ The buffer size change was going fine. The instant config change caused the outa
 - Database migrations
 
 If a change can break production, it needs gradual rollout with health validation. Period.
+
+Feature flags are one of the best tools for implementing gradual rollouts safely. Learn how in [Feature Flags: How to Deploy Code Without Releasing Features](/feature-flags-guide/).
 
 ### 3. Nil/Null Access is a Reliability Problem, Not Just a Code Quality Issue
 
@@ -292,5 +296,6 @@ Build systems that assume failure. Deploy with gradual rollouts. Validate health
 - [Cloudflare Incident Report - December 5, 2025](https://blog.cloudflare.com/5-december-2025-outage/)
 - [Cloudflare Incident Report - November 18, 2025](https://blog.cloudflare.com/18-november-2025-outage/)
 - [Previous analysis: November 2025 Cloudflare Outage](/cloudflare-outage-november-2025/)
+- [Feature Flags Guide: Safe Deployment and Gradual Rollouts](/feature-flags-guide/)
 
 

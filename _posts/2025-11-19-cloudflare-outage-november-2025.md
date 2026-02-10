@@ -223,6 +223,7 @@ A database permission change caused duplicate entries in a feature file, which d
 5. **Monitor configuration files** for unexpected changes
 6. **Test failure scenarios** regularly
 7. **Consider CDN redundancy** for critical services
+8. **Use gradual rollouts** for all changes - see [Feature Flags Guide](/feature-flags-guide/) for safe deployment patterns
 
 **The harsh reality:** Single points of failure will fail. The question is whether your system fails gracefully or catastrophically.
 
@@ -234,5 +235,6 @@ The next outage is coming. Will your application handle it?
 
 **Resources:**
 - [Cloudflare Incident Report](https://blog.cloudflare.com/18-november-2025-outage/)
+- [Feature Flags Guide: Safe Deployment and Gradual Rollouts](/feature-flags-guide/)
 
 

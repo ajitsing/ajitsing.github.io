@@ -869,6 +869,7 @@ These posts go deeper into specific topics:
 - [Distributed Counter Architecture](/distributed-counter-architecture-guide/)
 
 **Operations and Deployment**:
+- [Feature Flags: How to Deploy Code Without Releasing Features](/feature-flags-guide/)
 - [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/)
 - [Kubernetes Architecture](/devops/kubernetes-architecture/)
 - [Linux Commands Cheat Sheet](/linux-commands-cheat-sheet/)

@@ -204,7 +204,7 @@ Artifacts are stored for 90 days by default and can be downloaded from the workf
 
 ## Deployment Workflow
 
-Here's a practical deployment workflow that only runs when tests pass:
+Here's a practical deployment workflow that only runs when tests pass. For safer deployments with gradual rollouts, consider using [feature flags](/feature-flags-guide/) to control feature visibility independently of code deployment.
 
 ```yaml
 name: Deploy to Production
@@ -363,5 +363,7 @@ You now have the foundation to automate your development workflow. Start small:
 GitHub Actions can do much more than we covered - from managing releases to automating issue responses. But these basics will handle 90% of what most developers need.
 
 ---
+
+*For safer production deployments, check out [Feature Flags: How to Deploy Code Without Releasing Features](/feature-flags-guide/) to learn how to decouple deployment from release and enable gradual rollouts.*
 
 *Got questions about GitHub Actions or want to share your automation wins? Drop a comment below. And if you found this helpful, consider sharing it with a fellow developer.*

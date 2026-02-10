@@ -292,7 +292,7 @@ graph LR
               <li>Longer deployment process</li>
               <li>Need sophisticated monitoring</li>
               <li>Potential user experience inconsistency</li>
-              <li>Requires feature flags or routing logic</li>
+              <li>Requires feature flags or routing logic (see <a href="/feature-flags-guide/">Feature Flags Guide</a> for implementation details)</li>
             </ul>
           </div>
         </div>

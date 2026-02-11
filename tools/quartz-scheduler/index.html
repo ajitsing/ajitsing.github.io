@@ -1,0 +1,707 @@
+---
+layout: default
+title: "Quartz Scheduler Cron Expression Generator & Validator"
+subtitle: "Free online Quartz cron expression translator, generator, and checker"
+seo: true
+description: "Free Quartz Scheduler cron expression generator and validator. Parse, validate, and build Quartz cron expressions with 6-7 fields. Translate Quartz expressions to human-readable text. Supports Quartz-specific syntax: ?, L, W, #. Used in Spring Boot, Java Quartz Scheduler, and enterprise job scheduling."
+keywords: "quartz cron expression, quartz scheduler cron, quartz cron generator, quartz cron expression generator, quartz cron validator, quartz scheduler expression, quartz cron expression validator, quartz cron syntax, quartz cron expression 6 fields, quartz cron ? question mark, quartz L last day, quartz W weekday, quartz # nth day, quartz cron builder, spring cron expression, spring boot cron, spring scheduler, java cron expression, quartz job scheduler, cron expression 6 fields, cron expression 7 fields, quartz cron translator, quartz cron checker, quartz cron tester, quartz cron expression online"
+thumbnail: /assets/img/tools/cron-tool-thumbnail.png
+share-img: /assets/img/tools/cron-tool-thumbnail.png
+permalink: /tools/quartz-scheduler/
+social-share: true
+hide-explore-posts: true
+---
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<!-- Structured Data: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Quartz Scheduler Cron Expression Generator & Validator",
+  "alternateName": ["Quartz Cron Generator", "Quartz Cron Validator", "Quartz Scheduler Expression Builder", "Quartz Cron Translator", "Spring Cron Expression Generator", "Java Cron Expression Tool", "6-Field Cron Generator", "Quartz Cron Checker"],
+  "description": "Free Quartz Scheduler cron expression generator and validator. Parse, validate, and build Quartz cron expressions with 6-7 fields. Supports ?, L, W, # syntax. Compatible with Java Quartz Scheduler and Spring Boot.",
+  "url": "https://singhajit.com/tools/quartz-scheduler/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Parse and validate Quartz 6-7 field cron expressions",
+    "Translate Quartz cron expressions to human-readable text",
+    "Support for Quartz-specific syntax: ?, L, W, #",
+    "Calculate next 3 execution times",
+    "Visual Quartz cron expression builder",
+    "Compatible with Java Quartz Scheduler and Spring Boot",
+    "Works offline. No server required"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/cron-tool-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "Quartz Cron Syntax Reference",
+    "text": "Quartz cron expressions consist of 6-7 fields: second (0-59), minute (0-59), hour (0-23), day of month (1-31), month (1-12), day of week (1-7, SUN=1), and optional year (1970-2099). Supports special characters: ? (no specific value), L (last), W (weekday), # (nth occurrence)."
+  },
+  "keywords": "quartz cron expression, quartz scheduler, quartz cron generator, quartz cron validator, spring cron expression, java cron, quartz cron builder, 6 field cron"
+}
+</script>
+
+<!-- Structured Data: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Quartz Scheduler Cron Expressions",
+  "description": "Learn how to create, validate, and translate Quartz Scheduler cron expressions with this free online tool.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Understand the 6-7 Quartz cron fields",
+      "text": "A Quartz cron expression has 6 required fields: second (0-59), minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (1-7, where 1=Sunday). An optional 7th field is year (1970-2099)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Learn Quartz-specific special characters",
+      "text": "Quartz adds special characters beyond standard cron: ? (no specific value, required in day-of-month or day-of-week), L (last day), W (nearest weekday), and # (nth occurrence, e.g., 6#3 means third Friday)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Use the tool to validate your expression",
+      "text": "Enter your Quartz cron expression in the tool above. It will validate syntax, translate to human-readable text, and show the next scheduled run times."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Quartz Cron Expression Generator & Validator"
+  }
+}
+</script>
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Quartz cron expression?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Quartz cron expression is a string of 6 or 7 fields used by the Quartz Scheduler library (Java) and Spring Boot to define job schedules. Unlike standard 5-field Unix cron, Quartz adds a seconds field and supports special characters like ?, L, W, and #."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Quartz cron and standard cron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard Unix cron uses 5 fields (minute, hour, day, month, weekday). Quartz cron uses 6-7 fields (second, minute, hour, day, month, weekday, optional year). Quartz also supports ? (no specific value), L (last), W (nearest weekday), and # (nth occurrence). Day-of-week numbering differs: Unix uses 0-6 (Sunday=0), Quartz uses 1-7 (Sunday=1)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does ? mean in Quartz cron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The question mark (?) in Quartz cron means 'no specific value'. It must be used in either the day-of-month or day-of-week field (but not both). It indicates that the schedule should not constrain on that particular day field."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does L mean in Quartz cron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L means 'last' in Quartz cron. In day-of-month, L means the last day of the month. In day-of-week, 6L means the last Friday of the month. L-3 in day-of-month means 3 days before the last day of the month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does W mean in Quartz cron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "W means 'nearest weekday' in Quartz cron. For example, 15W in the day-of-month field means 'the nearest weekday to the 15th of the month'. If the 15th is a Saturday, it fires on Friday the 14th. LW means the last weekday of the month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does # mean in Quartz cron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The # character specifies the nth occurrence of a weekday. For example, 6#3 in the day-of-week field means 'the 3rd Friday of the month' (6=Friday in Quartz). Valid values are 1-5 for the nth occurrence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a standard cron to Quartz format?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To convert standard cron (5-field) to Quartz (6-field): prepend '0' for seconds, adjust day-of-week numbering from 0-6 to 1-7, and add '?' to either day-of-month or day-of-week. Example: '0 9 * * 1-5' becomes '0 0 9 ? * 2-6' (Monday is 2 in Quartz)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Spring Boot use Quartz cron expressions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Spring Boot's @Scheduled annotation uses a Quartz-compatible 6-field cron format. The syntax is: second minute hour day-of-month month day-of-week. Spring supports the same special characters (?, L, W, #) as Quartz Scheduler."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Quartz Scheduler Cron Expression Generator",
+      "item": "https://singhajit.com/tools/quartz-scheduler/"
+    }
+  ]
+}
+</script>
+
+<!-- Structured Data: Table for Rich Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Table",
+  "about": "Common Quartz Scheduler cron expression examples with human-readable descriptions",
+  "name": "Quartz Cron Expression Examples",
+  "description": "Reference table of commonly used Quartz Scheduler cron expressions with plain English translations. Compatible with Java Quartz Scheduler and Spring Boot.",
+  "keywords": "quartz cron expression, quartz scheduler, spring cron examples, java cron examples",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 31,
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "item": {"@type": "Thing", "name": "0 0 12 * * ?", "description": "Every day at noon"}},
+      {"@type": "ListItem", "position": 2, "item": {"@type": "Thing", "name": "0 0 0 * * ?", "description": "Every day at midnight"}},
+      {"@type": "ListItem", "position": 3, "item": {"@type": "Thing", "name": "0 0 6 * * ?", "description": "Every day at 6 AM"}},
+      {"@type": "ListItem", "position": 4, "item": {"@type": "Thing", "name": "0 0 9 * * ?", "description": "Every day at 9 AM"}},
+      {"@type": "ListItem", "position": 5, "item": {"@type": "Thing", "name": "0 0 18 * * ?", "description": "Every day at 6 PM"}},
+      {"@type": "ListItem", "position": 6, "item": {"@type": "Thing", "name": "0 0 9,18 * * ?", "description": "Twice daily (9 AM and 6 PM)"}},
+      {"@type": "ListItem", "position": 7, "item": {"@type": "Thing", "name": "0 0/5 * * * ?", "description": "Every 5 minutes"}},
+      {"@type": "ListItem", "position": 8, "item": {"@type": "Thing", "name": "0 0/15 * * * ?", "description": "Every 15 minutes"}},
+      {"@type": "ListItem", "position": 9, "item": {"@type": "Thing", "name": "0 0/30 * * * ?", "description": "Every 30 minutes"}},
+      {"@type": "ListItem", "position": 10, "item": {"@type": "Thing", "name": "0 0 */2 * * ?", "description": "Every 2 hours"}},
+      {"@type": "ListItem", "position": 11, "item": {"@type": "Thing", "name": "0 0 */6 * * ?", "description": "Every 6 hours"}},
+      {"@type": "ListItem", "position": 12, "item": {"@type": "Thing", "name": "*/10 * * * * ?", "description": "Every 10 seconds"}},
+      {"@type": "ListItem", "position": 13, "item": {"@type": "Thing", "name": "0 0 9 ? * 2-6", "description": "Weekdays at 9 AM"}},
+      {"@type": "ListItem", "position": 14, "item": {"@type": "Thing", "name": "0 0 17 ? * 2-6", "description": "Weekdays at 5 PM"}},
+      {"@type": "ListItem", "position": 15, "item": {"@type": "Thing", "name": "0 0 10 ? * 1,7", "description": "Weekends at 10 AM"}},
+      {"@type": "ListItem", "position": 16, "item": {"@type": "Thing", "name": "0 0 0 ? * 2", "description": "Every Monday at midnight"}},
+      {"@type": "ListItem", "position": 17, "item": {"@type": "Thing", "name": "0 0 15 ? * 6", "description": "Every Friday at 3 PM"}},
+      {"@type": "ListItem", "position": 18, "item": {"@type": "Thing", "name": "0 0 0 1 * ?", "description": "First day of month at midnight"}},
+      {"@type": "ListItem", "position": 19, "item": {"@type": "Thing", "name": "0 0 0 15 * ?", "description": "15th of month at midnight"}},
+      {"@type": "ListItem", "position": 20, "item": {"@type": "Thing", "name": "0 0 0 L * ?", "description": "Last day of month at midnight"}},
+      {"@type": "ListItem", "position": 21, "item": {"@type": "Thing", "name": "0 0 0 LW * ?", "description": "Last weekday of month at midnight"}},
+      {"@type": "ListItem", "position": 22, "item": {"@type": "Thing", "name": "0 0 0 15W * ?", "description": "Nearest weekday to the 15th"}},
+      {"@type": "ListItem", "position": 23, "item": {"@type": "Thing", "name": "0 0 0 ? * 6#3", "description": "Third Friday of every month"}},
+      {"@type": "ListItem", "position": 24, "item": {"@type": "Thing", "name": "0 0 0 ? * 6#1", "description": "First Friday of every month"}},
+      {"@type": "ListItem", "position": 25, "item": {"@type": "Thing", "name": "0 0 0 ? * 6L", "description": "Last Friday of every month"}},
+      {"@type": "ListItem", "position": 26, "item": {"@type": "Thing", "name": "0 0 0 ? * 2L", "description": "Last Monday of every month"}},
+      {"@type": "ListItem", "position": 27, "item": {"@type": "Thing", "name": "0 0 2 * * ?", "description": "Database backup (daily at 2 AM)"}},
+      {"@type": "ListItem", "position": 28, "item": {"@type": "Thing", "name": "0 0 3 ? * 1", "description": "Weekly maintenance (Sunday 3 AM)"}},
+      {"@type": "ListItem", "position": 29, "item": {"@type": "Thing", "name": "0 0 1 1 * ?", "description": "Monthly billing (1st at 1 AM)"}},
+      {"@type": "ListItem", "position": 30, "item": {"@type": "Thing", "name": "0 0 0 1 1 ?", "description": "New Year's Day at midnight"}},
+      {"@type": "ListItem", "position": 31, "item": {"@type": "Thing", "name": "0 0 0 1 1,4,7,10 ?", "description": "Quarterly (Jan, Apr, Jul, Oct)"}}
+    ]
+  }
+}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/quartz-tool.css' | relative_url }}">
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="quartz-page-wrapper">
+  <!-- Main Content -->
+  <div class="quartz-tool">
+<header class="tool-header">
+    <h1 class="tool-title">
+      <i class="fas fa-calendar-check"></i>
+      Quartz Cron Expression Generator & Validator
+    </h1>
+    <p class="tool-subtitle">Free Quartz Scheduler cron expression translator, builder, and validator</p>
+  </header>
+
+  <p class="tool-intro">
+    Use this free <strong>Quartz cron expression generator</strong> to parse, validate, and build Quartz Scheduler cron expressions. Our <strong>Quartz cron validator</strong> supports the full 6-7 field format including <code>?</code>, <code>L</code>, <code>W</code>, and <code>#</code> syntax. Perfect for <strong>Java Quartz Scheduler</strong>, <strong>Spring Boot @Scheduled</strong>, and enterprise job scheduling.
+  </p>
+
+  <div class="cross-tool-banner">
+    <i class="fas fa-info-circle"></i>
+    <span>Looking for standard 5-field Unix cron? Use <a href="/tools/cron-expression/">Cron Expression Generator</a> for Linux crontab, Kubernetes CronJobs, and GitHub Actions.</span>
+  </div>
+
+  {% include tool-ad-top.html %}
+
+<div class="mode-tabs">
+    <button class="mode-tab active" data-mode="parse">
+      <i class="fas fa-search"></i>
+      Quartz Checker & Translator
+    </button>
+    <button class="mode-tab" data-mode="build">
+      <i class="fas fa-wrench"></i>
+      Build & Generate
+    </button>
+  </div>
+
+<section id="parse-mode" class="mode-content active">
+    <div class="input-section">
+      <label for="quartz-input">Enter Quartz cron expression (6 or 7 fields):</label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="quartz-input"
+          placeholder="0 0 12 * * ?"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button id="parse-btn" class="btn-primary">
+          <i class="fas fa-play"></i>
+          Parse
+        </button>
+      </div>
+    </div>
+
+<div class="breakdown-section">
+      <div class="quartz-fields-compact">
+        <div class="quartz-field" data-field="second" title="0-59">
+          <span class="field-value">0</span>
+          <span class="field-label">sec</span>
+        </div>
+        <div class="quartz-field" data-field="minute" title="0-59">
+          <span class="field-value">0</span>
+          <span class="field-label">min</span>
+        </div>
+        <div class="quartz-field" data-field="hour" title="0-23">
+          <span class="field-value">12</span>
+          <span class="field-label">hour</span>
+        </div>
+        <div class="quartz-field" data-field="dayOfMonth" title="1-31, ?, L, W">
+          <span class="field-value">*</span>
+          <span class="field-label">day(M)</span>
+        </div>
+        <div class="quartz-field" data-field="month" title="1-12 or JAN-DEC">
+          <span class="field-value">*</span>
+          <span class="field-label">month</span>
+        </div>
+        <div class="quartz-field" data-field="dayOfWeek" title="1-7 (SUN=1), ?, L, #">
+          <span class="field-value">?</span>
+          <span class="field-label">day(W)</span>
+        </div>
+        <div class="quartz-field" data-field="year" title="1970-2099 (optional)" style="display: none;">
+          <span class="field-value">*</span>
+          <span class="field-label">year</span>
+        </div>
+      </div>
+    </div>
+
+<div class="result-section">
+      <div class="result-card human-readable">
+        <h3><i class="fas fa-comment-alt"></i> Translation (Human Readable)</h3>
+        <p id="human-readable">Enter a Quartz cron expression above to translate it to plain English</p>
+      </div>
+
+      <div class="result-card next-runs">
+        <h3><i class="fas fa-calendar-alt"></i> Next 3 Scheduled Runs</h3>
+        <ul id="next-runs">
+          <li class="placeholder">Enter a Quartz cron expression to evaluate upcoming runs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<section id="build-mode" class="mode-content">
+    <div class="builder-compact">
+      <div class="builder-row">
+        <div class="builder-col">
+          <label>Second</label>
+          <select id="second-select">
+            <option value="0">0</option>
+            <option value="*">Every</option>
+            <option value="*/5">Every 5</option>
+            <option value="*/10">Every 10</option>
+            <option value="*/15">Every 15</option>
+            <option value="*/30">Every 30</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Minute</label>
+          <select id="q-minute-select">
+            <option value="0">0</option>
+            <option value="*">Every</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="45">45</option>
+            <option value="*/5">Every 5</option>
+            <option value="*/10">Every 10</option>
+            <option value="*/15">Every 15</option>
+            <option value="*/30">Every 30</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Hour</label>
+          <select id="q-hour-select">
+            <option value="*">Every</option>
+            <option value="0">0 (12 AM)</option>
+            <option value="1">1 AM</option>
+            <option value="2">2 AM</option>
+            <option value="3">3 AM</option>
+            <option value="6">6 AM</option>
+            <option value="8">8 AM</option>
+            <option value="9">9 AM</option>
+            <option value="10">10 AM</option>
+            <option value="12">12 PM</option>
+            <option value="14">2 PM</option>
+            <option value="15">3 PM</option>
+            <option value="17">5 PM</option>
+            <option value="18">6 PM</option>
+            <option value="21">9 PM</option>
+            <option value="23">11 PM</option>
+            <option value="*/2">Every 2 hrs</option>
+            <option value="*/3">Every 3 hrs</option>
+            <option value="*/6">Every 6 hrs</option>
+            <option value="*/12">Every 12 hrs</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Day (Month)</label>
+          <select id="dom-select">
+            <option value="?">? (any)</option>
+            <option value="*">Every</option>
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="1,15">1st & 15th</option>
+            <option value="L">L (last day)</option>
+            <option value="LW">LW (last weekday)</option>
+            <option value="15W">15W (nearest wkday)</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Month</label>
+          <select id="q-month-select">
+            <option value="*">Every</option>
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+            <option value="1,4,7,10">Quarterly</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Day (Week)</label>
+          <select id="dow-select">
+            <option value="?">? (any)</option>
+            <option value="*">Every</option>
+            <option value="2-6">Mon-Fri</option>
+            <option value="1,7">Sat-Sun</option>
+            <option value="1">Sunday</option>
+            <option value="2">Monday</option>
+            <option value="3">Tuesday</option>
+            <option value="4">Wednesday</option>
+            <option value="5">Thursday</option>
+            <option value="6">Friday</option>
+            <option value="7">Saturday</option>
+            <option value="6#1">1st Friday</option>
+            <option value="6#3">3rd Friday</option>
+            <option value="2L">Last Monday</option>
+            <option value="6L">Last Friday</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+<div class="generated-section">
+      <div class="generated-output">
+        <code id="generated-quartz">0 0 * ? * *</code>
+        <button id="copy-btn" class="btn-secondary" title="Copy to clipboard">
+          <i class="fas fa-copy"></i>
+          Copy
+        </button>
+        <button id="share-btn" class="btn-secondary" title="Copy shareable link">
+          <i class="fas fa-share-alt"></i>
+          Share
+        </button>
+      </div>
+    </div>
+
+<div class="result-section build-results">
+      <div class="result-card human-readable">
+        <h3><i class="fas fa-comment-alt"></i> Human Readable</h3>
+        <p id="generated-description">Every minute</p>
+      </div>
+      <div class="result-card next-runs">
+        <h3><i class="fas fa-calendar-alt"></i> Next 3 Runs</h3>
+        <ul id="build-next-runs">
+          <li class="placeholder">Build an expression to see upcoming runs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<section class="reference-section">
+    <h3><i class="fas fa-book"></i> Quartz Cron Quick Reference</h3>
+    <div class="reference-grid">
+      <div class="reference-card">
+        <h4>Field Values</h4>
+        <table>
+          <tr><td>Second</td><td>0-59</td></tr>
+          <tr><td>Minute</td><td>0-59</td></tr>
+          <tr><td>Hour</td><td>0-23</td></tr>
+          <tr><td>Day (Month)</td><td>1-31</td></tr>
+          <tr><td>Month</td><td>1-12 / JAN-DEC</td></tr>
+          <tr><td>Day (Week)</td><td>1-7 / SUN-SAT</td></tr>
+          <tr><td>Year</td><td>1970-2099 (optional)</td></tr>
+        </table>
+      </div>
+      <div class="reference-card">
+        <h4>Special Characters</h4>
+        <table>
+          <tr><td><code>*</code></td><td>Any value</td></tr>
+          <tr><td><code>?</code></td><td>No specific value</td></tr>
+          <tr><td><code>,</code></td><td>List separator</td></tr>
+          <tr><td><code>-</code></td><td>Range</td></tr>
+          <tr><td><code>/</code></td><td>Step values</td></tr>
+          <tr><td><code>L</code></td><td>Last (day/weekday)</td></tr>
+          <tr><td><code>W</code></td><td>Nearest weekday</td></tr>
+          <tr><td><code>#</code></td><td>Nth occurrence</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+<section class="reference-section examples-table-section">
+    <h3><i class="fas fa-lightbulb"></i> Quartz Cron Expression Examples</h3>
+    <p class="examples-intro">Click any <strong>Quartz cron expression</strong> below to parse it with the translator above. All expressions are compatible with Java Quartz Scheduler and Spring Boot <code>@Scheduled</code>.</p>
+
+    <table class="quartz-examples-table" id="quartz-examples-table">
+      <thead>
+        <tr>
+          <th>Quartz Expression</th>
+          <th>Description</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr class="example-row" data-cron="0 0 12 * * ?"><td><code>0 0 12 * * ?</code></td><td>Every day at noon</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="0 0 0 * * ?"><td><code>0 0 0 * * ?</code></td><td>Every day at midnight</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="0 0 6 * * ?"><td><code>0 0 6 * * ?</code></td><td>Every day at 6 AM</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="0 0 9 * * ?"><td><code>0 0 9 * * ?</code></td><td>Every day at 9 AM</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="0 0 18 * * ?"><td><code>0 0 18 * * ?</code></td><td>Every day at 6 PM</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="0 0 9,18 * * ?"><td><code>0 0 9,18 * * ?</code></td><td>Twice daily (9 AM and 6 PM)</td><td>Daily</td></tr>
+<tr class="example-row" data-cron="0 0/5 * * * ?"><td><code>0 0/5 * * * ?</code></td><td>Every 5 minutes</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="0 0/15 * * * ?"><td><code>0 0/15 * * * ?</code></td><td>Every 15 minutes</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="0 0/30 * * * ?"><td><code>0 0/30 * * * ?</code></td><td>Every 30 minutes</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="0 0 */2 * * ?"><td><code>0 0 */2 * * ?</code></td><td>Every 2 hours</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="0 0 */6 * * ?"><td><code>0 0 */6 * * ?</code></td><td>Every 6 hours</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="*/10 * * * * ?"><td><code>*/10 * * * * ?</code></td><td>Every 10 seconds</td><td>Interval</td></tr>
+<tr class="example-row" data-cron="0 0 9 ? * 2-6"><td><code>0 0 9 ? * 2-6</code></td><td>Weekdays at 9 AM</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="0 0 17 ? * 2-6"><td><code>0 0 17 ? * 2-6</code></td><td>Weekdays at 5 PM</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="0 0 10 ? * 1,7"><td><code>0 0 10 ? * 1,7</code></td><td>Weekends at 10 AM</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="0 0 0 ? * 2"><td><code>0 0 0 ? * 2</code></td><td>Every Monday at midnight</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="0 0 15 ? * 6"><td><code>0 0 15 ? * 6</code></td><td>Every Friday at 3 PM</td><td>Weekday</td></tr>
+<tr class="example-row" data-cron="0 0 0 1 * ?"><td><code>0 0 0 1 * ?</code></td><td>First day of month at midnight</td><td>Monthly</td></tr>
+        <tr class="example-row" data-cron="0 0 0 15 * ?"><td><code>0 0 0 15 * ?</code></td><td>15th of month at midnight</td><td>Monthly</td></tr>
+        <tr class="example-row" data-cron="0 0 0 L * ?"><td><code>0 0 0 L * ?</code></td><td>Last day of month at midnight</td><td>Quartz Special</td></tr>
+        <tr class="example-row" data-cron="0 0 0 LW * ?"><td><code>0 0 0 LW * ?</code></td><td>Last weekday of month at midnight</td><td>Quartz Special</td></tr>
+        <tr class="example-row" data-cron="0 0 0 15W * ?"><td><code>0 0 0 15W * ?</code></td><td>Nearest weekday to the 15th</td><td>Quartz Special</td></tr>
+        <tr class="example-row" data-cron="0 0 0 ? * 6#3"><td><code>0 0 0 ? * 6#3</code></td><td>Third Friday of every month</td><td>Quartz Special</td></tr>
+        <tr class="example-row" data-cron="0 0 0 ? * 6#1"><td><code>0 0 0 ? * 6#1</code></td><td>First Friday of every month</td><td>Quartz Special</td></tr>
+        <tr class="example-row" data-cron="0 0 0 ? * 6L"><td><code>0 0 0 ? * 6L</code></td><td>Last Friday of every month</td><td>Quartz Special</td></tr>
+        <tr class="example-row" data-cron="0 0 0 ? * 2L"><td><code>0 0 0 ? * 2L</code></td><td>Last Monday of every month</td><td>Quartz Special</td></tr>
+        <tr class="example-row" data-cron="0 0 2 * * ?"><td><code>0 0 2 * * ?</code></td><td>Database backup (daily at 2 AM)</td><td>DevOps</td></tr>
+        <tr class="example-row" data-cron="0 0 3 ? * 1"><td><code>0 0 3 ? * 1</code></td><td>Weekly maintenance (Sunday 3 AM)</td><td>DevOps</td></tr>
+        <tr class="example-row" data-cron="0 0 1 1 * ?"><td><code>0 0 1 1 * ?</code></td><td>Monthly billing (1st at 1 AM)</td><td>DevOps</td></tr>
+        <tr class="example-row" data-cron="0 0 0 1 1 ?"><td><code>0 0 0 1 1 ?</code></td><td>New Year's Day at midnight</td><td>Yearly</td></tr>
+        <tr class="example-row" data-cron="0 0 0 1 1,4,7,10 ?"><td><code>0 0 0 1 1,4,7,10 ?</code></td><td>Quarterly (Jan, Apr, Jul, Oct)</td><td>Yearly</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  {% include tool-ad-mid.html %}
+
+<section class="syntax-guide-section">
+    <h3><i class="fas fa-graduation-cap"></i> Quartz Cron Expression Syntax Guide</h3>
+    <div class="syntax-guide-content">
+
+      <article class="guide-article">
+        <h2>Understanding Quartz Cron Expressions</h2>
+        <p>A <strong>Quartz cron expression</strong> is a string consisting of 6 required fields (and 1 optional year field) separated by spaces. Unlike standard Unix cron which has 5 fields, Quartz adds a <strong>seconds field</strong> and supports additional special characters. This format is used by <strong>Java Quartz Scheduler</strong>, <strong>Spring Boot @Scheduled</strong>, and many enterprise job scheduling systems.</p>
+
+        <div class="syntax-diagram">
+          <code>┌───────────── second (0-59)</code><br>
+          <code>│ ┌───────────── minute (0-59)</code><br>
+          <code>│ │ ┌───────────── hour (0-23)</code><br>
+          <code>│ │ │ ┌───────────── day of month (1-31)</code><br>
+          <code>│ │ │ │ ┌───────────── month (1-12 or JAN-DEC)</code><br>
+          <code>│ │ │ │ │ ┌───────────── day of week (1-7 or SUN-SAT, SUN=1)</code><br>
+          <code>│ │ │ │ │ │ ┌───────── year (1970-2099, optional)</code><br>
+          <code>│ │ │ │ │ │ │</code><br>
+          <code>* * * * * * *</code>
+        </div>
+      </article>
+
+      <article class="guide-article">
+        <h2>Quartz vs Standard Cron: Key Differences</h2>
+
+        <h3>Field Count and Order</h3>
+        <p>Standard Unix cron uses <strong>5 fields</strong> (minute, hour, day, month, weekday). Quartz uses <strong>6-7 fields</strong> starting with seconds. If you have a 5-field expression, use our <a href="/tools/cron-expression/">standard Cron Expression tool</a> instead.</p>
+
+        <h3>Day-of-Week Numbering</h3>
+        <p>In standard cron, days are numbered <strong>0-6 (Sunday=0)</strong>. In Quartz, days are numbered <strong>1-7 (Sunday=1)</strong>. This is a common source of bugs when converting between formats.</p>
+
+        <h3>The ? (Question Mark) Character</h3>
+        <p>Quartz requires <code>?</code> in either the day-of-month or day-of-week field (but not both). The <code>?</code> means "no specific value". It tells Quartz to ignore that particular day constraint. Standard cron doesn't have this character.</p>
+
+        <h3>L, W, and # Characters</h3>
+        <p>Quartz supports <code>L</code> (last), <code>W</code> (nearest weekday), and <code>#</code> (nth occurrence), none of which exist in standard cron. These enable powerful scheduling like "last Friday of the month" or "nearest weekday to the 15th".</p>
+      </article>
+
+      <article class="guide-article">
+        <h2>Quartz Special Characters Explained</h2>
+
+        <h3>? (No Specific Value)</h3>
+        <p>Used in day-of-month or day-of-week only. One field must use <code>?</code> while the other specifies the constraint. Example: <code>0 0 9 ? * 2-6</code> means "9 AM on weekdays" (day-of-month doesn't matter).</p>
+
+        <h3>L (Last)</h3>
+        <p>In <strong>day-of-month</strong>: <code>L</code> means the last day of the month (28th, 29th, 30th, or 31st depending on the month). <code>L-3</code> means 3 days before the last day.</p>
+        <p>In <strong>day-of-week</strong>: <code>6L</code> means the last Friday of the month. <code>1L</code> means the last Sunday of the month.</p>
+
+        <h3>W (Nearest Weekday)</h3>
+        <p>Used in day-of-month only. <code>15W</code> means "the nearest weekday to the 15th". If the 15th is Saturday, it fires on Friday the 14th. If the 15th is Sunday, it fires on Monday the 16th. <code>LW</code> means "the last weekday of the month".</p>
+
+        <h3># (Nth Occurrence)</h3>
+        <p>Used in day-of-week only. <code>6#3</code> means "the 3rd Friday of the month". <code>2#1</code> means "the 1st Monday of the month". Valid occurrence values are 1-5.</p>
+      </article>
+
+      <article class="guide-article">
+        <h2>Where Quartz Cron Expressions Are Used</h2>
+
+        <h3>Java Quartz Scheduler</h3>
+        <p>The original Quartz Scheduler library for Java uses this format. Configure triggers with <code>CronScheduleBuilder.cronSchedule("0 0 12 * * ?")</code> to schedule jobs.</p>
+
+        <h3>Spring Boot @Scheduled</h3>
+        <p>Spring's <code>@Scheduled(cron = "0 0 9 * * ?")</code> annotation uses Quartz-compatible 6-field cron expressions. Note that Spring 6+ uses a slightly different cron parser but is largely compatible with Quartz syntax.</p>
+
+        <h3>Other Systems</h3>
+        <p>Many enterprise systems use Quartz-format cron: Apache Camel, Camunda, Activiti, Jenkins (with Quartz plugin), and various ESBs and workflow engines.</p>
+      </article>
+
+      <article class="guide-article">
+        <h2>Common Mistakes with Quartz Cron</h2>
+        <ul>
+          <li><strong>Forgetting the seconds field:</strong> If you write <code>0 12 * * ?</code> (5 fields), that's standard cron format. Quartz needs 6 fields. Prepend <code>0</code> for seconds: <code>0 0 12 * * ?</code>.</li>
+          <li><strong>Using both day fields without ?:</strong> Quartz requires <code>?</code> in one of the day fields. <code>0 0 12 1 * 6</code> is invalid. Use <code>0 0 12 1 * ?</code> or <code>0 0 12 ? * 6</code>.</li>
+          <li><strong>Wrong day-of-week numbering:</strong> In Quartz, Sunday=1, Monday=2, ..., Saturday=7. This is different from Unix cron where Sunday=0.</li>
+          <li><strong>Mixing standard cron syntax:</strong> Don't use <code>0</code> for Sunday in the day-of-week field. In Quartz, use <code>1</code> for Sunday.</li>
+          <li><strong>Using L, W, # in standard cron:</strong> These characters only work in Quartz. Standard crontab will reject them.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+<section class="faq-section">
+    <h2><i class="fas fa-question-circle"></i> Quartz Cron Expression FAQ</h2>
+
+    <div class="faq-item">
+      <h3>What is a Quartz cron expression?</h3>
+      <p>A <strong>Quartz cron expression</strong> is a string of 6 or 7 fields used by the Quartz Scheduler library (Java) and Spring Boot to define job schedules. It adds a seconds field and special characters (<code>?</code>, <code>L</code>, <code>W</code>, <code>#</code>) beyond what standard Unix cron supports.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is the difference between Quartz cron and standard cron?</h3>
+      <p>Standard Unix cron uses <strong>5 fields</strong> (minute, hour, day, month, weekday) while Quartz uses <strong>6-7 fields</strong> starting with seconds. Quartz requires <code>?</code> in one day field and supports <code>L</code> (last), <code>W</code> (weekday), <code>#</code> (nth). Day-of-week is 1-7 (not 0-6). Use our <a href="/tools/cron-expression/">standard Cron Expression tool</a> for 5-field expressions.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does ? mean in Quartz cron?</h3>
+      <p>The <code>?</code> means "no specific value". It must appear in either day-of-month or day-of-week (but not both). It tells Quartz to ignore that day field and use only the other one for scheduling.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does L mean in Quartz cron?</h3>
+      <p><code>L</code> means "last". In day-of-month, <code>L</code> = last day of month. <code>L-3</code> = 3 days before last day. In day-of-week, <code>6L</code> = last Friday of month.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does # mean in Quartz cron?</h3>
+      <p><code>#</code> specifies the nth occurrence of a weekday in a month. For example, <code>6#3</code> means "3rd Friday of the month" (6=Friday in Quartz, where 1=Sunday).</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I convert standard cron to Quartz?</h3>
+      <p>Prepend <code>0</code> for seconds, adjust day-of-week from 0-6 to 1-7, and add <code>?</code> to one day field. Example: <code>0 9 * * 1-5</code> (standard) → <code>0 0 9 ? * 2-6</code> (Quartz).</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does Spring Boot use Quartz cron expressions?</h3>
+      <p>Yes. Spring's <code>@Scheduled(cron = "...")</code> uses 6-field Quartz-compatible cron. It supports the same special characters including <code>?</code>, <code>L</code>, <code>W</code>, and <code>#</code>.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I schedule a job on the last Friday of every month?</h3>
+      <p>Use <code>0 0 0 ? * 6L</code>. The <code>6L</code> in day-of-week means "last Friday" (6=Friday in Quartz). The <code>?</code> in day-of-month means "ignore day-of-month".</p>
+    </div>
+  </section>
+
+  {% include tool-ad-bottom.html %}
+</div>
+</div>
+
+{% include tool-hide-empty-ads.html %}
+
+<script src="{{ '/assets/js/quartz-tool.js' | relative_url }}"></script>
+</div>
+
+</div>

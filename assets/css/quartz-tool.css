@@ -1,10 +1,10 @@
 /**
- * Cron Expression Tool Styles
- * Matches the explainer theme: clean, professional, developer-focused
+ * Quartz Scheduler Cron Expression Tool Styles
+ * Matches the warm, developer-focused theme used by all tools (same as cron-tool).
  */
 
 /* Page Layout */
-.cron-page-wrapper {
+.quartz-page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 15px 40px;
@@ -13,7 +13,7 @@
 }
 
 /* ==========================================================================
-   Dedicated Ad Section (Below Examples)
+   Ad Sections (reused)
    ========================================================================== */
 
 .dedicated-ad-section {
@@ -21,7 +21,6 @@
   padding: 16px 0;
 }
 
-/* Advertisement label styling */
 .ad-label {
   display: flex;
   align-items: center;
@@ -47,10 +46,6 @@
   color: #9ca3af;
 }
 
-/* ==========================================================================
-   Bottom Ad Section
-   ========================================================================== */
-
 .bottom-ad-section {
   margin: 40px 0 20px 0;
   padding: 16px 0;
@@ -64,19 +59,18 @@
    Layout & Container
    ========================================================================== */
 
-.cron-tool {
+.quartz-tool {
   max-width: 1200px;
   width: 100%;
   padding: 0;
   background: #faf8f5;
 }
 
-/* Override page background for cron tool */
-body:has(.cron-tool) {
+body:has(.quartz-tool) {
   background: #faf8f5 !important;
 }
 
-.cron-tool .main-content {
+.quartz-tool .main-content {
   background: #faf8f5;
 }
 
@@ -94,7 +88,6 @@ body:has(.cron-tool) {
   box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
 }
 
-/* Tool Introduction - SEO-rich paragraph */
 .tool-intro {
   text-align: center;
   color: #57534e;
@@ -131,6 +124,56 @@ body:has(.cron-tool) {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #d6d3d1;
+}
+
+/* ==========================================================================
+   Cross-tool Link Banner
+   ========================================================================== */
+
+.cross-tool-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 10px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #44403c;
+  line-height: 1.5;
+}
+
+.cross-tool-banner i {
+  color: #78716c;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cross-tool-banner a {
+  color: #44403c;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #d6cfc4;
+  text-underline-offset: 2px;
+}
+
+.cross-tool-banner a:hover {
+  color: #292524;
+  text-decoration-color: #292524;
+}
+
+/* Inline cross-tool link in error messages */
+.cross-tool-link {
+  color: #44403c !important;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cross-tool-link:hover {
+  color: #292524 !important;
 }
 
 /* ==========================================================================
@@ -280,79 +323,51 @@ body:has(.cron-tool) {
 }
 
 /* ==========================================================================
-   Cron Fields Breakdown (Parse Mode)
+   Quartz Fields Breakdown (Parse Mode) — 6 columns + optional year
    ========================================================================== */
 
 .breakdown-section {
   margin-bottom: 24px;
 }
 
-.cron-fields-compact {
+.quartz-fields-compact {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   background: #f5f0e8 !important;
   border: 2px solid #e7e0d5;
   border-radius: 8px;
   padding: 8px 4px;
 }
 
-.cron-fields-compact .cron-field {
+.quartz-fields-compact.has-year {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.quartz-fields-compact .quartz-field {
   text-align: center;
   padding: 4px 2px;
   background: transparent !important;
 }
 
-.cron-fields-compact .field-value {
+.quartz-fields-compact .field-value {
   display: block;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: #292524 !important;
   background: transparent !important;
   line-height: 1;
 }
 
-.cron-fields-compact .field-label {
+.quartz-fields-compact .field-label {
   display: block;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 600;
   color: #78716c !important;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   margin-top: 2px;
-}
-
-/* Quartz character highlighting for fields containing ?, L, W, # */
-.cron-fields-compact .cron-field.quartz-highlight {
-  position: relative;
-  background: #fef3c7 !important;
-  border-radius: 6px;
-}
-
-.cron-fields-compact .cron-field.quartz-highlight .field-value {
-  color: #92400e !important;
-}
-
-.cron-fields-compact .cron-field.quartz-highlight .field-label {
-  color: #b45309 !important;
-}
-
-.cron-fields-compact .cron-field.quartz-highlight::after {
-  content: 'Quartz';
-  position: absolute;
-  top: -8px;
-  right: 4px;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.45rem;
-  font-weight: 700;
-  color: #fff;
-  background: #b45309;
-  padding: 1px 5px;
-  border-radius: 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  line-height: 1.4;
 }
 
 /* ==========================================================================
@@ -403,14 +418,9 @@ body:has(.cron-tool) {
   color: #991b1b;
 }
 
-.result-card.human-readable p.quartz-info {
-  color: #78350f;
-  font-weight: 500;
-  font-size: 0.95rem;
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  border-radius: 8px;
-  padding: 12px 16px;
+.result-card.human-readable p a {
+  color: #44403c;
+  font-weight: 600;
 }
 
 .result-card.next-runs ul {
@@ -445,42 +455,8 @@ body:has(.cron-tool) {
   font-style: italic;
 }
 
-/* Quartz suggestion message in human-readable card */
-.quartz-suggestion {
-  display: block;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.quartz-suggestion i.fa-info-circle {
-  color: #b45309;
-  margin-right: 4px;
-}
-
-.quartz-suggestion code {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-  background: #292524;
-  padding: 2px 7px;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  color: #fef3c7;
-  font-weight: 600;
-}
-
-.quartz-link {
-  color: #92400e;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: color 0.15s ease;
-}
-
-.quartz-link:hover {
-  color: #78350f;
-}
-
 /* ==========================================================================
-   Builder Section (Compact Dropdowns)
+   Builder Section — 6 columns
    ========================================================================== */
 
 .builder-compact {
@@ -489,8 +465,8 @@ body:has(.cron-tool) {
 
 .builder-row {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
   padding: 20px;
   background: #f5f0e8;
   border: 2px solid #e7e0d5;
@@ -504,7 +480,7 @@ body:has(.cron-tool) {
 .builder-col label {
   display: block;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: #78716c;
   text-transform: uppercase;
@@ -514,9 +490,9 @@ body:has(.cron-tool) {
 
 .builder-col select {
   width: 100%;
-  padding: 10px 8px;
+  padding: 10px 6px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
   border: 2px solid #e7e0d5;
   border-radius: 8px;
@@ -657,54 +633,8 @@ body:has(.cron-tool) {
 }
 
 /* ==========================================================================
-   Examples Section (Collapsible)
+   Examples Table
    ========================================================================== */
-
-.examples-section {
-  margin-bottom: 32px;
-}
-
-.examples-toggle {
-  width: 100%;
-  padding: 16px 20px;
-  background: #fffdf9;
-  border: 2px solid #e7e0d5;
-  border-radius: 12px;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #44403c;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.2s ease;
-}
-
-.examples-toggle:hover {
-  background: #f5f0e8;
-  border-color: #d6cfc4;
-}
-
-.examples-toggle span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.examples-toggle i.fa-lightbulb {
-  color: #b45309;
-}
-
-.examples-toggle .toggle-icon {
-  color: #78716c;
-  transition: transform 0.3s ease;
-}
-
-.examples-toggle.open .toggle-icon,
-.examples-toggle.expanded .toggle-icon {
-  transform: rotate(180deg);
-}
 
 .examples-table-section {
   margin-bottom: 32px;
@@ -722,8 +652,7 @@ body:has(.cron-tool) {
   line-height: 1.5;
 }
 
-/* Cron Examples Table - SEO optimized */
-.cron-examples-table {
+.quartz-examples-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -734,11 +663,11 @@ body:has(.cron-tool) {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.cron-examples-table thead tr {
+.quartz-examples-table thead tr {
   background: #292524 !important;
 }
 
-.cron-examples-table th {
+.quartz-examples-table th {
   padding: 14px 16px;
   text-align: left;
   font-size: 0.75rem;
@@ -750,30 +679,30 @@ body:has(.cron-tool) {
   border: none !important;
 }
 
-.cron-examples-table tbody tr {
+.quartz-examples-table tbody tr {
   border-bottom: 1px solid #e7e0d5;
   cursor: pointer;
   transition: all 0.15s ease;
   background: #fffdf9;
 }
 
-.cron-examples-table tbody tr:nth-child(even) {
+.quartz-examples-table tbody tr:nth-child(even) {
   background: #faf8f5;
 }
 
-.cron-examples-table tbody tr:last-child {
+.quartz-examples-table tbody tr:last-child {
   border-bottom: none;
 }
 
-.cron-examples-table tbody tr:hover {
+.quartz-examples-table tbody tr:hover {
   background: #f5f0e8 !important;
 }
 
-.cron-examples-table tbody tr:active {
+.quartz-examples-table tbody tr:active {
   background: #e7e0d5 !important;
 }
 
-.cron-examples-table td {
+.quartz-examples-table td {
   padding: 10px 16px;
   font-size: 0.9rem;
   color: #44403c;
@@ -782,71 +711,32 @@ body:has(.cron-tool) {
   background: transparent !important;
 }
 
-.cron-examples-table td:first-child {
-  width: 160px;
+.quartz-examples-table td:first-child {
+  width: 200px;
 }
 
-.cron-examples-table td:first-child code {
+.quartz-examples-table td:first-child code {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
   background: #292524 !important;
   color: #fef3c7 !important;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   display: inline-block;
   border: none !important;
   font-weight: 500;
 }
 
-.cron-examples-table td:nth-child(2) {
+.quartz-examples-table td:nth-child(2) {
   font-weight: 500;
   color: #292524;
 }
 
-.cron-examples-table td:last-child {
+.quartz-examples-table td:last-child {
   color: #a8a29e;
   font-size: 0.75rem;
   width: 90px;
   text-align: right;
-}
-
-/* Legacy grid support for backwards compatibility */
-.examples-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.example-btn {
-  padding: 12px 16px;
-  background: #fffdf9;
-  border: 2px solid #e7e0d5;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s ease;
-}
-
-.example-btn:hover {
-  border-color: #a8a29e;
-  background: #f5f0e8;
-  transform: translateY(-1px);
-}
-
-.example-btn .example-name {
-  display: block;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #44403c;
-  margin-bottom: 4px;
-}
-
-.example-btn code {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-  font-size: 0.75rem;
-  color: #78716c;
-  background: none;
 }
 
 /* ==========================================================================
@@ -1040,16 +930,13 @@ body:has(.cron-tool) {
   color: #fef3c7;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .cron-page-wrapper {
-    padding: 15px 12px 30px;
-  }
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
 
-  .dedicated-ad-section,
-  .bottom-ad-section {
-    margin: 24px 0;
-    padding: 12px 0;
+@media (max-width: 768px) {
+  .quartz-page-wrapper {
+    padding: 15px 12px 30px;
   }
 
   .tool-header {
@@ -1069,20 +956,14 @@ body:has(.cron-tool) {
     justify-content: center;
   }
 
-  .cron-fields-compact {
-    grid-template-columns: repeat(5, 1fr);
+  .quartz-fields-compact {
+    grid-template-columns: repeat(3, 1fr);
     padding: 12px 4px;
+    gap: 4px;
   }
 
-  .cron-fields-compact .field-value {
-    font-size: 1.2rem;
-  }
-
-  .cron-fields-compact .cron-field.quartz-highlight::after {
-    font-size: 0.4rem;
-    padding: 1px 4px;
-    top: -6px;
-    right: 2px;
+  .quartz-fields-compact .field-value {
+    font-size: 1rem;
   }
 
   .result-section {
@@ -1091,7 +972,7 @@ body:has(.cron-tool) {
 
   .builder-row {
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px;
     padding: 16px;
   }
 
@@ -1099,31 +980,27 @@ body:has(.cron-tool) {
     grid-template-columns: 1fr;
   }
 
-  .examples-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cron-examples-table td:last-child,
-  .cron-examples-table th:last-child {
+  .quartz-examples-table td:last-child,
+  .quartz-examples-table th:last-child {
     display: none;
   }
 
-  .cron-examples-table td {
+  .quartz-examples-table td {
     padding: 8px 12px;
     font-size: 0.85rem;
   }
 
-  .cron-examples-table th {
+  .quartz-examples-table th {
     padding: 10px 12px;
     font-size: 0.7rem;
   }
 
-  .cron-examples-table td:first-child {
-    width: 130px;
+  .quartz-examples-table td:first-child {
+    width: 160px;
   }
 
-  .cron-examples-table td:first-child code {
-    font-size: 0.7rem;
+  .quartz-examples-table td:first-child code {
+    font-size: 0.68rem;
     padding: 5px 8px;
   }
 
@@ -1146,8 +1023,13 @@ body:has(.cron-tool) {
   }
 
   .syntax-diagram {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     padding: 15px;
+  }
+
+  .cross-tool-banner {
+    font-size: 0.85rem;
+    padding: 10px 14px;
   }
 }
 
@@ -1161,38 +1043,38 @@ body:has(.cron-tool) {
     font-size: 0.85rem;
   }
 
-  .cron-fields-compact .field-value {
-    font-size: 1rem;
+  .quartz-fields-compact {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .cron-fields-compact .field-label {
-    font-size: 0.55rem;
+  .quartz-fields-compact .field-value {
+    font-size: 0.9rem;
+  }
+
+  .quartz-fields-compact .field-label {
+    font-size: 0.5rem;
   }
 
   .builder-row {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 6px;
   }
 
   .builder-col select {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     padding: 8px 4px;
   }
 
-  .examples-grid {
-    grid-template-columns: 1fr;
+  .quartz-examples-table td:first-child {
+    width: 130px;
   }
 
-  .cron-examples-table td:first-child {
-    width: 110px;
-  }
-
-  .cron-examples-table td:first-child code {
-    font-size: 0.65rem;
+  .quartz-examples-table td:first-child code {
+    font-size: 0.62rem;
     padding: 4px 6px;
   }
 
-  .cron-examples-table td:nth-child(2) {
+  .quartz-examples-table td:nth-child(2) {
     font-size: 0.8rem;
   }
 }

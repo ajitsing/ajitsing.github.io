@@ -126,6 +126,42 @@
   }
 
   /**
+   * Quartz Scheduler special characters (not valid in standard cron)
+   */
+  const QUARTZ_CHARS = /[?LW#]/i;
+
+  /**
+   * Check if a single field value contains Quartz-specific characters
+   * @param {string} value - The field value
+   * @returns {boolean} Whether the field contains Quartz characters
+   */
+  function hasQuartzChars(value) {
+    return QUARTZ_CHARS.test(value);
+  }
+
+  /**
+   * Detect Quartz-specific characters in a parsed expression.
+   * Returns an object with field names that contain Quartz chars, or null if none found.
+   * @param {object} parsed - Parsed cron fields
+   * @returns {object|null} Map of field name to true for fields with Quartz chars
+   */
+  function detectQuartzFields(parsed) {
+    if (!parsed) return null;
+
+    const quartzFields = {};
+    let found = false;
+
+    ['minute', 'hour', 'day', 'month', 'weekday'].forEach(field => {
+      if (hasQuartzChars(parsed[field])) {
+        quartzFields[field] = true;
+        found = true;
+      }
+    });
+
+    return found ? quartzFields : null;
+  }
+
+  /**
    * Validate an entire cron expression
    * @param {object} parsed - Parsed cron fields
    * @returns {boolean} Whether the expression is valid
@@ -448,48 +484,100 @@
   // ==========================================================================
 
   /**
-   * Update the visual breakdown of cron fields
+   * Update the visual breakdown of cron fields.
+   * If quartzFields is provided, those fields get a special Quartz highlight.
    */
-  function updateBreakdown(parsed) {
+  function updateBreakdown(parsed, quartzFields) {
     const fields = ['minute', 'hour', 'day', 'month', 'weekday'];
     
     fields.forEach(field => {
       const element = document.querySelector(`.cron-field[data-field="${field}"]`);
       const valueSpan = element.querySelector('.field-value');
       
+      // Remove previous state classes
+      element.classList.remove('highlight', 'quartz-highlight');
+
       if (parsed && parsed[field]) {
         valueSpan.textContent = parsed[field];
-        element.classList.add('highlight');
+
+        if (quartzFields && quartzFields[field]) {
+          // Quartz-specific character detected in this field
+          element.classList.add('quartz-highlight');
+        } else {
+          element.classList.add('highlight');
+        }
       } else {
         valueSpan.textContent = '*';
-        element.classList.remove('highlight');
       }
     });
   }
 
   /**
+   * Build the Quartz suggestion HTML with a link to the Quartz tool
+   * @param {string} inputVal - The raw expression to pass as a query param
+   * @param {string} reason - Short reason text (e.g. "6-7 fields" or specific chars)
+   * @returns {string} HTML string
+   */
+  function buildQuartzSuggestion(inputVal, reason) {
+    return '<span class="quartz-suggestion">' +
+      '<i class="fas fa-info-circle"></i> ' +
+      'This looks like a <strong>Quartz Scheduler</strong> expression (' + reason + '). ' +
+      '<a href="/tools/quartz-scheduler/?expr=' + encodeURIComponent(inputVal) +
+      '" class="quartz-link">Try the Quartz Scheduler Cron Tool instead →</a>' +
+      '</span>';
+  }
+
+  /**
    * Update the human-readable description
    */
-  function updateHumanReadable(parsed, isValid) {
+  function updateHumanReadable(parsed, isValid, quartzFields) {
+    // Reset state classes
+    elements.humanReadable.classList.remove('error', 'quartz-info');
+
     if (!isValid) {
-      elements.humanReadable.textContent = 'Invalid cron expression';
-      elements.humanReadable.classList.add('error');
+      const inputVal = elements.cronInput.value.trim();
+      const fieldCount = inputVal.split(/\s+/).length;
+
+      if (fieldCount === 6 || fieldCount === 7) {
+        // 6 or 7 fields: clearly a Quartz expression
+        elements.humanReadable.innerHTML = buildQuartzSuggestion(inputVal, fieldCount + ' fields');
+        elements.humanReadable.classList.add('quartz-info');
+      } else if (quartzFields) {
+        // 5 fields but contains ?, L, W, or #
+        const chars = [];
+        if (inputVal.includes('?')) chars.push('?');
+        if (/L/i.test(inputVal)) chars.push('L');
+        if (/W/i.test(inputVal)) chars.push('W');
+        if (inputVal.includes('#')) chars.push('#');
+        const charList = chars.map(c => '<code>' + c + '</code>').join(', ');
+        elements.humanReadable.innerHTML = buildQuartzSuggestion(
+          inputVal,
+          'uses ' + charList + ' syntax'
+        );
+        elements.humanReadable.classList.add('quartz-info');
+      } else {
+        elements.humanReadable.textContent = 'Invalid cron expression';
+        elements.humanReadable.classList.add('error');
+      }
     } else {
       elements.humanReadable.textContent = toHumanReadable(parsed);
-      elements.humanReadable.classList.remove('error');
     }
   }
 
   /**
    * Update the next runs list
    */
-  function updateNextRuns(parsed, isValid) {
+  function updateNextRuns(parsed, isValid, quartzFields) {
     elements.nextRuns.innerHTML = '';
 
     if (!isValid) {
       const li = document.createElement('li');
       li.className = 'placeholder';
-      li.textContent = 'Fix the expression to see upcoming runs';
+      if (quartzFields) {
+        li.textContent = 'Use the Quartz Scheduler tool to see next runs';
+      } else {
+        li.textContent = 'Fix the expression to see upcoming runs';
+      }
       elements.nextRuns.appendChild(li);
       return;
     }
@@ -520,17 +608,45 @@
     if (!expression) {
       updateBreakdown(null);
       elements.humanReadable.textContent = 'Enter a cron expression above to see its description';
-      elements.humanReadable.classList.remove('error');
+      elements.humanReadable.classList.remove('error', 'quartz-info');
       elements.nextRuns.innerHTML = '<li class="placeholder">Parse an expression to see upcoming runs</li>';
       return;
     }
 
+    const parts = expression.split(/\s+/);
     const parsed = parseCron(expression);
     const isValid = isValidCron(parsed);
+    const quartzFields = detectQuartzFields(parsed);
 
-    updateBreakdown(parsed);
-    updateHumanReadable(parsed, isValid);
-    updateNextRuns(parsed, isValid);
+    // For 6/7 field expressions (Quartz), map fields onto the 5-field breakdown
+    // so users see the values highlighted. Quartz format: sec min hour dom month dow [year]
+    let displayParsed = parsed;
+    let displayQuartzFields = quartzFields;
+    if (!parsed && (parts.length === 6 || parts.length === 7)) {
+      displayParsed = {
+        minute: parts[1],
+        hour: parts[2],
+        day: parts[3],
+        month: parts[4],
+        weekday: parts[5] || '*'
+      };
+      // Highlight only the fields that contain Quartz-specific characters
+      displayQuartzFields = {};
+      const fieldMap = { minute: 1, hour: 2, day: 3, month: 4, weekday: 5 };
+      Object.keys(fieldMap).forEach(field => {
+        if (hasQuartzChars(parts[fieldMap[field]])) {
+          displayQuartzFields[field] = true;
+        }
+      });
+      // If no specific Quartz chars found, it's still a Quartz expression (6/7 fields)
+      // Mark none as quartz-highlight but the suggestion will still show
+    }
+
+    updateBreakdown(displayParsed, displayQuartzFields);
+    updateHumanReadable(parsed, isValid, quartzFields);
+    // Show Quartz-specific message in next runs if Quartz chars detected or 6/7 fields
+    const isQuartzLike = quartzFields || (parts.length === 6 || parts.length === 7);
+    updateNextRuns(parsed, isValid, isQuartzLike);
   }
 
   // ==========================================================================

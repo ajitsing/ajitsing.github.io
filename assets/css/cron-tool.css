@@ -216,6 +216,7 @@ body:has(.cron-tool) {
   padding: 12px 16px;
   font-size: 1.1rem;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  color: #1c1917;
   border: 2px solid #e7e0d5;
   border-radius: 8px;
   outline: none;
@@ -300,6 +301,10 @@ body:has(.cron-tool) {
   text-align: center;
   padding: 4px 2px;
   background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cron-fields-compact .field-value {
@@ -324,35 +329,21 @@ body:has(.cron-tool) {
 }
 
 /* Quartz character highlighting for fields containing ?, L, W, # */
-.cron-fields-compact .cron-field.quartz-highlight {
-  position: relative;
-  background: #fef3c7 !important;
-  border-radius: 6px;
-}
-
 .cron-fields-compact .cron-field.quartz-highlight .field-value {
-  color: #92400e !important;
+  color: #b45309 !important;
 }
 
 .cron-fields-compact .cron-field.quartz-highlight .field-label {
   color: #b45309 !important;
+  font-weight: 700;
 }
 
-.cron-fields-compact .cron-field.quartz-highlight::after {
-  content: 'Quartz';
-  position: absolute;
-  top: -8px;
-  right: 4px;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.45rem;
+.cron-fields-compact .cron-field.quartz-highlight .field-label::after {
+  content: ' · QUARTZ';
+  font-size: 0.5rem;
   font-weight: 700;
-  color: #fff;
-  background: #b45309;
-  padding: 1px 5px;
-  border-radius: 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  line-height: 1.4;
+  color: #92400e;
+  letter-spacing: 0.3px;
 }
 
 /* ==========================================================================
@@ -403,14 +394,20 @@ body:has(.cron-tool) {
   color: #991b1b;
 }
 
+.result-card.human-readable p.valid {
+  color: #166534;
+}
+
+.result-card.human-readable p.valid .valid-icon {
+  color: #16a34a;
+  margin-right: 6px;
+  font-size: 0.95rem;
+}
+
 .result-card.human-readable p.quartz-info {
   color: #78350f;
   font-weight: 500;
   font-size: 0.95rem;
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  border-radius: 8px;
-  padding: 12px 16px;
 }
 
 .result-card.next-runs ul {
@@ -448,13 +445,12 @@ body:has(.cron-tool) {
 /* Quartz suggestion message in human-readable card */
 .quartz-suggestion {
   display: block;
-  font-size: 0.95rem;
   line-height: 1.6;
 }
 
 .quartz-suggestion i.fa-info-circle {
   color: #b45309;
-  margin-right: 4px;
+  margin-right: 2px;
 }
 
 .quartz-suggestion code {
@@ -462,21 +458,25 @@ body:has(.cron-tool) {
   background: #292524;
   padding: 2px 7px;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: 0.8em;
   color: #fef3c7;
   font-weight: 600;
 }
 
 .quartz-link {
+  display: inline-block;
+  margin-top: 4px;
   color: #92400e;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: color 0.15s ease;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid #fde68a;
+  padding-bottom: 1px;
+  transition: all 0.15s ease;
 }
 
 .quartz-link:hover {
   color: #78350f;
+  border-bottom-color: #b45309;
 }
 
 /* ==========================================================================
@@ -1076,13 +1076,6 @@ body:has(.cron-tool) {
 
   .cron-fields-compact .field-value {
     font-size: 1.2rem;
-  }
-
-  .cron-fields-compact .cron-field.quartz-highlight::after {
-    font-size: 0.4rem;
-    padding: 1px 4px;
-    top: -6px;
-    right: 2px;
   }
 
   .result-section {

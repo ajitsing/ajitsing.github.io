@@ -164,17 +164,6 @@ body:has(.quartz-tool) {
   text-decoration-color: #292524;
 }
 
-/* Inline cross-tool link in error messages */
-.cross-tool-link {
-  color: #44403c !important;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.cross-tool-link:hover {
-  color: #292524 !important;
-}
 
 /* ==========================================================================
    Mode Tabs
@@ -259,6 +248,7 @@ body:has(.quartz-tool) {
   padding: 12px 16px;
   font-size: 1.1rem;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  color: #1c1917;
   border: 2px solid #e7e0d5;
   border-radius: 8px;
   outline: none;
@@ -414,12 +404,56 @@ body:has(.quartz-tool) {
   line-height: 1.4;
 }
 
+.result-card.human-readable p.valid {
+  color: #166534;
+}
+
+.result-card.human-readable p.valid .valid-icon {
+  color: #16a34a;
+  margin-right: 6px;
+  font-size: 0.95rem;
+}
+
 .result-card.human-readable p.error {
   color: #991b1b;
 }
 
 .result-card.human-readable p a {
   color: #44403c;
+  font-weight: 600;
+}
+
+/* Quartz description + warning formatting */
+.quartz-description {
+  display: block;
+}
+
+.quartz-warning {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #92400e;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+
+.quartz-warning i {
+  color: #b45309;
+  margin-right: 4px;
+  font-size: 0.78rem;
+}
+
+.quartz-warning code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: #fef3c7;
   font-weight: 600;
 }
 

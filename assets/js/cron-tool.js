@@ -523,7 +523,9 @@
       '<i class="fas fa-info-circle"></i> ' +
       'This looks like a <strong>Quartz Scheduler</strong> expression (' + reason + '). ' +
       '<a href="/tools/quartz-scheduler/?expr=' + encodeURIComponent(inputVal) +
-      '" class="quartz-link">Try the Quartz Scheduler Cron Tool instead →</a>' +
+      '" class="quartz-link" onclick="' +
+      "if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Cron Tool','event_label':'to_quartz_from_suggestion','value':'" + reason + "'})}" +
+      '">Try the Quartz Scheduler Cron Tool instead →</a>' +
       '</span>';
   }
 
@@ -532,7 +534,7 @@
    */
   function updateHumanReadable(parsed, isValid, quartzFields) {
     // Reset state classes
-    elements.humanReadable.classList.remove('error', 'quartz-info');
+    elements.humanReadable.classList.remove('error', 'quartz-info', 'valid');
 
     if (!isValid) {
       const inputVal = elements.cronInput.value.trim();
@@ -560,7 +562,9 @@
         elements.humanReadable.classList.add('error');
       }
     } else {
-      elements.humanReadable.textContent = toHumanReadable(parsed);
+      elements.humanReadable.innerHTML =
+        '<i class="fas fa-check-circle valid-icon"></i> ' + toHumanReadable(parsed);
+      elements.humanReadable.classList.add('valid');
     }
   }
 
@@ -608,7 +612,7 @@
     if (!expression) {
       updateBreakdown(null);
       elements.humanReadable.textContent = 'Enter a cron expression above to see its description';
-      elements.humanReadable.classList.remove('error', 'quartz-info');
+      elements.humanReadable.classList.remove('error', 'quartz-info', 'valid');
       elements.nextRuns.innerHTML = '<li class="placeholder">Parse an expression to see upcoming runs</li>';
       return;
     }

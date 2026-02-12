@@ -264,7 +264,7 @@ hide-explore-posts: true
 
   <div class="cross-tool-banner">
     <i class="fas fa-info-circle"></i>
-    <span>Looking for standard 5-field Unix cron? Use <a href="/tools/cron-expression/">Cron Expression Generator</a> for Linux crontab, Kubernetes CronJobs, and GitHub Actions.</span>
+    <span>Looking for standard 5-field Unix cron? Use <a href="/tools/cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Quartz Tool','event_label':'to_cron_from_banner'})}">Cron Expression Generator</a> for Linux crontab, Kubernetes CronJobs, and GitHub Actions.</span>
   </div>
 
   {% include tool-ad-top.html %}
@@ -595,7 +595,7 @@ hide-explore-posts: true
         <h2>Quartz vs Standard Cron: Key Differences</h2>
 
         <h3>Field Count and Order</h3>
-        <p>Standard Unix cron uses <strong>5 fields</strong> (minute, hour, day, month, weekday). Quartz uses <strong>6-7 fields</strong> starting with seconds. If you have a 5-field expression, use our <a href="/tools/cron-expression/">standard Cron Expression tool</a> instead.</p>
+        <p>Standard Unix cron uses <strong>5 fields</strong> (minute, hour, day, month, weekday). Quartz uses <strong>6-7 fields</strong> starting with seconds. If you have a 5-field expression, use our <a href="/tools/cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Quartz Tool','event_label':'to_cron_from_guide'})}">standard Cron Expression tool</a> instead.</p>
 
         <h3>Day-of-Week Numbering</h3>
         <p>In standard cron, days are numbered <strong>0-6 (Sunday=0)</strong>. In Quartz, days are numbered <strong>1-7 (Sunday=1)</strong>. This is a common source of bugs when converting between formats.</p>
@@ -661,7 +661,7 @@ hide-explore-posts: true
 
     <div class="faq-item">
       <h3>What is the difference between Quartz cron and standard cron?</h3>
-      <p>Standard Unix cron uses <strong>5 fields</strong> (minute, hour, day, month, weekday) while Quartz uses <strong>6-7 fields</strong> starting with seconds. Quartz requires <code>?</code> in one day field and supports <code>L</code> (last), <code>W</code> (weekday), <code>#</code> (nth). Day-of-week is 1-7 (not 0-6). Use our <a href="/tools/cron-expression/">standard Cron Expression tool</a> for 5-field expressions.</p>
+      <p>Standard Unix cron uses <strong>5 fields</strong> (minute, hour, day, month, weekday) while Quartz uses <strong>6-7 fields</strong> starting with seconds. Quartz requires <code>?</code> in one day field and supports <code>L</code> (last), <code>W</code> (weekday), <code>#</code> (nth). Day-of-week is 1-7 (not 0-6). Use our <a href="/tools/cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Quartz Tool','event_label':'to_cron_from_faq'})}">standard Cron Expression tool</a> for 5-field expressions.</p>
     </div>
 
     <div class="faq-item">

@@ -214,22 +214,25 @@
   }
 
   /**
-   * Validate entire Quartz expression
+   * Validate entire Quartz expression.
+   * Quartz requires exactly one of day-of-month or day-of-week to be '?'
+   * when the other has a specific value (not '*').
    */
   function isValidQuartz(parsed) {
     if (!parsed) return false;
 
-    // Exactly one of dayOfMonth or dayOfWeek must be '?'
     const domIsQ = parsed.dayOfMonth === '?';
     const dowIsQ = parsed.dayOfWeek === '?';
 
+    // Both cannot be '?'
+    if (domIsQ && dowIsQ) return false;
+
+    // If neither is '?', both must be '*' (wildcard). Otherwise invalid.
     if (!domIsQ && !dowIsQ) {
-      // Both specified without ? - Quartz requires one to be ?
-      // However, * and * is technically a common usage, allow it with a warning
-      // For strict validation: return false;
-      // For user-friendliness, we allow * * but flag it
+      if (parsed.dayOfMonth !== '*' || parsed.dayOfWeek !== '*') {
+        return false;
+      }
     }
-    if (domIsQ && dowIsQ) return false; // Both can't be ?
 
     return isValidBasicField(parsed.second, 0, 59) &&
            isValidBasicField(parsed.minute, 0, 59) &&
@@ -238,25 +241,6 @@
            isValidBasicField(parsed.month, 1, 12) &&
            isValidDayOfWeek(parsed.dayOfWeek) &&
            isValidYear(parsed.year);
-  }
-
-  /**
-   * Get validation warnings (not errors, but things to note)
-   */
-  function getWarnings(parsed) {
-    if (!parsed) return [];
-    const warnings = [];
-
-    const domIsQ = parsed.dayOfMonth === '?';
-    const dowIsQ = parsed.dayOfWeek === '?';
-
-    if (!domIsQ && !dowIsQ && parsed.dayOfMonth !== '?' && parsed.dayOfWeek !== '?') {
-      if (parsed.dayOfMonth !== '*' || parsed.dayOfWeek !== '*') {
-        warnings.push('Quartz recommends using ? in either day-of-month or day-of-week when the other is specified');
-      }
-    }
-
-    return warnings;
   }
 
   // ==========================================================================
@@ -505,9 +489,22 @@
     current.setMilliseconds(0);
     current.setSeconds(current.getSeconds() + 1);
 
+    const step = getSmartStep(parsed);
+
+    // When stepping by 60s, align to the target second so we don't skip it
+    if (step === 60) {
+      const targetSec = parseInt(parsed.second, 10);
+      if (!isNaN(targetSec)) {
+        if (current.getSeconds() > targetSec) {
+          // Advance to next minute, then set target second
+          current.setMinutes(current.getMinutes() + 1);
+        }
+        current.setSeconds(targetSec);
+      }
+    }
+
     const maxIterations = 31536000; // ~1 year in seconds
     let iterations = 0;
-    const step = getSmartStep(parsed);
 
     while (runs.length < count && iterations < maxIterations) {
       if (matchesQuartz(current, parsed)) {
@@ -702,27 +699,36 @@
   }
 
   function updateHumanReadable(parsed, isValid) {
-    const warnings = getWarnings(parsed);
-
     if (!isValid) {
-      // Check if it's a standard 5-field cron
-      const parts = (elements.quartzInput.value || '').trim().split(/\s+/);
-      if (parts.length === 5) {
-        elements.humanReadable.innerHTML = 'This looks like a standard 5-field cron expression. ' +
-          '<a href="/tools/cron-expression/?expr=' + encodeURIComponent(elements.quartzInput.value.trim()) +
-          '" class="cross-tool-link">Try the Cron Expression Tool instead →</a>';
-        elements.humanReadable.classList.add('error');
-      } else {
-        elements.humanReadable.textContent = 'Invalid Quartz cron expression';
-        elements.humanReadable.classList.add('error');
+      // Provide a helpful hint if ? is missing
+      if (parsed) {
+        const domIsQ = parsed.dayOfMonth === '?';
+        const dowIsQ = parsed.dayOfWeek === '?';
+        if (!domIsQ && !dowIsQ && (parsed.dayOfMonth !== '*' || parsed.dayOfWeek !== '*')) {
+          elements.humanReadable.innerHTML =
+            '<span class="quartz-description">Invalid Quartz cron expression</span>' +
+            '<span class="quartz-warning"><i class="fas fa-exclamation-triangle"></i> ' +
+            'One of day-of-month or day-of-week must be <code>?</code> when the other has a value. ' +
+            'Example: <code>0 9 * ? * L</code></span>';
+          elements.humanReadable.classList.add('error');
+          elements.humanReadable.classList.remove('valid');
+          return;
+        }
       }
+      elements.humanReadable.textContent = 'Invalid Quartz cron expression';
+      elements.humanReadable.classList.add('error');
+      elements.humanReadable.classList.remove('valid');
     } else {
-      let text = toHumanReadable(parsed);
-      if (warnings.length > 0) {
-        text += ' ⚠️ ' + warnings.join('; ');
-      }
-      elements.humanReadable.textContent = text;
+      elements.humanReadable.innerHTML =
+        '<i class="fas fa-check-circle valid-icon"></i> ' + toHumanReadable(parsed);
       elements.humanReadable.classList.remove('error');
+      elements.humanReadable.classList.add('valid');
+
+      // Scroll the result card into view
+      const resultCard = elements.humanReadable.closest('.result-card');
+      if (resultCard) {
+        resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     }
   }
 
@@ -760,7 +766,7 @@
     if (!expression) {
       updateBreakdown(null);
       elements.humanReadable.textContent = 'Enter a Quartz cron expression above to see its description';
-      elements.humanReadable.classList.remove('error');
+      elements.humanReadable.classList.remove('error', 'valid');
       elements.nextRuns.innerHTML = '<li class="placeholder">Parse an expression to see upcoming runs</li>';
       return;
     }

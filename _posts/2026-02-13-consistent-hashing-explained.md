@@ -13,6 +13,7 @@ keywords: "consistent hashing, consistent hashing system design, consistent hash
 tags: [system-design]
 comments: true
 social-share: true
+popular: true
 
 quick-answer: "Consistent hashing maps both servers and keys onto a circular hash ring (0 to 2^32-1). Each key is assigned to the nearest server clockwise. When a server is added or removed, only **K/N keys** move (K = total keys, N = total servers), instead of rehashing everything. **Virtual nodes** solve uneven distribution by placing each physical server at multiple ring positions. Used by DynamoDB, Cassandra, Memcached, and CDNs."
 

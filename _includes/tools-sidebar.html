@@ -25,9 +25,43 @@
         </a>
       </li>
       <li>
+        <a href="{{ '/tools/sql-formatter/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/sql-formatter/' %} active{% endif %}">
+          <i class="fas fa-database"></i>
+          <span class="tools-nav-title">SQL Formatter</span>
+        </a>
+      </li>
+
+      <li class="tools-nav-group-divider"></li>
+      <li>
         <a href="{{ '/tools/base64-encoder/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/base64-encoder/' %} active{% endif %}">
           <i class="fas fa-exchange-alt"></i>
           <span class="tools-nav-title">Base64 Encoder</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tools/url-encoder/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/url-encoder/' %} active{% endif %}">
+          <i class="fas fa-link"></i>
+          <span class="tools-nav-title">URL Encoder</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tools/jwt-decoder/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/jwt-decoder/' %} active{% endif %}">
+          <i class="fas fa-key"></i>
+          <span class="tools-nav-title">JWT Decoder</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tools/snowflake-decoder/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/snowflake-decoder/' %} active{% endif %}">
+          <i class="fas fa-snowflake"></i>
+          <span class="tools-nav-title">Snowflake Decoder</span>
+        </a>
+      </li>
+
+      <li class="tools-nav-group-divider"></li>
+      <li>
+        <a href="{{ '/tools/uuid-generator/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/uuid-generator/' %} active{% endif %}">
+          <i class="fas fa-fingerprint"></i>
+          <span class="tools-nav-title">UUID Generator</span>
         </a>
       </li>
       <li>
@@ -43,23 +77,13 @@
         </a>
       </li>
       <li>
-        <a href="{{ '/tools/jwt-decoder/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/jwt-decoder/' %} active{% endif %}">
-          <i class="fas fa-key"></i>
-          <span class="tools-nav-title">JWT Decoder</span>
+        <a href="{{ '/tools/qr-code-generator/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/qr-code-generator/' %} active{% endif %}">
+          <i class="fas fa-qrcode"></i>
+          <span class="tools-nav-title">QR Code Generator</span>
         </a>
       </li>
-      <li>
-        <a href="{{ '/tools/snowflake-decoder/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/snowflake-decoder/' %} active{% endif %}">
-          <i class="fas fa-snowflake"></i>
-          <span class="tools-nav-title">Snowflake Decoder</span>
-        </a>
-      </li>
-      <li>
-        <a href="{{ '/tools/uuid-generator/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/uuid-generator/' %} active{% endif %}">
-          <i class="fas fa-fingerprint"></i>
-          <span class="tools-nav-title">UUID Generator</span>
-        </a>
-      </li>
+
+      <li class="tools-nav-group-divider"></li>
       <li>
         <a href="{{ '/tools/epoch-converter/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/epoch-converter/' %} active{% endif %}">
           <i class="fas fa-clock"></i>
@@ -72,25 +96,6 @@
           <span class="tools-nav-title">SLA Calculator</span>
         </a>
       </li>
-      <li>
-        <a href="{{ '/tools/url-encoder/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/url-encoder/' %} active{% endif %}">
-          <i class="fas fa-link"></i>
-          <span class="tools-nav-title">URL Encoder</span>
-        </a>
-      </li>
-      <li>
-        <a href="{{ '/tools/qr-code-generator/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/qr-code-generator/' %} active{% endif %}">
-          <i class="fas fa-qrcode"></i>
-          <span class="tools-nav-title">QR Code Generator</span>
-        </a>
-      </li>
-      <li>
-        <a href="{{ '/tools/sql-formatter/' | relative_url }}" class="tools-nav-item{% if page.url == '/tools/sql-formatter/' %} active{% endif %}">
-          <i class="fas fa-database"></i>
-          <span class="tools-nav-title">SQL Formatter</span>
-        </a>
-      </li>
     </ul>
   </nav>
-  {% include support-tools.html %}
 </aside>

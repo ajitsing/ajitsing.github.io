@@ -16,6 +16,28 @@
   left: 24px;
   top: 168px;
   width: 200px;
+  max-height: calc(100vh - 188px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #d6cfc4 transparent;
+}
+
+.tools-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tools-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tools-sidebar::-webkit-scrollbar-thumb {
+  background: #d6cfc4;
+  border-radius: 4px;
+}
+
+.tools-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
 }
 
 .tools-main {
@@ -26,8 +48,6 @@
 }
 
 .tools-nav {
-  position: sticky;
-  top: 100px;
   background: #fffdf9;
   border: 2px solid #e7e0d5;
   border-radius: 12px;
@@ -65,17 +85,24 @@
   margin: 0;
   padding: 0;
   border-top: 1px solid #e7e0d5;
-  padding-top: 12px;
+  padding-top: 4px;
+}
+
+.tools-nav-group-divider {
+  height: 1px;
+  background: #e7e0d5;
+  margin: 6px 10px;
+  list-style: none;
 }
 
 .tools-nav-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  margin-bottom: 4px;
+  gap: 8px;
+  padding: 8px 10px;
+  margin-bottom: 2px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: #57534e;
   text-decoration: none;
@@ -94,9 +121,9 @@
 }
 
 .tools-nav-item i {
-  width: 20px;
+  width: 18px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   color: #78716c;
   transition: color 0.15s ease;
 }

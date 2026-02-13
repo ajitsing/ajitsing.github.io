@@ -201,6 +201,44 @@ img {
   }
 }
 
+/* Support / Buy me a coffee button in navbar */
+.navbar-support-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #FFDD00;
+  border: 1px solid #e6c700;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #000000 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
+.navbar-support-btn:hover {
+  background: #ffce00;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 221, 0, 0.4);
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+.navbar-support-emoji {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .navbar-support-btn {
+    display: none;
+  }
+}
+
 .navbar-custom .navbar-brand-logo {
   -webkit-transition: padding .5s ease-in-out;
   -moz-transition: padding .5s ease-in-out;

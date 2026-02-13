@@ -860,6 +860,7 @@ Cache-Control: public, max-age=3600, s-maxage=86400
 **Further Reading**:
 
 - [How Meta Achieves Cache Consistency](/meta-cache-consistency/) - Deep dive into Facebook's caching architecture
+- [How Consistent Hashing Works](/consistent-hashing-explained/) - How distributed caches distribute keys across servers
 - [Redis Documentation](https://redis.io/docs/) - Official Redis caching patterns
 - [AWS ElastiCache Best Practices](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/BestPractices.html) - Production caching guidance
 - [Memcached Wiki](https://github.com/memcached/memcached/wiki) - Memcached patterns and usage

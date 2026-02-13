@@ -405,7 +405,7 @@ flowchart TB
 | **Geographic** | Location determines shard | Low latency | Complex for global users |
 | **Directory-based** | Lookup table maps keys to shards | Flexible | Lookup is bottleneck |
 
-See how [Slack uses workspace-based sharding](/slack-system-design/) and [Shopify shards by shop_id](/shopify-system-design/) in their production systems.
+Use [consistent hashing](/consistent-hashing-explained/) for hash-based sharding to minimize data movement when servers are added or removed. See how [Slack uses workspace-based sharding](/slack-system-design/) and [Shopify shards by shop_id](/shopify-system-design/) in their production systems.
 
 ---
 
@@ -864,6 +864,7 @@ These posts go deeper into specific topics:
 - [How WhatsApp Scales](/whatsapp-scaling-secrets/)
 
 **Distributed Systems**:
+- [How Consistent Hashing Works](/consistent-hashing-explained/)
 - [Role of Queues in System Design](/role-of-queues-in-system-design/)
 - [Two-Phase Commit](/distributed-systems/two-phase-commit/)
 - [Distributed Counter Architecture](/distributed-counter-architecture-guide/)

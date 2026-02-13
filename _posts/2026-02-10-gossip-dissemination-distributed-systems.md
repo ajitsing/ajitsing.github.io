@@ -635,6 +635,6 @@ The next time you wonder how Cassandra knows which nodes are alive, or how Consu
 
 *For more on distributed systems patterns, check out [Heartbeat: Detecting Failures](/distributed-systems/heartbeat/), [Majority Quorum](/distributed-systems/majority-quorum/), [Two-Phase Commit](/distributed-systems/two-phase-commit/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), and [Paxos Consensus](/distributed-systems/paxos/).*
 
-*Building reliable distributed architectures? See [How Kafka Works](/distributed-systems/how-kafka-works/) for message queuing patterns and [How Bloom Filters Work](/data-structures/bloom-filter/) for the data structure Cassandra uses alongside gossip.*
+*Building reliable distributed architectures? See [How Consistent Hashing Works](/consistent-hashing-explained/) for how Cassandra and DynamoDB distribute data across nodes, [How Kafka Works](/distributed-systems/how-kafka-works/) for message queuing patterns, and [How Bloom Filters Work](/data-structures/bloom-filter/) for the data structure Cassandra uses alongside gossip.*
 
 *References: [Martin Fowler's Gossip Dissemination](https://martinfowler.com/articles/patterns-of-distributed-systems/gossip-dissemination.html), [HashiCorp Consul Gossip Protocol](https://developer.hashicorp.com/consul/docs/concept/gossip), [SWIM Protocol Paper](https://www.cs.cornell.edu/projects/Quicksilver/public_pdfs/SWIM.pdf), [Apache Cassandra Architecture Documentation](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html)*

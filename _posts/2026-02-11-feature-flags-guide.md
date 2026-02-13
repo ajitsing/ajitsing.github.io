@@ -3,7 +3,7 @@ layout: post
 seo: true
 title: "Feature Flags and Feature Toggles: Complete Guide for Developers"
 subtitle: "Learn how to deploy code without releasing features using feature flags and toggles"
-date: 2026-02-15
+date: 2026-02-11
 categories: web-development
 thumbnail-img: /assets/img/posts/web-development/feature-flags-thumb.png
 share-img: /assets/img/posts/web-development/feature-flags-thumb.png

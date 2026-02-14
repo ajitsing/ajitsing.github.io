@@ -1,0 +1,904 @@
+.toml-page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+}
+
+.dedicated-ad-section {
+  margin: 32px 0;
+  padding: 16px 0;
+}
+
+.ad-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ad-label::before,
+.ad-label::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d1d5db, transparent);
+}
+
+.ad-label-text {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.bottom-ad-section {
+  margin: 40px 0 20px 0;
+  padding: 16px 0;
+}
+
+.top-ad-section {
+  margin: 0 0 24px 0;
+}
+
+.toml-tool {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0;
+  background: #faf8f5;
+}
+
+body:has(.toml-tool) {
+  background: #faf8f5 !important;
+}
+
+.toml-validator-main {
+  display: block;
+}
+
+.toml-tool .editor-panels {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  height: 65vh;
+  min-height: 500px;
+  max-height: 800px;
+}
+
+.toml-tool .panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  flex: 1;
+  height: 100%;
+}
+
+.toml-tool .input-panel {
+  flex: 1;
+}
+
+.toml-tool .output-panel {
+  flex: 1;
+}
+
+.toml-tool .panel-resizer {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: col-resize;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.toml-tool .resizer-handle {
+  width: 4px;
+  height: 48px;
+  background: #d6cfc4;
+  border-radius: 2px;
+  transition: background 0.15s ease, height 0.15s ease;
+}
+
+.toml-tool .panel-resizer:hover .resizer-handle,
+.toml-tool .panel-resizer.dragging .resizer-handle {
+  background: #78716c;
+  height: 64px;
+}
+
+.toml-tool .panel-resizer.dragging {
+  cursor: col-resize;
+}
+
+body.resizing {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+body.resizing * {
+  cursor: col-resize !important;
+}
+
+.toml-tool .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.toml-tool .panel-header label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.toml-tool .output-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toml-tool .char-count {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.75rem;
+  color: #a8a29e;
+}
+
+.toml-tool .format-badge {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #292524;
+  color: #fef3c7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.toml-tool .format-badge.json {
+  background: #1e40af;
+  color: #dbeafe;
+}
+
+.toml-tool .output-container {
+  flex: 1;
+  display: flex;
+  background: #292524;
+  border: 2px solid #44403c;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.toml-tool .output-line-numbers {
+  padding: 12px 10px;
+  background: #1c1917;
+  border-right: 1px solid #44403c;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  color: #78716c;
+  text-align: right;
+  user-select: none;
+  min-width: 3rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.toml-tool .output-line-numbers .line-number {
+  display: block;
+  height: 1.5rem;
+}
+
+.toml-output {
+  flex: 1;
+  margin: 0 !important;
+  padding: 12px 16px !important;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  color: #faf8f5;
+  background: transparent !important;
+  white-space: pre;
+  overflow: auto;
+  box-sizing: border-box;
+  min-width: 0;
+  border-radius: 0 !important;
+}
+
+.toml-output .output-placeholder {
+  color: #78716c;
+  font-style: italic;
+}
+
+/* TOML syntax highlighting */
+.toml-output .toml-key {
+  color: #f87171;
+}
+
+.toml-output .toml-string {
+  color: #a5f3fc;
+}
+
+.toml-output .toml-number {
+  color: #fde68a;
+}
+
+.toml-output .toml-boolean {
+  color: #c4b5fd;
+}
+
+.toml-output .toml-date {
+  color: #fb923c;
+}
+
+.toml-output .toml-comment {
+  color: #78716c;
+  font-style: italic;
+}
+
+.toml-output .toml-table-header {
+  color: #86efac;
+  font-weight: 600;
+}
+
+.toml-output .toml-punctuation {
+  color: #d6d3d1;
+}
+
+/* JSON syntax highlighting (for TOML→JSON output) */
+.toml-output .json-key {
+  color: #f87171;
+}
+
+.toml-output .json-string {
+  color: #a5f3fc;
+}
+
+.toml-output .json-number {
+  color: #fde68a;
+}
+
+.toml-output .json-boolean {
+  color: #c4b5fd;
+}
+
+.toml-output .json-null {
+  color: #fb923c;
+}
+
+.toml-output .json-punctuation {
+  color: #d6d3d1;
+}
+
+.toml-tool .tool-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 16px;
+  color: #faf8f5;
+  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .toml-tool .tool-header {
+    padding: 48px 40px;
+    margin-bottom: 28px;
+  }
+}
+
+.toml-tool .tool-intro {
+  text-align: center;
+  color: #57534e;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+}
+
+@media (min-width: 1024px) {
+  .toml-tool .tool-intro {
+    font-size: 1rem;
+  }
+}
+
+.toml-tool .tool-intro strong {
+  color: #44403c;
+}
+
+.toml-tool .tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.toml-tool .tool-title i {
+  font-size: 1.6rem;
+  color: #fef3c7;
+}
+
+.toml-tool .tool-subtitle {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.75;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #d6d3d1;
+}
+
+.toml-tool .editor-container {
+  flex: 1;
+  display: flex;
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+  min-width: 0;
+  min-height: 0;
+}
+
+.toml-tool .editor-container:focus-within {
+  border-color: #a8a29e;
+}
+
+.toml-tool .line-numbers {
+  padding: 12px 10px;
+  background: #f5f0e8;
+  border-right: 1px solid #e7e0d5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  color: #a8a29e;
+  text-align: right;
+  user-select: none;
+  min-width: 3rem;
+  overflow: hidden;
+}
+
+.toml-tool .line-numbers .line-number {
+  display: block;
+  height: 1.5rem;
+}
+
+.toml-tool .line-numbers .line-number.error-line {
+  background: #fecaca;
+  color: #dc2626;
+  font-weight: 600;
+  margin: 0 -10px;
+  padding: 0 10px;
+}
+
+#toml-input {
+  flex: 1;
+  padding: 12px 16px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  border: none;
+  background: transparent;
+  color: #292524;
+  resize: none;
+  outline: none;
+  min-width: 0;
+  overflow: auto;
+  white-space: pre;
+  tab-size: 2;
+}
+
+#toml-input::placeholder {
+  color: #a8a29e;
+}
+
+.toml-tool .action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.toml-tool .main-controls {
+  margin-bottom: 20px;
+}
+
+.toml-tool .main-controls .action-buttons {
+  margin-bottom: 0;
+}
+
+.toml-tool .main-controls .result-section {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.toml-tool .btn-primary,
+.toml-tool .btn-secondary {
+  padding: 10px 18px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toml-tool .btn-primary {
+  background: #292524;
+  color: #faf8f5;
+  box-shadow: 0 2px 8px rgba(41, 37, 36, 0.2);
+}
+
+.toml-tool .btn-primary:hover {
+  background: #44403c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(41, 37, 36, 0.25);
+}
+
+.toml-tool .btn-primary:disabled {
+  background: #a8a29e;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.toml-tool .btn-secondary {
+  background: #fffdf9;
+  color: #44403c;
+  border: 2px solid #e7e0d5;
+}
+
+.toml-tool .btn-secondary:hover {
+  background: #f5f0e8;
+  border-color: #d6cfc4;
+}
+
+.toml-tool .btn-secondary.copied {
+  background: #166534;
+  color: white;
+  border-color: #166534;
+}
+
+.toml-tool .result-section {
+  margin-bottom: 24px;
+}
+
+.toml-tool .result-section.hidden {
+  display: none;
+}
+
+.toml-tool .result-card {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.toml-tool .result-card.success {
+  background: #f0fdf4;
+  border-color: #166534;
+}
+
+.toml-tool .result-card.error {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+.toml-tool .result-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.toml-tool .result-card.success .result-icon {
+  color: #166534;
+}
+
+.toml-tool .result-card.error .result-icon {
+  color: #dc2626;
+}
+
+.toml-tool .result-message {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.toml-tool .result-card.success .result-message {
+  color: #166534;
+}
+
+.toml-tool .result-card.error .result-message {
+  color: #991b1b;
+}
+
+.toml-tool .error-details {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.toml-tool .error-details.hidden {
+  display: none;
+}
+
+.toml-tool .error-location {
+  margin-bottom: 8px;
+}
+
+.toml-tool .error-label {
+  display: inline-block;
+  background: #292524;
+  color: #fef3c7;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.toml-tool .error-text {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.85rem;
+  color: #991b1b;
+  background: #fecaca;
+  padding: 10px 14px;
+  border-radius: 6px;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.toml-tool .reference-section {
+  margin-bottom: 32px;
+}
+
+.toml-tool .reference-section h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #44403c;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toml-tool .reference-section h3 i {
+  color: #78716c;
+}
+
+.toml-tool .reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .toml-tool .reference-grid {
+    gap: 24px;
+  }
+}
+
+.toml-tool .reference-card {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.toml-tool .reference-card h4 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #78716c;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.toml-tool .reference-card table {
+  width: 100%;
+  font-size: 0.85rem;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.toml-tool .reference-card tr {
+  border: none;
+  background: transparent;
+}
+
+.toml-tool .reference-card td {
+  padding: 5px 0;
+  color: #44403c;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: none;
+  background: transparent;
+}
+
+.toml-tool .reference-card td:first-child {
+  width: 40%;
+}
+
+.toml-tool .reference-card td:last-child {
+  color: #78716c;
+  font-size: 0.8rem;
+}
+
+.toml-tool .reference-card td.invalid {
+  color: #dc2626;
+  text-decoration: line-through;
+}
+
+.toml-tool .reference-card code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.toml-tool .syntax-guide-section {
+  margin-bottom: 32px;
+}
+
+.toml-tool .syntax-guide-section > h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #44403c;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toml-tool .syntax-guide-section > h3 i.fa-graduation-cap {
+  color: #7c3aed;
+}
+
+.toml-tool .syntax-guide-content {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.toml-tool .guide-article {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.toml-tool .guide-article:last-child {
+  border-bottom: none;
+}
+
+.toml-tool .guide-article h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+}
+
+.toml-tool .guide-article p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  margin: 0 0 12px 0;
+  line-height: 1.7;
+}
+
+.toml-tool .guide-article p:last-child {
+  margin-bottom: 0;
+}
+
+.toml-tool .guide-article ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toml-tool .guide-article ul li {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  padding: 8px 0 8px 20px;
+  position: relative;
+  border-bottom: 1px solid #f5f0e8;
+}
+
+.toml-tool .guide-article ul li:last-child {
+  border-bottom: none;
+}
+
+.toml-tool .guide-article ul li::before {
+  content: "\2022";
+  color: #f59e0b;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.toml-tool .guide-article code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #fef3c7;
+}
+
+.toml-tool .faq-section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f5f0e8;
+  border-radius: 16px;
+  border: 2px solid #e7e0d5;
+}
+
+.toml-tool .faq-section h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #44403c;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toml-tool .faq-section h2 i {
+  color: #78716c;
+}
+
+.toml-tool .faq-item {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.toml-tool .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.toml-tool .faq-item h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 10px 0;
+}
+
+.toml-tool .faq-item p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.toml-tool .faq-item code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #fef3c7;
+}
+
+@media (max-width: 768px) {
+  .toml-page-wrapper {
+    padding: 15px 12px 30px;
+  }
+
+  .dedicated-ad-section,
+  .bottom-ad-section {
+    margin: 24px 0;
+    padding: 12px 0;
+  }
+
+  .toml-tool .tool-header {
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+
+  .toml-tool .tool-title {
+    font-size: 1.5rem;
+  }
+
+  .toml-tool .editor-panels {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+    max-height: none;
+  }
+
+  .toml-tool .panel-resizer {
+    display: none;
+  }
+
+  .toml-tool .panel {
+    flex: none !important;
+    height: auto;
+  }
+
+  .toml-tool .editor-container {
+    min-height: 250px;
+  }
+
+  .toml-tool .output-container {
+    min-height: 250px;
+  }
+
+  .toml-output {
+    min-height: 250px;
+  }
+
+  .toml-tool .output-line-numbers {
+    min-width: 2.5rem;
+    padding: 12px 8px;
+  }
+
+  .toml-tool .action-buttons {
+    flex-direction: column;
+  }
+
+  .toml-tool .btn-primary,
+  .toml-tool .btn-secondary {
+    justify-content: center;
+  }
+
+  .toml-tool .reference-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toml-tool .faq-section {
+    padding: 20px;
+  }
+
+  .toml-tool .guide-article {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toml-tool .tool-title {
+    font-size: 1.3rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .toml-tool .line-numbers {
+    min-width: 2.5rem;
+    padding: 12px 8px;
+    font-size: 0.85rem;
+  }
+
+  #toml-input {
+    font-size: 0.85rem;
+    padding: 12px;
+  }
+}

@@ -331,6 +331,6 @@ Write-Ahead Log is like insurance for your data. You hope you'll never need it, 
 
 ---
 
-*For more distributed systems patterns, check out [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Majority Quorum](/distributed-systems/majority-quorum/), and [Paxos Consensus](/distributed-systems/paxos/).*
+*For more distributed systems patterns, check out [Replicated Log](/distributed-systems/replicated-log/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Majority Quorum](/distributed-systems/majority-quorum/), and [Paxos Consensus](/distributed-systems/paxos/).*
 
 *What's your experience with WAL? Share your stories in the comments below!*

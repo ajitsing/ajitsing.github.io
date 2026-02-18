@@ -809,6 +809,7 @@ flowchart LR
 
 **Related Posts:**
 
+- [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Essential psql commands, queries, and performance tuning
 - [How Database Indexing Works](/database-indexing-explained/) - Deep dive into B-trees and index optimization
 - [B-Tree Data Structure](/data-structures/b-tree/) - The data structure behind PostgreSQL indexes
 - [Caching Strategies Explained](/caching-strategies-explained/) - When and how to add caching

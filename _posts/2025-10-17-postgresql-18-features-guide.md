@@ -660,5 +660,12 @@ Postgres 18 is the most performance-focused release in years. The async I/O impr
 
 ---
 
+**Related Posts:**
+
+- [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Essential commands, queries, and performance tuning tips
+- [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/) - Real-world PostgreSQL scaling
+- [How Database Indexing Works](/database-indexing-explained/) - Deep dive into B-trees and index optimization
+- [How Databases Store Data Internally](/how-databases-store-data-internally/) - Pages, B-trees, and buffer pools
+
 **Have you upgraded to Postgres 18 yet? What performance improvements did you see? Share your experience in the comments below.**
 

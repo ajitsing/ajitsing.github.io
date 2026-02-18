@@ -223,7 +223,7 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/snowflake-tool.css' | relative_url }}">
-
+{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -240,7 +240,6 @@ hide-explore-posts: true
     <p class="tool-intro">
       Convert <strong>Twitter/X Snowflake IDs</strong> to dates and timestamps instantly. Every tweet ID contains its creation time. Also decode <strong>Discord IDs</strong> and <strong>Instagram IDs</strong> to reveal when they were created. Snowflake IDs contain embedded timestamps. This tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
     </p>
-    {% include tool-ad-top.html %}
 
     <section class="decoder-main">
       <div class="input-section">

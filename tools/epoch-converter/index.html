@@ -214,7 +214,7 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/epoch-tool.css' | relative_url }}">
-
+{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -231,7 +231,6 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this free <strong>Epoch converter</strong> to convert <strong>Unix timestamps</strong> to human-readable dates or convert dates back to <strong>Unix timestamps</strong>. Supports both seconds and milliseconds. Shows UTC, local time, ISO 8601, and relative formats. 100% client-side. Your data never leaves your browser.
     </p>
-    {% include tool-ad-top.html %}
 
     <!-- Current Timestamp Display -->
     <section class="current-timestamp-section">

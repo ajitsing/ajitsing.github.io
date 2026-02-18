@@ -243,7 +243,7 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/quartz-tool.css' | relative_url }}">
-
+{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -266,8 +266,6 @@ hide-explore-posts: true
     <i class="fas fa-info-circle"></i>
     <span>Looking for standard 5-field Unix cron? Use <a href="/tools/cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Quartz Tool','event_label':'to_cron_from_banner'})}">Cron Expression Generator</a> for Linux crontab, Kubernetes CronJobs, and GitHub Actions.</span>
   </div>
-
-  {% include tool-ad-top.html %}
 
 <div class="mode-tabs">
     <button class="mode-tab active" data-mode="parse">

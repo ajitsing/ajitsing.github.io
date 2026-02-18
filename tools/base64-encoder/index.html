@@ -207,7 +207,7 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/base64-tool.css' | relative_url }}">
-
+{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -224,7 +224,6 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this free <strong>Base64 encoder</strong> and <strong>Base64 decoder</strong> to convert text to Base64 or decode Base64 back to readable text. Supports UTF-8 characters including emojis. 100% client-side. Your data never leaves your browser.
     </p>
-    {% include tool-ad-top.html %}
 
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="encode">

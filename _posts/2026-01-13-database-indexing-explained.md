@@ -605,6 +605,7 @@ New result:
 
 **Further Reading**:
 
+- [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Quick reference for psql commands, indexes, and EXPLAIN ANALYZE
 - [N+1 Query Problem](/explainer/n-plus-one-query-problem/) - Another common database performance killer
 - [Caching Strategies](/caching-strategies-explained/) - When even indexes are not fast enough
 - [PostgreSQL Documentation: Indexes](https://www.postgresql.org/docs/current/indexes.html)

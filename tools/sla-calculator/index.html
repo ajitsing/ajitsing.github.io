@@ -210,7 +210,7 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sla-tool.css' | relative_url }}">
-
+{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -227,7 +227,6 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this free <strong>uptime calculator</strong> and <strong>downtime calculator</strong> to convert any SLA percentage (99.5%, 99.9%, 99.99%) to allowed downtime per day, week, month, and year. Learn how to calculate downtime percentage and understand what "three nines" or "five nines" really means for your service. Essential for <strong>SREs</strong> and <strong>DevOps</strong> engineers. 100% client-side. Your data never leaves your browser.
     </p>
-    {% include tool-ad-top.html %}
 
     <!-- Main Calculator Section -->
     <section class="calculator-main">

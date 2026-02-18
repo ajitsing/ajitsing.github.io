@@ -313,7 +313,7 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/cron-tool.css' | relative_url }}">
-
+{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -335,8 +335,6 @@ hide-explore-posts: true
     <i class="fas fa-info-circle" style="color:#78716c;font-size:1.1rem;flex-shrink:0;"></i>
     <span>Using Quartz Scheduler (Java/Spring Boot) with 6-7 field expressions? Try our <a href="/tools/quartz-scheduler/" style="color:#44403c;font-weight:600;text-decoration:underline;" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Cron Tool','event_label':'to_quartz_from_banner'})}">Quartz Scheduler Cron Tool</a>. Supports <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">?</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">L</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">W</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">#</code> syntax.</span>
   </div>
-
-  {% include tool-ad-top.html %}
 
 <div class="mode-tabs">
     <button class="mode-tab active" data-mode="parse">

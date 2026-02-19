@@ -6,7 +6,7 @@ date: 2026-02-05
 thumbnail-img: /assets/img/posts/artificial-intelligence/openclaw-moltworker-thumb.png
 share-img: /assets/img/posts/artificial-intelligence/openclaw-moltworker-thumb.png
 categories: ai
-tags: [AI, system-design]
+tags: [AI]
 permalink: /moltworker-self-hosted-ai-agent/
 description: "Complete Moltworker and OpenClaw guide for developers. Learn to deploy self-hosted AI agents on Cloudflare Workers without hardware. Covers gateway architecture, WhatsApp and Slack integration, and Markdown memory systems."
 keywords: "Moltworker, Moltworker guide, OpenClaw, OpenClaw setup, Moltbot, self-hosted AI agent, personal AI assistant, Cloudflare Workers AI, run AI agent without hardware, AI agent architecture, local-first AI, gateway architecture, WhatsApp AI bot, Slack AI integration, Telegram bot AI, serverless AI deployment, AI agent tutorial, autonomous AI agent, Cloudflare AI"

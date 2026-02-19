@@ -707,7 +707,7 @@ sequenceDiagram
     Note over DB: Database overloaded!
 ```
 
-**Solution**: Use locking or probabilistic early expiration.
+**Solution**: Use locking or probabilistic early expiration. This is known as the [thundering herd problem](/thundering-herd-problem/) and it can take down entire systems during peak traffic.
 
 ```python
 def get_with_lock(key):

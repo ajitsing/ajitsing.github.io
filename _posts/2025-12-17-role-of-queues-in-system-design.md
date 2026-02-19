@@ -104,7 +104,7 @@ Now your checkout is fast. The user gets a response in 400ms instead of 2.3 seco
 
 **Benefit 2: Fault isolation**. Email service down? Messages pile up in the queue. When it recovers, it processes the backlog. Users never notice.
 
-**Benefit 3: Traffic smoothing**. A sudden spike of 10,000 orders doesn't hit your services all at once. The queue absorbs the burst, and workers process at their own pace.
+**Benefit 3: Traffic smoothing**. A sudden spike of 10,000 orders doesn't hit your services all at once. The queue absorbs the burst, and workers process at their own pace. This is one of the most effective ways to prevent the [thundering herd problem](/thundering-herd-problem/) in write heavy systems.
 
 **Benefit 4: Independent scaling**. Your email worker is slow? Add more email workers. No need to scale the entire system.
 

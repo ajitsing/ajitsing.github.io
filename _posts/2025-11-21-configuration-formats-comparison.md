@@ -167,6 +167,8 @@ Now let's break down each format.
 
 **When to use:** Data exchange between systems, APIs, any machine-generated configs.
 
+🔧 **Try it:** [JSON Validator Tool](/tools/json-validator/) — validate and format your JSON configs instantly.
+
 ---
 
 ## YAML: Human-Readable Format
@@ -195,6 +197,8 @@ Now let's break down each format.
 
 **When to use:** Container orchestration, CI/CD pipelines, complex configurations with deep nesting.
 
+🔧 **Try it:** [YAML Validator Tool](/tools/yaml-validator/) — validate your YAML configs and catch indentation errors.
+
 ---
 
 ## TOML: Configuration Specialist
@@ -221,6 +225,8 @@ Now let's break down each format.
 - Build tool settings
 
 **When to use:** Human-edited configs that need comments, Rust/Python projects, settings that change frequently.
+
+🔧 **Try it:** [TOML Validator Tool](/tools/toml-validator/) — validate your TOML configs and spot errors instantly.
 
 ---
 

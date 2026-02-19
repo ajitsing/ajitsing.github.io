@@ -406,7 +406,7 @@ graph TB
 
 ### The Lease System
 
-To prevent thundering herds during failures, Meta uses a **lease system**:
+To prevent [thundering herds](/thundering-herd-problem/) during failures, Meta uses a **lease system**:
 
 1. **Cache miss** occurs during partition
 2. **Lease granted** to one request per key

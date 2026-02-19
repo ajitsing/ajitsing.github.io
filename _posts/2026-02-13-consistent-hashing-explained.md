@@ -38,7 +38,7 @@ faq:
 
 You have 5 cache servers. They are handling 10 million keys nicely. Then one server crashes.
 
-With traditional hashing, almost every key now maps to a different server. Your cache hit rate drops to near zero. All 10 million keys effectively need to be re-fetched from the database. Your database gets slammed.
+With traditional hashing, almost every key now maps to a different server. Your cache hit rate drops to near zero. All 10 million keys effectively need to be re-fetched from the database. Your database gets slammed. This is a classic [thundering herd problem](/thundering-herd-problem/) where a sudden wave of cache misses overwhelms the backend.
 
 This is the problem consistent hashing solves. When that server crashes, only about 2 million keys (the ones that belonged to that server) need to be redistributed. The other 8 million keys stay exactly where they are. No cache stampede. No database meltdown.
 

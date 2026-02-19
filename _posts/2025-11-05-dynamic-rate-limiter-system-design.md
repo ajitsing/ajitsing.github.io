@@ -652,7 +652,7 @@ def should_reduce_limits():
 
 ### 5. Ignoring Retries
 
-Rate-limited clients often retry immediately, making the problem worse.
+Rate-limited clients often retry immediately, making the problem worse. This is a form of the [thundering herd problem](/thundering-herd-problem/) where synchronized retries amplify load spikes.
 
 **Fix**: Implement exponential backoff on the client side, and penalize aggressive retriers:
 

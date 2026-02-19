@@ -9,7 +9,7 @@ share-img: /assets/img/posts/database/database-storage-internals.png
 thumbnail-img: /assets/img/posts/database/database-storage-internals.png
 description: "Learn how databases store data internally. Complete guide covering pages, B-trees, buffer pools, write-ahead logging, and storage engines. Understand heap storage, slotted pages, and why this matters for query performance."
 keywords: "how databases store data, database internals, database storage engine, how data is stored in database, database page storage, B-tree index, buffer pool management, write-ahead log WAL, database file format, heap storage, slotted pages, row oriented vs column oriented, OLTP vs OLAP, MySQL InnoDB internals, PostgreSQL storage, database performance optimization, database architecture, how SQL databases work, database memory management, storage manager database"
-tags: [database, system-design]
+tags: [database]
 comments: true
 seo: true
 social-share: true

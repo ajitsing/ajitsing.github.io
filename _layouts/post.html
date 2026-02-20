@@ -33,7 +33,7 @@ hide-explore-posts: true
       </div>
     {% endif %}
 
-    <article role="main" class="blog-post">
+    <article role="main" class="blog-post" {% if page.ad-count %}data-ad-count="{{ page.ad-count }}"{% endif %}>
       {% include quick-answer.html %}
       {% include key-takeaways.html %}
       {{ content }}

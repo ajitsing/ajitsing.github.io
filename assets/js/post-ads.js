@@ -4,7 +4,9 @@
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
   var HEADING_TAGS = ['H2', 'H3'];
-  var TARGET_POSITIONS = [0.25, 0.50, 0.75];
+  var LENGTH_THRESHOLDS = [30, 60, 100];
+  var AD_COUNTS = [4, 6, 8, 10];
+  var DEFAULT_AD_COUNT = 4;
 
   function createAdElement() {
     var container = document.createElement('div');
@@ -46,6 +48,32 @@
     return container.querySelectorAll('.' + AD_CLASS).length > 0;
   }
 
+  function getAdCount(article, childrenLength) {
+    var overrideCount = article.getAttribute('data-ad-count');
+    if (overrideCount) {
+      return parseInt(overrideCount, 10) || DEFAULT_AD_COUNT;
+    }
+
+    for (var i = 0; i < LENGTH_THRESHOLDS.length; i++) {
+      if (childrenLength < LENGTH_THRESHOLDS[i]) {
+        return AD_COUNTS[i];
+      }
+    }
+    return AD_COUNTS[AD_COUNTS.length - 1];
+  }
+
+  function calculateTargetPositions(adCount) {
+    if (adCount <= 0) {
+      return [];
+    }
+    var positions = [];
+    var stepSize = 1 / (adCount + 1);
+    for (var i = 1; i <= adCount; i++) {
+      positions.push(i * stepSize);
+    }
+    return positions;
+  }
+
   function injectContentAds() {
     var article = document.querySelector(CONTENT_SELECTOR);
     if (!article || adsAlreadyInjected(article)) return;
@@ -56,9 +84,14 @@
     var headingIndices = getHeadingIndices(children);
     if (headingIndices.length === 0) return;
 
+    var adCount = getAdCount(article, children.length);
+    var hasFirstHeadingAd = headingIndices[0] > 0;
+    var remainingAds = hasFirstHeadingAd ? adCount - 1 : adCount;
+    var targetPositions = calculateTargetPositions(remainingAds);
+
     var insertBeforeIndices = [];
 
-    if (headingIndices[0] > 0) {
+    if (hasFirstHeadingAd) {
       insertBeforeIndices.push(headingIndices[0]);
     }
 
@@ -67,8 +100,8 @@
       usedIndices[insertBeforeIndices[0]] = true;
     }
 
-    for (var i = 0; i < TARGET_POSITIONS.length; i++) {
-      var targetIndex = Math.floor(children.length * TARGET_POSITIONS[i]);
+    for (var i = 0; i < targetPositions.length; i++) {
+      var targetIndex = Math.floor(children.length * targetPositions[i]);
       var nearest = findNearestHeading(headingIndices, targetIndex);
       if (nearest > 0 && !usedIndices[nearest]) {
         insertBeforeIndices.push(nearest);

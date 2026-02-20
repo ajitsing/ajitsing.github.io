@@ -898,6 +898,8 @@ docker run -d --name kafka \
   apache/kafka:latest
 ```
 
+For more Docker commands, see the [Docker Cheat Sheet](/devops/docker-cheat-sheet/).
+
 **2. Create a topic**:
 ```bash
 docker exec kafka /opt/kafka/bin/kafka-topics.sh \

@@ -331,7 +331,7 @@ docker run -d \
   openclaw/gateway:latest
 ```
 
-This gives you the Gateway running in a container with your data persisted locally.
+This gives you the Gateway running in a container with your data persisted locally. For more Docker commands and best practices, see the [Docker Cheat Sheet](/devops/docker-cheat-sheet/).
 
 ### Option 2: macOS App
 

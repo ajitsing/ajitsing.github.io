@@ -7,7 +7,7 @@ date: 2026-02-20
 categories: devops
 thumbnail-img: /assets/img/posts/devops/docker-cheat-sheet.png
 share-img: /assets/img/posts/devops/docker-cheat-sheet.png
-permalink: /docker-cheat-sheet/
+permalink: /devops/docker-cheat-sheet/
 description: "Master Docker with this practical cheat sheet. Covers docker commands, container management, image building, Dockerfile best practices, docker-compose, networking, volumes, Docker Hub, and troubleshooting. Real examples for software developers."
 keywords: "docker cheat sheet, docker commands, docker tutorial, dockerfile, docker compose, container commands, docker for developers, docker run, docker build, docker images, docker containers, docker networking, docker volumes, docker hub, containerization, docker best practices, docker troubleshooting, docker exec, docker logs, docker ps, docker stop, docker rm, docker pull, docker push"
 tags: ["docker", "devops", "containers"]
@@ -162,6 +162,7 @@ Images are the foundation of Docker. You build them, pull them from registries, 
 
 ### Listing Images
 
+{% raw %}
 ```bash
 # List all images
 docker images
@@ -178,6 +179,7 @@ docker images nginx
 # Show image history (layers)
 docker history nginx:latest
 ```
+{% endraw %}
 
 ### Pulling Images
 
@@ -248,6 +250,7 @@ docker rmi $(docker images -q)
 
 ### Inspecting Images
 
+{% raw %}
 ```bash
 # Show image details
 docker inspect nginx:latest
@@ -258,6 +261,7 @@ docker inspect -f '{{.Config.Env}}' nginx:latest
 # Show image size
 docker images nginx:latest --format "{{.Size}}"
 ```
+{% endraw %}
 
 ---
 
@@ -978,6 +982,7 @@ docker exec -w /app mycontainer pwd
 
 ### Inspecting Containers
 
+{% raw %}
 ```bash
 # Show container details
 docker inspect mycontainer
@@ -991,9 +996,11 @@ docker inspect -f '{{.NetworkSettings.IPAddress}}' mycontainer
 # Show mounted volumes
 docker inspect -f '{{.Mounts}}' mycontainer
 ```
+{% endraw %}
 
 ### Container Stats
 
+{% raw %}
 ```bash
 # Show live resource usage
 docker stats
@@ -1007,6 +1014,7 @@ docker stats --no-stream
 # Show stats in custom format
 docker stats --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 ```
+{% endraw %}
 
 ---
 
@@ -1242,6 +1250,7 @@ docker volume prune
 
 ### Container Keeps Restarting
 
+{% raw %}
 ```bash
 # Check restart policy
 docker inspect -f '{{.HostConfig.RestartPolicy.Name}}' mycontainer
@@ -1255,6 +1264,7 @@ docker inspect -f '{{.State.ExitCode}}' mycontainer
 # Run without restart policy to see error
 docker run --restart=no myimage
 ```
+{% endraw %}
 
 ### Network Issues
 
@@ -1351,7 +1361,7 @@ These posts go deeper into container and orchestration topics:
 
 **Container Orchestration**:
 - [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/) - Container orchestration at scale
-- [Kubernetes Architecture Explained](/kubernetes-architecture-explained/) - How Kubernetes works internally
+- [Kubernetes Architecture Explained](/devops/kubernetes-architecture/) - How Kubernetes works internally
 
 **System Design and Architecture**:
 - [System Design Cheat Sheet](/system-design-cheat-sheet/) - Building scalable systems

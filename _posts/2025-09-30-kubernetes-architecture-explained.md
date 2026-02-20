@@ -427,7 +427,7 @@ While this article focused on Deployments and Pods, Kubernetes supports other wo
 
 Kubernetes might seem complex at first, but its architecture is actually quite elegant. By separating concerns between the control plane (decision making) and worker nodes (execution), it creates a scalable, resilient platform for running distributed applications.
 
-For practical commands and debugging workflows, check out the [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/).
+For practical commands and debugging workflows, check out the [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/). To learn the Docker commands that Kubernetes uses under the hood, see the [Docker Cheat Sheet](/devops/docker-cheat-sheet/).
 
 ---
 

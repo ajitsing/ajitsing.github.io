@@ -36,7 +36,7 @@ FAQ:
 
 ## Distributed Systems Articles
 
-{% for post in site.posts %}{% if post.tags contains 'distributed-systems' and post.tags contains 'system-design' == false %}
+{% for post in site.posts %}{% if post.tags contains 'distributed-systems' %}{% unless post.tags contains 'system-design' %}
 ### {{ post.title }}
 - URL: {{ site.url }}{{ post.url }}
 - Date: {{ post.date | date: "%Y-%m-%d" }}
@@ -45,7 +45,7 @@ FAQ:
 Key Takeaways:
 {% for takeaway in post.key-takeaways %}- {{ takeaway }}
 {% endfor %}{% endif %}
-{% endif %}{% endfor %}
+{% endunless %}{% endif %}{% endfor %}
 
 ---
 

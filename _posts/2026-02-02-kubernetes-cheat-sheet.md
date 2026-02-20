@@ -1168,6 +1168,7 @@ These posts go deeper into specific topics:
 - [Service Discovery Explained](/explainer/service-discovery/)
 
 **Related Tools**:
+- [Docker Cheat Sheet](/devops/docker-cheat-sheet/) - Container commands and Dockerfile best practices
 - [Linux Commands Cheat Sheet](/linux-commands-cheat-sheet/)
 - [Cron Jobs Explained](/explainer/cron-jobs-explained/)
 - [cURL Commands Reference](/explainer/curl-commands/)

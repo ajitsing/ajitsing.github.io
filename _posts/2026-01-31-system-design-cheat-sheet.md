@@ -871,6 +871,7 @@ These posts go deeper into specific topics:
 
 **Operations and Deployment**:
 - [Feature Flags: How to Deploy Code Without Releasing Features](/feature-flags-guide/)
+- [Docker Cheat Sheet](/devops/docker-cheat-sheet/) - Container commands and Dockerfile best practices
 - [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/)
 - [Kubernetes Architecture](/devops/kubernetes-architecture/)
 - [Linux Commands Cheat Sheet](/linux-commands-cheat-sheet/)

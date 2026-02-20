@@ -1388,6 +1388,7 @@ These posts go deeper into specific database topics:
 - [Caching Strategies Explained](/caching-strategies-explained/)
 
 **Related Cheat Sheets**:
+- [Docker Cheat Sheet](/devops/docker-cheat-sheet/) - Run PostgreSQL in containers
 - [Linux Commands Cheat Sheet](/linux-commands-cheat-sheet/)
 - [Git Cheat Sheet](/git-cheat-sheet/)
 - [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/)

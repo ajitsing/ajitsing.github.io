@@ -26,7 +26,7 @@ faq:
   - question: "How do I connect to a PostgreSQL database from the command line?"
     answer: "Use psql with connection parameters: psql -U username -d database_name -h hostname -p port. For local connections, psql -U postgres -d mydb is usually enough. You can also use a connection string: psql 'postgresql://user:password@host:5432/dbname'. The default port is 5432."
   - question: "How do I list all tables in PostgreSQL?"
-    answer: "In psql, use the \\dt meta-command to list all tables in the current schema. Use \\dt+ for more details including table size. To list tables across all schemas, use \\dt *.*. You can also query the information_schema: SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'."
+    answer: 'In psql, use the \dt meta-command to list all tables in the current schema. Use \dt+ for more details including table size. To list tables across all schemas, use \dt *.*. You can also query the information_schema: SELECT table_name FROM information_schema.tables WHERE table_schema = ''public''.'
   - question: "How do I check the size of a PostgreSQL database or table?"
     answer: "For database size, use SELECT pg_size_pretty(pg_database_size('dbname')). For table size, use SELECT pg_size_pretty(pg_total_relation_size('table_name')). The pg_total_relation_size function includes indexes and TOAST data. Use \\dt+ in psql for a quick overview of all table sizes."
   - question: "How do I backup and restore a PostgreSQL database?"

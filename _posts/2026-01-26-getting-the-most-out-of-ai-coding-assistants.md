@@ -578,6 +578,7 @@ The developers getting the most from AI coding assistants are not the ones who t
 
 **Further Reading:**
 
+- [Building Your First LLM Application](/building-your-first-llm-application/) - Learn to build your own LLM-powered applications
 - [Context Engineering Guide for AI Developers](/context-engineering/) - Master what information you give to AI
 - [How LLMs Generate Text](/how-llms-generate-text/) - Understand what happens under the hood
 - [Prompt Engineering Basics](/prompt-engineering-basics/) - Foundational prompting skills

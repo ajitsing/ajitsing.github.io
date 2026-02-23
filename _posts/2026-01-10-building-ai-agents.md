@@ -827,6 +827,7 @@ The best way to learn is to build. Start simple and add complexity only when you
 
 **Further Reading:**
 
+- [Building Your First LLM Application](/building-your-first-llm-application/) - Start here to learn the fundamentals of LLM applications before building agents
 - [Building Effective AI Agents](https://www.anthropic.com/research/building-effective-agents) by Anthropic
 - [LangChain Documentation](https://python.langchain.com/docs/get_started/introduction)
 - [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling)

@@ -853,6 +853,7 @@ ls -la *.gguf
 
 **Further Reading:**
 
+- [Building Your First LLM Application](/building-your-first-llm-application/) - Complete tutorial on building LLM applications, including how to use local models via Ollama
 - [Ollama Documentation](https://ollama.com) - Official Ollama docs and model library
 - [llama.cpp GitHub](https://github.com/ggerganov/llama.cpp) - The engine behind most local LLM tools
 - [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) - Compare model performance

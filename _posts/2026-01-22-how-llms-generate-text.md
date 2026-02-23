@@ -610,6 +610,7 @@ Since you pay per token:
 
 **Further Reading:**
 
+- [Building Your First LLM Application](/building-your-first-llm-application/) - Apply this knowledge to build real LLM applications
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - The original transformer paper
 - [Let's Build the GPT Tokenizer](https://www.fast.ai/posts/2025-10-16-karpathy-tokenizers) - Andrej Karpathy's deep dive
 - [Running LLMs Locally](/running-llms-locally/) - Run models on your own hardware

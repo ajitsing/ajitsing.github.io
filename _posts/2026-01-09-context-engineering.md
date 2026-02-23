@@ -32,7 +32,7 @@ faq:
     answer: "Improve AI responses by providing relevant documents via RAG, maintaining conversation history, defining clear system instructions, and structuring information so the most important details are at the beginning or end of the context."
 ---
 
-You have probably heard of prompt engineering. Write better prompts, get better results. That advice worked when we were using ChatGPT for simple tasks. But if you are building real AI applications, prompt engineering is just the tip of the iceberg.
+You have probably heard of prompt engineering. Write better prompts, get better results. That advice worked when we were using ChatGPT for simple tasks. But if you are building real AI applications, prompt engineering is just the tip of the iceberg. For a complete guide on building LLM applications from scratch, see [Building Your First LLM Application](/building-your-first-llm-application/).
 
 The real skill is context engineering.
 
@@ -217,7 +217,7 @@ The developers who master context engineering will build AI applications that ac
 
 ## Getting Started
 
-If you are building AI applications, start thinking about context as a first class concern:
+If you are building AI applications, start thinking about context as a first class concern. For a step-by-step tutorial on building your first LLM application with proper context management, see [Building Your First LLM Application](/building-your-first-llm-application/).
 
 1. **Map your information sources**: What data does the AI need to do its job? Codebase, documentation, user history, external APIs?
 
@@ -235,6 +235,7 @@ Context engineering is not a one time task. It is an ongoing practice of refinin
 
 **Further Reading:**
 
+- [Building Your First LLM Application](/building-your-first-llm-application/) - Step-by-step guide to building LLM applications with proper context management
 - [Understanding Context Engineering](https://www.architectureandgovernance.com/applications-technology/understanding-context-engineering-principles-practices-and-its-distinction-from-prompt-engineering/) by Architecture and Governance
 - [Four Important Lessons About Context Engineering](https://www.infoworld.com/article/4085355/four-important-lessons-about-context-engineering.html) by InfoWorld
 - [Context Engineering in Practice](https://www.inngest.com/blog/context-engineering-in-practice) by Inngest

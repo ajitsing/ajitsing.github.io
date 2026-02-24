@@ -943,7 +943,7 @@ LLM APIs charge per token. Optimize costs:
 
 You now have a working LLM application. Here is what to build next:
 
-1. **Add RAG (Retrieval Augmented Generation)**: Let the LLM search your documents
+1. **Add RAG (Retrieval Augmented Generation)**: Let the LLM search your documents. See [Building Your First RAG Application](/building-your-first-rag-application/) for a step-by-step guide.
 2. **Build AI agents**: Add tool calling for autonomous actions
 3. **Add user authentication**: Multi-user support with proper security
 4. **Implement fine-tuning**: Train custom models for your use case

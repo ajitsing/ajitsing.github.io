@@ -161,7 +161,7 @@ Good support bots retrieve relevant knowledge base articles, past ticket history
 
 ### RAG Applications
 
-The whole point of RAG is context engineering. You are retrieving relevant documents and putting them in context for the AI to use. The retrieval strategy, chunk size, number of chunks, and how you format them all matter.
+The whole point of RAG is context engineering. You are retrieving relevant documents and putting them in context for the AI to use. The retrieval strategy, chunk size, number of chunks, and how you format them all matter. For a step-by-step guide to building your first RAG application, see [Building Your First RAG Application](/building-your-first-rag-application/).
 
 ### AI Agents
 

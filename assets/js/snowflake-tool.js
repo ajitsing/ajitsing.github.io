@@ -56,8 +56,8 @@
   const tabBtns = document.querySelectorAll('.snowflake-tab-btn');
   const tabPanels = document.querySelectorAll('.snowflake-tab-panel');
 
-  let currentPlatform = 'discord';
-  let currentEpoch = EPOCHS.discord;
+  let currentPlatform = 'twitter';
+  let currentEpoch = EPOCHS.twitter;
   let lastDecodedId = null;
 
   function init() {
@@ -97,14 +97,16 @@
 
     const urlParams = new URLSearchParams(window.location.search);
     const idParam = urlParams.get('id');
-    const platformParam = urlParams.get('platform');
+    const platformParamRaw = urlParams.get('platform');
+    const platformParam = platformParamRaw ? platformParamRaw.toLowerCase() : null;
 
-    if (platformParam && EPOCHS[platformParam]) {
+    if (platformParam && platformParam in EPOCHS) {
       setActivePlatform(platformParam);
     }
 
     if (idParam) {
       snowflakeInput.value = idParam;
+      lastDecodedId = idParam;
       trackEvent('url_load', idParam);
       handleDecode();
     }
@@ -451,6 +453,7 @@
 
     setActivePlatform(platform);
     snowflakeInput.value = id;
+    lastDecodedId = id;
     trackEvent('example_click', 'Example: ' + platform + ' - ' + id);
     handleDecode();
     snowflakeInput.scrollIntoView({ behavior: 'smooth', block: 'center' });

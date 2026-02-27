@@ -312,6 +312,55 @@ body:has(.snowflake-tool) {
   font-size: 1.1rem;
 }
 
+/* Tabs */
+.snowflake-tabs {
+  display: flex;
+  gap: 0;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.snowflake-tab-btn {
+  flex: 1;
+  padding: 10px 16px;
+  background: #fffdf9;
+  border: none;
+  border-right: 1px solid #e7e0d5;
+  cursor: pointer;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #78716c;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.snowflake-tab-btn:last-child {
+  border-right: none;
+}
+
+.snowflake-tab-btn.active {
+  background: #292524;
+  color: #faf8f5;
+}
+
+.snowflake-tab-btn:hover:not(.active) {
+  background: #f5f0e8;
+}
+
+.snowflake-tab-btn i {
+  font-size: 0.9rem;
+}
+
+.snowflake-tab-panel.hidden {
+  display: none;
+}
+
 /* Result Section */
 .result-section {
   background: #fffdf9;
@@ -351,6 +400,16 @@ body:has(.snowflake-tool) {
   .timestamp-cards {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.result-share-row {
+  margin-bottom: 24px;
+}
+
+.result-share-row .btn-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .timestamp-card {

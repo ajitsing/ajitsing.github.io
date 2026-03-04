@@ -149,6 +149,7 @@ social-share: true
   {% assign mod_check = post_counter | modulo: 5 %}
   {% if mod_check == 0 %}
   <div class="in-feed-ad" aria-label="Advertisement">
+    <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-format="fluid"

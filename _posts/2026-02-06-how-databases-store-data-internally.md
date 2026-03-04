@@ -670,6 +670,7 @@ SSDs have much lower random read latency than spinning disks. This makes B-tree 
 
 This post covered the fundamentals of database storage. Here are related topics to explore:
 
+- [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/) - Practical guide to picking the right database
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Practical commands, queries, and performance tuning for developers
 - [How Database Indexing Works](/database-indexing-explained/) - Deep dive into index types and query optimization
 - [B-Tree Data Structure Explained](/data-structures/b-tree/) - The data structure behind most indexes

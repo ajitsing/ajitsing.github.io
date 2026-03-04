@@ -1381,6 +1381,7 @@ These posts go deeper into specific database topics:
 **PostgreSQL Deep Dives**:
 - [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/)
 - [PostgreSQL 18: The Release That Makes Databases Fast Again](/postgres-18-features/)
+- [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/)
 
 **Database Fundamentals**:
 - [How Database Indexing Works](/database-indexing-explained/)

@@ -220,6 +220,7 @@
   function renderInFeedAd() {
     return `
       <div class="in-feed-ad" aria-label="Advertisement">
+        <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-format="fluid"

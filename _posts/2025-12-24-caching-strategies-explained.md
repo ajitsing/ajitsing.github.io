@@ -859,6 +859,7 @@ Cache-Control: public, max-age=3600, s-maxage=86400
 
 **Further Reading**:
 
+- [Redis vs DragonflyDB vs KeyDB](/redis-vs-dragonflydb-vs-keydb/) - If you are choosing which in-memory store to run these patterns on, this comparison covers the architecture and performance differences
 - [How Meta Achieves Cache Consistency](/meta-cache-consistency/) - Deep dive into Facebook's caching architecture
 - [How Consistent Hashing Works](/consistent-hashing-explained/) - How distributed caches distribute keys across servers
 - [Redis Documentation](https://redis.io/docs/) - Official Redis caching patterns

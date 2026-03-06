@@ -8,21 +8,17 @@
   width: 100%;
 }
 
-/* Acceptable Ads: in-content max 250px, pre-render space to prevent layout shift */
 .explainer-top-ad {
   margin: 20px auto;
   padding: 10px 0;
   text-align: center;
   width: 100%;
   max-width: 728px;
-  min-height: 250px;
 }
 
 .explainer-top-ad .adsbygoogle {
   display: block;
   width: 100%;
-  max-height: 250px;
-  overflow: hidden;
 }
 
 .explainer-navigation {
@@ -58,12 +54,9 @@
   text-align: center;
 }
 
-/* Acceptable Ads: below primary content max 400px */
 .explainer-above-rss-ad .adsbygoogle {
   width: 100%;
   display: block;
-  max-height: 400px;
-  overflow: hidden;
 }
 
 /* Advertisement label styling */

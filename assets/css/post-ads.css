@@ -50,35 +50,15 @@
   width: 100%;
 }
 
-/* Acceptable Ads: in-content max 250px, pre-render space to prevent layout shift */
 .post-mid-ad {
   margin: 40px 0;
   padding: 20px 0;
   text-align: center;
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Keep "Advertisement" label always visible above the ad slot (even when ad has no fill) */
-.post-mid-ad .ad-label {
-  flex-shrink: 0;
-  min-height: 1.5em;
-  margin-bottom: 8px;
-}
-
-.post-mid-ad .ad-label-text {
-  color: #6b7280;
-  font-size: 12px;
 }
 
 .post-mid-ad .adsbygoogle {
   width: 100%;
   display: block;
-  max-height: 250px;
-  overflow: hidden;
-  flex-shrink: 0;
 }
 
 /* Advertisement label styling */
@@ -113,12 +93,9 @@
   text-align: center;
 }
 
-/* Acceptable Ads: below primary content max 400px */
 .post-below-related-ad .adsbygoogle {
   width: 100%;
   display: block;
-  max-height: 400px;
-  overflow: hidden;
 }
 
 

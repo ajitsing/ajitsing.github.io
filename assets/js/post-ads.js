@@ -4,14 +4,14 @@
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
   var HEADING_TAGS = ['H2', 'H3'];
-  var LENGTH_THRESHOLDS = [20, 60];
-  var AD_COUNTS = [2, 3];
-  var DEFAULT_AD_COUNT = 2;
+  var LENGTH_THRESHOLDS = [30, 60, 100];
+  var AD_COUNTS = [4, 6, 8, 10];
+  var DEFAULT_AD_COUNT = 4;
 
   function createAdElement() {
     var container = document.createElement('div');
     container.className = AD_CLASS;
-    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="1787846424" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    container.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="1787846424" data-ad-format="auto" data-full-width-responsive="true"></ins>';
     return container;
   }
 

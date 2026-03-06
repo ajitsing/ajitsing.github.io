@@ -10,10 +10,13 @@
 
 .explainer-top-ad {
   margin: 20px auto;
-  padding: 10px 0;
+  padding: 20px;
   text-align: center;
   width: 100%;
   max-width: 728px;
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
 }
 
 .explainer-top-ad .adsbygoogle {
@@ -50,8 +53,11 @@
 
 .explainer-above-rss-ad {
   margin: 40px 0;
-  padding: 20px 0;
+  padding: 20px;
   text-align: center;
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
 }
 
 .explainer-above-rss-ad .adsbygoogle {
@@ -78,18 +84,21 @@
 }
 
 .ad-label-text {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .explainer-bottom-ad {
   margin: 40px 0 20px 0;
-  padding: 20px 0;
+  padding: 20px;
   text-align: center;
   width: 100%;
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
 }
 
 .explainer-bottom-ad .adsbygoogle {
@@ -100,11 +109,11 @@
 @media (max-width: 768px) {
   .explainer-top-ad {
     margin: 10px auto;
-    padding: 5px 0;
+    padding: 16px;
   }
 
   .explainer-bottom-ad {
     margin: 32px 0;
-    padding: 16px 0;
+    padding: 16px;
   }
 }

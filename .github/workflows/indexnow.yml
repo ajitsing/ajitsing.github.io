@@ -1,9 +1,9 @@
 name: IndexNow - Notify Search Engines
 
 on:
-  # Trigger after GitHub Pages deployment
+  # Trigger after GitHub Pages deployment (Jekyll deploy workflow)
   workflow_run:
-    workflows: ["pages-build-deployment"]
+    workflows: ["Jekyll site deploy"]
     types:
       - completed
   

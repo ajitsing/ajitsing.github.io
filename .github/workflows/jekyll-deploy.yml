@@ -27,11 +27,22 @@ jobs:
           ruby-version: "3.2"
           bundler-cache: true
 
-      - name: Inject AdUnblock verification code
+      - name: Fetch AdUnblock script URL
+        id: adunblock
+        run: |
+          URL=$(curl -sf "https://public.adunblocker.com/api/vendor_scripts" | jq -r '.[0] // empty')
+          if [ -z "$URL" ]; then
+            URL="https://adunblock2.static-cloudflare.workers.dev/index.js"
+          fi
+          echo "url=$URL" >> $GITHUB_OUTPUT
+
+      - name: Inject AdUnblock config
         env:
           ADUNBLOCK_CODE: ${{ secrets.ADUNBLOCK_CODE }}
+          ADUNBLOCK_SCRIPT_URL: ${{ steps.adunblock.outputs.url }}
         run: |
           echo "adunblock_code: \"$ADUNBLOCK_CODE\"" >> _config.yml
+          echo "adunblock_script_url: \"$ADUNBLOCK_SCRIPT_URL\"" >> _config.yml
 
       - name: Build with Jekyll
         run: bundle exec jekyll build

@@ -491,4 +491,4 @@ For team use cases, commercial AI platforms might be more appropriate. OpenClaw 
 
 ---
 
-*Want to learn more about AI agents? Check out [How to Build AI Agents That Actually Work](/building-ai-agents/) for a deep dive into agent architecture, [Building Your First LLM Application](/building-your-first-llm-application/) for the fundamentals of LLM application development, or [How Cloudflare Supports 55 Million Requests Per Second](/how-cloudflare-supports-55-million-requests-per-second/) to understand the infrastructure that powers Moltworker.*
+*Want to learn more about AI agents? Check out [How to Build AI Agents That Actually Work](/building-ai-agents/) for a deep dive into agent architecture, [Building Your First LLM Application](/building-your-first-llm-application/) for the fundamentals of LLM application development, [Claude Cowork Guide](/claude-cowork-guide/) for Anthropic's commercial desktop agent that pairs with Claude Code, or [How Cloudflare Supports 55 Million Requests Per Second](/how-cloudflare-supports-55-million-requests-per-second/) to understand the infrastructure that powers Moltworker.*

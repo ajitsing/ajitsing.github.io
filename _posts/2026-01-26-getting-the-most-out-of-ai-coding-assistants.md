@@ -437,6 +437,8 @@ Different AI coding assistants have different strengths. Match your tool to your
 | Large migrations | Agentic frameworks with planning |
 | Code review | Chat with file references |
 
+For document and file-heavy workflows beyond the IDE, Anthropic's [Claude Cowork](/claude-cowork-guide/) is an agentic option that works with folders and external tools.
+
 ### <i class="fas fa-keyboard"></i> Inline Suggestions
 
 Best for: Completing code as you type. Writing repetitive patterns. Quick boilerplate.

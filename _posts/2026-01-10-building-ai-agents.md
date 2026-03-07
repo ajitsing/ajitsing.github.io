@@ -551,6 +551,8 @@ Do not use multi-agent when:
 - You are just starting out (adds complexity)
 - Latency matters (more agents = more LLM calls)
 
+For a real-world example of multi-agent orchestration in a desktop product, see the [Claude Cowork guide](/claude-cowork-guide/).
+
 ### Common Multi-Agent Patterns
 
 **1. Supervisor Pattern**: One agent coordinates others
@@ -834,4 +836,5 @@ The best way to learn is to build. Start simple and add complexity only when you
 - [Context Engineering Guide](/context-engineering/) - How to feed AI the right information
 - [Understanding AI Agents](https://www.microsoft.com/en-us/research/blog/autogen-enabling-next-gen-llm-applications-via-multi-agent-conversation/) by Microsoft Research
 - [Self-Hosted AI Agents with Moltworker](/moltworker-self-hosted-ai-agent/) - Run your own AI agent locally or on Cloudflare Workers
+- [Claude Cowork Guide](/claude-cowork-guide/) - Anthropic's desktop agent for knowledge work and multi-agent orchestration
 

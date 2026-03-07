@@ -354,6 +354,7 @@ Building a RAG application is not magic. It is a retrieval pipeline plus the sam
 - [Building Your First LLM Application](/building-your-first-llm-application/) - Foundation for chat, memory, and LLM integration
 - [Context Engineering](/context-engineering/) - How to provide the right information to AI
 - [Building AI Agents](/building-ai-agents/) - Add tools and autonomous behavior
+- [Prompt Injection Explained](/prompt-injection-explained/) - Your retrieval corpus is an attack surface. Learn how RAG poisoning works and how to harden your pipeline.
 - [Running LLMs Locally](/running-llms-locally/) - Use local models for the LLM and embeddings
 - [How LLMs Generate Text](/how-llms-generate-text/) - What happens inside the model
 

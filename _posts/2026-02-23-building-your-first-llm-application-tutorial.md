@@ -954,6 +954,7 @@ For deeper dives, see:
 - [Building AI Agents](/building-ai-agents/) - Add autonomous capabilities
 - [Running LLMs Locally](/running-llms-locally/) - Privacy and cost savings
 - [Context Engineering](/context-engineering/) - Optimize what you send to LLMs
+- [Prompt Injection Explained](/prompt-injection-explained/) - The #1 security risk in LLM applications. Essential reading before you ship anything that processes user input.
 
 ## Key Takeaways
 

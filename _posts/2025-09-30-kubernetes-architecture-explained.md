@@ -427,7 +427,7 @@ While this article focused on Deployments and Pods, Kubernetes supports other wo
 
 Kubernetes might seem complex at first, but its architecture is actually quite elegant. By separating concerns between the control plane (decision making) and worker nodes (execution), it creates a scalable, resilient platform for running distributed applications.
 
-For practical commands and debugging workflows, check out the [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/). To learn the Docker commands that Kubernetes uses under the hood, see the [Docker Cheat Sheet](/devops/docker-cheat-sheet/).
+For practical commands and debugging workflows, check out the [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/). To learn the Docker commands that Kubernetes uses under the hood, see the [Docker Cheat Sheet](/devops/docker-cheat-sheet/). For observability in Kubernetes-native environments, [Distributed Tracing with Jaeger, Tempo, and Zipkin](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/) covers how to trace requests across services running in your cluster.
 
 ---
 

@@ -676,7 +676,7 @@ You cannot fix what you cannot see.
 |--------|---------------|-------|
 | **Metrics** | Numerical measurements over time | Prometheus, Datadog, CloudWatch |
 | **Logs** | Discrete events with details | ELK Stack, Splunk, Loki |
-| **Traces** | Request path across services | Jaeger, Zipkin, X-Ray |
+| **Traces** | Request path across services | [Jaeger, Grafana Tempo, Zipkin](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/), X-Ray |
 
 ### Key Metrics to Monitor
 
@@ -871,6 +871,7 @@ These posts go deeper into specific topics:
 
 **Operations and Deployment**:
 - [Feature Flags: How to Deploy Code Without Releasing Features](/feature-flags-guide/)
+- [Distributed Tracing: Jaeger vs Tempo vs Zipkin](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/) - how to trace requests across microservices
 - [Docker Cheat Sheet](/devops/docker-cheat-sheet/) - Container commands and Dockerfile best practices
 - [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/)
 - [Kubernetes Architecture](/devops/kubernetes-architecture/)

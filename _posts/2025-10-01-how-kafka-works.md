@@ -945,5 +945,5 @@ The next time you order an Uber, stream on Netflix, or buy something online, the
 
 ---
 
-*For more distributed systems patterns, check out our posts on [Replicated Log](/distributed-systems/replicated-log/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Paxos Consensus Algorithm](/distributed-systems/paxos/), and [Distributed Counter Architecture](/distributed-systems/distributed-counter/). Want to understand Kafka's deployment infrastructure? Read our [Kubernetes Architecture guide](/devops/kubernetes-architecture/).*
+*For more distributed systems patterns, check out our posts on [Replicated Log](/distributed-systems/replicated-log/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Paxos Consensus Algorithm](/distributed-systems/paxos/), and [Distributed Counter Architecture](/distributed-systems/distributed-counter/). Want to understand Kafka's deployment infrastructure? Read our [Kubernetes Architecture guide](/devops/kubernetes-architecture/). If you use Kafka between microservices, remember to propagate trace context through message headers — see [Distributed Tracing: Jaeger vs Tempo vs Zipkin](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/) for how that works.*
 

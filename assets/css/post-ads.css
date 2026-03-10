@@ -107,6 +107,20 @@
   display: block;
 }
 
+/* Tool page ads – same non-intrusive style as post mid ads */
+.tool-ad-below-description {
+  margin: 40px 0;
+  padding: 20px;
+  text-align: center;
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.tool-ad-below-description .adsbygoogle {
+  width: 100%;
+  display: block;
+}
 
 /* Hide sidebar on smaller screens */
 @media (max-width: 1199px) {
@@ -182,5 +196,10 @@
   .post-below-related-ad {
     margin: 32px 0;
     padding: 16px 0;
+  }
+
+  .tool-ad-below-description {
+    margin: 32px 0;
+    padding: 16px;
   }
 }

@@ -267,9 +267,7 @@
 
 .top-ad-section,
 .dedicated-ad-section,
-.bottom-ad-section,
-.tool-ad-below-description,
-.tool-ad-above-quick-reference {
+.bottom-ad-section {
   padding: 20px;
   text-align: center;
   background: #f8f9fa;
@@ -278,11 +276,12 @@
 }
 
 .tool-ad-below-description {
-  margin: 24px 0;
-}
-
-.tool-ad-above-quick-reference {
-  margin: 32px 0;
+  padding: 20px;
+  text-align: center;
+  border-radius: 6px;
+  background: #f1f3f4;
+  border: 1px solid #e0e3e6;
+  margin: 24px 0 40px 0;
 }
 
 .tools-ad-section .adsbygoogle {

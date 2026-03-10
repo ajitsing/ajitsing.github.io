@@ -313,7 +313,6 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/cron-tool.css' | relative_url }}">
-{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -331,6 +330,9 @@ hide-explore-posts: true
   <p class="tool-intro">
     Use this free <strong>cron expression translator</strong> to convert cron expressions to human-readable text instantly. Our <strong>cron schedule translator</strong> and <strong>cronjob translator</strong> validate your <strong>cron job expression</strong> syntax, check for errors, and show exactly when your cron jobs will run. Translate <strong>crontab expressions</strong> and build cron schedules visually. No server required.
   </p>
+
+  {% include tool-ad-below-description.html %}
+
   <div class="cross-tool-banner" style="display:flex;align-items:center;gap:10px;padding:12px 18px;margin-bottom:24px;background:#f5f0e8;border:2px solid #e7e0d5;border-radius:10px;font-size:0.9rem;color:#44403c;line-height:1.5;">
     <i class="fas fa-info-circle" style="color:#78716c;font-size:1.1rem;flex-shrink:0;"></i>
     <span>Using Quartz Scheduler (Java/Spring Boot) with 6-7 field expressions? Try our <a href="/tools/quartz-scheduler/" style="color:#44403c;font-weight:600;text-decoration:underline;" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Cron Tool','event_label':'to_quartz_from_banner'})}">Quartz Scheduler Cron Tool</a>. Supports <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">?</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">L</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">W</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">#</code> syntax.</span>
@@ -562,6 +564,8 @@ hide-explore-posts: true
     </div>
   </section>
 
+  {% include tool-ad-above-quick-reference.html %}
+
 <section class="reference-section">
     <h3><i class="fas fa-book"></i> Quick Reference</h3>
     <div class="reference-grid">
@@ -640,7 +644,6 @@ hide-explore-posts: true
       </table>
   </section>
 
-  {% include tool-ad-mid.html %}
 
 <section class="syntax-guide-section">
     <h3><i class="fas fa-graduation-cap"></i> Cron Expression & Crontab Syntax Guide</h3>
@@ -802,7 +805,6 @@ hide-explore-posts: true
     </div>
   </section>
 
-  {% include tool-ad-bottom.html %}
 </div>
 </div>
 

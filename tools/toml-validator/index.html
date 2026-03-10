@@ -191,7 +191,6 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/toml-validator.css' | relative_url }}">
-{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -208,6 +207,8 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this free <strong>TOML validator</strong> to check your TOML syntax instantly. <strong>Validate TOML online</strong> with detailed error messages showing the exact line and column where problems occur. Format, beautify, and convert TOML to JSON. Perfect for <strong>Cargo.toml</strong>, <strong>pyproject.toml</strong>, <strong>Hugo config</strong>, and application configuration files. 100% client-side. Your data never leaves your browser.
     </p>
+
+    {% include tool-ad-below-description.html %}
 
     <section class="toml-validator-main">
       <div class="main-controls">
@@ -291,6 +292,8 @@ debug = true"
       </div>
     </section>
 
+    {% include tool-ad-above-quick-reference.html %}
+
     <section class="reference-section">
       <h3><i class="fas fa-book"></i> TOML Quick Reference</h3>
       <div class="reference-grid">
@@ -318,8 +321,6 @@ debug = true"
         </div>
       </div>
     </section>
-
-    {% include tool-ad-mid.html %}
 
     <section class="syntax-guide-section">
       <h3><i class="fas fa-graduation-cap"></i> TOML Syntax Guide</h3>
@@ -427,7 +428,6 @@ debug = true"
       </div>
     </section>
 
-    {% include tool-ad-bottom.html %}
   </div>
 </div>
 

@@ -196,7 +196,6 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/sql-formatter.css' | relative_url }}">
-{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -213,6 +212,8 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this free <strong>SQL formatter</strong> to instantly beautify and format your SQL queries. Our <strong>SQL query formatter online</strong> adds proper indentation, capitalizes keywords, and provides syntax highlighting. Works as a <strong>SQL beautifier</strong> for MySQL, PostgreSQL, SQL Server, and Oracle. <strong>Format SQL online free</strong> — 100% client-side, your data never leaves your browser.
     </p>
+
+    {% include tool-ad-below-description.html %}
 
     <section class="sql-formatter-main">
       <!-- Action Buttons -->
@@ -300,6 +301,8 @@ hide-explore-posts: true
         </div>
       </div>
     </section>
+
+    {% include tool-ad-above-quick-reference.html %}
 
     <!-- Quick Reference -->
     <section class="reference-section">
@@ -416,8 +419,6 @@ hide-explore-posts: true
         </tbody>
       </table>
     </section>
-
-    {% include tool-ad-mid.html %}
 
     <!-- Syntax Guide -->
     <section class="syntax-guide-section">
@@ -536,7 +537,6 @@ hide-explore-posts: true
       </div>
     </section>
 
-    {% include tool-ad-bottom.html %}
   </div>
 </div>
 

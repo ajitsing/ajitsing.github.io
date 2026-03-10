@@ -224,7 +224,6 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/snowflake-tool.css' | relative_url }}">
-{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -241,6 +240,8 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this <strong>online</strong> tool to decode <strong>Discord IDs</strong>, <strong>Twitter IDs</strong>, and <strong>Instagram IDs</strong> and get the <strong>date</strong> and timestamp. Snowflake IDs contain embedded timestamps—this tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
     </p>
+
+    {% include tool-ad-below-description.html %}
 
     <div class="snowflake-tabs" role="tablist">
       <button class="snowflake-tab-btn active" type="button" role="tab" aria-selected="true" aria-controls="decode-panel" id="tab-decode" data-tab="decode">
@@ -466,7 +467,7 @@ hide-explore-posts: true
       </div>
     </div>
 
-    {% include tool-ad-mid.html %}
+    {% include tool-ad-above-quick-reference.html %}
 
     <section class="reference-section">
       <h3><i class="fas fa-book"></i> Snowflake ID Structure</h3>
@@ -642,7 +643,6 @@ hide-explore-posts: true
       </a>
     </div>
 
-    {% include tool-ad-bottom.html %}
   </div>
 </div>
 

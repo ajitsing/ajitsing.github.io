@@ -243,7 +243,6 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/quartz-tool.css' | relative_url }}">
-{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -261,6 +260,8 @@ hide-explore-posts: true
   <p class="tool-intro">
     Use this free <strong>Quartz cron expression generator</strong> to parse, validate, and build Quartz Scheduler cron expressions. Our <strong>Quartz cron validator</strong> supports the full 6-7 field format including <code>?</code>, <code>L</code>, <code>W</code>, and <code>#</code> syntax. Perfect for <strong>Java Quartz Scheduler</strong>, <strong>Spring Boot @Scheduled</strong>, and enterprise job scheduling.
   </p>
+
+  {% include tool-ad-below-description.html %}
 
   <div class="cross-tool-banner">
     <i class="fas fa-info-circle"></i>
@@ -487,6 +488,8 @@ hide-explore-posts: true
     </div>
   </section>
 
+  {% include tool-ad-above-quick-reference.html %}
+
 <section class="reference-section">
     <h3><i class="fas fa-book"></i> Quartz Cron Quick Reference</h3>
     <div class="reference-grid">
@@ -566,7 +569,6 @@ hide-explore-posts: true
     </table>
   </section>
 
-  {% include tool-ad-mid.html %}
 
 <section class="syntax-guide-section">
     <h3><i class="fas fa-graduation-cap"></i> Quartz Cron Expression Syntax Guide</h3>
@@ -693,7 +695,6 @@ hide-explore-posts: true
     </div>
   </section>
 
-  {% include tool-ad-bottom.html %}
 </div>
 </div>
 

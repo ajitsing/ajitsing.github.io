@@ -284,7 +284,6 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/regex-tool.css' | relative_url }}">
-{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -301,6 +300,8 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this <strong>regex tester</strong> to build and debug regular expressions in real-time. See matches highlighted instantly, understand your pattern with our <strong>regex explainer</strong>, and visualize capture groups. 100% client-side. Your data never leaves your browser.
     </p>
+
+    {% include tool-ad-below-description.html %}
 
     <section id="test-mode" class="regex-tester-main">
       <div class="input-section">
@@ -378,6 +379,8 @@ Example: john.doe@example.com, jane_smith@company.org"
         Share Link
       </button>
     </div>
+
+    {% include tool-ad-above-quick-reference.html %}
 
     <section class="reference-section">
       <h3><i class="fas fa-book"></i> Quick Reference</h3>
@@ -502,7 +505,6 @@ Example: john.doe@example.com, jane_smith@company.org"
       </table>
     </section>
 
-    {% include tool-ad-mid.html %}
 
     <section class="syntax-guide-section">
       <h3><i class="fas fa-graduation-cap"></i> Regular Expression Guide</h3>
@@ -647,7 +649,6 @@ Example: john.doe@example.com, jane_smith@company.org"
       </div>
     </section>
 
-    {% include tool-ad-bottom.html %}
   </div>
 </div>
 

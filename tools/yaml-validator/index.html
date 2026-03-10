@@ -192,7 +192,6 @@ hide-explore-posts: true
 
 <link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/yaml-validator.css' | relative_url }}">
-{% include tool-ad-top.html %}
 <div class="tools-layout">
 {% include tools-sidebar.html %}
 <div class="tools-main">
@@ -209,6 +208,8 @@ hide-explore-posts: true
     <p class="tool-intro">
       Use this free <strong>YAML validator</strong> to check your YAML syntax instantly. <strong>Validate YAML online</strong> with detailed error messages showing the exact line and column where problems occur. Format, beautify, and convert YAML to JSON. Perfect for <strong>Kubernetes manifests</strong>, <strong>Docker Compose</strong>, <strong>GitHub Actions</strong>, and configuration files. 100% client-side. Your data never leaves your browser.
     </p>
+
+    {% include tool-ad-below-description.html %}
 
     <section class="yaml-validator-main">
       <div class="main-controls">
@@ -290,6 +291,8 @@ spec:
       </div>
     </section>
 
+    {% include tool-ad-above-quick-reference.html %}
+
     <section class="reference-section">
       <h3><i class="fas fa-book"></i> YAML Quick Reference</h3>
       <div class="reference-grid">
@@ -316,8 +319,6 @@ spec:
         </div>
       </div>
     </section>
-
-    {% include tool-ad-mid.html %}
 
     <section class="syntax-guide-section">
       <h3><i class="fas fa-graduation-cap"></i> YAML Syntax Guide</h3>
@@ -424,7 +425,6 @@ spec:
       </div>
     </section>
 
-    {% include tool-ad-bottom.html %}
   </div>
 </div>
 

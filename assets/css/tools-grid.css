@@ -267,12 +267,22 @@
 
 .top-ad-section,
 .dedicated-ad-section,
-.bottom-ad-section {
+.bottom-ad-section,
+.tool-ad-below-description,
+.tool-ad-above-quick-reference {
   padding: 20px;
   text-align: center;
   background: #f8f9fa;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
+}
+
+.tool-ad-below-description {
+  margin: 24px 0;
+}
+
+.tool-ad-above-quick-reference {
+  margin: 32px 0;
 }
 
 .tools-ad-section .adsbygoogle {

@@ -294,6 +294,8 @@ Go through every AI generated code block with this checklist:
 
 This review should feel like reviewing a pull request from a junior developer. Assume competence but verify everything.
 
+If you want to automate the routine parts of code review so your team can focus on architecture and business logic, see the guide on [building a code review assistant with LLMs](/building-code-review-assistant-with-llms/).
+
 ## Context is Everything
 
 AI models only know what you tell them. The quality of their output directly depends on the quality of context you provide.

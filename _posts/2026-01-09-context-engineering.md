@@ -64,7 +64,7 @@ Every piece of information you send to an AI model is context. Let us break down
 
 These define how the AI should behave. Think of them as the rules of engagement. They include the persona, constraints, output format requirements, and any specific instructions for your use case.
 
-For a code review assistant, your system instructions might specify that it should focus on security issues, follow your team's style guide, and format responses in a specific way.
+For a [code review assistant](/building-code-review-assistant-with-llms/), your system instructions might specify that it should focus on security issues, follow your team's style guide, and format responses in a specific way.
 
 ### <i class="fas fa-database"></i> Retrieved Information
 

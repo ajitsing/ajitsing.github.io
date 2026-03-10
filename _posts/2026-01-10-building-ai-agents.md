@@ -733,6 +733,8 @@ system_prompt = """You are a code review agent. When reviewing a pull request:
 Be constructive. Explain why something is a problem and how to fix it."""
 ```
 
+For a full walkthrough of building this into a production-ready system with false positive filtering, prompt design, and GitHub integration, see [Building a Code Review Assistant with LLMs](/building-code-review-assistant-with-llms/).
+
 ### Example 2: Customer Support Agent
 
 This agent handles support tickets:

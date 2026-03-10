@@ -952,6 +952,7 @@ You now have a working LLM application. Here is what to build next:
 For deeper dives, see:
 - [How LLMs Generate Text](/how-llms-generate-text/) - Understand the internals
 - [Building AI Agents](/building-ai-agents/) - Add autonomous capabilities
+- [Building a Code Review Assistant with LLMs](/building-code-review-assistant-with-llms/) - A practical LLM project with webhooks, structured prompts, and production deployment
 - [Running LLMs Locally](/running-llms-locally/) - Privacy and cost savings
 - [Context Engineering](/context-engineering/) - Optimize what you send to LLMs
 - [Prompt Injection Explained](/prompt-injection-explained/) - The #1 security risk in LLM applications. Essential reading before you ship anything that processes user input.

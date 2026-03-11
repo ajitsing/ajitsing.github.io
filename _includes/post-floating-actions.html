@@ -154,6 +154,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, { passive: true });
 
+  var clapBtn = document.querySelector('applause-button');
+  if (clapBtn) {
+    clapBtn.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'clap', {
+          'event_category': 'Engagement',
+          'event_label': window.location.pathname
+        });
+      }
+    });
+  }
+
   update();
 });
 </script>

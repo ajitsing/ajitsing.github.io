@@ -140,6 +140,8 @@ gtag: "G-V1NK1HF18W"
 #  uri: "demo.wiki.pro"
 #  opt-out: true
 
+manual_ads: false
+
 # --- Comments --- #
 
 # To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)

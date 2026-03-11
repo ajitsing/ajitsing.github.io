@@ -218,6 +218,7 @@
   };
 
   function renderInFeedAd() {
+    if (!window.MANUAL_ADS_ENABLED) return '';
     return `
       <div class="in-feed-ad" aria-label="Advertisement">
         <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>

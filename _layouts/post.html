@@ -113,6 +113,7 @@ hide-explore-posts: true
         </div>
       </section>
       
+      {% if site.manual_ads %}
       <div class="post-below-related-ad">
         <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
         <ins class="adsbygoogle"
@@ -124,6 +125,7 @@ hide-explore-posts: true
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
+      {% endif %}
     {% endif %}
 
     {% comment %} Build list of related post URLs to exclude from category recommendations {% endcomment %}
@@ -150,4 +152,6 @@ hide-explore-posts: true
   </aside>
 </div>
 
+{% if site.manual_ads %}
 <script src="{{ '/assets/js/post-ads.js' | relative_url }}"></script>
+{% endif %}

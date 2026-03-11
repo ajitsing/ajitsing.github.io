@@ -140,7 +140,7 @@ canonical-url: "{{ site.url }}/system-design/"
 
   {% comment %} Insert in-feed ad after every 5th post {% endcomment %}
   {% assign mod_check = forloop.index | modulo: 5 %}
-  {% if mod_check == 0 %}
+  {% if mod_check == 0 and site.manual_ads %}
   <div class="in-feed-ad" aria-label="Advertisement">
     <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
     <ins class="adsbygoogle"
@@ -156,7 +156,9 @@ canonical-url: "{{ site.url }}/system-design/"
   {% endfor %}
 </div>
 
+{% if site.manual_ads %}
 <script src="{{ '/assets/js/in-feed-ads.js' | relative_url }}"></script>
+{% endif %}
 {% else %}
 <div class="no-system-design-posts">
   <p>No system design breakdowns yet. Check back soon!</p>

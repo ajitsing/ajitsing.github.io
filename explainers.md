@@ -145,6 +145,7 @@ social-share: true
 </div>
 {% endif %}
 
+{% if site.manual_ads %}
 <div class="explainers-above-rss-ad">
   <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
   <ins class="adsbygoogle"
@@ -156,6 +157,7 @@ social-share: true
        (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
 </div>
+{% endif %}
 
 <!-- RSS Subscribe Section -->
 <div class="rss-section-home">

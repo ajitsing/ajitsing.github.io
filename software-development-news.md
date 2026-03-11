@@ -147,7 +147,7 @@ social-share: true
 
   {% comment %} Insert in-feed ad after every 5th post {% endcomment %}
   {% assign mod_check = post_counter | modulo: 5 %}
-  {% if mod_check == 0 %}
+  {% if mod_check == 0 and site.manual_ads %}
   <div class="in-feed-ad" aria-label="Advertisement">
     <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
     <ins class="adsbygoogle"
@@ -164,7 +164,9 @@ social-share: true
   {% endfor %}
 </div>
 
+{% if site.manual_ads %}
 <script src="{{ '/assets/js/in-feed-ads.js' | relative_url }}"></script>
+{% endif %}
 
 {% assign dev_weekly_posts = site.tags.dev-weekly | default: empty %}
 {% if site.posts.size == 0 or dev_weekly_posts.size == 0 %}

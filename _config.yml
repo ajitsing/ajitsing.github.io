@@ -140,7 +140,7 @@ gtag: "G-V1NK1HF18W"
 #  uri: "demo.wiki.pro"
 #  opt-out: true
 
-manual_ads: false
+manual_ads: true
 
 # --- Comments --- #
 

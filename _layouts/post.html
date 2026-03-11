@@ -11,6 +11,7 @@ hide-explore-posts: true
 {% include header.html type="post" %}
 
 <div class="post-page-wrapper">
+  {% include post-floating-actions.html %}
   <main class="post-main-content">
     {% if page.gh-repo %}
       {% assign gh_split = page.gh-repo | split:'/' %}

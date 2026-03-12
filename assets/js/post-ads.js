@@ -7,18 +7,42 @@
   var LENGTH_THRESHOLDS = [30, 60, 100];
   var AD_COUNTS = [4, 6, 8, 10];
   var DEFAULT_AD_COUNT = 4;
+  var LAZY_AD_SELECTOR = '[data-lazy-ad]';
+  var OBSERVER_ROOT_MARGIN = '200px 0px';
 
   function createAdElement() {
     var container = document.createElement('div');
     container.className = AD_CLASS;
-    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="1787846424" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    container.setAttribute('data-lazy-ad', 'true');
+    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2886086145980317" data-ad-slot="1787846424"></ins>';
     return container;
   }
 
   function pushToAdSense() {
-    if (window.adsbygoogle) {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    }
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }
+
+  var adObserver = null;
+
+  function getAdObserver() {
+    if (adObserver) return adObserver;
+
+    adObserver = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          pushToAdSense();
+          adObserver.unobserve(entries[i].target);
+        }
+      }
+    }, {
+      rootMargin: OBSERVER_ROOT_MARGIN
+    });
+
+    return adObserver;
+  }
+
+  function lazyLoadAd(adContainer) {
+    getAdObserver().observe(adContainer);
   }
 
   function getHeadingIndices(children) {
@@ -119,15 +143,22 @@
       } else {
         article.appendChild(ad);
       }
+      lazyLoadAd(ad);
     }
+  }
 
-    for (var k = 0; k < insertBeforeIndices.length; k++) {
-      pushToAdSense();
+  function observeStaticAds() {
+    var staticAds = document.querySelectorAll(LAZY_AD_SELECTOR);
+    for (var i = 0; i < staticAds.length; i++) {
+      if (!staticAds[i].classList.contains(AD_CLASS)) {
+        lazyLoadAd(staticAds[i]);
+      }
     }
   }
 
   function init() {
     injectContentAds();
+    observeStaticAds();
   }
 
   if (document.readyState === 'loading') {

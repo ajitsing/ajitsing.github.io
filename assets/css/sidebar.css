@@ -1,16 +1,30 @@
 /* --- Right Sidebar - Popular Posts --- */
 
 .sidebar-popular {
-  position: sticky;
-  top: 200px;
   z-index: 50;
   background: #ffffff;
   border: 1px solid #e9ecef;
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-height: calc(100vh - 220px);
-  overflow-y: auto;
+}
+
+/* Sticky sidebar ad */
+.sidebar-sticky-ad {
+  position: sticky;
+  top: 80px;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.sidebar-sticky-ad .adsbygoogle {
+  width: 100%;
+  display: block;
 }
 
 .sidebar-title {
@@ -202,12 +216,6 @@
   .home-sidebar {
     width: 300px;
   }
-}
-
-/* Ensure sidebar doesn't overlap footer */
-.sidebar-popular {
-  max-height: calc(100vh - 140px);
-  overflow-y: auto;
 }
 
 /* Custom scrollbar for sidebar if content overflows */

@@ -114,16 +114,13 @@ hide-explore-posts: true
       </section>
       
       {% if site.manual_ads %}
-      <div class="post-below-related-ad">
+      <div class="post-below-related-ad" data-lazy-ad="true">
         <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-format="autorelaxed"
              data-ad-client="ca-pub-2886086145980317"
              data-ad-slot="9096626276"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
       {% endif %}
     {% endif %}
@@ -149,6 +146,17 @@ hide-explore-posts: true
   </main>
   <aside class="post-sidebar">
     {% include sidebar-popular.html %}
+    {% if site.manual_ads %}
+    <div class="sidebar-sticky-ad" data-lazy-ad="true">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2886086145980317"
+           data-ad-slot="1353070800"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+    {% endif %}
   </aside>
 </div>
 

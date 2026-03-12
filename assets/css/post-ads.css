@@ -35,6 +35,7 @@
 .post-sidebar {
   width: 280px;
   flex-shrink: 0;
+  order: 1;
 }
 
 

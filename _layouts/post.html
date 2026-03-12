@@ -12,6 +12,21 @@ hide-explore-posts: true
 
 <div class="post-page-wrapper">
   {% include post-floating-actions.html %}
+  <aside class="post-sidebar">
+    {% include sidebar-popular.html %}
+    {% if site.manual_ads %}
+    <div class="sidebar-sticky-ad">
+      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2886086145980317"
+           data-ad-slot="1353070800"
+           data-ad-format="auto"
+           data-full-width-responsive="false"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    {% endif %}
+  </aside>
   <main class="post-main-content">
     {% if page.gh-repo %}
       {% assign gh_split = page.gh-repo | split:'/' %}
@@ -144,21 +159,6 @@ hide-explore-posts: true
 
     {% include comments.html %}
   </main>
-  <aside class="post-sidebar">
-    {% include sidebar-popular.html %}
-    {% if site.manual_ads %}
-    <div class="sidebar-sticky-ad">
-      <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-2886086145980317"
-           data-ad-slot="1353070800"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-    {% endif %}
-  </aside>
 </div>
 
 {% if site.manual_ads %}

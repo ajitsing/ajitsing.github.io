@@ -5,16 +5,27 @@
   var AD_CLASS = 'post-mid-ad';
   var HEADING_TAGS = ['H2', 'H3'];
   var LENGTH_THRESHOLDS = [30, 60, 100];
-  var AD_COUNTS = [4, 6, 8, 10];
-  var DEFAULT_AD_COUNT = 4;
+  var AD_COUNTS = [3, 5, 6, 8];
+  var DEFAULT_AD_COUNT = 3;
   var LAZY_AD_SELECTOR = '[data-lazy-ad]';
   var OBSERVER_ROOT_MARGIN = '200px 0px';
+
+  var FIRST_AD_SLOT = '5138071441';
+  var SECOND_AD_SLOT = '2859538251';
+  var DEFAULT_AD_SLOT = '1787846424';
+
+  function createDisplayAdElement(slot) {
+    var container = document.createElement('div');
+    container.className = AD_CLASS;
+    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="' + slot + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    return container;
+  }
 
   function createAdElement() {
     var container = document.createElement('div');
     container.className = AD_CLASS;
     container.setAttribute('data-lazy-ad', 'true');
-    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2886086145980317" data-ad-slot="1787846424"></ins>';
+    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2886086145980317" data-ad-slot="' + DEFAULT_AD_SLOT + '"></ins>';
     return container;
   }
 
@@ -133,17 +144,29 @@
       }
     }
 
-    insertBeforeIndices.sort(function(a, b) { return b - a; });
+    insertBeforeIndices.sort(function(a, b) { return a - b; });
 
     for (var j = 0; j < insertBeforeIndices.length; j++) {
-      var ad = createAdElement();
+      var adPosition = j + 1;
+      var ad;
+      if (adPosition === 1) {
+        ad = createDisplayAdElement(FIRST_AD_SLOT);
+      } else if (adPosition === 2) {
+        ad = createDisplayAdElement(SECOND_AD_SLOT);
+      } else {
+        ad = createAdElement();
+      }
       var idx = insertBeforeIndices[j];
       if (idx < children.length) {
         article.insertBefore(ad, children[idx]);
       } else {
         article.appendChild(ad);
       }
-      lazyLoadAd(ad);
+      if (adPosition <= 2) {
+        pushToAdSense();
+      } else {
+        lazyLoadAd(ad);
+      }
     }
   }
 

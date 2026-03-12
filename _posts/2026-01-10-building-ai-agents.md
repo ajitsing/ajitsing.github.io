@@ -551,7 +551,7 @@ Do not use multi-agent when:
 - You are just starting out (adds complexity)
 - Latency matters (more agents = more LLM calls)
 
-For a real-world example of multi-agent orchestration in a desktop product, see the [Claude Cowork guide](/claude-cowork-guide/).
+For a real-world example of multi-agent orchestration in a desktop product, see the [Claude Cowork guide](/claude-cowork-guide/). For a deep dive into how Perplexity routes tasks across 19 models with sub-agents and filesystem-based communication, see [Inside Perplexity Computer](/perplexity-computer-explained/).
 
 ### Common Multi-Agent Patterns
 

@@ -1,5 +1,5 @@
 {% if site.manual_ads %}
-<div class="sidebar-sticky-ad">
+<div class="sidebar-sticky-ad" data-ad-refresh="30">
   <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
   <ins class="adsbygoogle"
        style="display:block"
@@ -7,20 +7,7 @@
        data-ad-slot="1353070800"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  (function() {
-    var container = document.currentScript.closest('.sidebar-sticky-ad');
-    var ins = container && container.querySelector('.adsbygoogle');
-    if (!ins) return;
-    function check() {
-      var s = ins.getAttribute('data-ad-status');
-      if (s === 'unfilled') container.classList.add('ad-unfilled');
-      else if (s === 'filled') container.classList.remove('ad-unfilled');
-    }
-    check();
-    new MutationObserver(check).observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
-  })();
-  </script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script src="{{ '/assets/js/sidebar-ad-refresh.js' | relative_url }}"></script>
 </div>
 {% endif %}

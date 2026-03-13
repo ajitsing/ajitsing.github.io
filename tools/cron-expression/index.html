@@ -328,10 +328,8 @@ hide-explore-posts: true
   </header>
   
   <p class="tool-intro">
-    Use this free <strong>cron expression translator</strong> to convert cron expressions to human-readable text instantly. Our <strong>cron schedule translator</strong> and <strong>cronjob translator</strong> validate your <strong>cron job expression</strong> syntax, check for errors, and show exactly when your cron jobs will run. Translate <strong>crontab expressions</strong> and build cron schedules visually. No server required.
+    Free <strong>cron expression translator</strong> and <strong>cron checker</strong>. Translate <strong>crontab expressions</strong> to plain English, validate <strong>cron job expression</strong> syntax, and see next run times. Works with Linux crontab, Kubernetes CronJobs, and GitHub Actions. 100% client-side.
   </p>
-
-  {% include tool-ad-below-description.html %}
 
   <div class="cross-tool-banner" style="display:flex;align-items:center;gap:10px;padding:12px 18px;margin-bottom:24px;background:#f5f0e8;border:2px solid #e7e0d5;border-radius:10px;font-size:0.9rem;color:#44403c;line-height:1.5;">
     <i class="fas fa-info-circle" style="color:#78716c;font-size:1.1rem;flex-shrink:0;"></i>
@@ -350,47 +348,64 @@ hide-explore-posts: true
   </div>
 
 <section id="parse-mode" class="mode-content active">
-    <div class="input-section">
-      <label for="cron-input">Enter cron expression to check and translate:</label>
-      <div class="input-wrapper">
-        <input 
-          type="text" 
-          id="cron-input" 
-          placeholder="0 9 * * 1-5"
-          autocomplete="off"
-          spellcheck="false"
-        >
-        <button id="parse-btn" class="btn-primary">
-          <i class="fas fa-play"></i>
-          Parse
-        </button>
-      </div>
-    </div>
-
-<div class="breakdown-section">
-      <div class="cron-fields-compact">
-        <div class="cron-field" data-field="minute" title="0-59">
-          <span class="field-value">*</span>
-          <span class="field-label">min</span>
-        </div>
-        <div class="cron-field" data-field="hour" title="0-23">
-          <span class="field-value">*</span>
-          <span class="field-label">hour</span>
-        </div>
-        <div class="cron-field" data-field="day" title="1-31">
-          <span class="field-value">*</span>
-          <span class="field-label">day</span>
-        </div>
-        <div class="cron-field" data-field="month" title="1-12">
-          <span class="field-value">*</span>
-          <span class="field-label">month</span>
-        </div>
-        <div class="cron-field" data-field="weekday" title="0-6 (Sun-Sat)">
-          <span class="field-value">*</span>
-          <span class="field-label">weekday</span>
+  <div class="parse-top-row">
+    <div class="parse-top-left">
+      <div class="input-section">
+        <label for="cron-input">Enter cron expression to check and translate:</label>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="cron-input" 
+            placeholder="0 9 * * 1-5"
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button id="parse-btn" class="btn-primary">
+            <i class="fas fa-play"></i>
+            Parse
+          </button>
         </div>
       </div>
+      <div class="breakdown-section">
+        <div class="cron-fields-compact">
+          <div class="cron-field" data-field="minute" title="0-59">
+            <span class="field-value">*</span>
+            <span class="field-label">min</span>
+          </div>
+          <div class="cron-field" data-field="hour" title="0-23">
+            <span class="field-value">*</span>
+            <span class="field-label">hour</span>
+          </div>
+          <div class="cron-field" data-field="day" title="1-31">
+            <span class="field-value">*</span>
+            <span class="field-label">day</span>
+          </div>
+          <div class="cron-field" data-field="month" title="1-12">
+            <span class="field-value">*</span>
+            <span class="field-label">month</span>
+          </div>
+          <div class="cron-field" data-field="weekday" title="0-6 (Sun-Sat)">
+            <span class="field-value">*</span>
+            <span class="field-label">weekday</span>
+          </div>
+        </div>
+      </div>
     </div>
+    <aside class="parse-top-ad">
+      {% if site.manual_ads %}
+      <div class="cron-inline-ad" data-ad-refresh="30">
+        <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2886086145980317"
+             data-ad-slot="4312522048"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      {% endif %}
+    </aside>
+  </div>
 
 <div class="result-section">
       <div class="result-card human-readable">
@@ -809,6 +824,7 @@ hide-explore-posts: true
 {% include tool-hide-empty-ads.html %}
 
 <script src="{{ '/assets/js/cron-tool.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/cron-inline-ad-refresh.js' | relative_url }}"></script>
 </div>
 
 </div>

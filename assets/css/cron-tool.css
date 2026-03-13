@@ -7,18 +7,9 @@
 .cron-page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 15px 40px;
+  padding: 2px 15px 40px;
   background: #faf8f5;
   min-height: 100vh;
-}
-
-/* ==========================================================================
-   Dedicated Ad Section (Below Examples)
-   ========================================================================== */
-
-.dedicated-ad-section {
-  margin: 32px 0;
-  padding: 16px 0;
 }
 
 /* Advertisement label styling */
@@ -48,19 +39,6 @@
 }
 
 /* ==========================================================================
-   Bottom Ad Section
-   ========================================================================== */
-
-.bottom-ad-section {
-  margin: 40px 0 20px 0;
-  padding: 16px 0;
-}
-
-.top-ad-section {
-  margin: 0 0 24px 0;
-}
-
-/* ==========================================================================
    Layout & Container
    ========================================================================== */
 
@@ -86,20 +64,20 @@ body:has(.cron-tool) {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 20px;
-  padding: 40px 30px;
+  margin-bottom: 12px;
+  padding: 16px 24px;
   background: linear-gradient(135deg, #292524 0%, #44403c 100%);
-  border-radius: 16px;
+  border-radius: 12px;
   color: #faf8f5;
   box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
 }
 
-/* Tool Introduction - SEO-rich paragraph */
+/* Tool Introduction - SEO-rich paragraph (moved below fold) */
 .tool-intro {
   text-align: center;
   color: #57534e;
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.6;
   margin: 0 auto 24px;
   padding: 0 16px;
 }
@@ -110,22 +88,22 @@ body:has(.cron-tool) {
 
 .tool-title {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .tool-title i {
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   color: #fef3c7;
 }
 
 .tool-subtitle {
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin: 0;
   opacity: 0.75;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -134,12 +112,52 @@ body:has(.cron-tool) {
 }
 
 /* ==========================================================================
+   Cross-tool Banner (Compact)
+   ========================================================================== */
+
+.cross-tool-banner-compact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  margin-bottom: 12px;
+  background: #f5f0e8;
+  border: 1.5px solid #e7e0d5;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #57534e;
+  line-height: 1.4;
+  flex-wrap: wrap;
+}
+
+.cross-tool-banner-compact i {
+  color: #78716c;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.cross-tool-banner-compact a {
+  color: #44403c;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.cross-tool-banner-compact code {
+  background: #292524;
+  color: #fef3c7;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+}
+
+/* ==========================================================================
    Mode Tabs
    ========================================================================== */
 
 .mode-tabs {
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   background: #f5f0e8;
   border-radius: 8px;
   padding: 4px;
@@ -190,11 +208,52 @@ body:has(.cron-tool) {
 }
 
 /* ==========================================================================
+   Parse Top Row: Two-column (input+breakdown | ad)
+   ========================================================================== */
+
+.parse-top-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.parse-top-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.parse-top-left .input-section {
+  margin-bottom: 12px;
+}
+
+.parse-top-left .breakdown-section {
+  margin-bottom: 0;
+}
+
+.parse-top-ad {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.cron-inline-ad {
+  width: 100%;
+  text-align: center;
+}
+
+.cron-inline-ad.ad-unfilled {
+  display: none;
+}
+
+/* ==========================================================================
    Input Section (Parse Mode)
    ========================================================================== */
 
 .input-section {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .input-section label {
@@ -202,8 +261,8 @@ body:has(.cron-tool) {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 600;
   color: #374151;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
 }
 
 .input-wrapper {
@@ -213,8 +272,8 @@ body:has(.cron-tool) {
 
 .input-wrapper input {
   flex: 1;
-  padding: 12px 16px;
-  font-size: 1.1rem;
+  padding: 10px 14px;
+  font-size: 1rem;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
   color: #1c1917;
   border: 2px solid #e7e0d5;
@@ -238,7 +297,7 @@ body:has(.cron-tool) {
 
 .btn-primary,
 .btn-secondary {
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
@@ -285,7 +344,7 @@ body:has(.cron-tool) {
    ========================================================================== */
 
 .breakdown-section {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .cron-fields-compact {
@@ -353,23 +412,23 @@ body:has(.cron-tool) {
 .result-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .result-card {
   background: #fffdf9;
   border: 2px solid #e7e0d5;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 14px 16px;
 }
 
 .result-card h3 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: #78716c;
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   display: flex;
@@ -656,56 +715,6 @@ body:has(.cron-tool) {
   border: 1px solid #e7e0d5;
 }
 
-/* ==========================================================================
-   Examples Section (Collapsible)
-   ========================================================================== */
-
-.examples-section {
-  margin-bottom: 32px;
-}
-
-.examples-toggle {
-  width: 100%;
-  padding: 16px 20px;
-  background: #fffdf9;
-  border: 2px solid #e7e0d5;
-  border-radius: 12px;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #44403c;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.2s ease;
-}
-
-.examples-toggle:hover {
-  background: #f5f0e8;
-  border-color: #d6cfc4;
-}
-
-.examples-toggle span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.examples-toggle i.fa-lightbulb {
-  color: #b45309;
-}
-
-.examples-toggle .toggle-icon {
-  color: #78716c;
-  transition: transform 0.3s ease;
-}
-
-.examples-toggle.open .toggle-icon,
-.examples-toggle.expanded .toggle-icon {
-  transform: rotate(180deg);
-}
-
 .examples-table-section {
   margin-bottom: 32px;
 }
@@ -808,45 +817,6 @@ body:has(.cron-tool) {
   font-size: 0.75rem;
   width: 90px;
   text-align: right;
-}
-
-/* Legacy grid support for backwards compatibility */
-.examples-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.example-btn {
-  padding: 12px 16px;
-  background: #fffdf9;
-  border: 2px solid #e7e0d5;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s ease;
-}
-
-.example-btn:hover {
-  border-color: #a8a29e;
-  background: #f5f0e8;
-  transform: translateY(-1px);
-}
-
-.example-btn .example-name {
-  display: block;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #44403c;
-  margin-bottom: 4px;
-}
-
-.example-btn code {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-  font-size: 0.75rem;
-  color: #78716c;
-  background: none;
 }
 
 /* ==========================================================================
@@ -1041,24 +1011,25 @@ body:has(.cron-tool) {
 }
 
 /* Responsive Design */
+
+@media (max-width: 899px) {
+  .parse-top-row {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 768px) {
   .cron-page-wrapper {
     padding: 15px 12px 30px;
   }
 
-  .dedicated-ad-section,
-  .bottom-ad-section {
-    margin: 24px 0;
-    padding: 12px 0;
-  }
-
   .tool-header {
-    padding: 30px 20px;
-    border-radius: 12px;
+    padding: 14px 18px;
+    border-radius: 10px;
   }
 
   .tool-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .input-wrapper {
@@ -1090,10 +1061,6 @@ body:has(.cron-tool) {
 
   .reference-grid {
     grid-template-columns: 1fr;
-  }
-
-  .examples-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .cron-examples-table td:last-child,
@@ -1146,7 +1113,7 @@ body:has(.cron-tool) {
 
 @media (max-width: 480px) {
   .tool-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .mode-tab {
@@ -1170,10 +1137,6 @@ body:has(.cron-tool) {
   .builder-col select {
     font-size: 0.8rem;
     padding: 8px 4px;
-  }
-
-  .examples-grid {
-    grid-template-columns: 1fr;
   }
 
   .cron-examples-table td:first-child {

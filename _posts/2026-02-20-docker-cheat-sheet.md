@@ -1363,6 +1363,9 @@ These posts go deeper into container and orchestration topics:
 - [Kubernetes Cheat Sheet](/kubernetes-cheat-sheet/) - Container orchestration at scale
 - [Kubernetes Architecture Explained](/devops/kubernetes-architecture/) - How Kubernetes works internally
 
+**AI Agents with Docker**:
+- [How to Set Up OpenClaw with Docker](/openclaw-docker-setup/) - Run a self-hosted AI agent in Docker with sandboxing and multi-agent support
+
 **System Design and Architecture**:
 - [System Design Cheat Sheet](/system-design-cheat-sheet/) - Building scalable systems
 - [Service Discovery Explained](/explainer/service-discovery/) - How services find each other

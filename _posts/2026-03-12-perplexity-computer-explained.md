@@ -447,7 +447,7 @@ When you ask it to "write a PRD," it loads the `pm/feature-spec` skill. This kee
 
 The core trade-off is control vs. convenience.
 
-OpenClaw gives you full control. You pick the model, configure the plugins, manage the security. But you are responsible for everything. Peter Steinberger, the creator, has publicly asked users to stop buying expensive Mac minis for it, since OpenClaw only needs 2 vCPUs and 4GB RAM for cloud API routing.
+OpenClaw gives you full control. You pick the model, configure the plugins, manage the security. But you are responsible for everything. Peter Steinberger, the creator, has publicly asked users to stop buying expensive Mac minis for it, since OpenClaw only needs 2 vCPUs and 4GB RAM for cloud API routing. If you want to try it, see [How to Set Up OpenClaw with Docker](/openclaw-docker-setup/) for a complete walkthrough with sandboxing and production hardening.
 
 Personal Computer gives you managed orchestration. No setup, no model selection, no connector wiring. But you give up control, and you pay $200/month for it.
 

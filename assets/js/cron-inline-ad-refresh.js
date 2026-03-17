@@ -66,49 +66,15 @@
     setupUnfilledObserver(el);
   }
 
-  function setupUnfilledObserver(insEl, retries) {
-    retries = retries || 0;
-    var MAX_UNFILLED_RETRIES = 3;
-    var RETRY_DELAY_MS = 5000;
-
+  function setupUnfilledObserver(insEl) {
     function check() {
       var s = insEl.getAttribute('data-ad-status');
-      if (s === 'unfilled') {
-        container.classList.add('ad-unfilled');
-        if (retries < MAX_UNFILLED_RETRIES) {
-          setTimeout(function() { retryFill(retries + 1); }, RETRY_DELAY_MS);
-        }
-      } else if (s === 'filled') {
-        container.classList.remove('ad-unfilled');
-      }
+      if (s === 'unfilled') container.classList.add('ad-unfilled');
+      else if (s === 'filled') container.classList.remove('ad-unfilled');
     }
     check();
-    new MutationObserver(function() { check(); }).observe(insEl, {
+    new MutationObserver(check).observe(insEl, {
       attributes: true, attributeFilter: ['data-ad-status']
     });
-  }
-
-  function retryFill(retries) {
-    var old = container.querySelector('.adsbygoogle');
-    if (old) old.remove();
-
-    var el = document.createElement('ins');
-    el.className = 'adsbygoogle';
-    el.style.display = 'block';
-    el.setAttribute('data-ad-client', adClient);
-    el.setAttribute('data-ad-slot', adSlot);
-    if (adFormat) el.setAttribute('data-ad-format', adFormat);
-    if (adResponsive) el.setAttribute('data-full-width-responsive', adResponsive);
-
-    var label = container.querySelector('.ad-label');
-    if (label) {
-      label.insertAdjacentElement('afterend', el);
-    } else {
-      container.appendChild(el);
-    }
-
-    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-
-    setupUnfilledObserver(el, retries);
   }
 })();

@@ -171,15 +171,6 @@
     return count;
   }
 
-  function isNearHeading(headingIndices, visualIdx) {
-    for (var i = 0; i < headingIndices.length; i++) {
-      if (Math.abs(headingIndices[i] - visualIdx) <= VISUAL_HEADING_PROXIMITY) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   function selectAdPositions(headingIndices, visualIndices, children, maxAds) {
     var totalChildren = children.length;
     var skipUntil = Math.floor(totalChildren * CONTENT_SKIP_RATIO);

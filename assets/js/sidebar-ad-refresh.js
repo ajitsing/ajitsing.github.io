@@ -1,8 +1,8 @@
 (function() {
   var VIEWABILITY_THRESHOLD = 0.5;
   var MAX_REFRESHES = 10;
-  var UNFILLED_RETRY_MS = 10000;
-  var MAX_UNFILLED_RETRIES = 3;
+  var UNFILLED_RETRY_MS = 6000;
+  var MAX_UNFILLED_RETRIES = 5;
 
   var container = document.querySelector('.sidebar-sticky-ad');
   if (!container) return;
@@ -21,14 +21,103 @@
 
   var isViewable = false;
   var viewableStart = null;
-  var accumulated = 0;
-  var timer = null;
-  var count = 0;
-  var unfilledRetries = 0;
-  var unfilledTimer = null;
+  var viewableAccumulated = 0;
 
-  setupUnfilledObserver(ins);
+  var refreshTimer = null;
+  var refreshCount = 0;
+  var adIsFilled = false;
 
+  var retryTimer = null;
+  var retryCount = 0;
+
+  function createNewAdSlot() {
+    var old = container.querySelector('.adsbygoogle');
+    if (old) old.remove();
+
+    var el = document.createElement('ins');
+    el.className = 'adsbygoogle';
+    el.style.display = 'block';
+    el.setAttribute('data-ad-client', adClient);
+    el.setAttribute('data-ad-slot', adSlot);
+    if (adFormat) el.setAttribute('data-ad-format', adFormat);
+    if (adResponsive) el.setAttribute('data-full-width-responsive', adResponsive);
+
+    container.appendChild(el);
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+
+    observeAdStatus(el);
+  }
+
+  function observeAdStatus(insEl) {
+    new MutationObserver(function() {
+      var status = insEl.getAttribute('data-ad-status');
+      if (status === 'filled') onAdFilled();
+      else if (status === 'unfilled') onAdUnfilled();
+    }).observe(insEl, {
+      attributes: true, attributeFilter: ['data-ad-status']
+    });
+  }
+
+  // ===== When ad fills: stop retries, start 30s refresh =====
+  function onAdFilled() {
+    adIsFilled = true;
+    container.classList.remove('ad-unfilled');
+
+    if (retryTimer) { clearTimeout(retryTimer); retryTimer = null; }
+    retryCount = 0;
+
+    viewableAccumulated = 0;
+    viewableStart = isViewable ? Date.now() : null;
+    if (isViewable) tickRefresh();
+  }
+
+  // ===== When ad is unfilled: stop refresh, start retries =====
+  function onAdUnfilled() {
+    adIsFilled = false;
+
+    if (refreshTimer) { clearTimeout(refreshTimer); refreshTimer = null; }
+
+    scheduleRetry();
+  }
+
+  // ===== FLOW 1: Unfilled retries (6s, up to 5 attempts) =====
+  function scheduleRetry() {
+    if (retryCount >= MAX_UNFILLED_RETRIES) {
+      container.classList.add('ad-unfilled');
+      return;
+    }
+    if (retryTimer) clearTimeout(retryTimer);
+    retryTimer = setTimeout(function() {
+      retryTimer = null;
+      retryCount++;
+      createNewAdSlot();
+    }, UNFILLED_RETRY_MS);
+  }
+
+  // ===== FLOW 2: Viewable refresh (30s of viewable time) =====
+  function tickRefresh() {
+    if (refreshCount >= MAX_REFRESHES || !adIsFilled) return;
+    if (refreshTimer) { clearTimeout(refreshTimer); refreshTimer = null; }
+
+    var remaining = REFRESH_MS - viewableAccumulated;
+    if (remaining <= 0) {
+      doRefresh();
+      return;
+    }
+    refreshTimer = setTimeout(function() {
+      refreshTimer = null;
+      if (isViewable && adIsFilled) doRefresh();
+    }, remaining);
+  }
+
+  function doRefresh() {
+    refreshCount++;
+    adIsFilled = false;
+    if (refreshTimer) { clearTimeout(refreshTimer); refreshTimer = null; }
+    createNewAdSlot();
+  }
+
+  // ===== Viewability tracking (only drives Flow 2) =====
   var io = new IntersectionObserver(function(entries) {
     var e = entries[0];
     if (e.isIntersecting && e.intersectionRatio >= VIEWABILITY_THRESHOLD) {
@@ -48,78 +137,19 @@
     if (isViewable) return;
     isViewable = true;
     viewableStart = Date.now();
-    schedule();
+    if (adIsFilled) tickRefresh();
   }
 
   function onHidden() {
     if (!isViewable) return;
     isViewable = false;
     if (viewableStart) {
-      accumulated += Date.now() - viewableStart;
+      viewableAccumulated += Date.now() - viewableStart;
       viewableStart = null;
     }
-    if (timer) { clearTimeout(timer); timer = null; }
+    if (refreshTimer) { clearTimeout(refreshTimer); refreshTimer = null; }
   }
 
-  function schedule() {
-    if (count >= MAX_REFRESHES) return;
-    var remaining = REFRESH_MS - accumulated;
-    if (remaining <= 0) { refresh(); return; }
-    timer = setTimeout(function() {
-      if (isViewable) refresh();
-    }, remaining);
-  }
-
-  function refresh() {
-    accumulated = 0;
-    viewableStart = isViewable ? Date.now() : null;
-    count++;
-    if (unfilledTimer) { clearTimeout(unfilledTimer); unfilledTimer = null; }
-
-    var old = container.querySelector('.adsbygoogle');
-    if (old) old.remove();
-
-    var el = document.createElement('ins');
-    el.className = 'adsbygoogle';
-    el.style.display = 'block';
-    el.setAttribute('data-ad-client', adClient);
-    el.setAttribute('data-ad-slot', adSlot);
-    if (adFormat) el.setAttribute('data-ad-format', adFormat);
-    if (adResponsive) el.setAttribute('data-full-width-responsive', adResponsive);
-
-    container.appendChild(el);
-
-    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-
-    setupUnfilledObserver(el);
-
-    if (isViewable && count < MAX_REFRESHES) schedule();
-  }
-
-  function setupUnfilledObserver(insEl) {
-    function check() {
-      var s = insEl.getAttribute('data-ad-status');
-      if (s === 'unfilled') {
-        container.classList.add('ad-unfilled');
-        retryUnfilled();
-      } else if (s === 'filled') {
-        container.classList.remove('ad-unfilled');
-        unfilledRetries = 0;
-      }
-    }
-    check();
-    new MutationObserver(check).observe(insEl, {
-      attributes: true, attributeFilter: ['data-ad-status']
-    });
-  }
-
-  function retryUnfilled() {
-    if (unfilledRetries >= MAX_UNFILLED_RETRIES) return;
-    if (unfilledTimer) clearTimeout(unfilledTimer);
-    unfilledTimer = setTimeout(function() {
-      if (unfilledRetries >= MAX_UNFILLED_RETRIES) return;
-      unfilledRetries++;
-      refresh();
-    }, UNFILLED_RETRY_MS);
-  }
+  // ===== Init =====
+  observeAdStatus(ins);
 })();

@@ -1,6 +1,6 @@
 /* Post page header - align with sidebar layout */
 .post-page .header-section .intro-header .container-md {
-  max-width: 1100px;
+  max-width: 1162px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -21,7 +21,7 @@
 .post-page-wrapper {
   display: flex;
   gap: 3rem;
-  max-width: 1100px;
+  max-width: 1162px;
   margin: 0 auto;
   padding: 20px 15px 40px;
 }
@@ -33,7 +33,7 @@
 }
 
 .post-sidebar {
-  width: 280px;
+  width: 342px;
   flex-shrink: 0;
   order: 1;
   align-self: stretch;
@@ -151,32 +151,32 @@
 /* Adjust for medium-large screens */
 @media (min-width: 1200px) and (max-width: 1399px) {
   .post-page .header-section .intro-header .container-md {
-    max-width: 1000px;
+    max-width: 1082px;
   }
 
   .post-page-wrapper {
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 1082px;
   }
 
   .post-sidebar {
-    width: 260px;
+    width: 342px;
   }
 }
 
 /* Full width on large screens */
 @media (min-width: 1400px) {
   .post-page .header-section .intro-header .container-md {
-    max-width: 1150px;
+    max-width: 1192px;
   }
 
   .post-page-wrapper {
-    max-width: 1150px;
+    max-width: 1192px;
     gap: 3.5rem;
   }
 
   .post-sidebar {
-    width: 300px;
+    width: 342px;
   }
 }
 

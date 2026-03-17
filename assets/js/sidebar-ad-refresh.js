@@ -1,6 +1,8 @@
 (function() {
   var VIEWABILITY_THRESHOLD = 0.5;
   var MAX_REFRESHES = 10;
+  var UNFILLED_RETRY_MS = 10000;
+  var MAX_UNFILLED_RETRIES = 3;
 
   var container = document.querySelector('.sidebar-sticky-ad');
   if (!container) return;
@@ -22,6 +24,8 @@
   var accumulated = 0;
   var timer = null;
   var count = 0;
+  var unfilledRetries = 0;
+  var unfilledTimer = null;
 
   setupUnfilledObserver(ins);
 
@@ -70,6 +74,7 @@
     accumulated = 0;
     viewableStart = isViewable ? Date.now() : null;
     count++;
+    if (unfilledTimer) { clearTimeout(unfilledTimer); unfilledTimer = null; }
 
     var old = container.querySelector('.adsbygoogle');
     if (old) old.remove();
@@ -94,12 +99,27 @@
   function setupUnfilledObserver(insEl) {
     function check() {
       var s = insEl.getAttribute('data-ad-status');
-      if (s === 'unfilled') container.classList.add('ad-unfilled');
-      else if (s === 'filled') container.classList.remove('ad-unfilled');
+      if (s === 'unfilled') {
+        container.classList.add('ad-unfilled');
+        retryUnfilled();
+      } else if (s === 'filled') {
+        container.classList.remove('ad-unfilled');
+        unfilledRetries = 0;
+      }
     }
     check();
     new MutationObserver(check).observe(insEl, {
       attributes: true, attributeFilter: ['data-ad-status']
     });
+  }
+
+  function retryUnfilled() {
+    if (unfilledRetries >= MAX_UNFILLED_RETRIES) return;
+    if (unfilledTimer) clearTimeout(unfilledTimer);
+    unfilledTimer = setTimeout(function() {
+      if (unfilledRetries >= MAX_UNFILLED_RETRIES) return;
+      unfilledRetries++;
+      refresh();
+    }, UNFILLED_RETRY_MS);
   }
 })();

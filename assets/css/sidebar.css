@@ -168,7 +168,7 @@
 .home-layout {
   display: flex;
   gap: 3rem;
-  max-width: 1100px;
+  max-width: 1162px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -180,7 +180,7 @@
 }
 
 .home-sidebar {
-  width: 280px;
+  width: 342px;
   flex-shrink: 0;
   align-self: stretch;
 }
@@ -204,23 +204,23 @@
 @media (min-width: 1200px) and (max-width: 1399px) {
   .home-layout {
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 1082px;
   }
   
   .home-sidebar {
-    width: 260px;
+    width: 342px;
   }
 }
 
 /* Full width on large screens */
 @media (min-width: 1400px) {
   .home-layout {
-    max-width: 1150px;
+    max-width: 1192px;
     gap: 3.5rem;
   }
   
   .home-sidebar {
-    width: 300px;
+    width: 342px;
   }
 }
 

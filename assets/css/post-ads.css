@@ -48,11 +48,22 @@
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
   opacity: 0;
+  max-height: 600px;
   transition: opacity 0.4s ease;
 }
 
 .post-mid-ad.ad-visible {
   opacity: 1;
+}
+
+.post-mid-ad.ad-collapsing {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  border-color: transparent;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.4s ease 0.1s, margin 0.4s ease 0.1s, padding 0.4s ease 0.1s, border-color 0.3s ease;
 }
 
 .post-mid-ad .adsbygoogle {
@@ -93,7 +104,17 @@
   text-align: center;
   background: transparent;
   opacity: 0;
+  max-height: 800px;
   transition: opacity 0.4s ease;
+}
+
+.post-below-related-ad.ad-collapsing {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.4s ease 0.1s, margin 0.4s ease 0.1s;
 }
 
 .post-below-related-ad.ad-visible {

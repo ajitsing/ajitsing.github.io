@@ -6,7 +6,7 @@
   var HEADING_TAGS = ['H2', 'H3'];
   var VISUAL_TAGS = ['IMG', 'FIGURE', 'PRE', 'SVG', 'TABLE'];
   var LAZY_AD_SELECTOR = '[data-lazy-ad]';
-  var OBSERVER_ROOT_MARGIN = '300px 0px';
+  var OBSERVER_ROOT_MARGIN = '1500px 0px';
 
   var MIN_HEADINGS_GAP = 3;
   var MIN_PIXEL_GAP = 800;
@@ -65,6 +65,47 @@
 
   function lazyLoadAd(adContainer) {
     getAdObserver().observe(adContainer);
+  }
+
+  function collapseAdInstant(adContainer) {
+    adContainer.style.transition = 'none';
+    adContainer.style.display = 'none';
+  }
+
+  function collapseAdSmooth(adContainer) {
+    adContainer.classList.add('ad-collapsing');
+    adContainer.addEventListener('transitionend', function handler() {
+      adContainer.removeEventListener('transitionend', handler);
+      adContainer.style.display = 'none';
+    });
+  }
+
+  function watchForUnfilled(adContainer) {
+    var ins = adContainer.querySelector('.adsbygoogle');
+    if (!ins) return;
+
+    function handleUnfilled(container) {
+      var rect = container.getBoundingClientRect();
+      var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+
+      if (!inView) {
+        collapseAdInstant(container);
+      } else {
+        collapseAdSmooth(container);
+      }
+    }
+
+    function check() {
+      var status = ins.getAttribute('data-ad-status');
+      if (status === 'unfilled') {
+        handleUnfilled(adContainer);
+      }
+    }
+
+    new MutationObserver(check).observe(ins, {
+      attributes: true,
+      attributeFilter: ['data-ad-status']
+    });
   }
 
   function isVisualElement(el) {
@@ -243,6 +284,7 @@
       } else {
         lazyLoadAd(ad);
       }
+      watchForUnfilled(ad);
     }
   }
 
@@ -252,6 +294,7 @@
       if (!staticAds[i].classList.contains(AD_CLASS)) {
         lazyLoadAd(staticAds[i]);
       }
+      watchForUnfilled(staticAds[i]);
     }
   }
 

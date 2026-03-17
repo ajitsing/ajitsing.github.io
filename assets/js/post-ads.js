@@ -4,28 +4,35 @@
   var CONTENT_SELECTOR = '.blog-post';
   var AD_CLASS = 'post-mid-ad';
   var HEADING_TAGS = ['H2', 'H3'];
-  var LENGTH_THRESHOLDS = [30, 60, 100];
-  var AD_COUNTS = [3, 5, 6, 8];
-  var DEFAULT_AD_COUNT = 3;
+  var VISUAL_TAGS = ['IMG', 'FIGURE', 'PRE', 'SVG', 'TABLE'];
   var LAZY_AD_SELECTOR = '[data-lazy-ad]';
-  var OBSERVER_ROOT_MARGIN = '200px 0px';
+  var OBSERVER_ROOT_MARGIN = '300px 0px';
+
+  var MIN_HEADINGS_GAP = 3;
+  var MIN_PIXEL_GAP = 800;
+  var CONTENT_SKIP_RATIO = 0.2;
+  var MAX_ADS_DESKTOP = 4;
+  var MAX_ADS_MOBILE = 2;
+  var MIN_HEADINGS_FOR_ADS = 3;
+  var VISUAL_HEADING_PROXIMITY = 5;
+  var SKIP_TAGS = ['STYLE', 'SCRIPT'];
+  var SKIP_CLASSES = ['visually-hidden', 'quick-answer', 'key-takeaways'];
 
   var FIRST_AD_SLOT = '5138071441';
-  var SECOND_AD_SLOT = '2859538251';
-  var DEFAULT_AD_SLOT = '1787846424';
+  var IN_ARTICLE_AD_SLOT = '1787846424';
 
   function createDisplayAdElement(slot) {
     var container = document.createElement('div');
     container.className = AD_CLASS;
-    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="' + slot + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    container.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="' + slot + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
     return container;
   }
 
-  function createAdElement() {
+  function createInArticleAdElement(slot) {
     var container = document.createElement('div');
     container.className = AD_CLASS;
     container.setAttribute('data-lazy-ad', 'true');
-    container.innerHTML = '<div class="ad-label"><span class="ad-label-text">Advertisement</span></div><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2886086145980317" data-ad-slot="' + DEFAULT_AD_SLOT + '"></ins>';
+    container.innerHTML = '<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2886086145980317" data-ad-slot="' + slot + '"></ins>';
     return container;
   }
 
@@ -41,8 +48,12 @@
     adObserver = new IntersectionObserver(function(entries) {
       for (var i = 0; i < entries.length; i++) {
         if (entries[i].isIntersecting) {
+          var target = entries[i].target;
           pushToAdSense();
-          adObserver.unobserve(entries[i].target);
+          adObserver.unobserve(target);
+          setTimeout(function(el) {
+            el.classList.add('ad-visible');
+          }.bind(null, target), 100);
         }
       }
     }, {
@@ -56,6 +67,23 @@
     getAdObserver().observe(adContainer);
   }
 
+  function isVisualElement(el) {
+    if (SKIP_TAGS.indexOf(el.tagName) !== -1) return false;
+    if (el.classList) {
+      for (var i = 0; i < SKIP_CLASSES.length; i++) {
+        if (el.classList.contains(SKIP_CLASSES[i])) return false;
+      }
+    }
+    if (VISUAL_TAGS.indexOf(el.tagName) !== -1) return true;
+    if (el.classList) {
+      if (el.classList.contains('mermaid')) return true;
+      if (el.classList.contains('language-mermaid')) return true;
+      if (el.classList.contains('highlighter-rouge')) return true;
+    }
+    if (el.querySelector && el.querySelector('img, figure, .mermaid, .language-mermaid, svg, pre, table')) return true;
+    return false;
+  }
+
   function getHeadingIndices(children) {
     var indices = [];
     for (var i = 0; i < children.length; i++) {
@@ -66,47 +94,117 @@
     return indices;
   }
 
-  function findNearestHeading(headingIndices, targetIndex) {
-    var best = -1;
-    var bestDist = Infinity;
-    for (var i = 0; i < headingIndices.length; i++) {
-      var dist = Math.abs(headingIndices[i] - targetIndex);
-      if (dist < bestDist) {
-        bestDist = dist;
-        best = headingIndices[i];
+  function getVisualIndices(children) {
+    var indices = [];
+    for (var i = 0; i < children.length; i++) {
+      if (isVisualElement(children[i])) {
+        indices.push(i);
       }
     }
-    return best;
+    return indices;
+  }
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  function getMaxAds(article) {
+    var override = article.getAttribute('data-ad-count');
+    if (override) {
+      return parseInt(override, 10) || MAX_ADS_DESKTOP;
+    }
+    return isMobile() ? MAX_ADS_MOBILE : MAX_ADS_DESKTOP;
   }
 
   function adsAlreadyInjected(container) {
     return container.querySelectorAll('.' + AD_CLASS).length > 0;
   }
 
-  function getAdCount(article, childrenLength) {
-    var overrideCount = article.getAttribute('data-ad-count');
-    if (overrideCount) {
-      return parseInt(overrideCount, 10) || DEFAULT_AD_COUNT;
-    }
-
-    for (var i = 0; i < LENGTH_THRESHOLDS.length; i++) {
-      if (childrenLength < LENGTH_THRESHOLDS[i]) {
-        return AD_COUNTS[i];
+  function countHeadingsBetween(headingIndices, fromIdx, toIdx) {
+    var count = 0;
+    for (var i = 0; i < headingIndices.length; i++) {
+      if (headingIndices[i] > fromIdx && headingIndices[i] <= toIdx) {
+        count++;
       }
     }
-    return AD_COUNTS[AD_COUNTS.length - 1];
+    return count;
   }
 
-  function calculateTargetPositions(adCount) {
-    if (adCount <= 0) {
-      return [];
+  function isNearHeading(headingIndices, visualIdx) {
+    for (var i = 0; i < headingIndices.length; i++) {
+      if (Math.abs(headingIndices[i] - visualIdx) <= VISUAL_HEADING_PROXIMITY) {
+        return true;
+      }
     }
-    var positions = [];
-    var stepSize = 1 / (adCount + 1);
-    for (var i = 1; i <= adCount; i++) {
-      positions.push(i * stepSize);
+    return false;
+  }
+
+  function selectAdPositions(headingIndices, visualIndices, children, maxAds) {
+    var totalChildren = children.length;
+    var skipUntil = Math.floor(totalChildren * CONTENT_SKIP_RATIO);
+
+    var candidates = [];
+
+    for (var i = 0; i < visualIndices.length; i++) {
+      var vIdx = visualIndices[i];
+      if (vIdx + 1 < totalChildren) {
+        candidates.push({ pos: vIdx + 1, isVisual: true });
+      }
     }
-    return positions;
+
+    for (var i = 0; i < headingIndices.length; i++) {
+      var hIdx = headingIndices[i];
+      if (hIdx < skipUntil) continue;
+
+      var nearVisual = false;
+      for (var j = 0; j < candidates.length; j++) {
+        if (Math.abs(hIdx - candidates[j].pos) <= VISUAL_HEADING_PROXIMITY) {
+          nearVisual = true;
+          break;
+        }
+      }
+      if (!nearVisual) {
+        candidates.push({ pos: hIdx, isVisual: false });
+      }
+    }
+
+    candidates.sort(function(a, b) {
+      if (a.pos !== b.pos) return a.pos - b.pos;
+      return a.isVisual ? -1 : 1;
+    });
+
+    if (candidates.length === 0) return [];
+
+    var selected = [candidates[0].pos];
+
+    for (var i = 1; i < candidates.length && selected.length < maxAds; i++) {
+      var lastPos = selected[selected.length - 1];
+      var headingsBetween = countHeadingsBetween(headingIndices, lastPos, candidates[i].pos);
+      if (headingsBetween >= MIN_HEADINGS_GAP) {
+        selected.push(candidates[i].pos);
+      }
+    }
+
+    return selected;
+  }
+
+  function enforcePixelGap(positions, children) {
+    if (positions.length <= 1) return positions;
+
+    var filtered = [positions[0]];
+
+    for (var i = 1; i < positions.length; i++) {
+      var lastEl = children[filtered[filtered.length - 1]];
+      var currEl = children[positions[i]];
+      if (lastEl && currEl) {
+        var gap = currEl.getBoundingClientRect().top - lastEl.getBoundingClientRect().top;
+        if (gap >= MIN_PIXEL_GAP) {
+          filtered.push(positions[i]);
+        }
+      }
+    }
+
+    return filtered;
   }
 
   function injectContentAds() {
@@ -117,53 +215,31 @@
     if (children.length === 0) return;
 
     var headingIndices = getHeadingIndices(children);
-    if (headingIndices.length === 0) return;
+    if (headingIndices.length < MIN_HEADINGS_FOR_ADS) return;
 
-    var adCount = getAdCount(article, children.length);
-    var hasFirstHeadingAd = headingIndices[0] > 0;
-    var remainingAds = hasFirstHeadingAd ? adCount - 1 : adCount;
-    var targetPositions = calculateTargetPositions(remainingAds);
+    var visualIndices = getVisualIndices(children);
+    var maxAds = getMaxAds(article);
+    var positions = selectAdPositions(headingIndices, visualIndices, children, maxAds);
+    positions = enforcePixelGap(positions, children);
 
-    var insertBeforeIndices = [];
-
-    if (hasFirstHeadingAd) {
-      insertBeforeIndices.push(headingIndices[0]);
-    }
-
-    var usedIndices = {};
-    if (insertBeforeIndices.length > 0) {
-      usedIndices[insertBeforeIndices[0]] = true;
-    }
-
-    for (var i = 0; i < targetPositions.length; i++) {
-      var targetIndex = Math.floor(children.length * targetPositions[i]);
-      var nearest = findNearestHeading(headingIndices, targetIndex);
-      if (nearest > 0 && !usedIndices[nearest]) {
-        insertBeforeIndices.push(nearest);
-        usedIndices[nearest] = true;
-      }
-    }
-
-    insertBeforeIndices.sort(function(a, b) { return a - b; });
-
-    for (var j = 0; j < insertBeforeIndices.length; j++) {
-      var adPosition = j + 1;
+    for (var i = 0; i < positions.length; i++) {
       var ad;
-      if (adPosition === 1) {
+      if (i === 0) {
         ad = createDisplayAdElement(FIRST_AD_SLOT);
-      } else if (adPosition === 2) {
-        ad = createDisplayAdElement(SECOND_AD_SLOT);
       } else {
-        ad = createAdElement();
+        ad = createInArticleAdElement(IN_ARTICLE_AD_SLOT);
       }
-      var idx = insertBeforeIndices[j];
+
+      var idx = positions[i];
       if (idx < children.length) {
         article.insertBefore(ad, children[idx]);
       } else {
         article.appendChild(ad);
       }
-      if (adPosition <= 2) {
+
+      if (i === 0) {
         pushToAdSense();
+        ad.classList.add('ad-visible');
       } else {
         lazyLoadAd(ad);
       }

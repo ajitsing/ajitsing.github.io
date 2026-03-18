@@ -168,6 +168,10 @@
 .tool-ad-sidebar .sidebar-sticky-ad {
   position: sticky;
   top: 80px;
+  margin-top: 0;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
 }
 
 .tool-mobile-ad {

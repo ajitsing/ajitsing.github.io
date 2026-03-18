@@ -6,6 +6,11 @@
 
 .explainer-main-content {
   width: 100%;
+  max-width: 1000px;
+}
+
+.explainer-sidebar {
+  display: none;
 }
 
 .explainer-top-ad {
@@ -14,9 +19,6 @@
   text-align: center;
   width: 100%;
   max-width: 728px;
-  background: #f8f9fa;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
 }
 
 .explainer-top-ad .adsbygoogle {
@@ -104,6 +106,26 @@
 .explainer-bottom-ad .adsbygoogle {
   width: 100%;
   display: block;
+}
+
+@media (min-width: 1380px) {
+  .explainer-page-wrapper {
+    display: flex;
+    gap: 2rem;
+    max-width: 1340px;
+  }
+
+  .explainer-main-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .explainer-sidebar {
+    display: block;
+    width: 300px;
+    flex-shrink: 0;
+    align-self: stretch;
+  }
 }
 
 @media (max-width: 768px) {

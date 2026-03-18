@@ -8,7 +8,7 @@ layout: default
 
 <style>
   .post-header, .post-title, .post-subtitle, .post-meta { display: none !important; }
-  .container-lg, .container { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+  .container-lg, .container, .container-md { max-width: none !important; padding: 0 !important; margin: 0 !important; }
   .row { margin: 0 !important; }
   .col-xl-8, .col-lg-8 { max-width: 100% !important; padding: 0 !important; }
   .post-content { background: none !important; border: none !important; padding: 0 !important; margin: 0 !important; box-shadow: none !important; }
@@ -44,6 +44,9 @@ layout: default
       <a href="/explainers" class="explainer-nav-btn">← Back to All Explainers</a>
     </nav>
   </main>
+  <aside class="explainer-sidebar">
+    {% include explainer-sidebar-ad.html %}
+  </aside>
 </div>
 
 {% if site.manual_ads %}

@@ -781,6 +781,7 @@ For real-time options, see [WebSockets Explained](/explainer/websockets-explaine
 | Single server overloaded | Horizontal scaling with load balancer |
 | Too much traffic for one region | CDN, geographic distribution |
 | Service calls too slow | Message queues, async processing |
+| Downstream service failures cascade | [Circuit breaker pattern](/circuit-breaker-pattern/), bulkheads |
 
 ### Common System Design Numbers
 
@@ -866,6 +867,7 @@ These posts go deeper into specific topics:
 **Distributed Systems**:
 - [How Consistent Hashing Works](/consistent-hashing-explained/)
 - [Role of Queues in System Design](/role-of-queues-in-system-design/)
+- [Circuit Breaker Pattern](/circuit-breaker-pattern/) - prevent cascading failures in microservices
 - [Two-Phase Commit](/distributed-systems/two-phase-commit/)
 - [Distributed Counter Architecture](/distributed-counter-architecture-guide/)
 

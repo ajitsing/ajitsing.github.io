@@ -716,7 +716,7 @@ The goal isn't to block requests - it's to keep your system healthy and responsi
 
 ---
 
-*Want more system design deep dives? Check out [How Shopify Powers 5 Million Stores Without Breaking a Sweat](/shopify-system-design/) and [Change Data Capture Explained](/explainer/change-data-capture/).*
+*Want more system design deep dives? Check out [Circuit Breaker Pattern](/circuit-breaker-pattern/) for another critical resilience pattern, [How Shopify Powers 5 Million Stores Without Breaking a Sweat](/shopify-system-design/), and [Change Data Capture Explained](/explainer/change-data-capture/).*
 
 *References: [Stripe Rate Limits](https://stripe.com/docs/rate-limits), [Redis Rate Limiting](https://redis.io/learn/howtos/ratelimiting), [AWS API Gateway Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html)*
 

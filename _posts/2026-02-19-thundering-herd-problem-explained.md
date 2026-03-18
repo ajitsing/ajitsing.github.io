@@ -660,7 +660,7 @@ Netflix built request coalescing into their Hystrix library (now succeeded by Re
 
 Their implementation goes further than basic singleflight by also implementing:
 
-- **Circuit breakers**: If a backend is failing, stop sending requests entirely
+- **[Circuit breakers](/circuit-breaker-pattern/)**: If a backend is failing, stop sending requests entirely
 - **Bulkheads**: Isolate different types of requests so one thundering herd does not affect unrelated requests
 - **Fallbacks**: Return cached data, default values, or degraded responses when the primary call fails
 
@@ -836,7 +836,7 @@ Design for worst case correlation, not average case independence. Ask yourself: 
 
 ### <i class="fas fa-shield-alt"></i> 2. Defense in Depth Works
 
-No single solution is enough. Facebook does not just use leases. They use leases AND jitter AND admission control AND graceful degradation. Netflix does not just use request coalescing. They add circuit breakers, bulkheads, and fallbacks on top.
+No single solution is enough. Facebook does not just use leases. They use leases AND jitter AND admission control AND graceful degradation. Netflix does not just use request coalescing. They add [circuit breakers](/circuit-breaker-pattern/), bulkheads, and fallbacks on top.
 
 Layer your defenses. If one fails, the next catches it.
 
@@ -876,6 +876,7 @@ Jitter costs nothing to implement. Adding `random.randint(-300, 300)` to your TT
 - [Scaling Memcache at Facebook](https://research.facebook.com/publications/scaling-memcache-at-facebook/) - The original paper on leases for thundering herd prevention
 - [AWS Architecture Blog: Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) - Analysis of jitter strategies
 - [Go singleflight package](https://pkg.go.dev/golang.org/x/sync/singleflight) - Request coalescing in Go
+- [Circuit Breaker Pattern](/circuit-breaker-pattern/) - How to detect failing services early and stop the cascade
 - [Caching Strategies Explained](/caching-strategies-explained/) - Deep dive into cache patterns
 - [Role of Queues in System Design](/role-of-queues-in-system-design/) - How queues absorb traffic spikes
 - [How Kafka Works](/distributed-systems/how-kafka-works/) - The engine behind write buffering at scale
@@ -886,6 +887,6 @@ The thundering herd problem is one of those issues that separates systems that w
 
 The good news: the solutions are well understood and battle tested. Start with jitter on your TTLs. Add request coalescing for hot keys. Implement distributed locking with stale data fallback for your distributed cache. And always have load shedding as your safety net.
 
-These are not theoretical patterns. Facebook runs leases on billions of cache operations daily. Twitter buffers millions of writes through queues. Netflix wraps every external call in circuit breakers. These companies did not start with these solutions. They learned from outages and built them in over time.
+These are not theoretical patterns. Facebook runs leases on billions of cache operations daily. Twitter buffers millions of writes through queues. Netflix wraps every external call in [circuit breakers](/circuit-breaker-pattern/). These companies did not start with these solutions. They learned from outages and built them in over time.
 
 You do not have to wait for the 3 AM page to start.

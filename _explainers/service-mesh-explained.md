@@ -413,7 +413,7 @@ graph TB
             <strong><i class="fas fa-chart-bar" style="color: #0ea5e9; margin-right: 10px;"></i>Observability:</strong> See all traffic flowing between services, track response times, and find bottlenecks.
           </li>
           <li style="background: white; border: 2px solid #d1d5db; border-radius: 12px; padding: 15px 20px; margin-bottom: 12px; font-size: 1rem; line-height: 1.6; color: #374151; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(148, 163, 184, 0.1);">
-            <strong><i class="fas fa-life-ring" style="color: #0ea5e9; margin-right: 10px;"></i>Reliability:</strong> Automatic retries when things fail, circuit breakers to stop calling broken services, and timeouts.
+            <strong><i class="fas fa-life-ring" style="color: #0ea5e9; margin-right: 10px;"></i>Reliability:</strong> Automatic retries when things fail, <a href="/circuit-breaker-pattern/">circuit breakers</a> to stop calling broken services, and timeouts.
           </li>
         </ul>
       </div>

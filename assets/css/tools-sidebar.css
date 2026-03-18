@@ -8,7 +8,7 @@
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px 24px 40px;
+  padding: 10px 24px 40px;
 }
 
 .tools-sidebar {
@@ -146,6 +146,34 @@
   color: #faf8f5;
 }
 
+/* ==========================================================================
+   Tool Page Two-Column Layout (tool content + right ad sidebar)
+   ========================================================================== */
+
+.tool-page-layout {
+  display: flex;
+  gap: 24px;
+}
+
+.tool-page-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.tool-ad-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.tool-ad-sidebar .sidebar-sticky-ad {
+  position: sticky;
+  top: 80px;
+}
+
+.tool-mobile-ad {
+  display: none;
+}
+
 @media (min-width: 1200px) and (max-width: 1399px) {
   .tools-layout {
     max-width: 1400px;
@@ -166,7 +194,7 @@
 
 @media (max-width: 1199px) {
   .tools-layout {
-    padding: 20px 24px 40px;
+    padding: 10px 24px 40px;
   }
   
   .tools-sidebar {
@@ -174,12 +202,26 @@
   }
   
   .tools-main {
-    max-width: 900px;
+    max-width: 960px;
   }
 }
 
 @media (max-width: 768px) {
   .tools-layout {
     padding: 15px 12px 30px;
+  }
+
+  .tool-page-layout {
+    flex-direction: column;
+  }
+
+  .tool-ad-sidebar {
+    display: none;
+  }
+
+  .tool-mobile-ad {
+    display: block;
+    margin: 24px 0;
+    padding: 12px 0;
   }
 }

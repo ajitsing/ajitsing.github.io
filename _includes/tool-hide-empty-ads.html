@@ -1,7 +1,7 @@
 <script>
 (function() {
   function hideEmptyAds() {
-    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section, .tool-ad-below-description').forEach(function(container) {
+    document.querySelectorAll('.dedicated-ad-section, .bottom-ad-section, .top-ad-section, .tool-ad-below-description, .tool-mobile-ad').forEach(function(container) {
       var adSlot = container.querySelector('.adsbygoogle');
       if (adSlot && adSlot.offsetHeight === 0 && !adSlot.dataset.adStatus) {
         container.style.display = 'none';

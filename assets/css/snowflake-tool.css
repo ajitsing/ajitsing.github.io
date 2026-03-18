@@ -1,7 +1,7 @@
 .snowflake-page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 24px 40px;
+  padding: 0 24px 40px;
   background: #faf8f5;
   min-height: 100vh;
 }
@@ -59,21 +59,14 @@ body:has(.snowflake-tool) {
 /* Header */
 .snowflake-tool .tool-header {
   text-align: center;
-  margin-bottom: 24px;
-  padding: 40px 30px;
+  margin-bottom: 16px;
+  padding: 16px 20px;
   background: linear-gradient(135deg, #292524 0%, #44403c 100%);
-  border-radius: 16px;
+  border-radius: 12px;
   color: #faf8f5;
-  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+  box-shadow: 0 2px 12px rgba(41, 37, 36, 0.15);
   position: relative;
   overflow: hidden;
-}
-
-@media (min-width: 1024px) {
-  .snowflake-tool .tool-header {
-    padding: 48px 40px;
-    margin-bottom: 28px;
-  }
 }
 
 .snowflake-tool .tool-intro {
@@ -108,18 +101,18 @@ body:has(.snowflake-tool) {
 
 .snowflake-tool .tool-title {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 800;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   position: relative;
 }
 
 .snowflake-tool .tool-title i {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: #fef3c7;
   animation: snowflake-spin 12s linear infinite;
 }
@@ -130,7 +123,7 @@ body:has(.snowflake-tool) {
 }
 
 .snowflake-tool .tool-subtitle {
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin: 0;
   opacity: 0.75;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -1199,14 +1192,14 @@ body:has(.snowflake-tool) {
   }
 
   .snowflake-tool .tool-header {
-    padding: 30px 20px;
-    border-radius: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
   }
 
   .snowflake-tool .tool-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
 
   .input-section {
@@ -1298,8 +1291,12 @@ body:has(.snowflake-tool) {
 }
 
 @media (max-width: 480px) {
+  .snowflake-tool .tool-title {
+    font-size: 1.1rem;
+  }
+
   .snowflake-tool .tool-title i {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 
   .generated-id-wrapper {

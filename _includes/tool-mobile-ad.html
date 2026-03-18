@@ -1,5 +1,5 @@
 {% if site.manual_ads %}
-<div class="tool-mobile-ad">
+<div class="tool-mobile-ad" data-lazy-ad>
   <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
   <ins class="adsbygoogle"
        style="display:block"
@@ -7,6 +7,22 @@
        data-full-width-responsive="true"
        data-ad-client="ca-pub-2886086145980317"
        data-ad-slot="4479741688"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>
+  (function() {
+    var container = document.currentScript.parentElement;
+    if (container.offsetWidth > 0) {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    } else {
+      var mq = window.matchMedia('(max-width: 768px)');
+      function tryPush() {
+        if (container.offsetWidth > 0) {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          mq.removeEventListener('change', tryPush);
+        }
+      }
+      mq.addEventListener('change', tryPush);
+    }
+  })();
+  </script>
 </div>
 {% endif %}

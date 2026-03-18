@@ -1,7 +1,7 @@
 .uuid-page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 24px 40px;
+  padding: 0 24px 40px;
   background: #faf8f5;
   min-height: 100vh;
 }
@@ -20,39 +20,32 @@ body:has(.uuid-tool) {
 /* Header */
 .uuid-tool .tool-header {
   text-align: center;
-  margin-bottom: 24px;
-  padding: 40px 30px;
+  margin-bottom: 16px;
+  padding: 16px 20px;
   background: linear-gradient(135deg, #292524 0%, #44403c 100%);
-  border-radius: 16px;
+  border-radius: 12px;
   color: #faf8f5;
-  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
-}
-
-@media (min-width: 1024px) {
-  .uuid-tool .tool-header {
-    padding: 48px 40px;
-    margin-bottom: 28px;
-  }
+  box-shadow: 0 2px 12px rgba(41, 37, 36, 0.15);
 }
 
 .uuid-tool .tool-title {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 800;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .uuid-tool .tool-title i {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: #fef3c7;
 }
 
 .uuid-tool .tool-subtitle {
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin: 0;
   opacity: 0.75;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -614,8 +607,8 @@ body:has(.uuid-tool) {
 /* Responsive */
 @media (max-width: 768px) {
   .uuid-page-wrapper { padding: 15px 12px 30px; }
-  .uuid-tool .tool-header { padding: 30px 20px; border-radius: 12px; }
-  .uuid-tool .tool-title { font-size: 1.5rem; }
+  .uuid-tool .tool-header { padding: 14px 16px; border-radius: 10px; }
+  .uuid-tool .tool-title { font-size: 1.2rem; }
   .generator-row { flex-wrap: wrap; }
   .bulk-row { flex-wrap: wrap; }
   .uuid-text { font-size: 0.9rem; }
@@ -627,7 +620,7 @@ body:has(.uuid-tool) {
 }
 
 @media (max-width: 480px) {
-  .uuid-tool .tool-title { font-size: 1.3rem; flex-direction: column; gap: 8px; }
+  .uuid-tool .tool-title { font-size: 1.1rem; flex-direction: column; gap: 6px; }
   .uuid-text { font-size: 0.8rem; letter-spacing: 0; }
   .decode-grid { grid-template-columns: 1fr; }
 }

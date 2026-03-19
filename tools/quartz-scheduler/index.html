@@ -262,9 +262,6 @@ hide-explore-posts: true
   <span>Looking for standard 5-field Unix cron? Use <a href="/tools/cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Quartz Tool','event_label':'to_cron_from_banner'})}">Cron Expression Generator</a> for Linux crontab, Kubernetes CronJobs, and GitHub Actions.</span>
 </div>
 
-<div class="tool-page-layout">
-<div class="tool-page-content">
-
 <div class="mode-tabs">
     <button class="mode-tab active" data-mode="parse">
       <i class="fas fa-search"></i>
@@ -485,12 +482,6 @@ hide-explore-posts: true
     </div>
   </section>
 
-</div>
-{% include tool-sidebar-ad.html %}
-</div>
-
-{% include tool-mobile-ad.html %}
-
   <p class="tool-intro">
     Use this free <strong>Quartz cron expression generator</strong> to parse, validate, and build Quartz Scheduler cron expressions. Our <strong>Quartz cron validator</strong> supports the full 6-7 field format including <code>?</code>, <code>L</code>, <code>W</code>, and <code>#</code> syntax. Perfect for <strong>Java Quartz Scheduler</strong>, <strong>Spring Boot @Scheduled</strong>, and enterprise job scheduling.
   </p>
@@ -707,5 +698,5 @@ hide-explore-posts: true
 
 <script src="{{ '/assets/js/quartz-tool.js' | relative_url }}"></script>
 </div>
-
+{% include tool-sidebar-ad.html %}
 </div>

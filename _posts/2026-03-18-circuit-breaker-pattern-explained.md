@@ -3,7 +3,7 @@ layout: post
 seo: true
 title: "Circuit Breaker Pattern Explained: The Complete Guide"
 subtitle: "Stop cascading failures before one bad service takes down everything"
-date: 2026-03-19
+date: 2026-03-18
 categories: system-design
 thumbnail-img: /assets/img/posts/system-design/circuit-breaker-thumb.png
 share-img: /assets/img/posts/system-design/circuit-breaker-thumb.png

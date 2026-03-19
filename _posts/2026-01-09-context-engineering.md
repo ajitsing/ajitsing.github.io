@@ -236,6 +236,7 @@ Context engineering is not a one time task. It is an ongoing practice of refinin
 **Further Reading:**
 
 - [Building Your First LLM Application](/building-your-first-llm-application/) - Step-by-step guide to building LLM applications with proper context management
+- [Architecting Multi-Agent AI Swarms](/multi-agent-ai-swarms-system-design/) - Context management gets harder when multiple agents share and pass context to each other
 - [Prompt Injection Explained](/prompt-injection-explained/) - The security risk that lives inside your context window. Everything you feed the model is a potential attack surface.
 - [Understanding Context Engineering](https://www.architectureandgovernance.com/applications-technology/understanding-context-engineering-principles-practices-and-its-distinction-from-prompt-engineering/) by Architecture and Governance
 - [Four Important Lessons About Context Engineering](https://www.infoworld.com/article/4085355/four-important-lessons-about-context-engineering.html) by InfoWorld

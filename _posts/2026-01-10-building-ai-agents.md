@@ -837,6 +837,7 @@ The best way to learn is to build. Start simple and add complexity only when you
 - [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling)
 - [Context Engineering Guide](/context-engineering/) - How to feed AI the right information
 - [Prompt Injection Explained](/prompt-injection-explained/) - The #1 security threat to agents with tool access. If your agent reads external content or has write permissions, read this before shipping.
+- [Architecting Multi-Agent AI Swarms](/multi-agent-ai-swarms-system-design/) - When single agents are not enough, learn the orchestration patterns for multi-agent systems
 - [Understanding AI Agents](https://www.microsoft.com/en-us/research/blog/autogen-enabling-next-gen-llm-applications-via-multi-agent-conversation/) by Microsoft Research
 - [Self-Hosted AI Agents with Moltworker](/moltworker-self-hosted-ai-agent/) - Run your own AI agent locally or on Cloudflare Workers
 - [Claude Cowork Guide](/claude-cowork-guide/) - Anthropic's desktop agent for knowledge work and multi-agent orchestration

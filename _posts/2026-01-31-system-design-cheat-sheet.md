@@ -856,6 +856,9 @@ These posts go deeper into specific topics:
 - [Write-Ahead Log in Distributed Systems](/distributed-systems/write-ahead-log/)
 - [How Amazon S3 Works](/how-amazon-s3-works/)
 
+**AI System Design**:
+- [Architecting Multi-Agent AI Swarms](/multi-agent-ai-swarms-system-design/) - System design deep dive into multi-agent orchestration patterns
+
 **Scaling Case Studies**:
 - [How Netflix Video Processing Pipeline Works](/netflix-video-processing-pipeline/)
 - [How OpenAI Scales PostgreSQL to 800M Users](/how-openai-scales-postgresql/)

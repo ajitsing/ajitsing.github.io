@@ -843,7 +843,7 @@ After building and iterating on this for several months, here is what I wish som
 
 AI code review is moving fast. Here is where the field is heading:
 
-**Multi-agent review systems.** Instead of one LLM doing everything, specialized agents handle different review aspects in parallel: one for security, one for performance, one for testing gaps. [CodeRabbit already does this](https://docs.coderabbit.ai/overview/architecture) with multiple agents running concurrently.
+**Multi-agent review systems.** Instead of one LLM doing everything, specialized agents handle different review aspects in parallel: one for security, one for performance, one for testing gaps. [CodeRabbit already does this](https://docs.coderabbit.ai/overview/architecture) with multiple agents running concurrently. If you want to go deeper on orchestration patterns and how to design these swarms, check out my guide on [architecting multi-agent AI swarms](/multi-agent-ai-swarms-system-design/).
 
 **Repository-level understanding.** Current tools review diffs in isolation. The next generation will understand your entire codebase: the architecture, the patterns, the common failure modes. Vector databases and code embeddings make this possible today, but it is still early.
 

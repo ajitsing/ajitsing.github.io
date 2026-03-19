@@ -9,7 +9,7 @@
   var OBSERVER_ROOT_MARGIN = '1500px 0px';
 
   var MIN_HEADINGS_GAP = 3;
-  var MIN_PIXEL_GAP = 500;
+  var MIN_PIXEL_GAP = 800;
   var CONTENT_SKIP_RATIO = 0.1;
   var MAX_ADS_DESKTOP = 6;
   var MAX_ADS_MOBILE = 2;
@@ -256,7 +256,7 @@
 
     for (var i = 0; i < positions.length; i++) {
       var ad;
-      if (i % 2 == 0) {
+      if (i % 2 !== 0) {
         ad = createDisplayAdElement(FIRST_AD_SLOT);
       } else {
         ad = createInArticleAdElement(IN_ARTICLE_AD_SLOT);

@@ -76,7 +76,7 @@ hr.small {
 .main-content {
   padding-top: 5rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .main-content {
     padding-top: 8.125rem;
   }
@@ -178,8 +178,8 @@ img {
   font-size: 1rem;
 }
 
-/* Mobile: icon only, minimal styling */
-@media (max-width: 767px) {
+/* Collapsed: icon only, minimal styling */
+@media (max-width: 1199px) {
   .navbar-custom .navbar-home-btn {
     background: transparent;
     border: none;
@@ -233,7 +233,7 @@ img {
   line-height: 1;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .navbar-support-btn {
     display: none;
   }
@@ -310,7 +310,7 @@ img {
   border-width: 0.4em;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-custom {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -325,17 +325,17 @@ img {
     height: 3.125rem;
   }
 
-  .navbar-expand-md .navbar-nav .nav-link {
+  .navbar-expand-xl .navbar-nav .nav-link {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
   }
 
-  .navbar-expand-md .navbar-nav .nav-item:not(.dropdown):last-child .nav-link {
+  .navbar-expand-xl .navbar-nav .nav-item:not(.dropdown):last-child .nav-link {
     padding-right: 0;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-custom .nav-item.dropdown:hover {
     background: rgba(0, 0, 0, 0.1);
   }
@@ -363,7 +363,7 @@ img {
   font-weight: normal;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-custom .nav-item.dropdown .dropdown-menu {
     text-align: center;
   }
@@ -375,7 +375,7 @@ img {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .navbar-custom .navbar-collapse {
     border-top: 1px solid {{ site.navbar-border-col | default: "#EAEAEA" }};
     margin: 0 -1rem;
@@ -438,7 +438,7 @@ img {
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-custom .avatar-container {
     width: 6.25rem;
   }
@@ -875,7 +875,7 @@ footer .footer-custom-content {
 }
 
 /* Responsive: 2 columns on tablet */
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   .related-posts-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -1235,12 +1235,12 @@ footer .footer-custom-content {
   bottom: 0;
   display: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .intro-header {
     margin-top: 8.125rem;
   }
   .intro-header.big-img {
-    margin-top: 5.6875rem; /* Full navbar is small navbar + 20px padding on each side when expanded */
+    margin-top: 5.6875rem;
   }
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {

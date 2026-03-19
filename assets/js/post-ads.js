@@ -37,7 +37,7 @@
   }
 
   function pushToAdSense() {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
   }
 
   var adObserver = null;
@@ -47,7 +47,7 @@
 
     adObserver = new IntersectionObserver(function(entries) {
       for (var i = 0; i < entries.length; i++) {
-        if (entries[i].isIntersecting) {
+        if (entries[i].isIntersecting && entries[i].target.offsetWidth > 0) {
           var target = entries[i].target;
           pushToAdSense();
           adObserver.unobserve(target);
@@ -269,12 +269,7 @@
         article.appendChild(ad);
       }
 
-      if (i === 0) {
-        pushToAdSense();
-        ad.classList.add('ad-visible');
-      } else {
-        lazyLoadAd(ad);
-      }
+      lazyLoadAd(ad);
       watchForUnfilled(ad);
     }
   }

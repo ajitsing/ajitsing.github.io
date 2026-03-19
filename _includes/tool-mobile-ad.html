@@ -10,17 +10,11 @@
   <script>
   (function() {
     var container = document.currentScript.parentElement;
-    if (container.offsetWidth > 0) {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } else {
-      var mq = window.matchMedia('(max-width: 768px)');
-      function tryPush() {
-        if (container.offsetWidth > 0) {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          mq.removeEventListener('change', tryPush);
-        }
-      }
-      mq.addEventListener('change', tryPush);
+    var ins = container.querySelector('.adsbygoogle');
+    if (container.offsetWidth > 0 && ins) {
+      try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}
+    } else if (ins) {
+      ins.remove();
     }
   })();
   </script>

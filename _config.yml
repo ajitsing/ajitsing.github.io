@@ -132,6 +132,9 @@ gtag: "G-V1NK1HF18W"
 # Google Tag Manager ID
 # gtm: ""
 
+# Microsoft Clarity
+clarity: "vxy0o4yb68"
+
 # Matomo (aka Piwik) Web statistics
 # Uncomment the following section to enable Matomo. The opt-out parameter controls
 # whether or not you want to allow users to opt out of tracking.

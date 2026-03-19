@@ -1878,31 +1878,6 @@ h1 + h3 {
   display: contents;
 }
 
-/* --- In-Feed Ads --- */
-
-.in-feed-ad {
-  padding: 1.25rem 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #f8f9fa;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-}
-
-.in-feed-ad .adsbygoogle {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .in-feed-ad {
-    padding: 1.5rem 20px;
-  }
-}
-
 /* --- Advertisement Label --- */
 
 .ad-label {

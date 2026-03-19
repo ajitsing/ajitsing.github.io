@@ -39,7 +39,6 @@
   function getPageType() {
     if (document.querySelector('.blog-post')) return 'post';
     if (document.querySelector('.explainer-frame')) return 'explainer';
-    if (document.querySelector('.in-feed-ad')) return 'feed';
     if (document.querySelector('.tool-page, .tool-container')) return 'tool';
     return 'other';
   }

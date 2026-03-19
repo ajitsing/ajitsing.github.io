@@ -5,8 +5,6 @@
   const POSTS_DATA_URL = '/posts-data.json';
   const SCROLL_DELAY_MS = 150;
   const RENDER_DELAY_MS = 100;
-  const AD_POSITIONS = [2, 6];
-
   let allPosts = [];
   let filteredPosts = [];
   let currentPage = 1;
@@ -130,12 +128,8 @@
         let html = '';
         postsToShow.forEach((post, index) => {
           html += renderPostCard(post);
-          if (AD_POSITIONS.includes(index)) {
-            html += renderInFeedAd();
-          }
         });
         postsContainer.innerHTML = html;
-        initializeAds();
         renderPagination(totalPages);
       }
 
@@ -216,30 +210,6 @@
       });
     }
   };
-
-  function renderInFeedAd() {
-    if (!window.MANUAL_ADS_ENABLED) return '';
-    return `
-      <div class="in-feed-ad" aria-label="Advertisement">
-        <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-format="fluid"
-             data-ad-layout-key="-fz-16+2s-di+qa"
-             data-ad-client="ca-pub-2886086145980317"
-             data-ad-slot="7281945758"></ins>
-      </div>
-    `;
-  }
-
-  function initializeAds() {
-    try {
-      const adSlots = postsContainer.querySelectorAll('.adsbygoogle:not([data-ad-status])');
-      adSlots.forEach(() => {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      });
-    } catch (e) {}
-  }
 
   function escapeHTML(str) {
     if (!str) return '';

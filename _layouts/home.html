@@ -169,20 +169,6 @@ hide-explore-posts: true
         {% endif %}
       </article>
 
-      {% assign mod_check = post_counter | modulo: 5 %}
-      {% if mod_check == 0 and site.manual_ads %}
-      <div class="in-feed-ad" aria-label="Advertisement">
-        <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-format="fluid"
-             data-ad-layout-key="-fz-16+2s-di+qa"
-             data-ad-client="ca-pub-2886086145980317"
-             data-ad-slot="7281945758"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
-      {% endif %}
-
       {% endunless %}
       {% endfor %}
     </div>
@@ -209,8 +195,5 @@ hide-explore-posts: true
 </div>
 </div>
 
-{% if site.manual_ads %}
-<script src="{{ '/assets/js/in-feed-ads.js' | relative_url }}"></script>
-{% endif %}
 <script>window.MANUAL_ADS_ENABLED = {{ site.manual_ads | default: false }};</script>
 <script src="{{ '/assets/js/category-filter.js' | relative_url }}"></script>

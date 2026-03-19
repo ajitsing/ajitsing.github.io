@@ -58,7 +58,6 @@
 
   let currentPlatform = 'twitter';
   let currentEpoch = EPOCHS.twitter;
-  let lastDecodedId = null;
 
   function init() {
     const now = new Date();
@@ -106,7 +105,6 @@
 
     if (idParam) {
       snowflakeInput.value = idParam;
-      lastDecodedId = idParam;
       trackEvent('url_load', idParam);
       handleDecode();
     }
@@ -139,7 +137,6 @@
 
   function handleClear() {
     snowflakeInput.value = '';
-    lastDecodedId = null;
     hideError();
     resultSection.classList.add('hidden');
   }
@@ -182,32 +179,6 @@
     }
   }
 
-  const PLATFORM_DATE_RANGES = {
-    discord: { min: 1420070400000 },
-    twitter: { min: 1288834974657 },
-    instagram: { min: 1262304000000 }
-  };
-
-  function detectPlatform(snowflakeId) {
-    const now = Date.now();
-    const timestampBits = snowflakeId >> 22n;
-
-    const candidates = [
-      { platform: 'discord', epoch: EPOCHS.discord },
-      { platform: 'twitter', epoch: EPOCHS.twitter },
-      { platform: 'instagram', epoch: EPOCHS.instagram }
-    ];
-
-    for (const { platform, epoch } of candidates) {
-      const ts = Number(timestampBits) + Number(epoch);
-      const min = PLATFORM_DATE_RANGES[platform].min;
-      if (ts >= min && ts <= now) {
-        return platform;
-      }
-    }
-    return null;
-  }
-
   function handleDecode() {
     const input = snowflakeInput.value.trim();
     
@@ -238,15 +209,7 @@
         return;
       }
 
-      if (currentPlatform !== 'custom' && input !== lastDecodedId) {
-        const detected = detectPlatform(snowflakeId);
-        if (detected) {
-          setActivePlatform(detected);
-        }
-      }
-
       const decoded = decodeSnowflake(snowflakeId, currentEpoch);
-      lastDecodedId = input;
       displayResults(decoded, snowflakeId);
       hideError();
       resultSection.classList.remove('hidden');
@@ -453,7 +416,6 @@
 
     setActivePlatform(platform);
     snowflakeInput.value = id;
-    lastDecodedId = id;
     trackEvent('example_click', 'Example: ' + platform + ' - ' + id);
     handleDecode();
     snowflakeInput.scrollIntoView({ behavior: 'smooth', block: 'center' });

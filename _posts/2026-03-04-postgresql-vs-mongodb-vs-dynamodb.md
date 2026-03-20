@@ -239,6 +239,8 @@ MongoDB launched in 2009 and popularized document databases. The pitch was compe
 - You want embedded documents to avoid joins on frequently accessed data
 - Your team is already comfortable with JSON and JavaScript
 
+For the commands you will use daily with MongoDB, see the [MongoDB Cheat Sheet](/mongodb-cheat-sheet/).
+
 ---
 
 ## <i class="fab fa-aws"></i> DynamoDB
@@ -580,5 +582,6 @@ And when you get to the scale where one database is not enough, you will know. Y
 - [Database Indexing Explained](/database-indexing-explained/) - how indexes work under the hood
 - [How Databases Store Data Internally](/how-databases-store-data-internally/) - pages, B-trees, and buffer pools
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - the commands you will use every day
+- [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - mongosh commands, aggregation, and indexes
 - [Caching Strategies Explained](/caching-strategies-explained/) - how to layer caching on top of any database
 - [System Design Cheat Sheet](/system-design-cheat-sheet/) - the bigger picture of how databases fit into system design

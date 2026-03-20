@@ -1389,6 +1389,7 @@ These posts go deeper into specific database topics:
 - [Caching Strategies Explained](/caching-strategies-explained/)
 
 **Related Cheat Sheets**:
+- [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - The NoSQL counterpart to this guide
 - [Docker Cheat Sheet](/devops/docker-cheat-sheet/) - Run PostgreSQL in containers
 - [Linux Commands Cheat Sheet](/linux-commands-cheat-sheet/)
 - [Git Cheat Sheet](/git-cheat-sheet/)

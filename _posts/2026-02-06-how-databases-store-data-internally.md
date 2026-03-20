@@ -672,6 +672,7 @@ This post covered the fundamentals of database storage. Here are related topics 
 
 - [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/) - Practical guide to picking the right database
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Practical commands, queries, and performance tuning for developers
+- [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - mongosh commands, aggregation pipeline, and indexing
 - [How Database Indexing Works](/database-indexing-explained/) - Deep dive into index types and query optimization
 - [B-Tree Data Structure Explained](/data-structures/b-tree/) - The data structure behind most indexes
 - [Write-Ahead Log Explained](/distributed-systems/write-ahead-log/) - How databases guarantee durability

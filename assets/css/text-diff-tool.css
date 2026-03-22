@@ -1,0 +1,732 @@
+/* ==============================================
+   Text Diff Tool Styles
+   Matches existing tool theme (warm cream/beige)
+   ============================================== */
+
+.diff-page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+}
+
+.diff-tool {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0;
+  background: #faf8f5;
+}
+
+body:has(.diff-tool) {
+  background: #faf8f5 !important;
+}
+
+/* Tool Header */
+.diff-tool .tool-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 16px;
+  color: #faf8f5;
+  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.diff-tool .tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #faf8f5;
+  position: relative;
+  z-index: 1;
+}
+
+.diff-tool .tool-title i {
+  font-size: 1.6rem;
+  color: #fef3c7;
+}
+
+.diff-tool .tool-subtitle {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #d6d3d1;
+  margin: 0;
+  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tool Intro */
+.diff-tool .tool-intro {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #57534e;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+  max-width: 800px;
+}
+
+.diff-tool .tool-intro strong {
+  color: #44403c;
+}
+
+/* Diff Main */
+.diff-tool .diff-main {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+/* Input Panels */
+.diff-tool .input-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.diff-tool .input-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.diff-tool .panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.diff-tool .panel-header label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #57534e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.diff-tool .panel-header label i {
+  color: #78716c;
+  font-size: 0.8rem;
+}
+
+.diff-tool .btn-clear {
+  background: transparent;
+  border: none;
+  color: #a8a29e;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.diff-tool .btn-clear:hover {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.diff-tool textarea {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fff;
+  color: #292524;
+  resize: vertical;
+  min-height: 180px;
+  max-height: 400px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  tab-size: 4;
+}
+
+.diff-tool textarea:focus {
+  outline: none;
+  border-color: #a8a29e;
+  box-shadow: 0 0 0 3px rgba(168, 162, 158, 0.15);
+}
+
+.diff-tool textarea::placeholder {
+  color: #a8a29e;
+  font-style: italic;
+}
+
+/* Action Bar */
+.diff-tool .action-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.diff-tool .btn-primary {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 9px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #292524;
+  color: #faf8f5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.diff-tool .btn-primary:hover {
+  background: #44403c;
+}
+
+.diff-tool .btn-secondary {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #57534e;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.diff-tool .btn-secondary:hover {
+  border-color: #78716c;
+  background: #f5f0e8;
+  color: #44403c;
+}
+
+/* Word Wrap Toggle */
+.diff-tool .wrap-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #57534e;
+  cursor: pointer;
+  padding: 0 10px;
+  height: 34px;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fffdf9;
+  transition: all 0.15s ease;
+  user-select: none;
+  margin: 0;
+}
+
+.diff-tool .wrap-toggle:hover {
+  border-color: #78716c;
+  background: #f5f0e8;
+}
+
+.diff-tool .wrap-toggle input {
+  accent-color: #292524;
+  cursor: pointer;
+  margin: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.diff-tool .view-options {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diff-tool .view-toggle {
+  display: flex;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.diff-tool .view-btn {
+  font-size: 0.82rem;
+  padding: 0 12px;
+  height: 30px;
+  border: none;
+  background: #fffdf9;
+  color: #78716c;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.diff-tool .view-btn:first-child {
+  border-right: 1px solid #e7e0d5;
+}
+
+.diff-tool .view-btn:hover {
+  background: #f5f0e8;
+  color: #44403c;
+}
+
+.diff-tool .view-btn.active {
+  background: #292524;
+  color: #fef3c7;
+}
+
+/* Diff Stats */
+.diff-tool .diff-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  background: #f5f0e8;
+  border-radius: 8px;
+  border: 1px solid #e7e0d5;
+}
+
+.diff-tool .stat {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.diff-tool .stat i {
+  font-size: 0.7rem;
+}
+
+.diff-tool .stat-added {
+  color: #16a34a;
+}
+
+.diff-tool .stat-removed {
+  color: #dc2626;
+}
+
+.diff-tool .stat-unchanged {
+  color: #78716c;
+}
+
+/* Diff Output Container */
+.diff-tool .diff-output {
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Side-by-Side View */
+.diff-tool .diff-side-by-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.diff-tool .diff-pane {
+  overflow-x: auto;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.diff-tool .diff-pane-left {
+  border-right: 2px solid #e7e0d5;
+}
+
+/* Inline View */
+.diff-tool .diff-inline {
+  overflow-x: auto;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+/* Diff Lines */
+.diff-tool .diff-line {
+  display: flex;
+  min-height: 1.55em;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.diff-tool .diff-output.no-wrap .diff-line {
+  white-space: pre;
+  word-break: normal;
+}
+
+.diff-tool .diff-line-num {
+  width: 40px;
+  min-width: 40px;
+  padding: 0 8px 0 0;
+  text-align: right;
+  color: #a8a29e;
+  user-select: none;
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  padding-top: 1px;
+}
+
+.diff-tool .diff-line-prefix {
+  width: 18px;
+  min-width: 18px;
+  text-align: center;
+  user-select: none;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.diff-tool .diff-line-content {
+  flex: 1;
+  min-width: 0;
+  padding-right: 12px;
+  overflow-x: visible;
+}
+
+/* Line types */
+.diff-tool .diff-line.diff-added {
+  background: #dcfce7;
+}
+
+.diff-tool .diff-line.diff-added .diff-line-num {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.diff-tool .diff-line.diff-added .diff-line-prefix {
+  color: #16a34a;
+}
+
+.diff-tool .diff-line.diff-removed {
+  background: #fee2e2;
+}
+
+.diff-tool .diff-line.diff-removed .diff-line-num {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.diff-tool .diff-line.diff-removed .diff-line-prefix {
+  color: #dc2626;
+}
+
+.diff-tool .diff-line.diff-equal {
+  background: #fff;
+}
+
+.diff-tool .diff-line.diff-empty {
+  background: #f5f0e8;
+}
+
+.diff-tool .diff-line.diff-empty .diff-line-num {
+  background: #f5f0e8;
+}
+
+/* Character-level highlights */
+.diff-tool .char-added {
+  background: #86efac;
+  border-radius: 2px;
+}
+
+.diff-tool .char-removed {
+  background: #fca5a5;
+  border-radius: 2px;
+}
+
+/* Empty / Identical States */
+.diff-tool .diff-empty-state,
+.diff-tool .diff-identical {
+  text-align: center;
+  padding: 40px 20px;
+  color: #78716c;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.diff-tool .diff-empty-state i,
+.diff-tool .diff-identical i {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 10px;
+  color: #a8a29e;
+}
+
+.diff-tool .diff-identical i {
+  color: #16a34a;
+}
+
+.diff-tool .diff-empty {
+  text-align: center;
+  padding: 30px 20px;
+  color: #a8a29e;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.88rem;
+}
+
+.diff-tool .diff-empty i {
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 8px;
+  color: #d6cfc4;
+}
+
+/* Guide Section */
+.diff-tool .syntax-guide-section {
+  margin-bottom: 32px;
+}
+
+.diff-tool .syntax-guide-section > h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diff-tool .syntax-guide-section > h3 i {
+  color: #7c3aed;
+}
+
+.diff-tool .syntax-guide-content {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.diff-tool .guide-article {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.diff-tool .guide-article:last-child {
+  border-bottom: none;
+}
+
+.diff-tool .guide-article h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+}
+
+.diff-tool .guide-article p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+}
+
+.diff-tool .guide-article p:last-child {
+  margin-bottom: 0;
+}
+
+.diff-tool .guide-article code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.diff-tool .guide-article ul {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0;
+}
+
+.diff-tool .guide-article li {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  padding: 8px 0 8px 20px;
+  position: relative;
+  border-bottom: 1px solid #f5f0e8;
+}
+
+.diff-tool .guide-article li:last-child {
+  border-bottom: none;
+}
+
+.diff-tool .guide-article li::before {
+  content: "•";
+  color: #059669;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.diff-tool .guide-article li strong {
+  color: #292524;
+}
+
+/* FAQ Section */
+.diff-tool .faq-section {
+  margin-bottom: 32px;
+  padding: 30px;
+  background: #f5f0e8;
+  border-radius: 16px;
+  border: 2px solid #e7e0d5;
+}
+
+.diff-tool .faq-section > h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.diff-tool .faq-section > h2 i {
+  color: #78716c;
+}
+
+.diff-tool .faq-item {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.diff-tool .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.diff-tool .faq-item h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 10px 0;
+}
+
+.diff-tool .faq-item p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.diff-tool .faq-item code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .diff-tool .tool-header {
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+
+  .diff-tool .tool-title {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .diff-tool .diff-main {
+    padding: 16px 12px;
+  }
+
+  .diff-tool .input-panels {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .diff-tool textarea {
+    min-height: 120px;
+  }
+
+  .diff-tool .action-bar {
+    gap: 6px;
+  }
+
+  .diff-tool .btn-primary {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+
+  .diff-tool .btn-secondary {
+    padding: 7px 10px;
+    font-size: 0.78rem;
+  }
+
+  .diff-tool .diff-side-by-side {
+    grid-template-columns: 1fr;
+  }
+
+  .diff-tool .diff-pane-left {
+    border-right: none;
+    border-bottom: 2px solid #e7e0d5;
+  }
+
+  .diff-tool .diff-stats {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .diff-tool .view-toggle {
+    margin-left: 0;
+  }
+
+  .diff-tool .faq-section {
+    padding: 20px;
+  }
+
+  .diff-tool .guide-article {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .diff-tool .diff-line-num {
+    width: 30px;
+    min-width: 30px;
+    font-size: 0.65rem;
+    padding: 0 4px 0 0;
+  }
+
+  .diff-tool .diff-line-prefix {
+    width: 14px;
+    min-width: 14px;
+  }
+
+  .diff-tool .btn-secondary span.btn-label {
+    display: none;
+  }
+}

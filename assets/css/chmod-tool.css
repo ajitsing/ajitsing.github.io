@@ -1,0 +1,907 @@
+/* ==============================================
+   Chmod Calculator Tool Styles
+   Matches existing tool theme (warm cream/beige)
+   ============================================== */
+
+.chmod-page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+}
+
+.chmod-tool {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0;
+  background: #faf8f5;
+}
+
+body:has(.chmod-tool) {
+  background: #faf8f5 !important;
+}
+
+/* Tool Header */
+.chmod-tool .tool-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 16px;
+  color: #faf8f5;
+  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.chmod-tool .tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #faf8f5;
+  position: relative;
+  z-index: 1;
+}
+
+.chmod-tool .tool-title i {
+  font-size: 1.6rem;
+  color: #fef3c7;
+  animation: pulse-shield 2s ease-in-out infinite;
+}
+
+@keyframes pulse-shield {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.85; }
+}
+
+.chmod-tool .tool-subtitle {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #d6d3d1;
+  margin: 0;
+  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tool Intro */
+.chmod-tool .tool-intro {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #57534e;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+  max-width: 800px;
+}
+
+.chmod-tool .tool-intro strong {
+  color: #44403c;
+}
+
+.chmod-tool .tool-intro code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.88rem;
+}
+
+/* Calculator Main */
+.chmod-tool .calculator-main {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+/* Octal Input Section */
+.chmod-tool .octal-input-section {
+  margin-bottom: 16px;
+}
+
+.chmod-tool .octal-input-section > label {
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chmod-tool .octal-input-section > label i {
+  color: #78716c;
+}
+
+.chmod-tool .octal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #292524;
+  border-radius: 10px;
+  padding: 8px 16px;
+  max-width: 440px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+}
+
+.chmod-tool .octal-prefix {
+  color: #a8a29e;
+  font-size: 1.1rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+.chmod-tool .octal-input-row input {
+  background: transparent;
+  border: none;
+  color: #fef3c7;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  width: 4.5ch;
+  padding: 4px 2px;
+  outline: none;
+  letter-spacing: 3px;
+  caret-color: #fef3c7;
+}
+
+.chmod-tool .octal-input-row input::placeholder {
+  color: #57534e;
+  letter-spacing: 3px;
+}
+
+.chmod-tool .octal-filename {
+  color: #78716c;
+  font-size: 0.95rem;
+  margin-left: 4px;
+  user-select: none;
+}
+
+.chmod-tool .octal-input-row .btn-copy {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid #57534e;
+  color: #a8a29e;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.15s ease;
+}
+
+.chmod-tool .octal-input-row .btn-copy:hover {
+  background: #44403c;
+  color: #fef3c7;
+  border-color: #78716c;
+}
+
+/* Permission Grid */
+.chmod-tool .permission-grid {
+  margin-bottom: 14px;
+}
+
+.chmod-tool .grid-header {
+  display: grid;
+  grid-template-columns: 110px repeat(3, 1fr) 60px;
+  gap: 0;
+  margin-bottom: 4px;
+  padding: 0 4px;
+}
+
+.chmod-tool .grid-col-header {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #57534e;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 5px 0;
+}
+
+.chmod-tool .grid-col-header .perm-weight {
+  font-weight: 500;
+  color: #a8a29e;
+  font-size: 0.72rem;
+}
+
+.chmod-tool .grid-octal-header {
+  color: #78716c;
+}
+
+.chmod-tool .grid-row {
+  display: grid;
+  grid-template-columns: 110px repeat(3, 1fr) 60px;
+  gap: 0;
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  padding: 2px 4px;
+  transition: border-color 0.15s ease;
+}
+
+.chmod-tool .grid-row:hover {
+  border-color: #d6cfc4;
+}
+
+.chmod-tool .grid-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+.chmod-tool .role-name {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #292524;
+}
+
+.chmod-tool .role-hint {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.7rem;
+  color: #a8a29e;
+  background: #292524;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.chmod-tool .grid-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 0;
+}
+
+.chmod-tool .grid-octal-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chmod-tool .role-octal {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  background: #fffdf9;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 2px solid #e7e0d5;
+}
+
+/* Custom Checkboxes */
+.chmod-tool .perm-checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.chmod-tool .perm-checkbox input {
+  display: none;
+}
+
+.chmod-tool .perm-check-visual {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d6cfc4;
+  border-radius: 6px;
+  background: #fffdf9;
+  color: transparent;
+  font-size: 0.85rem;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.chmod-tool .perm-check-visual:hover {
+  border-color: #a8a29e;
+  background: #f5f0e8;
+}
+
+.chmod-tool .perm-checkbox input:checked + .perm-check-visual {
+  background: #292524;
+  border-color: #292524;
+  color: #fef3c7;
+}
+
+.chmod-tool .perm-checkbox input:checked + .perm-check-visual:hover {
+  background: #44403c;
+  border-color: #44403c;
+}
+
+/* Results Row */
+.chmod-tool .results-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.chmod-tool .result-box {
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  position: relative;
+}
+
+.chmod-tool .result-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.chmod-tool .result-value {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #292524;
+  word-break: break-all;
+}
+
+.chmod-tool .result-command {
+  font-size: 0.92rem;
+  color: #44403c;
+}
+
+.chmod-tool .btn-copy-small {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #a8a29e;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.chmod-tool .btn-copy-small:hover {
+  color: #44403c;
+  background: #e7e0d5;
+}
+
+/* Permission Summary */
+.chmod-tool .permission-summary {
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+
+.chmod-tool .summary-header {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #57534e;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chmod-tool .summary-header i {
+  color: #78716c;
+}
+
+.chmod-tool .summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chmod-tool .summary-line {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.83rem;
+  color: #57534e;
+  line-height: 1.4;
+  padding: 2px 0;
+}
+
+.chmod-tool .summary-line strong {
+  color: #292524;
+  font-weight: 700;
+}
+
+/* Presets */
+.chmod-tool .presets-section {
+  border-top: 1px solid #e7e0d5;
+  padding-top: 14px;
+}
+
+.chmod-tool .presets-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #57534e;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chmod-tool .presets-label i {
+  color: #78716c;
+}
+
+.chmod-tool .presets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.chmod-tool .preset-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 6px;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fffdf9;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 44px;
+}
+
+.chmod-tool .preset-btn:hover {
+  border-color: #78716c;
+  background: #f5f0e8;
+}
+
+.chmod-tool .preset-btn.active {
+  border-color: #292524;
+  background: #292524;
+}
+
+.chmod-tool .preset-btn.active .preset-value {
+  color: #fef3c7;
+}
+
+.chmod-tool .preset-btn.active .preset-desc {
+  color: #d6d3d1;
+}
+
+.chmod-tool .preset-value {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+}
+
+.chmod-tool .preset-desc {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #78716c;
+}
+
+/* Reference Table */
+.chmod-tool .reference-section {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.chmod-tool .reference-section h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chmod-tool .reference-section h3 i {
+  color: #78716c;
+}
+
+.chmod-tool .reference-table-wrapper {
+  overflow-x: auto;
+}
+
+.chmod-tool .chmod-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.chmod-tool .chmod-table th,
+.chmod-tool .chmod-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.chmod-tool .chmod-table th {
+  background: #f5f0e8;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chmod-tool .chmod-table td {
+  color: #57534e;
+}
+
+.chmod-tool .chmod-table code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
+  background: #292524;
+  color: #fef3c7;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.chmod-tool .chmod-table .clickable-row {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.chmod-tool .chmod-table .clickable-row:hover {
+  background: #f5f0e8;
+}
+
+.chmod-tool .table-hint {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  color: #a8a29e;
+  text-align: center;
+  margin: 12px 0 0 0;
+}
+
+.chmod-tool .table-hint i {
+  margin-right: 4px;
+}
+
+/* Syntax Guide Section */
+.chmod-tool .syntax-guide-section {
+  margin-bottom: 32px;
+}
+
+.chmod-tool .syntax-guide-section > h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chmod-tool .syntax-guide-section > h3 i {
+  color: #7c3aed;
+}
+
+.chmod-tool .syntax-guide-content {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.chmod-tool .guide-article {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.chmod-tool .guide-article:last-child {
+  border-bottom: none;
+}
+
+.chmod-tool .guide-article h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+}
+
+.chmod-tool .guide-article p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+}
+
+.chmod-tool .guide-article p:last-child {
+  margin-bottom: 0;
+}
+
+.chmod-tool .guide-article code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.chmod-tool .guide-article ul,
+.chmod-tool .guide-article ol {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0;
+}
+
+.chmod-tool .guide-article li {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  padding: 8px 0 8px 20px;
+  position: relative;
+  border-bottom: 1px solid #f5f0e8;
+}
+
+.chmod-tool .guide-article li:last-child {
+  border-bottom: none;
+}
+
+.chmod-tool .guide-article li::before {
+  content: "•";
+  color: #059669;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.chmod-tool .guide-article li strong {
+  color: #292524;
+}
+
+/* FAQ Section */
+.chmod-tool .faq-section {
+  margin-bottom: 32px;
+  padding: 30px;
+  background: #f5f0e8;
+  border-radius: 16px;
+  border: 2px solid #e7e0d5;
+}
+
+.chmod-tool .faq-section > h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chmod-tool .faq-section > h2 i {
+  color: #78716c;
+}
+
+.chmod-tool .faq-item {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.chmod-tool .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.chmod-tool .faq-item h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 10px 0;
+}
+
+.chmod-tool .faq-item p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.chmod-tool .faq-item code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* Copy feedback */
+.chmod-tool .copy-success {
+  color: #059669 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chmod-tool .tool-header {
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+
+  .chmod-tool .tool-title {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chmod-tool .calculator-main {
+    padding: 20px 14px;
+  }
+
+  .chmod-tool .octal-input-row {
+    max-width: 100%;
+  }
+
+  .chmod-tool .grid-header {
+    grid-template-columns: 80px repeat(3, 1fr) 48px;
+  }
+
+  .chmod-tool .grid-row {
+    grid-template-columns: 80px repeat(3, 1fr) 48px;
+  }
+
+  .chmod-tool .grid-col-header {
+    font-size: 0.7rem;
+  }
+
+  .chmod-tool .grid-col-header .perm-weight {
+    display: none;
+  }
+
+  .chmod-tool .role-name {
+    font-size: 0.8rem;
+  }
+
+  .chmod-tool .role-hint {
+    display: none;
+  }
+
+  .chmod-tool .perm-check-visual {
+    width: 34px;
+    height: 34px;
+    font-size: 0.78rem;
+  }
+
+  .chmod-tool .role-octal {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+  }
+
+  .chmod-tool .results-row {
+    grid-template-columns: 1fr;
+  }
+
+  .chmod-tool .presets-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .chmod-tool .preset-btn {
+    padding: 10px 6px;
+    min-height: 50px;
+  }
+
+  .chmod-tool .preset-value {
+    font-size: 0.9rem;
+  }
+
+  .chmod-tool .preset-desc {
+    font-size: 0.62rem;
+  }
+
+  .chmod-tool .chmod-table {
+    font-size: 0.8rem;
+  }
+
+  .chmod-tool .chmod-table th,
+  .chmod-tool .chmod-table td {
+    padding: 10px 6px;
+  }
+
+  .chmod-tool .faq-section {
+    padding: 20px;
+  }
+
+  .chmod-tool .guide-article {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chmod-tool .grid-header {
+    grid-template-columns: 64px repeat(3, 1fr) 42px;
+  }
+
+  .chmod-tool .grid-row {
+    grid-template-columns: 64px repeat(3, 1fr) 42px;
+  }
+
+  .chmod-tool .grid-label {
+    padding: 0 6px;
+  }
+
+  .chmod-tool .role-name {
+    font-size: 0.72rem;
+  }
+
+  .chmod-tool .perm-check-visual {
+    width: 30px;
+    height: 30px;
+    font-size: 0.72rem;
+    border-radius: 6px;
+  }
+
+  .chmod-tool .role-octal {
+    width: 28px;
+    height: 28px;
+    font-size: 0.88rem;
+    border-radius: 6px;
+  }
+
+  .chmod-tool .presets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chmod-tool .octal-input-row {
+    padding: 8px 12px;
+  }
+
+  .chmod-tool .octal-prefix {
+    font-size: 0.95rem;
+  }
+
+  .chmod-tool .octal-input-row input {
+    font-size: 1.1rem;
+  }
+
+  .chmod-tool .octal-filename {
+    font-size: 0.82rem;
+  }
+}

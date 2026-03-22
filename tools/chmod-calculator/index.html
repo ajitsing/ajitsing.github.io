@@ -1,0 +1,604 @@
+---
+layout: default
+title: "Chmod Calculator | Linux File Permission Calculator & Command Generator"
+subtitle: "Calculate Linux/Unix file permissions in octal and symbolic notation"
+seo: true
+description: "Free online chmod calculator and Linux file permission calculator. Convert between octal (755, 644, 777) and symbolic (rwxr-xr-x) permissions instantly. Understand what chmod 755, chmod 644, and chmod 777 mean. Generate chmod commands, use chmod -R recursively, and learn chmod +x. Interactive checkboxes, common presets, and copy-ready commands. 100% client-side."
+keywords: "chmod calculator, chmod command, linux file permissions, unix permissions, chmod 755, chmod 755 meaning, what does chmod 755 mean, chmod 644, chmod 644 meaning, what does chmod 644 mean, chmod 777, chmod 777 meaning, chmod 600, chmod 400, chmod 700, file permission calculator, rwx permissions, octal permissions, symbolic permissions, chmod generator, linux chmod, unix chmod, permission calculator online, chmod converter, file permissions linux, chmod cheat sheet, chmod recursive, chmod -r, chmod +x, how to change file permissions linux, linux permission numbers, chmod syntax, chmod examples, chmod u+x, linux file permission calculator, unix permission calculator, chmod command generator, file permissions calculator, make file executable linux, chmod permissions explained"
+thumbnail: /assets/img/tools/chmod-calculator-thumbnail.png
+share-img: /assets/img/tools/chmod-calculator-thumbnail.png
+permalink: /tools/chmod-calculator/
+social-share: true
+hide-explore-posts: true
+---
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Chmod Calculator",
+  "alternateName": ["Linux File Permission Calculator", "Unix Permission Calculator", "File Permission Calculator", "Chmod Command Generator", "Chmod Converter", "rwx Calculator", "Linux Permissions Generator", "Chmod Permissions Calculator", "Octal Permission Calculator", "chmod 755 Calculator"],
+  "description": "Free online chmod calculator and Linux file permission calculator. Convert between octal (755, 644, 777) and symbolic (rwxr-xr-x) permissions instantly. Understand what chmod 755, chmod 644, and chmod 777 mean. Generate chmod commands with interactive checkboxes and presets.",
+  "url": "https://singhajit.com/tools/chmod-calculator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Interactive checkbox grid for Owner, Group, Others permissions",
+    "Real-time octal and symbolic notation conversion",
+    "Reverse lookup: enter octal number (755, 644, 777) to see permissions",
+    "Common presets: 755, 644, 777, 700, 600, 444, 750, 664",
+    "Generated chmod command ready to copy and paste",
+    "Human-readable permission summary for each role",
+    "Chmod reference table with common Linux file permissions",
+    "Guide covering chmod -R recursive, chmod +x, and symbolic notation",
+    "100% client-side, no data sent to servers",
+    "Free to use with no signup required"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/chmod-calculator-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "Chmod Reference",
+    "text": "chmod (change mode) sets Unix/Linux file permissions using octal or symbolic notation. Octal values: Read=4, Write=2, Execute=1. Common values: 755 (rwxr-xr-x) for directories and scripts, 644 (rw-r--r--) for regular files, 600 (rw-------) for private files like SSH keys. Use chmod -R for recursive permission changes."
+  },
+  "keywords": "chmod calculator, chmod command, linux file permissions, unix permissions, chmod 755, chmod 644, chmod 777, file permission calculator, chmod recursive, chmod +x, linux permission numbers"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Calculate Chmod Permissions Online",
+  "description": "Learn how to calculate Linux/Unix file permissions and generate chmod commands using this free online chmod calculator. Works for chmod 755, 644, 777, and any custom permission.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Set permissions using checkboxes or presets",
+      "text": "Toggle Read (4), Write (2), and Execute (1) checkboxes for Owner, Group, and Others. Or click a common preset like 755 (scripts and directories), 644 (regular files), or 600 (private files). The octal value, symbolic notation, and chmod command update instantly."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter an octal value directly",
+      "text": "Type a 3-digit octal number (like 755 or 644) in the input field to see the corresponding permissions checkboxes, symbolic notation (rwxr-xr-x), and a human-readable summary of what each role can do."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy the chmod command",
+      "text": "Copy the generated chmod command (e.g., chmod 755 filename) to use in your Linux terminal. For recursive changes to directories, add the -R flag: chmod -R 755 directory."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Chmod Calculator"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is chmod?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "chmod (change mode) is a Unix/Linux command that changes file and directory permissions. It controls who can read, write, or execute a file. Permissions are set for three categories: Owner (user who owns the file), Group (users in the file's group), and Others (everyone else)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does chmod 755 mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "chmod 755 sets the permission rwxr-xr-x. The owner can read, write, and execute (7 = 4+2+1). Group members can read and execute (5 = 4+1). Others can read and execute (5 = 4+1). This is the most common permission for executable scripts and web directories."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does chmod 644 mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "chmod 644 sets the permission rw-r--r--. The owner can read and write (6 = 4+2). Group and others can only read (4). This is the standard permission for regular files like HTML, CSS, images, and configuration files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do octal chmod values work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each digit in an octal chmod value represents permissions for one category (Owner, Group, Others). The digit is the sum of: Read (4) + Write (2) + Execute (1). For example, 7 = 4+2+1 (rwx), 6 = 4+2 (rw-), 5 = 4+1 (r-x), 4 = 4 (r--), 0 = no permissions (---)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between chmod 777 and chmod 755?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "chmod 777 gives full read, write, and execute permissions to everyone (rwxrwxrwx), which is a security risk. chmod 755 gives full permissions only to the owner and read+execute to group and others (rwxr-xr-x). Always use 755 over 777 for security."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is symbolic vs octal notation in chmod?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Octal notation uses numbers (e.g., chmod 755). Symbolic notation uses letters (e.g., chmod u=rwx,g=rx,o=rx). Both achieve the same result. Octal is more concise; symbolic is more readable and allows relative changes like chmod g+w (add write to group)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to use chmod recursively?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the -R flag to apply chmod recursively to all files and subdirectories: chmod -R 755 /path/to/directory. This changes permissions for the directory and everything inside it. A common pattern is to set directories to 755 and files to 644: find /path -type d -exec chmod 755 {} + and find /path -type f -exec chmod 644 {} + to apply different permissions to files and directories."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does chmod +x do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "chmod +x adds execute permission for all users (owner, group, and others). It is the quickest way to make a script or binary executable. For example, chmod +x script.sh allows everyone to run the script. To add execute only for the owner, use chmod u+x script.sh instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is chmod 777 dangerous?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "chmod 777 gives every user on the system full read, write, and execute permissions (rwxrwxrwx). Any user can modify, delete, or execute the file. This is a major security risk, especially on web servers where it can allow attackers to inject malicious code. Use chmod 755 for directories and chmod 644 for files instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the default file permission in Linux?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The default permission for new files is typically 644 (rw-r--r--) and for new directories is 755 (rwxr-xr-x). This is controlled by the umask value, which is usually 022. The umask subtracts permissions from the maximum (666 for files, 777 for directories): 666 - 022 = 644 for files, 777 - 022 = 755 for directories."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What permissions do SSH keys need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SSH private keys must be chmod 600 (rw-------) or chmod 400 (r--------). SSH will refuse to use a key with permissions that are too open, showing the error 'Permissions are too open'. The .ssh directory should be chmod 700 (rwx------). Public keys (.pub) can be chmod 644."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Chmod Calculator",
+      "item": "https://singhajit.com/tools/chmod-calculator/"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/chmod-tool.css' | relative_url }}">
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="chmod-page-wrapper">
+  <div class="chmod-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-shield-alt"></i>
+        Chmod Calculator
+      </h1>
+      <p class="tool-subtitle">Calculate Linux/Unix file permissions in octal and symbolic notation</p>
+    </header>
+
+<p class="tool-intro">
+  Free <strong>chmod calculator</strong> to convert between octal (<code>755</code>, <code>644</code>) and symbolic (<code>rwxr-xr-x</code>) <strong>Linux file permissions</strong>. Generate a ready-to-copy <strong>chmod command</strong> instantly. 100% client-side.
+</p>
+
+    <section class="calculator-main">
+      <!-- Octal Input -->
+      <div class="octal-input-section">
+        <label for="octal-input"><i class="fas fa-hashtag"></i> Octal Value</label>
+        <div class="octal-input-row">
+          <span class="octal-prefix">chmod</span>
+          <input
+            type="text"
+            id="octal-input"
+            maxlength="4"
+            placeholder="755"
+            autocomplete="off"
+            spellcheck="false"
+            inputmode="numeric"
+          >
+          <span class="octal-filename" id="filename-display">filename</span>
+          <button class="btn-copy" id="copy-command-btn" title="Copy chmod command">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Permission Grid -->
+      <div class="permission-grid">
+        <div class="grid-header">
+          <div class="grid-label"></div>
+          <div class="grid-col-header">Read <span class="perm-weight">(4)</span></div>
+          <div class="grid-col-header">Write <span class="perm-weight">(2)</span></div>
+          <div class="grid-col-header">Execute <span class="perm-weight">(1)</span></div>
+          <div class="grid-col-header grid-octal-header">Octal</div>
+        </div>
+
+        <div class="grid-row" data-role="owner">
+          <div class="grid-label">
+            <span class="role-name">Owner</span>
+            <span class="role-hint">u</span>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="owner" data-perm="read">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="owner" data-perm="write">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="owner" data-perm="execute">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell grid-octal-cell">
+            <span class="role-octal" id="owner-octal">0</span>
+          </div>
+        </div>
+
+        <div class="grid-row" data-role="group">
+          <div class="grid-label">
+            <span class="role-name">Group</span>
+            <span class="role-hint">g</span>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="group" data-perm="read">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="group" data-perm="write">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="group" data-perm="execute">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell grid-octal-cell">
+            <span class="role-octal" id="group-octal">0</span>
+          </div>
+        </div>
+
+        <div class="grid-row" data-role="others">
+          <div class="grid-label">
+            <span class="role-name">Others</span>
+            <span class="role-hint">o</span>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="others" data-perm="read">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="others" data-perm="write">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell">
+            <label class="perm-checkbox">
+              <input type="checkbox" data-role="others" data-perm="execute">
+              <span class="perm-check-visual"><i class="fas fa-check"></i></span>
+            </label>
+          </div>
+          <div class="grid-cell grid-octal-cell">
+            <span class="role-octal" id="others-octal">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="results-row">
+        <div class="result-box">
+          <div class="result-label">Symbolic</div>
+          <div class="result-value" id="symbolic-display">---------</div>
+          <button class="btn-copy-small" id="copy-symbolic-btn" title="Copy symbolic notation">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Linux Command</div>
+          <div class="result-value result-command" id="command-display">chmod 000 filename</div>
+          <button class="btn-copy-small" id="copy-full-cmd-btn" title="Copy full command">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Permission Summary -->
+      <div class="permission-summary" id="permission-summary">
+        <div class="summary-header"><i class="fas fa-info-circle"></i> Permission Summary</div>
+        <div class="summary-content" id="summary-content">
+          <div class="summary-line" id="summary-owner"><strong>Owner:</strong> No permissions</div>
+          <div class="summary-line" id="summary-group"><strong>Group:</strong> No permissions</div>
+          <div class="summary-line" id="summary-others"><strong>Others:</strong> No permissions</div>
+        </div>
+      </div>
+
+      <!-- Presets -->
+      <div class="presets-section">
+        <div class="presets-label"><i class="fas fa-bolt"></i> Common Presets</div>
+        <div class="presets-grid">
+          <button class="preset-btn" data-octal="755">
+            <span class="preset-value">755</span>
+            <span class="preset-desc">Scripts & Dirs</span>
+          </button>
+          <button class="preset-btn" data-octal="644">
+            <span class="preset-value">644</span>
+            <span class="preset-desc">Regular Files</span>
+          </button>
+          <button class="preset-btn" data-octal="777">
+            <span class="preset-value">777</span>
+            <span class="preset-desc">Full Access</span>
+          </button>
+          <button class="preset-btn" data-octal="700">
+            <span class="preset-value">700</span>
+            <span class="preset-desc">Owner Only</span>
+          </button>
+          <button class="preset-btn" data-octal="600">
+            <span class="preset-value">600</span>
+            <span class="preset-desc">Private File</span>
+          </button>
+          <button class="preset-btn" data-octal="444">
+            <span class="preset-value">444</span>
+            <span class="preset-desc">Read-Only All</span>
+          </button>
+          <button class="preset-btn" data-octal="750">
+            <span class="preset-value">750</span>
+            <span class="preset-desc">Group Execute</span>
+          </button>
+          <button class="preset-btn" data-octal="664">
+            <span class="preset-value">664</span>
+            <span class="preset-desc">Shared File</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reference Table -->
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Chmod Permission Reference</h3>
+      <div class="reference-table-wrapper">
+        <table class="chmod-table">
+          <thead>
+            <tr>
+              <th>Octal</th>
+              <th>Symbolic</th>
+              <th>Permissions</th>
+              <th>Common Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="clickable-row" data-octal="755"><td><code>755</code></td><td><code>rwxr-xr-x</code></td><td>Owner: all, Group/Others: read+exec</td><td>Executable scripts, web directories</td></tr>
+            <tr class="clickable-row" data-octal="644"><td><code>644</code></td><td><code>rw-r--r--</code></td><td>Owner: read+write, Group/Others: read</td><td>HTML, CSS, images, config files</td></tr>
+            <tr class="clickable-row" data-octal="777"><td><code>777</code></td><td><code>rwxrwxrwx</code></td><td>Everyone: all permissions</td><td>Temporary/dev only (security risk)</td></tr>
+            <tr class="clickable-row" data-octal="700"><td><code>700</code></td><td><code>rwx------</code></td><td>Owner: all, no access for others</td><td>Private scripts, home directories</td></tr>
+            <tr class="clickable-row" data-octal="600"><td><code>600</code></td><td><code>rw-------</code></td><td>Owner: read+write only</td><td>SSH keys, private configs</td></tr>
+            <tr class="clickable-row" data-octal="444"><td><code>444</code></td><td><code>r--r--r--</code></td><td>Everyone: read only</td><td>Read-only files, public docs</td></tr>
+            <tr class="clickable-row" data-octal="750"><td><code>750</code></td><td><code>rwxr-x---</code></td><td>Owner: all, Group: read+exec</td><td>Group-accessible programs</td></tr>
+            <tr class="clickable-row" data-octal="664"><td><code>664</code></td><td><code>rw-rw-r--</code></td><td>Owner+Group: read+write, Others: read</td><td>Shared project files</td></tr>
+            <tr class="clickable-row" data-octal="640"><td><code>640</code></td><td><code>rw-r-----</code></td><td>Owner: read+write, Group: read</td><td>Log files, sensitive configs</td></tr>
+            <tr class="clickable-row" data-octal="400"><td><code>400</code></td><td><code>r--------</code></td><td>Owner: read only</td><td>SSH private keys (strict)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-hint"><i class="fas fa-hand-pointer"></i> Click any row to load those permissions</p>
+    </section>
+
+    <!-- Octal Breakdown Guide -->
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Chmod Guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is chmod?</h2>
+          <p><strong>chmod</strong> (change mode) is a Unix/Linux command that sets file and directory permissions. Every file has three permission categories: <strong>Owner</strong> (the user who created it), <strong>Group</strong> (users in the file's group), and <strong>Others</strong> (everyone else). Each category can have Read, Write, and Execute permissions.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>How Octal Values Work</h2>
+          <p>Each permission has a numeric weight: <strong>Read = 4</strong>, <strong>Write = 2</strong>, <strong>Execute = 1</strong>. Add them together for each role:</p>
+          <ul>
+            <li><strong>7</strong> (4+2+1) = Read + Write + Execute (rwx)</li>
+            <li><strong>6</strong> (4+2) = Read + Write (rw-)</li>
+            <li><strong>5</strong> (4+1) = Read + Execute (r-x)</li>
+            <li><strong>4</strong> (4) = Read only (r--)</li>
+            <li><strong>3</strong> (2+1) = Write + Execute (-wx)</li>
+            <li><strong>2</strong> (2) = Write only (-w-)</li>
+            <li><strong>1</strong> (1) = Execute only (--x)</li>
+            <li><strong>0</strong> = No permissions (---)</li>
+          </ul>
+          <p>The three digits in <code>chmod 755</code> represent Owner (7), Group (5), Others (5).</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Symbolic Notation</h2>
+          <p>Symbolic notation uses letters: <code>r</code> (read), <code>w</code> (write), <code>x</code> (execute), <code>-</code> (no permission). The 9-character string is grouped in threes: <code>rwxr-xr-x</code> = Owner(rwx) + Group(r-x) + Others(r-x).</p>
+          <p>You can also use symbolic mode with chmod: <code>chmod u=rwx,g=rx,o=rx filename</code> is equivalent to <code>chmod 755 filename</code>. Use <code>+</code> to add and <code>-</code> to remove permissions: <code>chmod g+w filename</code> adds write permission for the group.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Recursive Chmod (chmod -R)</h2>
+          <p>Use <code>chmod -R</code> to change permissions recursively on a directory and all its contents: <code>chmod -R 755 /var/www/html</code>. This applies the same permission to every file and subdirectory inside.</p>
+          <p>However, files and directories usually need different permissions. A better approach is to set them separately:</p>
+          <ul>
+            <li><strong>Directories to 755:</strong> <code>find /path -type d -exec chmod 755 {} +</code></li>
+            <li><strong>Files to 644:</strong> <code>find /path -type f -exec chmod 644 {} +</code></li>
+          </ul>
+          <p>This ensures directories are traversable (need execute) while files remain non-executable.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Making Files Executable (chmod +x)</h2>
+          <p><code>chmod +x filename</code> adds execute permission for all users. This is the fastest way to make a script runnable. For finer control:</p>
+          <ul>
+            <li><strong>chmod u+x:</strong> Add execute for the owner only</li>
+            <li><strong>chmod g+x:</strong> Add execute for the group only</li>
+            <li><strong>chmod o-x:</strong> Remove execute for others</li>
+            <li><strong>chmod a+x:</strong> Add execute for all (same as +x)</li>
+          </ul>
+          <p>After adding execute permission, run a script with <code>./script.sh</code>. If you see "Permission denied", you likely need to run <code>chmod +x script.sh</code> first.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Default Permissions and umask</h2>
+          <p>Linux uses <strong>umask</strong> to determine default permissions for new files and directories. The default umask is typically <code>022</code>, which means:</p>
+          <ul>
+            <li><strong>New files:</strong> 666 - 022 = <code>644</code> (rw-r--r--)</li>
+            <li><strong>New directories:</strong> 777 - 022 = <code>755</code> (rwxr-xr-x)</li>
+          </ul>
+          <p>Check your current umask with the <code>umask</code> command. A more restrictive umask like <code>077</code> creates files as 600 and directories as 700, giving access only to the owner.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Security Best Practices</h2>
+          <ul>
+            <li><strong>Never use 777</strong> in production. It gives everyone full access including write and execute.</li>
+            <li><strong>SSH keys</strong> must be 600 or 400. SSH refuses to use keys with broader permissions.</li>
+            <li><strong>Web files</strong> should be 644 (files) and 755 (directories). The web server user needs read access; only the owner should write.</li>
+            <li><strong>Scripts</strong> need execute (x) permission. Use 755 for scripts that others may run, 700 for private scripts.</li>
+            <li><strong>Principle of least privilege:</strong> Always grant the minimum permissions needed.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> Chmod Calculator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is chmod?</h3>
+        <p><strong>chmod</strong> (change mode) is a Unix/Linux command that changes file and directory permissions. It controls who can read, write, or execute a file. Permissions are set for three categories: Owner, Group, and Others.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What does chmod 755 mean?</h3>
+        <p><strong>chmod 755</strong> sets <code>rwxr-xr-x</code>. The owner gets full permissions (7 = read+write+execute). Group and others get read and execute (5 = read+execute). This is the standard permission for executable scripts and web directories.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What does chmod 644 mean?</h3>
+        <p><strong>chmod 644</strong> sets <code>rw-r--r--</code>. The owner can read and write (6). Group and others can only read (4). This is the default for regular files like HTML pages, images, and configuration files.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why is chmod 777 dangerous?</h3>
+        <p><strong>chmod 777</strong> gives everyone full read, write, and execute permissions. Any user on the system can modify or delete the file. Never use 777 in production. Use 755 for directories and 644 for files instead.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What permissions do SSH keys need?</h3>
+        <p>SSH private keys must be <strong>chmod 600</strong> (rw-------) or <strong>chmod 400</strong> (r--------). SSH will refuse to use a key file with permissions that are too open. The <code>.ssh</code> directory should be chmod 700.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between octal and symbolic chmod?</h3>
+        <p><strong>Octal</strong> uses numbers: <code>chmod 755 file</code>. <strong>Symbolic</strong> uses letters: <code>chmod u=rwx,g=rx,o=rx file</code>. Both produce the same result. Octal sets all permissions at once; symbolic can make relative changes like <code>chmod g+w file</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What chmod should web files have?</h3>
+        <p>Web files should be <strong>644</strong> (<code>rw-r--r--</code>) and web directories should be <strong>755</strong> (<code>rwxr-xr-x</code>). The web server needs read access to serve files and execute access to traverse directories. Only the owner should have write access.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I make a file executable?</h3>
+        <p>Run <code>chmod +x filename</code> to add execute permission for all users, or <code>chmod u+x filename</code> for the owner only. For scripts, <strong>chmod 755</strong> is the most common choice, giving the owner full control and others read+execute access.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I use chmod recursively?</h3>
+        <p>Use <code>chmod -R 755 /path/to/directory</code> to change permissions recursively on a directory and all its contents. For best practice, set directories and files separately: <code>find /path -type d -exec chmod 755 {} +</code> for directories and <code>find /path -type f -exec chmod 644 {} +</code> for files.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What does chmod +x do?</h3>
+        <p><code>chmod +x</code> adds execute permission for all users (owner, group, others). It's the quickest way to make a shell script or binary executable. Use <code>chmod u+x</code> to add execute only for the owner. If you see "Permission denied" when running a script, you need <code>chmod +x</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the default file permission in Linux?</h3>
+        <p>New files default to <strong>644</strong> (rw-r--r--) and new directories to <strong>755</strong> (rwxr-xr-x). This is controlled by umask, typically set to 022. The umask subtracts from the maximum: 666 - 022 = 644 for files, 777 - 022 = 755 for directories.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What does chmod 400 mean?</h3>
+        <p><strong>chmod 400</strong> sets <code>r--------</code>. Only the file owner can read it. No one can write or execute. This is the strictest common permission, used for SSH private keys and sensitive credentials. It's more restrictive than chmod 600, which also allows the owner to write.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+{% include tool-hide-empty-ads.html %}
+
+<script src="{{ '/assets/js/chmod-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

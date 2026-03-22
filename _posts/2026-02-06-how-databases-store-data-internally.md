@@ -674,6 +674,7 @@ This post covered the fundamentals of database storage. Here are related topics 
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Practical commands, queries, and performance tuning for developers
 - [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - mongosh commands, aggregation pipeline, and indexing
 - [How Database Indexing Works](/database-indexing-explained/) - Deep dive into index types and query optimization
+- [Database Locks Explained](/database-locks-explained/) - How locks, MVCC, and concurrency control work under the hood
 - [B-Tree Data Structure Explained](/data-structures/b-tree/) - The data structure behind most indexes
 - [Write-Ahead Log Explained](/distributed-systems/write-ahead-log/) - How databases guarantee durability
 - [Row vs Column Store](/explainer/row-vs-column-store/) - Choosing the right storage model

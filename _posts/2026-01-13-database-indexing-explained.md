@@ -608,6 +608,7 @@ New result:
 - [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/) - Choosing the right database for your project
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Quick reference for psql commands, indexes, and EXPLAIN ANALYZE
 - [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - MongoDB indexes, explain(), and query optimization
+- [Database Locks Explained](/database-locks-explained/) - How indexes affect locking behavior and concurrency
 - [N+1 Query Problem](/explainer/n-plus-one-query-problem/) - Another common database performance killer
 - [Caching Strategies](/caching-strategies-explained/) - When even indexes are not fast enough
 - [PostgreSQL Documentation: Indexes](https://www.postgresql.org/docs/current/indexes.html)

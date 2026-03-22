@@ -580,6 +580,7 @@ And when you get to the scale where one database is not enough, you will know. Y
 
 - [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/) - practical scaling techniques for PostgreSQL
 - [Database Indexing Explained](/database-indexing-explained/) - how indexes work under the hood
+- [Database Locks Explained](/database-locks-explained/) - how each database handles locking and concurrency control
 - [How Databases Store Data Internally](/how-databases-store-data-internally/) - pages, B-trees, and buffer pools
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - the commands you will use every day
 - [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - mongosh commands, aggregation, and indexes

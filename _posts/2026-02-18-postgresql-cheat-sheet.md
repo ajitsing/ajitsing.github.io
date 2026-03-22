@@ -1386,6 +1386,7 @@ These posts go deeper into specific database topics:
 **Database Fundamentals**:
 - [How Database Indexing Works](/database-indexing-explained/)
 - [How Databases Store Data Internally](/how-databases-store-data-internally/)
+- [Database Locks Explained](/database-locks-explained/) - Shared locks, exclusive locks, deadlocks, and MVCC
 - [Caching Strategies Explained](/caching-strategies-explained/)
 
 **Related Cheat Sheets**:

@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "What Actually Happens When You Type a URL"
-subtitle: "From browser to backend server - the complete journey of a DNS request, with performance tricks and production insights"
+title: "How DNS Works: The Complete Guide for Developers"
+subtitle: "DNS resolution, caching layers, record types, performance optimization, and debugging tools every developer should know"
 date: 2025-10-21
-last-modified-date: 2026-01-03
+last-modified-date: 2026-03-24
 thumbnail-img: /assets/img/posts/dns/dns-explained.png
 share-img: /assets/img/posts/dns/dns-explained.png
 categories: system-design
-tags: [networking, system-design]
+tags: [networking, system-design, tutorial]
 permalink: /how-dns-works-complete-guide/
-description: "Complete guide to DNS for developers. Learn how DNS resolution works, caching layers, record types, and performance optimization. Includes real-world examples, diagrams, and practical tips."
-keywords: "DNS, domain name system, DNS resolution, DNS caching, DNS records, A record, CNAME, MX record, DNS security, DNS performance, authoritative nameserver, recursive resolver, TTL, DNS propagation"
+description: "Complete guide to how DNS works for developers. Learn DNS resolution step by step, caching layers, DNS record types (A, CNAME, MX, TXT), TTL, DNS performance optimization, and debugging with dig and nslookup. Includes diagrams and real-world examples."
+keywords: "how DNS works, DNS explained, DNS resolution, domain name system, DNS lookup, DNS caching, DNS records, A record, CNAME record, MX record, TXT record, DNS TTL, authoritative nameserver, recursive resolver, DNS propagation, DNS performance, DNS security, DNS over HTTPS, dig command, nslookup, DNS for developers"
 seo: true
 social-share: true
 comments: true
 
-quick-answer: "DNS translates domain names to IPs through a hierarchy: browser cache → OS cache → recursive resolver → root servers → TLD servers (.com) → authoritative nameserver. Records are cached by TTL. A records point to IPs directly; CNAMEs alias to other domains. Lower TTL before DNS changes for faster propagation."
+quick-answer: "DNS translates domain names to IPs through a hierarchy: browser cache, OS cache, recursive resolver, root servers, TLD servers (.com), and authoritative nameserver. Records are cached by TTL. A records point to IPs directly; CNAMEs alias to other domains. Lower TTL before DNS changes for faster propagation."
 
 faq:
   - question: "How does DNS work?"
@@ -23,14 +23,20 @@ faq:
   - question: "What is DNS TTL?"
     answer: "TTL (Time To Live) is how long DNS records should be cached before re-querying. A 300-second TTL means caches will hold the record for 5 minutes. Lower TTLs enable faster failover but increase DNS query load. Higher TTLs reduce load but mean changes take longer to propagate. Typical values range from 60 seconds to 24 hours."
   - question: "What is the difference between A record and CNAME?"
-    answer: "An A record maps a domain directly to an IPv4 address (example.com → 93.184.216.34). A CNAME creates an alias pointing to another domain (www.example.com → example.com). CNAMEs require an additional DNS lookup to resolve the final IP. A records are terminal; CNAMEs chain to other records."
+    answer: "An A record maps a domain directly to an IPv4 address (example.com to 93.184.216.34). A CNAME creates an alias pointing to another domain (www.example.com to example.com). CNAMEs require an additional DNS lookup to resolve the final IP. A records are terminal; CNAMEs chain to other records."
   - question: "What causes DNS propagation delays?"
     answer: "DNS propagation delays occur because cached records must expire before new ones take effect. If your old TTL was 24 hours, some users will see old IPs for up to 24 hours after a change. To minimize delays, lower your TTL before making changes, wait for the old TTL to expire, then make the change and restore normal TTL."
+  - question: "What is DNS over HTTPS (DoH)?"
+    answer: "DNS over HTTPS encrypts DNS queries inside HTTPS connections, preventing your ISP from seeing which websites you look up. Firefox uses Cloudflare DoH by default. Chrome and Android also support DoH. It provides privacy and protection from DNS spoofing, but bypasses corporate DNS filters and adds slight latency."
 ---
 
-You type `google.com` into your browser. Half a second later, Google's homepage appears. Between those two moments, your computer talked to at least four different servers, checked multiple caches, and navigated a global distributed database with billions of records.
+On July 22, 2021, Akamai's DNS service went down for about an hour. Dozens of major websites, including banks, airlines, and gaming platforms, became unreachable. The servers were fine. The applications were running. But nobody could find them, because DNS stopped translating names to addresses.
 
-That's DNS. It's the phonebook of the internet, but calling it a phonebook is like calling a data center "a room with computers." Let's dig into how DNS actually works, why it matters for developers, and what goes wrong when it breaks.
+DNS is the first thing that happens when you visit any website, and the last thing developers think about until it breaks. It is a distributed database with billions of records, spread across thousands of servers, handling trillions of queries per day. And the whole thing was designed in 1983 to replace a single text file.
+
+This post covers how DNS resolution works under the hood, every caching layer involved, the different record types and when to use them, and how to debug DNS issues when something goes wrong.
+
+> **Looking for the full picture?** DNS is just one step in the journey. If you want to understand everything that happens from typing a URL to seeing pixels on screen, including TCP, TLS, HTTP, server processing, and browser rendering, read [What Happens When You Type a URL in the Browser](/what-happens-when-you-type-url-in-browser/).
 
 ---
 
@@ -565,9 +571,19 @@ As a developer, you don't need to run a DNS server. But you do need to:
 - Optimize DNS performance (reduce lookups, use prefetching, pick fast providers)
 - Debug DNS issues when they happen (dig, trace, monitor)
 
-DNS breaks rarely, but when it does, the internet stops. When you see "DNS_PROBE_FINISHED_NXDOMAIN" or "This site can't be reached," you'll know what's happening.
+DNS breaks rarely, but when it does, the internet stops. When you see "DNS_PROBE_FINISHED_NXDOMAIN" or "This site can't be reached," you will know exactly what is happening and where to look.
 
 ---
 
-**Have questions about DNS? Share them in the comments. I'll answer them.**
+## Further Reading
+
+DNS is just one piece of the puzzle. When you type a URL in the browser, DNS resolution is followed by TCP connections, TLS encryption, HTTP requests, server processing, and browser rendering. Read the full story in [What Happens When You Type a URL in the Browser](/what-happens-when-you-type-url-in-browser/).
+
+For a quick visual reference of all DNS record types, check out the [DNS Records Explained](/explainer/dns-records-explained/) page.
+
+If you are interested in how DNS fits into large-scale infrastructure, see how [Cloudflare handles 55 million requests per second](/how-cloudflare-supports-55-million-requests-per-second/) using anycast routing and global DNS distribution.
+
+---
+
+**Have questions about DNS? Drop them in the comments.**
 

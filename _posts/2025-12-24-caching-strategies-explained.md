@@ -837,6 +837,8 @@ Cache-Control: public, max-age=3600, s-maxage=86400
 # s-maxage: CDN cache for 24 hours
 ```
 
+Those layers sit in the broader path from entering a URL to getting a response and rendering the page; [what happens when you type a URL in the browser](/what-happens-when-you-type-url-in-browser/) ties browser cache and HTTP into that full journey.
+
 ---
 
 ## Key Takeaways

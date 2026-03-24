@@ -235,6 +235,8 @@ Compare to WebSocket which needs:
 
 **Total**: 3-4 RTTs vs WebTransport's 0-1 RTT
 
+That TCP-plus-TLS-plus-HTTP path is the same family of steps browsers use when loading a normal page; [what happens when you type a URL in the browser](/what-happens-when-you-type-url-in-browser/) walks through DNS, those handshakes, and what comes after.
+
 ### Step 2: Multiplexed Communication
 
 This is where the magic happens. Multiple streams operate **independently**.

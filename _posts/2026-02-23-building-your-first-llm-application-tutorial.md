@@ -12,6 +12,7 @@ keywords: "build LLM application, LLM application tutorial, how to build LLM app
 comments: true
 seo: true
 social-share: true
+popular: true
 tags: [ai, software-engineering, tutorial]
 
 quick-answer: "Build your first LLM application in 4 steps: **1) Choose an LLM API** (OpenAI, Anthropic, or local via Ollama), **2) Create a simple backend** (Node.js/Express or Python/FastAPI), **3) Add conversation memory** (store chat history in database or session), **4) Build a frontend** (HTML/JavaScript or React). Use provider-agnostic code so you can switch models. Add error handling, rate limiting, and cost tracking from day one."

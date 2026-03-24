@@ -12,7 +12,6 @@ description: "Learn how large language models generate text step by step. Unders
 keywords: "how LLMs generate text, how large language models work, LLM text generation, transformer architecture explained, next token prediction, tokenization LLM, attention mechanism, self-attention transformer, temperature LLM, top-p sampling, nucleus sampling, GPT architecture, Claude AI, LLM for developers, how ChatGPT works, LLM hallucinations, context window, autoregressive generation, LLM inference, embedding vectors, softmax LLM, greedy decoding, beam search, RLHF, LLM training, fine-tuning LLM, prompt engineering, AI text generation"
 tags: ["AI", "software-engineering"]
 comments: true
-popular: true
 
 quick-answer: "LLMs generate text **one token at a time** in an autoregressive loop. Tokenization → Embedding → Transformer (attention mechanism) → Softmax probabilities → Sample next token → Repeat. **Temperature** controls randomness (low=focused, high=creative). **Top-p** limits sampling pool. LLMs predict likely tokens, not accurate ones - causing hallucinations."
 

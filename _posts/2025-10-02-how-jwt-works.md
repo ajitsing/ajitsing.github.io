@@ -361,6 +361,8 @@ const refreshToken = jwt.sign(payload, secret, { expiresIn: '7d' });
 
 JWT in HTTP = anyone on network can intercept it.
 
+HTTPS is the encrypted channel the browser negotiates after DNS and TCP/TLS setup—[what happens when you type a URL in the browser](/what-happens-when-you-type-url-in-browser/) shows how that fits into loading a page.
+
 ### 4. Validate Everything
 
 ```javascript

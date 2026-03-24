@@ -72,6 +72,8 @@ Cloudflare operates over 330 data centers worldwide, but they all share the same
 
 This isn't just about speed (though getting responses from 50 milliseconds away instead of 200 milliseconds away is huge). It's also about resilience. If a data center goes offline, traffic automatically flows to the next nearest location. No manual failover, no complex orchestration—just the internet doing what it does best.
 
+By the time a request reaches Anycast, the client has usually already done the earlier work—resolving the hostname, opening a connection, and speaking HTTP—which [what happens when you type a URL in the browser](/what-happens-when-you-type-url-in-browser/) traces end to end.
+
 ## The Edge Computing Revolution
 
 While traditional companies centralize their computing in a few large data centers, Cloudflare flipped this model on its head. They push computation to the edge—as close to users as possible.

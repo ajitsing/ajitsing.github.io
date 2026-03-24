@@ -242,6 +242,8 @@ flowchart LR
 | Simple configuration | Content-based routing |
 | TCP/UDP level | HTTP/HTTPS level |
 
+If you want the client-side picture of how DNS, TCP, TLS, and HTTP requests fit together before traffic ever hits a load balancer, see [what happens when you type a URL in the browser](/what-happens-when-you-type-url-in-browser/).
+
 ### Popular Load Balancers
 
 - **Nginx**: Fast, widely used, great for HTTP

@@ -904,4 +904,66 @@ body:has(.chmod-tool) {
   .chmod-tool .octal-filename {
     font-size: 0.82rem;
   }
+
+  .cta-section {
+    padding: 24px 20px;
+  }
+}
+
+/* Learn Link */
+.chmod-tool .tool-intro .learn-link {
+  color: #292524;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.chmod-tool .tool-intro .learn-link:hover {
+  color: #44403c;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.cta-section h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #faf8f5;
+  margin: 0 0 12px 0;
+}
+
+.cta-section p {
+  font-size: 0.95rem;
+  color: #d6d3d1;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #faf8f5;
+  color: #292524;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }

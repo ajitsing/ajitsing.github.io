@@ -185,6 +185,19 @@ hide-explore-posts: true
     },
     {
       "@type": "WebApplication",
+      "name": "ULID Generator & Decoder",
+      "description": "Generate ULIDs (Universally Unique Lexicographically Sortable Identifiers). Decode timestamps, bulk generate, and validate format.",
+      "url": "https://singhajit.com/tools/ulid-generator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "WebApplication",
       "name": "Epoch Timestamp Converter",
       "description": "Convert Unix timestamps to human-readable dates and dates to Unix timestamps. Supports seconds, milliseconds, and multiple output formats.",
       "url": "https://singhajit.com/tools/epoch-converter/",
@@ -275,7 +288,7 @@ hide-explore-posts: true
       }
     }
   ],
-  "numberOfItems": 18,
+  "numberOfItems": 19,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -334,48 +347,54 @@ hide-explore-posts: true
     {
       "@type": "ListItem",
       "position": 10,
+      "url": "https://singhajit.com/tools/ulid-generator/",
+      "name": "ULID Generator & Decoder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
       "url": "https://singhajit.com/tools/epoch-converter/",
       "name": "Epoch Timestamp Converter"
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 12,
       "url": "https://singhajit.com/tools/sla-calculator/",
       "name": "SLA Uptime Calculator"
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 13,
       "url": "https://singhajit.com/tools/url-encoder/",
       "name": "URL Encoder & Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 14,
       "url": "https://singhajit.com/tools/qr-code-generator/",
       "name": "QR Code Generator"
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "url": "https://singhajit.com/tools/lorem-ipsum-generator/",
       "name": "Lorem Ipsum Generator"
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "url": "https://singhajit.com/tools/toml-validator/",
       "name": "TOML Validator & Formatter"
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "url": "https://singhajit.com/tools/chmod-calculator/",
       "name": "Chmod Calculator"
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "url": "https://singhajit.com/tools/text-diff/",
       "name": "Text Diff Checker"
     }
@@ -599,6 +618,25 @@ hide-explore-posts: true
         <div class="tool-features">
           <span class="feature-tag"><i class="fas fa-random"></i> v4 Random</span>
           <span class="feature-tag"><i class="fas fa-clock"></i> v7 Timestamp</span>
+          <span class="feature-tag"><i class="fas fa-layer-group"></i> Bulk</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- ULID Generator & Decoder Tool -->
+    <a href="{{ '/tools/ulid-generator/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'ULID Generator'});">
+      <div class="tool-icon">
+        <i class="fas fa-id-badge"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">ULID Generator & Decoder</h2>
+        <p class="tool-description">Generate ULIDs (sortable unique IDs). Decode timestamps, bulk generate, validate format, and compare ULID vs UUID.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-sort-amount-up"></i> Sortable</span>
+          <span class="feature-tag"><i class="fas fa-clock"></i> Timestamp</span>
           <span class="feature-tag"><i class="fas fa-layer-group"></i> Bulk</span>
         </div>
       </div>

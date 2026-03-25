@@ -1,0 +1,444 @@
+---
+layout: default
+title: "ULID Generator & Decoder | Generate ULIDs Online"
+subtitle: "Generate, decode, and validate ULIDs instantly"
+seo: true
+description: "Free ULID generator and decoder. Generate sortable unique IDs, decode timestamps, bulk generate, and validate. Compare ULID vs UUID. 100% client-side."
+keywords: "ulid generator, ulid decoder, ulid online, generate ulid, ulid to timestamp, ulid vs uuid, ulid format, ulid validator, ulid bulk generator, ulid converter, ulid timestamp, ulid crockford base32, what is ulid, universally unique lexicographically sortable identifier, ulid generator online, free ulid tool, ulid decoder online, decode ulid timestamp"
+thumbnail: /assets/img/tools/ulid-generator-thumbnail.png
+share-img: /assets/img/tools/ulid-generator-thumbnail.png
+permalink: /tools/ulid-generator/
+social-share: true
+hide-explore-posts: true
+---
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ULID Generator & Decoder",
+  "alternateName": ["ULID Generator", "ULID Decoder", "ULID Generator Online", "ULID Validator", "ULID to Timestamp", "ULID Converter", "Bulk ULID Generator", "ULID Online Tool", "ULID Timestamp Decoder"],
+  "description": "Free online ULID generator and decoder. Generate ULIDs instantly, decode timestamps, bulk generate, and validate format. 100% client-side.",
+  "url": "https://singhajit.com/tools/ulid-generator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Generate ULIDs with one click",
+    "Bulk generate up to 100 ULIDs at once",
+    "Decode any ULID to extract timestamp",
+    "Validate ULID format",
+    "Copy single or bulk ULIDs to clipboard",
+    "Monotonic ULID generation for same-millisecond ordering",
+    "Visual breakdown of ULID structure (timestamp + randomness)",
+    "100% client-side, no data sent to servers",
+    "Free to use with no signup required"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/ulid-generator-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "ULID Reference",
+    "text": "ULID (Universally Unique Lexicographically Sortable Identifier) is a 128-bit identifier encoded as a 26-character Crockford Base32 string. The first 10 characters encode a 48-bit Unix timestamp in milliseconds, and the last 16 characters encode 80 bits of randomness. ULIDs are sortable by creation time and case-insensitive."
+  },
+  "keywords": "ulid generator, ulid decoder, ulid online, generate ulid, ulid to timestamp, ulid vs uuid, ulid format, ulid validator"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Generate a ULID Online",
+  "description": "Learn how to generate and decode ULIDs using this free online ULID generator tool.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Generate a ULID",
+      "text": "Click the Generate button to create a new ULID. Each ULID contains a millisecond-precision timestamp and 80 bits of randomness, encoded as a 26-character Crockford Base32 string."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Bulk generate ULIDs",
+      "text": "Use the Bulk Generate section to create up to 100 ULIDs at once. All ULIDs generated in the same millisecond are monotonically ordered."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Decode or validate a ULID",
+      "text": "Paste any ULID into the decoder to extract the embedded timestamp, see the binary breakdown, and validate the format. The tool shows the creation time in UTC, local time, and Unix milliseconds."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "ULID Generator & Decoder"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a ULID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A ULID (Universally Unique Lexicographically Sortable Identifier) is a 128-bit unique identifier that combines a 48-bit millisecond timestamp with 80 bits of randomness. It is encoded as a 26-character Crockford Base32 string. ULIDs are time-sortable, URL-safe, and case-insensitive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between ULID and UUID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ULIDs are 26 characters (Crockford Base32) while UUIDs are 36 characters (hex with hyphens). ULIDs are always time-sortable because the timestamp comes first. UUID v4 is random and not sortable. UUID v7 is sortable but still uses the longer hex format. ULIDs are also case-insensitive and URL-safe without encoding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are ULIDs sortable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ULIDs are lexicographically sortable by creation time. The first 10 characters encode the timestamp, so string sorting naturally orders ULIDs chronologically. This makes them ideal for database primary keys where time-ordering improves query performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I extract a timestamp from a ULID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first 10 characters of a ULID encode a 48-bit Unix timestamp in milliseconds using Crockford Base32. Decode those 10 characters to get the timestamp. This tool does it automatically when you paste a ULID into the decoder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Crockford Base32?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crockford Base32 is an encoding that uses 32 characters: 0123456789ABCDEFGHJKMNPQRSTVWXYZ. It excludes I, L, O, and U to avoid confusion with 1, 1, 0, and V. It is case-insensitive and produces shorter strings than hexadecimal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use ULIDs as database primary keys?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ULIDs are excellent database primary keys. They are time-sortable, so new records insert at the end of B-tree indexes without causing page splits. They are globally unique without coordination, and at 26 characters they are shorter than UUIDs (36 characters)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is monotonic ULID generation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monotonic generation ensures that ULIDs created in the same millisecond are still strictly ordered. Instead of using random bits, the randomness portion is incremented by 1 for each ULID generated within the same millisecond. This guarantees sort order even at high throughput."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many ULIDs can be generated per millisecond?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With 80 bits of randomness, there are 1.21 x 10^24 possible ULIDs per millisecond. With monotonic generation, the practical limit depends on increments but is effectively unlimited for real-world use cases. Collisions are statistically impossible."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ULID Generator & Decoder",
+      "item": "https://singhajit.com/tools/ulid-generator/"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="{{ '/assets/css/tools-sidebar.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/ulid-tool.css' | relative_url }}">
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="ulid-page-wrapper">
+  <div class="ulid-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-id-badge"></i>
+        ULID Generator & Decoder
+      </h1>
+      <p class="tool-subtitle">Generate, decode, and validate ULIDs instantly</p>
+    </header>
+
+<p class="tool-intro">
+  Free <strong>ULID generator</strong> to create universally unique, lexicographically sortable identifiers. Generate single or bulk <strong>ULIDs</strong>, decode timestamps, and validate format. 100% client-side, your data never leaves your browser.
+</p>
+
+    <section class="ulid-main">
+      <!-- Generator Section -->
+      <div class="tool-section">
+        <div class="section-header">
+          <label><i class="fas fa-plus-circle"></i> Generate ULID</label>
+        </div>
+
+        <div class="generator-row">
+          <button id="generate-btn" class="btn-primary">
+            <i class="fas fa-sync-alt"></i>
+            Generate
+          </button>
+          <label class="checkbox-label">
+            <input type="checkbox" id="lowercase-toggle">
+            <span>Lowercase</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="monotonic-toggle" checked>
+            <span>Monotonic</span>
+          </label>
+        </div>
+
+        <!-- Single ULID Output -->
+        <div class="ulid-output" id="single-output">
+          <div class="ulid-display" id="ulid-display">
+            <span class="ulid-text" id="ulid-text">Click Generate to create a ULID</span>
+            <button class="btn-copy" id="copy-single-btn" title="Copy ULID">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="ulid-meta" id="ulid-meta"></div>
+        </div>
+      </div>
+
+      <!-- Bulk Generator Section -->
+      <div class="tool-section">
+        <div class="section-header">
+          <label><i class="fas fa-layer-group"></i> Bulk Generate</label>
+        </div>
+
+        <div class="bulk-row">
+          <select id="bulk-count">
+            <option value="5">5 ULIDs</option>
+            <option value="10" selected>10 ULIDs</option>
+            <option value="25">25 ULIDs</option>
+            <option value="50">50 ULIDs</option>
+            <option value="100">100 ULIDs</option>
+          </select>
+          <button id="bulk-btn" class="btn-primary">
+            <i class="fas fa-layer-group"></i>
+            Generate
+          </button>
+          <button class="btn-copy" id="copy-bulk-btn" title="Copy all ULIDs" style="display:none;">
+            <i class="fas fa-copy"></i> Copy All
+          </button>
+          <span id="bulk-count-label" class="bulk-count-label"></span>
+        </div>
+
+        <div id="bulk-output" style="display:none;">
+          <pre class="bulk-list" id="bulk-list"></pre>
+        </div>
+      </div>
+
+      <!-- Decoder Section -->
+      <div class="tool-section">
+        <div class="section-header">
+          <label><i class="fas fa-search"></i> Decode & Validate ULID</label>
+        </div>
+        <div class="decoder-input-container">
+          <input
+            type="text"
+            id="decode-input"
+            placeholder="Paste a ULID to decode (e.g., 01ARZ3NDEKTSV4RRFFQ69G5FAV)"
+            spellcheck="false"
+            autocomplete="off"
+          >
+          <button id="decode-btn" class="btn-primary">
+            <i class="fas fa-search"></i> Decode
+          </button>
+        </div>
+        <div id="decode-result" class="decode-result" style="display:none;"></div>
+      </div>
+    </section>
+
+    <!-- Structure Reference -->
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> ULID Structure</h3>
+      <div class="structure-diagram">
+        <div class="structure-bar">
+          <div class="structure-segment timestamp-seg">
+            <span class="seg-label">Timestamp</span>
+            <span class="seg-detail">48 bits / 10 chars</span>
+          </div>
+          <div class="structure-segment random-seg">
+            <span class="seg-label">Randomness</span>
+            <span class="seg-detail">80 bits / 16 chars</span>
+          </div>
+        </div>
+        <div class="structure-example">
+          <code><span class="ts-highlight">01ARZ3NDEK</span><span class="rand-highlight">TSV4RRFFQ69G5FAV</span></code>
+        </div>
+      </div>
+
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>ULID Format</h4>
+          <table>
+            <tr><td>Length</td><td>26 characters</td></tr>
+            <tr><td>Encoding</td><td>Crockford Base32</td></tr>
+            <tr><td>Size</td><td>128 bits (16 bytes)</td></tr>
+            <tr><td>Sortable</td><td>Yes, lexicographically</td></tr>
+            <tr><td>Case</td><td>Case-insensitive</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>ULID vs UUID</h4>
+          <table>
+            <tr><td>Length</td><td>ULID: 26, UUID: 36</td></tr>
+            <tr><td>Sortable</td><td>ULID: Always, UUID v4: No</td></tr>
+            <tr><td>Encoding</td><td>ULID: Base32, UUID: Hex</td></tr>
+            <tr><td>Timestamp</td><td>ULID: Always, UUID v4: No</td></tr>
+            <tr><td>URL-safe</td><td>ULID: Yes, UUID: Needs encoding</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> ULID Guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a ULID?</h2>
+          <p><strong>ULID (Universally Unique Lexicographically Sortable Identifier)</strong> is a 128-bit identifier that combines a timestamp with randomness. It is encoded as a 26-character string using Crockford Base32. Unlike UUID v4 which is random and unsortable, ULIDs are always sorted by creation time when you sort them as strings.</p>
+          <p>ULIDs were created as a modern alternative to UUIDs for cases where time-ordering matters, like database primary keys, event logs, and distributed systems.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>How ULIDs Work</h2>
+          <p>A ULID has two parts:</p>
+          <ul>
+            <li><strong>Timestamp (48 bits, 10 chars):</strong> Unix time in milliseconds. This is always the first part, so string sorting equals time sorting.</li>
+            <li><strong>Randomness (80 bits, 16 chars):</strong> Cryptographically random data for uniqueness within the same millisecond.</li>
+          </ul>
+          <p>The encoding uses Crockford Base32, which excludes the letters I, L, O, and U to avoid visual confusion with digits. This makes ULIDs easy to read, copy, and type.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Monotonic ULIDs</h2>
+          <p>When multiple ULIDs are generated in the same millisecond, the random portion can either be fully random (which doesn't guarantee sort order within that ms) or <strong>monotonically incremented</strong>.</p>
+          <p>Monotonic generation takes the previous ULID's random bits and adds 1. This guarantees strict ordering even when generating thousands of IDs per millisecond. Most ULID libraries support this mode.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>ULID vs UUID: When to Use Which</h2>
+          <ul>
+            <li><strong>Use ULID</strong> when you need sortable IDs, shorter strings, or better database index performance.</li>
+            <li><strong>Use UUID v4</strong> when you need maximum compatibility with existing systems that expect UUID format.</li>
+            <li><strong>Use UUID v7</strong> as a middle ground: sortable like ULID but in the standard UUID format.</li>
+          </ul>
+          <p>Generate UUIDs with our <a href="/tools/uuid-generator/">UUID Generator</a> or decode distributed IDs with the <a href="/tools/snowflake-decoder/">Snowflake ID Decoder</a>.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Crockford Base32 Encoding</h2>
+          <p>ULIDs use Crockford Base32 which encodes 5 bits per character using this alphabet:</p>
+          <p><code>0123456789ABCDEFGHJKMNPQRSTVWXYZ</code></p>
+          <ul>
+            <li><strong>No I</strong> (confused with 1 or l)</li>
+            <li><strong>No L</strong> (confused with 1 or I)</li>
+            <li><strong>No O</strong> (confused with 0)</li>
+            <li><strong>No U</strong> (could be offensive in some combinations)</li>
+          </ul>
+          <p>This results in 26 characters for 128 bits, compared to 36 characters for a UUID. ULIDs are case-insensitive: <code>01ARZ3NDEK</code> and <code>01arz3ndek</code> are the same ULID.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> ULID Generator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a ULID?</h3>
+        <p>A <strong>ULID</strong> is a 128-bit unique identifier encoded as 26 Crockford Base32 characters. It combines a 48-bit millisecond timestamp with 80 bits of randomness. ULIDs are sortable by creation time, case-insensitive, and URL-safe.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between ULID and UUID?</h3>
+        <p>ULIDs are 26 characters (Base32), always sortable, and always contain a timestamp. UUIDs are 36 characters (hex), and only v1 and v7 contain timestamps. UUID v4, the most common version, is random and not sortable. ULIDs are shorter and better for database primary keys.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Are ULIDs sortable?</h3>
+        <p>Yes. The timestamp is encoded first, so standard string sorting puts ULIDs in chronological order. This is the main advantage over UUID v4.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I use ULIDs as database primary keys?</h3>
+        <p>Yes, and they work great. Because ULIDs are time-sorted, new rows always append to the end of B-tree indexes. This avoids the page splits and fragmentation that random UUIDs cause.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is Crockford Base32?</h3>
+        <p>An encoding that uses 32 characters: digits 0-9 and letters A-Z excluding I, L, O, U. It avoids characters that look similar (I vs 1, O vs 0). It is case-insensitive and produces shorter strings than hexadecimal.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is monotonic ULID generation?</h3>
+        <p>When multiple ULIDs are generated in the same millisecond, monotonic mode increments the random portion instead of generating new random bits. This guarantees strict sort order within the same millisecond.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can two ULIDs ever collide?</h3>
+        <p>With 80 bits of randomness per millisecond, collisions are practically impossible. You would need to generate about 1.21 x 10<sup>12</sup> ULIDs in the same millisecond for a 50% collision chance. With monotonic generation, collisions are impossible by design.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is it safe to generate ULIDs online?</h3>
+        <p>Yes. This tool uses <code>crypto.getRandomValues()</code> for cryptographically secure randomness. All ULIDs are generated entirely in your browser. No data is sent to any server.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+{% include tool-hide-empty-ads.html %}
+
+<script src="{{ '/assets/js/ulid-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

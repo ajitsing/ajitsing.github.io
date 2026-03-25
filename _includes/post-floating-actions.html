@@ -156,6 +156,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var clapBtn = document.querySelector('applause-button');
   if (clapBtn) {
+    var userClapCount = 0;
+
+    clapBtn.addEventListener('clapped', function(e) {
+      userClapCount = e.detail.clapCount;
+    });
+
+    if (clapBtn.initialClapCount) {
+      clapBtn.initialClapCount.then(function() {
+        if (userClapCount > 0) {
+          var countEl = clapBtn.querySelector('.clap-count');
+          if (countEl) {
+            var displayed = Number(countEl.textContent.replace(/,/g, ''));
+            if (displayed < userClapCount) {
+              countEl.textContent = userClapCount.toLocaleString('en');
+              countEl.classList.remove('visually-hidden');
+            }
+          }
+        }
+      });
+    }
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden' && clapBtn._bufferedClaps > 0) {
+        var claps = Math.min(clapBtn._bufferedClaps, 10 - (clapBtn._totalClaps || 0));
+        if (claps > 0) {
+          var apiUrl = (clapBtn.api || 'https://applause.chabouis.fr') +
+            '/update-claps' + (clapBtn.url ? '?url=' + encodeURIComponent(clapBtn.url) : '');
+          navigator.sendBeacon(apiUrl,
+            new Blob([JSON.stringify(claps + ',4.0.7')], { type: 'text/plain' }));
+          clapBtn._bufferedClaps = 0;
+        }
+      }
+    });
+
     clapBtn.addEventListener('click', function() {
       if (typeof gtag === 'function') {
         gtag('event', 'clap', {

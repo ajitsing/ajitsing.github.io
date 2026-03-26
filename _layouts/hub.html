@@ -5,7 +5,9 @@ hide-explore-posts: true
 
 {% include header.html type="page" %}
 
-{% if page.hub-tag %}
+{% if page.hub-collection %}
+  {% assign hub_posts = site[page.hub-collection] | sort: "date" | reverse %}
+{% elsif page.hub-tag %}
   {% assign hub_posts = site.posts | where_exp: "post", "post.tags contains page.hub-tag" | sort: "date" | reverse %}
 {% else %}
   {% assign hub_posts = site.posts | where_exp: "post", "post.categories contains page.hub-category" | sort: "date" | reverse %}
@@ -112,6 +114,10 @@ hide-explore-posts: true
                   <div class="hub-card-image">
                     <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
                   </div>
+                  {% elsif post.thumbnail %}
+                  <div class="hub-card-image">
+                    <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                  </div>
                   {% elsif post.share-img %}
                   <div class="hub-card-image">
                     <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
@@ -167,6 +173,10 @@ hide-explore-posts: true
               {% if post.thumbnail-img %}
               <div class="hub-card-image">
                 <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+              </div>
+              {% elsif post.thumbnail %}
+              <div class="hub-card-image">
+                <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" loading="lazy">
               </div>
               {% elsif post.share-img %}
               <div class="hub-card-image">

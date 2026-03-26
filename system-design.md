@@ -12,7 +12,7 @@ permalink: /system-design/
 social-share: true
 hub-icon: "fas fa-server"
 hub-category: "system-design"
-hub-intro: "Real-world architecture breakdowns of how companies like Uber, Stripe, and WhatsApp handle millions of users. Each case study dissects the actual systems load balancing strategies, database choices, caching layers, and the trade-offs engineers made under real constraints."
+hub-intro: "Real-world architecture breakdowns of how companies like Uber, Stripe, and WhatsApp handle millions of users. Each case study dissects the actual systems: load balancing strategies, database choices, caching layers, and the trade-offs engineers made under real constraints."
 hub-topics:
   - "System Design"
   - "Distributed Systems"

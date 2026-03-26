@@ -12,7 +12,7 @@ permalink: /design-patterns/
 social-share: true
 hub-icon: "fas fa-cubes"
 hub-category: "design-patterns"
-hub-intro: "The 23 Gang of Four patterns explained with practical Java code and real-world use cases. Each article breaks down when to use the pattern, how it works internally, and where you'll find it in production frameworks like Spring, JDK, and Android. Organized by Creational, Structural, and Behavioral categories."
+hub-intro: "The 23 Gang of Four patterns explained with practical Java code and real-world use cases. Each article breaks down when to use the pattern, how it works under the hood, and where it appears in production frameworks like Spring, JDK, and Android. Organized by Creational, Structural, and Behavioral categories."
 hub-topics:
   - "Design Patterns"
   - "Software Architecture"

@@ -12,7 +12,7 @@ permalink: /software-development-news/
 social-share: true
 hub-icon: "fas fa-newspaper"
 hub-tag: "dev-weekly"
-hub-intro: "A weekly roundup of what's happening in the software development world. New tools, language updates, framework releases, industry trends, and the stories shaping how we build software -- curated and summarized so you can stay current without the noise."
+hub-intro: "A weekly roundup of what is happening in the software development world. New tools, language updates, framework releases, industry trends, and the stories shaping how we build software. Curated and summarized so you can stay current without the noise."
 hub-topics:
   - "Software Development News"
   - "Technology Trends"

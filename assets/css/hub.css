@@ -1,0 +1,391 @@
+/* Hub Page Styles */
+
+.hub-container {
+  max-width: 1162px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --- Hub Intro Section --- */
+
+.hub-intro {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.hub-intro-content p {
+  margin: 0 0 1rem 0;
+  color: #555;
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.hub-intro-count {
+  display: inline-block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0085A1;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.hub-intro-icon {
+  display: none;
+}
+
+/* --- Hub Layout (Main + Sidebar) --- */
+
+.hub-layout {
+  display: flex;
+  gap: 3rem;
+}
+
+.hub-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.hub-sidebar {
+  width: 342px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+/* --- Hub Section Headers (for sub-grouped hubs) --- */
+
+.hub-section {
+  margin-bottom: 2.5rem;
+}
+
+.hub-section:last-child {
+  margin-bottom: 0;
+}
+
+.hub-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.hub-section-title i {
+  color: #0085A1;
+  font-size: 1.15rem;
+}
+
+.hub-section-desc {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.6;
+}
+
+/* --- Card Grid --- */
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hub-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.hub-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hub-card-link:hover,
+.hub-card-link:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Card Image */
+
+.hub-card-image {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.hub-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hub-card:hover .hub-card-image img {
+  transform: scale(1.05);
+}
+
+.hub-card-image::after {
+  content: 'Read article →';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 16px 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hub-card:hover .hub-card-image::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hub-card-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+
+/* Card Content */
+
+.hub-card-content {
+  flex: 1;
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hub-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #1a202c;
+  margin: 0 0 0.6rem 0;
+  transition: color 0.2s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hub-card:hover .hub-card-title {
+  color: #0085A1;
+}
+
+.hub-card-excerpt {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hub-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.hub-card-meta time {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.hub-card-tag {
+  font-size: 0.7rem;
+  color: #6b7280;
+  background: #f2f2f2;
+  padding: 0.15rem 0.55rem;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+/* --- In-Grid Ad --- */
+
+.hub-in-grid-ad {
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 170px;
+}
+
+.hub-in-grid-ad .adsbygoogle {
+  width: 100%;
+  display: block;
+}
+
+/* --- Bottom Ad --- */
+
+.hub-bottom-ad {
+  margin: 2.5rem 0 2rem;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.hub-bottom-ad .adsbygoogle {
+  width: 100%;
+  display: block;
+}
+
+/* --- Empty State --- */
+
+.hub-empty {
+  text-align: center;
+  padding: 3rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  color: #6b7280;
+}
+
+.hub-empty p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 1199px) {
+  .hub-container {
+    max-width: 780px;
+  }
+
+  .hub-sidebar {
+    display: none;
+  }
+
+  .hub-main {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .hub-container {
+    max-width: 1082px;
+  }
+
+  .hub-layout {
+    gap: 2rem;
+  }
+
+  .hub-sidebar {
+    width: 342px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hub-container {
+    max-width: 1192px;
+  }
+
+  .hub-layout {
+    gap: 3.5rem;
+  }
+
+  .hub-sidebar {
+    width: 342px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hub-container {
+    padding: 0 0.75rem;
+  }
+
+  .hub-intro-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .hub-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .hub-card-image {
+    height: 160px;
+  }
+
+  .hub-card-content {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .hub-card-title {
+    font-size: 1.05rem;
+  }
+
+  .hub-card-excerpt {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .hub-section-title {
+    font-size: 1.2rem;
+  }
+
+  .hub-bottom-ad {
+    margin: 2rem 0 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-card-image {
+    height: 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-card,
+  .hub-card-image img,
+  .hub-card-image::after,
+  .hub-card-title {
+    transition: none;
+  }
+}

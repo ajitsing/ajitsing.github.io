@@ -5,7 +5,11 @@ hide-explore-posts: true
 
 {% include header.html type="page" %}
 
-{% assign hub_posts = site.posts | where_exp: "post", "post.categories contains page.hub-category" | sort: "date" | reverse %}
+{% if page.hub-tag %}
+  {% assign hub_posts = site.posts | where_exp: "post", "post.tags contains page.hub-tag" | sort: "date" | reverse %}
+{% else %}
+  {% assign hub_posts = site.posts | where_exp: "post", "post.categories contains page.hub-category" | sort: "date" | reverse %}
+{% endif %}
 
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 

@@ -12,8 +12,6 @@ description: "Complete breakdown of X's open source recommendation algorithm. Le
 keywords: "X algorithm, Twitter algorithm, For You feed, recommendation system, machine learning ranking, Grok transformer, xAI algorithm, social media algorithm, content recommendation, personalization engine, feed ranking, Twitter recommendation"
 tags: [system-design]
 comments: true
-featured: true
-popular: true
 
 quick-answer: "X's For You algorithm: **Candidate sourcing** (500M daily posts → ~1,500 candidates from follows + ML discovery), **Ranking** (Grok-based Phoenix transformer predicts engagement), **Filtering** (remove duplicates, blocked content, apply diversity). Written in Rust (62.9%) + Python (37.1%). Two-Tower model finds out-of-network content."
 

@@ -13,7 +13,6 @@ keywords: "model context protocol, MCP, MCP explained, what is MCP, MCP server, 
 tags: ["AI", "software-engineering"]
 comments: true
 social-share: true
-popular: true
 
 quick-answer: "MCP (Model Context Protocol) is an open standard by Anthropic that gives AI applications a universal way to connect to external tools and data sources. Think of it as **USB-C for AI**: instead of building custom integrations for every tool, you build one MCP server and any MCP-compatible host (Cursor, Claude, VS Code, ChatGPT) can use it. The protocol runs on **JSON-RPC 2.0** and defines three primitives: **Tools** (actions the model can call), **Resources** (data the model can read), and **Prompts** (reusable templates). Communication happens over **stdio** (local) or **Streamable HTTP** (remote)."
 

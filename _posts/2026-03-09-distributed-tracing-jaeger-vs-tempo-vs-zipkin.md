@@ -13,7 +13,6 @@ keywords: "distributed tracing, distributed tracing tools, Jaeger vs Zipkin, Jae
 comments: true
 social-share: true
 tags: [devops, system-design, software-engineering]
-popular: true
 
 quick-answer: "**Zipkin** if you need something running in under five minutes for learning or a small project. **Jaeger** if you want a battle-tested, standalone tracing backend with rich visualization, adaptive sampling, and a service dependency graph. **Grafana Tempo** if you are already on the Grafana stack and need cheap, high-volume trace retention backed by object storage like S3 or GCS."
 

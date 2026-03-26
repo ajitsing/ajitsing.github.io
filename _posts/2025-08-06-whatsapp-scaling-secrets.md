@@ -13,6 +13,7 @@ keywords: "WhatsApp system design, WhatsApp architecture, messaging app architec
 comments: true
 seo: true
 social-share: true
+popular: true
 tags: [system-design]
 
 quick-answer: "WhatsApp scaled to 2 billion users with 50 engineers by using **Erlang** (lightweight processes handling 2M+ connections per server), **Mnesia** (in-memory distributed database), and **FreeBSD** (superior networking). Each user gets a dedicated Erlang process, enabling direct process-to-process message delivery with minimal overhead."

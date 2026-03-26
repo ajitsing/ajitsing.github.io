@@ -13,6 +13,7 @@ keywords: "distributed counter, distributed counter system design, sharded count
 tags: [system-design]
 seo: true
 comments: true
+popular: true
 
 quick-answer: "Design distributed counters using **sharded counters** (split count across multiple shards to avoid hotspots), **local aggregation** (batch updates locally before syncing), or **CRDTs** (conflict-free replicated data types). For high-traffic like social media likes, sharded counters with periodic aggregation offer the best write throughput."
 

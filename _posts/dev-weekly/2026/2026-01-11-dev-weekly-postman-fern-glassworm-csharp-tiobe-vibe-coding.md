@@ -11,7 +11,7 @@ thumbnail-img: /assets/img/posts/dev_weekly/tech-news-5-11jan-2026.png
 description: "GlassWorm malware targets macOS developers via malicious VS Code extensions. C# named TIOBE Language of the Year 2025. Postman acquires Fern. Senior dev salaries hit $235K as shortage worsens 40%. Weekly developer news Jan 5-11, 2026."
 keywords: "GlassWorm malware VS Code extensions, macOS developer security threat 2026, C# TIOBE language of year 2025, Postman acquires Fern API documentation, developer shortage 2026 salaries, senior JavaScript developer salary $235K, vibe coding mainstream, Red Hat Nvidia AI partnership, Keeper Security JetBrains secrets, KubeCon Europe 2026 Amsterdam, dev weekly January 2026"
 comments: true
-featured: true
+
 tags: ["dev-weekly", "tech-news", "software-development-news"]
 faq:
   - question: "What is Fern and why did Postman acquire it?"

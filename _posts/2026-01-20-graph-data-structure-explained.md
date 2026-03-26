@@ -12,7 +12,6 @@ description: "Learn graph data structure from basics to advanced. Understand adj
 keywords: "graph data structure, directed acyclic graphs, adjacency list, adjacency list graph, adjacency list in data structure, adjacency list representation of graph, adjacency matrix, bfs and dfs in data structure, BFS DFS, bfs time complexity o(v+e) adjacency list, dfs time complexity o(v+e) adjacency list, dfs time complexity adjacency list, dfs adjacency list, bfs adjacency list, bfs time complexity adjacency list, graph algorithms, Dijkstra algorithm, Union-Find, Kruskal algorithm, Prim algorithm, graph traversal, shortest path algorithm, topological sort, minimum spanning tree, graph fundamentals, graph algorithm implementation, adjacency list vs matrix, cycle detection, connected components, graph algorithm complexity, DAG, graph representation, graph data structure explained, graph theory algorithms"
 tags: [data-structures, algorithms]
 comments: true
-popular: true
 
 quick-answer: "Graphs = nodes + edges. **Adjacency list** = O(V+E) space, best for sparse graphs. **Adjacency matrix** = O(V²) space, fast edge lookup. **BFS** = level-by-level, shortest path in unweighted graphs. **DFS** = go deep, used for cycle detection and topological sort. **DAG** (directed acyclic graph) = can be topologically sorted."
 

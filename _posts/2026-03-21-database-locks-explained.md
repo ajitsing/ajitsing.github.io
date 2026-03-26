@@ -13,7 +13,6 @@ keywords: "database locks, database locking, what is database lock, row level lo
 tags: [database, software-engineering]
 comments: true
 social-share: true
-popular: true
 
 quick-answer: "Database locks prevent concurrent transactions from corrupting data. **Shared locks** allow multiple readers. **Exclusive locks** block everyone else for writes. Lock granularity ranges from **row-level** (high concurrency) to **table-level** (low overhead). **Pessimistic locking** grabs locks upfront with `SELECT FOR UPDATE`. **Optimistic locking** uses version columns and checks at commit time. **MVCC** lets readers and writers work without blocking each other. **Deadlocks** happen when transactions wait on each other in a cycle. The database kills one to break the cycle."
 

@@ -165,7 +165,7 @@ The whole point of RAG is context engineering. You are retrieving relevant docum
 
 ### AI Agents
 
-Agents that can use tools need context about what tools are available and when to use them. As they work through multi-step tasks, they accumulate context from previous steps. Managing this growing context is critical. Perplexity Computer solves this with a modular skill system that loads domain-specific instructions on demand. For a full architecture breakdown, see [Inside Perplexity Computer](/perplexity-computer-explained/).
+Agents that can use tools need context about what tools are available and when to use them. As they work through multi-step tasks, they accumulate context from previous steps. Managing this growing context is critical. The [Model Context Protocol (MCP)](/model-context-protocol-mcp-explained/) standardizes how agents discover and use tools, making tool definitions a first-class part of the context. Perplexity Computer solves this with a modular skill system that loads domain-specific instructions on demand. For a full architecture breakdown, see [Inside Perplexity Computer](/perplexity-computer-explained/).
 
 ## Common Mistakes
 

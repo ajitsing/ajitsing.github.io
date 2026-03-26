@@ -841,4 +841,5 @@ The best way to learn is to build. Start simple and add complexity only when you
 - [Understanding AI Agents](https://www.microsoft.com/en-us/research/blog/autogen-enabling-next-gen-llm-applications-via-multi-agent-conversation/) by Microsoft Research
 - [Self-Hosted AI Agents with Moltworker](/moltworker-self-hosted-ai-agent/) - Run your own AI agent locally or on Cloudflare Workers
 - [Claude Cowork Guide](/claude-cowork-guide/) - Anthropic's desktop agent for knowledge work and multi-agent orchestration
+- [Model Context Protocol (MCP) Explained](/model-context-protocol-mcp-explained/) - The open standard that standardizes how AI agents connect to tools, databases, and APIs
 

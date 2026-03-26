@@ -983,5 +983,6 @@ Building LLM applications is not magic. It is software engineering with a new ty
 - [Running LLMs Locally](/running-llms-locally/) - Use local models for privacy and cost savings
 - [Context Engineering](/context-engineering/) - Optimize prompts and context windows
 - [LLM Inference Speed Comparison](/llm-inference-speed-comparison/) - Benchmark different models
+- [Model Context Protocol (MCP) Explained](/model-context-protocol-mcp-explained/) - Standardize how your LLM application connects to tools and data sources
 
 *Have questions about building LLM applications? Share your experience in the comments below.*

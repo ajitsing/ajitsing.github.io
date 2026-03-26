@@ -1003,5 +1003,6 @@ Build the simplest thing that works. Add complexity only when you have evidence 
 - [How Kafka Works](/distributed-systems/how-kafka-works/) - Event streaming for event-driven agent patterns
 - [Distributed Tracing: Jaeger vs Tempo vs Zipkin](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/) - Observability for multi-agent systems
 - [Mediator Design Pattern](/design-patterns/mediator/) - The design pattern behind the Supervisor orchestration approach
+- [Model Context Protocol (MCP) Explained](/model-context-protocol-mcp-explained/) - The protocol that standardizes how agents connect to external tools and data sources
 - [Google's Scaling Principles for Agentic Architectures](https://www.infoq.com/news/2026/03/google-multi-agent/) - Research on when multi-agent helps vs hurts
 - [What We Learned Deploying AI Agents in Production for 12 Months](https://viqus.ai/blog/ai-agents-production-lessons-2026) - Hard-won production lessons

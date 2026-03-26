@@ -13,7 +13,6 @@ keywords: "redis vs dragonfly, redis vs keydb, dragonfly vs redis, keydb vs redi
 comments: true
 social-share: true
 tags: [database, system-design, software-engineering]
-popular: true
 
 quick-answer: "**Redis** if you need maximum ecosystem compatibility, Redis Modules (Search, JSON, TimeSeries), or your team is already running Redis. **DragonflyDB** if you want to eliminate Redis Cluster, reduce memory costs, and get 10-25x higher throughput on the same hardware. **KeyDB** if you want a conservative multithreaded upgrade from Redis with active replication and an open-source license."
 

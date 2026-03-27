@@ -1,0 +1,42 @@
+{% if page.layout == 'post' %}
+{% assign current_category = page.categories.first %}
+{% if current_category and site.hub-pages[current_category] %}
+{% assign hub = site.hub-pages[current_category] %}
+
+<nav class="post-breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'Breadcrumb', 'event_label': 'Home'});">Home</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="{{ hub.url | relative_url }}" onclick="gtag('event', 'click', {'event_category': 'Breadcrumb', 'event_label': '{{ hub.name | escape }}'});">{{ hub.name }}</a>
+</nav>
+{% endif %}
+
+<style>
+.post-breadcrumb {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+}
+
+.post-breadcrumb a {
+  color: #0085A1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.post-breadcrumb a:hover {
+  color: #006d85;
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  margin: 0 0.35rem;
+  color: #cbd5e1;
+  font-size: 0.85em;
+}
+</style>
+{% endif %}

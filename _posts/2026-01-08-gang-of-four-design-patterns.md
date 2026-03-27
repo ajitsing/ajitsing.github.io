@@ -332,5 +332,6 @@ Learn the patterns. Understand when they apply. Then use your judgment.
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) by Freeman and Robson (more approachable introduction)
 - [Refactoring Guru: Design Patterns](https://refactoring.guru/design-patterns) (excellent online reference with examples in multiple languages)
 - [Source Making: Design Patterns](https://sourcemaking.com/design_patterns) (another solid online reference)
+- [Flutter Under the Hood](/flutter-under-the-hood/) - See Composite, Observer, and Builder patterns in action inside Flutter's three-tree architecture
 
 

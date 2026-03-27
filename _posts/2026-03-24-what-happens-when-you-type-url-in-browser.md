@@ -663,4 +663,5 @@ These metrics directly affect your Google search ranking. A page that loads fast
 - [How Cloudflare Handles 55M RPS](/how-cloudflare-supports-55-million-requests-per-second/) - CDN architecture, anycast routing, and connection pooling
 - [How JWT Works](/how-jwt-works/) - Session management and token-based authentication
 - [Distributed Tracing: Jaeger vs Tempo vs Zipkin](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/) - Tracing requests across services
+- [Flutter Under the Hood](/flutter-under-the-hood/) - How Flutter uses a similar tree-based rendering pipeline to turn Dart code into pixels
 - [System Design Cheat Sheet](/system-design-cheat-sheet/) - Concepts every developer should know

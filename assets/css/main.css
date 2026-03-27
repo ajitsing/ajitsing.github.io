@@ -1380,6 +1380,10 @@ footer .footer-custom-content {
 
 table {
   padding: 0;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 table tr {
   border-top: 1px solid #cccccc;

@@ -1,40 +1,45 @@
 <section class="category-filters">
-  <div class="nav-pills-row">
-    <a href="{{ '/explainers/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Explainers'});">
-      <i class="fas fa-lightbulb"></i> Explainers
-    </a>
-    <a href="{{ '/software-development-news/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Weekly'});">
-      <i class="fas fa-newspaper"></i> Dev Weekly
-    </a>
-    <a href="{{ '/system-design/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'System Design'});">
-      <i class="fas fa-cubes"></i> System Design
-    </a>
-    <a href="{{ '/design-patterns/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Design Patterns'});">
-      <i class="fas fa-puzzle-piece"></i> Design Patterns
-    </a>
-    <a href="{{ '/database/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Database'});">
-      <i class="fas fa-database"></i> Database
-    </a>
-    <a href="{{ '/distributed-systems/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Distributed Systems'});">
-      <i class="fas fa-network-wired"></i> Distributed Systems
-    </a>
-    <a href="{{ '/tools/' | relative_url }}" class="category-pill nav-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Tools'});">
-      <i class="fas fa-wrench"></i> Dev Tools
-    </a>
-  </div>
-
   <div class="category-pills-container">
     {%- assign total_posts = site.posts | size -%}
     <button class="category-pill active" data-category="all" onclick="filterByCategory('all', this)">
       All <span class="pill-count">({{ total_posts }})</span>
     </button>
+
+    <a href="{{ '/explainers/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Explainers'});">
+      <i class="fas fa-lightbulb"></i> Explainers
+    </a>
+    <a href="{{ '/software-development-news/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Weekly'});">
+      <i class="fas fa-newspaper"></i> Dev Weekly
+    </a>
+    <a href="{{ '/system-design/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'System Design'});">
+      <i class="fas fa-cubes"></i> System Design
+    </a>
+    <a href="{{ '/ai/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'AI Engineering'});">
+      <i class="fas fa-robot"></i> AI Engineering
+    </a>
+    <a href="{{ '/design-patterns/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Design Patterns'});">
+      <i class="fas fa-puzzle-piece"></i> Design Patterns
+    </a>
+    <a href="{{ '/database/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Database'});">
+      <i class="fas fa-database"></i> Database
+    </a>
+    <a href="{{ '/distributed-systems/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Distributed Systems'});">
+      <i class="fas fa-network-wired"></i> Distributed Systems
+    </a>
+    <a href="{{ '/tools/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Dev Tools'});">
+      <i class="fas fa-wrench"></i> Dev Tools
+    </a>
+
+    {%- assign hub_categories = "ai,system-design,design-patterns,database,distributed-systems,tech-news" | split: "," -%}
     {%- assign sorted_categories = site.categories | sort -%}
     {%- for category in sorted_categories -%}
     {%- assign category_name = category[0] -%}
+    {%- unless hub_categories contains category_name -%}
     {%- assign category_count = category[1].size -%}
     <button class="category-pill" data-category="{{ category_name }}" onclick="filterByCategory('{{ category_name }}', this)">
       {{ category_name | replace: "-", " " | capitalize }} <span class="pill-count">({{ category_count }})</span>
     </button>
+    {%- endunless -%}
     {%- endfor -%}
   </div>
 </section>

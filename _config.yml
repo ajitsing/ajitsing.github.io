@@ -34,7 +34,12 @@ speakable_default: true
 navbar-links:
   About Me: "aboutme"
   Archive: "/archive"
-  System Design: "/system-design"
+  Topics:
+    - System Design: "/system-design"
+    - AI Engineering: "/ai"
+    - Database: "/database"
+    - Distributed Systems: "/distributed-systems"
+    - Design Patterns: "/design-patterns"
   Tools: "/tools/"
   Tech News: "/software-development-news"
 

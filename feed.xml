@@ -13,7 +13,7 @@ layout: null
     <link>{{ '' | absolute_url }}</link>
     <atom:link href="{{ 'feed.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/" />
-    {% for post in site.posts limit:20 %}
+    {% for post in site.posts %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <description>

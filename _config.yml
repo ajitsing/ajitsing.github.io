@@ -1,10 +1,13 @@
 # --- Basic options --- #
 
 # Name of website
-title: Ajit Singh
+title: "Ajit Singh - Software Engineering Blog"
+
+# Short suffix for post title tags (keeps post titles concise in search results)
+title-suffix: "Ajit Singh"
 
 # Short description of your site
-description: Insights on various technologies to improve developer's knowledge and productivity. Including the tools/libraries created by author for various needs in different projects.
+description: "Software engineering blog by Ajit Singh covering system design, distributed systems, databases, AI, and DevOps. In-depth guides, tutorials, and tools for software engineers."
 
 # Your name to show in the footer
 author: Ajit Singh

@@ -19,16 +19,17 @@ social-share: false
   "name": "Ajit Singh",
   "alternateName": "Ajit5ingh",
   "description": "Software engineer with over a decade of experience in Java, Ruby, Node.js, Android development, system design, and AI. Author of singhajit.com technical blog.",
-  "url": "https://ajitsing.github.io/aboutme/",
+  "url": "https://singhajit.com/aboutme/",
   "sameAs": [
+    "https://singhajit.com",
     "https://github.com/ajitsing",
     "https://x.com/Ajit5ingh",
-    "https://ajitsing.github.io"
+    "https://www.linkedin.com/in/ajit-singh-11620570"
   ],
-  "jobTitle": "Software Engineer",
+  "jobTitle": "Staff Software Engineer",
   "worksFor": {
     "@type": "Organization",
-    "name": "Technology Industry"
+    "name": "Agoda"
   },
   "knowsAbout": [
     "Java Programming",
@@ -42,7 +43,7 @@ social-share: false
   ],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ajitsing.github.io/aboutme/"
+    "@id": "https://singhajit.com/aboutme/"
   },
   "author": {
     "@type": "Person",
@@ -51,7 +52,7 @@ social-share: false
   "publisher": {
     "@type": "Person",
     "name": "Ajit Singh",
-    "url": "https://ajitsing.github.io"
+    "url": "https://singhajit.com"
   }
 }
 </script>

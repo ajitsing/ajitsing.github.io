@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://{{ site.disqus }}.disqus.com">
   {% endif %}
 
-  <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator | default: '-' }} {{ site.description }}{% elsif page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator | default: '-' }} {{ site.description }}{% elsif page.meta-title %}{{ page.meta-title }}{% elsif page.title %}{{ page.title }} - {{ site.title-suffix | default: site.title }}{% else %}{{ site.title }}{% endif %}</title>
   
   {% include seo.html %}
 

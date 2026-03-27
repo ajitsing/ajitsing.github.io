@@ -599,13 +599,13 @@ faq:
   "publisher": {
     "@type": "Person",
     "name": "Ajit Singh",
-    "url": "https://ajitsing.github.io"
+    "url": "https://singhajit.com"
   },
   "datePublished": "2025-09-08",
   "dateModified": "2025-09-08",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ajitsing.github.io/explainer/curl-commands/"
+    "@id": "https://singhajit.com/explainer/curl-commands/"
   },
   "articleSection": "Web Development",
   "keywords": ["cURL", "HTTP requests", "API testing", "command line", "web development"],

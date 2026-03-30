@@ -2,14 +2,14 @@
 layout: post
 seo: true
 title: "Dev Weekly: Nvidia GTC Drops Vera Rubin, Stripe Ships 1,300 PRs/Week with AI, Laravel 13 Arrives"
-subtitle: "Nvidia unveils Vera Rubin at GTC 2026. Stripe's Minions agents ship 1,300+ pull requests weekly. Microsoft restructures Copilot leadership. OpenAI signs AWS deal for government AI. Laravel 13 and Next.js 16.2 drop. Trivy compromised again. GlassWorm malware hits 72 Open VSX extensions."
+subtitle: "Nvidia unveils Vera Rubin at GTC 2026. Stripe's Minions agents ship 1,300+ pull requests weekly. Microsoft restructures Copilot leadership. OpenAI signs AWS deal for government AI. Java 26 ships with HTTP/3 and Vector API. Laravel 13 and Next.js 16.2 drop. Trivy compromised again. GlassWorm malware hits 72 Open VSX extensions."
 date: 2026-03-22
 categories: tech-news
 permalink: /dev-weekly/2026/mar-16-22/nvidia-gtc-vera-rubin-stripe-minions-laravel-13-trivy-attack/
 share-img: /assets/img/posts/dev_weekly/tech-news-16-22mar-2026.svg
 thumbnail-img: /assets/img/posts/dev_weekly/tech-news-16-22mar-2026.svg
-description: "Nvidia unveils Vera Rubin platform and DLSS 5 at GTC 2026. Stripe Minions AI agents produce 1,300+ pull requests per week. Microsoft restructures Copilot under new leadership. OpenAI signs AWS deal for US government AI. Laravel 13 ships with AI SDK. Next.js 16.2 delivers 400% faster dev startup. Trivy GitHub Actions compromised in second supply chain attack. GlassWorm malware infects 72 Open VSX extensions. GitLab 18.10 adds passkeys and AI security. March 2026 developer news."
-keywords: "Nvidia GTC 2026 Vera Rubin GPU Groq 3 LPU, Nvidia DLSS 5 neural rendering announcement, Stripe Minions autonomous coding agents 1300 PRs per week, Microsoft Copilot leadership Mustafa Suleyman superintelligence, OpenAI AWS government deal classified unclassified, Laravel 13 release PHP 8.3 AI SDK attributes, Next.js 16.2 release Turbopack faster dev startup, Trivy GitHub Actions supply chain attack CI/CD secrets, GlassWorm malware Open VSX extensions Solana, GitLab 18.10 passkeys AI SAST security, Mistral Forge enterprise custom AI models GTC, Anthropic Claude B2B marketplace launch, Dell layoffs 11000 AI pivot, Linux Foundation open source security $12.5 million, Dependabot npm malware detection, Nvidia Agent Toolkit OpenShell, Checkmarx agentic security platform, dev weekly March 2026, software developer news"
+description: "Nvidia unveils Vera Rubin platform and DLSS 5 at GTC 2026. Stripe Minions AI agents produce 1,300+ pull requests per week. Microsoft restructures Copilot under new leadership. OpenAI signs AWS deal for US government AI. Java 26 released with HTTP/3 support, Vector API, and ahead-of-time object caching. Laravel 13 ships with AI SDK. Next.js 16.2 delivers 400% faster dev startup. Trivy GitHub Actions compromised in second supply chain attack. GlassWorm malware infects 72 Open VSX extensions. GitLab 18.10 adds passkeys and AI security. March 2026 developer news."
+keywords: "Nvidia GTC 2026 Vera Rubin GPU Groq 3 LPU, Nvidia DLSS 5 neural rendering announcement, Stripe Minions autonomous coding agents 1300 PRs per week, Microsoft Copilot leadership Mustafa Suleyman superintelligence, OpenAI AWS government deal classified unclassified, Java 26 JDK 26 release HTTP/3 Vector API ahead-of-time caching, Laravel 13 release PHP 8.3 AI SDK attributes, Next.js 16.2 release Turbopack faster dev startup, Trivy GitHub Actions supply chain attack CI/CD secrets, GlassWorm malware Open VSX extensions Solana, GitLab 18.10 passkeys AI SAST security, Mistral Forge enterprise custom AI models GTC, Anthropic Claude B2B marketplace launch, Dell layoffs 11000 AI pivot, Linux Foundation open source security $12.5 million, Dependabot npm malware detection, Nvidia Agent Toolkit OpenShell, Checkmarx agentic security platform, dev weekly March 2026, software developer news"
 comments: true
 tags: ["dev-weekly", "tech-news", "software-development-news"]
 faq:
@@ -23,11 +23,13 @@ faq:
     answer: "On March 17, 2026, Microsoft announced a major reorganization of its Copilot division. Jacob Andreou was appointed Executive Vice President of Copilot, unifying commercial and consumer Copilot into one organization. Mustafa Suleyman, previously leading Microsoft AI, shifted focus to lead the company's superintelligence efforts, concentrating on building frontier AI models. The restructuring addresses the fact that consumer and commercial Copilot versions had looked very different and lacked shared features."
   - question: "What happened with the Trivy supply chain attack in March 2026?"
     answer: "On March 19, 2026, attackers compromised Aqua Security's Trivy vulnerability scanner in a supply chain attack targeting CI/CD pipelines. Using stolen credentials from a previous March 1 breach, they force-pushed malicious code to 75 of 76 trivy-action version tags. The malware ran alongside legitimate Trivy scans, harvesting GitHub tokens, cloud credentials, SSH keys, and Kubernetes tokens from runner process memory. The exposure window lasted about 12 hours. Only version 0.35.0 remained safe. Organizations running affected versions should rotate all pipeline secrets immediately."
+  - question: "What's new in Java 26 (JDK 26)?"
+    answer: "Java 26 was released on March 17, 2026, with 10 JEPs. The finalized features include HTTP/3 support for the HTTP Client API (JEP 517), G1 garbage collector throughput improvements (JEP 522), ahead-of-time object caching with any GC (JEP 516), and removal of the Applet API (JEP 504). Preview and incubator features include the Vector API for SIMD-based AI/ML computations (eleventh incubator), Structured Concurrency (sixth preview), primitive types in patterns (fourth preview), PEM encodings for cryptographic objects (second preview), and Lazy Constants (second preview)."
   - question: "What's new in Laravel 13?"
     answer: "Laravel 13 was released on March 17, 2026. It requires PHP 8.3 as the minimum version and introduces first-class support for PHP Attributes across the framework, a first-party Laravel AI SDK for text generation, tool-calling agents, embeddings, and vector search, native JSON:API resource support, queue routing by class, and passkey authentication via WebAuthn. Taylor Otwell called it the smoothest upgrade in Laravel's history with zero breaking changes. Bug fixes are supported through Q3 2027."
 ---
 
-Nvidia dominated this week with GTC 2026. Jensen Huang unveiled the Vera Rubin platform, DLSS 5, and a full stack for enterprise AI agents. Stripe pulled back the curtain on Minions, their autonomous coding agents that ship over 1,300 pull requests per week without a single line of human-written code. Microsoft restructured its Copilot leadership to let Mustafa Suleyman focus on superintelligence. OpenAI signed an AWS deal to sell AI to the US government. On the frameworks side, Laravel 13 and Next.js 16.2 both shipped. And on security, Trivy got compromised for the second time in three weeks, this time targeting CI/CD pipelines directly. Here's everything.
+Nvidia dominated this week with GTC 2026. Jensen Huang unveiled the Vera Rubin platform, DLSS 5, and a full stack for enterprise AI agents. Stripe pulled back the curtain on Minions, their autonomous coding agents that ship over 1,300 pull requests per week without a single line of human-written code. Microsoft restructured its Copilot leadership to let Mustafa Suleyman focus on superintelligence. OpenAI signed an AWS deal to sell AI to the US government. On the frameworks and languages side, Java 26 shipped with HTTP/3 and the Vector API, Laravel 13 landed with a first-party AI SDK, and Next.js 16.2 delivered a 400% faster dev startup. And on security, Trivy got compromised for the second time in three weeks, this time targeting CI/CD pipelines directly. Here's everything.
 
 ---
 
@@ -120,6 +122,22 @@ Government contracts serve as credibility signals for enterprise sales. Landing 
 ---
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
+
+### Java 26 Released: HTTP/3, Vector API, and Ahead-of-Time Caching - [<i class="fas fa-external-link-alt"></i>](https://www.oracle.com/news/announcement/oracle-releases-java-26-2026-03-17/)
+
+On March 17, Oracle released Java 26 (JDK 26) with 10 JEPs, five finalized and five in preview or incubation.
+
+**Finalized features:**
+
+HTTP/3 support lands in the HTTP Client API (JEP 517). The G1 garbage collector gets a throughput boost by reducing synchronization between threads (JEP 522). Ahead-of-time object caching now works with any garbage collector, not just the default, improving startup and warmup time (JEP 516). The Applet API, deprecated since JDK 17, is finally removed (JEP 504). And JEP 500 starts warning about deep reflection that mutates final fields, preparing the ground for locking that down in a future release.
+
+**Preview and incubator features:**
+
+The Vector API enters its eleventh incubator round (JEP 529), providing SIMD-based vector computations for AI and ML workloads. Structured Concurrency (JEP 525) continues in its sixth preview with an API for managing concurrent tasks as a unit. Primitive types in patterns, instanceof, and switch (JEP 530) reaches its fourth preview. PEM encodings for cryptographic objects (JEP 524) and Lazy Constants (JEP 526) are both in second preview.
+
+**The takeaway:**
+
+This release is more about infrastructure and performance than flashy new language features. HTTP/3, better GC throughput, and faster startup matter for production workloads. The Vector API continues its slow march toward stabilization, which will matter a lot once AI inference in Java becomes more common.
 
 ### Laravel 13 Released: PHP 8.3, Attributes, and a First-Party AI SDK - [<i class="fas fa-external-link-alt"></i>](https://laravel-news.com/laravel-13-released)
 
@@ -304,6 +322,7 @@ The funds will be managed by Alpha-Omega and the Open Source Security Foundation
 - **1,300+** — Pull requests per week produced by Stripe's Minions AI agents
 - **400+** — Internal tools Stripe's Minions access through their MCP server
 - **$1 trillion** — Annual payment volume supported by code Stripe Minions manage
+- **10** — JEPs delivered in Java 26
 - **400%** — Dev startup speed improvement in Next.js 16.2
 - **200+** — Turbopack fixes in the Next.js 16.2 release
 - **17** — Enterprise partners using Nvidia's Agent Toolkit at launch
@@ -329,6 +348,8 @@ The funds will be managed by Alpha-Omega and the Open Source Security Foundation
 **Microsoft Copilot restructure** — Jacob Andreou takes over as EVP of Copilot, unifying consumer and commercial. Suleyman shifts to superintelligence work. Four-pillar organization under Nadella.
 
 **OpenAI-AWS government deal** — OpenAI models available to 3 million DOD employees through AWS. Classified and unclassified work. AWS becomes exclusive third-party cloud distributor for OpenAI Frontier.
+
+**Java 26** — Released March 17. HTTP/3 for the HTTP Client API. G1 GC throughput improvement. Ahead-of-time object caching with any GC. Vector API in eleventh incubator. Structured Concurrency in sixth preview. Applet API removed. 10 JEPs total.
 
 **Laravel 13** — PHP 8.3 minimum. PHP Attributes across the framework. First-party AI SDK. Vector search with pgvector. Passkey authentication. Zero breaking changes.
 

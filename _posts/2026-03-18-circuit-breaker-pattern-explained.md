@@ -829,6 +829,7 @@ If you use chaos engineering tools, circuit breakers are one of the first things
 - [Role of Queues](/role-of-queues-in-system-design/) - Using queues for fallback processing when circuit breakers trip
 - [Service Mesh Explained](/explainer/service-mesh-explained/) - Infrastructure-level circuit breaking with Istio and Envoy
 - [Distributed Tracing](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/) - How to debug circuit breaker behavior across services
+- [OpenTelemetry in Production](/opentelemetry-production-guide/) - Instrument your services to capture circuit breaker events in traces
 
 ## Conclusion
 

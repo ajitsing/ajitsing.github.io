@@ -154,7 +154,7 @@ The trace backend receives all three spans (001, 002, 003), links them by `trace
 
 A few years ago, if you wanted to switch from Zipkin to Jaeger, you would rewrite your instrumentation. Every vendor had its own SDK and wire format.
 
-OpenTelemetry (OTel) fixed that. It is a vendor-neutral standard for collecting traces, metrics, and logs. Your application code uses the OTel SDK. The OTel Collector receives the data, processes it, and exports it to any backend: Jaeger, Tempo, Zipkin, Datadog, whatever.
+OpenTelemetry (OTel) fixed that. It is a vendor-neutral standard for collecting traces, metrics, and logs. Your application code uses the OTel SDK. The OTel Collector receives the data, processes it, and exports it to any backend: Jaeger, Tempo, Zipkin, Datadog, whatever. For a hands-on guide to running the full OpenTelemetry pipeline in production, see [OpenTelemetry in Production: A Complete Setup Guide](/opentelemetry-production-guide/).
 
 <pre><code class="language-mermaid">
 flowchart LR

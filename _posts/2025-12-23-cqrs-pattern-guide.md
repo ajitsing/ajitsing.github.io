@@ -306,6 +306,8 @@ They work well together because:
 - You get a complete audit trail
 - You can rebuild read models from the event history
 
+The event bus between write and read models is typically implemented with a message broker like Kafka (for high-volume streaming) or RabbitMQ (for routing flexibility). See [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/) for help picking the right one.
+
 ```mermaid
 graph TD
     A[Command] --> B[Aggregate]

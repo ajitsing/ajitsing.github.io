@@ -237,6 +237,8 @@ After a configurable number of retries, the message moves to the DLQ. This keeps
 
 ## Popular Queue Technologies Compared
 
+For a deep-dive comparison of these three technologies with benchmarks, pricing, and architecture diagrams, see [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/).
+
 ### RabbitMQ
 
 **Best for**: Traditional message queuing, complex routing, enterprise integration

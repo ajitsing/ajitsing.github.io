@@ -822,7 +822,7 @@ Kafka is powerful but not always the right choice.
 
 2. **Small scale** (< 1000 messages/second)
    - Kafka's complexity isn't worth it
-   - Use: RabbitMQ, AWS SQS, or simple pub/sub
+   - Use: RabbitMQ, AWS SQS, or simple pub/sub (see [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/) for a detailed comparison)
 
 3. **Request-reply patterns**
    - Kafka is for event streaming, not RPC

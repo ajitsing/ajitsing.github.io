@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Epoch Timestamp Converter | Unix Time to Date & Date to Unix"
-subtitle: "Convert Unix timestamps to dates and dates to Unix timestamps"
+title: "Epoch to Date Converter | Convert Unix Epoch Seconds to Date Online"
+subtitle: "Convert epoch seconds to date and date to unix epoch timestamp"
 seo: true
-description: "Free online Epoch timestamp converter. Convert Unix timestamps to human-readable dates and dates to Unix timestamps instantly. Supports seconds and milliseconds. Shows UTC, local time, ISO 8601, and relative formats. 100% client-side. Your data never leaves your browser."
-keywords: "epoch converter, unix timestamp converter, epoch to date, date to epoch, timestamp to date online, unix time converter, epoch time converter, unix timestamp to date, convert timestamp to date, timestamp converter online, epoch timestamp, unix epoch, date to timestamp, milliseconds to date, seconds to date"
+description: "Free online epoch to date converter. Convert epoch seconds to date, epoch timestamp to date, or date to unix timestamp instantly. Paste any epoch value like 1764581115 or 1704067200 and get the human-readable date. Supports seconds & milliseconds. Shows UTC, local time, ISO 8601. 100% client-side."
+keywords: "epoch to date, epoch seconds date, epoch date, epoch converter, epoch timestamp date, epoch seconds to date, convert unix epoch, convertunixepoch, unix timestamp to date, epoch to date converter, epoch seconds date time, unix timestamp converter, date to epoch, timestamp to date online, unix time converter, epoch time converter, convert timestamp to date, timestamp converter online, epoch timestamp, unix epoch, date to timestamp, milliseconds to date, seconds to date, date to unix timestamp"
 thumbnail: /assets/img/tools/epoch-converter-thumbnail.png
 share-img: /assets/img/tools/epoch-converter-thumbnail.png
 permalink: /tools/epoch-converter/
@@ -21,9 +21,9 @@ hide-explore-posts: true
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Epoch Timestamp Converter",
-  "alternateName": ["Unix Timestamp Converter", "Epoch to Date Converter", "Date to Epoch Converter", "Unix Time Converter", "Timestamp to Date Online", "Epoch Time Converter", "Unix Epoch Converter", "Milliseconds to Date Converter"],
-  "description": "Free online Epoch timestamp converter. Convert Unix timestamps to human-readable dates and dates to Unix timestamps instantly. Supports seconds and milliseconds.",
+  "name": "Epoch to Date Converter",
+  "alternateName": ["Epoch Timestamp Converter", "Unix Timestamp Converter", "Epoch to Date Converter", "Epoch Seconds to Date Converter", "Date to Epoch Converter", "Unix Time Converter", "Timestamp to Date Online", "Epoch Time Converter", "Unix Epoch Converter", "Milliseconds to Date Converter", "Convert Unix Epoch", "Epoch Date Converter", "Epoch Seconds Date Time Converter"],
+  "description": "Free online epoch to date converter. Paste any epoch seconds value and instantly get the human-readable date. Convert epoch timestamps to dates or dates to unix timestamps. Supports seconds and milliseconds.",
   "url": "https://singhajit.com/tools/epoch-converter/",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
@@ -56,7 +56,7 @@ hide-explore-posts: true
     "name": "Unix Timestamp Reference",
     "text": "Unix timestamps (also called Epoch time) represent the number of seconds (or milliseconds) since January 1, 1970 00:00:00 UTC. They are widely used in programming for storing and comparing dates."
   },
-  "keywords": "epoch converter, unix timestamp converter, epoch to date, date to epoch, timestamp to date online, unix time converter"
+  "keywords": "epoch to date, epoch seconds date, epoch date, epoch converter, epoch timestamp date, convert unix epoch, unix timestamp converter, date to epoch, timestamp to date online, unix time converter, epoch seconds date time"
 }
 </script>
 
@@ -110,10 +110,26 @@ hide-explore-posts: true
     },
     {
       "@type": "Question",
-      "name": "How do I convert a Unix timestamp to a date?",
+      "name": "How do I convert epoch seconds to a date?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Enter your Unix timestamp in the converter above. The tool automatically detects if it's in seconds or milliseconds and displays the corresponding date in UTC, your local timezone, ISO 8601 format, and as relative time."
+        "text": "Paste your epoch seconds value (e.g. 1764581115, 1163558854, or 1718320456) into the converter above. The tool automatically detects whether the value is in seconds (10 digits) or milliseconds (13 digits) and instantly displays the corresponding date in UTC, your local timezone, ISO 8601 format, and as relative time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the epoch date for 1764581115?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The epoch timestamp 1764581115 converts to Monday, December 1, 2025 at 09:25:15 UTC. You can paste any epoch seconds value into the converter above to see its date instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Unix timestamp for January 1, 2024?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "January 1, 2024 at 00:00:00 UTC has the Unix timestamp 1704067200 (in seconds) or 1704067200000 (in milliseconds). Use the 'Date to Timestamp' tab in the converter above to look up any date."
       }
     },
     {
@@ -205,7 +221,7 @@ hide-explore-posts: true
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Epoch Timestamp Converter",
+      "name": "Epoch to Date Converter",
       "item": "https://singhajit.com/tools/epoch-converter/"
     }
   ]
@@ -222,16 +238,14 @@ hide-explore-posts: true
     <header class="tool-header">
       <h1 class="tool-title">
         <i class="fas fa-clock"></i>
-        Epoch Timestamp Converter
+        Epoch to Date Converter
       </h1>
-      <p class="tool-subtitle">Convert Unix timestamps to dates and dates to Unix timestamps</p>
+      <p class="tool-subtitle">Convert epoch seconds to date &amp; date to unix epoch timestamp</p>
     </header>
 
     <p class="tool-intro">
-      Use this free <strong>Epoch converter</strong> to convert <strong>Unix timestamps</strong> to human-readable dates or convert dates back to <strong>Unix timestamps</strong>. Supports both seconds and milliseconds. Shows UTC, local time, ISO 8601, and relative formats. 100% client-side. Your data never leaves your browser.
+      Paste any <strong>epoch seconds</strong> value to instantly see the <strong>date</strong>. This free <strong>epoch to date converter</strong> handles timestamps like <code>1764581115</code>, <code>1704067200</code>, or <code>1163558854</code> &mdash; paste yours above and get the <strong>epoch date</strong> in UTC, local time, ISO 8601, and more. You can also convert any date back to a <strong>Unix epoch timestamp</strong>. Supports both seconds and milliseconds. 100% client-side &mdash; your data never leaves your browser.
     </p>
-
-    {% include tool-ad-below-description.html %}
 
     <!-- Current Timestamp Display -->
     <section class="current-timestamp-section">
@@ -502,6 +516,63 @@ console.log(date.toISOString());</code></pre>
       </div>
     </section>
 
+    <!-- Popular Epoch Timestamps Lookup Table -->
+    <section class="reference-section epoch-lookup-section">
+      <h3><i class="fas fa-search"></i> Popular Epoch Timestamps to Date</h3>
+      <p class="lookup-intro">Looking up a specific epoch value? Here are commonly searched <strong>epoch timestamps</strong> and their <strong>dates</strong>. Click any timestamp to convert it above.</p>
+      <table class="epoch-lookup-table">
+        <thead>
+          <tr>
+            <th>Epoch Seconds</th>
+            <th>Date (UTC)</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="#" class="epoch-link" data-ts="1764581115"><code>1764581115</code></a></td><td>Mon, Dec 1, 2025 09:25:15</td><td>Commonly searched</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="1764244800"><code>1764244800</code></a></td><td>Thu, Nov 27, 2025 12:00:00</td><td>Commonly searched</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="1718320456"><code>1718320456</code></a></td><td>Thu, Jun 13, 2024 23:14:16</td><td>Commonly searched</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="1163558854"><code>1163558854</code></a></td><td>Wed, Nov 15, 2006 02:47:34</td><td>Commonly searched</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="1704067200"><code>1704067200</code></a></td><td>Mon, Jan 1, 2024 00:00:00</td><td>Start of 2024</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="1735689600"><code>1735689600</code></a></td><td>Wed, Jan 1, 2025 00:00:00</td><td>Start of 2025</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="1767225600"><code>1767225600</code></a></td><td>Thu, Jan 1, 2026 00:00:00</td><td>Start of 2026</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="1000000000"><code>1000000000</code></a></td><td>Sun, Sep 9, 2001 01:46:40</td><td>1 Billion seconds</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="1500000000"><code>1500000000</code></a></td><td>Fri, Jul 14, 2017 02:40:00</td><td>1.5 Billion seconds</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="2000000000"><code>2000000000</code></a></td><td>Wed, May 18, 2033 03:33:20</td><td>2 Billion seconds</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="2147483647"><code>2147483647</code></a></td><td>Tue, Jan 19, 2038 03:14:07</td><td>Y2K38 max 32-bit</td></tr>
+          <tr><td><a href="#" class="epoch-link" data-ts="0"><code>0</code></a></td><td>Thu, Jan 1, 1970 00:00:00</td><td>Unix Epoch</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Notable Dates & Their Unix Timestamps -->
+    <section class="reference-section epoch-lookup-section">
+      <h3><i class="fas fa-calendar-check"></i> Common Dates &amp; Their Unix Timestamps</h3>
+      <p class="lookup-intro">Looking up the <strong>Unix timestamp</strong> for a specific date? Here are commonly searched dates and their epoch values.</p>
+      <table class="epoch-lookup-table">
+        <thead>
+          <tr>
+            <th>Date (UTC)</th>
+            <th>Unix Timestamp</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>January 1, 2020 00:00:00</td><td><code>1577836800</code></td><td>Start of 2020</td></tr>
+          <tr><td>January 1, 2021 00:00:00</td><td><code>1609459200</code></td><td>Start of 2021</td></tr>
+          <tr><td>January 1, 2022 00:00:00</td><td><code>1640995200</code></td><td>Start of 2022</td></tr>
+          <tr><td>January 1, 2023 00:00:00</td><td><code>1672531200</code></td><td>Start of 2023</td></tr>
+          <tr><td>January 1, 2024 00:00:00</td><td><code>1704067200</code></td><td>Start of 2024</td></tr>
+          <tr><td>January 1, 2025 00:00:00</td><td><code>1735689600</code></td><td>Start of 2025</td></tr>
+          <tr><td>January 1, 2026 00:00:00</td><td><code>1767225600</code></td><td>Start of 2026</td></tr>
+          <tr><td>December 31, 1969 23:59:59</td><td><code>-1</code></td><td>Pre-epoch</td></tr>
+          <tr><td>February 29, 2024 00:00:00</td><td><code>1709164800</code></td><td>Leap day 2024</td></tr>
+          <tr><td>January 19, 2038 03:14:07</td><td><code>2147483647</code></td><td>Y2K38 overflow</td></tr>
+          <tr><td>January 1, 2030 00:00:00</td><td><code>1893456000</code></td><td>Start of 2030</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <!-- Syntax Guide Section -->
     <section class="syntax-guide-section">
       <h3><i class="fas fa-graduation-cap"></i> Understanding Unix Timestamps</h3>
@@ -583,6 +654,16 @@ console.log(date.toISOString());</code></pre>
       <div class="faq-item">
         <h3>What is the Year 2038 problem?</h3>
         <p>The <strong>Y2K38 problem</strong> affects systems using 32-bit signed integers for timestamps. On January 19, 2038 at 03:14:07 UTC, the timestamp 2,147,483,647 overflows. Modern 64-bit systems are not affected.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I look up what date an epoch seconds value represents?</h3>
+        <p>Paste your <strong>epoch seconds</strong> value (e.g. <code>1764581115</code>, <code>1163558854</code>, or <code>1718320456</code>) into the input field above. The tool instantly shows the corresponding <strong>epoch date</strong> in multiple formats including UTC, local time, and ISO 8601. You can also append <code>?ts=1764581115</code> to the URL to share or bookmark a specific conversion.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the Unix timestamp for a specific date like January 1, 2024?</h3>
+        <p>Switch to the <strong>Date to Timestamp</strong> tab, select your date and time, and the tool shows both the seconds and milliseconds <strong>Unix epoch timestamp</strong>. For reference, <strong>January 1, 2024 00:00:00 UTC</strong> is epoch <code>1704067200</code>. See the lookup tables below for more common dates.</p>
       </div>
 
       <div class="faq-item">

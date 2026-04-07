@@ -870,49 +870,60 @@ code.format-value {
 .reference-card {
   background: #fffdf9;
   border: 2px solid #e7e0d5;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 16px 20px;
 }
 
 .reference-card h4 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #374151;
+  color: #78716c;
   margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e7e0d5;
 }
 
 .reference-card table {
   width: 100%;
-  border-collapse: collapse;
+  display: table;
   font-size: 0.85rem;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.reference-card tr {
+  border: none;
+  background: transparent;
 }
 
 .reference-card td {
-  padding: 8px 0;
-  border-bottom: 1px solid #f5f0e8;
-}
-
-.reference-card tr:last-child td {
-  border-bottom: none;
+  padding: 6px 0;
+  color: #44403c;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: none;
+  background: transparent;
 }
 
 .reference-card td:first-child {
-  color: #57534e;
-  width: 45%;
+  font-weight: 600;
+  color: #292524;
 }
 
 .reference-card td:last-child {
-  color: #292524;
-  font-weight: 500;
+  text-align: right;
+  color: #78716c;
+  font-size: 0.8rem;
 }
 
 .reference-card code {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-  background: #292524;
-  color: #fef3c7;
-  padding: 2px 6px;
+  background: #f5f0e8;
+  padding: 4px 10px;
   border-radius: 4px;
+  font-size: 0.9rem;
   font-size: 0.8rem;
 }
 
@@ -1070,6 +1081,109 @@ code.format-value {
   color: #fef3c7;
 }
 
+/* Epoch Lookup Tables */
+.lookup-intro {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.epoch-lookup-table {
+  width: 100%;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.epoch-lookup-table thead tr {
+  background: #292524 !important;
+}
+
+.epoch-lookup-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #faf8f5 !important;
+  background: #292524 !important;
+  border: none !important;
+}
+
+.epoch-lookup-table tbody tr {
+  border-bottom: 1px solid #e7e0d5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: #fffdf9;
+}
+
+.epoch-lookup-table tbody tr:nth-child(even) {
+  background: #faf8f5;
+}
+
+.epoch-lookup-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.epoch-lookup-table tbody tr:hover {
+  background: #f5f0e8 !important;
+}
+
+.epoch-lookup-table td {
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  color: #44403c;
+  vertical-align: middle;
+  border: none !important;
+  background: transparent !important;
+}
+
+.epoch-lookup-table td:first-child {
+  width: 160px;
+}
+
+.epoch-lookup-table td:first-child code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524 !important;
+  color: #fef3c7 !important;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  display: inline-block;
+  border: none !important;
+  font-weight: 500;
+}
+
+.epoch-lookup-table td:nth-child(2) {
+  font-weight: 500;
+  color: #292524;
+}
+
+.epoch-lookup-table td:nth-child(3) {
+  color: #a8a29e;
+  font-size: 0.75rem;
+  width: 130px;
+  text-align: right;
+}
+
+a.epoch-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.epoch-link:hover code {
+  background: #44403c !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .epoch-page-wrapper {
@@ -1141,6 +1255,30 @@ code.format-value {
   .snippet-tabs {
     flex-wrap: wrap;
   }
+
+  .epoch-lookup-table td:nth-child(3),
+  .epoch-lookup-table th:nth-child(3) {
+    display: none;
+  }
+
+  .epoch-lookup-table td {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .epoch-lookup-table th {
+    padding: 10px 12px;
+    font-size: 0.7rem;
+  }
+
+  .epoch-lookup-table td:first-child {
+    width: 130px;
+  }
+
+  .epoch-lookup-table td:first-child code {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1155,5 +1293,18 @@ code.format-value {
 
   .examples-grid {
     grid-template-columns: 1fr;
+  }
+
+  .epoch-lookup-table td:first-child {
+    width: 110px;
+  }
+
+  .epoch-lookup-table td:first-child code {
+    font-size: 0.65rem;
+    padding: 4px 6px;
+  }
+
+  .epoch-lookup-table td:nth-child(2) {
+    font-size: 0.8rem;
   }
 }

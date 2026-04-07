@@ -263,6 +263,13 @@ System.out.println(instant.toString());`
 
     elements.timestampResult.classList.remove('hidden');
     updateCodeSnippet();
+
+    if (window.history && window.history.replaceState) {
+      const url = new URL(window.location);
+      url.searchParams.set('ts', input);
+      window.history.replaceState(null, '', url);
+    }
+
     trackEvent('convert', 'Timestamp to Date', 1);
   }
 
@@ -456,10 +463,26 @@ System.out.println(instant.toString());`
     }
   }
 
+  function bindEpochLinks() {
+    document.querySelectorAll('.epoch-link[data-ts]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var ts = link.dataset.ts;
+        if (elements.timestampInput) {
+          switchMode('timestamp-to-date');
+          elements.timestampInput.value = ts;
+          convertTimestampToDate();
+          elements.timestampInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+  }
+
   function init() {
     initDatePickers();
     handleUrlParameters();
     updateCodeSnippet();
+    bindEpochLinks();
     trackEvent('tool_load', 'epoch_converter_tool');
   }
 

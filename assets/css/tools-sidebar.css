@@ -46,6 +46,10 @@
   max-width: 1060px;
 }
 
+.tools-main table {
+  display: table;
+}
+
 .tools-nav {
   background: #fffdf9;
   border: 2px solid #e7e0d5;

@@ -334,6 +334,46 @@
     });
   });
 
+  // Copy-example cards (ready-to-copy section)
+  var copyExampleCards = document.querySelectorAll('.li-copy-example');
+  copyExampleCards.forEach(function (card) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function () {
+      var text = card.getAttribute('data-copy-text');
+      if (!text) return;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          showCardCopied(card);
+        }).catch(function () {
+          fallbackCopy(text);
+          showCardCopied(card);
+        });
+      } else {
+        fallbackCopy(text);
+        showCardCopied(card);
+      }
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'click_copy_example', {
+          'event_category': 'Lorem Ipsum Generator',
+          'event_label': card.querySelector('h4').textContent
+        });
+      }
+    });
+  });
+
+  function showCardCopied(card) {
+    var h4 = card.querySelector('h4');
+    var origText = h4.textContent;
+    h4.textContent = '✓ Copied!';
+    card.style.borderColor = 'var(--accent-primary, #4f46e5)';
+    setTimeout(function () {
+      h4.textContent = origText;
+      card.style.borderColor = '';
+    }, 2000);
+  }
+
   // Keyboard shortcut: Ctrl/Cmd + Enter to generate
   document.addEventListener('keydown', function (e) {
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {

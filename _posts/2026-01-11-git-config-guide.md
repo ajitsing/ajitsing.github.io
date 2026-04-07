@@ -1,32 +1,38 @@
 ---
 layout: post
 seo: true
-title: "Git Config Guide: Every Setting You Need to Know"
-subtitle: "Configure Git the right way and never think about it again"
+title: "Git Config: How to Set, Edit & Configure Git (with gitconfig Example)"
+subtitle: "The complete gitconfig options reference — set up Git once and never think about it again"
 date: 2026-01-11
 categories: git
 permalink: /git-config-guide/
 share-img: /assets/img/posts/git-commands/git-config-thumb.png
 thumbnail-img: /assets/img/posts/git-commands/git-config-thumb.png
-description: "A complete guide to Git configuration. Learn how to set up gitconfig for user identity, aliases, colors, editors, credentials, and more. Includes a sample config file you can copy."
-keywords: "git config, gitconfig, git configuration, git setup, git config file, git global config, git config user, git aliases, git config editor, git credential helper, how to configure git, git settings, gitconfig example, git config list, git config email, git config username"
+description: "Complete git config guide with gitconfig example you can copy. Learn how to set git config options, edit git config file, configure git repo config, and use settings like feature.manyFiles true. Covers git setup config for user identity, aliases, editors, credentials, and performance."
+keywords: "git config, git config set, gitconfig, gitconfig options, gitconfig example, edit git config, edit git config file, git config file, git configuration, git repo config, git setup config, git config feature.manyfiles true, git global config, git config user, git aliases, git config editor, git credential helper, how to configure git, git settings, git config list, git config email, git config username, git local config"
 tags: ["git", "version-control", "devops"]
 comments: true
 
-quick-answer: "Git config levels: system < global < local (local wins). Essential settings: `user.name`, `user.email`, `core.editor`, `pull.rebase=true`, `fetch.prune=true`. Create aliases: `git config --global alias.co checkout`. Use conditional includes for different work/personal settings. Config files: `~/.gitconfig` (global), `.git/config` (local)."
+quick-answer: "To set git config: `git config --global key value` (e.g. `git config --global user.name \"Your Name\"`). To edit gitconfig file: `git config --global --edit` or manually at `~/.gitconfig`. Git config levels: system < global < local (local wins). Essential gitconfig options: `user.name`, `user.email`, `core.editor`, `pull.rebase=true`, `fetch.prune=true`, `feature.manyFiles=true`. Git repo config lives at `.git/config`."
 
 key-takeaways:
-  - "Git reads config from three places: system, global, and local. Local always wins."
-  - "Set your user.name and user.email before your first commit or your history will look weird"
-  - "Aliases save hours of typing. Start with co, br, ci, st, and lg"
+  - "Set git config with `git config --global key value`. Edit the gitconfig file directly with `git config --global --edit` or at `~/.gitconfig`"
+  - "Git reads config from three places: system (`/etc/gitconfig`), global (`~/.gitconfig`), and local (`.git/config`). Local always wins"
+  - "Essential gitconfig options: `user.name`, `user.email`, `core.editor`, `pull.rebase true`, `fetch.prune true`, `feature.manyFiles true`"
+  - "Use git repo config (`--local`) for project-specific settings and `--global` for your personal defaults"
   - "Use conditional includes to have different settings for work and personal projects"
-  - "Set pull.rebase to true and fetch.prune to true for a cleaner workflow"
 
 faq:
   - question: "Where is the Git config file located?"
     answer: "Git has three config levels. System config is at /etc/gitconfig (Linux/Mac) or C:\\Program Files\\Git\\etc\\gitconfig (Windows). Global config is at ~/.gitconfig or ~/.config/git/config. Local config is at .git/config inside each repository. Local settings override global, which override system."
+  - question: "How do I set git config values?"
+    answer: "Use the command git config --global key value to set a global config value. For example, git config --global user.name 'Your Name' or git config --global feature.manyFiles true. Use --local instead of --global to set a value only for the current repository (git repo config). Run git config key to read a value."
+  - question: "How do I edit the git config file?"
+    answer: "Run git config --global --edit to open your global gitconfig file in your editor. You can also edit it manually at ~/.gitconfig on Mac/Linux or C:\\Users\\YourName\\.gitconfig on Windows. For repository-specific settings, edit .git/config inside the repo directory."
+  - question: "What are the most important gitconfig options?"
+    answer: "The essential gitconfig options are user.name, user.email, core.editor, pull.rebase (set to true), fetch.prune (set to true), push.autoSetupRemote (set to true), init.defaultBranch (set to main), merge.conflictstyle (set to diff3), and rerere.enabled (set to true). For large repos, add feature.manyFiles true for performance."
   - question: "How do I set my Git username and email?"
-    answer: "Run git config --global user.name 'Your Name' and git config --global user.email 'you@example.com'. These identify you in commits. Use --local instead of --global to set different values for a specific repository."
+    answer: "Run git config --global user.name 'Your Name' and git config --global user.email 'you@example.com'. These identify you in commits. Use --local instead of --global to set different values for a specific repository (git repo config)."
   - question: "How do I see all my Git config settings?"
     answer: "Run git config --list to see all settings. Add --show-origin to see which file each setting comes from. Run git config --list --global to see only global settings, or git config user.name to check a specific value."
   - question: "How do I change my default Git editor?"
@@ -43,11 +49,14 @@ faq:
 
 Every Git repository on your machine reads from the same configuration. Set it up once and you never have to think about it again.
 
-This guide covers every setting that matters, from basic identity to advanced performance tuning. If you are looking for Git commands instead, check out the [Git Cheat Sheet](/git-cheat-sheet/).
+This guide covers every **git config** setting that matters, from basic identity to advanced performance tuning. You will learn how to **set git config** values, **edit your git config file**, and see a complete **gitconfig example** you can copy. If you are looking for Git commands instead, check out the [Git Cheat Sheet](/git-cheat-sheet/).
 
 ## Table of Contents
 
-- [Where Git Stores Configuration](#where-git-stores-configuration)
+- [Git Config Options Reference](#git-config-options-reference)
+- [Where Git Stores Configuration (Git Config File Locations)](#where-git-stores-configuration-git-config-file-locations)
+- [How to Set Git Config Values](#how-to-set-git-config-values)
+- [How to Edit Git Config File](#how-to-edit-git-config-file)
 - [User Identity](#user-identity)
 - [Core Settings](#core-settings)
 - [Color Configuration](#color-configuration)
@@ -60,7 +69,31 @@ This guide covers every setting that matters, from basic identity to advanced pe
 - [Sample gitconfig File](#sample-gitconfig-file)
 - [Common Tasks](#common-tasks)
 
-## Where Git Stores Configuration
+## Git Config Options Reference
+
+Here is a quick reference of the most useful **gitconfig options**. Click any setting to jump to its detailed explanation.
+
+| Option | Value | What It Does |
+|--------|-------|--------------|
+| [`user.name`](#user-identity) | `"Your Name"` | Your name in commits |
+| [`user.email`](#user-identity) | `"you@example.com"` | Your email in commits |
+| [`core.editor`](#default-editor) | `"code --wait"` | Editor for commit messages |
+| [`init.defaultBranch`](#default-branch-name) | `main` | Default branch for new repos |
+| [`pull.rebase`](#pull-with-rebase) | `true` | Rebase instead of merge on pull |
+| [`push.default`](#push-behavior) | `current` | Push current branch to same name |
+| [`push.autoSetupRemote`](#auto-setup-remote) | `true` | Auto create remote tracking branch |
+| [`fetch.prune`](#auto-prune-on-fetch) | `true` | Remove stale remote branches |
+| [`merge.conflictstyle`](#merge-conflict-style) | `diff3` | Show ancestor in conflicts |
+| [`rerere.enabled`](#reuse-recorded-resolution-rerere) | `true` | Remember conflict resolutions |
+| [`core.autocrlf`](#line-endings) | `input` | Fix line endings on commit |
+| [`core.excludesfile`](#global-gitignore) | `~/.gitignore_global` | Global gitignore path |
+| [`diff.renames`](#rename-detection) | `copies` | Better rename detection |
+| [`help.autocorrect`](#auto-correct) | `10` | Fix typos with 1s delay |
+| [`feature.manyFiles`](#many-files-mode) | `true` | Performance boost for large repos |
+| [`credential.helper`](#credential-management) | `osxkeychain` | Store passwords securely |
+| [`color.ui`](#enabledisable-colors) | `auto` | Colored terminal output |
+
+## Where Git Stores Configuration (Git Config File Locations)
 
 Git reads configuration from multiple files, in order of priority:
 
@@ -94,15 +127,68 @@ See just the value of a specific setting:
 git config user.email
 ```
 
-### Edit Config Directly
+## How to Set Git Config Values
 
-Open your global config in your editor:
+The basic syntax to **set git config** values is:
+
+```bash
+git config --global <key> <value>
+```
+
+The `--global` flag sets the value in your global **gitconfig** file (`~/.gitconfig`). Replace `--global` with `--local` to set a value only for the current repository (**git repo config**), or `--system` for machine-wide settings.
+
+**Examples:**
+
+```bash
+# Set your name globally
+git config --global user.name "Your Name"
+
+# Set a value for current repo only (git repo config)
+git config --local user.email "work@company.com"
+
+# Set a boolean option
+git config --global feature.manyFiles true
+
+# Set a numeric value
+git config --global help.autocorrect 10
+
+# Remove a setting
+git config --global --unset core.editor
+```
+
+To read a config value:
+
+```bash
+git config user.name
+```
+
+## How to Edit Git Config File
+
+You can **edit your git config file** directly instead of using the command line.
+
+**Open in your editor:**
 
 ```bash
 git config --global --edit
 ```
 
-Or edit it manually. The file is at `~/.gitconfig` on Mac and Linux, or `C:\Users\YourName\.gitconfig` on Windows.
+This opens your global `~/.gitconfig` in your configured editor.
+
+**Or edit it manually.** The file is at `~/.gitconfig` on Mac and Linux, or `C:\Users\YourName\.gitconfig` on Windows. It is a plain text file in INI format:
+
+```ini
+[user]
+    name = Your Name
+    email = you@example.com
+
+[core]
+    editor = code --wait
+
+[pull]
+    rebase = true
+```
+
+To **edit the git config file for a specific repo**, open `.git/config` inside the repository directory. This is the **git repo config** — settings here override global values for that project only.
 
 ## User Identity
 

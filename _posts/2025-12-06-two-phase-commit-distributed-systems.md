@@ -611,7 +611,7 @@ VALUES ('payment_completed', '{"amount": 100, "user_id": 1}');
 COMMIT;
 ```
 
-A separate process reads the outbox and publishes events to other services. This ensures the event is only published if the local transaction commits.
+A separate process reads the outbox and publishes events to other services. This ensures the event is only published if the local transaction commits. For a complete guide to implementing this pattern with polling and CDC, see [Transactional Outbox Pattern](/transactional-outbox-pattern/).
 
 This approach aligns well with how [Kafka handles event streaming](/distributed-systems/how-kafka-works/) and how [CQRS separates reads from writes](/explainer/cqrs-design-pattern/).
 

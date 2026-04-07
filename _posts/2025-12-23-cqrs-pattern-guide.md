@@ -306,7 +306,7 @@ They work well together because:
 - You get a complete audit trail
 - You can rebuild read models from the event history
 
-The event bus between write and read models is typically implemented with a message broker like Kafka (for high-volume streaming) or RabbitMQ (for routing flexibility). See [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/) for help picking the right one.
+The event bus between write and read models is typically implemented with a message broker like Kafka (for high-volume streaming) or RabbitMQ (for routing flexibility). See [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/) for help picking the right one. To make sure events actually reach the broker reliably, pair this with the [Transactional Outbox Pattern](/transactional-outbox-pattern/).
 
 ```mermaid
 graph TD

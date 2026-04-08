@@ -1,19 +1,28 @@
 ---
 layout: post
 seo: true
-title: "Breaking Down X's Open Source Algorithm"
-subtitle: "A deep dive into the open source recommendation system powering one of the world's largest social platforms"
+title: "X Algorithm Explained: How the Open Source Recommendation System Works"
+subtitle: "A detailed explanation of X's open source algorithm from the GitHub repository — how the recommendation system works, from candidate sourcing to Grok-based ranking"
 date: 2026-01-22
+last-modified-date: 2026-04-08
 categories: system-design
 thumbnail-img: /assets/img/posts/system-design/x-algorithm-thumbnail.svg
 share-img: /assets/img/posts/system-design/x-algorithm-thumbnail.svg
 permalink: /system-design/x-twitter-for-you-algorithm/
-description: "Complete breakdown of X's open source recommendation algorithm. Learn how the For You feed works, including the Grok-based transformer model, candidate pipeline architecture, and real-world lessons for building recommendation systems at scale."
-keywords: "X algorithm, Twitter algorithm, For You feed, recommendation system, machine learning ranking, Grok transformer, xAI algorithm, social media algorithm, content recommendation, personalization engine, feed ranking, Twitter recommendation"
-tags: [system-design]
+description: "The X algorithm explained — a detailed breakdown of how Twitter's open source recommendation algorithm works in 2026. Covers the full GitHub repository (xai-org/x-algorithm), the Grok-based transformer ranking model, Two-Tower retrieval, candidate pipeline architecture, scoring weights, and practical lessons for building recommendation systems at scale."
+keywords: "X algorithm, X algorithm explained, X algorithm open source, X algorithm open source github, X algorithm github, X algorithm how it works, X algorithm 2026, X twitter algorithm 2026, twitter algorithm how it works, X platform recommendation algorithm, X recommendation algorithm open source, X algorithm github repository, X algorithm github open source 2026, X platform recommendation algorithm how it works, twitter algorithm explained, X For You feed algorithm, Grok transformer ranking, xAI algorithm, social media algorithm, content recommendation, feed ranking, Twitter recommendation, X algorithm open source code"
+tags: [system-design, machine-learning, software-engineering]
 comments: true
 
-quick-answer: "X's For You algorithm: **Candidate sourcing** (500M daily posts → ~1,500 candidates from follows + ML discovery), **Ranking** (Grok-based Phoenix transformer predicts engagement), **Filtering** (remove duplicates, blocked content, apply diversity). Written in Rust (62.9%) + Python (37.1%). Two-Tower model finds out-of-network content."
+quick-answer: "X's open source recommendation algorithm (GitHub: xai-org/x-algorithm) works in three stages: **Candidate sourcing** (500M daily posts → ~1,500 candidates from follows + ML discovery), **Ranking** (Grok-based Phoenix transformer predicts engagement), **Filtering** (remove duplicates, blocked content, apply diversity). Written in Rust (62.9%) + Python (37.1%). Two-Tower model finds out-of-network content."
+
+key-takeaways:
+  - "X's recommendation algorithm is fully open source on GitHub (xai-org/x-algorithm), written in Rust (62.9%) and Python (37.1%)"
+  - "The algorithm uses a multi-stage pipeline: candidate sourcing (Thunder + Phoenix Two-Tower), ranking (Grok-based transformer), and filtering"
+  - "500 million daily posts are narrowed to ~1,500 candidates per user, ranked in under 200 milliseconds"
+  - "Negative signals (block, mute, report) carry far more weight than positive ones (like, reply) — a single block is -3.0 vs. a like at +0.5"
+  - "Candidate isolation in the Grok transformer ensures each post's score is independent, enabling aggressive caching and consistent rankings"
+  - "X eliminated all hand-engineered features and heuristics, letting the transformer model learn patterns directly from engagement data"
 
 faq:
   - question: "How does the X For You algorithm work?"
@@ -26,15 +35,19 @@ faq:
     answer: "X uses a Two-Tower retrieval model in Phoenix. A User Tower encodes your engagement history into an embedding, while a Candidate Tower encodes all posts. The system finds relevant out-of-network content by computing dot product similarity between your user embedding and post embeddings, retrieving the top-K most similar posts."
   - question: "What signals does the X algorithm use for ranking posts?"
     answer: "The algorithm predicts probabilities for positive actions (favorite, reply, repost, quote, click, video_view, share, dwell time, follow_author) and negative actions (not_interested, block_author, mute_author, report). The final score combines these predictions with different weights, where negative signals heavily penalize content."
+  - question: "Is the X algorithm open source on GitHub?"
+    answer: "Yes. X (formerly Twitter) published the full source code of their recommendation algorithm on GitHub at xai-org/x-algorithm. The repository includes the complete production pipeline: Thunder (in-memory post store), Phoenix (ML retrieval and ranking), and the Candidate Pipeline framework. The codebase is 62.9% Rust and 37.1% Python."
+  - question: "What changed in the X recommendation algorithm in 2026?"
+    answer: "The 2026 version of X's algorithm replaced earlier hand-engineered features and heuristics with a Grok-based transformer model called Phoenix. There are no longer hard-coded boosts for verified accounts, media types, or trending topics. The system also introduced candidate isolation in the ranking model, making scores independent and cacheable. The full source code is available on GitHub at xai-org/x-algorithm, written primarily in Rust and Python."
 ---
 
-X just did something rare in the tech industry. They published the complete source code for their For You feed algorithm. Not a simplified version. Not a whitepaper. The actual production code that decides what 500 million daily active users see.
+X (formerly Twitter) did something rare in the tech industry. They made their recommendation algorithm fully open source, publishing the complete production code on GitHub. Not a simplified version. Not a whitepaper. The actual code that decides what 500 million daily active users see in their For You feed.
 
-For engineers, this is a goldmine. We can finally see how a platform at this scale builds a recommendation system. The choices they made. The trade-offs they accepted. The patterns they invented.
+For engineers, this is a goldmine. We can finally see exactly how the recommendation algorithm works — the choices they made, the trade-offs they accepted, and the patterns they invented.
 
-I spent the last few days going through the [xai-org/x-algorithm](https://github.com/xai-org/x-algorithm) repository. Here's everything I learned.
+I spent the last few days going through the [xai-org/x-algorithm GitHub repository](https://github.com/xai-org/x-algorithm). Here's a detailed explanation of everything I learned.
 
-## The Problem X Had to Solve
+## The Problem X's Recommendation Algorithm Had to Solve
 
 Every time you open X and see the For You tab, the platform faces an impossible problem:
 
@@ -47,9 +60,9 @@ Traditional approaches break at this scale. You cannot run a neural network on 5
 
 So X built a funnel. A multi-stage pipeline that progressively narrows down candidates until only the most relevant survive.
 
-## System Architecture: The 10,000 Foot View
+## How the X Algorithm Works: System Architecture
 
-The algorithm follows a simple funnel. Start with millions of posts, narrow down to thousands, score them, and return the best ones:
+The X recommendation algorithm follows a simple funnel. Start with millions of posts, narrow down to thousands, score them, and return the best ones:
 
 ```mermaid
 flowchart LR
@@ -426,7 +439,7 @@ Looking at the repository structure reveals interesting language choices:
 
 This is a common pattern in ML systems. Python for flexibility during model development, Rust for performance in production serving. The Rust compilation ensures memory safety and predictable latency.
 
-## Design Patterns Worth Stealing
+## Design Patterns Worth Stealing from X's Open Source Code
 
 ### 1. The Candidate Pipeline Pattern
 <small>[View source on GitHub](https://github.com/xai-org/x-algorithm/tree/main/candidate-pipeline)</small>
@@ -521,7 +534,7 @@ Everything goes through the transformer. If a pattern matters (like people engag
 
 This is a bold architectural choice. Hand-crafted features give you control. You can boost breaking news manually. You can explicitly downrank certain content types. X chose to give up that control in favor of letting the model optimize directly for engagement signals.
 
-## Lessons for Your Own Recommendation System
+## Lessons from the X Algorithm GitHub Repository
 
 ### 1. Build a Pipeline, Not a Model
 
@@ -561,7 +574,7 @@ X built Product Mixer and the Candidate Pipeline framework as reusable infrastru
 
 If you're doing recommendations across multiple surfaces, build your pipeline framework once. The consistency and code reuse pays off quickly.
 
-## What's Missing from the Open Source Release
+## What's Missing from X's Open Source GitHub Repository
 
 A few notable gaps:
 
@@ -575,13 +588,13 @@ A few notable gaps:
 
 Still, what they did release is remarkably complete. You could reconstruct a working recommendation system from this code.
 
-## The Bigger Picture
+## The Bigger Picture: Why the X Algorithm Going Open Source Matters
 
-This release represents a shift in how we think about algorithm transparency. For years, social media algorithms were black boxes. Users complained about seeing (or not seeing) content without understanding why.
+This release represents a shift in how we think about algorithm transparency. For years, social media recommendation algorithms were black boxes. Users complained about seeing (or not seeing) content without understanding why.
 
-X's response is radical transparency. Here's the code. Here's how it works. If you don't like it, at least now you know what to change.
+X's response is radical transparency. Here's the code on GitHub. Here's how it works. If you don't like it, at least now you know what to change.
 
-Whether this level of openness becomes an industry norm remains to be seen. But for engineers, it's a gift. We get to learn from one of the most scaled recommendation systems on the planet.
+Whether this level of openness becomes an industry norm remains to be seen. But for engineers, it's a gift. We get to study one of the most scaled recommendation systems on the planet, with the full source code available on GitHub.
 
 The next time you scroll through For You, you'll know exactly what's happening behind the scenes. Candidate sourcing. Grok transformer. Weighted scoring. Filtering.
 

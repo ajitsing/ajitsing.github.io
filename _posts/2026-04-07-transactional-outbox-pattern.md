@@ -728,4 +728,4 @@ Start simple. Add an outbox table. Build a polling relay. Make your consumers id
 
 If you are building microservices, this pattern is not optional. It is infrastructure.
 
-For more on how queues and brokers fit into system architecture, check out [Role of Queues in System Design](/role-of-queues-in-system-design/) and [How Kafka Works](/distributed-systems/how-kafka-works/).
+For more on how queues and brokers fit into system architecture, check out [Role of Queues in System Design](/role-of-queues-in-system-design/) and [How Kafka Works](/distributed-systems/how-kafka-works/). If you are deciding which synchronous API protocol to use alongside your async messaging layer, [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/) covers the trade-offs.

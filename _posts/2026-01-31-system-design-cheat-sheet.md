@@ -476,6 +476,8 @@ APIs are contracts between services. Design them carefully.
 | Learning Curve | Low | Medium | Higher |
 | Best For | Public APIs, CRUD | Flexible frontends | Internal microservices |
 
+For a detailed comparison with architecture patterns, performance benchmarks, and a decision flowchart, see [REST vs GraphQL vs gRPC: How to Pick the Right API Protocol](/rest-vs-graphql-vs-grpc/).
+
 ### REST Best Practices
 
 ```

@@ -569,4 +569,4 @@ What started as RFC 7519 became the foundation of modern API authentication. Com
 
 ---
 
-*For more on distributed systems, check out our posts on [Kafka for event streaming](/distributed-systems/how-kafka-works/), [Paxos consensus algorithm](/distributed-systems/paxos/), and [Distributed counter architecture](/distributed-systems/distributed-counter/). For the complete picture on authorization, see [OAuth 2.0 Explained](/oauth-2-explained/).*
+*For more on distributed systems, check out our posts on [Kafka for event streaming](/distributed-systems/how-kafka-works/), [Paxos consensus algorithm](/distributed-systems/paxos/), and [Distributed counter architecture](/distributed-systems/distributed-counter/). For the complete picture on authorization, see [OAuth 2.0 Explained](/oauth-2-explained/). If you are deciding which API protocol to use with JWT authentication, see [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/).*

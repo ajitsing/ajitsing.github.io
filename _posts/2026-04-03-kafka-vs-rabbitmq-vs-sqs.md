@@ -758,7 +758,7 @@ flowchart TB
 - **RabbitMQ** handles task distribution: sending emails, generating reports, processing uploads. Work queues where each message is processed once.
 - **SQS** handles serverless glue: triggering Lambda functions, connecting AWS services, simple async decoupling.
 
-There is no rule that says you can only use one. Use the right tool for each job. If you are designing a system from scratch and want to understand how all these pieces fit together, the [System Design Cheat Sheet](/system-design-cheat-sheet/) covers the building blocks.
+There is no rule that says you can only use one. Use the right tool for each job. The same applies to your synchronous API layer -- most large systems combine [REST, GraphQL, and gRPC](/rest-vs-graphql-vs-grpc/) at different boundaries. If you are designing a system from scratch and want to understand how all these pieces fit together, the [System Design Cheat Sheet](/system-design-cheat-sheet/) covers the building blocks.
 
 ---
 

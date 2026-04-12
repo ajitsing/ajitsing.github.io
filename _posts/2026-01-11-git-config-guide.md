@@ -23,8 +23,6 @@ key-takeaways:
   - "Use conditional includes to have different settings for work and personal projects"
 
 faq:
-  - question: "Where is the Git config file located?"
-    answer: "Git has three config levels. System config is at /etc/gitconfig (Linux/Mac) or C:\\Program Files\\Git\\etc\\gitconfig (Windows). Global config is at ~/.gitconfig or ~/.config/git/config. Local config is at .git/config inside each repository. Local settings override global, which override system."
   - question: "How do I set git config values?"
     answer: "Use the command git config --global key value to set a global config value. For example, git config --global user.name 'Your Name' or git config --global feature.manyFiles true. Use --local instead of --global to set a value only for the current repository (git repo config). Run git config key to read a value."
   - question: "How do I edit the git config file?"

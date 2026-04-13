@@ -7,7 +7,7 @@ layout: null
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;
-  font-display: swap;
+  font-display: optional;
   src: url('{{ "/assets/fonts/open-sans-300.woff2" | relative_url }}') format('woff2');
 }
 @font-face {
@@ -49,7 +49,7 @@ layout: null
   font-family: 'Lora';
   font-style: italic;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url('{{ "/assets/fonts/lora-400i.woff2" | relative_url }}') format('woff2');
 }
 @font-face {
@@ -63,7 +63,7 @@ layout: null
   font-family: 'Lora';
   font-style: italic;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url('{{ "/assets/fonts/lora-700i.woff2" | relative_url }}') format('woff2');
 }
 

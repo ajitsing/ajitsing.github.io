@@ -113,6 +113,9 @@
 .sidebar-title i {
   color: #ff6b35;
   font-size: 1rem;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
 }
 
 .popular-posts-list {

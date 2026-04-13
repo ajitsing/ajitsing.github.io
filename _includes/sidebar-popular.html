@@ -10,12 +10,23 @@
         <li class="popular-post-item">
           <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
             {% if post.thumbnail-img %}
+            {% assign thumb_ext = post.thumbnail-img | split: '.' | last %}
+            {% if thumb_ext == 'svg' %}
+              {% assign sidebar_thumb = post.thumbnail-img %}
+            {% elsif thumb_ext == 'png' %}
+              {% assign sidebar_thumb = post.thumbnail-img | replace: '.png', '-small.jpg' %}
+            {% else %}
+              {% assign thumb_len = post.thumbnail-img | size %}
+              {% assign ext_len = thumb_ext | size | plus: 1 %}
+              {% assign base_len = thumb_len | minus: ext_len %}
+              {% assign sidebar_thumb = post.thumbnail-img | slice: 0, base_len | append: '-small.jpg' %}
+            {% endif %}
             <div class="popular-post-thumb">
-              <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+              <img src="{{ sidebar_thumb | relative_url }}" alt="{{ post.title }}" loading="lazy" width="56" height="56">
             </div>
             {% elsif post.share-img %}
             <div class="popular-post-thumb">
-              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy" width="56" height="56">
             </div>
             {% else %}
             <div class="popular-post-thumb popular-post-thumb-placeholder">
@@ -44,12 +55,23 @@
         <li class="popular-post-item">
           <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
             {% if post.thumbnail-img %}
+            {% assign thumb_ext = post.thumbnail-img | split: '.' | last %}
+            {% if thumb_ext == 'svg' %}
+              {% assign sidebar_thumb = post.thumbnail-img %}
+            {% elsif thumb_ext == 'png' %}
+              {% assign sidebar_thumb = post.thumbnail-img | replace: '.png', '-small.jpg' %}
+            {% else %}
+              {% assign thumb_len = post.thumbnail-img | size %}
+              {% assign ext_len = thumb_ext | size | plus: 1 %}
+              {% assign base_len = thumb_len | minus: ext_len %}
+              {% assign sidebar_thumb = post.thumbnail-img | slice: 0, base_len | append: '-small.jpg' %}
+            {% endif %}
             <div class="popular-post-thumb">
-              <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+              <img src="{{ sidebar_thumb | relative_url }}" alt="{{ post.title }}" loading="lazy" width="56" height="56">
             </div>
             {% elsif post.share-img %}
             <div class="popular-post-thumb">
-              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy" width="56" height="56">
             </div>
             {% else %}
             <div class="popular-post-thumb popular-post-thumb-placeholder">

@@ -32,7 +32,7 @@
 }
 
 .sidebar-title {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -125,7 +125,7 @@
 }
 
 .popular-post-title {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   color: #2c3e50;
@@ -146,14 +146,14 @@
 }
 
 .popular-post-date {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.7rem;
   color: #868e96;
   font-weight: 500;
 }
 
 .popular-post-tag {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.65rem;
   color: #6c757d;
   background: #f2f2f2;
@@ -317,7 +317,7 @@
 }
 
 .sidebar-tool-title {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: #2c3e50;
@@ -329,7 +329,7 @@
 }
 
 .sidebar-tool-desc {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.7rem;
   color: #868e96;
 }

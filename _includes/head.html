@@ -7,15 +7,9 @@
   <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
   <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 
-  <!-- Preconnect to critical external domains (keep to 4 max) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preconnect to critical external domains -->
   <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
-
-  <!-- Preload critical font CSS to reduce FOUT layout shift -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&display=swap">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&display=swap">
   {% if page.comments and site.disqus %}
   <link rel="preconnect" href="https://c.disquscdn.com">
   <link rel="preconnect" href="https://{{ site.disqus }}.disqus.com">

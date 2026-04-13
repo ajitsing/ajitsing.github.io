@@ -8,7 +8,6 @@
   <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 
   <!-- Preconnect to critical external domains -->
-  <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
   {% if page.comments and site.disqus %}
   <link rel="preconnect" href="https://c.disquscdn.com">
@@ -81,8 +80,6 @@
 
   <!-- DNS prefetch for lower-priority domains -->
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://code.jquery.com">
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
   {% if page.layout == 'home' %}
   <meta name="robots" content="index, follow">

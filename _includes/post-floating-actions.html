@@ -1,8 +1,8 @@
 {% capture encoded_title %}{{ page.title | replace: ' ', '%20' | replace: ':', '%3A' | replace: ',', '%2C' | replace: '&', '%26' | replace: "'", '%27' | replace: '"', '%22' }}{% endcapture %}
 {% capture encoded_url %}{{ page.url | absolute_url | url_encode }}{% endcapture %}
 
-<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css" />
-<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css" media="print" onload="this.media='all'" />
+<script defer src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
 
 <div class="floating-actions" id="floating-actions">
   <div class="floating-actions-clap">

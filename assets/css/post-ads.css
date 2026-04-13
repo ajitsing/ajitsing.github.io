@@ -36,7 +36,9 @@
   width: 342px;
   flex-shrink: 0;
   order: 1;
-  align-self: stretch;
+  height: 600px;
+  overflow: hidden;
+  contain: layout style;
 }
 
 /* In-article ad containers */

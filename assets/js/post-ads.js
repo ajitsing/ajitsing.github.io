@@ -223,16 +223,18 @@
   function enforcePixelGap(positions, children) {
     if (positions.length <= 1) return positions;
 
-    var filtered = [positions[0]];
+    var rects = {};
+    for (var i = 0; i < positions.length; i++) {
+      var el = children[positions[i]];
+      if (el) rects[positions[i]] = el.getBoundingClientRect();
+    }
 
+    var filtered = [positions[0]];
     for (var i = 1; i < positions.length; i++) {
-      var lastEl = children[filtered[filtered.length - 1]];
-      var currEl = children[positions[i]];
-      if (lastEl && currEl) {
-        var gap = currEl.getBoundingClientRect().top - lastEl.getBoundingClientRect().top;
-        if (gap >= MIN_PIXEL_GAP) {
-          filtered.push(positions[i]);
-        }
+      var lastRect = rects[filtered[filtered.length - 1]];
+      var currRect = rects[positions[i]];
+      if (lastRect && currRect && currRect.top - lastRect.top >= MIN_PIXEL_GAP) {
+        filtered.push(positions[i]);
       }
     }
 

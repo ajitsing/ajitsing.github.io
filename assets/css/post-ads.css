@@ -38,7 +38,7 @@
   order: 1;
   height: 600px;
   overflow: hidden;
-  contain: layout style;
+  contain: strict;
 }
 
 /* In-article ad containers */

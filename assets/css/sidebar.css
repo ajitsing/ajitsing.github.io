@@ -24,13 +24,20 @@
   .post-sidebar { display: none; }
   .post-main-content { max-width: 100%; }
 }
+@media (max-width: 1199px) {
+  .post-page .header-section .intro-header .container-md { max-width: 780px; }
+  .post-page .header-section .intro-header .col-xl-8,
+  .post-page .header-section .intro-header .col-lg-10 { max-width: 100%; }
+}
 @media (min-width: 1200px) and (max-width: 1399px) {
   .post-page-wrapper { gap: 2rem; max-width: 1082px; }
   .post-sidebar { width: 342px; }
+  .post-page .header-section .intro-header .container-md { max-width: 1082px; }
 }
 @media (min-width: 1400px) {
   .post-page-wrapper { max-width: 1192px; gap: 3.5rem; }
   .post-sidebar { width: 342px; }
+  .post-page .header-section .intro-header .container-md { max-width: 1192px; }
 }
 @media (max-width: 768px) {
   .post-page-wrapper { padding: 15px 12px 30px; }

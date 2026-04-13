@@ -1,20 +1,22 @@
 /* --- Post page layout (critical for CLS) --- */
 .post-page-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 342px;
   gap: 3rem;
   max-width: 1162px;
   margin: 0 auto;
   padding: 20px 15px 40px;
 }
 .post-main-content {
-  flex: 1;
   min-width: 0;
   max-width: 780px;
+  grid-column: 1;
+  grid-row: 1;
 }
 .post-sidebar {
   width: 342px;
-  flex-shrink: 0;
-  order: 1;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 /* Post page header - align with sidebar layout (must be render-blocking) */
@@ -36,7 +38,10 @@
 }
 
 @media (max-width: 991px) {
-  .post-page-wrapper { max-width: 780px; }
+  .post-page-wrapper { 
+    max-width: 780px; 
+    grid-template-columns: 1fr;
+  }
   .post-sidebar { display: none; }
   .post-main-content { max-width: 100%; }
 }

@@ -15,9 +15,6 @@
   width: 342px;
   flex-shrink: 0;
   order: 1;
-  height: 600px;
-  overflow: hidden;
-  contain: strict;
 }
 
 /* Post page header - align with sidebar layout (must be render-blocking) */

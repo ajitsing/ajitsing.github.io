@@ -19,6 +19,25 @@
   overflow: hidden;
   contain: strict;
 }
+
+/* Post page header - align with sidebar layout (must be render-blocking) */
+.post-page .header-section .intro-header .container-md {
+  max-width: 1162px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.post-page .header-section .intro-header .row {
+  margin: 0;
+}
+.post-page .header-section .intro-header .col-xl-8,
+.post-page .header-section .intro-header .col-lg-10 {
+  max-width: 780px;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  flex: none;
+}
+
 @media (max-width: 991px) {
   .post-page-wrapper { max-width: 780px; }
   .post-sidebar { display: none; }

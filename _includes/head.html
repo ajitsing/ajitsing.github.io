@@ -49,6 +49,16 @@
     {% endfor %}
   {% endif %}
 
+  {% if layout.deferred-ext-css %}
+    {% for css in layout.deferred-ext-css %}
+      {% if css.href %}
+        <link rel="stylesheet" href="{{ css.href }}" media="print" onload="this.media='all'"{% if css.sri %} integrity="{{ css.sri }}" crossorigin="anonymous"{% endif %}>
+      {% else %}
+        <link rel="stylesheet" href="{{ css }}" media="print" onload="this.media='all'">
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
   {% if page.ext-css %}
     {% for css in page.ext-css %}
       {% include ext-css.html css=css %}

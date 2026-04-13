@@ -31,24 +31,25 @@
   {% endfor %}
 {% endif %}
 
-<!-- Mermaid Support -->
+<!-- Mermaid Support: lazy-load 820 KiB library only when a diagram nears the viewport -->
 {% if page.content contains 'language-mermaid' or content contains 'language-mermaid' %}
-<script defer src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize mermaid
+(function() {
+  var MERMAID_SRC = 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js';
+  var OBSERVER_MARGIN = '600px 0px';
+  var loaded = false;
+  var blocks = document.querySelectorAll('pre code.language-mermaid');
+  if (!blocks.length) return;
+
+  function renderAll() {
     mermaid.initialize({
       startOnLoad: false,
       theme: 'default',
-      themeVariables: {
-        fontFamily: 'Open Sans, sans-serif'
-      }
+      themeVariables: { fontFamily: 'Open Sans, sans-serif' }
     });
-    
-    // Convert code blocks with language-mermaid class to mermaid divs
-    var mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
-    for (var i = 0; i < mermaidBlocks.length; i++) {
-      var code = mermaidBlocks[i];
+    var allBlocks = document.querySelectorAll('pre code.language-mermaid');
+    for (var i = 0; i < allBlocks.length; i++) {
+      var code = allBlocks[i];
       var pre = code.parentNode;
       var div = document.createElement('div');
       div.className = 'mermaid';
@@ -57,9 +58,36 @@
       div.style.backgroundColor = 'transparent';
       pre.parentNode.replaceChild(div, pre);
     }
-    
-    // Now render all mermaid diagrams
     mermaid.run();
-  });
+  }
+
+  function loadMermaid() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.src = MERMAID_SRC;
+    s.onload = renderAll;
+    document.body.appendChild(s);
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    loadMermaid();
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) {
+        io.disconnect();
+        loadMermaid();
+        return;
+      }
+    }
+  }, { rootMargin: OBSERVER_MARGIN });
+
+  for (var i = 0; i < blocks.length; i++) {
+    io.observe(blocks[i].parentNode);
+  }
+})();
 </script>
 {% endif %}

@@ -256,8 +256,9 @@ img {
   transform: translateY(-1px);
 }
 
-.navbar-custom .navbar-home-btn i {
-  font-size: 1rem;
+.navbar-custom .navbar-home-btn .nav-home-icon {
+  width: 1rem;
+  height: 1rem;
 }
 
 /* Collapsed: icon only, minimal styling */
@@ -273,8 +274,9 @@ img {
     display: none;
   }
   
-  .navbar-custom .navbar-home-btn i {
-    font-size: 1.25rem;
+  .navbar-custom .navbar-home-btn .nav-home-icon {
+    width: 1.25rem;
+    height: 1.25rem;
   }
   
   .navbar-custom .navbar-home-btn:hover {

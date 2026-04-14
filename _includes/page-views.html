@@ -9,15 +9,22 @@
 </div>
 <script>
   (function() {
-    var path = encodeURIComponent(location.pathname);
-    fetch('https://singhajit.goatcounter.com/counter/' + path + '.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        var el = document.getElementById('gc-views');
-        if (el && data.count_unique) {
-          el.textContent = data.count_unique + ' views';
-        }
-      })
-      .catch(function() {});
+    function loadViews() {
+      var path = encodeURIComponent(location.pathname);
+      fetch('https://singhajit.goatcounter.com/counter/' + path + '.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var el = document.getElementById('gc-views');
+          if (el && data.count_unique) {
+            el.textContent = data.count_unique + ' views';
+          }
+        })
+        .catch(function() {});
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadViews);
+    } else {
+      setTimeout(loadViews, 1);
+    }
   })();
 </script>

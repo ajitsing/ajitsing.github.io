@@ -7,11 +7,6 @@
   <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
   <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 
-  <!-- Preload critical fonts to break CSS → font request chain -->
-  <link rel="preload" href="{{ '/assets/fonts/lora-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ '/assets/fonts/open-sans-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ '/assets/fonts/open-sans-700.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-
   {% if page.comments and site.disqus %}
   <link rel="preconnect" href="https://c.disquscdn.com">
   <link rel="preconnect" href="https://{{ site.disqus }}.disqus.com">

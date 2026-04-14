@@ -256,7 +256,7 @@ graph TB
     style Follower2 fill:#e8f5e9
 ```
 
-**ISR (In-Sync Replicas)**: Followers that are caught up with the leader. If the leader dies, Kafka promotes a follower from the ISR.
+**ISR (In-Sync Replicas)**: Followers that are caught up with the leader. If the leader dies, Kafka promotes a follower from the ISR. The [High Watermark](/distributed-systems/high-watermark/) determines which messages are visible to consumers based on ISR replication progress.
 
 ### Step 3: Consumer Reads Data
 

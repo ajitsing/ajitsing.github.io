@@ -179,7 +179,7 @@ Not every entry in the log is committed. The leader might have appended entries 
 
 No. Uncommitted entries can still be overwritten if the leader crashes before getting majority acknowledgment.
 
-This is where the **high-water mark** (also called commit index) comes in. It's an index that tracks the last log entry safely replicated to a majority. Only entries at or below the high-water mark are committed. Only committed entries get applied to the state machine.
+This is where the **[high-water mark](/distributed-systems/high-watermark/)** (also called commit index) comes in. It's an index that tracks the last log entry safely replicated to a majority. Only entries at or below the high-water mark are committed. Only committed entries get applied to the state machine.
 
 ```mermaid
 graph LR
@@ -469,6 +469,6 @@ Understanding this pattern gives you a mental model for reasoning about consiste
 
 ---
 
-*For more distributed systems patterns, check out [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Majority Quorum](/distributed-systems/majority-quorum/), [Paxos Consensus](/distributed-systems/paxos/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
+*For more distributed systems patterns, check out [Write-Ahead Log](/distributed-systems/write-ahead-log/), [High Watermark](/distributed-systems/high-watermark/), [Majority Quorum](/distributed-systems/majority-quorum/), [Paxos Consensus](/distributed-systems/paxos/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
 
 *Further reading: Martin Fowler's [Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/replicated-log.html) catalog covers the replicated log and related patterns in depth.*

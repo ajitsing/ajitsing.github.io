@@ -1,6 +1,9 @@
 ---
 layout: base
 hide-explore-posts: true
+css:
+  - /assets/css/hub.css
+  - /assets/css/sidebar.css
 ---
 
 {% include header.html type="page" %}
@@ -78,9 +81,6 @@ hide-explore-posts: true
   }
 }
 </script>
-
-<link rel="stylesheet" href="{{ '/assets/css/hub.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/sidebar.css' | relative_url }}">
 
 <div class="hub-container">
   {% if page.hub-intro %}

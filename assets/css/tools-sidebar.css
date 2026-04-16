@@ -81,6 +81,13 @@
 .tools-nav-header i {
   font-size: 1rem;
   color: #78716c;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .tools-nav-list {
@@ -125,10 +132,15 @@
 
 .tools-nav-item i {
   width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-size: 0.82rem;
   color: #78716c;
   transition: color 0.15s ease;
+  flex-shrink: 0;
 }
 
 .tools-nav-item:hover i {

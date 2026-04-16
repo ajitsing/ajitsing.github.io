@@ -25,8 +25,6 @@ key-takeaways:
 faq:
   - question: "How do I set git config values?"
     answer: "Use the command git config --global key value to set a global config value. For example, git config --global user.name 'Your Name' or git config --global feature.manyFiles true. Use --local instead of --global to set a value only for the current repository (git repo config). Run git config key to read a value."
-  - question: "How do I edit the git config file?"
-    answer: "Run git config --global --edit to open your global gitconfig file in your editor. You can also edit it manually at ~/.gitconfig on Mac/Linux or C:\\Users\\YourName\\.gitconfig on Windows. For repository-specific settings, edit .git/config inside the repo directory."
   - question: "What are the most important gitconfig options?"
     answer: "The essential gitconfig options are user.name, user.email, core.editor, pull.rebase (set to true), fetch.prune (set to true), push.autoSetupRemote (set to true), init.defaultBranch (set to main), merge.conflictstyle (set to diff3), and rerere.enabled (set to true). For large repos, add feature.manyFiles true for performance."
   - question: "How do I set my Git username and email?"

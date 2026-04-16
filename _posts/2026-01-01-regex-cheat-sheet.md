@@ -15,20 +15,11 @@ comments: true
 
 quick-answer: "Core regex: `.` matches any char, `*` = 0+, `+` = 1+, `?` = 0 or 1, `\\d` = digit, `\\w` = word char, `\\s` = whitespace, `^` = start, `$` = end. Use `()` for capture groups, `(?:)` for non-capturing. Lazy: `*?`, `+?`. Flags: `i` (case-insensitive), `g` (global), `m` (multiline)."
 
-key-takeaways:
-  - "Start simple and build up. Test each piece of your pattern as you add it"
-  - "Use non-greedy quantifiers (*? and +?) when you want the shortest match"
-  - "Character classes like \\d, \\w, and \\s cover most common matching needs"
-  - "Capture groups () let you extract parts of your match for later use"
-  - "Always test your regex with edge cases before using it in production"
-
 faq:
   - question: "What is a regular expression (regex)?"
     answer: "A regular expression is a pattern that describes a set of strings. It lets you search for patterns rather than exact text. For example, you can find all email addresses in a document without knowing what they are beforehand. Regex is supported in virtually all programming languages."
   - question: "What is the difference between * and + in regex?"
     answer: "The asterisk (*) matches zero or more of the previous element - so 'a*' matches '', 'a', 'aa', etc. The plus (+) matches one or more - so 'a+' requires at least one 'a' and won't match an empty string. Use * when the element is optional, use + when you need at least one."
-  - question: "What does the dot (.) mean in regex?"
-    answer: "The dot matches any single character except newline. So 'c.t' matches 'cat', 'cut', 'c9t', or 'c@t' - any three character string starting with 'c' and ending with 't'. To match a literal dot, escape it with a backslash: '\\.' matches only a period."
   - question: "How do I make regex case insensitive?"
     answer: "Add the 'i' flag to your pattern. In JavaScript, this looks like /pattern/i. In Python, use re.IGNORECASE or re.I. Most regex tools have a checkbox or button to enable case insensitive matching."
   - question: "What is the difference between greedy and lazy matching?"

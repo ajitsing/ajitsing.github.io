@@ -21,7 +21,7 @@ key-takeaways:
   - "In Kafka, the high watermark equals the minimum Log End Offset across all In-Sync Replicas. Consumers can only read up to this point."
   - "In Raft, the commit index serves the same purpose. The leader advances it when a majority of followers confirm an entry."
   - "Without a high watermark, a leader crash could expose data to clients that the new leader doesn't have, causing data to disappear."
-  - "The Low Watermark is its counterpart. It marks how far back the log can be safely truncated without losing recoverable state."
+  - "The [Low Watermark](/distributed-systems/low-watermark/) is its counterpart. It marks how far back the log can be safely truncated without losing recoverable state."
 
 faq:
   - question: "What is the High Watermark in distributed systems?"
@@ -366,7 +366,7 @@ The rule is: `lastApplied` can never exceed `commitIndex`. The node applies entr
 
 ## The Low Watermark: The Other End
 
-If the high watermark tells you "how far forward is safe to read," the **low watermark** tells you "how far back can we safely forget."
+If the high watermark tells you "how far forward is safe to read," the **[low watermark](/distributed-systems/low-watermark/)** tells you "how far back can we safely forget."
 
 Write-ahead logs grow forever if left unchecked. Old entries that every node has already applied don't need to stick around. The low watermark marks the point below which log entries can be safely deleted or compacted.
 
@@ -399,7 +399,7 @@ Together, the two watermarks define the "active window" of the log:
 | **High Watermark** | Visibility to clients | Advances when followers confirm replication |
 | **Low Watermark** | Log cleanup and truncation | Advances when all nodes apply entries to state machine |
 
-Kafka handles this through **log retention policies** and **log compaction**. Raft-based systems use **snapshotting** to discard old entries.
+Kafka handles this through **log retention policies** and **log compaction**. Raft-based systems use **snapshotting** to discard old entries. For a deep dive into how the Low Watermark works, including real-world examples from Kafka, etcd, and PostgreSQL, see [Low Watermark: How Distributed Systems Clean Up Old Data Without Breaking Things](/distributed-systems/low-watermark/).
 
 ## Real-World Systems Using the High Watermark
 
@@ -546,6 +546,6 @@ Every time you set `acks=all` in Kafka, every time you read a consistent value f
 
 ---
 
-*For more distributed systems patterns, check out [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Replicated Log](/distributed-systems/replicated-log/), [Majority Quorum](/distributed-systems/majority-quorum/), [Heartbeat](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Paxos](/distributed-systems/paxos/), [Two-Phase Commit](/distributed-systems/two-phase-commit/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
+*For more distributed systems patterns, check out [Low Watermark](/distributed-systems/low-watermark/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Replicated Log](/distributed-systems/replicated-log/), [Majority Quorum](/distributed-systems/majority-quorum/), [Heartbeat](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Paxos](/distributed-systems/paxos/), [Two-Phase Commit](/distributed-systems/two-phase-commit/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
 
 *Further reading: Unmesh Joshi's [Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/high-watermark.html) on Martin Fowler's site covers the high watermark and related patterns in depth.*

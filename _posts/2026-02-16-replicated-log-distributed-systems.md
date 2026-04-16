@@ -455,7 +455,7 @@ graph TD
 
 4. **Leader-based design simplifies ordering.** Having a single leader that decides the order of log entries avoids the complexity of multi-leader conflicts.
 
-5. **Log compaction keeps storage bounded.** Snapshots let you discard old log entries without losing state.
+5. **Log compaction keeps storage bounded.** Snapshots let you discard old log entries without losing state. The [Low Watermark](/distributed-systems/low-watermark/) pattern determines exactly when it is safe to discard them.
 
 6. **Don't implement your own.** Unless you're building infrastructure at the level of etcd or CockroachDB, use an existing Raft library or a system that already implements this pattern.
 
@@ -469,6 +469,6 @@ Understanding this pattern gives you a mental model for reasoning about consiste
 
 ---
 
-*For more distributed systems patterns, check out [Write-Ahead Log](/distributed-systems/write-ahead-log/), [High Watermark](/distributed-systems/high-watermark/), [Majority Quorum](/distributed-systems/majority-quorum/), [Paxos Consensus](/distributed-systems/paxos/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
+*For more distributed systems patterns, check out [Low Watermark](/distributed-systems/low-watermark/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [High Watermark](/distributed-systems/high-watermark/), [Majority Quorum](/distributed-systems/majority-quorum/), [Paxos Consensus](/distributed-systems/paxos/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
 
 *Further reading: Martin Fowler's [Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/replicated-log.html) catalog covers the replicated log and related patterns in depth.*

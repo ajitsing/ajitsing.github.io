@@ -85,22 +85,6 @@
   display: block;
 }
 
-/* Tool page ads */
-.tool-ad-below-description {
-  margin: 40px 0;
-  padding: 20px;
-  text-align: center;
-  background: #f8f9fa;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-}
-
-.tool-ad-below-description .adsbygoogle {
-  width: 100%;
-  display: block;
-}
-
-
 @media (max-width: 768px) {
   .post-mid-ad {
     margin: 36px 0;
@@ -109,10 +93,5 @@
 
   .post-below-related-ad {
     margin: 28px 0;
-  }
-
-  .tool-ad-below-description {
-    margin: 32px 0;
-    padding: 16px;
   }
 }

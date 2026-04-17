@@ -11,10 +11,10 @@
         {% for item in page.faq %}
         {
           "@type": "Question",
-          "name": "{{ item.question | escape }}",
+          "name": {{ item.question | jsonify }},
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "{{ item.answer | escape }}"
+            "text": {{ item.answer | jsonify }}
           }
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
@@ -27,9 +27,9 @@
       "@id": "{{ page.url | absolute_url }}#howto",
       "name": "{{ page.title | escape }}",
       {% if page.description %}
-      "description": "{{ page.description | escape }}",
+      "description": {{ page.description | jsonify }},
       {% elsif page.subtitle %}
-      "description": "{{ page.subtitle | escape }}",
+      "description": {{ page.subtitle | jsonify }},
       {% endif %}
       {% if page.howto-time %}
       "totalTime": "{{ page.howto-time }}",
@@ -44,8 +44,8 @@
         {
           "@type": "HowToStep",
           "position": {{ forloop.index }},
-          "name": "{{ step.name | escape }}",
-          "text": "{{ step.text | escape }}"{% if step.image %},
+          "name": {{ step.name | jsonify }},
+          "text": {{ step.text | jsonify }}{% if step.image %},
           "image": "{{ step.image | absolute_url }}"{% endif %}{% if step.url %},
           "url": "{{ step.url | absolute_url }}"{% endif %}
         }{% unless forloop.last %},{% endunless %}
@@ -62,8 +62,8 @@
         {% for def in page.definitions %}
         {
           "@type": "DefinedTerm",
-          "name": "{{ def.term | escape }}",
-          "description": "{{ def.definition | escape }}"{% if def.url %},
+          "name": {{ def.term | jsonify }},
+          "description": {{ def.definition | jsonify }}{% if def.url %},
           "url": "{{ def.url }}"{% endif %}
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
@@ -74,8 +74,8 @@
     {
       "@type": "VideoObject",
       "@id": "{{ page.url | absolute_url }}#video",
-      "name": "{{ page.video.title | escape }}",
-      "description": "{{ page.video.description | escape }}",
+      "name": {{ page.video.title | jsonify }},
+      "description": {{ page.video.description | jsonify }},
       "thumbnailUrl": "https://img.youtube.com/vi/{{ page.video.id }}/maxresdefault.jpg",
       "uploadDate": "{{ page.date | date_to_xmlschema }}",
       "embedUrl": "https://www.youtube.com/embed/{{ page.video.id }}",
@@ -91,11 +91,11 @@
       "alternativeHeadline": "{{ page.subtitle | escape }}",
       {% endif %}
       {% if page.description %}
-      "description": "{{ page.description | escape }}",
+      "description": {{ page.description | jsonify }},
       {% elsif page.subtitle %}
-      "description": "{{ page.subtitle | escape }}",
+      "description": {{ page.subtitle | jsonify }},
       {% else %}
-      "description": "{{ page.content | strip_html | xml_escape | truncatewords: 50 }}",
+      "description": {{ page.content | strip_html | truncatewords: 50 | jsonify }},
       {% endif %}
       "mainEntityOfPage": {
         "@type": "WebPage",

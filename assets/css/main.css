@@ -79,10 +79,19 @@ layout: null
 @font-face {
   font-family: 'Open Sans Fallback';
   src: local('Arial');
-  size-adjust: 105%;
-  ascent-override: 101%;
-  descent-override: 28%;
+  size-adjust: 106.87%;
+  ascent-override: 101.09%;
+  descent-override: 27.64%;
   line-gap-override: 0%;
+}
+
+/* Reserve inline space for FontAwesome icons before FA CSS (deferred) loads.
+   Prevents CLS from icons appearing in headings, buttons, and banners. */
+.fa, .fas, .far, .fab, .fal, .fad {
+  display: inline-block;
+  min-width: 1em;
+  font-style: normal;
+  line-height: 1;
 }
 
 /* --- General --- */

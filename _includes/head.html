@@ -12,16 +12,29 @@
   <link rel="preconnect" href="https://{{ site.disqus }}.disqus.com">
   {% endif %}
 
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  {% if site.adunblock_script_url %}
+    {% assign adunblock_parts = site.adunblock_script_url | split: '/' %}
+    {% assign adunblock_origin = adunblock_parts[0] | append: '//' | append: adunblock_parts[2] %}
+  <link rel="preconnect" href="{{ adunblock_origin }}" crossorigin>
+  {% endif %}
+
   <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator | default: '-' }} {{ site.description }}{% elsif page.meta-title %}{{ page.meta-title }}{% elsif page.title %}{{ page.title }} - {{ site.title-suffix | default: site.title }}{% else %}{{ site.title }}{% endif %}</title>
   
   {% include seo.html %}
 
-  <!-- Preload fonts to prevent CLS -->
+  {% if page.subtitle %}
+  <link rel="preload" href="{{ '/assets/fonts/open-sans-300.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {% endif %}
   <link rel="preload" href="{{ '/assets/fonts/open-sans-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/open-sans-600.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/open-sans-700.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/open-sans-800.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/lora-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {% if page.layout == 'post' %}
+  <link rel="preload" href="{{ '/assets/fonts/lora-400i.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {% endif %}
   <link rel="preload" href="{{ '/assets/fonts/lora-700.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | default: 'Untitled' }} {{ site.title-separator | default: '-' }} {{ site.description }}" href="{{ '/feed.xml' | absolute_url }}">

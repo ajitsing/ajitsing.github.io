@@ -76,7 +76,7 @@ Your laptop thinks it's 10:00:00.000. A server in Singapore thinks it's 10:00:00
 
 This matters because transaction ordering depends on time. If Transaction A commits "before" Transaction B, every replica needs to agree on what "before" means.
 
-Most distributed databases use logical clocks (like Lamport timestamps) or accept eventual consistency. Spanner took a different approach: make physical clocks accurate enough to rely on.
+Most distributed databases use logical clocks (like Lamport timestamps) or a [Hybrid Logical Clock](/distributed-systems/hybrid-clock/) (used by CockroachDB, MongoDB, and YugabyteDB) or accept eventual consistency. Spanner took a different approach: make physical clocks accurate enough to rely on.
 
 ### How TrueTime Works
 

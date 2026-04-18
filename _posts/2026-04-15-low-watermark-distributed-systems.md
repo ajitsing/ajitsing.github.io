@@ -488,6 +488,7 @@ graph TD
 - **Snapshots** compress the full state at a point in time, allowing the log before that point to be truncated.
 - **Log Compaction** selectively removes outdated entries per key rather than truncating a whole prefix.
 - **Retention Policies** enforce time or size limits independent of replication state.
+- The [Hybrid Logical Clock](/distributed-systems/hybrid-clock/) gives each log entry a monotonic, time-aware version, which is what makes "delete everything before timestamp T" a meaningful operation across nodes.
 
 ## Key Takeaways for Developers
 
@@ -515,6 +516,6 @@ Get it right, and your system runs for years without running out of disk. Get it
 
 ---
 
-*For more distributed systems patterns, check out [High Watermark](/distributed-systems/high-watermark/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Replicated Log](/distributed-systems/replicated-log/), [Majority Quorum](/distributed-systems/majority-quorum/), [Heartbeat](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Paxos](/distributed-systems/paxos/), [Two-Phase Commit](/distributed-systems/two-phase-commit/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
+*For more distributed systems patterns, check out [High Watermark](/distributed-systems/high-watermark/), [Hybrid Logical Clock](/distributed-systems/hybrid-clock/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Replicated Log](/distributed-systems/replicated-log/), [Majority Quorum](/distributed-systems/majority-quorum/), [Heartbeat](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Paxos](/distributed-systems/paxos/), [Two-Phase Commit](/distributed-systems/two-phase-commit/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
 
 *Further reading: Unmesh Joshi's [Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/low-watermark.html) on Martin Fowler's site covers the Low Watermark and related patterns in depth.*

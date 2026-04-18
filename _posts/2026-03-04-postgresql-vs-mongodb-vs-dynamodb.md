@@ -584,4 +584,5 @@ And when you get to the scale where one database is not enough, you will know. Y
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - the commands you will use every day
 - [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - mongosh commands, aggregation, and indexes
 - [Caching Strategies Explained](/caching-strategies-explained/) - how to layer caching on top of any database
+- [Hybrid Logical Clock](/distributed-systems/hybrid-clock/) - the timestamp scheme MongoDB uses for cluster time and causal consistency
 - [System Design Cheat Sheet](/system-design-cheat-sheet/) - the bigger picture of how databases fit into system design

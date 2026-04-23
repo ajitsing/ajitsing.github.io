@@ -530,6 +530,8 @@ img {
 }
 .navbar-custom .avatar-container .avatar-img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
   {% unless site.round-avatar == false %}
     border-radius: 50%;
   {% endunless %}
@@ -556,6 +558,8 @@ img {
 
   .navbar-custom .avatar-container .avatar-img {
     width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 }
 

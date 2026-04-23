@@ -17,68 +17,206 @@ css:
 {% endif %}
 
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:locale" content="en_US">
+{% if page.share-img or page.thumbnail %}
+<meta property="og:image:alt" content="{{ page.meta-title | default: page.title | escape }}">
+{% endif %}
+{% if page.last-modified-date %}
+<meta property="article:modified_time" content="{{ page.last-modified-date | date_to_xmlschema }}">
+{% endif %}
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "headline": "{{ page.title | escape }}",
-  "description": "{{ page.description | escape }}",
-  "url": "{{ site.url }}{{ page.url }}",
-  "author": {
-    "@type": "Person",
-    "name": "Ajit Singh",
-    "url": "https://github.com/ajitsing",
-    "sameAs": [
-      "https://github.com/ajitsing",
-      "https://www.linkedin.com/in/ajit-singh-11620570/",
-      "https://x.com/ajit5ingh"
-    ]
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Ajit Singh",
-    "url": "{{ site.url }}"
-  },
-  "about": [
-    {% if page.hub-topics %}
-      {% for topic in page.hub-topics %}
-    { "@type": "Thing", "name": "{{ topic | escape }}" }{% unless forloop.last %},{% endunless %}
-      {% endfor %}
-    {% else %}
-    { "@type": "Thing", "name": "{{ page.title | escape }}" }
-    {% endif %}
-  ],
-  "numberOfItems": {{ hub_posts.size }},
-  "itemListElement": [
-    {% for post in hub_posts %}
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": {{ forloop.index }},
-      "url": "{{ site.url }}{{ post.url }}",
-      "name": "{{ post.title | escape }}",
-      "description": "{{ post.description | default: post.excerpt | strip_html | strip_newlines | escape | truncatewords: 25 }}"
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ],
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "{{ site.url }}"
+      "@type": "CollectionPage",
+      "@id": "{{ site.url }}{{ page.url }}#collection",
+      "url": "{{ site.url }}{{ page.url }}",
+      "name": "{{ page.meta-title | default: page.title | escape }}",
+      "headline": "{{ page.title | escape }}",
+      {% if page.also-known-as %}
+      "alternateName": [{% for alt in page.also-known-as %}"{{ alt | escape }}"{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      {% endif %}
+      "description": "{{ page.definition | default: page.description | escape }}",
+      {% if page.keywords %}
+      "keywords": "{{ page.keywords | escape }}",
+      {% endif %}
+      "inLanguage": "en-US",
+      "isFamilyFriendly": true,
+      "datePublished": "2025-01-01",
+      "dateModified": "{% if page.last-modified-date %}{{ page.last-modified-date | date_to_xmlschema }}{% else %}{{ site.time | date_to_xmlschema }}{% endif %}",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Software Engineers",
+        "name": "Software engineers, system designers, backend developers, and engineering interview candidates"
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ page.title | escape }}",
-        "item": "{{ site.url }}{{ page.url }}"
+      "learningResourceType": "Reference",
+      "educationalLevel": "Intermediate to Advanced",
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ page.share-img | default: page.thumbnail | absolute_url }}",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {% if page.hub-topics %}
+          {% for topic in page.hub-topics %}
+        { "@type": "Thing", "name": "{{ topic | escape }}" }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        {% else %}
+        { "@type": "Thing", "name": "{{ page.title | escape }}" }
+        {% endif %}
+      ],
+      "author": { "@id": "{{ site.url }}#author" },
+      "publisher": { "@id": "{{ site.url }}#organization" },
+      "isPartOf": { "@id": "{{ site.url }}#website" },
+      "mainEntity": { "@id": "{{ site.url }}{{ page.url }}#itemlist" },
+      "breadcrumb": { "@id": "{{ site.url }}{{ page.url }}#breadcrumb" }{% if page.speakable or site.speakable_default %},
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hub-intro p",
+          ".hub-intro-count",
+          ".hub-section-title",
+          ".hub-card-title"
+        ]
+      }{% endif %}
+    },
+    {
+      "@type": "ItemList",
+      "@id": "{{ site.url }}{{ page.url }}#itemlist",
+      "name": "{{ page.title | escape }} articles",
+      "numberOfItems": {{ hub_posts.size }},
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "itemListElement": [
+        {% for post in hub_posts %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "url": "{{ site.url }}{{ post.url }}",
+          "name": "{{ post.title | escape }}",
+          "description": "{{ post.description | default: post.excerpt | strip_html | strip_newlines | escape | truncatewords: 25 }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {% if page.faq %}
+    {
+      "@type": "FAQPage",
+      "@id": "{{ site.url }}{{ page.url }}#faq",
+      "mainEntity": [
+        {% for item in page.faq %}
+        {
+          "@type": "Question",
+          "name": {{ item.question | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ item.answer | jsonify }}
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {% endif %}
+    {% if page.definitions %}
+    {
+      "@type": "DefinedTermSet",
+      "@id": "{{ site.url }}{{ page.url }}#definitions",
+      "name": "{{ page.title | escape }} - Key Terms and Definitions",
+      "hasDefinedTerm": [
+        {% for def in page.definitions %}
+        {
+          "@type": "DefinedTerm",
+          "name": {{ def.term | jsonify }},
+          "description": {{ def.definition | jsonify }},
+          "inDefinedTermSet": "{{ site.url }}{{ page.url }}#definitions"{% if def.url %},
+          "url": "{{ def.url }}"{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {% endif %}
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ page.title | escape }}",
+          "item": "{{ site.url }}{{ page.url }}"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}#author",
+      "name": "{{ site.author }}",
+      "url": "{{ site.url }}/aboutme",
+      {% if site.author-job-title %}
+      "jobTitle": "{{ site.author-job-title }}",
+      {% endif %}
+      {% if site.author-description %}
+      "description": "{{ site.author-description }}",
+      {% endif %}
+      {% if site.author-expertise %}
+      "knowsAbout": [{% for area in site.author-expertise %}"{{ area }}"{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      {% endif %}
+      {% if site.author-employer %}
+      "worksFor": {
+        "@type": "Organization",
+        "name": "{{ site.author-employer }}"
+      },
+      {% endif %}
+      "sameAs": [
+        {% if site.social-network-links.twitter %}"https://twitter.com/{{ site.social-network-links.twitter }}"{% endif %}{% if site.social-network-links.github %},
+        "https://github.com/{{ site.social-network-links.github }}"{% endif %}{% if site.social-network-links.linkedin %},
+        "https://www.linkedin.com/in/{{ site.social-network-links.linkedin }}"{% endif %}{% if site.social-network-links.youtube %},
+        "https://www.youtube.com/{{ site.social-network-links.youtube }}"{% endif %}
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}#organization",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}",
+      {% if site.avatar %}
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.avatar | absolute_url }}",
+        "width": 400,
+        "height": 400
+      },
+      {% endif %}
+      "founder": { "@id": "{{ site.url }}#author" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}#website",
+      "url": "{{ site.url }}",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "publisher": { "@id": "{{ site.url }}#organization" },
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ site.url }}/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
       }
-    ]
-  }
+    }
+  ]
 }
 </script>
 

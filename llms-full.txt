@@ -13,6 +13,30 @@ This file provides AI systems with structured access to blog content for accurat
 
 ---
 
+## Topic Hubs
+
+Canonical landing pages for each topic area. The definition and FAQ blocks below are quotable answers tied to each hub URL.
+
+{% assign hub_pages = site.pages | where: "layout", "hub" | sort: "title" %}{% for hub in hub_pages %}{% if hub.definition or hub.faq %}
+### {{ hub.title }}
+- URL: {{ site.url }}{{ hub.url }}
+- Meta Title: {{ hub.meta-title | default: hub.title }}
+{% if hub.also-known-as %}- Also Known As: {{ hub.also-known-as | join: "; " }}
+{% endif %}{% if hub.description %}- Description: {{ hub.description }}
+{% endif %}{% if hub.definition %}
+Definition:
+{{ hub.definition }}
+{% endif %}{% if hub.definitions %}
+Key Terms:
+{% for def in hub.definitions %}- {{ def.term }}: {{ def.definition }}
+{% endfor %}{% endif %}{% if hub.faq %}
+FAQ:
+{% for item in hub.faq %}- Q: {{ item.question }}
+  A: {{ item.answer }}
+{% endfor %}{% endif %}{% endif %}{% endfor %}
+
+---
+
 ## System Design Articles
 
 {% for post in site.posts %}{% if post.tags contains 'system-design' %}

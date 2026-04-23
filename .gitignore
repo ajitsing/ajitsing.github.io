@@ -2,6 +2,7 @@
 _site
 .sass-cache
 .vagrant
+.favicon-venv
 
 # general
 .DS_Store

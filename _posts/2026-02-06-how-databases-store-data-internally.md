@@ -537,7 +537,7 @@ Modern databases let readers and writers operate concurrently using **Multi-Vers
 
 Instead of locking rows when reading, the database keeps multiple versions of each row. Readers see a consistent snapshot based on their transaction start time, while writers create new versions.
 
-**PostgreSQL MVCC**: Each row has hidden columns `xmin` (transaction that created it) and `xmax` (transaction that deleted/updated it). Old versions are kept in the same table until cleaned up by VACUUM.
+**PostgreSQL MVCC**: Each row has hidden columns `xmin` (transaction that created it) and `xmax` (transaction that deleted/updated it). Old versions are kept in the same table until cleaned up by VACUUM. For a deeper look at how MVCC fits into the rest of the engine, see [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"}.
 
 **MySQL InnoDB MVCC**: Row versions are stored in the undo log. Old versions are reconstructed from the undo log when needed.
 
@@ -670,6 +670,7 @@ SSDs have much lower random read latency than spinning disks. This makes B-tree 
 
 This post covered the fundamentals of database storage. Here are related topics to explore:
 
+- [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/) - The same ideas applied to one specific engine, end to end
 - [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/) - Practical guide to picking the right database
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Practical commands, queries, and performance tuning for developers
 - [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - mongosh commands, aggregation pipeline, and indexing

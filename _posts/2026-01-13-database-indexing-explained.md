@@ -385,7 +385,7 @@ Now it is scanning only 50 rows instead of 50,000.
 
 ### PostgreSQL EXPLAIN ANALYZE
 
-PostgreSQL's EXPLAIN ANALYZE actually runs the query and shows real execution times.
+PostgreSQL's EXPLAIN ANALYZE actually runs the query and shows real execution times. To understand how the planner picks a Seq Scan over an Index Scan in the first place, see [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"}.
 
 ```sql
 EXPLAIN ANALYZE SELECT * FROM orders WHERE customer_id = 123;
@@ -605,6 +605,7 @@ New result:
 
 **Further Reading**:
 
+- [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/) - How the planner picks index scans, bitmap scans, and joins
 - [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/) - Choosing the right database for your project
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Quick reference for psql commands, indexes, and EXPLAIN ANALYZE
 - [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - MongoDB indexes, explain(), and query optimization

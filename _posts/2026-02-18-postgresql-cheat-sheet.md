@@ -1109,7 +1109,7 @@ This is where PostgreSQL experience really shows. Knowing how to diagnose slow q
 
 ### EXPLAIN ANALYZE
 
-`EXPLAIN` shows you what PostgreSQL plans to do. `EXPLAIN ANALYZE` actually runs the query and shows what it did. Always use `ANALYZE` when debugging performance.
+`EXPLAIN` shows you what PostgreSQL plans to do. `EXPLAIN ANALYZE` actually runs the query and shows what it did. Always use `ANALYZE` when debugging performance. If you want to know how the planner decides between these node types in the first place, see [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"}.
 
 ```sql
 -- Show the execution plan (does not run the query)
@@ -1377,6 +1377,7 @@ WHERE NOT bl.granted;
 These posts go deeper into specific database topics:
 
 **PostgreSQL Deep Dives**:
+- [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/) - How parser, planner, executor, MVCC, and the WAL fit together
 - [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/)
 - [PostgreSQL 18: The Release That Makes Databases Fast Again](/postgres-18-features/)
 - [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/)

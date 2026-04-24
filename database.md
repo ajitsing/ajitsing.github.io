@@ -61,7 +61,7 @@ definitions:
     definition: "A cache of pre-established database connections that application threads borrow and return, avoiding the cost of opening a new TCP and TLS handshake per query."
   - term: "OLTP vs OLAP"
     definition: "OLTP is transactional workload (many small reads and writes, low latency); OLAP is analytical workload (few large scans and aggregations over historical data)."
-last-modified-date: 2026-04-22
+last-modified-date: 2026-04-23
 sitemap:
   priority: 0.8
   changefreq: weekly

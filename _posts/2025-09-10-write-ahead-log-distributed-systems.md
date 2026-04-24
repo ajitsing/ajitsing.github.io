@@ -171,7 +171,7 @@ Before PostgreSQL touches your actual data:
 3. **Data Updated**: Only now does it change the actual balance
 4. **Checkpoint**: Later, marks the change as permanent
 
-If PostgreSQL crashes between steps 2 and 4, it reads the WAL on restart and completes the operation. Your data is never lost.
+If PostgreSQL crashes between steps 2 and 4, it reads the WAL on restart and completes the operation. Your data is never lost. For a full walkthrough of how Postgres pairs the WAL with the buffer pool, MVCC, and the executor, see [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"}.
 
 ### Apache Kafka: Streaming with WAL
 

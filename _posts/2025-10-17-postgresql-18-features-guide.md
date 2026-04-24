@@ -662,6 +662,7 @@ Postgres 18 is the most performance-focused release in years. The async I/O impr
 
 **Related Posts:**
 
+- [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/) - Parser, planner, executor, MVCC, WAL, and EXPLAIN ANALYZE walkthrough
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Essential commands, queries, and performance tuning tips
 - [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/) - Real-world PostgreSQL scaling
 - [How Database Indexing Works](/database-indexing-explained/) - Deep dive into B-trees and index optimization

@@ -1023,6 +1023,7 @@ If you need a distributed lock across multiple services (not just database conne
 
 This post covered how database locks work and how to use them effectively. Here are related topics to dig deeper:
 
+- [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/) - Where MVCC, snapshots, and `xmin` / `xmax` actually live
 - [How Database Indexing Works](/database-indexing-explained/) - Indexes determine how many rows your queries lock
 - [How Databases Store Data Internally](/how-databases-store-data-internally/) - Pages, B-trees, and buffer pools that underpin locking
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Monitoring queries, transactions, and lock debugging

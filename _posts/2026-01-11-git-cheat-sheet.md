@@ -923,6 +923,7 @@ Once you are comfortable with these commands, look into:
 
 - [Git hooks](/print-custom-messages-after-executing-git-commands/) for automating tasks
 - [GitHub Actions](/github-actions-basics-cicd-automation/) for CI/CD automation
+- [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) to see what really happens on the server side of every `git push`
 - Signed commits for security
 
 The best way to learn Git is to use it. Make mistakes, undo them, and learn from the process.
@@ -932,6 +933,8 @@ The best way to learn Git is to use it. Make mistakes, undo them, and learn from
 **Further Reading:**
 
 - [Git Command Line Basics](/git-command-line-basics/) - More detail on essential commands
+- [Git Config Guide](/git-config-guide/) - Configure Git the right way
+- [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) - The Spokes architecture, three-replica voting, and Git internals behind GitHub
 - [Git Revert Multiple Commits](/git-revert-multiple-commits/) - When you need to undo a lot of changes
 - [Official Git Documentation](https://git-scm.com/doc) - The complete reference
 - [GitHub Git Cheat Sheet](https://training.github.com/downloads/github-git-cheat-sheet/) - Printable PDF version

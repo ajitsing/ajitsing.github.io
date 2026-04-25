@@ -726,7 +726,7 @@ That's not magic. That's engineering.
 
 ---
 
-*Want to learn more about distributed storage? Check out our posts on [How Kafka Works](/distributed-systems/how-kafka-works/) for log-based storage, [Write-Ahead Log](/distributed-systems/write-ahead-log/) for durability patterns, and [Kubernetes Architecture](/devops/kubernetes-architecture/) for container orchestration. For understanding distributed consensus, see [Paxos Consensus Algorithm](/distributed-systems/paxos/).*
+*Want to learn more about distributed storage? Check out our posts on [How Kafka Works](/distributed-systems/how-kafka-works/) for log-based storage, [Write-Ahead Log](/distributed-systems/write-ahead-log/) for durability patterns, and [Kubernetes Architecture](/devops/kubernetes-architecture/) for container orchestration. For understanding distributed consensus, see [Paxos Consensus Algorithm](/distributed-systems/paxos/). For another deep dive into a service you use every day, see [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/), which uses three-replica voting on top of plain Git instead of erasure coding.*
 
 **Further Reading**:
 - [Amazon S3 Documentation](https://docs.aws.amazon.com/s3/)

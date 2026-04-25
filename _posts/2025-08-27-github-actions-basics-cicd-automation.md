@@ -366,4 +366,6 @@ GitHub Actions can do much more than we covered - from managing releases to auto
 
 *For safer production deployments, check out [Feature Flags: How to Deploy Code Without Releasing Features](/feature-flags-guide/) to learn how to decouple deployment from release and enable gradual rollouts.*
 
+*Ever wondered what GitHub does with your code after `git push`? See [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) for a tour of Spokes, the three-replica storage system that backs every Actions checkout.*
+
 *Got questions about GitHub Actions or want to share your automation wins? Drop a comment below. And if you found this helpful, consider sharing it with a fellow developer.*

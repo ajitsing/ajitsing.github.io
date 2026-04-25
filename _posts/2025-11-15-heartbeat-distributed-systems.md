@@ -742,5 +742,7 @@ Remember: in distributed systems, things will fail. Heartbeat mechanisms ensure 
 
 *Also see [Replicated Log: How Distributed Systems Stay in Sync](/distributed-systems/replicated-log/), [High Watermark: What's Safe to Read](/distributed-systems/high-watermark/), [Hybrid Logical Clock](/distributed-systems/hybrid-clock/), [Paxos: The Democracy of Distributed Systems](/distributed-systems/paxos/), and [Write-Ahead Log: The Golden Rule of Durable Systems](/distributed-systems/write-ahead-log/).*
 
+*For a real production failure detector that prefers real application traffic over heartbeats, see how GitHub's Spokes system marks fileservers offline in [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/).*
+
 *Building reliable systems? Read [Stop Blocking Your Paying Customers: Build a Smart Rate Limiter](/dynamic-rate-limiter-system-design/).*
 

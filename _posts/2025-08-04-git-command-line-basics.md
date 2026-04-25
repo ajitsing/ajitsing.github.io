@@ -342,6 +342,8 @@ Whether you're a beginner or an experienced developer, the command line is a val
 
 If you want to expand your terminal skills beyond Git, check out the [Linux Commands Cheat Sheet](/linux-commands-cheat-sheet/) for essential commands covering file management, process control, networking, and more.
 
+Curious what happens on the other side of `git push origin main`? The post on [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) walks through GitHub's Spokes replication system, the three-replica voting protocol, and how Git itself stores objects on disk.
+
 ---
 
 *What are your favorite commands? Share your thoughts in the comments below!*

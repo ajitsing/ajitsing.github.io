@@ -150,6 +150,10 @@ flowchart TD
     style H fill:#ffcdd2
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ## The Coordinator's Log: The Source of Truth
 
 The coordinator keeps a transaction log. This log is critical for recovery:
@@ -292,6 +296,10 @@ This is why 2PC alone isn't used in modern high-availability systems without add
 
 ## Understanding XA: The Standard for Distributed Transactions
 
+
+{% include ads/display.html %}
+
+
 Before we look at implementations, let's understand XA, the industry standard that makes 2PC work across different databases and systems.
 
 ### What is XA?
@@ -416,6 +424,10 @@ COMMIT PREPARED 'transfer_123';
 -- If any fails, rollback everywhere
 ROLLBACK PREPARED 'transfer_123';
 ```
+
+
+{% include ads/in-article.html %}
+
 
 **Important**: Prepared transactions hold locks until committed or rolled back. If your application crashes without completing Phase 2, you'll have orphaned prepared transactions blocking other operations.
 
@@ -565,6 +577,10 @@ Locks are held from the start of Phase 1 until the end of Phase 2. In a slow net
 If the coordinator dies at the wrong time, participants are blocked. You need coordinator replication, which adds more complexity.
 
 ## Alternatives to 2PC
+
+
+{% include ads/display.html %}
+
 
 Modern distributed systems often use different approaches:
 

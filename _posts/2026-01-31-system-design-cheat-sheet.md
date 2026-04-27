@@ -153,6 +153,10 @@ Add more machines to distribute the load.
 | Cost effective (commodity hardware) | Data consistency challenges |
 | No single point of failure | Network overhead |
 
+
+{% include ads/in-article.html %}
+
+
 ```mermaid
 flowchart TB
     subgraph Vertical["Vertical Scaling"]
@@ -291,6 +295,10 @@ I covered these in depth in [Caching Strategies Explained](/caching-strategies-e
 | **Write-Through** | Writes go to cache and DB synchronously | Consistency critical |
 | **Write-Behind** | Writes go to cache, async to DB later | High write throughput |
 | **Write-Around** | Writes bypass cache, go to DB only | Write-once data |
+
+
+{% include ads/display.html %}
+
 
 ### Cache Eviction Policies
 
@@ -433,6 +441,10 @@ sequenceDiagram
     Worker->>Email: Send confirmation
 ```
 
+
+{% include ads/in-article.html %}
+
+
 - **Decoupling**: Services don't need to know about each other
 - **Resilience**: Failed consumers don't crash producers
 - **Buffering**: Absorb traffic spikes
@@ -555,6 +567,10 @@ flowchart TB
 | **Eventual** | Reads will eventually see latest write | Social media likes |
 | **Causal** | Related events appear in order | Chat messages |
 | **Read-your-writes** | You see your own writes immediately | Shopping cart |
+
+
+{% include ads/display.html %}
+
 
 ### Consensus Algorithms
 
@@ -718,6 +734,10 @@ Back-of-envelope calculations help validate designs.
 | Network round trip (same datacenter) | 500 μs |
 | Network round trip (cross-country) | 150 ms |
 | Disk seek | 10 ms |
+
+
+{% include ads/in-article.html %}
+
 
 ### Storage Calculations
 

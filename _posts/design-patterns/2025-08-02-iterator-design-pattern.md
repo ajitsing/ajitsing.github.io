@@ -141,6 +141,10 @@ public class DepthFirstIterator<T> implements Iterator<T> {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -320,6 +324,10 @@ for (Song song : playlist) {
     song.play();
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 ## How It Works
 

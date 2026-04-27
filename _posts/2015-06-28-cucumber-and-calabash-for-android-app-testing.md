@@ -84,6 +84,10 @@ As you can see when you run `calabash-android gen` it asks a question before cr
 3 directories, 6 files
 ```
 
+
+{% include ads/in-article.html %}
+
+
 If you don't understand the above file structure and want to know what each directory means then visit this [link](http://www.singhajit.com/set-up-automation-environment-using-cucumber-and-capybara/){:target="_blank"}.
 
 Now you don't have to touch any of the support directory files, because calabash does a good job in default configuration itself.
@@ -119,6 +123,10 @@ end
 `require 'calabash-android/calabash_steps'` - this line includes calabash's predefined steps in our steps and then you can use the predefined steps to press, type or any basic operation. You can find the predefined steps in calabash's github page.
 
 # Query an element on screen
+
+
+{% include ads/display.html %}
+
 
 To query and element on the screen use the `query` method of calabash. You have to pass the path to the element you want to query. For example
 

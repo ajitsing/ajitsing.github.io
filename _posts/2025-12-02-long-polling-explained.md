@@ -155,6 +155,10 @@ app.post('/send-notification', express.json(), (req, res) => {
 app.listen(3000);
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Client Side (JavaScript)
 
 ```javascript
@@ -313,6 +317,10 @@ app.get('/channel/:channelId', async (req, res) => {
     }
 });
 ```
+
+
+{% include ads/display.html %}
+
 
 This reduced the number of open connections dramatically. Instead of 1 million connections for 1 million users, they might have 100,000 connections each serving 10 users.
 
@@ -526,6 +534,10 @@ function notifyUser(userId, data) {
     pub.publish('user-events', JSON.stringify({ userId, data }));
 }
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ### Option 2: Sticky Sessions with Shared State
 

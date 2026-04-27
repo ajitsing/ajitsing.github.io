@@ -216,6 +216,10 @@ docker build --build-arg NODE_ENV=production -t myapp:latest .
 docker build -t myapp:latest -t myapp:1.0.0 .
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Tagging Images
 
 ```bash
@@ -434,6 +438,11 @@ docker run -v /host/path:/container/path:ro nginx:latest
 docker run -v mydata:/container/path nginx:latest
 
 # Mount anonymous volume
+
+
+{% include ads/display.html %}
+
+
 docker run -v /container/path nginx:latest
 ```
 
@@ -649,6 +658,10 @@ services:
 volumes:
   postgres_data:
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ### Common docker-compose Commands
 
@@ -895,6 +908,10 @@ docker run -v /host/path:/container/path:ro nginx:latest
 docker run -v data1:/data1 -v data2:/data2 nginx:latest
 ```
 
+
+{% include ads/display.html %}
+
+
 ### Volume Architecture
 
 ```mermaid
@@ -1134,6 +1151,11 @@ These are the workflows you will use most often.
 
 ```bash
 # 1. Build image
+
+
+{% include ads/in-article.html %}
+
+
 docker build -t myapp:dev .
 
 # 2. Run with volume mount for live reload

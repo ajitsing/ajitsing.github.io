@@ -64,6 +64,10 @@ p - paste the copied text or line
 x - delete the character under the cursor
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Use Cases
 
 1. To delete a line in vim you can use `dd` command and to paste that line somewhere else just type `p` You can use the `dd` and `p` command with the numbers as well.

@@ -168,6 +168,10 @@ flowchart LR
 | Post-Selection Filters | Final visibility and deduplication checks |
 | Side Effects | Cache data for future requests |
 
+
+{% include ads/in-article.html %}
+
+
 The clever part is the separation between what gets fetched and what gets scored. You can change the scoring model without touching the data layer. You can add new data sources without rewriting the scorer.
 
 This is the **Candidate Pipeline** pattern ([source](https://github.com/xai-org/x-algorithm/tree/main/candidate-pipeline)). X built it as a reusable framework with clear interfaces:
@@ -342,6 +346,10 @@ This is a brilliant trade-off. You lose some potential signal (maybe posts shoul
 
 ## The Scoring Formula
 
+
+{% include ads/display.html %}
+
+
 The transformer predicts probabilities for multiple engagement types. The final score is a weighted sum:
 
 ```mermaid
@@ -466,6 +474,11 @@ X uses **hash embeddings**. Instead of a unique embedding per entity, they hash 
 
 ```python
 # Simplified concept
+
+
+{% include ads/in-article.html %}
+
+
 def get_embedding(entity_id, num_buckets=1_000_000, num_hashes=4):
     embeddings = []
     for i in range(num_hashes):

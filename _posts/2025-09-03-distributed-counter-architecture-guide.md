@@ -196,6 +196,10 @@ likesCounter.increment();  // Fast write
 long totalLikes = likesCounter.getCount();  // Slightly slower read
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Pros and Cons
 
 **Pros:**
@@ -481,6 +485,10 @@ counter1.merge(counter2);
 System.out.println(counter1.value());  // 8
 ```
 
+
+{% include ads/display.html %}
+
+
 ### PN-Counter (Positive-Negative Counter)
 
 For counters that can decrement:
@@ -667,6 +675,10 @@ Let's look at how these patterns perform under different loads:
 </div>
 
 ## Handling Edge Cases
+
+
+{% include ads/in-article.html %}
+
 
 ### The Thundering Herd Problem
 

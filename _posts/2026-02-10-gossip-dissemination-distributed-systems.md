@@ -120,6 +120,10 @@ graph TB
     style M3 fill:#fee2e2,stroke:#dc2626,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **1 node tells 2. Those 2 tell 4. Those 4 tell 8. In 3 rounds, 10 nodes know the update.**
 
 ## How Gossip Dissemination Works
@@ -230,6 +234,10 @@ sequenceDiagram
 This is what most production systems use. Cassandra, Consul, and Redis Cluster all use push-pull gossip.
 
 ## The Math: Why Gossip Converges Fast
+
+
+{% include ads/display.html %}
+
 
 Let's work through the numbers.
 
@@ -342,6 +350,10 @@ No configuration changes needed on existing nodes. No restart. The gossip protoc
 
 ## Failure Detection with Gossip
 
+
+{% include ads/in-article.html %}
+
+
 One of the most practical uses of gossip dissemination is failure detection. Instead of having a dedicated monitor pinging every node (which creates a [single point of failure](/distributed-systems/heartbeat/)), nodes detect failures through gossip.
 
 ### How It Works
@@ -453,6 +465,10 @@ graph TB
     style S6 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
 
+
+{% include ads/display.html %}
+
+
 - **LAN pool**: All nodes within a datacenter gossip with each other. Fast, frequent (every 200ms). Used for local failure detection and service discovery.
 - **WAN pool**: Only server nodes participate. Slower, less frequent. Used to detect cross-datacenter connectivity issues.
 
@@ -554,6 +570,10 @@ This is how Cassandra's `nodetool repair` works under the hood. It's recommended
 | Purpose | Spread updates quickly | Fix missed updates |
 | Network cost | Low per round | High per round |
 | Consistency guarantee | Probabilistic | Deterministic |
+
+
+{% include ads/in-article.html %}
+
 
 Think of gossip as your daily sync, and anti-entropy as a weekly deep clean.
 

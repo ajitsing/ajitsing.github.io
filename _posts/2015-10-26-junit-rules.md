@@ -64,6 +64,10 @@ public class DatabaseResetRule implements TestRule {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 `DatabaseResetRule` implements `TestRule` which has only one method `apply()`.
 
 Now we can use this rule in as many test files as we want. Below is an example.

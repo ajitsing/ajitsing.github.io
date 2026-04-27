@@ -82,6 +82,10 @@ function generateTable(failedJobData) {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ## Step 2: Analyze failed job logs, Enters GPT!
 
 With logs in hand, the real magic happened: Feeding them to GPT for analysis. OpenAI's API (I used GPT-4o for its accuracy) can summarize errors, categorize failures, and even suggest fixes. The key? Craft precise prompts to extract structured output.

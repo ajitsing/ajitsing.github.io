@@ -205,6 +205,10 @@ public class CryptoStrategy implements PaymentStrategy {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Step 3: Create the Context
 
 ```java
@@ -401,6 +405,10 @@ public class CreditCardStrategy implements PaymentStrategy {
     }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 ### 3. Confusing Strategy with State
 

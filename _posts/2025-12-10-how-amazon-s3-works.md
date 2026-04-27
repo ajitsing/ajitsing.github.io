@@ -119,6 +119,10 @@ graph TD
     style O4 fill:#5fb878
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ## How S3 Handles Your Upload
 
 Let's trace what happens when you upload a file to S3.
@@ -267,6 +271,10 @@ graph LR
     style F4 fill:#ff6b6b,stroke:#ff6b6b,stroke-dasharray: 5 5
 ```
 
+
+{% include ads/display.html %}
+
+
 This is more storage-efficient than simple replication while providing similar durability.
 
 ### Layer 2: Multiple Availability Zones
@@ -395,6 +403,10 @@ You don't have to manually move objects between classes. Lifecycle policies auto
   ]
 }
 ```
+
+
+{% include ads/in-article.html %}
+
 
 This policy moves logs to cheaper storage as they age and deletes them after a year.
 
@@ -537,6 +549,10 @@ graph LR
 Instead of your data traversing the public internet, it takes a short hop to the nearest edge location and then travels over AWS's optimized backbone. This can improve transfer speeds by 50-500% for distant users.
 
 ## Event Notifications: S3 as an Event Source
+
+
+{% include ads/display.html %}
+
 
 S3 isn't just storage. It's an event source. When objects are created, deleted, or modified, S3 can trigger:
 

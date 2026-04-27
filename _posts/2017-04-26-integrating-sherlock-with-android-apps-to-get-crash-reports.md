@@ -82,6 +82,10 @@ public class LoginActivity extends AppCompatActivity {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Apart from showing all the crashes, Sherlock can also give you all the crash objects it has persisted. You can utilize these crash objects for anything. One possible use case is to generate a custom crash report.
 
 ```java

@@ -140,6 +140,10 @@ graph TB
     style WT fill:#4caf50
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Three Ways to Send Data
 
 WebTransport gives you three distinct communication patterns:
@@ -339,6 +343,10 @@ if (supportsWebTransport()) {
 - Python: Via `aioquic` library
 
 ## WebTransport vs WebSocket: The Breakdown
+
+
+{% include ads/display.html %}
+
 
 Let's compare them side by side:
 

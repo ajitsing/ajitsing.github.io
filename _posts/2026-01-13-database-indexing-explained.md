@@ -127,6 +127,10 @@ For a table with 10 million rows, a B-tree index typically has 3 to 4 levels. Th
 | 1,000,000 rows | 1,000,000 comparisons | ~20 comparisons |
 | 10,000,000 rows | 10,000,000 comparisons | ~24 comparisons |
 
+
+{% include ads/in-article.html %}
+
+
 The logarithmic scaling is what makes indexes so powerful for large tables.
 
 ## Types of Indexes
@@ -276,6 +280,10 @@ CREATE INDEX idx_articles_content ON articles USING gin(to_tsvector('english', c
 CREATE FULLTEXT INDEX idx_articles_content ON articles(content);
 ```
 
+
+{% include ads/display.html %}
+
+
 **Best for**: Search functionality where users search for words or phrases in text columns.
 
 ### <i class="fas fa-hashtag"></i> Hash Index
@@ -397,6 +405,10 @@ Seq Scan on orders  (cost=0.00..1234.00 rows=50000 width=100) (actual time=0.015
 Planning Time: 0.085 ms
 Execution Time: 52.456 ms
 ```
+
+
+{% include ads/in-article.html %}
+
 
 After adding an index:
 
@@ -565,6 +577,10 @@ CREATE INDEX idx_orders_status_date ON orders(status, order_date DESC);
 -- Index on foreign key
 CREATE INDEX idx_orders_customer ON orders(customer_id);
 ```
+
+
+{% include ads/display.html %}
+
 
 **Step 4: Verify the improvement**
 

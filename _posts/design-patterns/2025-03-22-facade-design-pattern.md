@@ -130,6 +130,10 @@ public class PopcornPopper {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Without a facade, watching a movie requires:
 
 ```java
@@ -392,6 +396,10 @@ public class ReportingFacade {
     public CustomerReport getTopCustomers(int limit) { ... }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 Each facade focuses on a specific domain, keeping interfaces cohesive.
 

@@ -161,6 +161,10 @@ AI is now a national priority, not just a corporate one. More compute means more
 
 ## <i class="fas fa-robot"></i> AI News
 
+
+{% include ads/in-article.html %}
+
+
 ### Google Releases Gemini 3 Flash - [<i class="fas fa-external-link-alt"></i>](https://techcrunch.com/2025/12/17/google-launches-gemini-3-flash-makes-it-the-default-model-in-the-gemini-app/)
 
 On December 17, Google released Gemini 3 Flash and made it the default in the Gemini app.
@@ -278,6 +282,10 @@ AI isn't replacing developers - it's changing what they do.
 ---
 
 ## <i class="fas fa-exclamation-triangle"></i> What This Week Teaches Us
+
+
+{% include ads/display.html %}
+
 
 **The AI coding stack is consolidating:** Cursor buying Graphite, OpenAI racing with Google. The winners will own the whole workflow.
 

@@ -143,6 +143,10 @@ These rules keep the tree balanced and efficient:
 | All leaves at same level | Guarantees O(log n) search time |
 | Sorted keys | Enables binary search within nodes |
 
+
+{% include ads/in-article.html %}
+
+
 ## How B-Tree Search Works
 
 Searching in a B-tree starts at the root and works down to a leaf.
@@ -288,6 +292,10 @@ def insert_non_full(node, key):
         
         insert_non_full(node.children[i], key)
 ```
+
+
+{% include ads/display.html %}
+
 
 ## How B-Tree Deletion Works
 
@@ -439,6 +447,10 @@ flowchart LR
     style IRR fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Why Index Order Matters for Composite Indexes
 
 For a composite index on (last_name, first_name, age):
@@ -558,6 +570,10 @@ InnoDB uses B+ trees for both the clustered index (primary key) and secondary in
 NTFS, HFS+, ext4, and most modern file systems use B-trees or variants to organize directory entries and file metadata. This allows quick file lookups even in directories with thousands of files.
 
 ## Common Interview Questions
+
+
+{% include ads/display.html %}
+
 
 **Q: Why use B-trees instead of binary search trees?**
 

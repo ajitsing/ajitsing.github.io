@@ -160,6 +160,10 @@ graph LR
     style E fill:#f0fdf4,stroke:#15803d
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The trick is step 1 and step 2 happening in the same database transaction. If the transaction commits, both the order and the event are saved. If it rolls back, neither is saved. There is no window where one exists without the other.
 
 The relay process runs independently. It picks up events from the outbox table and publishes them to the broker. If it crashes, no problem. On the next run, it picks up where it left off. Events are not lost because they are sitting safely in the database.
@@ -248,6 +252,10 @@ CREATE TABLE outbox_events (
 | **created_at** | When the event was created. Useful for monitoring lag and debugging. |
 | **published_at** | When the event was successfully published. Useful for auditing. |
 | **retry_count** | How many times the relay has attempted to publish this event. After a threshold (say 5 retries), move it to `failed` status for manual investigation. |
+
+
+{% include ads/display.html %}
+
 
 The partial index on `(status, id) WHERE status = 'pending'` is important. Without it, the relay query scans the entire table, which gets slow as the table grows. With the partial index, it only scans pending events.
 
@@ -407,6 +415,10 @@ graph LR
     style D fill:#f0fdf4,stroke:#15803d
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### How CDC works with the outbox
 
 1. Your service writes to the orders table and the outbox table in the same transaction, just like before.
@@ -517,6 +529,10 @@ CREATE TABLE processed_events (
     processed_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 ```
+
+
+{% include ads/display.html %}
+
 
 ```python
 def handle_event(event):
@@ -633,6 +649,10 @@ Each service has its own database and its own outbox table. Do not try to share 
 ---
 
 ## <i class="fas fa-list-ol"></i> Outbox Pattern vs Alternatives
+
+
+{% include ads/in-article.html %}
+
 
 | Pattern | What it solves | Consistency | Complexity | When to use |
 |---|---|---|---|---|

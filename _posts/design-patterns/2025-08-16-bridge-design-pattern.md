@@ -159,6 +159,10 @@ public class Square extends Shape {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -336,6 +340,10 @@ advancedRemote.togglePower();  // Radio is ON
 advancedRemote.setChannel(102); // Radio frequency: 102 FM
 advancedRemote.mute();          // Radio volume: 0
 ```
+
+
+{% include ads/display.html %}
+
 
 ## How It Works
 

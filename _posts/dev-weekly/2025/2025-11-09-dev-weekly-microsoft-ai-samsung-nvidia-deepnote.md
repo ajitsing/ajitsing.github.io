@@ -84,6 +84,10 @@ The reactive execution is smart too. Change a variable at the top, and everythin
 
 ## <i class="fas fa-tools"></i> Developer Tools & Releases
 
+
+{% include ads/in-article.html %}
+
+
 ### Canva Makes Affinity Suite Completely Free - [<i class="fas fa-external-link-alt"></i>](https://octet.design/journal/canva-made-affinity-free-forever/)
 
 Big news for designers. Canva acquired Serif last year, and this week they consolidated the **Affinity design suite** into a single **free app** for Mac and Windows.

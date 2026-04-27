@@ -137,6 +137,10 @@ The magic is in how lightweight these processes are:
 | Max per machine | Thousands | Millions |
 | Crash isolation | Takes down app | Process restarts |
 
+
+{% include ads/in-article.html %}
+
+
 A single WhatsApp server can run 2+ million Erlang processes. Try that with Java threads.
 
 ### Supervisors: Let It Crash
@@ -301,6 +305,10 @@ find_user_process(UserId) ->
     end).
 ```
 
+
+{% include ads/display.html %}
+
+
 ### Why Mnesia Works for WhatsApp
 
 | Feature | Benefit |
@@ -438,6 +446,10 @@ graph LR
 This is more complex and uses more bandwidth, but maintains end-to-end encryption.
 
 ## Lessons for Developers
+
+
+{% include ads/in-article.html %}
+
 
 WhatsApp's success offers concrete takeaways you can apply today:
 

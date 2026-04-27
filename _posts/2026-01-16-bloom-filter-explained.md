@@ -146,6 +146,10 @@ flowchart TD
     style N fill:#fee2e2,stroke:#dc2626,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Where False Positives Come From
 
 Let's add another element, "world":
@@ -266,6 +270,10 @@ Medium uses Bloom filters to track which articles a user has already seen. Inste
 When generating recommendations, they check the filter to avoid showing the same content twice. A false positive just means occasionally hiding an article the user has not seen. That is acceptable.
 
 ## Implementation Example
+
+
+{% include ads/display.html %}
+
 
 Here is a simple Bloom filter in Python:
 
@@ -404,6 +412,10 @@ If "yes" means triggering a secondary check (like reading from disk), that is us
 If "yes" means letting someone into a system they should not access, do not use a Bloom filter.
 
 ## Performance Comparison
+
+
+{% include ads/in-article.html %}
+
 
 | Operation | Bloom Filter | Hash Set | Sorted Array |
 |-----------|-------------|----------|--------------|

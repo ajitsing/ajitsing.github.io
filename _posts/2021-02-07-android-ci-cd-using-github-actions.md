@@ -88,6 +88,11 @@ on:
   pull_request:
     branches: [ main ]
 ```
+
+
+{% include ads/in-article.html %}
+
+
 <br/>
 
 ### Android Lint Check
@@ -216,6 +221,10 @@ The minimum version required for sonar scanner is Java 11 and that is why you se
         env:
           GITHUB_TOKEN: {{ "${{ secrets.GITHUB_TOKEN "}}}}
 ```
+
+
+{% include ads/display.html %}
+
 
 You can generate the Sonar token using SonarCloud portal. You can watch below video to understand how to setup sonarqube for your project and how the reports will look like on SonarCloud.
 

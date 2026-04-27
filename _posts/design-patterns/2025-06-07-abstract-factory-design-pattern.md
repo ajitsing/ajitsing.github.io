@@ -154,6 +154,10 @@ public class WindowsUIFactory implements UIFactory {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### macOS Implementation
 
 ```java
@@ -410,6 +414,10 @@ public class UserRepository {
     }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 ## Abstract Factory vs Factory Method
 

@@ -88,6 +88,10 @@ Feature: Test cucumber setup
     Then I pause the browser
 ```
 
+
+{% include ads/in-article.html %}
+
+
 In this file you can see a scenario where we want to search something on google. And for this we are using three steps. Let's see each step's implementation in detail.
 
 **Given I visit google**

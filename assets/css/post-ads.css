@@ -1,33 +1,17 @@
-/* In-article ad containers */
 .post-mid-ad {
   margin: 48px 0;
   padding: 28px 0;
   text-align: center;
-  background: transparent;
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
-  opacity: 0;
-  max-height: 600px;
-  transition: opacity 0.4s ease;
-}
-
-.post-mid-ad.ad-visible {
-  opacity: 1;
-}
-
-.post-mid-ad.ad-collapsing {
-  opacity: 0;
-  max-height: 0;
-  margin: 0;
-  padding: 0;
-  border-color: transparent;
-  overflow: hidden;
-  transition: opacity 0.3s ease, max-height 0.4s ease 0.1s, margin 0.4s ease 0.1s, padding 0.4s ease 0.1s, border-color 0.3s ease;
+  min-height: 280px;
+  contain: layout;
 }
 
 .post-mid-ad .adsbygoogle {
   width: 100%;
   display: block;
+  min-height: 250px;
 }
 
 /* Advertisement label styling (used by tools, explainers, home, etc.) */
@@ -59,39 +43,26 @@
 /* Multiplex ad below related posts */
 .post-below-related-ad {
   margin: 40px 0;
-  padding: 0;
   text-align: center;
-  background: transparent;
-  opacity: 0;
-  max-height: 800px;
-  transition: opacity 0.4s ease;
-}
-
-.post-below-related-ad.ad-collapsing {
-  opacity: 0;
-  max-height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  transition: opacity 0.3s ease, max-height 0.4s ease 0.1s, margin 0.4s ease 0.1s;
-}
-
-.post-below-related-ad.ad-visible {
-  opacity: 1;
+  min-height: 320px;
+  contain: layout;
 }
 
 .post-below-related-ad .adsbygoogle {
   width: 100%;
   display: block;
+  min-height: 280px;
 }
 
 @media (max-width: 768px) {
   .post-mid-ad {
     margin: 36px 0;
     padding: 20px 0;
+    min-height: 250px;
   }
 
   .post-below-related-ad {
     margin: 28px 0;
+    min-height: 280px;
   }
 }

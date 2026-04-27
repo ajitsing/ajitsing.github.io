@@ -142,6 +142,10 @@ WHERE attributes->>'category' = 'electronics'
   AND (attributes->>'price')::numeric < 500;
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Horizontal scaling with the right setup.** By itself, PostgreSQL scales vertically. But with [read replicas](/how-openai-scales-postgresql/), [connection pooling via PgBouncer](/how-openai-scales-postgresql/), and tools like Citus for sharding, it scales further than most applications will ever need. OpenAI runs ChatGPT for 800 million users on PostgreSQL.
 
 ### Where it struggles
@@ -244,6 +248,10 @@ For the commands you will use daily with MongoDB, see the [MongoDB Cheat Sheet](
 
 ## <i class="fab fa-aws"></i> DynamoDB
 
+
+{% include ads/display.html %}
+
+
 DynamoDB is Amazon's fully managed NoSQL database. It has been running at AWS scale since 2012 and powers some of the most high-traffic systems in the world. But it is genuinely different from PostgreSQL and MongoDB, and choosing it without understanding that difference will cause real pain.
 
 ### What it does well
@@ -330,6 +338,10 @@ table.query(
 ---
 
 ## Performance: What the Numbers Actually Show
+
+
+{% include ads/in-article.html %}
+
 
 Marketing pages show benchmarks in the best case. Here is a more honest picture.
 
@@ -472,6 +484,10 @@ flowchart TD
 
 ## What Real Companies Use
 
+
+{% include ads/display.html %}
+
+
 Knowing the theory is useful. Knowing what production systems actually run helps more.
 
 **PostgreSQL is everywhere.** OpenAI runs ChatGPT on PostgreSQL ([read how they do it](/how-openai-scales-postgresql/)). Notion uses PostgreSQL. Instagram started on PostgreSQL. Shopify, GitHub, and Gitlab all use PostgreSQL as their primary database. It is the workhorse of the internet.
@@ -540,6 +556,10 @@ UPDATE users
 SET preferences = preferences || '{"notifications": true}'::jsonb
 WHERE id = 42;
 ```
+
+
+{% include ads/in-article.html %}
+
 
 This lets you keep ACID transactions, SQL joins, and a single database while still handling variable-schema data. For many teams that think they need MongoDB, a `JSONB` column in PostgreSQL is enough.
 

@@ -214,6 +214,10 @@ public class DatabaseProcessor extends DataProcessor {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -437,6 +441,10 @@ public class OrderProcessor {
     }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 Template Method is simpler but less flexible. Strategy allows runtime changes and better testing.
 

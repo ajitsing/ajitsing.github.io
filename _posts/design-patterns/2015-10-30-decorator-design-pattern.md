@@ -81,6 +81,10 @@ public interface FlightSeat {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The FlightSeatDecorator has an instance of FlightSeat and also has both the methods.
 
 ```java

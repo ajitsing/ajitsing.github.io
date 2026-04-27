@@ -52,6 +52,10 @@ require_relative '../config/boot'
 require 'rails/commands'
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Take a look at the above code. I want you to focus on the second last line which requires the boot.rb file. Now lets see what lies in boot.rb file.
 
 ```ruby

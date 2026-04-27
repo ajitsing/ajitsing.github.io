@@ -114,6 +114,10 @@ The math is what makes this dangerous. Consider a system with these specs:
 | Database capacity | 500 concurrent queries |
 | Backend query time | 200ms |
 
+
+{% include ads/in-article.html %}
+
+
 Under normal operation, the cache absorbs 99% of reads. The database handles a comfortable 50 queries per second. Life is good.
 
 Then the cache key expires.
@@ -204,6 +208,10 @@ flowchart TD
 ```
 
 ## Six Solutions That Actually Work
+
+
+{% include ads/display.html %}
+
 
 There is no single magic fix. Each solution addresses the problem from a different angle. The best approach usually combines two or three of these.
 
@@ -377,6 +385,10 @@ flowchart TD
     style I fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
     style J fill:#f1f5f9,stroke:#64748b,stroke-width:2px
 ```
+
+
+{% include ads/in-article.html %}
+
 
 **Implementation using Redis:**
 
@@ -559,6 +571,10 @@ class AdaptiveLoadShedder:
             self.baseline_latency = latency
 ```
 
+
+{% include ads/display.html %}
+
+
 This is the approach behind the [rate limiter pattern](/dynamic-rate-limiter-system-design/). Rather than processing everything and crashing, the system degrades gracefully by prioritizing requests it can actually handle.
 
 <i class="fas fa-check-circle" style="color: #28a745;"></i> **When to use**: As a safety net alongside other solutions. Load shedding is your last line of defense.
@@ -649,6 +665,10 @@ They identified three strategies and measured their effectiveness:
 | **Full Jitter** | `sleep = random(0, min(cap, base * 2^attempt))` | Best. Spreads retries evenly. |
 | **Equal Jitter** | Half exponential, half random | Good. Some clustering remains. |
 | **Decorrelated Jitter** | `sleep = min(cap, random(base, sleep * 3))` | Good. Self-adjusting. |
+
+
+{% include ads/in-article.html %}
+
 
 AWS recommends **full jitter** for most cases because it produces the least amount of work and the most even spread of retries.
 

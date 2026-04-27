@@ -118,6 +118,10 @@ Example usage:
 </button>
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The `hx-swap` attribute has several options:
 
 - `innerHTML` - Replace the target's inner content (default)
@@ -333,6 +337,10 @@ Say you have a shopping cart. When you add an item, you want to:
 </main>
 ```
 
+
+{% include ads/display.html %}
+
+
 Your server can return:
 
 ```html
@@ -492,6 +500,10 @@ sequenceDiagram
     Note over User: No full page reload
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ## When HTMX Shines
 
 HTMX is excellent for:
@@ -591,6 +603,10 @@ HTMX plays well with others.
   </nav>
 </div>
 ```
+
+
+{% include ads/display.html %}
+
 
 **Tailwind CSS**: Style your HTMX applications the same way you'd style anything else. Nothing special needed.
 

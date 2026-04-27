@@ -134,6 +134,10 @@ spec:
       failureThreshold: 3
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **What this does:**
 - Wait 30 seconds after container starts (give it time to boot)
 - Every 10 seconds, send an HTTP GET to `/health`
@@ -263,6 +267,10 @@ AWS Auto Scaling uses push-based heartbeats. EC2 instances send heartbeats to th
 - <i class="fas fa-times-circle text-danger"></i> Monitor can be overwhelmed with many nodes
 
 ## Pattern 2: Pull-Based Health Check
+
+
+{% include ads/display.html %}
+
 
 The monitor actively polls each node to check if it's alive.
 
@@ -395,6 +403,10 @@ sequenceDiagram
     Note over N1,N4: Everyone knows N3 is dead
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Pros:**
 - <i class="fas fa-check-circle text-success"></i> No single point of failure (fully distributed)
 - <i class="fas fa-check-circle text-success"></i> Scales to thousands of nodes efficiently
@@ -524,6 +536,10 @@ graph LR
     style H fill:#fee2e2,stroke:#dc2626,stroke-width:2px
 ```
 
+
+{% include ads/display.html %}
+
+
 **Why this works:** If the network fails but the node can still write to shared storage, you know it's alive even though network heartbeats failed. This dramatically reduces false positives.
 
 ## Real-World Examples Deep Dive
@@ -648,6 +664,10 @@ for {
 - No need for a separate failure detection mechanism
 
 ## The Heartbeat Hierarchy
+
+
+{% include ads/in-article.html %}
+
 
 In production systems, you often have multiple layers of heartbeats:
 

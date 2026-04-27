@@ -167,6 +167,10 @@ def random_level(max_level, p=0.5):
     return level
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The expected height of the tallest node in a skip list with n elements is O(log n). This is why search takes logarithmic time.
 
 ## How Skip List Search Works
@@ -337,6 +341,10 @@ def delete(self, key):
     return False
 ```
 
+
+{% include ads/display.html %}
+
+
 ## Skip List Time Complexity
 
 | Operation | Average Case | Worst Case |
@@ -450,6 +458,10 @@ for (Map.Entry<Integer, String> entry : map.entrySet()) {
     System.out.println(entry.getKey() + ": " + entry.getValue());
 }
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ## Complete Skip List Implementation
 

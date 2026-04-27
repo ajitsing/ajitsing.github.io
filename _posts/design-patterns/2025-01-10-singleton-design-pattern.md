@@ -131,6 +131,10 @@ public class ConnectionPool {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The `volatile` keyword ensures the instance is fully constructed before it becomes visible to other threads. The double-check avoids synchronization overhead after initialization.
 
 ### Bill Pugh Singleton (Recommended)
@@ -269,6 +273,10 @@ private Singleton() {
     }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 Enum singletons are immune to this attack.
 

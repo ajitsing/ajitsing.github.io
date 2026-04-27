@@ -82,6 +82,10 @@ public interface Observable {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Now let's create the `Observer` interface which will be implemented by the page components.
 
 # Observer.java<br><br>
@@ -182,6 +186,10 @@ Likewise there can be a lot of other observers e.g PageBody.java, NavBar.java et
 Now that we have both `Observable` and `Observers` ready, let us use them to simulate a website experience.
 
 # Main.java<br><br>
+
+
+{% include ads/display.html %}
+
 
 ```java
 package observer_pattern;

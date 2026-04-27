@@ -121,6 +121,10 @@ public class AlarmReceiver extends BroadcastReceiver{
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 In the above code main components are
 
 ### BroadCastReceiver

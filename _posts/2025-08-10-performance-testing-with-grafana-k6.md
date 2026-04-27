@@ -159,6 +159,10 @@ export const options = {
 };
 ```
 
+
+{% include ads/in-article.html %}
+
+
 If violated, k6 exits with non‑zero status -> pipeline fails.
 
 ---
@@ -320,6 +324,10 @@ The `ramping-arrival-rate` executor **gradually increases or decreases RPS** thr
 }
 ```
 
+
+{% include ads/display.html %}
+
+
 <br>
 
 | Setting | Description |
@@ -478,6 +486,10 @@ export default function () {
   if (res.status !== 200) authFailures.add(1);
 }
 ```
+
+
+{% include ads/in-article.html %}
+
 
 Visualize custom metrics in Grafana (Prometheus / Influx pipeline described next).
 

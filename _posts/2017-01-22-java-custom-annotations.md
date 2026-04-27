@@ -47,6 +47,10 @@ public @interface MyTest {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The above code creates ```@MyTest``` annotation. ```@Retention(RUNTIME)``` tells java compiler that this annotation should be retained at RUNTIME.
 
 # Test Cases<br><br>

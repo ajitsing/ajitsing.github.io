@@ -164,6 +164,10 @@ sequenceDiagram
     Agent->>User: "Order placed. Confirmation #12345"
 ```
 
+
+{% include ads/in-article.html %}
+
+
 What the checkout capability handles:
 - Cart creation and management
 - Dynamic pricing and discounts
@@ -354,6 +358,10 @@ Authorization: Bearer <token>
   "currency": "USD"
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 **Model Context Protocol (MCP)**: For AI systems that already use Anthropic's MCP standard. UCP capabilities become MCP tools.
 
@@ -606,6 +614,10 @@ def token():
             "expires_in": 3600
         })
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ### Step 4: Implement Order Webhooks
 
@@ -878,6 +890,11 @@ def checkout(confirm):
     return result
 
 # Agent loop
+
+
+{% include ads/display.html %}
+
+
 def run_shopping_agent(user_request):
     messages = [
         {"role": "system", "content": """You are a shopping assistant. 
@@ -1039,6 +1056,10 @@ def ucp_complete_purchase(session_id: str, confirm: bool):
         return {"error": "User must confirm purchase"}
     return ucp_client.checkout.complete(session_id)
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ## What This Means for Developers
 

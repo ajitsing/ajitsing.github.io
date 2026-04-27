@@ -162,6 +162,10 @@ void processRequest(User user) {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Performance Benefits:**
 
 According to [Oracle's benchmarks](https://openjdk.org/jeps/464), Scoped Values are significantly faster than ThreadLocal:
@@ -301,6 +305,10 @@ You no longer need external security libraries for basic password hashing. The J
 ---
 
 ## Performance Improvements You'll Notice
+
+
+{% include ads/display.html %}
+
 
 ### 1. Garbage Collection Improvements
 

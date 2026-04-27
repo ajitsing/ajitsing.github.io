@@ -208,6 +208,10 @@ db.users.insertOne({
 // { acknowledged: true, insertedId: ObjectId("...") }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### insertMany
 
 ```javascript
@@ -403,6 +407,10 @@ db.articles.find(
 | `$text` | Full text search | `{ $text: { $search: "term" } }` |
 | `$elemMatch` | Array element match | `{ scores: { $elemMatch: { $gt: 80 } } }` |
 
+
+{% include ads/display.html %}
+
+
 ---
 
 ## Projection and Sorting
@@ -561,6 +569,10 @@ This is the MongoDB equivalent of PostgreSQL's `UPDATE ... RETURNING *`. It is a
 ---
 
 ## Deleting Documents
+
+
+{% include ads/in-article.html %}
+
 
 ```javascript
 // Delete one document
@@ -745,6 +757,10 @@ db.users.aggregate([
   }
 ])
 ```
+
+
+{% include ads/display.html %}
+
 
 ### $lookup (Join Collections)
 
@@ -945,6 +961,10 @@ db.users.createIndex({ userId: "hashed" })
 // Wildcard index (index all fields in a subdocument)
 db.products.createIndex({ "attributes.$**": 1 })
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ### Managing Indexes
 

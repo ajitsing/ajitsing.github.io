@@ -80,6 +80,10 @@ The gaming industry has been in consolidation mode, but this is the biggest deal
 
 ## 🛠 Developer Tools & Releases
 
+
+{% include ads/in-article.html %}
+
+
 ### AWS Launches Browser Automation Tool
 
 AWS released **Nova Act**, an open-source IDE extension for building browser automation agents.
@@ -184,6 +188,10 @@ This matters because:
 ---
 
 ## 🔒 Security & Open Source
+
+
+{% include ads/display.html %}
+
 
 ### F-Droid Challenges Google's Sideloading Rules
 

@@ -157,6 +157,10 @@ graph TB
     style O fill:#c8e6c9
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Any two majorities in a group **must overlap**. That overlap node guarantees you read the latest write.
 
 ## The Read/Write Formula
@@ -332,6 +336,10 @@ sequenceDiagram
     N5->>N4: I am the leader
 ```
 
+
+{% include ads/display.html %}
+
+
 The leader is elected by quorum. All writes go through the leader. The leader only acknowledges a write when a quorum of followers confirm it.
 
 This is why ZooKeeper clusters are always odd-sized. Their documentation explicitly recommends 3 or 5 nodes.
@@ -463,6 +471,10 @@ When a node fails, the system keeps running as long as quorum is maintained. But
 Some systems like etcd have explicit membership change protocols to handle this safely.
 
 ## When Quorum Gets Tricky
+
+
+{% include ads/in-article.html %}
+
 
 ### Geographic Distribution
 

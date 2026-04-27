@@ -121,6 +121,10 @@ Use square brackets to define your own character class:
 | `[^abc]` | Any character except a, b, c |
 | `[^0-9]` | Any non-digit |
 
+
+{% include ads/in-article.html %}
+
+
 The caret `^` at the start of a character class negates it.
 
 ### Examples
@@ -266,6 +270,10 @@ Alternation has low precedence. Use groups to control scope:
 ```
 
 ## Lookahead and Lookbehind
+
+
+{% include ads/display.html %}
+
 
 Lookarounds check for a pattern without including it in the match.
 
@@ -503,6 +511,10 @@ Uses backreference to find repeated words.
 | `\s` | Whitespace |
 | `\S` | Non-whitespace |
 | `.` | Any character (except newline) |
+
+
+{% include ads/in-article.html %}
+
 
 ### Quantifiers
 

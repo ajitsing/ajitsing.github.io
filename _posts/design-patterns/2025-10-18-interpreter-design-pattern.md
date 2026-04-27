@@ -203,6 +203,10 @@ public class InList implements BooleanExpression {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -396,6 +400,10 @@ ctx.setVariable("age", 25);
 ctx.setVariable("country", "US");
 System.out.println(expr.interpret(ctx));  // true
 ```
+
+
+{% include ads/display.html %}
+
 
 ## How It Works
 

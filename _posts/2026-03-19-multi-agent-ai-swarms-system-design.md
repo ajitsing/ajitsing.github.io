@@ -102,6 +102,10 @@ A single agent works like a generalist. It has one LLM brain, one set of tools, 
 | No parallelism | Steps run sequentially even when they could run in parallel |
 | Monolithic prompts | The system prompt becomes a 5000-word mess trying to cover every case |
 
+
+{% include ads/in-article.html %}
+
+
 Google's research on [scaling agentic architectures](https://www.infoq.com/news/2026/03/google-multi-agent/) confirmed something important: tasks requiring many tools perform worse when a single agent juggles all of them. The coordination overhead inside one agent exceeds the overhead of splitting across multiple agents.
 
 Think of it like the [modular monolith](/modular-monolith-architecture/) debate in backend engineering. A monolith works until it does not. When a single codebase becomes too large, you split it into modules or services with clear boundaries. Multi-agent systems follow the same principle: decompose a complex workflow into specialized sub-tasks with well-defined interfaces.
@@ -221,6 +225,10 @@ flowchart TD
     style D fill:#fef3c7,stroke:#d97706,stroke-width:2px
 ```
 
+
+{% include ads/display.html %}
+
+
 **How it works**: Each agent publishes and subscribes to topics on a shared message bus. When one agent detects something interesting, it broadcasts a message. Other agents pick it up if it is relevant to their role. No single agent has a full picture of the system.
 
 **Best for**: Security monitoring, real-time anomaly detection, distributed sensor networks.
@@ -310,6 +318,10 @@ flowchart TD
 For most teams just starting out, **start with the Supervisor pattern**. It gives you the most control and is the easiest to debug. You can always evolve to other patterns as your needs grow.
 
 ## Designing Individual Agents for a Swarm
+
+
+{% include ads/in-article.html %}
+
 
 A multi-agent system is only as good as its individual agents. Here are the design principles that matter.
 
@@ -429,6 +441,10 @@ flowchart TD
 | Direct Messaging | Supervisor pattern, small swarms | Simple, low latency | Tight coupling, hard to scale |
 | Shared State | Pipeline pattern, collaborative tasks | Decoupled, auditable | Race conditions, consistency issues |
 | Event Bus | Event-driven, large swarms | Fully decoupled, scalable | Complex, ordering challenges |
+
+
+{% include ads/display.html %}
+
 
 ### Message Format
 
@@ -591,6 +607,10 @@ Good [context engineering](/context-engineering/) is even more important in mult
   "budget_remaining": {"tokens": 50000, "usd": 2.50}
 }
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ## Framework Comparison: LangGraph vs CrewAI vs AutoGen
 

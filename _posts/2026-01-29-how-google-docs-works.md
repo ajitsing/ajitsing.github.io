@@ -125,6 +125,10 @@ sequenceDiagram
     Note over Alice,Bob: Result: "HelYloX"
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Transform Rules
 
 The transformation rules depend on the operation types:
@@ -313,6 +317,10 @@ flowchart LR
     style S2 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
 
+
+{% include ads/display.html %}
+
+
 ### <i class="fas fa-database"></i> Document Storage
 
 Documents aren't stored as plain text. They're stored as:
@@ -452,6 +460,10 @@ Users are worldwide. A user in Tokyo editing with someone in London has 200+ mil
 - Conflict resolution happens server-side regardless of latency
 
 ## OT vs CRDT: Two Approaches
+
+
+{% include ads/in-article.html %}
+
 
 Google Docs uses OT, but there's an alternative: Conflict-Free Replicated Data Types (CRDTs). Let's compare:
 

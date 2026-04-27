@@ -147,6 +147,10 @@ graph TB
     style B1 fill:#ffeb3b
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Notice Bucket 1: Alice, Steve, and David all hashed to the same bucket. Instead of overwriting each other, they form a chain.
 
 **How it handles collisions:**
@@ -290,6 +294,10 @@ load_factor = n / m
 n = number of entries
 m = table size
 ```
+
+
+{% include ads/display.html %}
+
 
 **Impact on performance:**
 
@@ -448,6 +456,10 @@ class SecureHashTable:
 Modern languages now use randomized hashing by default.
 
 ## Choosing a Good Hash Function
+
+
+{% include ads/in-article.html %}
+
 
 A good hash function should:
 1. **Distribute keys uniformly**

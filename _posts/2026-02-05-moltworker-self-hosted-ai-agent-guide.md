@@ -174,6 +174,10 @@ This is one of OpenClaw's most interesting design decisions. Instead of storing 
     └── gateway.log
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Why Markdown?
 
 **Debuggable**: When something goes wrong, you can open the files and see exactly what the agent remembers. No database queries, no special tools.
@@ -318,6 +322,10 @@ The key insight is that Moltworker replaces the local Gateway with a distributed
 This is a useful pattern for any self-hosted tool: design with clear abstractions, then swap implementations for different deployment targets.
 
 ## Setting Up OpenClaw
+
+
+{% include ads/display.html %}
+
 
 There are several ways to get started, depending on your preferences.
 

@@ -58,6 +58,10 @@ Multiple security agencies issued advisories this week, with Singapore's CSA pub
 
 ## 🚀 Major Releases & Updates
 
+
+{% include ads/in-article.html %}
+
+
 ### GitHub Copilot - September Updates - [🌐](https://github.blog/changelog/2025-09-12-github-copilot-in-vs-code-august-release-v1-104/)
 GitHub rolled out meaningful Copilot improvements:
 
@@ -109,6 +113,10 @@ Key improvements:
 ---
 
 ## 📈 Industry Trends
+
+
+{% include ads/display.html %}
+
 
 ### AI Development Tools Explosion
 Sept 17 brought a wave of funding for AI dev tools:

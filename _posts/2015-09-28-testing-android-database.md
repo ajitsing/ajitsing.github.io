@@ -92,6 +92,10 @@ This databaseHelper just have one method which is to add more expense types. Our
 
 # DatabaseHelperTest
 
+
+{% include ads/in-article.html %}
+
+
 Complete code is availabe on [github](https://github.com/ajitsing/ExpenseManager/blob/master/app/src/androidTest/java/ajitsingh/com/expensemanager/database/ExpenseDatabaseHelperTest.java){:target="_blank"}.
 
 

@@ -79,6 +79,10 @@ To view the details of individual job failure, click on the enqueued time of the
 &nbsp;
 ## Fetching stats of all queues
 
+
+{% include ads/in-article.html %}
+
+
 You can use the below api to fetch the stats of all the queues.
 
 ```ruby

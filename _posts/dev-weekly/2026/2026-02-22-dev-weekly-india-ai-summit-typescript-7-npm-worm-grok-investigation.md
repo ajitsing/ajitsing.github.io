@@ -87,6 +87,10 @@ OpenAI is already one of the most valuable private companies in the world. If th
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
+
+{% include ads/in-article.html %}
+
+
 ### TypeScript 7 Native Compiler Released
 
 On February 18, Microsoft shipped TypeScript 7 with a new native compiler that significantly reduces build times for large-scale projects.
@@ -231,6 +235,10 @@ If you're organizing events, security matters. Even registration systems need pr
 
 ## <i class="fas fa-shield-alt"></i> Security & Open Source
 
+
+{% include ads/display.html %}
+
+
 ### New npm Worm Steals Dev Secrets and Poisons AI Toolchains - [<i class="fas fa-external-link-alt"></i>](https://www.ox.security/blog/npm-worm-hijacks-ci-workflows-ai-packages/)
 
 On February 19, security researchers discovered a new supply chain attack in the npm ecosystem. A Shai-Hulud-like worm is affecting 19+ packages with 2 aliases, stealing developer secrets and poisoning AI toolchains.
@@ -300,6 +308,10 @@ AI chatbots are under increasing scrutiny. Regulators are worried about privacy,
 ---
 
 ## <i class="fas fa-calendar-alt"></i> Quick Hits
+
+
+{% include ads/in-article.html %}
+
 
 **India AI Summit** - New Delhi hosts first AI Impact Summit, secures $250B in investments. Reliance commits $109.8B, Adani pledges $100B.
 

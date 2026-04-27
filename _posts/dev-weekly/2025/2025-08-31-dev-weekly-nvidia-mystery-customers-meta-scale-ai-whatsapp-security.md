@@ -117,6 +117,10 @@ This matters because it shows how hard it is to scale AI data operations, even w
 
 ## 🛡️ Security & Privacy
 
+
+{% include ads/in-article.html %}
+
+
 ### WhatsApp's Zero-Click Nightmare
 
 WhatsApp fixed a critical vulnerability that allowed attackers to install spyware on Apple devices without any user interaction. The bug was actively exploited in the wild, targeting journalists and activists.
@@ -195,6 +199,10 @@ WhatsApp rolled out an AI feature that lets you rephrase and adjust the tone of 
 ---
 
 ## 🏗️ Infrastructure & Cloud
+
+
+{% include ads/display.html %}
+
 
 ### GitHub's WebP Image Support
 

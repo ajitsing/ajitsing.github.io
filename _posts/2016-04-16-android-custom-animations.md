@@ -96,6 +96,10 @@ Below xml code creates a scale animation, which will increase the size of eleme
 </set>
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Few of the attributes like duration, we have already covered and it will be same across different kind of animations. Lets discuss the other attributes.
 
 **android:fromXScale :** this is the initial size of the UI element respective to X axis. 1 means that the initial size will be the actual size of element. Reducing it will make the element smaller.
@@ -167,6 +171,10 @@ This will make the R.id.element animate as shown below.
 <br>
 
 # Rotate
+
+
+{% include ads/display.html %}
+
 
 As the name suggests, it will make the element rotate. Below is an sample animation using rotate tag.
 

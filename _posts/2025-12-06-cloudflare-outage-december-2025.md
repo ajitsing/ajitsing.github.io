@@ -168,6 +168,10 @@ if let Some(execute) = &rule_result.execute {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The Rust compiler would force you to handle the `None` case. You cannot accidentally access a field that might not exist. The FL2 proxy, written in Rust, was not affected by this incident because the strong type system made this class of bugs impossible.
 
 This is not just academic. A runtime nil value exception in Lua brought down 28% of HTTP traffic. A compile-time check in Rust prevented the same issue in FL2.
@@ -272,6 +276,10 @@ The WAF testing tool was not critical for customer traffic. Its failure should n
 ---
 
 ## The Bottom Line
+
+
+{% include ads/display.html %}
+
 
 A security fix triggered a killswitch that was applied to an `execute` action for the first time. This exposed a nil value bug that had been dormant for years. The global config system propagated the bug to the entire fleet in seconds. 28% of HTTP traffic returned 500 errors for 25 minutes.
 

@@ -131,6 +131,10 @@ Here is the step-by-step process:
 4. Return the estimate
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The harmonic mean is used instead of arithmetic mean because it is less sensitive to outliers. One register with an unusually high value will not skew the entire estimate.
 
 ## Visual Example
@@ -345,6 +349,11 @@ class HyperLogLog:
 
 
 # Usage
+
+
+{% include ads/display.html %}
+
+
 hll = HyperLogLog()
 
 # Add 1 million items

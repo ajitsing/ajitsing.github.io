@@ -121,6 +121,10 @@ graph TB
     style P2 fill:#fff3e0
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Why partitions matter**:
 - **Parallelism**: Different partitions on different servers
 - **Ordering**: Messages within a partition are strictly ordered
@@ -281,6 +285,10 @@ sequenceDiagram
 - **Manual**: You control when to commit (safer)
 
 ## The Write-Ahead Log: Kafka's Performance Secret
+
+
+{% include ads/display.html %}
+
 
 Kafka's speed comes from treating storage as a **sequential log**. Here's why this is brilliant:
 
@@ -458,6 +466,10 @@ graph TB
     style B1_Dead fill:#ffcdd2
     style B2_Leader fill:#4caf50
 ```
+
+
+{% include ads/in-article.html %}
+
 
 **What happens**:
 1. Broker 1 dies
@@ -643,6 +655,10 @@ graph TB
     style Z3 fill:#ffcdd2
     style C1 fill:#4caf50
 ```
+
+
+{% include ads/display.html %}
+
 
 **Benefits of KRaft**:
 - Simpler operations (one system instead of two)
@@ -837,6 +853,10 @@ Kafka is powerful but not always the right choice.
    - Use: Redis Streams or batch messages
 
 ## The Bigger Picture: Kafka in Modern Architecture
+
+
+{% include ads/in-article.html %}
+
 
 Kafka has become the **central nervous system** for data-driven companies.
 

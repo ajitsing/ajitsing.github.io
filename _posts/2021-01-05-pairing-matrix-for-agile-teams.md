@@ -79,6 +79,10 @@ github:
     - github_username/my_private_repo
 ```
 
+
+{% include ads/in-article.html %}
+
+
 &nbsp;
 # How to test the author regex?
 

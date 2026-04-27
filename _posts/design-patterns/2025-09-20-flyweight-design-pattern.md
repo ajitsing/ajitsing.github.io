@@ -127,6 +127,10 @@ public class Character {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -266,6 +270,10 @@ for (int i = 0; i < 10000; i++) {
 System.out.println("Particles: " + particles.size());
 System.out.println("Memory saved: ~100MB (10KB texture x 10,000)");
 ```
+
+
+{% include ads/display.html %}
+
 
 ## String Interning as Flyweight
 

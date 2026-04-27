@@ -72,6 +72,10 @@ gocd_server = GocdServer.with do |server|
 end
 ```
 
+
+{% include ads/in-article.html %}
+
+
 And your pre-push hook is ready. Now you need to tell gocd_pre_push, which pipelines you want to check for this repository. That you can add inside pipelines.yml. For example I want to check for following pipelines and their stages.
 
 ```yaml

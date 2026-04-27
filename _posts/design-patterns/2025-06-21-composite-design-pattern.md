@@ -142,6 +142,10 @@ public class Folder implements FileSystemNode {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -395,6 +399,10 @@ ceo.addSubordinate(marketing);
 ceo.printHierarchy("");
 System.out.println("Total salary cost: $" + ceo.getSalary());
 ```
+
+
+{% include ads/display.html %}
+
 
 ## Common Mistakes
 

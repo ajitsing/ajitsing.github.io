@@ -75,6 +75,10 @@ In the above example there is a LinearLayout(Parent of all views) which does not
 
 # Padding
 
+
+{% include ads/in-article.html %}
+
+
 Padding is a way to push the contents away from view's inner boundary. When we specify the padding of a view, we say the content to keep this much distance from your inner boundary(left, right, top or bottom). Like margin, padding is also of 5 types.
 
 1. **padding** - keep distance from all the inner boundaries

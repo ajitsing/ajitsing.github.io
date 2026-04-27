@@ -75,6 +75,10 @@ public interface Criteria {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Now let's implement a bunch of criteria to choose from.
 
 # Macintosh.java<br><br>

@@ -201,6 +201,10 @@ charge_retry = create_payment("12345", 2000)
 print(f"Same charge: {charge_retry.id}")
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Node.js
 
 ```javascript
@@ -419,6 +423,10 @@ def create_payment_with_retry(order_id: str, amount: int, max_retries: int = 3):
     raise Exception(f"Failed after {max_retries} attempts")
 ```
 
+
+{% include ads/display.html %}
+
+
 ## The Architecture
 
 Here is how the three layers work together:
@@ -591,6 +599,10 @@ except stripe.error.APIConnectionError as e:
 ```
 
 ## Building Your Own Idempotent API
+
+
+{% include ads/in-article.html %}
+
 
 The same patterns work for any API, not just payments.
 

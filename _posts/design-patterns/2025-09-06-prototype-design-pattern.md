@@ -115,6 +115,10 @@ goblin2.setPosition(150, 220);
 // Each goblin has same stats but different positions
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Prototype Registry
 
 ```java
@@ -303,6 +307,10 @@ HttpRequestTemplate ordersRequest = apiTemplate.clone()
     .withPath("/orders")
     .withHeader("X-Custom-Header", "value");
 ```
+
+
+{% include ads/display.html %}
+
 
 ## How It Works
 

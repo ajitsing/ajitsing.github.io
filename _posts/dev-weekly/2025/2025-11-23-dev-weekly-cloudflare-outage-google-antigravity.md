@@ -106,6 +106,10 @@ Nvidia has dominated for years. AMD making a serious push with 35x inference imp
 
 ## <i class="fas fa-robot"></i> Google's Antigravity: AI IDE That Codes For You
 
+
+{% include ads/in-article.html %}
+
+
 ### Google Enters the AI Coding Wars - [<i class="fas fa-external-link-alt"></i>](https://en.wikipedia.org/wiki/Google_Antigravity)
 
 Google launched **Antigravity** on November 18 - an AI-powered IDE built on VS Code that goes beyond autocomplete.

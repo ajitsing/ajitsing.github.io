@@ -59,6 +59,10 @@ This is how we can calculate the number of pixels for each dpi. So if you have g
 
 # SP
 
+
+{% include ads/in-article.html %}
+
+
 SP or scale independent pixel is used for fonts and is very much similar to DP with an extra feature that SP honours the user preference. For example you have a text with 10sp in your app and user goes to the android settings and changes the text size to Large, then the size of text defined in your application will also change. Lets understand it with an example.
 
 ```xml

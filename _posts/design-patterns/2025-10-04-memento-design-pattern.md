@@ -146,6 +146,10 @@ public class EditorHistory {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -303,6 +307,10 @@ public class SaveManager {
 ```
 
 ## Checkpoints with Auto-Save
+
+
+{% include ads/display.html %}
+
 
 ```java
 public class AutoCheckpointManager {

@@ -164,6 +164,10 @@ But they come with a tax:
 | Developer experience | Running 10 services locally is painful |
 | Debugging | Good luck tracing a request across 8 services |
 
+
+{% include ads/in-article.html %}
+
+
 For a team of 5-50 developers, this tax often outweighs the benefits.
 
 **The distributed monolith trap**: Many teams end up with tightly coupled services that have to be deployed together. They have all the complexity of microservices with none of the independence. This is worse than a well-structured monolith.
@@ -373,6 +377,10 @@ public class OrderService {
     }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 <pre><code class="language-mermaid">
 sequenceDiagram
@@ -604,6 +612,10 @@ graph TB
 - Higher operational overhead
 
 ## Real World Example: E-commerce Platform
+
+
+{% include ads/in-article.html %}
+
 
 Let's design an e-commerce system as a modular monolith.
 

@@ -182,6 +182,10 @@ response = client.chat.completions.create(
 )
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### My Recommendation
 
 Start with OpenAI API for the best developer experience. Once you understand the patterns, you can switch to Claude for better quality or local models for privacy. The code we write will work with all three.
@@ -394,6 +398,10 @@ def chat_with_retry(self, messages: List[Dict[str, str]], max_retries: int = 3, 
             time.sleep(1)
     raise Exception("Failed after retries")
 ```
+
+
+{% include ads/display.html %}
+
 
 ### Add Cost Tracking
 
@@ -700,6 +708,10 @@ Create a simple HTML frontend:
 </body>
 </html>
 ```
+
+
+{% include ads/in-article.html %}
+
 
 Open `index.html` in a browser. You now have a working LLM chat application.
 

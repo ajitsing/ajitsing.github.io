@@ -142,6 +142,10 @@ Here is how the two compare:
 | **iOS status** | Removed | Only option |
 | **Android status** | Available as fallback | Default (API 29+) |
 
+
+{% include ads/in-article.html %}
+
+
 Real-world benchmarks on a Pixel 8 Pro show Impeller reducing GPU raster time by roughly 30% compared to Skia. At 120Hz refresh rates, 92% of Impeller frames met the 8.33ms deadline vs. only 67% for Skia. That is the difference between butter-smooth scrolling and noticeable stutters.
 
 ### Dart Runtime
@@ -273,6 +277,10 @@ This separation is what makes Flutter fast. Widgets are cheap to create, so rebu
 
 ## The Rendering Pipeline
 
+
+{% include ads/display.html %}
+
+
 When you call `setState()`, here is the full journey from that call to pixels on screen.
 
 ```mermaid
@@ -388,6 +396,10 @@ If you have worked with Android's compilation pipeline, this is a similar idea. 
 ---
 
 ## How Hot Reload Works
+
+
+{% include ads/in-article.html %}
+
 
 Hot reload is one of Flutter's most useful features, and it works because of the JIT compilation setup during development. Here is what happens when you save a file:
 
@@ -517,6 +529,10 @@ final result = await Isolate.run(() {
 });
 ```
 
+
+{% include ads/display.html %}
+
+
 Or use Flutter's convenience function:
 
 ```dart
@@ -623,6 +639,10 @@ flowchart TD
 | **Hot reload** | Sub-second (~300ms) | 1-2 seconds (Fast Refresh) |
 | **Ecosystem** | Growing (pub.dev) | Mature (npm) |
 | **Learning curve** | Need to learn Dart | Leverage existing JS skills |
+
+
+{% include ads/in-article.html %}
+
 
 **Flutter's advantage** is consistency and performance. Because it renders everything itself, your app looks and behaves exactly the same on iOS and Android. There is no bridge overhead, and complex animations run at a consistent 60-120fps.
 

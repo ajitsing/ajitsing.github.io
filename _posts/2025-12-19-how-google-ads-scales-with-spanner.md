@@ -124,6 +124,10 @@ graph LR
     style AC2 fill:#5fb878
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### The Commit Wait
 
 Here's the clever part. When a transaction commits, Spanner waits until it's certain the commit timestamp is in the past for all servers worldwide.
@@ -284,6 +288,10 @@ graph TB
     style A3 fill:#4a90a4
 ```
 
+
+{% include ads/display.html %}
+
+
 ### Automatic Resharding
 
 As data grows or access patterns change, Spanner automatically splits and moves data. No downtime. No manual intervention.
@@ -407,6 +415,10 @@ Spanner uses Paxos so that any minority of replicas can fail without affecting a
 Spanner constantly monitors load and automatically rebalances. Build similar feedback loops in your systems. Don't wait for problems. Detect hotspots and fix them before users notice.
 
 ## Open Source Alternatives
+
+
+{% include ads/in-article.html %}
+
 
 You can't run Spanner yourself (unless you're on Google Cloud), but several open-source databases use similar ideas.
 

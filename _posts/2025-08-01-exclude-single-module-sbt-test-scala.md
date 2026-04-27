@@ -136,6 +136,10 @@ lazy val integration = (project in file("integration"))
   )
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Pros:**
 - Simple and explicit
 - Tests are completely skipped, saving build time
@@ -324,6 +328,10 @@ sbt integration/test
 
 ## Method 7: Environment-Based Configuration
 
+
+{% include ads/display.html %}
+
+
 Use environment variables to control test execution dynamically.
 
 ```scala
@@ -399,7 +407,6 @@ jobs:
       - name: Run integration tests only
         run: sbt integration/test
 ```
-
 
 ### 2. **Environment Variables**
 

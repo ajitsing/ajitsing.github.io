@@ -171,6 +171,11 @@ async def handle_webhook(request: Request):
 
     return {"status": "ok"}
 ```
+
+
+{% include ads/in-article.html %}
+
+
 {% endraw %}
 
 **Pros**: Full control over the server, can process events asynchronously, works with any Git provider.
@@ -319,6 +324,10 @@ If you are not familiar with retrieval pipelines, the [RAG application guide](/b
 ---
 
 ## Step 3: The LLM Prompt
+
+
+{% include ads/display.html %}
+
 
 This is the part that makes or breaks your reviewer. A bad prompt produces a wall of generic suggestions that developers will ignore. A good prompt produces focused, actionable feedback on the things that actually matter.
 
@@ -473,6 +482,11 @@ async def post_review_comments(
             }
         )
 ````
+
+
+{% include ads/in-article.html %}
+
+
 {% endraw %}
 
 Notice the review event is `COMMENT`, not `REQUEST_CHANGES`. Do not let the bot block PRs. Developers will revolt. The AI should inform, not gate.
@@ -598,6 +612,10 @@ flowchart LR
 ---
 
 ## Choosing the Right LLM
+
+
+{% include ads/display.html %}
+
 
 Not all models are equally good at code review. Here is what I have found after testing several:
 
@@ -734,6 +752,10 @@ Key points about this architecture:
 ---
 
 ## Prompt Evolution: Learning from Your Team
+
+
+{% include ads/in-article.html %}
+
 
 A static prompt gets you 70% of the way. The last 30% comes from learning what your team cares about.
 

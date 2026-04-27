@@ -227,6 +227,10 @@ def process_order(order_id: str) -> dict:
         return {"order_id": order_id, "status": "confirmed"}
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Most frameworks support auto-instrumentation, which adds spans automatically for HTTP requests, database calls, and cache operations without touching your code:
 
 ```bash
@@ -362,6 +366,10 @@ docker run -d \
   jaegertracing/all-in-one:latest
 ```
 
+
+{% include ads/display.html %}
+
+
 For production, you run the collector, storage, and query service as separate deployable units. The Helm chart handles this for Kubernetes deployments.
 
 ### Adaptive sampling
@@ -464,6 +472,11 @@ Tempo ships with TraceQL, a query language for searching traces. It is more expr
 
 ```
 # Find all traces where any span had an error
+
+
+{% include ads/in-article.html %}
+
+
 { status = error }
 
 # Find traces where the root span took more than 2 seconds
@@ -566,6 +579,10 @@ For most teams, the query flexibility does not justify the cost difference once 
 ---
 
 ## <i class="fas fa-random"></i> Sampling Strategies
+
+
+{% include ads/display.html %}
+
 
 Getting sampling right matters more than which backend you pick. Poor sampling is how you end up paying a lot for tracing while still missing the traces that would have actually helped you debug production.
 
@@ -748,6 +765,10 @@ flowchart TD
 ---
 
 ## What Real Teams Use
+
+
+{% include ads/in-article.html %}
+
 
 Understanding the theory is useful. Seeing what engineering teams actually deploy in production tells you a different story.
 

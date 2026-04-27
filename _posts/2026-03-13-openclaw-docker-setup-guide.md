@@ -165,6 +165,10 @@ curl -SL https://github.com/docker/compose/releases/latest/download/docker-compo
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Verify after install:
 
 ```bash
@@ -347,6 +351,10 @@ The Gateway stays on the host. It handles connections and routing. When an agent
 | Shell execution (exec, bash) | Elevated tools (explicit host access) |
 | Process management | Tools explicitly allowed on host |
 | Browser automation | |
+
+
+{% include ads/display.html %}
+
 
 ### Configuration
 
@@ -533,6 +541,10 @@ Add this to your `~/.openclaw/openclaw.json`:
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Two details that trip people up:
 
 **The base URL must use `host.docker.internal`**, not `127.0.0.1`. Inside a Docker container, `127.0.0.1` points to the container itself, not the host. `host.docker.internal` is a special DNS name that Docker provides to reach the host machine.
@@ -667,6 +679,11 @@ These are the issues I hit and the fixes that actually work.
 
 ```bash
 # Confirm it was an OOM kill
+
+
+{% include ads/display.html %}
+
+
 docker inspect openclaw --format '{% raw %}{{.State.OOMKilled}}{% endraw %}'
 
 # Check kernel logs
@@ -832,6 +849,10 @@ OpenClaw separates security into three independent controls: sandbox (where tool
 ---
 
 ## Quick Reference
+
+
+{% include ads/in-article.html %}
+
 
 ### Essential Commands
 

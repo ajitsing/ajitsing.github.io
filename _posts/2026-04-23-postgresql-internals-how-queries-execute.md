@@ -149,6 +149,10 @@ flowchart TB
     class BG,CH,WW,AV,ST,IO ax
 ```
 
+
+{% include ads/in-article.html %}
+
+
 A few practical implications fall out of this design.
 
 - **Each backend uses around 10 MB of resident memory by itself**, plus whatever it allocates for sorts and hashes. A thousand idle connections is not free.
@@ -242,6 +246,10 @@ flowchart TD
     class Pick boxGreen
 ```
 
+
+{% include ads/display.html %}
+
+
 ### How Cost Is Computed
 
 The planner uses a **cost model** measured in arbitrary units. The defaults assume one sequential page read costs `1.0`. The other costs are calibrated against that baseline.
@@ -319,6 +327,10 @@ The most common executor node types every developer should recognize:
 | `Sort` | `ORDER BY` without a usable index, `MERGE JOIN` prep | Sort tuples, in memory if `work_mem` permits, otherwise spill to disk |
 | `Hash Aggregate` | `GROUP BY`, `DISTINCT` | Build a hash table keyed by the group columns |
 | `Gather` / `Gather Merge` | parallel query | Collect rows from worker processes |
+
+
+{% include ads/in-article.html %}
+
 
 The full list is in [Using EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html){:target="_blank" rel="noopener"}. We will read a real plan in a moment.
 
@@ -415,6 +427,10 @@ Indexes are separate files of pages with the same 8 KB layout, but with a tree s
 
 ## MVCC: Why UPDATE Never Updates In Place
 
+
+{% include ads/display.html %}
+
+
 Here is the part that surprises most developers when they first read it. **PostgreSQL never updates a row in place.** Every `UPDATE` is, internally, a new `INSERT` plus a `DELETE` mark on the old row.
 
 That trick is what enables **Multi-Version Concurrency Control** ([MVCC](https://www.postgresql.org/docs/current/mvcc-intro.html){:target="_blank" rel="noopener"}). Every transaction takes a **snapshot** at start and sees only the row versions visible to that snapshot. Readers do not block writers. Writers do not block readers. Different transactions can see different versions of the same row at the same time.
@@ -503,6 +519,10 @@ A useful trio of WAL related GUCs:
 | `synchronous_commit` | `on` waits for fsync, `off` returns early (faster but loses last few ms on crash) |
 | `checkpoint_timeout` | how often the checkpointer runs (default 5 minutes) |
 | `max_wal_size` | soft cap on WAL between checkpoints |
+
+
+{% include ads/in-article.html %}
+
 
 Tuning is documented in [WAL Configuration](https://www.postgresql.org/docs/current/wal-configuration.html){:target="_blank" rel="noopener"}.
 

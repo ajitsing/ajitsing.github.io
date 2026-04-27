@@ -395,6 +395,10 @@ GET /admin/products/456
 GET /admin/products/456/variants
 ```
 
+
+{% include ads/in-article.html %}
+
+
 That's 5 requests to build one admin page. On mobile with spotty connections, that's painful.
 
 With GraphQL:
@@ -610,6 +614,10 @@ They use Sidekiq with Redis as the job queue. During normal operations, jobs pro
 - **Low**: Report generation, cleanup tasks (hours)
 
 ## Monitoring: Know Before Customers Do
+
+
+{% include ads/display.html %}
+
 
 Shopify's monitoring philosophy: **alert on customer impact, not system metrics**.
 

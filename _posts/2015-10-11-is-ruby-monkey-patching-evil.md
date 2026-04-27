@@ -71,6 +71,10 @@ end
 ['hello', 'ruby', 'monkey patching'].replace('monkey patching', 'open classes')
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The above code will work fine. But if you have used array in your project exhaustively and you don't have test, you might face some issues and your code will break. Why, because ruby's Array class already has a replace method, And if you have used that replace method and you don't have test for it you will not know where it might break.
 
 ```ruby

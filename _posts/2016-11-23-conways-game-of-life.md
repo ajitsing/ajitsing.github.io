@@ -57,6 +57,10 @@ I have implemented this game in JavaScript, Html and Css. The code is available 
 
 # Source Code<br><br>
 
+
+{% include ads/in-article.html %}
+
+
 ```javascript
 $(document).ready(function(){
   var Grid = function(size) {

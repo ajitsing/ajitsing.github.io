@@ -144,6 +144,10 @@ Before opening your IDE, create a markdown file describing what you want to buil
 - Unverified email login should return 403
 ```
 
+
+{% include ads/in-article.html %}
+
+
 This document does several things:
 
 1. Forces you to think through the problem before coding
@@ -251,6 +255,11 @@ Here are real examples of AI generated code that looked fine but was not:
 **Performance Problem:**
 ```python
 # AI generated code that looks reasonable
+
+
+{% include ads/display.html %}
+
+
 def get_user_orders(user_ids: list[int]) -> list[Order]:
     orders = []
     for user_id in user_ids:
@@ -355,6 +364,10 @@ If you refactor significantly, tell AI about it. Most AI tools cache information
 In Cursor, use the resync command. In Copilot, close and reopen files you changed. The specific method varies by tool, but the principle is the same: keep AI's understanding of your code current.
 
 ## Prompting Patterns That Work
+
+
+{% include ads/in-article.html %}
+
 
 ### <i class="fas fa-bullseye"></i> Be Specific
 
@@ -500,6 +513,10 @@ If you do not understand the code AI generates, you cannot:
 Use AI to speed up tasks you already know how to do. Use learning resources to build skills you do not have yet.
 
 ## Measuring Your Productivity
+
+
+{% include ads/display.html %}
+
 
 How do you know if AI is actually helping? Track these metrics:
 

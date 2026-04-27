@@ -127,6 +127,10 @@ graph TB
     RUNTIME2 --> POD2
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Let's dive into each component and understand what they actually do.
 
 ## Control Plane Components: The Brain of Kubernetes
@@ -233,6 +237,10 @@ The runtime handles:
 - Providing container logs and metrics
 
 ## How It All Works Together: A Pod's Journey
+
+
+{% include ads/display.html %}
+
 
 Let's trace what happens when you deploy a simple web application to understand how all these components work together.
 

@@ -105,6 +105,10 @@ The large language model is the reasoning engine. It reads the current context, 
 | Claude 4 Opus | Research, writing | Most capable, highest cost |
 | GPT-4o mini, Claude 3.5 Haiku | Simple tasks | Faster, cheaper, less reliable |
 
+
+{% include ads/in-article.html %}
+
+
 For production agents, I usually start with Claude 4 Sonnet or GPT-4.1. They hit the sweet spot of capability, speed, and cost. For tasks requiring deep reasoning, o3-mini is worth the extra latency.
 
 ### <i class="fas fa-tools"></i> Tools
@@ -228,6 +232,11 @@ def run_python_code(code: str) -> str:
         return f"Error: {str(e)}"
 
 # Tool definitions for the LLM
+
+
+{% include ads/display.html %}
+
+
 tools = [
     {
         "type": "function",
@@ -484,6 +493,10 @@ def execute_with_approval(tool_name: str, arguments: dict) -> str:
         return "Action rejected by user"
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Pattern 4: Limit Iteration Depth
 
 Agents can get stuck in loops. Always set a maximum number of iterations:
@@ -631,6 +644,10 @@ When agents fail in production, you need to know why.
 **Solution**: Log every LLM call, tool execution, and result. Track latency and costs. Build dashboards.
 
 ## Security Considerations
+
+
+{% include ads/display.html %}
+
 
 AI agents can be powerful attack vectors if not secured properly.
 

@@ -141,6 +141,10 @@ sequenceDiagram
     BG->>BG: Delete segments before entry 48
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Notice how the Low Watermark is bottlenecked by the **slowest node**. Node C was at 45, so nothing below 45 could be deleted even though Nodes A and B were ahead. Once Node C caught up to 48, the Low Watermark moved forward.
 
 This is a key point: **a slow or stuck node holds back cleanup for the entire cluster**.
@@ -254,6 +258,10 @@ graph TD
     style B3 fill:#c8e6c9,stroke:#388e3c
 ```
 
+
+{% include ads/display.html %}
+
+
 After compaction, only the latest value for each key remains. Offsets 0, 1, and 2 are gone. The Log Start Offset advances.
 
 You can also combine both: `log.cleanup.policy=compact,delete`. This keeps the latest value per key but also enforces time-based expiration on the compacted data. Useful for things like session data where you want the latest state but also want to clean up after a TTL.
@@ -326,6 +334,10 @@ SELECT pg_current_wal_lsn();
 -- Check latest checkpoint location
 SELECT checkpoint_lsn FROM pg_control_checkpoint();
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ```mermaid
 graph TD
@@ -400,6 +412,10 @@ Now imagine the same scenario, but the retention was set to `log.retention.hours
 The retention period is your Low Watermark policy. Set it too low and you lose data when things go wrong. Set it too high and you pay for storage you will never use.
 
 ## Implementation Sketch
+
+
+{% include ads/display.html %}
+
 
 Here is a simplified implementation showing how the Low Watermark works in a replicated system with snapshot support:
 

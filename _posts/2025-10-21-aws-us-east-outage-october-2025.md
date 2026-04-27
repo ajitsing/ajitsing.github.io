@@ -85,6 +85,10 @@ graph LR
     G --> H
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The cascade: DynamoDB became unreachable → Lambda functions timed out → API Gateway failed → CloudWatch logging broke → everything dependent on these services went down.
 
 **Why US-East-1 matters:** It's AWS's oldest (2006), largest, and cheapest region. It's the default in AWS documentation. When it goes down, the impact is massive.

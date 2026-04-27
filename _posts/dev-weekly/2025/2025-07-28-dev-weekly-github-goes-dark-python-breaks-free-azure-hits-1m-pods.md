@@ -53,6 +53,10 @@ GitLab rolled out v18 with AI-powered features like Duo Code Suggestions and Cha
 
 ## ☁️ Cloud & Infrastructure
 
+
+{% include ads/in-article.html %}
+
+
 ### Azure: Pod Scaling Breaks the Ceiling [🌐](https://techcommunity.microsoft.com/blog/azurenetworkingblog/provide-a-flat-network-scaling-solution-to-aks---azure-cni-pod-subnet---static-b/4435572)
 
 Azure CNI Pod Subnet Static Block Allocation became generally available, shooting cluster limits from 65,000 to a staggering 1 million pods! Nodes now receive pre-assigned CIDR blocks for flat, VM-like network scalability with enhanced security and cost-efficiency for enterprises running monster-sized Kubernetes workloads.
@@ -103,6 +107,10 @@ Leverages high-speed interconnect and is targeted at next-gen domestic AI worklo
 ---
 
 ## 💻 Languages & Frameworks
+
+
+{% include ads/display.html %}
+
 
 ### Python 3.14 RC1: GIL-Free at Last! [🌐](https://www.python.org/downloads/release/python-3140rc1/)
 

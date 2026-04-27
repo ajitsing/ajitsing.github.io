@@ -78,6 +78,10 @@ You can try and execute the below query and see that everything works as expecte
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 <br>
 ### Add API Key to Sitecore
 

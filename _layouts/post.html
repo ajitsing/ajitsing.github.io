@@ -119,12 +119,13 @@ css:
       </section>
       
       {% if site.manual_ads %}
-      <div class="post-below-related-ad" data-lazy-ad="true">
+      <div class="post-below-related-ad">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-format="autorelaxed"
              data-ad-client="ca-pub-2886086145980317"
              data-ad-slot="9096626276"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
       {% endif %}
     {% endif %}
@@ -149,7 +150,3 @@ css:
     {% include comments.html %}
   </main>
 </div>
-
-{% if site.manual_ads %}
-<script defer src="{{ '/assets/js/post-ads.js' | relative_url }}"></script>
-{% endif %}

@@ -250,6 +250,10 @@ gitGraph
     commit id: "Release"
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Create and Switch Branches
 
 List all branches:
@@ -529,6 +533,10 @@ git reset --hard abc1234
 Reflog entries expire after about 90 days.
 
 ## Stashing
+
+
+{% include ads/display.html %}
+
 
 Stash saves your uncommitted changes temporarily.
 
@@ -820,6 +828,10 @@ sequenceDiagram
     Dev->>Local: git pull origin main
     Dev->>Local: git branch -d feature
 ```
+
+
+{% include ads/in-article.html %}
+
 
 1. Create a feature branch
 2. Make commits

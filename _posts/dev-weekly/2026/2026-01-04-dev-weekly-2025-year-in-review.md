@@ -172,6 +172,10 @@ AI infrastructure is now a national priority. The compute wars have gone federal
 
 ## <i class="fas fa-code"></i> Language and Framework Releases
 
+
+{% include ads/in-article.html %}
+
+
 ### TypeScript 5.9
 
 - `import defer` for delayed module evaluation
@@ -287,6 +291,10 @@ Anthropic opened a Seoul office, signaling serious expansion into Asia. Claude H
 ---
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Defined 2025
+
+
+{% include ads/display.html %}
+
 
 - **$5 trillion** - Nvidia's market cap (first company ever)
 - **$22.5 billion** - SoftBank's investment in OpenAI

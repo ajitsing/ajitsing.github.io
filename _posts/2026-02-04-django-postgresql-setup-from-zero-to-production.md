@@ -148,6 +148,10 @@ myapp/
     wsgi.py
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Django loads settings from the module in `DJANGO_SETTINGS_MODULE`. When you run `uv run python manage.py runserver`, that defaults to `config.settings`. The file you edit is `config/settings.py`.
 
 ## Step 2: Create the PostgreSQL Database and User
@@ -264,6 +268,10 @@ DATABASES = {
 }
 ```
 
+
+{% include ads/display.html %}
+
+
 **Option reference (all passed via OPTIONS):**
 
 | Option | Meaning |
@@ -347,6 +355,10 @@ DATABASES = {
     )
 }
 ```
+
+
+{% include ads/in-article.html %}
+
 
 This parses the URL and sets `ENGINE`, `NAME`, `USER`, `PASSWORD`, `HOST`, `PORT` for you. `conn_max_age` and `conn_health_checks` are Django options (see [Connection pooling](#connection-pooling)).
 
@@ -442,6 +454,10 @@ uv run python manage.py migrate
 Django generates SQL and applies it to PostgreSQL. To see the SQL for a migration: `uv run python manage.py sqlmigrate items 0001`. Then open `dbshell` and run `\dt` again; you will see `items_item`. Your Django + Postgres setup is now creating tables from models. For production deployments, run migrations as part of your release process; for large tables, prefer additive migrations (nullable columns, backfill, then add constraints). The [OpenAI PostgreSQL scaling post](/how-openai-scales-postgresql/) has more on migrations at scale.
 
 ## Production Configuration
+
+
+{% include ads/display.html %}
+
 
 When you deploy, you care about credentials, connection pooling, SSL, and debugging. Here is what actually matters.
 

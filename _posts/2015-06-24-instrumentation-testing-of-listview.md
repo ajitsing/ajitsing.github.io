@@ -124,6 +124,10 @@ dependencies {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 `androidTestCompile 'com.android.support.test:rules:0.3'` Instrumentation tests will be written with the help of this dependency. It has an internal dependency to test:runner:0.3 library which provides some class which are essential for our tests.
 
 Enough of application knowledge, let's jump into our tests.
@@ -202,6 +206,10 @@ public void testShouldShowTheItemDetailWhenAnItemIsClicked() throws Exception {
   assertThat(detailView.getText().toString(), is("Item 1"));
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 In the above test there are quite a few things to learn. Let's go through them one by one.
 

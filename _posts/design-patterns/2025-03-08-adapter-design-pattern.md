@@ -205,6 +205,10 @@ public class AmplitudeAdapter implements AnalyticsService {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -390,6 +394,10 @@ public class PaymentAdapter implements PaymentService {
     }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 ### 2. Not Handling All Interface Methods
 

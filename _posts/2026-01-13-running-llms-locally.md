@@ -188,6 +188,10 @@ Before diving in, here are a few terms you will see throughout this guide:
 | **Inference** | Running a model to get output. When you ask a question and get an answer, that is inference. |
 | **Hugging Face** | The "GitHub for AI models." A platform where researchers and companies publish models, datasets, and demos. When you download a local LLM, you are usually getting it from Hugging Face. |
 
+
+{% include ads/in-article.html %}
+
+
 ## Hardware Requirements
 
 Let us be realistic about what hardware you need.
@@ -317,6 +321,11 @@ Since the API is compatible, you can use the OpenAI Python library:
 from openai import OpenAI
 
 # Point to local Ollama server
+
+
+{% include ads/display.html %}
+
+
 client = OpenAI(
     base_url="http://localhost:11434/v1",
     api_key="ollama"  # Required but not used
@@ -484,6 +493,10 @@ Quantization is how we fit large models on consumer hardware. It reduces the pre
 | Q4_0 | 4 | 4x | More than K variants | Smaller but lower quality |
 | Q3_K_M | 3 | 5.3x | Significant | When RAM is very limited |
 | Q2_K | 2 | 8x | Large | Experimental |
+
+
+{% include ads/in-article.html %}
+
 
 ### My Recommendation
 
@@ -682,6 +695,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     git commit -m "$MESSAGE"
 fi
 ```
+
+
+{% include ads/display.html %}
+
 
 ### Use Case 4: API Server for Team Use
 

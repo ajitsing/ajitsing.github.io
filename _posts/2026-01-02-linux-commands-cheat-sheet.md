@@ -167,6 +167,10 @@ tail -f app.log error.log
 less huge-file.log
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The `tail -f` command is essential for debugging. When your application is running and you want to see logs as they appear, this is what you use. Press `Ctrl+C` to stop following.
 
 In `less`, use these keys:
@@ -335,6 +339,11 @@ pkill nginx
 pkill -f "python server.py"
 
 # Kill process using specific port
+
+
+{% include ads/display.html %}
+
+
 lsof -ti :8080 | xargs kill
 ```
 
@@ -523,6 +532,11 @@ cut -d, -f2 data.csv | sort | uniq
 sed 's/old/new/' file.txt
 
 # Replace all occurrences
+
+
+{% include ads/in-article.html %}
+
+
 sed 's/old/new/g' file.txt
 
 # Replace and save to file

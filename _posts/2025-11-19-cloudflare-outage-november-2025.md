@@ -107,6 +107,10 @@ The AWS US-East-1 outage was regional. This was global. Every Cloudflare data ce
 
 ## Cloudflare's Critical Role in the Internet
 
+
+{% include ads/in-article.html %}
+
+
 **The numbers:**
 - Cloudflare handles **55 million requests per second** on average
 - Protects over **20% of all websites** globally
@@ -212,6 +216,10 @@ Yes, it's expensive. But compare that cost to 6 hours of global downtime.
 ---
 
 ## The Bottom Line
+
+
+{% include ads/display.html %}
+
 
 A database permission change caused duplicate entries in a feature file, which doubled in size, exceeded a hard limit, and crashed traffic routing software globally for 6 hours. Millions of users couldn't access critical services.
 

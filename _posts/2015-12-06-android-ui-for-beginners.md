@@ -92,6 +92,10 @@ A layout that arranges its children in a single row or column. It can be used wh
 </LinearLayout>
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ![Crepe](/assets/img/posts/android_ui_for_beginners/android_ui_for_beginners_2.png)
 
 # RelativeLayout
@@ -242,6 +246,10 @@ This Layout is used to arrange the Views in tabular fashion. It extends the Line
     </TableRow>
 </TableLayout>
 ```
+
+
+{% include ads/display.html %}
+
 
 ![Crepe](/assets/img/posts/android_ui_for_beginners/android_ui_for_beginners_4.png)
 

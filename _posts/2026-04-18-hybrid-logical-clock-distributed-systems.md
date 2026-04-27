@@ -107,6 +107,10 @@ graph LR
     style EX2 fill:#f5f5f5,stroke:#9e9e9e
 ```
 
+
+{% include ads/in-article.html %}
+
+
 When you compare two HLCs, you compare the physical part first, then the counter. Lexicographic order. That single rule gives you a total order across the cluster.
 
 | HLC A | HLC B | Comparison | Reason |
@@ -231,6 +235,10 @@ class HybridLogicalClock:
             return (self._l, self._c)
 ```
 
+
+{% include ads/display.html %}
+
+
 Three properties to notice:
 
 1. **All updates take the lock.** HLC is per-node shared state. Without the lock you can violate monotonicity.
@@ -339,6 +347,10 @@ sequenceDiagram
     Sec-->>App: Return {x:1}
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Without HLC, that read on the secondary would have to either go to the primary (defeating the point of having replicas) or risk missing the write that just happened. With HLC, the secondary knows exactly when its data is "fresh enough" for this client, even if a different client connected to the secondary sees a slightly older view.
 
 If you are choosing between databases for a similar workload, our comparison of [PostgreSQL vs MongoDB vs DynamoDB](/postgresql-vs-mongodb-vs-dynamodb/){:target="_blank" rel="noopener"} covers when MongoDB's causal consistency model is the right fit.
@@ -404,6 +416,10 @@ graph TD
 | Tolerates clock drift | No | N/A | N/A | Yes |
 | Used by | Most legacy systems | Academic, some queues | Dynamo, Riak, Voldemort | CockroachDB, MongoDB, YugabyteDB |
 
+
+{% include ads/display.html %}
+
+
 The big insight: HLC is not a replacement for vector clocks when you need to detect concurrent writes (Riak, Dynamo style systems still use vector clocks for sibling resolution). HLC is the right answer when you need a compact, time-aware total order, which is what most transactional databases need.
 
 For more on Lamport clocks specifically, the original 1978 [Time, Clocks paper](https://lamport.azurewebsites.net/pubs/time-clocks.pdf){:target="_blank" rel="noopener"} is short and very readable. Kevin Sookocheff's [Hybrid Logical Clocks post](https://sookocheff.com/post/time/hybrid-logical-clocks/){:target="_blank" rel="noopener"} walks through the algorithm with great diagrams.
@@ -467,6 +483,10 @@ The worst case is when two nodes have clocks that disagree by more than the conf
 This is why monitoring `clock_offset_nanos` and equivalents is one of the first metrics every distributed database operator sets up. Pair it with [heartbeats](/distributed-systems/heartbeat/){:target="_blank" rel="noopener"} for failure detection and you have a solid story for clock health.
 
 ## How HLC Connects to Other Patterns
+
+
+{% include ads/in-article.html %}
+
 
 HLC sits in a family of distributed systems patterns that together make a transactional, causally consistent, replicated system possible.
 

@@ -139,6 +139,10 @@ flowchart LR
     style G fill:#fce4ec,stroke:#c2185b,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Indexing (offline)**  
 You run this when documents change. Load docs, split into chunks, compute embeddings, write to the vector store. This can be a batch job or a pipeline that runs on upload.
 
@@ -217,6 +221,10 @@ def retrieve(question: str, collection_name: str = "docs", top_k: int = 5) -> li
     results = collection.query(query_embeddings=[query_embedding], n_results=top_k)
     return results["documents"][0]
 ```
+
+
+{% include ads/display.html %}
+
 
 Choosing `top_k` is a trade-off: too few and you miss relevant info; too many and you waste tokens and add noise. Start with 5 and tune using real questions. You can later add reranking or hybrid search (keyword + vector) to improve quality; see the production section below.
 
@@ -305,6 +313,10 @@ There is no single best setting. Test with real questions and adjust. For more o
   Log questions and which chunks were retrieved. Manually check whether the right chunks are in the list. If not, fix chunking or retrieval before adding more features. As you add agents or tools, the same idea applies: see [Building AI Agents](/building-ai-agents/) for tool use and planning.
 
 ## Common Pitfalls
+
+
+{% include ads/in-article.html %}
+
 
 1. **Skipping evaluation**  
   Do not assume “good embeddings” means good answers. Run real questions and inspect retrieved chunks and LLM output.

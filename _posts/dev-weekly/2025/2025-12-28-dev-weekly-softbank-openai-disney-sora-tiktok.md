@@ -103,6 +103,10 @@ NIST sets standards that become industry benchmarks. Their work on AI safety and
 
 ## <i class="fas fa-robot"></i> AI News
 
+
+{% include ads/in-article.html %}
+
+
 ### OpenAI Launches "Your Year with ChatGPT"
 
 OpenAI's answer to Spotify Wrapped is here.
@@ -243,6 +247,10 @@ You're not just building for developers anymore. Your users increasingly expect 
 ---
 
 ## <i class="fas fa-exclamation-triangle"></i> What This Week Teaches Us
+
+
+{% include ads/display.html %}
+
 
 **Money is pouring into AI:** SoftBank's $22.5B investment in OpenAI is one of the largest single AI investments ever. The biggest players are going all-in.
 

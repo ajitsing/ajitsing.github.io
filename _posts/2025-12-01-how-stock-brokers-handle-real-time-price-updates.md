@@ -150,6 +150,10 @@ The ticker plant converts both into a consistent internal format:
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 This normalized data flows through the rest of the system without every downstream service needing to understand each exchange's quirks.
 
 ### The Importance of Filtering
@@ -302,6 +306,10 @@ class SubscriptionManager:
     def get_subscribers(self, symbol):
         return self.subscriptions[symbol]
 ```
+
+
+{% include ads/display.html %}
+
 
 ### Connection Limits
 

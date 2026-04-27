@@ -165,6 +165,10 @@ sequenceDiagram
     API-->>User: 200 OK with orders
 ```
 
+
+{% include ads/in-article.html %}
+
+
 No complex joins. No locking. Just a simple fetch from a pre-built view.
 
 ## When CQRS Makes Sense
@@ -294,6 +298,10 @@ Options include:
 - Use read-your-writes consistency where the user's next query includes their recent writes
 
 ## CQRS and Event Sourcing
+
+
+{% include ads/display.html %}
+
 
 You'll often see CQRS mentioned alongside event sourcing. They're related but different patterns.
 

@@ -143,6 +143,10 @@ graph LR
     style Q fill:#4a90a4
 ```
 
+
+{% include ads/in-article.html %}
+
+
 This pattern is called **producer-consumer** or **point-to-point messaging**. One producer sends a message, one consumer receives it.
 
 ### Publish-Subscribe (Pub/Sub)
@@ -326,6 +330,10 @@ graph LR
     style SQS fill:#ff9900
 ```
 
+
+{% include ads/display.html %}
+
+
 **Two flavors**:
 - **Standard**: Nearly unlimited throughput, at-least-once delivery, best-effort ordering
 - **FIFO**: Exactly-once delivery, strict ordering, but limited to 3,000 messages/second
@@ -489,6 +497,10 @@ sequenceDiagram
         Queue->>Order: Saga Failed
     end
 ```
+
+
+{% include ads/in-article.html %}
+
 
 Each service handles its step and publishes the result. If any step fails, compensating actions run to undo previous steps.
 

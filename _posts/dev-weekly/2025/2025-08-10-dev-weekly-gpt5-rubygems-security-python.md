@@ -100,6 +100,10 @@ Microsoft released .NET 8.0.19 and .NET 9.0.8 on August 5, 2025, containing non-
 
 ## ☁️ Cloud and Infrastructure Developments
 
+
+{% include ads/in-article.html %}
+
+
 ### AWS Lambda Billing Changes
 
 Starting August 1, 2025, AWS began charging for Lambda initialization (INIT) phase for managed runtimes, standardizing billing across all runtime types.

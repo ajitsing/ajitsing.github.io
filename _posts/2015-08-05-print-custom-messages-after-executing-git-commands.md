@@ -76,6 +76,10 @@ amusing_git amuse
 
 # amusing_git configuration
 
+
+{% include ads/in-article.html %}
+
+
 amusing_git stores all the configuration in ~/.amusing_git directory. This directory contains two files:
 
 1. config

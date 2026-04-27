@@ -204,6 +204,10 @@ graph LR
     style G fill:#dcfce7,stroke:#16a34a
 ```
 
+
+{% include ads/in-article.html %}
+
+
 REST works well here because each client type (mobile, web, partner) gets the same interface. The API gateway can handle [authentication](/how-jwt-works/), [rate limiting](/dynamic-rate-limiter-system-design/), and routing.
 
 ---
@@ -329,6 +333,11 @@ That is 101 queries for a single GraphQL request. The solution is a **DataLoader
 
 ```graphql
 # A query designed to overload your server
+
+
+{% include ads/display.html %}
+
+
 query {
   users {
     orders {
@@ -474,6 +483,10 @@ service ChatService {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 If you have used [Server-Sent Events](/server-sent-events-explained/) or [WebSockets](/long-polling-explained/) for real-time communication, gRPC bidirectional streaming is the equivalent for service-to-service calls, with built-in type safety and flow control.
 
 ### Schema evolution in gRPC
@@ -541,6 +554,10 @@ GraphQL is slightly slower than REST for simple single-resource queries because 
 | Client libraries | Every language, manual | Apollo, Relay, urql | Auto-generated from .proto |
 | Browser support | Native | Native | Requires proxy (gRPC-Web) |
 | File uploads | Standard multipart | Awkward, non-standard | Streaming-based |
+
+
+{% include ads/display.html %}
+
 
 ### Caching
 
@@ -655,6 +672,10 @@ graph TB
     style G fill:#dcfce7,stroke:#16a34a
     style H fill:#dcfce7,stroke:#16a34a
 ```
+
+
+{% include ads/in-article.html %}
+
 
 The GraphQL layer aggregates data from multiple REST services and lets each client query exactly what it needs. This is how [Shopify](/shopify-system-design/) structures their Storefront API. The backend services remain simple REST, but the client-facing layer is flexible.
 

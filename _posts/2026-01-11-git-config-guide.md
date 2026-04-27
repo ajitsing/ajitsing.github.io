@@ -152,6 +152,10 @@ git config --global help.autocorrect 10
 git config --global --unset core.editor
 ```
 
+
+{% include ads/in-article.html %}
+
+
 To read a config value:
 
 ```bash
@@ -369,6 +373,10 @@ git config --global core.ignorecase false
 Be careful with this. If you rename `File.txt` to `file.txt` on a case insensitive system, Git might not notice.
 
 ## Color Configuration
+
+
+{% include ads/display.html %}
+
 
 Git output is colored by default. You can customize the colors.
 
@@ -620,6 +628,10 @@ git config --global push.autoSetupRemote true
 Now `git push` works on new branches without needing `-u origin branch-name`.
 
 ## Credential Management
+
+
+{% include ads/in-article.html %}
+
 
 Store your credentials so you do not have to type passwords repeatedly.
 

@@ -115,6 +115,10 @@ The cuts came after pressure from [activist investor Irenic Capital Management](
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
+
+{% include ads/in-article.html %}
+
+
 ### Cursor 3.1 Adds Tiled Multi-Agent Layouts - [<i class="fas fa-external-link-alt"></i>](https://cursor.com/changelog/3-1){:target="_blank"}
 
 Cursor 3.1 shipped on April 13. The Agents Window now supports a tiled layout so you can split the editor into panes and run multiple agents in parallel. You can drag agents between tiles, expand panes to focus on a specific chat, and your layout persists across restarts.
@@ -158,6 +162,10 @@ Nvidia announced Ising on April 14, billed as the first open AI models for quant
 ---
 
 ## <i class="fas fa-shield-alt"></i> Security
+
+
+{% include ads/display.html %}
+
 
 ### OpenAI Launches GPT-5.4-Cyber for Vetted Security Pros - [<i class="fas fa-external-link-alt"></i>](https://siliconangle.com/2026/04/14/openai-launches-gpt-5-4-cyber-model-vetted-security-professionals/){:target="_blank"}
 
@@ -210,6 +218,10 @@ On April 14, Helical raised $10 million in seed funding led by redalpine. The co
 ---
 
 ## <i class="fas fa-calendar-alt"></i> Quick Hits
+
+
+{% include ads/in-article.html %}
+
 
 **Claude Opus 4.7** — Released April 16. SWE-Bench Pro 64.3 percent. Leads on agentic coding, scaled tool use, agentic computer use, financial analysis. Vision up to 2,576 px. Pricing unchanged at $5/$25 per million tokens. New tokenizer can use 1.0x-1.35x more tokens. Cyber Verification Program for security pros. Already in Copilot via 7.5x premium multiplier through April 30.
 

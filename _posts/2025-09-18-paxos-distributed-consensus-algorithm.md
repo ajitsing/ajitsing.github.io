@@ -158,6 +158,10 @@ sequenceDiagram
     B-->>NY: Accepted!
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Even though Tokyo was down, the booking still went through because a majority (3 out of 5) agreed.
 
 **What happens when Tokyo comes back online?**
@@ -272,6 +276,10 @@ Since the group already committed to considering Bob's newer request (#2), they 
 **The rule is simple**: Once you promise to consider a newer proposal, you can't go back to an older one. This prevents confusion and ensures the group always moves forward with the most recent decision.
 
 ## The Tradeoffs: When Paxos Isn't Perfect
+
+
+{% include ads/display.html %}
+
 
 Paxos is powerful, but it comes with costs:
 

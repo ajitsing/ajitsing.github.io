@@ -186,6 +186,10 @@ def is_rate_limited(user_id: str, limit: int = 100) -> bool:
     return count > limit
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Distributed locks**: `SET key value NX PX timeout` acquires a lock atomically. Used to prevent double-processing in distributed systems where two workers might race on the same job.
 
 **Pub/Sub**: Publish messages to channels and fan out to all subscribers. Works well for real-time notifications, cache invalidation signals, and simple event broadcasting between services.
@@ -268,6 +272,10 @@ These numbers are drawn from [DragonflyDB's own published benchmarks](https://dr
 | P50 latency | 0.1ms | 0.05ms | 2x better |
 | P99 latency | 0.3ms | 0.15ms | 2x better |
 | P99.9 latency | 1ms | 0.3ms | 3x better |
+
+
+{% include ads/display.html %}
+
 
 Memory efficiency: DragonflyDB uses a custom allocator and compressed data structures, resulting in [2-4x better memory utilization than Redis](https://dragonflydb.io/blog/redis-and-dragonfly-architecture-comparison) for most workloads. On a 64GB machine, you can fit roughly 2-4x as much useful data as you could in Redis.
 
@@ -364,6 +372,11 @@ Since KeyDB is a Redis fork with the same protocol, switching is a configuration
 
 ```bash
 # KeyDB active replication config (keydb.conf)
+
+
+{% include ads/in-article.html %}
+
+
 activerehashing yes
 server-threads 8           # use 8 threads on an 8-core machine
 active-replica yes         # enable active replication
@@ -432,6 +445,10 @@ One thing to notice across all three: none of these are used in isolation. They 
 ---
 
 ## Common Mistakes
+
+
+{% include ads/display.html %}
+
 
 ### <i class="fas fa-exclamation-triangle"></i> Migrating to DragonflyDB without testing compatibility
 

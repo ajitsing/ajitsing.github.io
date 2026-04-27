@@ -88,6 +88,10 @@ NetworkStateChangeReceiver is a broadcast receiver which can listen to network s
 Now that our ```NetworkStateChangeReceiver``` is ready and it can identify the network status but where is the code which tells that this receiver will listen to the network connectivity event. The answer is in the ```AndroidManifest.xml``` file. Your AndroidManifest will have that code. Let's take a look at the AndroidManifest file.
 
 ```xml
+
+
+{% include ads/in-article.html %}
+
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ajit.singh.offlinemode">

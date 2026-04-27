@@ -132,6 +132,10 @@ sequenceDiagram
     S->>W: Write: "Transaction complete"
 ```
 
+
+{% include ads/in-article.html %}
+
+
 If something goes wrong:
 
 ```mermaid
@@ -245,6 +249,10 @@ graph TB
     
     style E fill:#fff3e0
 ```
+
+
+{% include ads/display.html %}
+
 
 This is how systems like **Apache Cassandra** and **MongoDB** work in cluster mode.
 

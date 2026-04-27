@@ -79,6 +79,10 @@ if pipelines.any_red?
 end
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Now run this script as part of your pre-push [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks){:target="_blank"} and you are done. Neat and Clean!!
 
 # What else it can do?

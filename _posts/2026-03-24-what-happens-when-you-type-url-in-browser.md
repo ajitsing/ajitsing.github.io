@@ -124,6 +124,10 @@ sequenceDiagram
     Resolver-->>Browser: 93.184.216.34 (TTL: 3600)
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **The caching layers, in order:**
 
 1. **Browser cache** - Chrome caches DNS records for about 60 seconds
@@ -216,6 +220,10 @@ On a modern server, TLS adds about 1-2ms of processing time per connection. The 
 ---
 
 ## Step 5: HTTP Request
+
+
+{% include ads/display.html %}
+
 
 The connection is open and encrypted. The browser sends an HTTP request.
 
@@ -344,6 +352,10 @@ WHERE to_tsvector('english', content) @@ plainto_tsquery('english', 'hello')
 ORDER BY rank DESC
 LIMIT 10;
 ```
+
+
+{% include ads/in-article.html %}
+
 
 The database parses the query, checks its query plan cache, determines the best execution strategy (which indexes to use, whether to do a sequential scan), runs the query, and returns results. A well-indexed query takes under 1ms. A full table scan on millions of rows can take seconds.
 
@@ -485,6 +497,10 @@ When the parser encounters a `<link>` tag for a CSS file or a `<script>` tag for
 <script defer src="/app.js"></script>
 ```
 
+
+{% include ads/display.html %}
+
+
 Use `defer` for scripts that need the full DOM. Use `async` for independent scripts like analytics.
 
 ### Step 8b: CSSOM Construction
@@ -580,6 +596,10 @@ Not everything loads upfront. Modern browsers and frameworks optimize by deferri
 ---
 
 ## The Full Timeline
+
+
+{% include ads/in-article.html %}
+
 
 Let's put it all together with approximate timings for a typical page load over a 50ms RTT connection:
 

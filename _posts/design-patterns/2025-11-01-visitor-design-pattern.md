@@ -161,6 +161,10 @@ public class ListElement implements DocumentElement {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Concrete Visitors
 
 ```java
@@ -390,6 +394,10 @@ sequenceDiagram
     HtmlVisitor-->>Paragraph: void
     Paragraph-->>Client: void
 ```
+
+
+{% include ads/display.html %}
+
 
 The accept method provides the first dispatch (element type). Calling visitXxx provides the second dispatch (visitor type).
 

@@ -130,6 +130,10 @@ public class ImageProxy implements Image {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Usage:
 
 ```java
@@ -357,6 +361,10 @@ public class LoggingProxy implements UserService {
     }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 ## Java Dynamic Proxy
 

@@ -164,6 +164,10 @@ flowchart TB
     style Ingest fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Automated Inspection
 
 Before processing begins, every file goes through automated inspection. The system checks:
@@ -283,6 +287,10 @@ flowchart TB
     style QAS fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
     style STORE fill:#fff8e1,stroke:#f9a825,stroke-width:2px
 ```
+
+
+{% include ads/display.html %}
+
 
 ### Video Encoding Service (VES)
 
@@ -416,6 +424,10 @@ flowchart TB
     style Storage fill:#fff8e1,stroke:#f9a825,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **How it works:**
 
 1. **New content triggers Lambda** which creates encoding jobs
@@ -537,6 +549,11 @@ Do not process big jobs as monolithic tasks. Split them into independent chunks 
 
 ```python
 # Bad: Process entire video as one job
+
+
+{% include ads/display.html %}
+
+
 def encode_video(video_path):
     # Takes 24 hours, can't parallelize
     result = encode_full_video(video_path)

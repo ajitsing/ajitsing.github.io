@@ -54,6 +54,10 @@ The fine specifically targets Google's practice of favoring its own advertising 
 
 ## 💾 Microsoft's Nostalgic Open Source Gift
 
+
+{% include ads/in-article.html %}
+
+
 Microsoft released something special this week: the original source code for Bill Gates' 6502 BASIC interpreter from 1978. This is the code that powered early home computers like the Apple II and Commodore PET, teaching millions their first programming lessons.
 
 **What's included:**
@@ -107,6 +111,10 @@ Stack Overflow launched "stackoverflow.ai" - an AI-powered study assistant that 
 ---
 
 ## 🔧 Developer Tools & Infrastructure
+
+
+{% include ads/display.html %}
+
 
 ### ChatGPT's Branching Feature
 

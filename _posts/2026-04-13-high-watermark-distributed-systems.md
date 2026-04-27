@@ -111,6 +111,10 @@ graph LR
     style HW fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Entries 1 through 5 are committed (green). The leader knows they're on a majority of nodes. Entries 6 and 7 exist on the leader's log but haven't been confirmed by enough followers yet. They're uncommitted (orange). No client will ever see entries 6 or 7 until they cross the high watermark.
 
 ## How the High Watermark Works Step by Step
@@ -210,6 +214,10 @@ Yes, it should. The exact calculation picks the median of the sorted LEOs: posit
 The key insight: the high watermark is the **highest offset that exists on at least a majority of nodes**.
 
 ## What Happens During a Leader Failover
+
+
+{% include ads/display.html %}
+
 
 This is where the high watermark really earns its keep. Let's see what happens when a leader crashes.
 
@@ -324,6 +332,10 @@ This is one of the most important metrics for any Kafka-based system. High lag m
 
 ## High Watermark in Raft (etcd, CockroachDB)
 
+
+{% include ads/in-article.html %}
+
+
 In Raft consensus, the same concept is called the **commit index**. The mechanics are similar but the terminology and some details differ.
 
 ### Raft's Approach
@@ -402,6 +414,10 @@ Together, the two watermarks define the "active window" of the log:
 Kafka handles this through **log retention policies** and **log compaction**. Raft-based systems use **snapshotting** to discard old entries. For a deep dive into how the Low Watermark works, including real-world examples from Kafka, etcd, and PostgreSQL, see [Low Watermark: How Distributed Systems Clean Up Old Data Without Breaking Things](/distributed-systems/low-watermark/).
 
 ## Real-World Systems Using the High Watermark
+
+
+{% include ads/display.html %}
+
 
 ### Apache Kafka
 
@@ -486,6 +502,10 @@ class Leader:
     def get_visible_entries(self):
         return self.log[:self.high_watermark + 1]
 ```
+
+
+{% include ads/in-article.html %}
+
 
 The `_try_advance_high_watermark` method sorts all known LEOs in descending order and picks the value at position `majority - 1`. That's the highest index guaranteed to be on at least `majority` nodes.
 

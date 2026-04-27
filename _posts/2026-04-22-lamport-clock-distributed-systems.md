@@ -82,6 +82,10 @@ graph TD
     style R4 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 That is it. Three rules. They define a [partial order](https://en.wikipedia.org/wiki/Partially_ordered_set){:target="_blank" rel="noopener"} on events because some pairs are unrelated. That is fine. If two events never exchanged messages, their order does not matter for correctness anyway.
 
 Concrete example. Imagine three nodes labeled A, B, C.
@@ -191,6 +195,10 @@ Notice also that Node A's local event at `LC = 3` and Node C's local event at `L
 
 ## A Reference Implementation
 
+
+{% include ads/display.html %}
+
+
 Here is a clean Python implementation. It is short on purpose.
 
 ```python
@@ -294,6 +302,10 @@ For most ordering and consensus problems, neither limit matters. But knowing whe
 
 ## How Lamport Clocks Compare to Other Clocks
 
+
+{% include ads/in-article.html %}
+
+
 Each clock fixes a different problem. Pick the one that matches your need.
 
 ```mermaid
@@ -369,6 +381,10 @@ When you understand the Lamport Clock, you stop seeing each of these as a separa
 | [PostgreSQL](https://www.postgresql.org/docs/current/wal-internals.html){:target="_blank" rel="noopener"} | LSN | Monotonic byte position in WAL |
 | [Spanner / TrueTime](https://research.google/pubs/spanner-googles-globally-distributed-database-2/){:target="_blank" rel="noopener"} | Commit timestamps | Hybrid of wall clock + Lamport-style increments |
 
+
+{% include ads/display.html %}
+
+
 ## A Worked Example: Distributed Mutex
 
 Lamport's original 1978 paper used Lamport Clocks to build a fully distributed mutual exclusion algorithm. There is no central lock manager. Every node decides for itself whether it holds the lock, and they all agree. Here is the sketch.
@@ -441,6 +457,10 @@ Lamport counters drift apart between nodes that talk infrequently. That is by de
 The most common production mistake is treating a Lamport counter as if it were a real timestamp. It is not. A counter of `4231` does not mean "January 4th". If you find yourself wanting to ask "what events happened in this hour", you want a [Hybrid Logical Clock](/distributed-systems/hybrid-clock/){:target="_blank" rel="noopener"} or a separate wall clock column. Use the right tool.
 
 ## Key Takeaways for Developers
+
+
+{% include ads/in-article.html %}
+
 
 1. **Memorize the receive rule.** `local = max(local, received) + 1`. That single line is the entire pattern. Everything else is application detail.
 

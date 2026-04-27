@@ -134,6 +134,10 @@ class TokenBucket:
         self.last_refill = now
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Pro**: Smooths out traffic, allows controlled bursts  
 **Con**: Can still allow 2x capacity if bucket is full when burst hits
 
@@ -270,6 +274,10 @@ redis.call('INCR', key)
 redis.call('EXPIRE', key, window)
 return 1  -- Request allowed
 ```
+
+
+{% include ads/display.html %}
+
 
 Call this from your API server:
 
@@ -498,6 +506,10 @@ class DynamicRateLimiter:
     # ... other helper methods
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Usage in your API:
 
 ```python
@@ -664,6 +676,10 @@ if retry_count > 5:
 ```
 
 ## Monitoring Your Rate Limiter
+
+
+{% include ads/display.html %}
+
 
 Track these metrics:
 

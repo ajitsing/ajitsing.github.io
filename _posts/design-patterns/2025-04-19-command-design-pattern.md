@@ -139,6 +139,10 @@ public class DeleteTextCommand implements Command {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Command History Manager
 
 ```java
@@ -373,6 +377,10 @@ try {
     System.err.println("Transfer failed: " + e.getMessage());
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 ## How It Works
 

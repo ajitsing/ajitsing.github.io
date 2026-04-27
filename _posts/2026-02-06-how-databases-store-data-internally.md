@@ -264,6 +264,10 @@ For a deep dive into B-trees, see [B-Tree Data Structure Explained](/data-struct
 | Extra lookup needed | No | Yes |
 | Range scans | Very fast | Slower |
 
+
+{% include ads/in-article.html %}
+
+
 In MySQL InnoDB, the primary key is always the clustered index. The actual table data lives in the B-tree organized by primary key. If you do not define a primary key, InnoDB creates a hidden one.
 
 In PostgreSQL, tables are stored as heaps by default. Primary keys create a non-clustered index. You can optionally use `CLUSTER` to reorder heap data by an index, but this is a one-time operation, not automatically maintained.
@@ -393,6 +397,10 @@ The key insight: WAL writes are sequential (fast), while data page writes are ra
 | SQL Server | Transaction Log |
 | SQLite | Journal or WAL mode |
 
+
+{% include ads/display.html %}
+
+
 For a deeper explanation, see [Write-Ahead Log: The Golden Rule of Durable Systems](/distributed-systems/write-ahead-log/).
 
 ### Checkpoints
@@ -501,6 +509,10 @@ This is why primary key choice matters in MySQL. A large primary key (like a UUI
 -- 2. Find row in clustered index using primary key
 SELECT * FROM users WHERE email = 'alice@example.com';
 ```
+
+
+{% include ads/in-article.html %}
+
 
 ### Auto-Generated Row IDs
 

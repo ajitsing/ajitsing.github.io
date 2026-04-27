@@ -198,6 +198,10 @@ public class HttpClient {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -414,6 +418,10 @@ HttpRequest request = HttpRequest.builder()
     .body("{\"name\": \"John\"}")
     .build();
 ```
+
+
+{% include ads/display.html %}
+
 
 Lombok generates the Builder class, all the setter methods, and the build method.
 

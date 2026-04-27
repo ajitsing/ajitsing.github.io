@@ -153,6 +153,10 @@ The law is California-only for now, but other states are watching. Platform comp
 
 ## 🛠 Developer Tools & Releases
 
+
+{% include ads/in-article.html %}
+
+
 ### Ubuntu Plans to Replace sudo with Rust Version - [🌐](https://discourse.ubuntu.com/t/adopting-sudo-rs-by-default-in-ubuntu-25-10/60583)
 
 Big news for Linux developers: **Ubuntu 25.10** (coming later this year) plans to replace the traditional `sudo` command with **sudo-rs**, a Rust-based rewrite.

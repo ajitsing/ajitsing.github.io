@@ -109,6 +109,10 @@ Will the ads work? Super Bowl ads are memorable, but they're also expensive. Ant
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
+
+{% include ads/in-article.html %}
+
+
 ### GitHub Opens Agent HQ to Claude and Codex - [<i class="fas fa-external-link-alt"></i>](https://github.blog/news-insights/company-news/pick-your-agent-use-claude-and-codex-on-agent-hq/)
 
 On February 4, GitHub made Claude and Codex available in public preview on Agent HQ.
@@ -198,6 +202,10 @@ Dependabot added OIDC authentication support. This improves security for automat
 ---
 
 ## <i class="fas fa-building"></i> Industry News
+
+
+{% include ads/display.html %}
+
 
 ### Goldman Sachs Teams Up with Anthropic for AI Banking Agents
 
@@ -303,6 +311,10 @@ If TikTok has to change its design, it could affect engagement. Less addictive f
 
 ## <i class="fas fa-shield-alt"></i> Security & Open Source
 
+
+{% include ads/in-article.html %}
+
+
 ### Open-Source Coding App Hit by Chinese-Linked Supply Chain Attack
 
 On February 3, a popular open-source coding application was targeted in a Chinese-linked supply chain attack.
@@ -362,6 +374,10 @@ AI is making some problems worse. It's easier than ever to generate content, but
 ---
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
+
+
+{% include ads/display.html %}
+
 
 - **$1.25 trillion** - Combined value of SpaceX-xAI merger (SpaceX $1T, xAI $250B)
 - **$600 billion** - Big Tech's collective AI spending plans announced this week

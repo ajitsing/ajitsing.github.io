@@ -88,6 +88,10 @@ Google announced a major **quantum computing breakthrough** this week. Details a
 
 ## 🛠 Developer Tools & Releases
 
+
+{% include ads/in-article.html %}
+
+
 ### Red Hat Developer Lightspeed - [🌐](https://www.redhat.com/en/about/press-releases/red-hat-launches-red-hat-developer-lightspeed-ai-powered-developer-productivity)
 
 On October 23, Red Hat launched **Developer Lightspeed**, a suite of generative AI tools for developers working in the Red Hat ecosystem.

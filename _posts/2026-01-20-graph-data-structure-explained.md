@@ -142,6 +142,10 @@ graph LR
     style C fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Think Facebook friendships. If Alice is friends with Bob, Bob is friends with Alice.
 
 **Directed Graph**: Edges have direction. An edge from A to B does not mean B is connected to A.
@@ -231,6 +235,11 @@ The **adjacency matrix** is another way to represent a graph data structure. Unl
 
 ```python
 # Undirected graph
+
+
+{% include ads/display.html %}
+
+
 graph = [
     [0, 1, 1, 0, 0],  # A: connected to B, C
     [1, 0, 0, 1, 0],  # B: connected to A, D
@@ -361,6 +370,10 @@ graph TD
     style C fill:#e0f2f1,stroke:#00695c,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Implementation (Recursive)**:
 
 ```python
@@ -462,6 +475,10 @@ graph LR
     style C fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style D fill:#e0f2f1,stroke:#00695c,stroke-width:2px
 ```
+
+
+{% include ads/display.html %}
+
 
 **Implementation**:
 
@@ -649,6 +666,10 @@ class UnionFind:
         
         return True
 ```
+
+
+{% include ads/in-article.html %}
+
 
 **Time Complexity**: 
 - Find: O(α(n)) amortized (almost constant due to path compression)

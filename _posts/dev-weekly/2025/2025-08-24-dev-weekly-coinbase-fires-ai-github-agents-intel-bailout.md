@@ -63,6 +63,10 @@ The enterprise focus suggests Apple sees AI as more than just a consumer feature
 
 ## 🛠️ Developer Tools & Platforms
 
+
+{% include ads/in-article.html %}
+
+
 ### GitHub's Agent Revolution Continues
 
 The new agents panel lets you delegate coding tasks to Copilot from anywhere on GitHub. Think of it as having a persistent AI pair programmer that can work on tasks while you focus on other things.
@@ -124,6 +128,10 @@ The question isn't whether AI will change how we code, but how quickly we'll ada
 ---
 
 ## 📊 Platform Updates
+
+
+{% include ads/display.html %}
+
 
 ### Git 2.51: Cruft-Free Repository Management
 

@@ -163,6 +163,10 @@ public class LoginActivity extends AppCompatActivity {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 You would notice one things here that your activity's onCreate method is very lean and simple. Thats all because of data binding as you don't need to write any boiler plate code like findViewById() etc.
 
 To inflate the layout I am using DataBindingUtil.setContentView() method. This method inflates the layout and returns a binding class which is generated at compile time. You can give a customized name to this binding class by adding a class attribute in data tag inside the layout xml file. If you don't provide a name then binding will look at the naming convention of the layout file and will name the class accordingly. For example if your layout file name is my_activity.xml then binding will generate a class with name MyActivityBinding.
@@ -255,6 +259,10 @@ public class LoginViewModel extends BaseObservable {
   }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 You would notice that we are extending the ```LoginViewModel``` with ```BaseObservable``` class. Which means that any of the fields in this view model can be observed using binding. Whenever value of a field changes we need to notify binding that this particular field has changed so please refresh all the views which are using this particular field.
 

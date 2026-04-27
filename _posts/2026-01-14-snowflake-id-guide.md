@@ -138,6 +138,10 @@ Both Twitter and Discord use Snowflake IDs, but they chose different starting po
 | Twitter | 1288834974657 | Nov 4, 2010 |
 | Discord | 1420070400000 | Jan 1, 2015 |
 
+
+{% include ads/in-article.html %}
+
+
 **Why does the epoch matter?**
 
 The 41-bit timestamp stores milliseconds since the epoch. Starting from a later date means:
@@ -275,6 +279,10 @@ public class SnowflakeIdGenerator {
 }
 ```
 
+
+{% include ads/display.html %}
+
+
 **Using it:**
 
 ```java
@@ -409,6 +417,10 @@ public class ZookeeperMachineId {
     }
 }
 ```
+
+
+{% include ads/in-article.html %}
+
 
 When the container dies, the ephemeral node disappears, freeing the ID.
 

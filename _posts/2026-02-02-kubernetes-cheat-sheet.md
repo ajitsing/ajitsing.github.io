@@ -216,6 +216,10 @@ kubectx production
 kubens my-app
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ---
 
 ## Pods
@@ -433,6 +437,11 @@ kubectl rollout history deployment my-deployment
 kubectl rollout undo deployment my-deployment
 
 # Rollback to specific revision
+
+
+{% include ads/display.html %}
+
+
 kubectl rollout undo deployment my-deployment --to-revision=2
 
 # Pause rollout
@@ -621,6 +630,10 @@ kubectl delete namespace my-namespace
 | **kube-system** | System components (DNS, scheduler) |
 | **kube-public** | Publicly accessible resources |
 | **kube-node-lease** | Node heartbeats |
+
+
+{% include ads/in-article.html %}
+
 
 ---
 
@@ -816,6 +829,10 @@ flowchart TB
 | **CrashLoopBackOff** | Container keeps crashing | Previous logs, resource limits |
 | **ImagePullBackOff** | Cannot pull image | Image name, registry auth |
 
+
+{% include ads/display.html %}
+
+
 ---
 
 ## Resource Management
@@ -1010,6 +1027,11 @@ kubectl describe pod my-pod | grep -A 10 Events
 kubectl describe nodes | grep -A 5 "Allocated resources"
 
 # 3. Check for taints
+
+
+{% include ads/in-article.html %}
+
+
 kubectl describe nodes | grep Taints
 
 # 4. Check pod resource requests

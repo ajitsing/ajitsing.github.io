@@ -255,6 +255,10 @@ public class CancelledState implements OrderState {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -438,6 +442,10 @@ public class RedState implements TrafficLightState {
     }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 This works when states don't hold context-specific data.
 

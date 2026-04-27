@@ -158,6 +158,10 @@ Before MCP, connecting AI to external tools looked like this:
 | **Slack** | N/A | Custom integration | Custom extension | Custom GPT Action |
 | **Jira** | Custom plugin | Custom connector | Custom extension | Custom GPT Action |
 
+
+{% include ads/in-article.html %}
+
+
 That is 16 custom integrations for 4 tools and 4 hosts. Add one more tool, you build 4 more. Add one more host, you build 4 more. The complexity grows as M x N.
 
 With MCP, it becomes M + N:
@@ -273,6 +277,10 @@ Tools are functions the LLM can call. They are the most commonly used primitive 
   }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 When to use: When the model needs to **do something**. Query a database. Create a GitHub issue. Send a Slack message. Anything with an action.
 
@@ -407,6 +415,10 @@ Important rule: if you use stdio, **never** write anything other than valid JSON
 | stdio | Local development, single user | Host spawns process | Process lifetime |
 | Streamable HTTP | Remote/shared, multi-user | Cloud service | Session ID header |
 
+
+{% include ads/in-article.html %}
+
+
 The deprecated transport (HTTP+SSE from protocol version 2024-11-05) used separate endpoints for sending and receiving. Streamable HTTP combined them into a single endpoint. If you are building something new, use Streamable HTTP for remote and stdio for local.
 
 ---
@@ -510,6 +522,10 @@ When the session ends, the client sends a close message and the server cleans up
 ---
 
 ## Build Your First MCP Server
+
+
+{% include ads/display.html %}
+
 
 Let us build a simple MCP server that exposes a weather tool. This is a minimal but complete example using the official TypeScript SDK.
 
@@ -713,6 +729,10 @@ flowchart TD
     style Attack2 fill:#fee2e2,stroke:#dc2626,stroke-width:1px
     style Attack3 fill:#fee2e2,stroke:#dc2626,stroke-width:1px
 ```
+
+
+{% include ads/in-article.html %}
+
 
 The risks are real. A malicious MCP server could define tools with misleading descriptions that trick the model. [Prompt injection attacks](/prompt-injection-explained/) could manipulate the model into calling destructive tools. Tool arguments could be used to exfiltrate sensitive data.
 

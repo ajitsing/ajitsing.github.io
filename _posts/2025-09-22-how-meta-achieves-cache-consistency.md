@@ -161,6 +161,10 @@ sequenceDiagram
 
 ## The TAO Graph Cache: Where Consistency Matters Most
 
+
+{% include ads/in-article.html %}
+
+
 TAO (The Associations and Objects) is Meta's secret weapon for perfect consistency. It's a **write-through cache** that sits between applications and the graph database.
 
 <pre><code class="language-mermaid">
@@ -371,6 +375,10 @@ graph TB
 **Critical insight**: Invalidations travel faster than data replication, ensuring cache misses hit the local database replica with fresh data.
 
 ## Cache Consistency During Network Partitions
+
+
+{% include ads/display.html %}
+
 
 **The problem**: What happens when data centers can't talk to each other?
 

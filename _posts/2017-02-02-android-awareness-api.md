@@ -95,6 +95,10 @@ To start using awareness API you need to create an API key from [google console]
 </manifest>
 ```
 
+
+{% include ads/in-article.html %}
+
+
 *Note:* The key which I have used above is a fake key, it will not work. To make it work you have to generate your own key and replace the above key with your newly created key.
 
 Now that our setup is done, lets start using awareness API in our app. Lets take the above example of advertising your new indoor map feature of your app. For this what you would need is list of airports locations where you have enabled indoor map.
@@ -179,6 +183,10 @@ public void registerGeofenceRequest(GoogleApiClient client, GeofencingRequest ge
   LocationServices.GeofencingApi.addGeofences(client, geofencingRequest, geoFencePendingIntent);
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 Registering geofencingRequest is a simple task, you just have to use *LocationServices.GeofencingApi* to add the request. But what is this LocationAwareService? Ok, so what happens when user comes nearby the registered location? Your awareness api need something e.g callback which it can trigger.
 

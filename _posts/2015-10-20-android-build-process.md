@@ -156,6 +156,10 @@ public final class R {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 The Android runtime uses these IDs to look up the actual resources from the compiled resource table at runtime. This is why you never edit R.java manually. It gets regenerated every time you build.
 
 ### AAPT2 vs the Original AAPT
@@ -249,6 +253,10 @@ You can check your method count by running:
 Or use tools like [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer){:target="_blank"} in Android Studio to see the exact method count per dex file.
 
 ## Step 4: Code Shrinking and Obfuscation (R8)
+
+
+{% include ads/display.html %}
+
 
 For release builds, R8 steps in after (or instead of) D8. R8 does three things:
 
@@ -372,6 +380,10 @@ flowchart TD
     style OPT3 fill:#dbeafe,stroke:#3b82f6,stroke-width:2px
 ```
 
+
+{% include ads/in-article.html %}
+
+
 With an APK, every device downloads the same file, including resources it will never use (like xxxhdpi images on an hdpi screen, or x86 libraries on an ARM device).
 
 With an AAB, Google Play generates optimized APKs per device. Each device downloads only what it needs. This can cut download sizes by 15% or more.
@@ -479,6 +491,10 @@ A typical Android project has these build-related files:
 | `gradle.properties` | JVM settings and Gradle feature flags |
 | `local.properties` | Machine-specific settings (SDK path), not checked into git |
 | `gradle/libs.versions.toml` | Version catalog for dependency management (newer projects) |
+
+
+{% include ads/display.html %}
+
 
 ### Build Types
 
@@ -666,6 +682,10 @@ flowchart TD
     style R5 fill:#dcfce7,stroke:#16a34a,stroke-width:1px
     style R6 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
+
+
+{% include ads/in-article.html %}
+
 
 The same source code goes through different pipelines depending on the build type. This is why you should always test your release build before shipping. R8 can change behavior in unexpected ways.
 

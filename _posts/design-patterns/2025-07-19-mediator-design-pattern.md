@@ -135,6 +135,10 @@ public class User {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Usage
 
 ```java
@@ -329,6 +333,10 @@ eventBus.subscribe(OrderPlaced.class, event -> {
 eventBus.publish(new UserLoggedIn("user-123", Instant.now()));
 eventBus.publish(new OrderPlaced("order-456", "user-123"));
 ```
+
+
+{% include ads/display.html %}
+
 
 ## How It Works
 

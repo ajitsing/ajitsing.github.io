@@ -85,6 +85,10 @@ public class Product {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 And now we are about to discuss the most important class of this demo project.
 
 `DataBaseHelper` is the class which will create the database in the device and will maintain it using versions. This class is extended from `SQLiteOpenHelper` which handles the core database stuff internally for us.
@@ -150,6 +154,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
   }
 }
 ```
+
+
+{% include ads/display.html %}
+
 
 Now let's see what we have in our MainActivity class.  In our Activity we are creating an instance of DataBaseHelper and asking it for product's cursor.
 

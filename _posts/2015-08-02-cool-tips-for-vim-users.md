@@ -86,6 +86,10 @@ autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 ```
+
+
+{% include ads/in-article.html %}
+
 <br>
 
 # Selecting text till the last character

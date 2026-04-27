@@ -119,6 +119,10 @@ graph TB
     style H7 fill:#c8e6c9
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ## Chapter 2: The Real-Time Location Pipeline
 
 Every Uber driver's phone sends a GPS ping every 4-6 seconds. That's millions of location updates per minute flowing into Uber's system. But raw GPS is noisy and unreliable.
@@ -192,6 +196,10 @@ Making offers to drivers is where things get really interesting. Uber can't affo
 **Deduplication**: What if the same ride request gets processed twice? Uber uses idempotency keys and versioned state machines to ensure exactly-once processing.
 
 ## Chapter 6: Scale - The 1 Million RPS Story
+
+
+{% include ads/display.html %}
+
 
 Let's talk numbers. Uber handles 1M+ matching requests per second. That's:
 - 86 billion requests per day

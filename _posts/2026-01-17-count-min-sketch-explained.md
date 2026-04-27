@@ -161,6 +161,10 @@ Row 3, col 6 = 1
 Minimum = 1 ✓ (correct!)
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Even with collisions, the minimum gives the correct answer in this case. With larger sketches, collisions become less likely.
 
 ## Choosing Parameters
@@ -310,6 +314,10 @@ CMS.INITBYPROB my_sketch 0.001 0.01
 CMS.INCRBY my_sketch item1 1 item2 5
 
 # Query counts
+
+
+{% include ads/display.html %}
+
 CMS.QUERY my_sketch item1 item2
 ```
 

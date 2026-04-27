@@ -135,6 +135,10 @@ jobs:
       - run: npm test
 ```
 
+
+{% include ads/in-article.html %}
+
+
 This creates 9 jobs (3 operating systems × 3 Node.js versions) and runs them in parallel. You'll know your code works everywhere, not just on your laptop.
 
 ## Secrets and Environment Variables
@@ -251,6 +255,10 @@ run: echo "Deploying to https://myapp.com"
 # Good
 run: echo "Deploying to {% raw %}${{ vars.APP_URL }}{% endraw %}"
 ```
+
+
+{% include ads/display.html %}
+
 
 ### 2. Not Using Caching
 ```yaml

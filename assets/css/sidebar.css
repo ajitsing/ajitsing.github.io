@@ -81,16 +81,18 @@
   top: 80px;
   margin-top: 1.5rem;
   padding: 1rem;
-  min-height: 250px;
+  min-height: 620px;
   background: #ffffff;
   border: 1px solid #f0f0f0;
   border-radius: 12px;
   text-align: center;
+  contain: layout;
 }
 
 .sidebar-sticky-ad .adsbygoogle {
   width: 100%;
   display: block;
+  min-height: 600px;
 }
 
 .sidebar-sticky-ad.ad-unfilled {

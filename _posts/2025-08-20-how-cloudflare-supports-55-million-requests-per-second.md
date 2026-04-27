@@ -54,6 +54,10 @@ But Cloudflare didn't stop there. They tackled the infamous "thundering herd" pr
 
 ## The Power of Bare Metal
 
+
+{% include ads/in-article.html %}
+
+
 Here's a decision that might surprise you: in an age where everyone's moving to the cloud and virtualization, Cloudflare chose to run their PostgreSQL clusters on bare metal servers. No virtualization layer, no containers—just raw, powerful hardware.
 
 Why? Because when you're handling 55 million requests per second, every microsecond counts. Virtualization adds overhead, and overhead becomes the enemy when you're operating at internet scale. By running on bare metal, Cloudflare eliminates the performance penalty of virtualization, squeezing every ounce of performance from their hardware.
@@ -83,6 +87,10 @@ Their **Cloudflare Workers** platform lets developers deploy code that runs in a
 But here's the really clever part: Workers use V8 isolates instead of containers. While containers can take seconds to start up (an eternity in internet time), V8 isolates start in milliseconds or even less. This means truly zero cold starts—your code is always ready to run, instantly.
 
 ## Database Optimization: The Devil in the Details
+
+
+{% include ads/display.html %}
+
 
 Running PostgreSQL at Cloudflare's scale requires some serious optimization wizardry. They employ sophisticated techniques like:
 

@@ -130,6 +130,10 @@ graph TD
     H --> I
 ```
 
+
+{% include ads/in-article.html %}
+
+
 **Performance Comparison:**
 
 Let's say you have 10 million users across 50 countries and 10,000 cities.
@@ -312,6 +316,10 @@ WHERE id >= uuidv7_from_timestamp('2024-09-01')
   AND id < uuidv7_from_timestamp('2024-10-01');
 ```
 
+
+{% include ads/display.html %}
+
+
 **What It Means:**
 
 If you're using UUIDs as primary keys, switch to UUIDv7. You'll get better insert performance, smaller indexes, and the ability to query by time without a separate timestamp column.
@@ -475,6 +483,10 @@ RETURNING
     NEW.price AS new_price,
     (NEW.price - OLD.price) AS price_increase;
 ```
+
+
+{% include ads/in-article.html %}
+
 
 **Output:**
 

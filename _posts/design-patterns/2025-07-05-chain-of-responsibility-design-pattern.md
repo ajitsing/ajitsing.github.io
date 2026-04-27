@@ -174,6 +174,10 @@ public class ValidationMiddleware extends BaseMiddleware {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 ### Building the Chain
 
 ```java
@@ -338,6 +342,10 @@ support.handleTicket(new SupportTicket("T3", "Database down", 5));
 //         Level 2 escalating to Level 3
 //         Level 3 handling: Database down
 ```
+
+
+{% include ads/display.html %}
+
 
 ## Event Handler Chain
 

@@ -97,6 +97,10 @@ public class SmsService extends NotificationService {
 }
 ```
 
+
+{% include ads/in-article.html %}
+
+
 Adding a new notification type means creating a new subclass. No existing code changes.
 
 ## Implementation
@@ -317,6 +321,10 @@ sequenceDiagram
     Client->>PdfApplication: saveDocument()
     PdfApplication->>PdfDocument: save()
 ```
+
+
+{% include ads/display.html %}
+
 
 The client works with the abstract `Application` class. It doesn't know or care whether it's dealing with PDFs, Word docs, or spreadsheets. The factory method handles the creation details.
 

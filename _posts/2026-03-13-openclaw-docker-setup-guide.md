@@ -155,6 +155,8 @@ sudo apt-get update
 sudo apt-get install docker-compose-plugin
 ```
 
+{% include ads/in-article.html %}
+
 **Linux (manual install)**:
 
 ```bash
@@ -164,10 +166,6 @@ curl -SL https://github.com/docker/compose/releases/latest/download/docker-compo
   -o $DOCKER_CONFIG/cli-plugins/docker-compose
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 ```
-
-
-{% include ads/in-article.html %}
-
 
 Verify after install:
 
@@ -259,6 +257,8 @@ ANTHROPIC_API_KEY=your-key-here
 OPENAI_API_KEY=your-key-here
 ```
 
+{% include ads/display.html %}
+
 Start it:
 
 ```bash
@@ -341,6 +341,8 @@ flowchart LR
     style S3 fill:#ffe0b2,stroke:#e65100
 </code></pre>
 
+{% include ads/in-article.html %}
+
 The Gateway stays on the host. It handles connections and routing. When an agent needs to read a file, write code, or execute a shell command, that operation runs inside a sandbox container. If the sandbox crashes or gets corrupted, the Gateway keeps running and spins up a new one.
 
 ### What Gets Sandboxed
@@ -351,9 +353,6 @@ The Gateway stays on the host. It handles connections and routing. When an agent
 | Shell execution (exec, bash) | Elevated tools (explicit host access) |
 | Process management | Tools explicitly allowed on host |
 | Browser automation | |
-
-
-{% include ads/display.html %}
 
 
 ### Configuration
@@ -449,6 +448,8 @@ Each agent gets its own directory under `~/.openclaw/agents/<agentId>/`:
 │           └── auth-profiles.json
 ```
 
+{% include ads/display.html %}
+
 Credentials are not shared between agents. Each agent reads from its own `auth-profiles.json`. To share credentials, copy the file manually.
 
 ### Example: Three Agents with Different Security Profiles
@@ -542,9 +543,6 @@ Add this to your `~/.openclaw/openclaw.json`:
 ```
 
 
-{% include ads/in-article.html %}
-
-
 Two details that trip people up:
 
 **The base URL must use `host.docker.internal`**, not `127.0.0.1`. Inside a Docker container, `127.0.0.1` points to the container itself, not the host. `host.docker.internal` is a special DNS name that Docker provides to reach the host machine.
@@ -597,6 +595,8 @@ services:
         max-size: "10m"
         max-file: "3"
 ```
+
+{% include ads/in-article.html %}
 
 This adds three things over the basic setup:
 
@@ -679,10 +679,6 @@ These are the issues I hit and the fixes that actually work.
 
 ```bash
 # Confirm it was an OOM kill
-
-
-{% include ads/display.html %}
-
 
 docker inspect openclaw --format '{% raw %}{{.State.OOMKilled}}{% endraw %}'
 
@@ -849,10 +845,6 @@ OpenClaw separates security into three independent controls: sandbox (where tool
 ---
 
 ## Quick Reference
-
-
-{% include ads/in-article.html %}
-
 
 ### Essential Commands
 

@@ -162,6 +162,8 @@ flowchart TB
     style User fill:#f5f5f5,stroke:#616161
 </code></pre>
 
+{% include ads/display.html %}
+
 Here is what each layer does:
 
 ### The Mac Mini: Interface and File Access
@@ -299,6 +301,8 @@ write("/home/user/workspace/research_results.json", data)
 content = read("/home/user/workspace/research_results.json")
 ```
 
+{% include ads/display.html %}
+
 This is a classic message-passing architecture using the filesystem instead of pipes or sockets. It has real advantages:
 
 - **Inspectable**: All inter-agent communication exists as files you can read
@@ -342,10 +346,6 @@ Three deliberate restrictions prevent sub-agents from going rogue:
 ---
 
 ## What Personal Computer Can Actually Do
-
-
-{% include ads/display.html %}
-
 
 Here are the use cases that show the gap between a cloud-only agent and one running on your Mac mini with local file access.
 
@@ -411,10 +411,6 @@ Every action Personal Computer takes is logged. If something goes wrong, there i
 
 ## The Tool and Connector Ecosystem
 
-
-{% include ads/in-article.html %}
-
-
 Personal Computer exposes 40+ built-in tools and 400+ external connectors via MCP (Model Context Protocol). Here is the full picture:
 
 ### Built-in Tools
@@ -426,6 +422,8 @@ Personal Computer exposes 40+ built-in tools and 400+ external connectors via MC
 | **Media** | `generate_image`, `generate_video`, `text_to_speech`, `transcribe_audio` |
 | **Memory** | `memory_search`, `memory_update`, `schedule_cron`, `pause_and_wait` |
 | **Safety** | `confirm_action`, `ask_user_question` |
+
+{% include ads/in-article.html %}
 
 The `wide_research` and `wide_browse` tools fan out across multiple targets simultaneously. Need to research twenty companies? `wide_research` dispatches twenty parallel operations and aggregates the results.
 

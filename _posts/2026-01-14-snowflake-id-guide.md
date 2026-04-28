@@ -189,6 +189,8 @@ console.log(getDiscordTimestamp(userId));
 // Output: 2017-03-15T12:34:56.789Z
 ```
 
+{% include ads/display.html %}
+
 **For Twitter IDs (Python):**
 
 ```python
@@ -279,10 +281,6 @@ public class SnowflakeIdGenerator {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 **Using it:**
 
 ```java
@@ -337,6 +335,8 @@ Here's a direct comparison:
 ## The Clock Skew Problem
 
 Snowflake IDs depend on accurate system clocks. What happens if a server's clock goes backward?
+
+{% include ads/in-article.html %}
 
 **The problem:**
 
@@ -417,10 +417,6 @@ public class ZookeeperMachineId {
     }
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 When the container dies, the ephemeral node disappears, freeing the ID.
 

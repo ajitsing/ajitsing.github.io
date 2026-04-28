@@ -230,6 +230,8 @@ graph TB
     CDN --> OBJ
 </code></pre>
 
+{% include ads/display.html %}
+
 Each server runs thousands of Erlang processes, one per connected user. The Mnesia cluster stores session data and routing information. MySQL handles persistent user data. The CDN serves media files.
 
 ## How Messages Flow
@@ -305,9 +307,7 @@ find_user_process(UserId) ->
     end).
 ```
 
-
 {% include ads/display.html %}
-
 
 ### Why Mnesia Works for WhatsApp
 
@@ -391,6 +391,8 @@ Key properties:
 
 WhatsApp servers only see encrypted blobs. They cannot read your messages.
 
+{% include ads/in-article.html %}
+
 ## Media Handling
 
 Text messages are tiny. Images and videos are not. WhatsApp handles media differently:
@@ -446,10 +448,6 @@ graph LR
 This is more complex and uses more bandwidth, but maintains end-to-end encryption.
 
 ## Lessons for Developers
-
-
-{% include ads/in-article.html %}
-
 
 WhatsApp's success offers concrete takeaways you can apply today:
 

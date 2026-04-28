@@ -113,6 +113,8 @@ The four main components:
 | **Phoenix** | ML system for retrieval and ranking | [phoenix/](https://github.com/xai-org/x-algorithm/tree/main/phoenix) |
 | **Candidate Pipeline** | Reusable framework connecting everything | [candidate-pipeline/](https://github.com/xai-org/x-algorithm/tree/main/candidate-pipeline) |
 
+{% include ads/in-article.html %}
+
 Let me break down each component.
 
 ## Home Mixer: The Orchestration Layer
@@ -167,10 +169,6 @@ flowchart LR
 | Selector | Sort by score and select top K candidates |
 | Post-Selection Filters | Final visibility and deduplication checks |
 | Side Effects | Cache data for future requests |
-
-
-{% include ads/in-article.html %}
-
 
 The clever part is the separation between what gets fetched and what gets scored. You can change the scoring model without touching the data layer. You can add new data sources without rewriting the scorer.
 
@@ -346,10 +344,6 @@ This is a brilliant trade-off. You lose some potential signal (maybe posts shoul
 
 ## The Scoring Formula
 
-
-{% include ads/display.html %}
-
-
 The transformer predicts probabilities for multiple engagement types. The final score is a weighted sum:
 
 ```mermaid
@@ -399,6 +393,8 @@ Here's what we know about the weights from the source code:
 | Mute Author | Negative | -2.0 |
 | Report | Negative | -5.0 |
 
+{% include ads/display.html %}
+
 Notice how negative signals carry massive weights. A single block is worth -3.0, while a like is only +0.5. The algorithm heavily penalizes content you'd find annoying.
 
 **This is the key insight**: X optimizes for long-term user retention, not short-term engagement. Showing you rage-bait that gets clicks but makes you block the author is a net negative.
@@ -445,6 +441,8 @@ Looking at the repository structure reveals interesting language choices:
 - Embedding generation
 - Offline analysis
 
+{% include ads/in-article.html %}
+
 This is a common pattern in ML systems. Python for flexibility during model development, Rust for performance in production serving. The Rust compilation ensures memory safety and predictable latency.
 
 ## Design Patterns Worth Stealing from X's Open Source Code
@@ -474,10 +472,6 @@ X uses **hash embeddings**. Instead of a unique embedding per entity, they hash 
 
 ```python
 # Simplified concept
-
-
-{% include ads/in-article.html %}
-
 
 def get_embedding(entity_id, num_buckets=1_000_000, num_hashes=4):
     embeddings = []

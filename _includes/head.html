@@ -52,9 +52,35 @@
     {% endfor %}
   {% endif %}
 
+  <style>
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      min-height: 3.1875rem;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-custom {
+      background-color: {{ site.navbar-col | default: "#F5F5F5" }};
+      border-bottom: 1px solid {{ site.navbar-border-col | default: "#EAEAEA" }};
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .navbar-home-btn {
+      color: {{ site.navbar-text-col | default: "#404040" }};
+    }
+    .intro-header.big-img {
+      margin-top: 3.1875rem;
+    }
+  </style>
+
   {% if layout.common-css %}
     {% for css in layout.common-css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}">
+      <link rel="preload" href="{{ css | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="{{ css | relative_url }}"></noscript>
     {% endfor %}
   {% endif %}
 

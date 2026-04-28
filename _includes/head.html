@@ -10,11 +10,6 @@
   <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
 
-  {% if page.comments and site.disqus %}
-  <link rel="preconnect" href="https://c.disquscdn.com">
-  <link rel="preconnect" href="https://{{ site.disqus }}.disqus.com">
-  {% endif %}
-
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   {% if site.adunblock_script_url %}
@@ -43,7 +38,6 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | default: 'Untitled' }} {{ site.title-separator | default: '-' }} {{ site.description }}" href="{{ '/feed.xml' | absolute_url }}">
 
   {% include gtag.html %}
-  {% include gtm_head.html %}
   {% include clarity.html %}
 
   {% if layout.common-ext-css %}
@@ -79,14 +73,14 @@
 
   {% if layout.common-css %}
     {% for css in layout.common-css %}
-      <link rel="preload" href="{{ css | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <noscript><link rel="stylesheet" href="{{ css | relative_url }}"></noscript>
+      <link rel="stylesheet" href="{{ css | relative_url }}">
     {% endfor %}
   {% endif %}
 
   {% if layout.deferred-css %}
     {% for css in layout.deferred-css %}
       <link rel="stylesheet" href="{{ css | relative_url }}" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="{{ css | relative_url }}"></noscript>
     {% endfor %}
   {% endif %}
 
@@ -108,42 +102,57 @@
 
   {% if page.css %}
     {% for css in page.css %}
-      <link rel="preload" href="{{ css | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <noscript><link rel="stylesheet" href="{{ css | relative_url }}"></noscript>
+      <link rel="stylesheet" href="{{ css | relative_url }}">
     {% endfor %}
   {% endif %}
 
   {% if layout.css %}
     {% for css in layout.css %}
-      <link rel="preload" href="{{ css | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <noscript><link rel="stylesheet" href="{{ css | relative_url }}"></noscript>
+      <link rel="stylesheet" href="{{ css | relative_url }}">
     {% endfor %}
-  {% endif %}
-
-  {% if site.matomo %}
-  {% include matomo.html %}
-  {% endif %}
-
-  {% if page.comments and site.staticman.repository and site.staticman.branch %}
-  <!-- Staticman -->
-  <link rel="stylesheet" href="{{ "/assets/css/staticman.css" | relative_url }}">
   {% endif %}
 
   <script>
     (function() {
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
+      var loaded = false;
       function init() {
+        if (loaded) return;
+        loaded = true;
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2886086145980317';
         s.crossOrigin = 'anonymous';
         document.head.appendChild(s);
       }
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(init, { timeout: 2000 });
-      } else {
-        setTimeout(init, 1200);
+
+      var adSelector = '.post-mid-ad, .post-below-related-ad, .sidebar-sticky-ad, .explainer-sidebar-ad';
+      var firstAd = document.querySelector(adSelector);
+
+      if (firstAd && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              io.disconnect();
+              init();
+              return;
+            }
+          }
+        }, { rootMargin: '1000px 0px' });
+        io.observe(firstAd);
       }
+
+      var triggerLoad = function() {
+        init();
+        window.removeEventListener('scroll', triggerLoad, { passive: true });
+        window.removeEventListener('touchstart', triggerLoad, { passive: true });
+        window.removeEventListener('keydown', triggerLoad);
+      };
+      window.addEventListener('scroll', triggerLoad, { passive: true, once: true });
+      window.addEventListener('touchstart', triggerLoad, { passive: true, once: true });
+      window.addEventListener('keydown', triggerLoad, { once: true });
+
+      setTimeout(init, 6000);
     })();
   </script>
 

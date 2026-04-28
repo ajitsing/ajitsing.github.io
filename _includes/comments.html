@@ -1,6 +1,3 @@
-{% if page.comments %}        
-  {% comment %}{% include disqus.html %}{% endcomment %}
-  {% include fb-comment.html %}
-  {% include staticman-comments.html %}
+{% if page.comments %}
   {% include utterances-comment.html %}
 {% endif %}

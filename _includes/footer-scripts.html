@@ -22,12 +22,32 @@
   {% endfor %}
 {% endif %}
 
+<script>
+(function() {
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
+  var loaded = false;
+  function loadAdBlockDetect() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.defer = true;
+    s.src = '{{ "/assets/js/ad-blocker-detect.js" | relative_url }}';
+    document.body.appendChild(s);
+  }
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadAdBlockDetect, { timeout: 8000 });
+  } else {
+    setTimeout(loadAdBlockDetect, 5000);
+  }
+})();
+</script>
+
 <!-- Mermaid Support: lazy-load 820 KiB library only when a diagram nears the viewport -->
 {% if page.content contains 'language-mermaid' or content contains 'language-mermaid' %}
 <script>
 (function() {
   var MERMAID_SRC = 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js';
-  var OBSERVER_MARGIN = '600px 0px';
+  var OBSERVER_MARGIN = '200px 0px';
   var loaded = false;
   var blocks = document.querySelectorAll('pre code.language-mermaid');
   if (!blocks.length) return;

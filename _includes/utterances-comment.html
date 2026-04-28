@@ -1,12 +1,40 @@
 {% if site.utterances.repository and site.utterances.issue-term  %}
+<div id="utterances-root"></div>
+<script>
+(function() {
+  var root = document.getElementById('utterances-root');
+  if (!root) return;
+  var loaded = false;
 
-<script src="https://utteranc.es/client.js"
-        repo="{{ site.utterances.repository }}"
-        issue-term="{{ site.utterances.issue-term }}"
-        theme="{{ site.utterances.theme}}"
-        label="{{ site.utterances.label}}" 
-        crossorigin="anonymous"
-        async>
+  function mount() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://utteranc.es/client.js';
+    s.setAttribute('repo', '{{ site.utterances.repository }}');
+    s.setAttribute('issue-term', '{{ site.utterances.issue-term }}');
+    s.setAttribute('theme', '{{ site.utterances.theme }}');
+    s.setAttribute('label', '{{ site.utterances.label }}');
+    s.setAttribute('crossorigin', 'anonymous');
+    s.async = true;
+    root.appendChild(s);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          io.disconnect();
+          mount();
+          return;
+        }
+      }
+    }, { rootMargin: '600px 0px' });
+    io.observe(root);
+  } else {
+    setTimeout(mount, 2000);
+  }
+})();
 </script>
 
 {% endif %}

@@ -116,6 +116,8 @@ flowchart LR
 
 The Gateway itself does not do AI processing. It accepts inputs from messaging channels, manages WebSocket connections, and routes traffic to AI providers like Anthropic, OpenAI, or a local Ollama instance. The architecture is a hub-and-spoke design with strict separation between the interface layer and the intelligence layer.
 
+{% include ads/in-article.html %}
+
 Two directories get bind-mounted from the host: `~/.openclaw/` holds config files, credentials, memory, and logs. `~/.openclaw/workspace/` is the agent's working directory. Both survive container restarts and updates.
 
 ---
@@ -154,8 +156,6 @@ If `docker compose version` prints a version starting with `v2`, you are good. I
 sudo apt-get update
 sudo apt-get install docker-compose-plugin
 ```
-
-{% include ads/in-article.html %}
 
 **Linux (manual install)**:
 
@@ -217,6 +217,8 @@ docker compose run --rm openclaw-cli devices list
 docker compose run --rm openclaw-cli devices approve <requestId>
 ```
 
+{% include ads/display.html %}
+
 ---
 
 ## <i class="fas fa-file-code"></i> Method 2: Docker Compose from Scratch
@@ -256,8 +258,6 @@ services:
 ANTHROPIC_API_KEY=your-key-here
 OPENAI_API_KEY=your-key-here
 ```
-
-{% include ads/display.html %}
 
 Start it:
 

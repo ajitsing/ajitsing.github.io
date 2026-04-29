@@ -154,9 +154,6 @@ Add more machines to distribute the load.
 | No single point of failure | Network overhead |
 
 
-{% include ads/in-article.html %}
-
-
 ```mermaid
 flowchart TB
     subgraph Vertical["Vertical Scaling"]
@@ -205,6 +202,8 @@ A load balancer distributes traffic across multiple servers.
 | **Least Connections** | New requests go to server with fewest active connections | Long-running requests, varying request times |
 | **IP Hash** | Client IP determines server (sticky sessions) | Stateful applications, session affinity |
 | **Least Response Time** | Fastest responding server gets next request | Performance-critical applications |
+
+{% include ads/in-article.html %}
 
 ### Layer 4 vs Layer 7 Load Balancing
 
@@ -407,6 +406,8 @@ flowchart TB
     style S3 fill:#1a365d,stroke:#2b6cb0,color:#bee3f8
 ```
 
+{% include ads/display.html %}
+
 | Sharding Strategy | How It Works | Pros | Cons |
 |-------------------|--------------|------|------|
 | **Hash-based** | Hash of key determines shard | Even distribution | Resharding is painful |
@@ -440,10 +441,6 @@ sequenceDiagram
     Queue->>Worker: Process order
     Worker->>Email: Send confirmation
 ```
-
-
-{% include ads/in-article.html %}
-
 
 - **Decoupling**: Services don't need to know about each other
 - **Resilience**: Failed consumers don't crash producers

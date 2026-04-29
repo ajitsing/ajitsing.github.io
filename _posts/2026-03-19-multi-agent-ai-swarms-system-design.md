@@ -74,6 +74,8 @@ This post is a system design deep dive into multi-agent AI swarms. If you have b
 
 > **TL;DR**: Multi-agent AI swarms split complex workflows across specialized agents. The five orchestration patterns are Supervisor, Pipeline, Mesh, Event-Driven, and Hub-and-Spoke. Most production teams should start with the Supervisor pattern. Isolate agents in containers, separate orchestration from execution, use deterministic scaffolding over full autonomy, and always have a human in the loop for high-stakes decisions. Most failures happen at agent handoffs, not inside agents.
 
+{% include ads/in-article.html %}
+
 ## Table of Contents
 
 1. [Why Multi-Agent Over a Single Agent?](#why-multi-agent-over-a-single-agent)
@@ -101,9 +103,6 @@ A single agent works like a generalist. It has one LLM brain, one set of tools, 
 | No fault isolation | If the agent fails midway, everything fails |
 | No parallelism | Steps run sequentially even when they could run in parallel |
 | Monolithic prompts | The system prompt becomes a 5000-word mess trying to cover every case |
-
-
-{% include ads/in-article.html %}
 
 
 Google's research on [scaling agentic architectures](https://www.infoq.com/news/2026/03/google-multi-agent/) confirmed something important: tasks requiring many tools perform worse when a single agent juggles all of them. The coordination overhead inside one agent exceeds the overhead of splitting across multiple agents.
@@ -139,6 +138,8 @@ flowchart TD
 The rule is simple: if a single agent with the right tools gets the job done, do not add more agents. Multi-agent orchestration adds real complexity. Only reach for it when you hit clear limits.
 
 ## The Five Orchestration Patterns
+
+{% include ads/display.html %}
 
 Once you decide you need multiple agents, the next question is: how do they coordinate? There are five patterns that have proven themselves in production.
 
@@ -226,9 +227,6 @@ flowchart TD
 ```
 
 
-{% include ads/display.html %}
-
-
 **How it works**: Each agent publishes and subscribes to topics on a shared message bus. When one agent detects something interesting, it broadcasts a message. Other agents pick it up if it is relevant to their role. No single agent has a full picture of the system.
 
 **Best for**: Security monitoring, real-time anomaly detection, distributed sensor networks.
@@ -238,6 +236,8 @@ flowchart TD
 ### <i class="fas fa-bolt"></i> 4. Event-Driven
 
 Agents subscribe to event streams and react to triggers. Similar to the mesh pattern, but communication flows through structured events rather than direct messages.
+
+{% include ads/in-article.html %}
 
 ```mermaid
 flowchart LR
@@ -320,7 +320,7 @@ For most teams just starting out, **start with the Supervisor pattern**. It give
 ## Designing Individual Agents for a Swarm
 
 
-{% include ads/in-article.html %}
+{% include ads/display.html %}
 
 
 A multi-agent system is only as good as its individual agents. Here are the design principles that matter.
@@ -407,6 +407,8 @@ How agents talk to each other is one of the most critical design decisions. Get 
 
 There are three main approaches, and the right choice depends on your orchestration pattern:
 
+{% include ads/in-article.html %}
+
 ```mermaid
 flowchart TD
     subgraph Direct["fa:fa-exchange-alt Direct Messaging"]
@@ -441,9 +443,6 @@ flowchart TD
 | Direct Messaging | Supervisor pattern, small swarms | Simple, low latency | Tight coupling, hard to scale |
 | Shared State | Pipeline pattern, collaborative tasks | Decoupled, auditable | Race conditions, consistency issues |
 | Event Bus | Event-driven, large swarms | Fully decoupled, scalable | Complex, ordering challenges |
-
-
-{% include ads/display.html %}
 
 
 ### Message Format
@@ -607,10 +606,6 @@ Good [context engineering](/context-engineering/) is even more important in mult
   "budget_remaining": {"tokens": 50000, "usd": 2.50}
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 ## Framework Comparison: LangGraph vs CrewAI vs AutoGen
 

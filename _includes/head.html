@@ -112,20 +112,6 @@
     {% endfor %}
   {% endif %}
 
-  {% if page.desktop-only-css %}
-    {% for css in page.desktop-only-css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}" media="(min-width: 992px)">
-      <noscript><link rel="stylesheet" href="{{ css | relative_url }}"></noscript>
-    {% endfor %}
-  {% endif %}
-
-  {% if layout.desktop-only-css %}
-    {% for css in layout.desktop-only-css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}" media="(min-width: 992px)">
-      <noscript><link rel="stylesheet" href="{{ css | relative_url }}"></noscript>
-    {% endfor %}
-  {% endif %}
-
   <script>
     (function() {
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;

@@ -59,6 +59,8 @@ Generate a 128-bit random number. Problem solved, right? Not quite:
 
 The best of both worlds. Unique like UUIDs, but smaller and time-sortable.
 
+{% include ads/in-article.html %}
+
 ## Snowflake ID Structure: The 64-Bit Breakdown
 
 A Snowflake ID packs three pieces of information into 64 bits:
@@ -138,9 +140,7 @@ Both Twitter and Discord use Snowflake IDs, but they chose different starting po
 | Twitter | 1288834974657 | Nov 4, 2010 |
 | Discord | 1420070400000 | Jan 1, 2015 |
 
-
 {% include ads/in-article.html %}
-
 
 **Why does the epoch matter?**
 

@@ -134,6 +134,8 @@ A decent GPU costs $500-1500 once. After that, running local models is free.
 | Claude API (heavy usage) | $800-2500 | $9,600-30,000 |
 | Local LLM | $0* | $0* |
 
+{% include ads/in-article.html %}
+
 *After initial hardware investment
 
 ### <i class="fas fa-wifi-slash"></i> Offline Access
@@ -189,9 +191,6 @@ Before diving in, here are a few terms you will see throughout this guide:
 | **Hugging Face** | The "GitHub for AI models." A platform where researchers and companies publish models, datasets, and demos. When you download a local LLM, you are usually getting it from Hugging Face. |
 
 
-{% include ads/in-article.html %}
-
-
 ## Hardware Requirements
 
 Let us be realistic about what hardware you need.
@@ -220,6 +219,8 @@ In plain English: a 7 billion parameter model, compressed to 4 bits per weight, 
 | 13-14B | Q4_K_M | 8-10 GB | 10-12 GB | Llama 2 13B, Qwen2.5-14B |
 | 32-34B | Q4_K_M | 18-22 GB | 20-24 GB | DeepSeek 33B, Qwen2.5-32B |
 | 70-72B | Q4_K_M | 35-42 GB | 40-48 GB | Llama 3.1 70B, Qwen2.5-72B |
+
+{% include ads/display.html %}
 
 ### CPU vs GPU
 
@@ -251,6 +252,8 @@ For reference, 20+ tokens per second feels responsive in a chat. Below 10 tokens
 - Mac Studio M2 Ultra with 64GB+ RAM
 - Or PC with RTX 4090 (24GB VRAM)
 - Can run 70B models
+
+{% include ads/display.html %}
 
 ## Method 1: Ollama (Easiest)
 
@@ -337,8 +340,6 @@ response = client.chat.completions.create(
 
 print(response.choices[0].message.content)
 ```
-
-{% include ads/display.html %}
 
 This means any code that works with OpenAI can work with local models by changing two lines.
 
@@ -493,9 +494,6 @@ Quantization is how we fit large models on consumer hardware. It reduces the pre
 | Q2_K | 2 | 8x | Large | Experimental |
 
 
-{% include ads/in-article.html %}
-
-
 ### My Recommendation
 
 **Q4_K_M** is the sweet spot for most users. It provides:
@@ -577,6 +575,9 @@ quadrantChart
 ## Practical Use Cases
 
 Here are real ways developers use local LLMs.
+
+
+{% include ads/display.html %}
 
 ### Use Case 1: Local Coding Assistant
 
@@ -693,9 +694,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     git commit -m "$MESSAGE"
 fi
 ```
-
-
-{% include ads/display.html %}
 
 
 ### Use Case 4: API Server for Team Use

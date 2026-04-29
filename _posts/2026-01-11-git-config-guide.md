@@ -133,6 +133,8 @@ git config --global <key> <value>
 
 The `--global` flag sets the value in your global **gitconfig** file (`~/.gitconfig`). Replace `--global` with `--local` to set a value only for the current repository (**git repo config**), or `--system` for machine-wide settings.
 
+{% include ads/display.html %}
+
 **Examples:**
 
 ```bash
@@ -151,9 +153,6 @@ git config --global help.autocorrect 10
 # Remove a setting
 git config --global --unset core.editor
 ```
-
-
-{% include ads/in-article.html %}
 
 
 To read a config value:
@@ -266,6 +265,8 @@ git config --global core.editor "subl -n -w"
 ```
 
 The `--wait` flag tells Git to wait until you close the editor before continuing.
+
+{% include ads/in-article.html %}
 
 ### Default Branch Name
 
@@ -770,6 +771,8 @@ git config --global merge.conflictstyle diff3
 ```
 
 This shows the common ancestor in addition to both sides, making conflicts easier to understand.
+
+{% include ads/display.html %}
 
 ### Reuse Recorded Resolution (rerere)
 

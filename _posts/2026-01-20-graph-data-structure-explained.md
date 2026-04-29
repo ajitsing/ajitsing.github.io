@@ -109,6 +109,8 @@ Formally, a graph G = (V, E) where:
 - **V** is the set of vertices (nodes)
 - **E** is the set of edges (connections)
 
+{% include ads/display.html %}
+
 ### Why Graphs Matter
 
 Graphs model relationships naturally. Here are some examples:
@@ -141,9 +143,6 @@ graph LR
     style B fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style C fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
-
-
-{% include ads/in-article.html %}
 
 
 Think Facebook friendships. If Alice is friends with Bob, Bob is friends with Alice.
@@ -348,6 +347,8 @@ Understanding why **BFS time complexity O(V+E) adjacency list** is achieved requ
 
 The **BFS time complexity adjacency list** representation is optimal for sparse graphs where E << V², which is the case for most real-world graphs.
 
+{% include ads/in-article.html %}
+
 ### Depth-First Search (DFS) in Data Structure
 
 **DFS (Depth-First Search)** is another fundamental graph traversal algorithm. DFS goes deep before going wide. Start at a node, follow one path as far as possible, then backtrack. DFS in data structure is essential for cycle detection, topological sorting, and exploring all paths in a graph. When using **DFS adjacency list** representation, DFS achieves **DFS time complexity O(V+E) adjacency list**, making it efficient for sparse graphs.
@@ -367,9 +368,6 @@ graph TD
     style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style C fill:#e0f2f1,stroke:#00695c,stroke-width:2px
 ```
-
-
-{% include ads/in-article.html %}
 
 
 **Implementation (Recursive)**:
@@ -664,9 +662,6 @@ class UnionFind:
         
         return True
 ```
-
-
-{% include ads/in-article.html %}
 
 
 **Time Complexity**: 

@@ -87,6 +87,8 @@ git config --global init.defaultBranch main
 
 These are just the basics. For a complete guide covering aliases, credentials, editor setup, and more, see the [Git Config Guide](/git-config-guide/).
 
+{% include ads/display.html %}
+
 ## Starting a Project
 
 You have two options: start fresh or clone an existing repository.
@@ -367,6 +369,8 @@ git commit -m "Add login feature"
 ```
 
 This is useful when a feature branch has messy commit history.
+
+{% include ads/in-article.html %}
 
 ### Abort a Merge
 

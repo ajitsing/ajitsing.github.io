@@ -73,6 +73,8 @@ graph TD
 
 General A thinks everyone agreed. General C never got the message. What happens at dawn?
 
+{% include ads/display.html %}
+
 This is exactly what happens in distributed systems. Servers send messages. Messages get delayed or lost. Servers crash. Networks partition. And somehow, the system needs to keep making decisions.
 
 ## The Solution: Majority Rules
@@ -255,6 +257,8 @@ graph TB
 With 4 nodes split 2-2, neither side can form a quorum. The system halts. With 5 nodes, one side will always have 3 and can continue.
 
 **Rule of thumb**: Always use odd numbers for your cluster size.
+
+{% include ads/display.html %}
 
 ## Real-World Examples
 

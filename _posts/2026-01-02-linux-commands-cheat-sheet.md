@@ -62,6 +62,8 @@ These commands are your bread and butter. You will use them dozens of times ever
 
 ### Moving Around
 
+{% include ads/display.html %}
+
 ```bash
 # Where am I right now?
 pwd
@@ -433,6 +435,8 @@ nmap -p 1-1000 localhost
 # Test if a port is open
 nc -zv server.com 443
 ```
+
+{% include ads/display.html %}
 
 ---
 

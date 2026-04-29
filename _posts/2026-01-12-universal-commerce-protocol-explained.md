@@ -123,6 +123,8 @@ flowchart TB
 
 The key insight: AI agents only need to speak UCP. They do not need to know the specifics of each platform.
 
+{% include ads/display.html %}
+
 ## Core Capabilities
 
 UCP defines three core capabilities that every implementation must support.
@@ -163,9 +165,6 @@ sequenceDiagram
     
     Agent->>User: "Order placed. Confirmation #12345"
 ```
-
-
-{% include ads/in-article.html %}
 
 
 What the checkout capability handles:
@@ -336,6 +335,8 @@ flowchart TB
 
 ### Transport Protocols
 
+{% include ads/display.html %}
+
 UCP is transport-agnostic. It works over:
 
 **REST API**: The default. Standard HTTP requests with JSON payloads.
@@ -358,9 +359,6 @@ Authorization: Bearer <token>
   "currency": "USD"
 }
 ```
-
-
-{% include ads/display.html %}
 
 
 **Model Context Protocol (MCP)**: For AI systems that already use Anthropic's MCP standard. UCP capabilities become MCP tools.
@@ -420,6 +418,8 @@ GET /ucp/v1/profile
 ```
 
 AI agents query this endpoint to discover what your store can do.
+
+{% include ads/in-article.html %}
 
 ### Step 2: Implement Checkout Sessions
 
@@ -616,9 +616,6 @@ def token():
 ```
 
 
-{% include ads/in-article.html %}
-
-
 ### Step 4: Implement Order Webhooks
 
 Send updates when order status changes.
@@ -741,6 +738,8 @@ def revoke_token(token):
     add_to_revocation_list(token_data['jti'])
     return True
 ```
+
+{% include ads/in-article.html %}
 
 ### Rate Limiting
 
@@ -935,8 +934,6 @@ response = run_shopping_agent("Find me running shoes under $150 and add the best
 print(response)
 ```
 
-{% include ads/display.html %}
-
 ## UCP vs MCP: How They Work Together
 
 A common question: what is the difference between UCP and MCP? They solve different problems and work together.
@@ -1054,9 +1051,6 @@ def ucp_complete_purchase(session_id: str, confirm: bool):
         return {"error": "User must confirm purchase"}
     return ucp_client.checkout.complete(session_id)
 ```
-
-
-{% include ads/in-article.html %}
 
 
 ## What This Means for Developers

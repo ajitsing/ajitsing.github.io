@@ -79,6 +79,8 @@ These characters have special meaning in regex. To match them literally, escape 
 | `{}` | Quantifier | `\{` `\}` |
 | `\` | Escape character | `\\` |
 
+{% include ads/in-article.html %}
+
 ### Escaping
 
 When you need to match a special character literally, put a backslash before it:
@@ -120,9 +122,6 @@ Use square brackets to define your own character class:
 | `[a-zA-Z0-9]` | Any alphanumeric |
 | `[^abc]` | Any character except a, b, c |
 | `[^0-9]` | Any non-digit |
-
-
-{% include ads/in-article.html %}
 
 
 The caret `^` at the start of a character class negates it.
@@ -195,6 +194,8 @@ A word boundary `\b` occurs between a word character and a non-word character:
 \bcat        matches "cat" and "category" but not "concatenate"
 cat\b        matches "cat" and "concatenate" but not "category"
 ```
+
+{% include ads/display.html %}
 
 ### Start and End
 
@@ -271,10 +272,6 @@ Alternation has low precedence. Use groups to control scope:
 
 ## Lookahead and Lookbehind
 
-
-{% include ads/display.html %}
-
-
 Lookarounds check for a pattern without including it in the match.
 
 | Syntax | Name | Meaning |
@@ -283,6 +280,8 @@ Lookarounds check for a pattern without including it in the match.
 | `(?!...)` | Negative lookahead | Not followed by... |
 | `(?<=...)` | Positive lookbehind | Preceded by... |
 | `(?<!...)` | Negative lookbehind | Not preceded by... |
+
+{% include ads/display.html %}
 
 ### Lookahead Examples
 

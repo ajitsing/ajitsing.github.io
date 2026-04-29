@@ -116,6 +116,8 @@ flowchart LR
 
 Let me explain what each component does.
 
+{% include ads/in-article.html %}
+
 ### <i class="fas fa-door-open"></i> 1. Submitter: The Gatekeeper
 
 The Submitter is the entry point for all function calls. Its main job is protecting the system from overload.
@@ -130,9 +132,6 @@ Now the Submitter enforces quotas at the front door:
 | Default quotas | Every team gets baseline capacity without asking |
 | Quota negotiation | Teams can request more capacity through a formal process |
 | Admission control | Rejects requests early when system is overloaded |
-
-
-{% include ads/in-article.html %}
 
 
 This is the first lesson for your own systems: **add quota enforcement at your entry points**. It is much cheaper to reject a request immediately than to let it consume resources before failing.

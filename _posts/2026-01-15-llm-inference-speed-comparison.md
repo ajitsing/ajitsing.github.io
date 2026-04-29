@@ -104,6 +104,8 @@ From [Hardware Corner's GPU benchmarks](https://www.hardware-corner.net/gpu-rank
 | 8B (Qwen3 8B) | 42.0 | 31.9 |
 | 14B (Qwen3 14B) | 22.7 | — |
 
+{% include ads/in-article.html %}
+
 From [geerlingguy's ai-benchmarks](https://github.com/geerlingguy/ai-benchmarks/issues/40) (llama.cpp, RTX 3060 12GB, Vulkan backend, Q4_K_M):
 
 | Model | Tokens/sec (tg128) |
@@ -134,10 +136,6 @@ To measure your own RTX 3060 inference speed with llama.cpp:
 ollama run qwen2.5:14b --verbose "Explain the difference between TCP and UDP in detail"
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ## The Reality of Qwen2 1.5B on M1 Mac
 
 Let me address the elephant in the room. If you searched for "Qwen2 1.5B tokens per second M1" hoping to find incredible speeds, here is what the data actually shows.
@@ -152,6 +150,8 @@ From the [Qwen documentation](https://qwen.readthedocs.io/en/v2.0/benchmark/spee
 | Qwen2-1.5B | GPTQ-Int8 | ~32.6 | A100 GPU |
 | Qwen2-1.5B | GPTQ-Int4 | ~42.5 | A100 GPU |
 | Qwen2-1.5B | AWQ | ~43.0 | A100 GPU |
+
+{% include ads/display.html %}
 
 Even on a data center GPU, the speeds are in the tens of tokens per second, not billions.
 
@@ -317,9 +317,6 @@ flowchart TD
     style NVIDIA fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
     style Fast fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
 ```
-
-
-{% include ads/in-article.html %}
 
 
 Why Apple Silicon works well for local LLMs: unified memory means your GPU can access all system RAM. A MacBook with 32GB unified memory can load models that would require a 32GB GPU on other systems.

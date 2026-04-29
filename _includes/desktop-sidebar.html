@@ -1,0 +1,29 @@
+{%- assign sidebar_min_width = include.min-width | default: '992px' -%}
+<template id="sidebar-template" data-min-width="{{ sidebar_min_width }}" data-class="{{ include.class }}">
+  <aside class="{{ include.class }}">
+    {% include sidebar-popular.html %}
+    {% include sidebar-sticky-ad.html %}
+  </aside>
+</template>
+<script>
+  (function() {
+    var tpl = document.getElementById('sidebar-template');
+    if (!tpl || !('content' in tpl)) return;
+    var mq = '(min-width: ' + (tpl.getAttribute('data-min-width') || '992px') + ')';
+    if (!window.matchMedia(mq).matches) return;
+
+    var frag = tpl.content.cloneNode(true);
+    var scripts = frag.querySelectorAll('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var old = scripts[i];
+      var s = document.createElement('script');
+      for (var j = 0; j < old.attributes.length; j++) {
+        s.setAttribute(old.attributes[j].name, old.attributes[j].value);
+      }
+      if (old.textContent) s.textContent = old.textContent;
+      old.parentNode.replaceChild(s, old);
+    }
+    tpl.parentNode.insertBefore(frag, tpl);
+    tpl.remove();
+  })();
+</script>

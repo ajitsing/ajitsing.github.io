@@ -3,7 +3,10 @@ layout: base
 body-class: post-page
 hide-explore-posts: true
 css:
-  - /assets/css/sidebar.css
+  - /assets/css/post-layout.css
+desktop-only-css:
+  - href: /assets/css/sidebar.css
+    media: "(min-width: 992px)"
 ---
 
 {% include schema.html %}
@@ -14,10 +17,7 @@ css:
 
 <div class="post-page-wrapper">
   {% include post-floating-actions.html %}
-  <aside class="post-sidebar">
-    {% include sidebar-popular.html %}
-    {% include sidebar-sticky-ad.html %}
-  </aside>
+  {% include desktop-sidebar.html class="post-sidebar" min-width="992px" %}
   <main class="post-main-content">
     {% if page.gh-repo %}
       {% assign gh_split = page.gh-repo | split:'/' %}

@@ -1,0 +1,55 @@
+.home-layout {
+  display: flex;
+  gap: 3rem;
+  max-width: 1162px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.home-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 720px;
+}
+
+.home-sidebar {
+  width: 342px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+@media (max-width: 1199px) {
+  .home-layout {
+    max-width: 720px;
+  }
+
+  .home-sidebar {
+    display: none;
+  }
+
+  .home-main {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .home-layout {
+    gap: 2rem;
+    max-width: 1082px;
+  }
+
+  .home-sidebar {
+    width: 342px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .home-layout {
+    max-width: 1192px;
+    gap: 3.5rem;
+  }
+
+  .home-sidebar {
+    width: 342px;
+  }
+}

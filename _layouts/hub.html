@@ -3,7 +3,9 @@ layout: base
 hide-explore-posts: true
 css:
   - /assets/css/hub.css
-  - /assets/css/sidebar.css
+desktop-only-css:
+  - href: /assets/css/sidebar.css
+    media: "(min-width: 1200px)"
 ---
 
 {% include header.html type="page" %}
@@ -365,9 +367,6 @@ css:
       </div>
     </main>
 
-    <aside class="hub-sidebar">
-      {% include sidebar-popular.html %}
-      {% include sidebar-sticky-ad.html %}
-    </aside>
+    {% include desktop-sidebar.html class="hub-sidebar" min-width="1200px" %}
   </div>
 </div>

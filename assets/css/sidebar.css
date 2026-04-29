@@ -1,71 +1,3 @@
-/* --- Post page layout (critical for CLS) --- */
-.post-page-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 342px;
-  gap: 3rem;
-  max-width: 1162px;
-  margin: 0 auto;
-  padding: 20px 15px 40px;
-}
-.post-main-content {
-  min-width: 0;
-  max-width: 780px;
-  grid-column: 1;
-  grid-row: 1;
-}
-.post-sidebar {
-  width: 342px;
-  grid-column: 2;
-  grid-row: 1;
-}
-
-/* Post page header - align with sidebar layout (must be render-blocking) */
-.post-page .header-section .intro-header .container-md {
-  max-width: 1162px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.post-page .header-section .intro-header .row {
-  margin: 0;
-}
-.post-page .header-section .intro-header .col-xl-8,
-.post-page .header-section .intro-header .col-lg-10 {
-  max-width: 780px;
-  margin-left: 0;
-  padding-left: 0;
-  padding-right: 0;
-  flex: none;
-}
-
-@media (max-width: 991px) {
-  .post-page-wrapper { 
-    max-width: 780px; 
-    grid-template-columns: 1fr;
-  }
-  .post-sidebar { display: none; }
-  .post-main-content { max-width: 100%; }
-}
-@media (max-width: 1199px) {
-  .post-page .header-section .intro-header .container-md { max-width: 780px; }
-  .post-page .header-section .intro-header .col-xl-8,
-  .post-page .header-section .intro-header .col-lg-10 { max-width: 100%; }
-}
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .post-page-wrapper { gap: 2rem; max-width: 1082px; }
-  .post-sidebar { width: 342px; }
-  .post-page .header-section .intro-header .container-md { max-width: 1082px; }
-}
-@media (min-width: 1400px) {
-  .post-page-wrapper { max-width: 1192px; gap: 3.5rem; }
-  .post-sidebar { width: 342px; }
-  .post-page .header-section .intro-header .container-md { max-width: 1192px; }
-}
-@media (max-width: 768px) {
-  .post-page-wrapper { padding: 15px 12px 30px; }
-}
-
-/* --- Right Sidebar - Popular Posts --- */
-
 .sidebar-popular {
   z-index: 50;
   background: #ffffff;
@@ -75,7 +7,6 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Sticky sidebar ad */
 .sidebar-sticky-ad {
   position: sticky;
   top: 80px;
@@ -233,68 +164,6 @@
   font-weight: 500;
 }
 
-/* --- Home Layout with Sidebar --- */
-
-.home-layout {
-  display: flex;
-  gap: 3rem;
-  max-width: 1162px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.home-main {
-  flex: 1;
-  min-width: 0;
-  max-width: 720px;
-}
-
-.home-sidebar {
-  width: 342px;
-  flex-shrink: 0;
-  align-self: stretch;
-}
-
-/* Hide sidebar on smaller screens */
-@media (max-width: 1199px) {
-  .home-layout {
-    max-width: 720px;
-  }
-  
-  .home-sidebar {
-    display: none;
-  }
-  
-  .home-main {
-    max-width: 100%;
-  }
-}
-
-/* Adjust for medium-large screens */
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .home-layout {
-    gap: 2rem;
-    max-width: 1082px;
-  }
-  
-  .home-sidebar {
-    width: 342px;
-  }
-}
-
-/* Full width on large screens */
-@media (min-width: 1400px) {
-  .home-layout {
-    max-width: 1192px;
-    gap: 3.5rem;
-  }
-  
-  .home-sidebar {
-    width: 342px;
-  }
-}
-
-/* Custom scrollbar for sidebar if content overflows */
 .sidebar-popular::-webkit-scrollbar {
   width: 4px;
 }
@@ -312,15 +181,11 @@
   background: #adb5bd;
 }
 
-/* --- Sidebar Divider --- */
-
 .sidebar-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, #e0e0e0 20%, #e0e0e0 80%, transparent);
   margin: 1.25rem 0;
 }
-
-/* --- Dev Tools Section --- */
 
 .sidebar-title-tools {
   margin-top: 0;

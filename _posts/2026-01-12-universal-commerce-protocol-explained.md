@@ -891,10 +891,6 @@ def checkout(confirm):
 
 # Agent loop
 
-
-{% include ads/display.html %}
-
-
 def run_shopping_agent(user_request):
     messages = [
         {"role": "system", "content": """You are a shopping assistant. 
@@ -938,6 +934,8 @@ def run_shopping_agent(user_request):
 response = run_shopping_agent("Find me running shoes under $150 and add the best one to cart")
 print(response)
 ```
+
+{% include ads/display.html %}
 
 ## UCP vs MCP: How They Work Together
 

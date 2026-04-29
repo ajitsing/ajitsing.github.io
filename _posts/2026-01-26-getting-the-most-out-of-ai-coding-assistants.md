@@ -256,10 +256,6 @@ Here are real examples of AI generated code that looked fine but was not:
 ```python
 # AI generated code that looks reasonable
 
-
-{% include ads/display.html %}
-
-
 def get_user_orders(user_ids: list[int]) -> list[Order]:
     orders = []
     for user_id in user_ids:
@@ -267,6 +263,8 @@ def get_user_orders(user_ids: list[int]) -> list[Order]:
         orders.extend(user_orders)
     return orders
 ```
+
+{% include ads/display.html %}
 
 This is an [N+1 query problem](/explainer/n-plus-one-query-problem/). With 1000 users, you make 1000 database calls instead of one. It works in development with 10 users and falls over in production.
 

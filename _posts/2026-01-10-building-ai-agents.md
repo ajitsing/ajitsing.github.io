@@ -233,10 +233,6 @@ def run_python_code(code: str) -> str:
 
 # Tool definitions for the LLM
 
-
-{% include ads/display.html %}
-
-
 tools = [
     {
         "type": "function",
@@ -290,6 +286,8 @@ tool_functions = {
     "run_python_code": run_python_code
 }
 ```
+
+{% include ads/display.html %}
 
 ### Step 2: Create the Agent Loop
 

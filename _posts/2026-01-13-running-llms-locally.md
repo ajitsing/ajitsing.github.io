@@ -322,10 +322,6 @@ from openai import OpenAI
 
 # Point to local Ollama server
 
-
-{% include ads/display.html %}
-
-
 client = OpenAI(
     base_url="http://localhost:11434/v1",
     api_key="ollama"  # Required but not used
@@ -341,6 +337,8 @@ response = client.chat.completions.create(
 
 print(response.choices[0].message.content)
 ```
+
+{% include ads/display.html %}
 
 This means any code that works with OpenAI can work with local models by changing two lines.
 

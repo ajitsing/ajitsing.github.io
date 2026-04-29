@@ -550,10 +550,6 @@ Do not process big jobs as monolithic tasks. Split them into independent chunks 
 ```python
 # Bad: Process entire video as one job
 
-
-{% include ads/display.html %}
-
-
 def encode_video(video_path):
     # Takes 24 hours, can't parallelize
     result = encode_full_video(video_path)
@@ -569,6 +565,8 @@ def encode_video_parallel(video_path, num_workers=100):
     
     return assemble_chunks(encoded_chunks)
 ```
+
+{% include ads/display.html %}
 
 This pattern works for any CPU-intensive batch job. Image processing, data transformation, report generation.
 

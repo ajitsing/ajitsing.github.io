@@ -236,10 +236,6 @@ The **adjacency matrix** is another way to represent a graph data structure. Unl
 ```python
 # Undirected graph
 
-
-{% include ads/display.html %}
-
-
 graph = [
     [0, 1, 1, 0, 0],  # A: connected to B, C
     [1, 0, 0, 1, 0],  # B: connected to A, D
@@ -248,6 +244,8 @@ graph = [
     [0, 0, 0, 0, 0]   # E: no connections
 ]
 ```
+
+{% include ads/display.html %}
 
 For weighted graphs, store the weight instead of 1.
 

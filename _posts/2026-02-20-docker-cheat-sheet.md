@@ -439,12 +439,10 @@ docker run -v mydata:/container/path nginx:latest
 
 # Mount anonymous volume
 
-
-{% include ads/display.html %}
-
-
 docker run -v /container/path nginx:latest
 ```
+
+{% include ads/display.html %}
 
 ### Resource Limits
 
@@ -1152,10 +1150,6 @@ These are the workflows you will use most often.
 ```bash
 # 1. Build image
 
-
-{% include ads/in-article.html %}
-
-
 docker build -t myapp:dev .
 
 # 2. Run with volume mount for live reload
@@ -1173,6 +1167,8 @@ docker exec -it myapp-dev npm test
 # 5. Stop and remove
 docker stop myapp-dev && docker rm myapp-dev
 ```
+
+{% include ads/in-article.html %}
 
 ### Production Deployment Workflow
 

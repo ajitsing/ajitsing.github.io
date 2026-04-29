@@ -604,10 +604,6 @@ When in doubt, the flag should be off. This is fail-safe behavior.
 ```python
 # Good: defaults to False
 
-
-{% include ads/display.html %}
-
-
 def is_enabled(flag_name):
     return flags.get(flag_name, False)
 
@@ -615,6 +611,8 @@ def is_enabled(flag_name):
 def is_enabled(flag_name):
     return flags.get(flag_name, True)  # Dangerous!
 ```
+
+{% include ads/display.html %}
 
 If a flag doesn't exist or can't be loaded, assume the feature is off. This prevents accidental releases.
 

@@ -438,15 +438,13 @@ Use tools to track DNS lookup times and failures.
 ```bash
 # Measure DNS lookup time
 
-
-{% include ads/in-article.html %}
-
-
 time dig example.com
 
 # Check from multiple locations
 curl https://www.dnsperf.com/
 ```
+
+{% include ads/in-article.html %}
 
 ---
 

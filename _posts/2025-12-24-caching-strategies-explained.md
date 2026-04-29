@@ -534,10 +534,6 @@ Removes items that have not been accessed for the longest time.
 ```python
 # LRU Cache behavior
 
-
-{% include ads/display.html %}
-
-
 cache.set("A", 1)  # Cache: [A]
 cache.set("B", 2)  # Cache: [A, B]
 cache.set("C", 3)  # Cache: [A, B, C]
@@ -546,6 +542,8 @@ cache.get("A")     # Access A, moves to end: [B, C, A]
 
 cache.set("D", 4)  # Cache full, evict B (least recent): [C, A, D]
 ```
+
+{% include ads/display.html %}
 
 **Best for**: General purpose caching, most common choice
 

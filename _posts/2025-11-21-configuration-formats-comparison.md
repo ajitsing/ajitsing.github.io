@@ -468,10 +468,6 @@ remarshal -if toml -of json config.toml config.json
 ```bash
 # Backup
 
-
-{% include ads/display.html %}
-
-
 cp config.json config.json.backup
 
 # Convert
@@ -481,6 +477,8 @@ remarshal -if json -of toml config.json config.toml
 # Update code to parse TOML instead of JSON
 # Test and deploy
 ```
+
+{% include ads/display.html %}
 
 ---
 

@@ -334,10 +334,6 @@ That is 101 queries for a single GraphQL request. The solution is a **DataLoader
 ```graphql
 # A query designed to overload your server
 
-
-{% include ads/display.html %}
-
-
 query {
   users {
     orders {
@@ -358,6 +354,8 @@ query {
   }
 }
 ```
+
+{% include ads/display.html %}
 
 You need query depth limiting, complexity analysis, and [rate limiting](/dynamic-rate-limiter-system-design/) to protect your GraphQL API. This is extra infrastructure that REST APIs rarely need.
 

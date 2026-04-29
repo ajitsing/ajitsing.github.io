@@ -340,12 +340,10 @@ pkill -f "python server.py"
 
 # Kill process using specific port
 
-
-{% include ads/display.html %}
-
-
 lsof -ti :8080 | xargs kill
 ```
+
+{% include ads/display.html %}
 
 Always try `kill` before `kill -9`. The regular kill gives the process a chance to clean up (close files, release locks, save state). Force kill terminates immediately and can leave things in a bad state.
 
@@ -533,10 +531,6 @@ sed 's/old/new/' file.txt
 
 # Replace all occurrences
 
-
-{% include ads/in-article.html %}
-
-
 sed 's/old/new/g' file.txt
 
 # Replace and save to file
@@ -557,6 +551,8 @@ awk '{sum += $1} END {print sum}' numbers.txt
 # Filter and print
 awk '$3 > 100 {print $1, $3}' data.txt
 ```
+
+{% include ads/in-article.html %}
 
 Real world example: analyze Apache access logs to find top IP addresses:
 

@@ -473,10 +473,6 @@ Tempo ships with TraceQL, a query language for searching traces. It is more expr
 ```
 # Find all traces where any span had an error
 
-
-{% include ads/in-article.html %}
-
-
 { status = error }
 
 # Find traces where the root span took more than 2 seconds
@@ -488,6 +484,8 @@ Tempo ships with TraceQL, a query language for searching traces. It is more expr
 # Find traces touching a specific service with a 5xx status code
 { resource.service.name = "payments-service" && span.http.status_code >= 500 }
 ```
+
+{% include ads/in-article.html %}
 
 TraceQL works well when you know what attribute you are looking for. For more open-ended investigation (what is slow right now?), Tempo's integration with Grafana alerting and Prometheus is the intended path: you alert on high latency via Prometheus, click through to the trace ID in Grafana, and load the full trace from Tempo.
 

@@ -438,10 +438,6 @@ kubectl rollout undo deployment my-deployment
 
 # Rollback to specific revision
 
-
-{% include ads/display.html %}
-
-
 kubectl rollout undo deployment my-deployment --to-revision=2
 
 # Pause rollout
@@ -450,6 +446,8 @@ kubectl rollout pause deployment my-deployment
 # Resume rollout
 kubectl rollout resume deployment my-deployment
 ```
+
+{% include ads/display.html %}
 
 **Note:** For application-level feature rollouts (gradual user exposure, A/B testing), consider using [feature flags](/feature-flags-guide/) in addition to Kubernetes rolling updates. Feature flags give you finer control over which users see new features, independent of deployment.
 
@@ -1028,15 +1026,13 @@ kubectl describe nodes | grep -A 5 "Allocated resources"
 
 # 3. Check for taints
 
-
-{% include ads/in-article.html %}
-
-
 kubectl describe nodes | grep Taints
 
 # 4. Check pod resource requests
 kubectl get pod my-pod -o yaml | grep -A 10 resources
 ```
+
+{% include ads/in-article.html %}
 
 Common causes:
 - Insufficient CPU or memory on nodes

@@ -373,10 +373,6 @@ Since KeyDB is a Redis fork with the same protocol, switching is a configuration
 ```bash
 # KeyDB active replication config (keydb.conf)
 
-
-{% include ads/in-article.html %}
-
-
 activerehashing yes
 server-threads 8           # use 8 threads on an 8-core machine
 active-replica yes         # enable active replication
@@ -385,6 +381,8 @@ replica-read-only no       # allow writes on replica nodes
 # Connect your replica to a master
 replicaof 10.0.0.1 6379
 ```
+
+{% include ads/in-article.html %}
 
 ```python
 # Your application code does not change at all

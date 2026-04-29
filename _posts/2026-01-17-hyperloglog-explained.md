@@ -350,10 +350,6 @@ class HyperLogLog:
 
 # Usage
 
-
-{% include ads/display.html %}
-
-
 hll = HyperLogLog()
 
 # Add 1 million items
@@ -364,6 +360,8 @@ print(f"Estimated: {hll.count()}")
 print(f"Actual: 1,000,000")
 print(f"Error: {abs(hll.count() - 1_000_000) / 1_000_000 * 100:.2f}%")
 ```
+
+{% include ads/display.html %}
 
 For production, use established libraries like `redis-py`, `datasketch`, or your database's built-in functions.
 

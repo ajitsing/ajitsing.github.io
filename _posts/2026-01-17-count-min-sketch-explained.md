@@ -315,11 +315,10 @@ CMS.INCRBY my_sketch item1 1 item2 5
 
 # Query counts
 
-
-{% include ads/display.html %}
-
 CMS.QUERY my_sketch item1 item2
 ```
+
+{% include ads/display.html %}
 
 ## Implementation Example
 

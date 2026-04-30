@@ -653,7 +653,7 @@ You can use a database for years without thinking about any of this. But once yo
 
 ### Always Look at the Plan Before You Add an Index
 
-Adding an index that the planner does not use is a silent tax on every write. Before you `CREATE INDEX`, run `EXPLAIN (ANALYZE, BUFFERS)` on the slow query, look at which scan it picks, and ask whether an index would actually help. The [Database Indexing Explained](/database-indexing-explained/){:target="_blank" rel="noopener"} post walks through B-tree, hash, GIN, and BRIN indexes and when each one shines.
+Adding an index that the planner does not use is a silent tax on every write. Before you `CREATE INDEX`, run `EXPLAIN (ANALYZE, BUFFERS)` on the slow query, look at which scan it picks, and ask whether an index would actually help. The [Database Indexing Explained](/database-indexing-explained/){:target="_blank" rel="noopener"} post walks through B-tree, hash, GIN, and BRIN indexes and when each one shines. If you are working with embeddings on top of Postgres, the [Vector Database Deep Dive](/vector-database-deep-dive/){:target="_blank" rel="noopener"} covers how pgvector's HNSW and IVFFlat indexes are different from the classic ones and where they stop scaling.
 
 ### Run ANALYZE After Big Loads
 

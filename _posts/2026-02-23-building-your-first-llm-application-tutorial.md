@@ -31,7 +31,7 @@ faq:
   - question: "What programming language should I use for LLM applications?"
     answer: "Python and JavaScript/Node.js are the most popular choices. Python has excellent LLM libraries like LangChain and direct API clients. Node.js works well if you are already building web applications. Both languages have good OpenAI and Anthropic SDKs. Choose based on your existing stack."
   - question: "How do I add conversation memory to my LLM application?"
-    answer: "Store chat history in a database (PostgreSQL, MongoDB) or session storage. Send the full conversation history with each API request. When the context window fills up, summarize older messages or truncate them. For production apps, use vector databases for long-term memory retrieval."
+    answer: "Store chat history in a database (PostgreSQL, MongoDB) or session storage. Send the full conversation history with each API request. When the context window fills up, summarize older messages or truncate them. For production apps, use vector databases (see the [Vector Database Deep Dive](/vector-database-deep-dive/)) for long-term memory retrieval."
   - question: "How much does it cost to build an LLM application?"
     answer: "API costs vary by model: GPT-4o costs $2.50-$15 per million tokens, Claude 3.5 Sonnet costs $3-$15 per million tokens. A simple chat application might cost $10-50/month for moderate usage. Local models via Ollama are free after hardware costs. Always track token usage to control costs."
   - question: "What is the difference between a chatbot and an LLM application?"

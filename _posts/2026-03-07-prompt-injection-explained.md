@@ -526,7 +526,7 @@ This structured approach is based on the StruQ research, which showed that marki
 
 ### Layer 3: Retrieval Pipeline Hardening (Critical for RAG)
 
-If you are building a RAG application, your retrieval pipeline is an attack surface. Every document in your knowledge base is a potential injection vector.
+If you are building a RAG application, your retrieval pipeline is an attack surface. Every document in your knowledge base is a potential injection vector. The same is true at the storage layer: see the [Vector Database Deep Dive](/vector-database-deep-dive/) for how embeddings, metadata filters, and hybrid search shape what an attacker can poison.
 
 ```python
 import re

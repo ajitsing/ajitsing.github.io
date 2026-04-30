@@ -160,7 +160,7 @@ Agents need memory to work on tasks that span multiple steps or sessions. There 
 
 **Short-term Memory**: Recent interactions that get summarized or stored. When the context window fills up, older messages get compressed or dropped.
 
-**Long-term Memory**: Persistent storage using a vector database. Facts, user preferences, and important information get stored and retrieved when relevant. This is essentially [RAG](/context-engineering/) applied to agent memory.
+**Long-term Memory**: Persistent storage using a vector database. Facts, user preferences, and important information get stored and retrieved when relevant. This is essentially [RAG](/context-engineering/) applied to agent memory. If you want to understand what is happening inside that vector database (HNSW graphs, IVF clusters, hybrid search) read the [Vector Database Deep Dive](/vector-database-deep-dive/).
 
 <pre><code class="language-mermaid">
 flowchart LR

@@ -297,6 +297,17 @@ CREATE INDEX idx_users_id ON users USING hash(id);
 
 **Best for**: Exact match lookups where you never need range queries. However, B-tree is usually preferred because it is more versatile.
 
+### <i class="fas fa-project-diagram"></i> Vector Index (HNSW, IVF)
+
+A different family of index, used when "find rows similar to this one" matters more than "find rows that match this value." Vector indexes power semantic search, RAG, and recommendation systems by approximating nearest-neighbor lookups in high-dimensional space.
+
+```sql
+-- PostgreSQL with the pgvector extension
+CREATE INDEX idx_docs_embedding ON docs USING hnsw (embedding vector_cosine_ops);
+```
+
+**Best for**: similarity search over embeddings (text, images, audio). The full mechanics, parameters, and trade-offs between HNSW, IVF, and product quantization are covered in the [Vector Database Deep Dive](/vector-database-deep-dive/).
+
 ## Clustered vs Non-Clustered: A Deeper Look
 
 This distinction confuses many developers. The key difference is where the actual data lives.

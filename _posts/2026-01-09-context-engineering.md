@@ -121,7 +121,7 @@ This is why context engineering is about quality over quantity. It is not about 
 
 Instead of splitting documents by fixed size, split them by meaning. Keep related information together. A function and its docstring should be in the same chunk. A section of documentation should stay intact.
 
-This improves retrieval quality. When the user asks about a topic, you get complete, coherent pieces of information rather than fragments that start and end mid-sentence.
+This improves retrieval quality. When the user asks about a topic, you get complete, coherent pieces of information rather than fragments that start and end mid-sentence. Chunks are then embedded and stored in a [vector database](/vector-database-deep-dive/) so semantic search can find them by meaning, not just keywords.
 
 ### 2. Progressive Context Loading
 

@@ -182,7 +182,7 @@ An embedding is a vector of numbers that represents the meaning of a piece of te
 Use the same model for documents and for the user question. Different models produce different vector spaces; mixing them makes similarity search unreliable. OpenAI `text-embedding-3-small` is cheap and good for most apps. For local setups, [running LLMs locally](/running-llms-locally/) can be combined with local embedding models.
 
 **Vector store**  
-For a first RAG app, Chroma is easy: in-memory or persistent, no extra infra. When you need something that scales or you already have PostgreSQL, use pgvector. Other options include Pinecone (managed), Qdrant, and Weaviate. The idea is the same: store vectors and optional metadata, query by nearest neighbor.
+For a first RAG app, Chroma is easy: in-memory or persistent, no extra infra. When you need something that scales or you already have PostgreSQL, use pgvector. Other options include Pinecone (managed), Qdrant, and Weaviate. The idea is the same: store vectors and optional metadata, query by nearest neighbor. For a deeper look at how these systems actually work under the hood (HNSW, IVF, product quantization, hybrid search), see the [Vector Database Deep Dive](/vector-database-deep-dive/).
 
 Example: chunk a document, embed with OpenAI, store in Chroma.
 
@@ -363,6 +363,7 @@ Building a RAG application is not magic. It is a retrieval pipeline plus the sam
 
 **Related Posts:**
 
+- [Vector Database Deep Dive](/vector-database-deep-dive/) - How HNSW, IVF, and pgvector vs Pinecone vs Qdrant actually work
 - [Building Your First LLM Application](/building-your-first-llm-application/) - Foundation for chat, memory, and LLM integration
 - [Context Engineering](/context-engineering/) - How to provide the right information to AI
 - [Building AI Agents](/building-ai-agents/) - Add tools and autonomous behavior

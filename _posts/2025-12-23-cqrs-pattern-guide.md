@@ -339,7 +339,7 @@ But event sourcing adds significant complexity. Don't adopt it just because you'
 
 If you decide to implement CQRS, these tools can help:
 
-**Axon Framework** (Java) - Full featured framework for CQRS and event sourcing. Handles command routing, event storage, and saga management. Popular in enterprise Java shops.
+**Axon Framework** (Java) - Full featured framework for CQRS and event sourcing. Handles command routing, event storage, and [saga management](/saga-pattern-distributed-transactions/). Popular in enterprise Java shops.
 
 **MediatR** (.NET) - Lightweight library that implements the mediator pattern. Good for CQRS command and query handling without the full event sourcing overhead.
 

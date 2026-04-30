@@ -601,7 +601,7 @@ flowchart LR
 
 **SQS FIFO**: Exactly-once processing with built-in deduplication. You provide a `MessageDeduplicationId` and SQS prevents duplicates within a 5-minute window.
 
-**The practical advice**: Build idempotent consumers regardless of which broker you use. Even with exactly-once guarantees, network partitions, retries, and application bugs can cause duplicates. Idempotency is your safety net. If you also need to guarantee that events are published reliably from your database to the broker, look at the [Transactional Outbox Pattern](/transactional-outbox-pattern/).
+**The practical advice**: Build idempotent consumers regardless of which broker you use. Even with exactly-once guarantees, network partitions, retries, and application bugs can cause duplicates. Idempotency is your safety net. If you also need to guarantee that events are published reliably from your database to the broker, look at the [Transactional Outbox Pattern](/transactional-outbox-pattern/). And once you start orchestrating multi-step workflows on top of those events, the [Saga Pattern](/saga-pattern-distributed-transactions/) is the standard way to keep them consistent.
 
 ---
 

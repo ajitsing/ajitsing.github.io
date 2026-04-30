@@ -591,7 +591,7 @@ When a transaction spans multiple services:
 | **Saga** | Chain of local transactions with compensations | Eventual |
 | **Outbox Pattern** | Write to DB and outbox table atomically | Eventual |
 
-See [Two-Phase Commit](/distributed-systems/two-phase-commit/) for implementation details.
+See [Two-Phase Commit](/distributed-systems/two-phase-commit/), the [Saga Pattern guide](/saga-pattern-distributed-transactions/), and the [Transactional Outbox Pattern](/transactional-outbox-pattern/) for implementation details.
 
 ---
 

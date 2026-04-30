@@ -159,7 +159,7 @@ But they come with a tax:
 |------------------|------|
 | Network latency | Every call adds 1-10ms |
 | Partial failures | What happens when one service is down? |
-| Data consistency | No more ACID transactions across services |
+| Data consistency | No more ACID transactions across services. You need the [Saga Pattern](/saga-pattern-distributed-transactions/) and the [Transactional Outbox](/transactional-outbox-pattern/) instead. |
 | Operational complexity | Kubernetes, service mesh, distributed tracing |
 | Developer experience | Running 10 services locally is painful |
 | Debugging | Good luck tracing a request across 8 services |

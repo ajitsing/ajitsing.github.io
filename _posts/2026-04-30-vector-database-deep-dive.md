@@ -70,7 +70,7 @@ Around that core it provides the things you expect from a database: durability, 
 
 ```mermaid
 flowchart TB
-    App["fa:fa-laptop-code &nbsp; <b>1. Application</b> &nbsp; <i>start here</i><br/>RAG &nbsp;&middot;&nbsp; semantic search &nbsp;&middot;&nbsp; recommender"]
+    App["fa:fa-laptop-code &nbsp; <b>1. Application</b> &nbsp; <br/>RAG &nbsp;&middot;&nbsp; semantic search &nbsp;&middot;&nbsp; recommender"]
 
     Embed["fa:fa-cogs &nbsp; <b>2. Embedding model</b><br/>OpenAI &nbsp;&middot;&nbsp; Cohere &nbsp;&middot;&nbsp; BGE &nbsp;&middot;&nbsp; Voyage"]
 

@@ -504,7 +504,7 @@ sequenceDiagram
 
 Each service handles its step and publishes the result. If any step fails, compensating actions run to undo previous steps.
 
-For more on this pattern, see [Two-Phase Commit](/distributed-systems/two-phase-commit-distributed-systems/).
+For the full pattern with choreography vs orchestration trade-offs and production tooling, see the [Saga Pattern deep dive](/saga-pattern-distributed-transactions/). For the strong-consistency alternative, see [Two-Phase Commit](/distributed-systems/two-phase-commit/).
 
 ### Pattern 5: CQRS with Event Sourcing
 

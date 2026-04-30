@@ -586,7 +586,7 @@ Modern distributed systems often use different approaches:
 
 ### Saga Pattern
 
-Instead of one big transaction, break it into a sequence of local transactions with compensating actions:
+Instead of one big transaction, break it into a sequence of local transactions with compensating actions. The full breakdown of choreography, orchestration, compensating transactions, and production tooling lives in the [Saga Pattern deep dive](/saga-pattern-distributed-transactions/).
 
 ```mermaid
 sequenceDiagram
@@ -613,7 +613,7 @@ sequenceDiagram
     P-->>O: Done
 ```
 
-Each step has a compensating transaction. If step 3 fails, run compensations for steps 2 and 1. This provides eventual consistency without distributed locking.
+Each step has a compensating transaction. If step 3 fails, run compensations for steps 2 and 1. This provides eventual consistency without distributed locking. For the full pattern with code samples, see the [Saga Pattern guide](/saga-pattern-distributed-transactions/).
 
 ### Event Sourcing with Outbox Pattern
 

@@ -847,6 +847,7 @@ If you use chaos engineering tools, circuit breakers are one of the first things
 - [Thundering Herd Problem](/thundering-herd-problem/) - How circuit breakers help prevent retry storms
 - [Dynamic Rate Limiter](/dynamic-rate-limiter-system-design/) - Complementary pattern for protecting your APIs
 - [Role of Queues](/role-of-queues-in-system-design/) - Using queues for fallback processing when circuit breakers trip
+- [Saga Pattern](/saga-pattern-distributed-transactions/) - How to compensate cleanly when a downstream call fails after the breaker trips
 - [Service Mesh Explained](/explainer/service-mesh-explained/) - Infrastructure-level circuit breaking with Istio and Envoy
 - [Distributed Tracing](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/) - How to debug circuit breaker behavior across services
 - [OpenTelemetry in Production](/opentelemetry-production-guide/) - Instrument your services to capture circuit breaker events in traces

@@ -600,7 +600,7 @@ If you use [CQRS (Command Query Responsibility Segregation)](/cqrs-pattern-guide
 
 ### Outbox + Saga
 
-In a Saga, each service performs its local transaction and publishes an event to trigger the next step. The outbox pattern makes sure that event actually gets published. Without it, a saga step can complete locally but fail to notify the next service, leaving the saga stuck. The [Role of Queues in System Design](/role-of-queues-in-system-design/) post covers how queues power saga choreography.
+In a [Saga](/saga-pattern-distributed-transactions/), each service performs its local transaction and publishes an event to trigger the next step. The outbox pattern makes sure that event actually gets published. Without it, a saga step can complete locally but fail to notify the next service, leaving the saga stuck. See the [Saga Pattern deep dive](/saga-pattern-distributed-transactions/) for choreography vs orchestration trade-offs and compensating transaction design, and the [Role of Queues in System Design](/role-of-queues-in-system-design/) post for how queues carry the events between saga steps.
 
 ### Outbox vs Two-Phase Commit
 
@@ -609,7 +609,7 @@ In a Saga, each service performs its local transaction and publishes an event to
 - **2PC**: "I need multiple databases to agree on one transaction."
 - **Outbox**: "I need to reliably tell other services what happened after my local transaction."
 
-In practice, most teams avoid 2PC for inter-service communication and use outbox + saga instead. It is more resilient, more scalable, and does not require a distributed transaction coordinator.
+In practice, most teams avoid 2PC for inter-service communication and use outbox plus the [Saga Pattern](/saga-pattern-distributed-transactions/) instead. It is more resilient, more scalable, and does not require a distributed transaction coordinator.
 
 ---
 

@@ -12,7 +12,6 @@ keywords: "how uber find nearby drivers, finding you nearby drivers, uber nearby
 comments: true
 tags: [system-design]
 seo: true
-popular: true
 
 quick-answer: "Uber uses **H3 hexagonal grid indexing** to find nearby drivers. Your GPS location is converted to a hexagon cell ID, then the system searches that cell and its neighbors for available drivers. This avoids checking every driver in the city, reducing search time from 10-15 seconds to under 3 seconds at 1M+ requests per second."
 

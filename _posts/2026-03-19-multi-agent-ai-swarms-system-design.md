@@ -13,6 +13,7 @@ keywords: "multi-agent AI systems, AI agent orchestration, multi-agent architect
 tags: ["AI", "system-design"]
 comments: true
 social-share: true
+popular: true
 
 quick-answer: "Multi-agent AI swarms distribute work across specialized agents instead of relying on one monolithic agent. The five main orchestration patterns are **Supervisor** (central coordinator delegates to specialists), **Sequential Pipeline** (agents process work in stages), **Peer-to-Peer Mesh** (agents communicate directly via message bus), **Event-Driven** (agents react to event streams), and **Hub-and-Spoke** (central router with independent agents). For production systems, use deterministic workflow engines with LLM decision points, isolate each agent in its own container, and always keep a human in the loop for high-stakes actions."
 

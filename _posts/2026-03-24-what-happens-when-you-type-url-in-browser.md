@@ -12,7 +12,6 @@ keywords: "what happens when you type a URL, how browser works, URL to page load
 seo: true
 social-share: true
 comments: true
-popular: true
 tags: [networking, web-development]
 
 quick-answer: "When you type a URL and press Enter, the browser parses the URL, checks its cache, resolves the domain via DNS, opens a TCP connection (three-way handshake), negotiates TLS encryption, sends an HTTP request, receives the response from the server, then parses HTML to build the DOM, builds the CSSOM from CSS, combines them into a render tree, calculates layout, and paints pixels to the screen. The whole process takes under a second on a fast connection."

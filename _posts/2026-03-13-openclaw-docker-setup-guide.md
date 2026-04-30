@@ -13,6 +13,7 @@ keywords: "openclaw docker, openclaw docker setup, openclaw docker compose, how 
 tags: [ai, docker]
 comments: true
 social-share: true
+popular: true
 
 quick-answer: "Clone the repo and run `./docker-setup.sh`, or use a Docker Compose file with the prebuilt image from `ghcr.io/openclaw/openclaw:latest`. The Gateway runs on port **18789** and config persists in `~/.openclaw/` via bind mounts. Use at least **2GB RAM** (1GB hosts will crash with exit code 137). For production, bind to `127.0.0.1`, put a reverse proxy in front, and enable sandboxing to isolate agent tool execution in separate containers."
 

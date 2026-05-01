@@ -75,7 +75,7 @@ This post is a system design deep dive into multi-agent AI swarms. If you have b
 
 > **TL;DR**: Multi-agent AI swarms split complex workflows across specialized agents. The five orchestration patterns are Supervisor, Pipeline, Mesh, Event-Driven, and Hub-and-Spoke. Most production teams should start with the Supervisor pattern. Isolate agents in containers, separate orchestration from execution, use deterministic scaffolding over full autonomy, and always have a human in the loop for high-stakes decisions. Most failures happen at agent handoffs, not inside agents.
 
-{% include ads/in-article.html %}
+{% include ads/display.html %}
 
 ## Table of Contents
 

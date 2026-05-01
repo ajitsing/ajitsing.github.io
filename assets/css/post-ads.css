@@ -40,6 +40,21 @@
   color: #6b7280;
 }
 
+/* Lean horizontal banner ad placed just below the breadcrumb */
+.post-top-ad {
+  margin: 16px 0 24px;
+  text-align: center;
+  min-height: 90px;
+  contain: layout;
+}
+
+.post-top-ad .adsbygoogle {
+  width: 100%;
+  display: block;
+  min-height: 90px;
+  max-height: 110px;
+}
+
 /* Multiplex ad below related posts */
 .post-below-related-ad {
   margin: 40px 0;
@@ -59,6 +74,16 @@
     margin: 36px 0;
     padding: 20px 0;
     min-height: 250px;
+  }
+
+  .post-top-ad {
+    margin: 12px 0 20px;
+    min-height: 60px;
+  }
+
+  .post-top-ad .adsbygoogle {
+    min-height: 60px;
+    max-height: 90px;
   }
 
   .post-below-related-ad {

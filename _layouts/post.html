@@ -13,6 +13,8 @@ desktop-only-css:
 {% include aeo-schema.html %}
 {% include geo-schema.html %}
 
+{% include ads/hero.html %}
+
 {% include header.html type="post" %}
 
 <div class="post-page-wrapper">
@@ -41,7 +43,6 @@ desktop-only-css:
     {% endif %}
 
     {% include post-breadcrumb.html %}
-    {% include ads/horizontal.html %}
     <article role="main" class="blog-post" {% if page.ad-count %}data-ad-count="{{ page.ad-count }}"{% endif %}>
       {% include quick-answer.html %}
       {% include key-takeaways.html %}

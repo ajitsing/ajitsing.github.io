@@ -898,6 +898,7 @@ With your Git properly configured, you are ready to use it effectively. Check ou
 
 - [Git Cheat Sheet](/git-cheat-sheet/) - Quick reference for everyday commands
 - [Git Command Line Basics](/git-command-line-basics/) - Understanding the fundamentals
+- [How Git Stores Data Internally](/how-git-stores-data-internally/) - Object model, pack files, refs, and HEAD explained
 - [GitHub Actions](/github-actions-basics-cicd-automation/) - Automate your workflow
 - [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) - The Spokes replication system and Git internals behind every push
 

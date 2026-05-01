@@ -937,6 +937,7 @@ git lg       # pretty log graph
 
 Once you are comfortable with these commands, look into:
 
+- [How Git Stores Data Internally](/how-git-stores-data-internally/) to understand the object model behind every command
 - [Git hooks](/print-custom-messages-after-executing-git-commands/) for automating tasks
 - [GitHub Actions](/github-actions-basics-cicd-automation/) for CI/CD automation
 - [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) to see what really happens on the server side of every `git push`
@@ -950,6 +951,7 @@ The best way to learn Git is to use it. Make mistakes, undo them, and learn from
 
 - [Git Command Line Basics](/git-command-line-basics/) - More detail on essential commands
 - [Git Config Guide](/git-config-guide/) - Configure Git the right way
+- [How Git Stores Data Internally](/how-git-stores-data-internally/) - The object model, pack files, and refs in plain language
 - [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) - The Spokes architecture, three-replica voting, and Git internals behind GitHub
 - [Git Revert Multiple Commits](/git-revert-multiple-commits/) - When you need to undo a lot of changes
 - [Official Git Documentation](https://git-scm.com/doc) - The complete reference

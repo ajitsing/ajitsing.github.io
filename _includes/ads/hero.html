@@ -21,6 +21,15 @@
   <script>
     (function () {
       if (!window.matchMedia || !window.matchMedia('(min-width: 992px)').matches) return;
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
+      if (!window.__adsbyLoaded) {
+        window.__adsbyLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2886086145980317';
+        s.crossOrigin = 'anonymous';
+        document.head.appendChild(s);
+      }
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     })();
   </script>

@@ -127,10 +127,9 @@
   <script>
     (function() {
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
-      var loaded = false;
       function init() {
-        if (loaded) return;
-        loaded = true;
+        if (window.__adsbyLoaded) return;
+        window.__adsbyLoaded = true;
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2886086145980317';

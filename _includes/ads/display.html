@@ -1,11 +1,13 @@
 {% if site.manual_ads %}
-<div class="post-mid-ad post-mid-ad--display">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-2886086145980317"
-       data-ad-slot="5138071441"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+<script>
+  (function () {
+    if (!window.matchMedia || !window.matchMedia('(max-width: 768px)').matches) return;
+    var script = document.currentScript;
+    var wrapper = document.createElement('div');
+    wrapper.className = 'post-mid-ad post-mid-ad--display';
+    wrapper.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2886086145980317" data-ad-slot="5138071441" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+    script.parentNode.insertBefore(wrapper, script);
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  })();
+</script>
 {% endif %}

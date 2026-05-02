@@ -1,0 +1,34 @@
+{% if site.manual_ads %}
+<style>
+  .tool-top-ad {
+    margin: 16px 0 24px;
+    text-align: center;
+    min-height: 90px;
+    contain: layout;
+  }
+  .tool-top-ad .adsbygoogle {
+    width: 100%;
+    display: block;
+    min-height: 90px;
+    max-height: 110px;
+  }
+  @media (max-width: 768px) {
+    .tool-top-ad {
+      margin: 12px 0 20px;
+      min-height: 60px;
+    }
+    .tool-top-ad .adsbygoogle {
+      min-height: 60px;
+    }
+  }
+</style>
+<div class="tool-top-ad">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2886086145980317"
+       data-ad-slot="2413953100"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+{% endif %}

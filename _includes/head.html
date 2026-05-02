@@ -136,34 +136,11 @@
         s.crossOrigin = 'anonymous';
         document.head.appendChild(s);
       }
-
-      var adSelector = '.post-mid-ad, .post-below-related-ad, .sidebar-sticky-ad, .explainer-sidebar-ad';
-      var firstAd = document.querySelector(adSelector);
-
-      if (firstAd && 'IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function(entries) {
-          for (var i = 0; i < entries.length; i++) {
-            if (entries[i].isIntersecting) {
-              io.disconnect();
-              init();
-              return;
-            }
-          }
-        }, { rootMargin: '1000px 0px' });
-        io.observe(firstAd);
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(init, { timeout: 1500 });
+      } else {
+        setTimeout(init, 1500);
       }
-
-      var triggerLoad = function() {
-        init();
-        window.removeEventListener('scroll', triggerLoad, { passive: true });
-        window.removeEventListener('touchstart', triggerLoad, { passive: true });
-        window.removeEventListener('keydown', triggerLoad);
-      };
-      window.addEventListener('scroll', triggerLoad, { passive: true, once: true });
-      window.addEventListener('touchstart', triggerLoad, { passive: true, once: true });
-      window.addEventListener('keydown', triggerLoad, { once: true });
-
-      setTimeout(init, 6000);
     })();
   </script>
 

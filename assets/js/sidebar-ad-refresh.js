@@ -1,8 +1,20 @@
 (function() {
   var VIEWABILITY_THRESHOLD = 0.5;
-  var MAX_REFRESHES = 10;
+  var MAX_REFRESHES = 20;
   var UNFILLED_RETRY_MS = 6000;
   var MAX_UNFILLED_RETRIES = 5;
+
+  function trackRefresh(refreshNumber, slot) {
+    if (typeof gtag !== 'function') return;
+    try {
+      gtag('event', 'ad_refresh', {
+        'event_category': 'Ads',
+        'event_label': slot || 'unknown',
+        'refresh_number': refreshNumber,
+        'value': refreshNumber
+      });
+    } catch (e) {}
+  }
 
   var container = document.querySelector('.sidebar-sticky-ad');
   if (!container) return;
@@ -114,6 +126,7 @@
     refreshCount++;
     adIsFilled = false;
     if (refreshTimer) { clearTimeout(refreshTimer); refreshTimer = null; }
+    trackRefresh(refreshCount, adSlot);
     createNewAdSlot();
   }
 

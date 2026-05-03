@@ -51,6 +51,8 @@ This is the end of the closed loop that defined Big Tech AI from late 2022 throu
 
 On April 28, AWS announced that [OpenAI frontier models, the Codex coding agent, and Amazon Bedrock Managed Agents](https://www.aboutamazon.com/news/aws/bedrock-openai-models){:target="_blank"} are now available on Amazon Bedrock in limited preview.
 
+{% include ads/display.html %}
+
 **What is in the box:**
 
 GPT-5.5 and the rest of the OpenAI frontier family run through the same Bedrock APIs you already use for Claude, Llama, and Nova. Codex is available through Bedrock via the CLI, desktop app, and VS Code extension. Amazon Bedrock Managed Agents are powered by OpenAI and ship with individual identities, full action logging, and inference that stays inside your AWS account.
@@ -223,10 +225,6 @@ Actively raised $45 million Series B on April 28 (TCV and First Harmonic co led,
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 
-
-{% include ads/in-article.html %}
-
-
 - **$111.2B** Apple Q2 FY26 revenue, best March quarter ever
 - **40%** Microsoft Azure growth, with AI at a $37B run rate
 - **63%** Google Cloud revenue growth, the fastest ever
@@ -234,6 +232,8 @@ Actively raised $45 million Series B on April 28 (TCV and First Harmonic co led,
 - **$1.1B** Ineffable Intelligence seed, largest ever for a European startup
 - **9.8** CVSS for cPanel CVE-2026-41940 exploited since February
 - **572K** Weekly downloads of the compromised SAP npm packages
+
+{% include ads/in-article.html %}
 
 ---
 

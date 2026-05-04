@@ -1,12 +1,17 @@
 {% if page.layout == "post" or page.layout == "explainer" %}
 
+{% if page.share-img %}{% assign page_image = page.share-img %}{% elsif page.thumbnail %}{% assign page_image = page.thumbnail %}{% elsif page.cover-img %}{% assign page_image = page.cover-img %}{% else %}{% assign page_image = site.avatar %}{% endif %}
+
 {% if page.citations %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "{{ page.url | absolute_url }}#citations",
+  "@type": "{% if page.layout == 'explainer' %}TechArticle{% else %}BlogPosting{% endif %}",
+  "@id": "{{ page.url | absolute_url }}#article",
   "headline": "{{ page.title | escape }}",
+  "image": "{{ page_image | absolute_url }}",
+  "author": { "@id": "{{ site.url }}#author" },
+  "publisher": { "@id": "{{ site.url }}#organization" },
   "citation": [
     {% for cite in page.citations %}
     {
@@ -29,9 +34,12 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "{{ page.url | absolute_url }}#summary",
+  "@type": "{% if page.layout == 'explainer' %}TechArticle{% else %}BlogPosting{% endif %}",
+  "@id": "{{ page.url | absolute_url }}#article",
   "headline": "{{ page.title | escape }}",
+  "image": "{{ page_image | absolute_url }}",
+  "author": { "@id": "{{ site.url }}#author" },
+  "publisher": { "@id": "{{ site.url }}#organization" },
   "abstract": {{ page.key-takeaways | join: ' ' | jsonify }},
   "about": {
     "@type": "Thing",
@@ -46,9 +54,12 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "{{ page.url | absolute_url }}#related",
+  "@type": "{% if page.layout == 'explainer' %}TechArticle{% else %}BlogPosting{% endif %}",
+  "@id": "{{ page.url | absolute_url }}#article",
   "headline": "{{ page.title | escape }}",
+  "image": "{{ page_image | absolute_url }}",
+  "author": { "@id": "{{ site.url }}#author" },
+  "publisher": { "@id": "{{ site.url }}#organization" },
   "mentions": [
     {% for concept in page.related-concepts %}
     {
@@ -67,9 +78,12 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "{{ page.url | absolute_url }}#trust",
+  "@type": "{% if page.layout == 'explainer' %}TechArticle{% else %}BlogPosting{% endif %}",
+  "@id": "{{ page.url | absolute_url }}#article",
   "headline": "{{ page.title | escape }}",
+  "image": "{{ page_image | absolute_url }}",
+  "author": { "@id": "{{ site.url }}#author" },
+  "publisher": { "@id": "{{ site.url }}#organization" },
   {% if page.fact-checked %}
   "review": {
     "@type": "Review",
@@ -92,9 +106,11 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "{{ page.url | absolute_url }}#expertise",
+  "@type": "{% if page.layout == 'explainer' %}TechArticle{% else %}BlogPosting{% endif %}",
+  "@id": "{{ page.url | absolute_url }}#article",
   "headline": "{{ page.title | escape }}",
+  "image": "{{ page_image | absolute_url }}",
+  "publisher": { "@id": "{{ site.url }}#organization" },
   "author": {
     "@type": "Person",
     "@id": "{{ site.url }}#author",

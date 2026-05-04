@@ -1,0 +1,54 @@
+---
+layout: page
+title: "Search"
+meta-title: "Search - Ajit Singh"
+description: "Search across all posts, explainers, and tutorials on singhajit.com - software engineering blog by Ajit Singh."
+permalink: /search/
+sitemap: false
+css:
+  - /assets/css/search.css
+  - /assets/css/home-layout.css
+---
+
+<div class="container-home" role="main">
+  {% include search-bar.html %}
+
+  <noscript>
+    <p style="text-align:center;margin-top:1rem;">
+      Search requires JavaScript. Browse all posts in the
+      <a href="{{ '/archive' | relative_url }}">archive</a> instead.
+    </p>
+  </noscript>
+</div>
+
+<script>
+  (function () {
+    function getQuery() {
+      var params = new URLSearchParams(window.location.search);
+      return params.get('q') || '';
+    }
+
+    function applyQuery() {
+      var q = getQuery();
+      if (!q) return;
+      var input = document.getElementById('search-input');
+      if (!input) return;
+
+      input.value = q;
+
+      var results = document.getElementById('search-results');
+      if (results) results.classList.add('active');
+
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new Event('keyup', { bubbles: true }));
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(applyQuery, 50);
+      });
+    } else {
+      setTimeout(applyQuery, 50);
+    }
+  })();
+</script>

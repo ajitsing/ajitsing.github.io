@@ -1,0 +1,64 @@
+{%- assign sn = site.social-network-links -%}
+{%- assign sameas_list = "" | split: "" -%}
+{%- if sn.twitter -%}{%- capture u -%}https://twitter.com/{{ sn.twitter }}{%- endcapture -%}{%- assign sameas_list = sameas_list | push: u -%}{%- endif -%}
+{%- if sn.github -%}{%- capture u -%}https://github.com/{{ sn.github }}{%- endcapture -%}{%- assign sameas_list = sameas_list | push: u -%}{%- endif -%}
+{%- if sn.linkedin -%}{%- capture u -%}https://www.linkedin.com/in/{{ sn.linkedin }}{%- endcapture -%}{%- assign sameas_list = sameas_list | push: u -%}{%- endif -%}
+{%- if sn.youtube -%}{%- capture u -%}https://www.youtube.com/{{ sn.youtube }}{%- endcapture -%}{%- assign sameas_list = sameas_list | push: u -%}{%- endif -%}
+{%- if sn.instagram -%}{%- capture u -%}https://www.instagram.com/{{ sn.instagram }}{%- endcapture -%}{%- assign sameas_list = sameas_list | push: u -%}{%- endif -%}
+{%- if sn.stackoverflow -%}{%- capture u -%}https://stackoverflow.com/users/{{ sn.stackoverflow }}{%- endcapture -%}{%- assign sameas_list = sameas_list | push: u -%}{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}#website",
+      "url": "{{ site.url }}/",
+      "name": {{ site.title | jsonify }},
+      "alternateName": ["singhajit.com", "Ajit Singh", "Ajit Singh Blog", "Ajit Singh Software Engineer"],
+      "description": {{ site.description | jsonify }},
+      "inLanguage": "en-US",
+      "publisher": { "@id": "{{ site.url }}#organization" },
+      "author": { "@id": "{{ site.url }}#author" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ site.url }}/search/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}#author",
+      "name": {{ site.author | jsonify }},
+      "url": "{{ site.url }}/aboutme",
+      "image": "{{ site.avatar | absolute_url }}"{% if site.author-job-title %},
+      "jobTitle": {{ site.author-job-title | jsonify }}{% endif %}{% if site.author-description %},
+      "description": {{ site.author-description | jsonify }}{% endif %}{% if site.author-employer %},
+      "worksFor": {
+        "@type": "Organization",
+        "name": {{ site.author-employer | jsonify }}
+      }{% endif %}{% if site.author-expertise %},
+      "knowsAbout": {{ site.author-expertise | jsonify }}{% endif %},
+      "sameAs": {{ sameas_list | jsonify }}
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}#organization",
+      "name": {{ site.title | jsonify }},
+      "alternateName": "singhajit.com",
+      "url": "{{ site.url }}/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.avatar | absolute_url }}",
+        "width": 400,
+        "height": 400
+      },
+      "founder": { "@id": "{{ site.url }}#author" },
+      "sameAs": {{ sameas_list | jsonify }}
+    }
+  ]
+}
+</script>

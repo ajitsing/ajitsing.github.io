@@ -14,6 +14,9 @@ desktop-only-css:
 
 <div class="container-home" role="main">
 
+{% include website-schema.html %}
+{% include site-navigation-schema.html %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,17 +66,16 @@ desktop-only-css:
     {% assign recent_posts = site.posts | limit: 30 %}
     {% for post in recent_posts %}
     {% unless post.tags contains "dev-weekly" %}
+    {% if post.thumbnail-img %}{% assign post_image = post.thumbnail-img %}{% elsif post.share-img %}{% assign post_image = post.share-img %}{% elsif post.image %}{% assign post_image = post.image %}{% else %}{% assign post_image = site.avatar %}{% endif %}
     {
       "@type": "BlogPosting",
-      "headline": "{{ post.title | escape }}",
-      "description": "{{ post.excerpt | strip_html | escape | truncatewords: 20 }}",
+      "headline": {{ post.title | jsonify }},
+      "description": {{ post.excerpt | strip_html | normalize_whitespace | truncatewords: 20 | jsonify }},
       "url": "{{ site.url }}{{ post.url }}",
+      "image": "{{ post_image | absolute_url }}",
       "datePublished": "{{ post.date | date_to_xmlschema }}",
       "dateModified": "{{ post.date | date_to_xmlschema }}",
-      "author": {
-        "@type": "Person",
-        "name": "Ajit Singh"
-      }
+      "author": { "@id": "{{ site.url }}#author" }
     }{% unless forloop.last %},{% endunless %}
     {% endunless %}
     {% endfor %}

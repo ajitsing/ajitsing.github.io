@@ -1,0 +1,40 @@
+{%- assign nav_items = "" | split: "" -%}
+{%- for link in site.navbar-links -%}
+  {%- assign label = link[0] -%}
+  {%- assign target = link[1] -%}
+  {%- if target.first -%}
+    {%- for sub in target -%}
+      {%- for entry in sub -%}
+        {%- capture item -%}{{ entry[0] }}|{{ entry[1] }}{%- endcapture -%}
+        {%- assign nav_items = nav_items | push: item -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  {%- else -%}
+    {%- capture item -%}{{ label }}|{{ target }}{%- endcapture -%}
+    {%- assign nav_items = nav_items | push: item -%}
+  {%- endif -%}
+{%- endfor -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {%- for raw in nav_items -%}
+    {%- assign parts = raw | split: "|" -%}
+    {%- assign nav_name = parts[0] -%}
+    {%- assign nav_path = parts[1] -%}
+    {%- assign first_char = nav_path | slice: 0, 1 -%}
+    {%- if first_char == "/" -%}
+      {%- assign nav_url = nav_path | absolute_url -%}
+    {%- else -%}
+      {%- capture nav_url -%}{{ site.url }}/{{ nav_path }}{%- endcapture -%}
+    {%- endif -%}
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "{{ site.url }}#nav-{{ forloop.index }}",
+      "name": {{ nav_name | jsonify }},
+      "url": "{{ nav_url }}"
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>

@@ -567,6 +567,6 @@ Snowflake IDs aren't the answer for every system. But when you're building somet
 
 ---
 
-*Want to learn more about distributed systems? Check out [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns, [Long Polling Explained](/long-polling-explained/) for real-time communication, and [Kubernetes Architecture Explained](/kubernetes-architecture-explained/) for container orchestration at scale. Try our [Snowflake ID Decoder](/tools/snowflake-decoder/) and [UUID Generator](/tools/uuid-generator/) tools.*
+*Want to learn more about distributed systems? Check out [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns, [Long Polling Explained](/long-polling-explained/) for real-time communication, [Design TinyURL](/tinyurl-system-design/) for a system that uses Snowflake IDs to mint short codes, and [Kubernetes Architecture Explained](/kubernetes-architecture-explained/) for container orchestration at scale. Try our [Snowflake ID Decoder](/tools/snowflake-decoder/) and [UUID Generator](/tools/uuid-generator/) tools.*
 
 *References: [Twitter Snowflake (GitHub Archive)](https://github.com/twitter-archive/snowflake), [Discord Developer Docs](https://discord.com/developers/docs/reference#snowflakes), [Instagram Engineering Blog](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c)*

@@ -512,7 +512,7 @@ For sticky sessions (routing the same user to the same backend server), consiste
 
 ### URL Shortener / Pastebin
 
-When designing systems like URL shorteners, you need to distribute data across multiple storage nodes. Consistent hashing on the short URL key distributes writes evenly and makes it easy to add more storage servers as the system grows.
+When designing systems like URL shorteners, you need to distribute data across multiple storage nodes. Consistent hashing on the short URL key distributes writes evenly and makes it easy to add more storage servers as the system grows. We walk through this end to end, including base62 encoding and caching, in [Design TinyURL](/tinyurl-system-design/){:target="_blank" rel="noopener"}.
 
 ## Consistent Hashing vs Other Partitioning Strategies
 

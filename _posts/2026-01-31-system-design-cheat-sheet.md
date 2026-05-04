@@ -888,6 +888,7 @@ These posts go deeper into specific topics:
 - [Slack System Design Architecture](/slack-system-design/)
 - [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/)
 - [How WhatsApp Scales](/whatsapp-scaling-secrets/)
+- [Design TinyURL: System Design Interview Guide](/tinyurl-system-design/)
 
 **Distributed Systems**:
 - [How Consistent Hashing Works](/consistent-hashing-explained/)

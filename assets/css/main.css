@@ -558,6 +558,12 @@ img {
   }
 }
 
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .navbar-custom .avatar-container {
+    display: none;
+  }
+}
+
 /* --- Footer --- */
 
 footer {

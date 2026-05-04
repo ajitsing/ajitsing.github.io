@@ -34,6 +34,7 @@ speakable_default: true
 navbar-links:
   About Me: "aboutme"
   Archive: "/archive"
+  Explainers: "/explainers/"
   Topics:
     - System Design: "/system-design"
     - AI Engineering: "/ai"

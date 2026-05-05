@@ -508,7 +508,7 @@ flowchart LR
 
 Every WAL record carries a **Log Sequence Number (LSN)** that is exactly a [Lamport-style](/distributed-systems/lamport-clock/){:target="_blank" rel="noopener"} monotonic counter measured in bytes from the start of the log. Replicas pull WAL by LSN, point in time recovery rewinds to a specific LSN, and physical replication slots track LSNs to know how much WAL the primary can recycle.
 
-For more on the general pattern of writing to a log first, the [Write-Ahead Log distributed systems pattern](/distributed-systems/write-ahead-log/){:target="_blank" rel="noopener"} post covers it from a different angle. The Postgres specific reference is the [WAL Internals](https://www.postgresql.org/docs/current/wal-internals.html){:target="_blank" rel="noopener"} chapter.
+For more on the general pattern of writing to a log first, the [Write-Ahead Log distributed systems pattern](/distributed-systems/write-ahead-log/){:target="_blank" rel="noopener"} post covers it from a different angle. The Postgres specific reference is the [WAL Internals](https://www.postgresql.org/docs/current/wal-internals.html){:target="_blank" rel="noopener"} chapter. If you are using the WAL through logical replication (for example, to stream a [transactional outbox](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} table to Kafka with Debezium), the [Debezium and outbox database impact analysis](/debezium-outbox-postgres-database-impact/){:target="_blank" rel="noopener"} walks through the CPU, memory, and WAL retention costs in detail.
 
 A useful trio of WAL related GUCs:
 

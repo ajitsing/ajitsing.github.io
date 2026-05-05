@@ -442,7 +442,7 @@ flowchart LR
     class REL,K infrabox
 ```
 
-If you have not read it yet, the [Transactional Outbox Pattern post](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} walks through the polling and CDC variants. For the rest of this article, assume every "publish event" call is doing this under the hood.
+If you have not read it yet, the [Transactional Outbox Pattern post](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} walks through the polling and CDC variants. For the rest of this article, assume every "publish event" call is doing this under the hood. If you are choosing CDC with Debezium, the [Debezium plus outbox database impact analysis](/debezium-outbox-postgres-database-impact/){:target="_blank" rel="noopener"} covers the Postgres-side cost in detail.
 
 ## Idempotency, Without Which Everything Burns
 

@@ -483,7 +483,7 @@ Once this is running, you can delete published events from the outbox table or j
 
 **Cons:**
 - **More infrastructure.** You need Kafka Connect, Debezium, and proper configuration of the database replication settings.
-- **Operational complexity.** Debezium connectors need monitoring. Replication slot management in PostgreSQL requires attention (slots that fall behind can cause WAL to grow unbounded).
+- **Operational complexity.** Debezium connectors need monitoring. Replication slot management in PostgreSQL requires attention (slots that fall behind can cause WAL to grow unbounded). For a deeper look at exactly what Debezium costs your Postgres primary in CPU, memory, and WAL, see [Debezium and the outbox pattern: the real impact on your Postgres database](/debezium-outbox-postgres-database-impact/).
 - **Database-specific.** Debezium supports PostgreSQL, MySQL, MongoDB, SQL Server, and a few others. If your database is not supported, you are back to polling.
 
 ---
@@ -748,4 +748,4 @@ Start simple. Add an outbox table. Build a polling relay. Make your consumers id
 
 If you are building microservices, this pattern is not optional. It is infrastructure.
 
-For more on how queues and brokers fit into system architecture, check out [Role of Queues in System Design](/role-of-queues-in-system-design/) and [How Kafka Works](/distributed-systems/how-kafka-works/). If you are deciding which synchronous API protocol to use alongside your async messaging layer, [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/) covers the trade-offs.
+For more on how queues and brokers fit into system architecture, check out [Role of Queues in System Design](/role-of-queues-in-system-design/) and [How Kafka Works](/distributed-systems/how-kafka-works/). If you are deciding which synchronous API protocol to use alongside your async messaging layer, [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/) covers the trade-offs. And before you take Debezium to production, the [database impact analysis of Debezium and the outbox on Postgres](/debezium-outbox-postgres-database-impact/) explains where the CPU lands, why WAL retention is the real risk, and the monitoring you need on day one.

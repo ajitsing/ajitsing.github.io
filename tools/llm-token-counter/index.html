@@ -1,0 +1,614 @@
+---
+layout: default
+title: "LLM Token Counter — GPT, Claude, Llama & Gemini Online"
+subtitle: "Free, in-browser tokenizer for ChatGPT, Claude, Llama, Gemini & Mistral prompts"
+seo: true
+description: "Free LLM token counter for GPT-4o, GPT-4, Claude, Llama 3, Gemini & Mistral. Exact tiktoken counts, live token visualization, 100% in-browser. No signup."
+keywords: "llm token counter, gpt token counter, openai token counter, chatgpt token counter, gpt-4 token counter, gpt-4o token counter, gpt-3.5 token counter, claude token counter, anthropic token counter, claude 3.5 token counter, llama token counter, llama 3 token counter, gemini token counter, gemini 1.5 token counter, mistral token counter, mixtral token counter, o1 token counter, o3 token counter, tokenizer online, tiktoken online, tiktoken counter, cl100k_base online, o200k_base online, count tokens, count tokens online, prompt token counter, ai token counter, ai token calculator, ai prompt token counter, token visualizer, llm cost calculator, prompt cost estimator, free token counter, token estimator, bpe tokenizer online, sentencepiece tokenizer online"
+thumbnail: /assets/img/tools/llm-token-counter-thumbnail.png
+share-img: /assets/img/tools/llm-token-counter-thumbnail.png
+permalink: /tools/llm-token-counter/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/llm-token-counter-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+<meta name="rating" content="General">
+<meta name="distribution" content="Global">
+<meta name="application-name" content="LLM Token Counter">
+<meta name="apple-mobile-web-app-title" content="LLM Token Counter">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://singhajit.com/tools/llm-token-counter/#webapp",
+  "name": "LLM Token Counter",
+  "alternateName": ["GPT Token Counter", "OpenAI Token Counter", "ChatGPT Token Counter", "Claude Token Counter", "Anthropic Token Counter", "Llama Token Counter", "Gemini Token Counter", "Mistral Token Counter", "AI Prompt Token Counter", "Tiktoken Online", "Tiktoken Counter"],
+  "description": "Count tokens for OpenAI GPT-4o, GPT-4, GPT-3.5, Claude, Llama 3, Gemini, and Mistral models. Live visualization, character count, word count. 100% client-side.",
+  "url": "https://singhajit.com/tools/llm-token-counter/",
+  "mainEntityOfPage": "https://singhajit.com/tools/llm-token-counter/",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "browserRequirements": "Requires JavaScript. Modern desktop or mobile browser.",
+  "applicationCategory": "DeveloperApplication",
+  "applicationSubCategory": "Text Tokenizer",
+  "operatingSystem": "Any",
+  "permissions": "no permissions required",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com/aboutme",
+    "sameAs": [
+      "https://twitter.com/Ajit5ingh",
+      "https://github.com/ajitsing",
+      "https://www.linkedin.com/in/ajit-singh-11620570"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "dateCreated": "2026-05-06",
+  "dateModified": "2026-05-06",
+  "datePublished": "2026-05-06",
+  "featureList": [
+    "Accurate token counts for OpenAI GPT-4o, GPT-4.1, GPT-4, GPT-3.5, o1, o3 (cl100k_base + o200k_base)",
+    "Approximate token counts for Claude, Llama 3, Gemini, and Mistral",
+    "Live token visualization with color-coded chunks",
+    "Character, word, sentence, and line counts",
+    "Average chars-per-token ratio shown live",
+    "Sample text snippets (short prompt, system prompt, code, long passage)",
+    "Reference table of average chars-per-token ratios per model",
+    "Copy-summary button for sharing token stats",
+    "100% client-side. No data leaves your browser",
+    "Works offline after first load",
+    "Free, no signup, no rate limits"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/llm-token-counter-thumbnail.png",
+  "image": "https://singhajit.com/assets/img/tools/llm-token-counter-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "How LLM tokenization works",
+    "text": "LLMs read tokens, not characters. OpenAI ships tiktoken (cl100k_base for GPT-4 / GPT-3.5, o200k_base for GPT-4o, o1, o3). Anthropic, Meta, Google, and Mistral do not publish browser-friendly tokenizers, so this tool estimates their counts using each provider's published average chars-per-token ratio. Estimates are typically within 5-10% of the real count."
+  },
+  "softwareVersion": "1.0",
+  "keywords": "llm token counter, gpt token counter, openai token counter, chatgpt token counter, claude token counter, llama token counter, gemini token counter, mistral token counter, tiktoken online, count tokens, ai prompt token counter, prompt cost estimator, token visualizer"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Count LLM Tokens",
+  "description": "Estimate the number of tokens an LLM will see when given your text.",
+  "inLanguage": "en",
+  "totalTime": "PT1M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "supply": {
+    "@type": "HowToSupply",
+    "name": "Any prompt or text"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste your prompt or text",
+      "text": "Paste any prompt, document, or chat message into the input area. The counter updates instantly as you type."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Pick the target model",
+      "text": "Select the LLM family you are targeting. OpenAI models use the real tiktoken vocabulary for an exact count; Claude, Llama, Gemini, and Mistral are estimated using their published average chars-per-token ratio."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Read the live stats",
+      "text": "See the token count, character count, word count, and chars-per-token ratio. Use these to estimate context window usage and API cost."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Inspect the visualization",
+      "text": "Below the input you'll see your text broken into color-coded chunks - one chunk per token (or per approximate token for non-OpenAI models). This helps you understand how the model 'sees' your text."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "LLM Token Counter"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an LLM token?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A token is the smallest unit of text an LLM processes. It can be a whole word, part of a word, a punctuation mark, or even a single character. On average, 1 token ≈ 4 characters or ¾ of an English word, but the exact split depends on the model's tokenizer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this token counter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For OpenAI models (GPT-4o, GPT-4.1, GPT-4, GPT-3.5, o1, o3), the count is exact - we use the same tiktoken vocabularies (cl100k_base and o200k_base) the OpenAI API uses. For Claude, Llama 3, Gemini, and Mistral, no public tokenizer ships in the browser, so we estimate using each model's published average chars-per-token ratio. These approximations are typically within 5-10% of the real count."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the same text produce different token counts on different models?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each model is trained with its own tokenizer and its own vocabulary. GPT-4o's o200k_base vocabulary, for example, is much more efficient on non-English text than GPT-4's cl100k_base. Claude and Llama use SentencePiece-based tokenizers that split text differently again. The same paragraph can easily differ by 20-40% across models."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool send my prompt to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Tokenization happens entirely in your browser. Your prompt never leaves your device, which makes this tool safe for confidential or sensitive text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I estimate API cost from a token count?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the input token count by the model's per-million input price, and the expected output tokens by the per-million output price. For example, GPT-4o input at $2.50 per 1M tokens means a 1,000-token prompt costs $0.0025."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is tiktoken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiktoken is OpenAI's open-source byte-pair-encoding (BPE) tokenizer. cl100k_base is the vocabulary used by GPT-3.5 and GPT-4. o200k_base is used by GPT-4o and the newer o1/o3 reasoning models. This tool ships a JavaScript port of tiktoken so the same counts you'd get from the OpenAI API are produced locally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Anthropic publish a Claude tokenizer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anthropic does not publish a downloadable tokenizer for Claude 3 / 3.5 / Sonnet 4. The official way to get an exact count is the count_tokens API endpoint. For browser-based estimation, Anthropic recommends ~3.5 characters per token, which is what this tool uses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are non-English prompts often more expensive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most tokenizer vocabularies were trained predominantly on English text. Languages with non-Latin scripts, accented characters, or compound words often split into more tokens per character. GPT-4o's o200k_base partially fixes this for major languages, but it is still worth checking with this tool before sending non-English prompts at scale."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "LLM Token Counter",
+      "item": "https://singhajit.com/tools/llm-token-counter/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://singhajit.com/tools/llm-token-counter/#webpage",
+  "url": "https://singhajit.com/tools/llm-token-counter/",
+  "name": "LLM Token Counter — GPT, Claude, Llama & Gemini Online",
+  "description": "Free LLM token counter for GPT-4o, GPT-4, Claude, Llama 3, Gemini and Mistral. Exact tiktoken counts, live token visualization, 100% in-browser.",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://singhajit.com/#website",
+    "url": "https://singhajit.com",
+    "name": "Ajit Singh - Software Engineering Blog"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://singhajit.com/assets/img/tools/llm-token-counter-thumbnail.png"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".tool-intro", ".faq-section"]
+  },
+  "mainEntity": {
+    "@id": "https://singhajit.com/tools/llm-token-counter/#webapp"
+  }
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="llm-token-page-wrapper">
+  <div class="llm-token-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-robot"></i>
+        LLM Token Counter for GPT, Claude, Llama &amp; Gemini
+      </h1>
+      <p class="tool-subtitle">Count tokens for ChatGPT, Claude, Llama, Gemini &amp; Mistral instantly</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this <strong>online LLM token counter</strong> to see exactly how many <strong>tokens</strong> your prompt becomes for any major language model. Counts are <strong>exact for OpenAI</strong> models (<code>cl100k_base</code> for GPT-4 / GPT-3.5 and <code>o200k_base</code> for GPT-4o, GPT-4.1, o1, o3 via <a href="https://github.com/openai/tiktoken" rel="noopener" target="_blank">tiktoken</a>) and <strong>estimated</strong> for Claude, Llama 3, Gemini, and Mistral. Everything runs in your browser, nothing is uploaded.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="counter-main">
+      <div class="input-section">
+        <div class="input-row-header">
+          <label for="prompt-text" id="prompt-text-label">Your prompt or text:</label>
+          <div class="input-row-actions">
+            <button id="paste-btn" class="btn-icon" title="Paste from clipboard" type="button">
+              <i class="fas fa-paste"></i>
+            </button>
+            <button id="clear-btn" class="btn-icon" title="Clear" type="button">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          id="prompt-text"
+          class="token-textarea"
+          contenteditable="true"
+          role="textbox"
+          aria-multiline="true"
+          aria-labelledby="prompt-text-label"
+          spellcheck="false"
+          data-placeholder="Paste or type your prompt here. The count updates as you type."
+        ></div>
+
+        <div class="model-selector">
+          <label>Target model:</label>
+          <div class="model-buttons">
+            <button class="model-btn active" data-model="gpt-4o" type="button">
+              <i class="fas fa-bolt"></i>
+              <span class="model-name">GPT-4o / 4.1</span>
+              <span class="model-tag exact">exact</span>
+            </button>
+            <button class="model-btn" data-model="gpt-4" type="button">
+              <i class="fas fa-microchip"></i>
+              <span class="model-name">GPT-4 / 3.5</span>
+              <span class="model-tag exact">exact</span>
+            </button>
+            <button class="model-btn" data-model="o1" type="button">
+              <i class="fas fa-brain"></i>
+              <span class="model-name">o1 / o3</span>
+              <span class="model-tag exact">exact</span>
+            </button>
+            <button class="model-btn" data-model="claude" type="button">
+              <i class="fas fa-feather"></i>
+              <span class="model-name">Claude</span>
+              <span class="model-tag approx">approx</span>
+            </button>
+            <button class="model-btn" data-model="llama" type="button">
+              <i class="fas fa-horse-head"></i>
+              <span class="model-name">Llama 3</span>
+              <span class="model-tag approx">approx</span>
+            </button>
+            <button class="model-btn" data-model="gemini" type="button">
+              <i class="fas fa-gem"></i>
+              <span class="model-name">Gemini</span>
+              <span class="model-tag approx">approx</span>
+            </button>
+            <button class="model-btn" data-model="mistral" type="button">
+              <i class="fas fa-wind"></i>
+              <span class="model-name">Mistral</span>
+              <span class="model-tag approx">approx</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="tokenizer-status" class="tokenizer-status">
+          <i class="fas fa-circle-notch fa-spin"></i>
+          <span>Loading tokenizer...</span>
+        </div>
+      </div>
+
+      <div id="stats-section" class="stats-section">
+        <div class="stats-cards">
+          <div class="stat-card primary">
+            <div class="stat-label">Tokens</div>
+            <div class="stat-value" id="stat-tokens">0</div>
+            <div class="stat-meta" id="stat-tokens-meta">cl100k_base</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Characters</div>
+            <div class="stat-value" id="stat-chars">0</div>
+            <div class="stat-meta" id="stat-chars-meta">incl. whitespace</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Words</div>
+            <div class="stat-value" id="stat-words">0</div>
+            <div class="stat-meta">whitespace split</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Chars / Token</div>
+            <div class="stat-value" id="stat-ratio">—</div>
+            <div class="stat-meta">density</div>
+          </div>
+        </div>
+
+        <div class="stats-actions">
+          <button id="copy-count-btn" class="btn-secondary" type="button">
+            <i class="fas fa-copy"></i>
+            <span>Copy summary</span>
+          </button>
+          <span id="copy-feedback" class="copy-feedback hidden">Copied!</span>
+        </div>
+      </div>
+
+      <div id="visualization-section" class="visualization-section hidden">
+        <div class="viz-header">
+          <h3><i class="fas fa-eye"></i> Token Visualization</h3>
+          <span id="viz-mode-badge" class="viz-mode-badge exact">exact tokens</span>
+        </div>
+        <p class="viz-help">Each colored chunk is one token. Hover any chunk to see its position in the sequence.</p>
+        <div id="viz-content" class="viz-content" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="examples-section">
+      <h3><i class="fas fa-lightbulb"></i> Try These Examples</h3>
+      <div class="examples-grid">
+        <button class="example-btn" data-example="short" type="button">
+          <span class="example-platform"><i class="fas fa-comment"></i> Short prompt</span>
+          <span class="example-desc">Tiny user message</span>
+          <code>What is the capital of France?</code>
+        </button>
+        <button class="example-btn" data-example="system" type="button">
+          <span class="example-platform"><i class="fas fa-cog"></i> System prompt</span>
+          <span class="example-desc">Persona instructions</span>
+          <code>You are a helpful AI assistant...</code>
+        </button>
+        <button class="example-btn" data-example="code" type="button">
+          <span class="example-platform"><i class="fas fa-code"></i> Code block</span>
+          <span class="example-desc">Function in TypeScript</span>
+          <code>function fib(n: number)...</code>
+        </button>
+        <button class="example-btn" data-example="long" type="button">
+          <span class="example-platform"><i class="fas fa-file-alt"></i> Long passage</span>
+          <span class="example-desc">~500-token paragraph</span>
+          <code>Lorem ipsum dolor sit amet...</code>
+        </button>
+      </div>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Tokenizer Reference</h3>
+      <div class="epoch-reference">
+        <h4>How each model is counted</h4>
+        <table class="ratio-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Method</th>
+              <th>Vocab / Ratio</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="fas fa-bolt"></i> GPT-4o / GPT-4.1</td>
+              <td><span class="badge exact">Exact</span></td>
+              <td><code>o200k_base</code></td>
+              <td>200k token vocab, better on non-English text</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-microchip"></i> GPT-4 / GPT-3.5</td>
+              <td><span class="badge exact">Exact</span></td>
+              <td><code>cl100k_base</code></td>
+              <td>100k token vocab, original ChatGPT tokenizer</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-brain"></i> o1 / o3</td>
+              <td><span class="badge exact">Exact</span></td>
+              <td><code>o200k_base</code></td>
+              <td>Same vocabulary as GPT-4o</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-feather"></i> Claude 3 / 3.5 / 4</td>
+              <td><span class="badge approx">Approx</span></td>
+              <td><code>~3.5 chars/token</code></td>
+              <td>No public tokenizer; ratio per Anthropic docs</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-horse-head"></i> Llama 3</td>
+              <td><span class="badge approx">Approx</span></td>
+              <td><code>~3.8 chars/token</code></td>
+              <td>SentencePiece, 128k vocab</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-gem"></i> Gemini 1.5 / 2</td>
+              <td><span class="badge approx">Approx</span></td>
+              <td><code>~4.0 chars/token</code></td>
+              <td>SentencePiece BPE, ~256k vocab</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-wind"></i> Mistral / Mixtral</td>
+              <td><span class="badge approx">Approx</span></td>
+              <td><code>~3.7 chars/token</code></td>
+              <td>SentencePiece, derived from Llama 2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Understanding LLM Tokens</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a token?</h2>
+          <p>A <strong>token</strong> is the unit of text a language model actually sees. Modern LLMs do not read characters or words. they read sequences of tokens drawn from a fixed vocabulary, typically built with byte-pair encoding (BPE) or SentencePiece.</p>
+          <p>A token can be a whole word ("the"), a fragment ("token", "ization"), a punctuation mark, or even a single byte. The same string is broken into different tokens depending on the model.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Why token counts matter</h2>
+          <ul>
+            <li><strong>Context window:</strong> every model has a hard limit (e.g. 128k for GPT-4o, 200k for Claude). Exceeding it truncates or errors out.</li>
+            <li><strong>Cost:</strong> APIs bill per million input and output tokens. A 10k-token prompt costs roughly 10x a 1k-token prompt.</li>
+            <li><strong>Latency:</strong> longer inputs and outputs take longer. Counting tokens up front lets you predict response time.</li>
+            <li><strong>Streaming:</strong> output token count tells you how big a response can be before you hit a stop condition.</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Exact vs. approximate counts</h2>
+          <p>OpenAI ships <code>tiktoken</code> as open source, so we can run the real tokenizer in your browser using a JavaScript port. The number you see for GPT-4o, GPT-4, GPT-3.5, o1, and o3 matches what the OpenAI API will charge you for.</p>
+          <p>Anthropic, Google, Meta, and Mistral do not ship browser-friendly tokenizers. For those models we use each provider's published average chars-per-token ratio. The estimate is typically within 5–10% of the real count, which is fine for budgeting and prompt design.</p>
+          <p>If you need a perfectly exact count for Claude, hit Anthropic's <code>messages/count_tokens</code> endpoint. For Llama / Mistral, run the model's <code>tokenizer.json</code> through Hugging Face's <code>tokenizers</code> library locally.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Tips for shorter prompts</h2>
+          <ul>
+            <li><strong>Compress instructions:</strong> "Reply concisely" beats a 5-sentence preamble.</li>
+            <li><strong>Strip code comments</strong> and trailing whitespace before sending source.</li>
+            <li><strong>Use shorthand:</strong> JSON Lines or compact YAML beats prose for structured data.</li>
+            <li><strong>Cache system prompts</strong> via the model's prompt-caching feature if available.</li>
+            <li><strong>Switch tokenizers:</strong> non-English text is often half the tokens on GPT-4o (o200k_base) vs GPT-4 (cl100k_base).</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="reference-section related-tools-section">
+      <h3><i class="fas fa-link"></i> Related Developer Tools</h3>
+      <div class="examples-grid">
+        <a href="{{ '/tools/jwt-decoder/' | relative_url }}" class="example-btn related-tool-link">
+          <span class="example-platform"><i class="fas fa-key"></i> JWT Decoder</span>
+          <span class="example-desc">Decode &amp; inspect JWT tokens</span>
+          <code>eyJhbGciOiJIUzI1NiIs...</code>
+        </a>
+        <a href="{{ '/tools/uuid-generator/' | relative_url }}" class="example-btn related-tool-link">
+          <span class="example-platform"><i class="fas fa-fingerprint"></i> UUID Generator</span>
+          <span class="example-desc">UUID v4 &amp; v7</span>
+          <code>3f7b8c9a-1d2e-4f5a-...</code>
+        </a>
+        <a href="{{ '/tools/base64-encoder/' | relative_url }}" class="example-btn related-tool-link">
+          <span class="example-platform"><i class="fas fa-exchange-alt"></i> Base64 Encoder</span>
+          <span class="example-desc">Encode / decode Base64</span>
+          <code>SGVsbG8sIFdvcmxkIQ==</code>
+        </a>
+        <a href="{{ '/tools/regex-tester/' | relative_url }}" class="example-btn related-tool-link">
+          <span class="example-platform"><i class="fas fa-code"></i> Regex Tester</span>
+          <span class="example-desc">Test &amp; debug regular expressions</span>
+          <code>/^\w+@\w+\.\w+$/g</code>
+        </a>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> LLM Token Counter FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is an LLM token?</h3>
+        <p>A token is the smallest unit of text an LLM processes. It can be a whole word, part of a word, a punctuation mark, or even a single character. On average, 1 token ≈ 4 characters or ¾ of an English word, but the exact split depends on the model's tokenizer.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How accurate is this token counter?</h3>
+        <p>For OpenAI models the count is exact, the tool runs the real <code>tiktoken</code> vocabulary in your browser. For Claude, Llama, Gemini, and Mistral, we estimate using each provider's published average chars-per-token ratio. Estimates are typically within 5–10% of the true count.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why does the same text produce different counts on different models?</h3>
+        <p>Each model has its own tokenizer trained on its own vocabulary. GPT-4o's <code>o200k_base</code> is much more efficient on non-English text than GPT-4's <code>cl100k_base</code>. The same paragraph can easily differ by 20–40% across models.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does this tool send my prompt to a server?</h3>
+        <p>No. Everything runs in your browser. Your prompt never leaves your device, which makes this tool safe for confidential or sensitive text.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I estimate API cost?</h3>
+        <p>Multiply input tokens by the model's per-million input price, and expected output tokens by the per-million output price. Example: GPT-4o at $2.50 per 1M input tokens means a 1,000-token prompt costs $0.0025.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is tiktoken?</h3>
+        <p>Tiktoken is OpenAI's open-source BPE tokenizer. <code>cl100k_base</code> powers GPT-3.5 and GPT-4; <code>o200k_base</code> powers GPT-4o and the o1 / o3 reasoning models. This tool ships a JavaScript port so you get the same numbers as the OpenAI API.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does Anthropic publish a Claude tokenizer?</h3>
+        <p>No downloadable tokenizer is published for Claude 3 / 3.5 / Sonnet 4. For exact counts, use Anthropic's <code>messages/count_tokens</code> endpoint. For browser-based estimation, Anthropic recommends ~3.5 characters per token.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why are non-English prompts more expensive?</h3>
+        <p>Most tokenizer vocabularies are English-heavy. Non-Latin scripts and accented characters often split into more tokens. <code>o200k_base</code> partially fixes this for major languages, but it is worth checking before sending non-English prompts at scale.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+
+<script defer src="{{ '/assets/js/llm-token-counter-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

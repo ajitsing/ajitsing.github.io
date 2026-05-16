@@ -1,6 +1,7 @@
 {%- assign sidebar_min_width = include.min-width | default: '992px' -%}
 <template id="sidebar-template" data-min-width="{{ sidebar_min_width }}" data-class="{{ include.class }}">
   <aside class="{{ include.class }}">
+    {% include sidebar-latest-dev-weekly.html %}
     {% include sidebar-popular.html %}
     {% include sidebar-sticky-ad.html %}
   </aside>

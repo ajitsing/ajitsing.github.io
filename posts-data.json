@@ -4,6 +4,7 @@ layout: null
 [
   {%- assign is_first = true -%}
   {%- for post in site.posts -%}
+  {%- unless post.tags contains "dev-weekly" -%}
   {%- unless is_first -%},{%- endunless -%}
   {%- assign is_first = false -%}
   {
@@ -16,5 +17,6 @@ layout: null
     "categories": {{ post.categories | jsonify }},
     "thumbnail": "{{ post.thumbnail-img | default: post.share-img | default: post.image | relative_url }}"
   }
+  {%- endunless -%}
   {%- endfor -%}
 ]

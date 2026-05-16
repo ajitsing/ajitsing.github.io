@@ -1,0 +1,38 @@
+---
+layout: default
+title: "Curl to Java Converter | OkHttp"
+subtitle: "Convert curl commands to Java OkHttp code"
+seo: true
+description: "Free curl to Java converter. Generate OkHttp Request.Builder code from curl with JSON, form, and multipart support."
+keywords: "curl to java, curl to okhttp, convert curl to java, curl command to java"
+permalink: /tools/curl-to-java/
+default_target: java-okhttp
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/curl-tool.css
+---
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="curl-page-wrapper">
+  <div class="curl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title"><i class="fab fa-java"></i> Curl to Java Converter</h1>
+      <p class="tool-subtitle">OkHttp Request.Builder from curl</p>
+    </header>
+    <p class="tool-intro">Convert <strong>curl</strong> to <strong>Java</strong> using Square <strong>OkHttp</strong>. Headers, JSON bodies, and form encoding map to <code>RequestBody</code> and <code>MediaType</code>.</p>
+    {% include ads/tool-banner.html %}
+    {% include tools/curl-converter-app.html default_target=page.default_target %}
+    {% include tools/curl-converter-reference.html %}
+    {% include tools/curl-converter-crosslinks.html %}
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> curl to Java FAQ</h2>
+      <div class="faq-item"><h3>Which dependency?</h3><p>Output targets OkHttp 4.x (<code>com.squareup.okhttp3:okhttp</code>).</p></div>
+    </section>
+  </div>
+</div>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

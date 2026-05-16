@@ -1,0 +1,39 @@
+---
+layout: default
+title: "Curl to Axios Converter | JavaScript & Node.js"
+subtitle: "Convert curl commands to Axios request code"
+seo: true
+description: "Free curl to Axios converter. Paste curl and get axios({ method, url, headers, data }) code for Node.js or bundlers."
+keywords: "curl to axios, convert curl to axios, curl to javascript, curl axios converter"
+permalink: /tools/curl-to-axios/
+default_target: axios
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/curl-tool.css
+---
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="curl-page-wrapper">
+  <div class="curl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title"><i class="fab fa-js"></i> Curl to Axios Converter</h1>
+      <p class="tool-subtitle">Generate Axios HTTP client code from curl</p>
+    </header>
+    <p class="tool-intro">Paste <strong>curl</strong> and get a single <strong>axios</strong> config object with <code>method</code>, <code>url</code>, <code>headers</code>, <code>data</code>, and <code>auth</code> when applicable.</p>
+    {% include ads/tool-banner.html %}
+    {% include tools/curl-converter-app.html default_target=page.default_target %}
+    {% include tools/curl-converter-reference.html %}
+    {% include tools/curl-converter-crosslinks.html %}
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> curl to Axios FAQ</h2>
+      <div class="faq-item"><h3>Node or browser?</h3><p>Output uses <code>require('axios')</code> for Node. In the browser, use <code>import axios from 'axios'</code> instead.</p></div>
+      <div class="faq-item"><h3>Multipart uploads?</h3><p>Uses <code>form-data</code> package with <code>fs.createReadStream</code> for <code>-F @file</code> parts.</p></div>
+    </section>
+  </div>
+</div>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

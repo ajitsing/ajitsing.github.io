@@ -1,0 +1,111 @@
+{% assign default_target = include.default_target | default: 'python-requests' %}
+<div id="curl-converter-app" class="curl-converter-app" data-default-target="{{ default_target }}">
+  <section class="converter-main">
+    <div class="input-section">
+      <label for="curl-input">Paste your curl command</label>
+      <textarea
+        id="curl-input"
+        class="curl-textarea"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        placeholder="curl -X POST 'https://api.example.com/users' -H 'Content-Type: application/json' -d '{&quot;name&quot;:&quot;Jane&quot;}'"
+        aria-describedby="curl-input-help"
+      ></textarea>
+      <p id="curl-input-help" class="input-help">
+        <i class="fas fa-info-circle"></i>
+        Supports multi-line commands with <code>\</code> line continuations. Conversion runs as you type.
+      </p>
+
+      <div class="target-picker-row">
+        <span class="target-picker-label">Convert to:</span>
+        <div class="target-picker-grid" role="group" aria-label="Output language">
+          <button type="button" class="target-picker-btn" data-group="python" title="Python">
+            <i class="fab fa-python"></i><span>Python</span>
+          </button>
+          <button type="button" class="target-picker-btn" data-group="php" title="PHP">
+            <i class="fab fa-php"></i><span>PHP</span>
+          </button>
+          <button type="button" class="target-picker-btn" data-group="go" title="Go">
+            <i class="fas fa-code"></i><span>Go</span>
+          </button>
+          <button type="button" class="target-picker-btn" data-group="axios" title="Axios">
+            <i class="fab fa-js"></i><span>Axios</span>
+          </button>
+          <button type="button" class="target-picker-btn" data-group="java" title="Java">
+            <i class="fab fa-java"></i><span>Java</span>
+          </button>
+          <button type="button" class="target-picker-btn" data-group="csharp" title="C#">
+            <i class="fas fa-hashtag"></i><span>C#</span>
+          </button>
+          <button type="button" class="target-picker-btn" data-group="powershell" title="PowerShell">
+            <i class="fas fa-terminal"></i><span>PowerShell</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="curl-sub-toggle" class="curl-sub-toggle hidden" role="group" aria-label="Library variant">
+        <span class="sub-toggle-label">Library:</span>
+        <button type="button" class="sub-toggle-btn python-sub" data-target="python-requests">requests</button>
+        <button type="button" class="sub-toggle-btn python-sub" data-target="python-httpx">httpx</button>
+        <button type="button" class="sub-toggle-btn php-sub hidden" data-target="php-curl">curl extension</button>
+        <button type="button" class="sub-toggle-btn php-sub hidden" data-target="php-guzzle">Guzzle</button>
+      </div>
+
+      <div class="action-row">
+        <button type="button" id="curl-paste-btn" class="btn-secondary"><i class="fas fa-paste"></i> Paste</button>
+        <button type="button" id="curl-clear-btn" class="btn-secondary"><i class="fas fa-times"></i> Clear</button>
+        <button type="button" id="curl-sample-btn" class="btn-secondary"><i class="fas fa-flask"></i> Load sample</button>
+        <span class="action-spacer"></span>
+        <button type="button" id="curl-copy-btn" class="btn-secondary" disabled><i class="fas fa-copy"></i> Copy code</button>
+        <button type="button" id="curl-download-btn" class="btn-secondary" disabled><i class="fas fa-download"></i> Download</button>
+      </div>
+
+      <div id="curl-error-message" class="error-message hidden" role="alert">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="curl-error-text"></span>
+      </div>
+
+      <div id="curl-warning-message" class="warning-message hidden" role="status">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span id="curl-warning-text"></span>
+      </div>
+    </div>
+
+    <div id="curl-result-section" class="result-section hidden">
+      <div class="result-header">
+        <h3><i class="fas fa-code"></i> Generated code — <span id="curl-output-label">Python · requests</span></h3>
+      </div>
+      <pre class="curl-output" id="curl-output"><code></code></pre>
+    </div>
+  </section>
+
+  <section class="examples-section">
+    <h3><i class="fas fa-lightbulb"></i> Example curl commands</h3>
+    <div class="examples-grid">
+      <button type="button" class="curl-example-btn" data-label="JSON POST"
+        data-curl="curl -X POST 'https://api.example.com/users' -H 'Content-Type: application/json' -H 'Authorization: Bearer TOKEN' -d '{&quot;name&quot;:&quot;Jane&quot;}'">
+        <span class="example-title">JSON POST</span>
+        <code>POST + Bearer + JSON body</code>
+      </button>
+      <button type="button" class="curl-example-btn" data-label="Form POST"
+        data-curl="curl -X POST 'https://api.example.com/login' -d 'user=admin&amp;pass=secret'">
+        <span class="example-title">Form POST</span>
+        <code>application/x-www-form-urlencoded</code>
+      </button>
+      <button type="button" class="curl-example-btn" data-label="Basic auth"
+        data-curl="curl -u 'user:pass' 'https://api.example.com/data?page=1'">
+        <span class="example-title">Basic auth GET</span>
+        <code>-u user:pass</code>
+      </button>
+      <button type="button" class="curl-example-btn" data-label="Multipart"
+        data-curl="curl -X POST 'https://api.example.com/upload' -F 'file=@photo.jpg' -F 'caption=Hello'">
+        <span class="example-title">Multipart upload</span>
+        <code>-F file=@...</code>
+      </button>
+    </div>
+  </section>
+</div>
+
+<script defer src="{{ '/assets/js/curl-converter.js' | relative_url }}"></script>

@@ -1,0 +1,40 @@
+---
+layout: default
+title: "Curl to PHP Converter | curl extension & Guzzle"
+subtitle: "Convert curl commands to PHP curl_setopt or Guzzle code"
+seo: true
+description: "Free curl to PHP converter. Generate PHP curl extension or Guzzle HTTP client code from any curl command. JSON, multipart, WordPress and Laravel friendly."
+keywords: "curl to php, curl to php converter, convert curl to php, curl to guzzle, curl to php curl, curl command to php"
+permalink: /tools/curl-to-php/
+default_target: php-curl
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/curl-tool.css
+---
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="curl-page-wrapper">
+  <div class="curl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title"><i class="fab fa-php"></i> Curl to PHP Converter</h1>
+      <p class="tool-subtitle">PHP curl extension or Guzzle — from any curl command</p>
+    </header>
+    <p class="tool-intro">Paste a <strong>curl</strong> command and get <strong>PHP</strong> using the native <code>curl</code> extension (<code>curl_init</code> / <code>curl_setopt</code>) or <strong>Guzzle</strong>. Ideal for WordPress, Laravel, and shared hosting without Composer.</p>
+    {% include ads/tool-banner.html %}
+    {% include tools/curl-converter-app.html default_target=page.default_target %}
+    {% include tools/curl-converter-reference.html %}
+    {% include tools/curl-converter-crosslinks.html %}
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> curl to PHP FAQ</h2>
+      <div class="faq-item"><h3>curl extension or Guzzle?</h3><p>Use the <strong>curl extension</strong> on shared hosting or legacy code. Use <strong>Guzzle</strong> in modern apps (Laravel ships with an HTTP client built on Guzzle). Toggle above.</p></div>
+      <div class="faq-item"><h3>How are multipart file uploads handled?</h3><p><code>-F 'file=@photo.jpg'</code> becomes <code>CURLFile</code> or Guzzle <code>multipart</code> with a comment to point at your real path — the browser cannot read local files.</p></div>
+      <div class="faq-item"><h3>Stripe / PayPal API curls?</h3><p>Yes. JSON POST with <code>-u sk_live:...</code> or Bearer headers converts to the right PHP auth and body options.</p></div>
+    </section>
+  </div>
+</div>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

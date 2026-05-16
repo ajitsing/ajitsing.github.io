@@ -1,0 +1,102 @@
+---
+layout: default
+title: "Curl Converter Online | curl to Python, PHP, Go, Axios & more"
+subtitle: "Paste a curl command, get code in your language instantly"
+seo: true
+description: "Free online curl converter. Convert curl commands to Python (requests/httpx), PHP (curl/Guzzle), Go, Axios, Java OkHttp, C# HttpClient, or PowerShell. 100% client-side."
+keywords: "curl converter, curl to code, convert curl, curl to python, curl to php, curl to go, curl to axios, curl command converter online"
+permalink: /tools/curl-converter/
+default_target: python-requests
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/curl-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Curl Converter",
+  "description": "Convert curl commands to Python, PHP, Go, Axios, Java, C#, or PowerShell code. Free, client-side, no upload.",
+  "url": "https://singhajit.com/tools/curl-converter/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Ajit Singh", "url": "https://singhajit.com" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Curl converter targets",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "url": "https://singhajit.com/tools/curl-to-python/", "name": "curl to Python" },
+    { "@type": "ListItem", "position": 2, "url": "https://singhajit.com/tools/curl-to-php/", "name": "curl to PHP" },
+    { "@type": "ListItem", "position": 3, "url": "https://singhajit.com/tools/curl-to-go/", "name": "curl to Go" },
+    { "@type": "ListItem", "position": 4, "url": "https://singhajit.com/tools/curl-to-axios/", "name": "curl to Axios" },
+    { "@type": "ListItem", "position": 5, "url": "https://singhajit.com/tools/curl-to-java/", "name": "curl to Java" },
+    { "@type": "ListItem", "position": 6, "url": "https://singhajit.com/tools/curl-to-csharp/", "name": "curl to C#" },
+    { "@type": "ListItem", "position": 7, "url": "https://singhajit.com/tools/curl-to-powershell/", "name": "curl to PowerShell" }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="curl-page-wrapper">
+  <div class="curl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title"><i class="fas fa-terminal"></i> Curl Converter</h1>
+      <p class="tool-subtitle">Convert curl to Python, PHP, Go, Axios, Java, C#, or PowerShell</p>
+    </header>
+    <p class="tool-intro">
+      Paste any <strong>curl</strong> command copied from API docs, Postman, or your terminal. Pick a target language and get ready-to-run code with headers, JSON bodies, form data, multipart uploads, and basic auth handled correctly. 100% in your browser.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    {% include tools/curl-converter-app.html default_target=page.default_target %}
+
+    {% include tools/curl-converter-reference.html %}
+    {% include tools/curl-converter-crosslinks.html %}
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> How it works</h3>
+      <div class="syntax-guide-content">
+        <article class="guide-article">
+          <h2>Why convert curl to code?</h2>
+          <p>API documentation and tools like Postman often show requests as curl commands. When you build an app in Python, PHP, or Go, you need the equivalent HTTP client code. This tool parses your curl flags and generates idiomatic code for the library you choose.</p>
+        </article>
+        <article class="guide-article">
+          <h2>What curl flags are supported?</h2>
+          <p>Common flags: <code>-X</code>, <code>-H</code>, <code>-d</code>, <code>--data-raw</code>, <code>--data-urlencode</code>, <code>--json</code>, <code>-F</code>, <code>-u</code>, <code>-b</code>, <code>-L</code>, <code>-k</code>, <code>--compressed</code>, and multi-line <code>\</code> continuations. File uploads (<code>@file</code>) are translated with placeholders and a warning because the browser cannot read your local files.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> Curl Converter FAQ</h2>
+      <div class="faq-item">
+        <h3>Is my curl command sent to a server?</h3>
+        <p>No. Parsing and code generation run entirely in JavaScript in your browser. Nothing is uploaded or logged.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Which language should I pick?</h3>
+        <p>Use the dedicated pages for SEO-focused workflows: <a href="{{ '/tools/curl-to-python/' | relative_url }}">curl to Python</a>, <a href="{{ '/tools/curl-to-php/' | relative_url }}">curl to PHP</a>, or switch targets anytime with the picker above.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I share a converted command?</h3>
+        <p>Yes. The URL updates with a <code>?cmd=</code> parameter (base64url-encoded curl) so you can bookmark or share the same input.</p>
+      </div>
+    </section>
+  </div>
+</div>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

@@ -1,0 +1,38 @@
+---
+layout: default
+title: "Curl to C# Converter | HttpClient"
+subtitle: "Convert curl commands to C# HttpClient code"
+seo: true
+description: "Free curl to C# converter. Generate HttpClient and HttpRequestMessage code from curl commands."
+keywords: "curl to csharp, curl to c#, convert curl to csharp, curl httpclient"
+permalink: /tools/curl-to-csharp/
+default_target: csharp-httpclient
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/curl-tool.css
+---
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="curl-page-wrapper">
+  <div class="curl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title"><i class="fas fa-hashtag"></i> Curl to C# Converter</h1>
+      <p class="tool-subtitle">HttpClient code from curl</p>
+    </header>
+    <p class="tool-intro">Paste <strong>curl</strong> and get <strong>C#</strong> using <code>HttpClient</code> and <code>HttpRequestMessage</code> with appropriate content types.</p>
+    {% include ads/tool-banner.html %}
+    {% include tools/curl-converter-app.html default_target=page.default_target %}
+    {% include tools/curl-converter-reference.html %}
+    {% include tools/curl-converter-crosslinks.html %}
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> curl to C# FAQ</h2>
+      <div class="faq-item"><h3>.NET version?</h3><p>Uses modern <code>HttpClient</code> async patterns compatible with .NET 5+ and .NET Framework with HttpClient.</p></div>
+    </section>
+  </div>
+</div>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

@@ -1,0 +1,39 @@
+---
+layout: default
+title: "Curl to Go Converter | net/http"
+subtitle: "Convert curl commands to Go http.NewRequest code"
+seo: true
+description: "Free curl to Go converter. Paste curl and get Go net/http code with headers, JSON body, and basic auth. Client-side."
+keywords: "curl to go, curl to golang, convert curl to go, curl command to go, curl to net/http"
+permalink: /tools/curl-to-go/
+default_target: go
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/curl-tool.css
+---
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="curl-page-wrapper">
+  <div class="curl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title"><i class="fas fa-code"></i> Curl to Go Converter</h1>
+      <p class="tool-subtitle">Generate Go net/http code from curl</p>
+    </header>
+    <p class="tool-intro">Convert <strong>curl</strong> to idiomatic <strong>Go</strong> using <code>net/http</code>. JSON payloads use <code>json.Marshal</code>; headers are set on <code>req.Header</code>.</p>
+    {% include ads/tool-banner.html %}
+    {% include tools/curl-converter-app.html default_target=page.default_target %}
+    {% include tools/curl-converter-reference.html %}
+    {% include tools/curl-converter-crosslinks.html %}
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> curl to Go FAQ</h2>
+      <div class="faq-item"><h3>Which Go version?</h3><p>Output uses the standard library only — no third-party packages required.</p></div>
+      <div class="faq-item"><h3>Does it support -k insecure?</h3><p>A comment is added; use a custom <code>Transport</code> with <code>InsecureSkipVerify</code> in production code.</p></div>
+    </section>
+  </div>
+</div>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

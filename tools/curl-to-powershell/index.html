@@ -1,0 +1,38 @@
+---
+layout: default
+title: "Curl to PowerShell Converter | Invoke-RestMethod"
+subtitle: "Convert curl commands to PowerShell Invoke-RestMethod"
+seo: true
+description: "Free curl to PowerShell converter. Generate Invoke-RestMethod scripts from curl with headers and JSON bodies."
+keywords: "curl to powershell, curl to invoke-restmethod, convert curl to powershell"
+permalink: /tools/curl-to-powershell/
+default_target: powershell
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/curl-tool.css
+---
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="curl-page-wrapper">
+  <div class="curl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title"><i class="fas fa-terminal"></i> Curl to PowerShell Converter</h1>
+      <p class="tool-subtitle">Invoke-RestMethod from curl</p>
+    </header>
+    <p class="tool-intro">Convert <strong>curl</strong> to <strong>PowerShell</strong> <code>Invoke-RestMethod</code> with <code>-Headers</code>, <code>-Body</code>, and <code>-ContentType</code>.</p>
+    {% include ads/tool-banner.html %}
+    {% include tools/curl-converter-app.html default_target=page.default_target %}
+    {% include tools/curl-converter-reference.html %}
+    {% include tools/curl-converter-crosslinks.html %}
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> curl to PowerShell FAQ</h2>
+      <div class="faq-item"><h3>Windows PowerShell vs PowerShell Core?</h3><p>Output works on both; <code>Invoke-RestMethod</code> is available in Windows PowerShell 3+ and PowerShell 7+.</p></div>
+    </section>
+  </div>
+</div>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

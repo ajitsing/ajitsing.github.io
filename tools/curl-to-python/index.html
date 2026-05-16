@@ -1,0 +1,40 @@
+---
+layout: default
+title: "Curl to Python Converter | requests & httpx"
+subtitle: "Convert curl commands to Python requests or httpx code"
+seo: true
+description: "Free curl to Python converter. Paste a curl command and get Python requests or httpx code with headers, JSON, form data, and auth. Client-side, instant."
+keywords: "curl to python, curl to python converter, convert curl to python, curl to requests, curl to httpx, curl command to python"
+permalink: /tools/curl-to-python/
+default_target: python-requests
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/curl-tool.css
+---
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="curl-page-wrapper">
+  <div class="curl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title"><i class="fab fa-python"></i> Curl to Python Converter</h1>
+      <p class="tool-subtitle">Generate Python requests or httpx code from any curl command</p>
+    </header>
+    <p class="tool-intro">Paste a <strong>curl</strong> command and get idiomatic <strong>Python</strong> using <code>requests</code> or <code>httpx</code>. JSON bodies use <code>json=</code>, forms use <code>data=</code> or <code>files=</code>, and Bearer tokens map to headers automatically.</p>
+    {% include ads/tool-banner.html %}
+    {% include tools/curl-converter-app.html default_target=page.default_target %}
+    {% include tools/curl-converter-reference.html %}
+    {% include tools/curl-converter-crosslinks.html %}
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> curl to Python FAQ</h2>
+      <div class="faq-item"><h3>requests or httpx?</h3><p><code>requests</code> is the default and most widely used. Choose <code>httpx</code> for async support or HTTP/2. Toggle with the Library control above.</p></div>
+      <div class="faq-item"><h3>Does it handle JSON POST bodies?</h3><p>Yes. When curl sends <code>Content-Type: application/json</code> or valid JSON in <code>-d</code>, the output uses <code>json=payload</code> with a Python dict.</p></div>
+      <div class="faq-item"><h3>Is this the same as curlconverter?</h3><p>Similar idea, but this runs fully on singhajit.com with no server upload and integrates with our other developer tools.</p></div>
+    </section>
+  </div>
+</div>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

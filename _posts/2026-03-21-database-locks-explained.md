@@ -1053,6 +1053,7 @@ This post covered how database locks work and how to use them effectively. Here 
 - [Role of Queues in System Design](/role-of-queues-in-system-design/) - When you outgrow database-based job queues
 - [Redis vs DragonflyDB vs KeyDB](/redis-vs-dragonflydb-vs-keydb/) - Distributed locking beyond a single database
 - [Ticket Booking System Design](/ticket-booking-system-design/) - Real-world application of pessimistic locking
+- [Flash Sale System Design](/flash-sale-system-design/) - Where row locks fall over and Redis Lua scripts take their place at flash sale scale
 - [PostgreSQL Explicit Locking Documentation](https://www.postgresql.org/docs/current/explicit-locking.html) - Official reference
 - [MySQL InnoDB Locking](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html) - Official reference
 - [Designing Data-Intensive Applications](https://dataintensive.net/) by Martin Kleppmann - The definitive book on this topic

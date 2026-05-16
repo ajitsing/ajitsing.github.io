@@ -745,6 +745,6 @@ Each service derives its key from the original, maintaining the idempotency chai
 
 ---
 
-*For more on building reliable systems, check out [CQRS Pattern Guide](/cqrs-pattern-guide/) for separating reads and writes, [Caching Strategies Explained](/caching-strategies-explained/) for response caching patterns, and [Snowflake ID Guide](/snowflake-id-guide/) for generating unique IDs at scale.*
+*For more on building reliable systems, check out [CQRS Pattern Guide](/cqrs-pattern-guide/) for separating reads and writes, [Caching Strategies Explained](/caching-strategies-explained/) for response caching patterns, [Flash sale system design](/flash-sale-system-design/) for how idempotency keys keep ten million buyers from creating duplicate orders, and [Snowflake ID Guide](/snowflake-id-guide/) for generating unique IDs at scale.*
 
 *References: [Stripe Idempotency Keys Documentation](https://stripe.com/docs/api/idempotent_requests), [Stripe API Error Handling](https://stripe.com/docs/error-handling)*

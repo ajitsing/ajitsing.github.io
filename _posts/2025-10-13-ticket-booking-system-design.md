@@ -700,5 +700,5 @@ You now know what they learned the hard way. Build carefully, test ruthlessly.
 
 ---
 
-*Want to dive deeper? Check out [Database Locks Explained](/database-locks-explained/) for how SELECT FOR UPDATE and pessimistic locking work under the hood, the [BookMyShow engineering blog](https://blog.bookmyshow.com/) for war stories from the trenches, and explore [distributed systems patterns](https://martinfowler.com/articles/patterns-of-distributed-systems/) to level up your architecture game.*
+*Want to dive deeper? Check out [Database Locks Explained](/database-locks-explained/) for how SELECT FOR UPDATE and pessimistic locking work under the hood, the [Flash sale system design](/flash-sale-system-design/) for how the same patterns scale to ten million buyers fighting for ten thousand units, the [BookMyShow engineering blog](https://blog.bookmyshow.com/) for war stories from the trenches, and explore [distributed systems patterns](https://martinfowler.com/articles/patterns-of-distributed-systems/) to level up your architecture game.*
 

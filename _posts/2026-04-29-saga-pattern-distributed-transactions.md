@@ -701,6 +701,7 @@ If you are designing your first saga today, the order to read other things in is
 - [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/){:target="_blank" rel="noopener"} - Picking the broker that carries your saga events
 - [Role of Queues in System Design](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"} - How queues power both choreography and orchestration sagas
 - [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/){:target="_blank" rel="noopener"} - Idempotency in production at scale
+- [Flash Sale System Design](/flash-sale-system-design/){:target="_blank" rel="noopener"} - Reserve-charge-settle as a saga across Redis, Kafka, and the payment gateway
 - [Modular Monolith Architecture](/modular-monolith-architecture/){:target="_blank" rel="noopener"} - The simpler alternative if you do not yet need microservices
 - [How Kafka Works](/distributed-systems/how-kafka-works/){:target="_blank" rel="noopener"} - The internals of the broker most sagas run on
 - [OpenTelemetry Production Guide](/opentelemetry-production-guide/){:target="_blank" rel="noopener"} - Observability that makes sagas debuggable

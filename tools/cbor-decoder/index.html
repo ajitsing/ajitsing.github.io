@@ -1,0 +1,607 @@
+---
+layout: default
+title: "CBOR Decoder Online | Decode CBOR to JSON"
+subtitle: "Decode RFC 8949 CBOR payloads to JSON in your browser"
+seo: true
+description: "Free online CBOR decoder. Paste hex or base64, or drop a .cbor file, and instantly see decoded JSON with type annotations for tags, bignums, dates, and byte strings. 100% client-side, works offline."
+keywords: "cbor decoder, cbor to json, cbor decoder online, rfc 8949, cbor viewer, decode cbor, cbor parser, cose decoder, fido cbor, cbor hex decoder, cbor base64 decoder, cwt decoder, ctap2 decoder, cbor diagnostic notation"
+thumbnail: /assets/img/tools/cbor-tool-thumbnail.png
+share-img: /assets/img/tools/cbor-tool-thumbnail.png
+permalink: /tools/cbor-decoder/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/cbor-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CBOR Decoder",
+  "alternateName": ["CBOR to JSON Converter", "RFC 8949 Decoder", "CBOR Viewer", "Online CBOR Parser", "CBOR Hex Decoder", "COSE Decoder"],
+  "description": "Free online CBOR decoder. Decode RFC 8949 CBOR payloads from hex, base64, or file to pretty JSON. Recognizes common tags (datetime, bignum, COSE) and renders byte strings as hex. 100% client-side.",
+  "url": "https://singhajit.com/tools/cbor-decoder/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Decode CBOR from hex, base64, base64url, or file",
+    "Pretty-print JSON output with 2-space indent",
+    "Annotated tree view showing CBOR type and byte length per node",
+    "Recognizes common CBOR tags (0, 1, 2, 3, 21-23, 32, 35, 55799, COSE 16/17/18/96/97/98)",
+    "Handles indefinite-length arrays, maps, and strings",
+    "Renders byte strings as hex with 0x prefix",
+    "Supports BigInt for 64-bit unsigned and negative integers",
+    "Decodes half-precision (float16), single, and double floats",
+    "Warns on trailing bytes instead of failing the whole payload",
+    "Copy decoded JSON or download as .json file",
+    "100% client-side. No data leaves your browser",
+    "Works offline after first load"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/cbor-tool-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "CBOR Reference",
+    "text": "Concise Binary Object Representation (CBOR, RFC 8949) is a binary data format inspired by JSON but more compact. Each value starts with an initial byte that encodes a major type (0-7) and additional information. CBOR is used by COSE (JOSE for CBOR), CWT (CBOR Web Token), FIDO/WebAuthn CTAP2, and many IoT protocols."
+  },
+  "keywords": "cbor decoder, cbor to json, cbor decoder online, rfc 8949, cose decoder, cwt decoder, ctap2 decoder"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Decode a CBOR Payload",
+  "description": "Decode a CBOR (RFC 8949) binary payload to JSON in your browser, from hex, base64, or a file.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Pick an input format",
+      "text": "Choose Hex, Base64, Base64URL, or File depending on how you have the CBOR payload. Hex is the most common when copying bytes from Wireshark, tcpdump, or curl --output."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Paste the payload",
+      "text": "Paste the encoded bytes into the textarea. Hex input tolerates 0x prefixes, spaces, commas, and newlines. For File mode, drag and drop a .cbor file or click to browse."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Read the decoded result",
+      "text": "The Pretty JSON tab shows the decoded value as syntax-highlighted JSON. The Annotated Tree tab adds the CBOR major type and byte length next to each node, which is useful for inspecting COSE, CWT, or CTAP2 messages."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Copy or download",
+      "text": "Use the Copy JSON or Download JSON action to save the decoded payload. Decoding happens entirely in your browser. nothing is uploaded."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "CBOR Decoder"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is CBOR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CBOR (Concise Binary Object Representation, RFC 8949) is a binary data format inspired by JSON but more compact and faster to parse. It supports integers, byte strings, text strings, arrays, maps, tags, floats, and booleans, and is used by COSE, CWT, FIDO/WebAuthn CTAP2, and many IoT protocols."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I decode CBOR to JSON online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste your CBOR payload as hex or base64 into this tool. The decoded value appears instantly as pretty JSON. Byte strings are rendered as 0x... hex, BigInt values become quoted decimal strings, and tagged values include a // tag(N) comment so the output stays valid JSON."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The decoder is pure JavaScript with no external dependencies. After the page loads once, it works without an internet connection, and your payload never leaves your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which CBOR tags are recognized?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool labels and decodes common tags: 0 (standard date/time string), 1 (epoch-based date/time), 2 and 3 (positive and negative bignums), 21-23 (expected base64url/base64/base16 conversion), 32 (URI), 33-34 (base64url/base64 text), 35 (regex), 36 (MIME), 55799 (self-described CBOR), and the COSE tags 16, 17, 18, 96, 97, 98. Unknown tags are preserved with their tag number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I decode COSE, CWT, or FIDO CTAP2 messages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool decodes the CBOR structure of COSE_Sign1, COSE_Encrypt0, COSE_Mac0, and CWT payloads, including nested byte strings. It does not verify signatures or perform crypto. it surfaces the structure so you can inspect the headers, protected/unprotected maps, and payload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are 64-bit integers handled?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Values larger than Number.MAX_SAFE_INTEGER (2^53 - 1) are decoded as JavaScript BigInts and rendered as quoted decimal strings in the JSON output (for example \"18446744073709551615\"), so precision is never lost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about indefinite-length arrays, maps, or strings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fully supported. Indefinite-length text and byte strings are concatenated transparently, and indefinite-length arrays and maps terminate at the break stop code (0xff) as per RFC 8949."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the payload has trailing bytes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool decodes the first complete value and then warns you about the number of unconsumed trailing bytes. This is useful when the payload is a stream of multiple CBOR items or when you have an extra framing byte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All decoding runs in your browser. No payload, file, or decoded result is sent to any server. There is no upload, no logging, and no telemetry of payload contents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is CBOR different from MessagePack, BSON, or Avro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CBOR (RFC 8949) is an IETF standard with first-class tags and a self-describing format, designed for constrained devices. MessagePack is smaller and simpler but has no tags or canonical form. BSON is JSON-with-extensions tailored for MongoDB. Avro requires a schema for both writer and reader. Use CBOR for IoT, COSE/CWT, and FIDO; MessagePack for general RPC; BSON for MongoDB documents; Avro for schema-driven pipelines."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CBOR Decoder",
+      "item": "https://singhajit.com/tools/cbor-decoder/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="cbor-page-wrapper">
+  <div class="cbor-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-cube"></i>
+        CBOR Decoder
+      </h1>
+      <p class="tool-subtitle">Decode RFC 8949 CBOR payloads to JSON. hex, base64, or file</p>
+    </header>
+
+    <p class="tool-intro">
+      Paste a CBOR payload as <strong>hex</strong> or <strong>base64</strong>, or drop a <code>.cbor</code> file, and see the decoded JSON instantly. Handles tags, bignums, byte strings, indefinite-length items, and COSE / CWT / CTAP2 structures. 100% client-side. nothing is uploaded.
+    </p>
+
+    <div class="cbor-tabs" role="tablist">
+      <button class="cbor-tab-btn active" type="button" role="tab" aria-selected="true" aria-controls="decode-panel" id="tab-decode" data-tab="decode">
+        <i class="fas fa-search"></i> Decode
+      </button>
+      <button class="cbor-tab-btn" type="button" role="tab" aria-selected="false" aria-controls="examples-panel" id="tab-examples" data-tab="examples">
+        <i class="fas fa-lightbulb"></i> Examples
+      </button>
+    </div>
+
+    {% include ads/tool-banner.html %}
+
+    <div class="cbor-tab-panels">
+      <div class="cbor-tab-panel" id="decode-panel" role="tabpanel" aria-labelledby="tab-decode" data-tab="decode">
+        <section class="decoder-main">
+          <div class="input-section">
+            <div class="input-mode-row">
+              <label class="input-mode-label">Input format:</label>
+              <div class="input-mode-buttons" role="group" aria-label="Input format">
+                <button class="mode-btn active" type="button" data-mode="hex">
+                  <i class="fas fa-hashtag"></i> Hex
+                </button>
+                <button class="mode-btn" type="button" data-mode="base64">
+                  <i class="fas fa-exchange-alt"></i> Base64
+                </button>
+                <button class="mode-btn" type="button" data-mode="base64url">
+                  <i class="fas fa-link"></i> Base64URL
+                </button>
+                <button class="mode-btn" type="button" data-mode="file">
+                  <i class="fas fa-file-upload"></i> File
+                </button>
+              </div>
+            </div>
+
+            <div id="text-input-wrapper" class="text-input-wrapper">
+              <label for="cbor-input" class="sr-only">CBOR payload</label>
+              <textarea
+                id="cbor-input"
+                class="cbor-textarea"
+                spellcheck="false"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                placeholder="Paste CBOR payload here. e.g. a26161016162820203"
+                aria-describedby="input-help"
+              ></textarea>
+              <p id="input-help" class="input-help">
+                <i class="fas fa-info-circle"></i>
+                Hex tolerates <code>0x</code>, spaces, commas, and newlines. Decoding runs as you type.
+              </p>
+            </div>
+
+            <div id="file-input-wrapper" class="file-input-wrapper hidden">
+              <label for="cbor-file" class="file-drop-zone" id="file-drop-zone">
+                <input type="file" id="cbor-file" accept=".cbor,.dat,.bin,application/cbor" hidden>
+                <div class="file-drop-inner">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <span class="file-drop-primary">Drop a <code>.cbor</code> file here</span>
+                  <span class="file-drop-secondary">or click to browse. processed locally</span>
+                </div>
+              </label>
+              <div id="file-meta" class="file-meta hidden">
+                <i class="fas fa-file"></i>
+                <span id="file-meta-name">—</span>
+                <span class="file-meta-sep">·</span>
+                <span id="file-meta-size">—</span>
+                <button type="button" id="file-clear-btn" class="file-clear-btn" title="Remove file">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-row">
+              <button type="button" id="paste-btn" class="btn-secondary" title="Paste from clipboard">
+                <i class="fas fa-paste"></i> Paste
+              </button>
+              <button type="button" id="clear-btn" class="btn-secondary" title="Clear input">
+                <i class="fas fa-times"></i> Clear
+              </button>
+              <button type="button" id="sample-btn" class="btn-secondary" title="Load a sample payload">
+                <i class="fas fa-flask"></i> Load sample
+              </button>
+              <span class="action-spacer"></span>
+              <button type="button" id="copy-btn" class="btn-secondary" title="Copy decoded JSON" disabled>
+                <i class="fas fa-copy"></i> Copy JSON
+              </button>
+              <button type="button" id="download-btn" class="btn-secondary" title="Download decoded JSON" disabled>
+                <i class="fas fa-download"></i> Download
+              </button>
+            </div>
+
+            <div id="error-message" class="error-message hidden" role="alert">
+              <i class="fas fa-exclamation-circle"></i>
+              <span id="error-text"></span>
+            </div>
+
+            <div id="warning-message" class="warning-message hidden" role="status">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span id="warning-text"></span>
+            </div>
+          </div>
+
+          <div id="result-section" class="result-section hidden">
+            <div class="result-header">
+              <h3><i class="fas fa-stream"></i> Decoded Output</h3>
+              <div class="result-view-tabs" role="tablist" aria-label="Result view">
+                <button class="view-tab active" type="button" role="tab" aria-selected="true" data-view="pretty">
+                  <i class="fas fa-align-left"></i> Pretty JSON
+                </button>
+                <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="tree">
+                  <i class="fas fa-sitemap"></i> Annotated Tree
+                </button>
+              </div>
+            </div>
+
+            <div class="result-meta" id="result-meta">
+              <span class="meta-pill" title="Input size in bytes">
+                <i class="fas fa-arrow-down"></i>
+                <span id="meta-input">0 B</span>
+              </span>
+              <span class="meta-pill" title="Decoded JSON size in bytes">
+                <i class="fas fa-arrow-up"></i>
+                <span id="meta-output">0 B</span>
+              </span>
+              <span class="meta-pill" title="Decode time">
+                <i class="fas fa-stopwatch"></i>
+                <span id="meta-time">0 ms</span>
+              </span>
+              <span class="meta-pill" title="Top-level CBOR major type">
+                <i class="fas fa-tag"></i>
+                <span id="meta-type">—</span>
+              </span>
+            </div>
+
+            <div class="result-view active" id="view-pretty" data-view="pretty">
+              <pre class="cbor-output" id="output-json" tabindex="0"><code></code></pre>
+            </div>
+
+            <div class="result-view hidden" id="view-tree" data-view="tree">
+              <div class="cbor-tree" id="output-tree" tabindex="0"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="cbor-tab-panel hidden" id="examples-panel" role="tabpanel" aria-labelledby="tab-examples" data-tab="examples">
+        <section class="examples-section">
+          <h3><i class="fas fa-lightbulb"></i> Sample Payloads</h3>
+          <p class="section-desc">Click any sample to load it into the decoder. All samples are pasted as hex.</p>
+          <div class="examples-grid">
+            <button class="example-btn" type="button" data-hex="a26161016162820203" data-label="Simple map">
+              <span class="example-platform"><i class="fas fa-cube"></i> Map</span>
+              <span class="example-desc">{a: 1, b: [2, 3]}</span>
+              <code>a26161016162820203</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="83010203" data-label="Array of ints">
+              <span class="example-platform"><i class="fas fa-list-ol"></i> Array</span>
+              <span class="example-desc">[1, 2, 3]</span>
+              <code>83010203</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="c074323031332d30332d32315432303a30343a30305a" data-label="Datetime tag 0">
+              <span class="example-platform"><i class="fas fa-calendar"></i> Tag 0</span>
+              <span class="example-desc">date/time string</span>
+              <code>c0 74 ...</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="c11a514b67b0" data-label="Epoch tag 1">
+              <span class="example-platform"><i class="fas fa-clock"></i> Tag 1</span>
+              <span class="example-desc">epoch seconds</span>
+              <code>c11a514b67b0</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="c249010000000000000000" data-label="Bignum tag 2">
+              <span class="example-platform"><i class="fas fa-infinity"></i> Tag 2</span>
+              <span class="example-desc">positive bignum</span>
+              <code>c2 49 ...</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="1bffffffffffffffff" data-label="uint64 max">
+              <span class="example-platform"><i class="fas fa-hashtag"></i> BigInt</span>
+              <span class="example-desc">2^64 - 1</span>
+              <code>1bffffffffffffffff</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="f97e00" data-label="NaN">
+              <span class="example-platform"><i class="fas fa-percent"></i> Float16</span>
+              <span class="example-desc">NaN</span>
+              <code>f97e00</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="9f018202039f0405ffff" data-label="Indefinite-length array">
+              <span class="example-platform"><i class="fas fa-infinity"></i> Indefinite</span>
+              <span class="example-desc">[_ 1, [2,3], [_ 4,5]]</span>
+              <code>9f018202039f0405ffff</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="7f657374726561646d696e67ff" data-label="Indefinite string">
+              <span class="example-platform"><i class="fas fa-font"></i> Indefinite</span>
+              <span class="example-desc">streamed text</span>
+              <code>7f6573747265...ff</code>
+            </button>
+            <button class="example-btn" type="button" data-hex="d28443a10126a1044231314c5468697320697320612074657374489a8362ac8e0e3ed4" data-label="COSE_Sign1 shape">
+              <span class="example-platform"><i class="fas fa-shield-alt"></i> COSE</span>
+              <span class="example-desc">COSE_Sign1 structure</span>
+              <code>d2 84 ...</code>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> CBOR Major Types (RFC 8949)</h3>
+      <div class="major-types-grid">
+        <div class="major-type-card">
+          <span class="major-type-num">0</span>
+          <span class="major-type-name">Unsigned int</span>
+          <span class="major-type-desc">0 to 2<sup>64</sup>-1</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">1</span>
+          <span class="major-type-name">Negative int</span>
+          <span class="major-type-desc">-1 to -2<sup>64</sup></span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">2</span>
+          <span class="major-type-name">Byte string</span>
+          <span class="major-type-desc">raw bytes (hex)</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">3</span>
+          <span class="major-type-name">Text string</span>
+          <span class="major-type-desc">UTF-8 text</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">4</span>
+          <span class="major-type-name">Array</span>
+          <span class="major-type-desc">sequence of items</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">5</span>
+          <span class="major-type-name">Map</span>
+          <span class="major-type-desc">key / value pairs</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">6</span>
+          <span class="major-type-name">Tag</span>
+          <span class="major-type-desc">semantic wrapper</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">7</span>
+          <span class="major-type-name">Float / simple</span>
+          <span class="major-type-desc">f16, f32, f64, bool, null</span>
+        </div>
+      </div>
+
+      <div class="tags-reference">
+        <h4>Recognized Tags</h4>
+        <table class="tags-table">
+          <thead>
+            <tr><th>Tag</th><th>Meaning</th><th>Spec</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>0</code></td><td>Standard date/time string (RFC 3339)</td><td>RFC 8949 §3.4.1</td></tr>
+            <tr><td><code>1</code></td><td>Epoch-based date/time</td><td>RFC 8949 §3.4.2</td></tr>
+            <tr><td><code>2</code> / <code>3</code></td><td>Positive / negative bignum</td><td>RFC 8949 §3.4.3</td></tr>
+            <tr><td><code>21</code>–<code>23</code></td><td>Expected base64url / base64 / base16 conversion</td><td>RFC 8949 §3.4.5</td></tr>
+            <tr><td><code>32</code></td><td>URI</td><td>RFC 8949 §3.4.5.3</td></tr>
+            <tr><td><code>35</code></td><td>Regular expression (PCRE)</td><td>RFC 8949 §3.4.5.6</td></tr>
+            <tr><td><code>55799</code></td><td>Self-described CBOR magic</td><td>RFC 8949 §3.4.6</td></tr>
+            <tr><td><code>16</code> / <code>17</code> / <code>18</code></td><td>COSE_Encrypt0 / COSE_Mac0 / COSE_Sign1</td><td>RFC 9052</td></tr>
+            <tr><td><code>96</code> / <code>97</code> / <code>98</code></td><td>COSE_Encrypt / COSE_Mac / COSE_Sign</td><td>RFC 9052</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Understanding CBOR</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is CBOR?</h2>
+          <p><strong>CBOR (Concise Binary Object Representation, RFC 8949)</strong> is a binary serialization format inspired by JSON but more compact and faster to parse. Every value starts with a single initial byte: the top three bits encode the <em>major type</em> (0–7) and the bottom five bits carry the <em>additional information</em> (a small value, or a length indicator).</p>
+          <p>This compact framing means most small values fit in a single byte. <code>0x00</code> is the integer <code>0</code>, <code>0x18 18</code> is the integer <code>24</code>, and <code>0xa0</code> is an empty map. The format is self-delimiting, so no terminators or schemas are required to parse it.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>How to read a CBOR payload by hand</h2>
+          <ul>
+            <li><strong>Read the first byte:</strong> the top 3 bits give the major type (0-7), the bottom 5 bits give the value or length</li>
+            <li><strong>Additional info 0-23:</strong> the value is taken directly from the low 5 bits</li>
+            <li><strong>Additional info 24-27:</strong> the next 1, 2, 4, or 8 bytes hold the value</li>
+            <li><strong>Additional info 31:</strong> indefinite length. read items until the break stop code <code>0xff</code></li>
+            <li><strong>Tags (major 6):</strong> consume one more CBOR value as the tagged content</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Where is CBOR used?</h2>
+          <ul>
+            <li><strong>COSE (RFC 9052):</strong> the JOSE equivalent for CBOR. used to sign/encrypt/mac CBOR payloads</li>
+            <li><strong>CWT (RFC 8392):</strong> CBOR Web Tokens. the binary cousin of JWT</li>
+            <li><strong>FIDO2 / WebAuthn CTAP2:</strong> authenticator-to-client messages are CBOR</li>
+            <li><strong>EDHOC, OSCORE:</strong> IETF lightweight security protocols for constrained devices</li>
+            <li><strong>RFC 8428 SenML:</strong> sensor measurement lists for IoT telemetry</li>
+            <li><strong>OCI image manifests, ATProto (Bluesky), and many embedded RPC systems</strong></li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>CBOR vs JSON</h2>
+          <ul>
+            <li><strong>Smaller:</strong> ints, floats, and byte strings are stored as raw bytes, not text</li>
+            <li><strong>Faster:</strong> no escaping, quoting, or whitespace to skip</li>
+            <li><strong>Richer types:</strong> first-class byte strings, BigInts, tags, and undefined</li>
+            <li><strong>Streaming-friendly:</strong> indefinite-length arrays/maps/strings for incremental encoding</li>
+            <li><strong>Deterministic encoding</strong> profile (RFC 8949 §4.2) for canonical serialization</li>
+          </ul>
+          <p>The tradeoff is that CBOR is not human-readable, so a decoder like this one is part of the workflow when debugging.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> CBOR Decoder FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is CBOR?</h3>
+        <p><strong>CBOR (RFC 8949)</strong> is a binary data format inspired by JSON. It supports integers, byte strings, text strings, arrays, maps, tags, and floats, and is used by COSE, CWT, FIDO/WebAuthn CTAP2, and many IoT protocols.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I decode a CBOR payload?</h3>
+        <p>Paste your payload as hex, base64, or base64url, or drop a <code>.cbor</code> file. The decoder runs as you type and shows the decoded value as Pretty JSON or an Annotated Tree with CBOR types and byte lengths.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does this tool support COSE or CWT?</h3>
+        <p>Yes. COSE tags 16, 17, 18, 96, 97, and 98 are recognized and labeled. The tool decodes the CBOR structure including nested byte strings, but it does not verify cryptographic signatures.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How are large integers handled?</h3>
+        <p>Values beyond <code>Number.MAX_SAFE_INTEGER</code> are decoded as JavaScript <code>BigInt</code> and rendered as quoted decimal strings in the JSON output so precision is preserved.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What if the payload has trailing bytes?</h3>
+        <p>The decoder reads one complete value and then warns about any unconsumed bytes. The decoded prefix is still shown. useful when inspecting CBOR streams or framed messages.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data uploaded anywhere?</h3>
+        <p>No. Decoding runs entirely in your browser. No payload, file, or decoded result is sent to any server.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why is a byte string rendered as <code>0x...</code>?</h3>
+        <p>JSON has no native byte string type. To keep the output valid JSON while preserving the raw bytes, byte strings are rendered as hex with a <code>0x</code> prefix. The Annotated Tree view labels them as <code>bytes</code> with their byte length.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does it work with .cbor files?</h3>
+        <p>Yes. Switch to the <strong>File</strong> input and drop your <code>.cbor</code>, <code>.dat</code>, or <code>.bin</code> file. The file is read as a <code>Uint8Array</code> and decoded locally.</p>
+      </div>
+
+    </section>
+
+  </div>
+</div>
+
+
+<script defer src="{{ '/assets/js/cbor-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

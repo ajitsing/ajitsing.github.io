@@ -300,9 +300,22 @@ css:
         "price": "0",
         "priceCurrency": "USD"
       }
+    },
+    {
+      "@type": "WebApplication",
+      "name": "CBOR Decoder",
+      "description": "Free online CBOR (RFC 8949) decoder. Decode CBOR payloads to JSON from hex, base64, or .cbor files. Recognizes COSE, CWT, bignums, tags, and indefinite-length items. 100% client-side.",
+      "url": "https://singhajit.com/tools/cbor-decoder/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
   ],
-  "numberOfItems": 20,
+  "numberOfItems": 21,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -417,6 +430,12 @@ css:
       "position": 19,
       "url": "https://singhajit.com/tools/llm-token-counter/",
       "name": "LLM Token Counter"
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "url": "https://singhajit.com/tools/cbor-decoder/",
+      "name": "CBOR Decoder"
     }
   ],
   "breadcrumb": {
@@ -619,6 +638,25 @@ css:
           <span class="feature-tag"><i class="fab fa-discord"></i> Discord</span>
           <span class="feature-tag"><i class="fab fa-twitter"></i> Twitter</span>
           <span class="feature-tag"><i class="fas fa-clock"></i> Timestamp</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- CBOR Decoder Tool -->
+    <a href="{{ '/tools/cbor-decoder/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'CBOR Decoder'});">
+      <div class="tool-icon">
+        <i class="fas fa-cube"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">CBOR Decoder</h2>
+        <p class="tool-description">Decode RFC 8949 CBOR payloads to JSON in your browser. Paste hex or base64, or drop a .cbor file. Recognizes COSE, CWT, bignums, and tags.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-hashtag"></i> RFC 8949</span>
+          <span class="feature-tag"><i class="fas fa-exchange-alt"></i> Hex / Base64</span>
+          <span class="feature-tag"><i class="fas fa-shield-alt"></i> COSE / CWT</span>
         </div>
       </div>
       <div class="tool-arrow">

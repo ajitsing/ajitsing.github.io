@@ -1,0 +1,572 @@
+---
+layout: default
+title: "HAR File Viewer Online | Inspect HTTP Archive & Network Waterfall"
+subtitle: "Open .har files, see requests, headers, timings, and waterfall. 100% in your browser."
+seo: true
+description: "Free online HAR file viewer. Open Chrome / Firefox / Safari / Edge HAR exports and inspect requests, headers, cookies, request and response bodies, query params, and a timing waterfall. Filter by status, method, type, or URL. Redact sensitive headers. 100% client-side, nothing uploaded."
+keywords: "har file viewer, har viewer online, har analyzer, http archive viewer, har file analyzer, har waterfall, chrome har viewer, har inspector, open har file, view har file online, network har viewer, devtools har, har file parser, har timing analyzer, har json viewer, har file reader, edge har viewer, firefox har viewer, safari har viewer"
+thumbnail: /assets/img/tools/har-viewer-thumbnail.png
+share-img: /assets/img/tools/har-viewer-thumbnail.png
+permalink: /tools/har-viewer/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/har-viewer.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "HAR File Viewer",
+  "alternateName": ["HAR Viewer Online", "HTTP Archive Viewer", "HAR Analyzer", "HAR Waterfall Viewer", "Online HAR Inspector"],
+  "description": "Free online HAR file viewer. Open HAR files exported from Chrome, Firefox, Safari, or Edge DevTools and inspect requests, headers, cookies, request/response bodies, query parameters, and timing waterfalls. 100% client-side.",
+  "url": "https://singhajit.com/tools/har-viewer/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Open .har files via drag and drop, file picker, or pasted JSON",
+    "Per-request waterfall showing blocked, DNS, connect, SSL, send, wait, and receive timings",
+    "Filter entries by status code, HTTP method, content type, or URL substring",
+    "Inspect request and response headers with one-click copy",
+    "View query string parameters, cookies, and POST data parsed by content type",
+    "Pretty-print JSON response bodies inline",
+    "Summary stats: total requests, total bytes transferred, total time, slowest entry, status code breakdown",
+    "Group by domain or content type for quick analysis",
+    "Redact Authorization, Cookie, and Set-Cookie headers before sharing",
+    "Export the filtered subset as a new HAR file",
+    "100% client-side. No upload. Works offline after first load"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/har-viewer-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "HAR Format Reference",
+    "text": "HAR (HTTP Archive) is a JSON format that records every HTTP request and response a browser made on a page. It captures headers, cookies, bodies, and timing data and is exported by Chrome, Firefox, Safari, and Edge DevTools, as well as tools like Charles Proxy, Fiddler, and Insomnia."
+  },
+  "keywords": "har file viewer, har viewer online, har analyzer, http archive viewer, har waterfall, chrome har viewer"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Open and View a HAR File",
+  "description": "Open a HAR (HTTP Archive) file exported from Chrome, Firefox, Safari, or Edge DevTools and inspect requests, headers, and timings in your browser.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Export a HAR file from your browser",
+      "text": "Open DevTools, switch to the Network tab, reload the page or perform the actions you want to capture, then right-click any row and choose Save all as HAR with content (Chrome / Edge), Save All As HAR (Firefox), or Export HAR (Safari Web Inspector)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Load the HAR into the viewer",
+      "text": "Drag the .har file onto the drop zone, click to browse, or paste the HAR JSON directly. Parsing happens in your browser. nothing is uploaded."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Filter and inspect",
+      "text": "Use the filter bar to narrow by status code, HTTP method, content type, or URL substring. Click any row to open the detail panel and view headers, cookies, query parameters, request body, response body, and a per-phase timing breakdown."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Redact and export",
+      "text": "Turn on Redact secrets to mask Authorization, Cookie, and Set-Cookie headers before sharing. Use Export filtered HAR to save just the visible entries as a new .har file."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "HAR File Viewer"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a HAR file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A HAR (HTTP Archive) file is a JSON log of every HTTP request and response a browser or proxy made for a page. It includes URL, method, status, headers, cookies, request and response bodies (when captured), and detailed timing information. Chrome, Firefox, Safari, Edge, Charles Proxy, Fiddler, and Insomnia can all export HAR files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I export a HAR file from Chrome?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open DevTools (F12 or Cmd+Option+I), go to the Network tab, make sure recording is on and Preserve log is checked, reload the page, then right-click any request and choose Save all as HAR with content. The file will be saved as .har."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my HAR file uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The viewer runs entirely in your browser. The HAR file is parsed locally and never sent to any server. There is no upload, no logging, and no telemetry of file contents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can HAR files contain passwords or auth tokens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and you should treat HAR files as sensitive. They can include Authorization headers, session cookies, CSRF tokens, OAuth bearer tokens, and any request body data such as form fields containing passwords. Always inspect a HAR before sharing it. This viewer has a Redact secrets toggle that masks Authorization, Cookie, and Set-Cookie values in both the UI and the exported HAR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the waterfall show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The waterfall shows the per-request timing breakdown from the HAR timings object: blocked (queueing and stalled), dns (DNS lookup), connect (TCP), ssl (TLS handshake), send (request bytes uploaded), wait (server processing or TTFB), and receive (response bytes downloaded). The bar is positioned along the page timeline using the entry's startedDateTime."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I filter by status code or method?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The filter bar supports HTTP method (GET, POST, PUT, DELETE, etc), status class (2xx, 3xx, 4xx, 5xx), content type group (HTML, CSS, JS, image, font, JSON / XHR, media, other), and a free-text URL search. Multiple filters combine with AND."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it pretty-print JSON response bodies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. JSON request and response bodies are detected and pretty-printed with 2-space indentation in the detail panel. Other text content types are shown as plain text. Binary bodies are shown as base64 with a size badge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What HAR spec version is supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HAR 1.2 (the W3C Web Performance Working Group draft) is the format exported by all major browsers and is fully supported. HAR 1.1 files load correctly as well. Unknown fields are preserved when re-exporting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export only the filtered entries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Use Export filtered HAR to download a valid HAR file containing only the entries that match your current filters. The original creator, browser, and pages metadata are preserved. If Redact secrets is on, Authorization, Cookie, and Set-Cookie values are masked in the exported file as well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The viewer is pure JavaScript with no external dependencies. After the page loads once, it works without an internet connection."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "HAR File Viewer",
+      "item": "https://singhajit.com/tools/har-viewer/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="har-page-wrapper">
+  <div class="har-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-stream"></i>
+        HAR File Viewer
+      </h1>
+      <p class="tool-subtitle">Open .har exports, inspect requests, waterfalls, headers, and bodies in your browser</p>
+    </header>
+
+    <p class="tool-intro">
+      Drop a <code>.har</code> file or paste HAR JSON to inspect every request: <strong>headers</strong>, <strong>cookies</strong>, <strong>query params</strong>, <strong>request and response bodies</strong>, and a <strong>per-request waterfall</strong>. Filter by status, method, content type, or URL. <strong>100% client-side</strong>. nothing is uploaded.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="loader-section" id="loader-section">
+      <div class="loader-tabs" role="tablist" aria-label="Input source">
+        <button class="loader-tab active" type="button" role="tab" aria-selected="true" data-loader="file" id="loader-tab-file">
+          <i class="fas fa-file-upload"></i> Open file
+        </button>
+        <button class="loader-tab" type="button" role="tab" aria-selected="false" data-loader="paste" id="loader-tab-paste">
+          <i class="fas fa-paste"></i> Paste JSON
+        </button>
+        <button class="loader-tab" type="button" role="tab" aria-selected="false" data-loader="sample" id="loader-tab-sample">
+          <i class="fas fa-flask"></i> Try sample
+        </button>
+      </div>
+
+      <div class="loader-panel" id="loader-panel-file">
+        <label for="har-file" class="file-drop-zone" id="file-drop-zone">
+          <input type="file" id="har-file" accept=".har,application/json,application/har+json" hidden>
+          <div class="file-drop-inner">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span class="file-drop-primary">Drop a <code>.har</code> file here</span>
+            <span class="file-drop-secondary">or click to browse. parsed locally in your browser</span>
+          </div>
+        </label>
+      </div>
+
+      <div class="loader-panel hidden" id="loader-panel-paste">
+        <label for="har-paste" class="sr-only">Paste HAR JSON</label>
+        <textarea
+          id="har-paste"
+          class="har-textarea"
+          spellcheck="false"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          placeholder='Paste HAR JSON here. Starts with {"log": {"version": "1.2", "entries": [...] } }'
+        ></textarea>
+        <div class="paste-actions">
+          <button type="button" id="paste-load-btn" class="btn-primary">
+            <i class="fas fa-play"></i> Load HAR
+          </button>
+          <button type="button" id="paste-clear-btn" class="btn-secondary">
+            <i class="fas fa-times"></i> Clear
+          </button>
+        </div>
+      </div>
+
+      <div class="loader-panel hidden" id="loader-panel-sample">
+        <p class="sample-desc">Load a small sample HAR that mimics a typical product page load (HTML, CSS, JS, JSON XHR, image, font, plus a redirect and a 404).</p>
+        <button type="button" id="sample-load-btn" class="btn-primary">
+          <i class="fas fa-flask"></i> Load sample HAR
+        </button>
+      </div>
+
+      <div id="loader-error" class="error-message hidden" role="alert">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="loader-error-text"></span>
+      </div>
+    </section>
+
+    <section class="viewer-section hidden" id="viewer-section">
+      <div class="viewer-toolbar">
+        <div class="viewer-meta" id="viewer-meta">
+          <span class="meta-pill" title="Source file or paste">
+            <i class="fas fa-file"></i>
+            <span id="meta-source">—</span>
+          </span>
+          <span class="meta-pill" title="Browser / creator from HAR">
+            <i class="fas fa-laptop-code"></i>
+            <span id="meta-creator">—</span>
+          </span>
+          <span class="meta-pill" title="HAR version">
+            <i class="fas fa-code-branch"></i>
+            <span id="meta-version">—</span>
+          </span>
+        </div>
+        <div class="viewer-actions">
+          <label class="toggle-redact" title="Mask Authorization, Cookie and Set-Cookie values">
+            <input type="checkbox" id="redact-toggle">
+            <span><i class="fas fa-user-shield"></i> Redact secrets</span>
+          </label>
+          <button type="button" id="export-btn" class="btn-secondary" title="Download filtered entries as a new HAR file">
+            <i class="fas fa-download"></i> Export filtered HAR
+          </button>
+          <button type="button" id="close-btn" class="btn-secondary" title="Close current HAR and load another">
+            <i class="fas fa-times"></i> Close
+          </button>
+        </div>
+      </div>
+
+      <div class="summary-grid" id="summary-grid">
+        <div class="summary-card">
+          <span class="summary-label">Requests</span>
+          <span class="summary-value" id="sum-requests">0</span>
+          <span class="summary-sub" id="sum-requests-sub">of 0</span>
+        </div>
+        <div class="summary-card">
+          <span class="summary-label">Transferred</span>
+          <span class="summary-value" id="sum-transferred">0 B</span>
+          <span class="summary-sub" id="sum-transferred-sub">over the wire</span>
+        </div>
+        <div class="summary-card">
+          <span class="summary-label">Resources</span>
+          <span class="summary-value" id="sum-resources">0 B</span>
+          <span class="summary-sub" id="sum-resources-sub">decoded size</span>
+        </div>
+        <div class="summary-card">
+          <span class="summary-label">Total time</span>
+          <span class="summary-value" id="sum-total-time">0 ms</span>
+          <span class="summary-sub" id="sum-total-time-sub">first to last byte</span>
+        </div>
+        <div class="summary-card summary-status">
+          <span class="summary-label">Status codes</span>
+          <div class="status-chips" id="sum-status-chips"></div>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-search">
+          <i class="fas fa-search"></i>
+          <input type="search" id="filter-url" placeholder="Filter URLs (substring or /regex/)" aria-label="Filter URLs">
+        </div>
+        <div class="filter-chips" role="group" aria-label="HTTP method filter" id="filter-methods"></div>
+        <div class="filter-chips" role="group" aria-label="Status filter" id="filter-status">
+          <button type="button" class="chip active" data-status="all">All</button>
+          <button type="button" class="chip" data-status="2xx">2xx</button>
+          <button type="button" class="chip" data-status="3xx">3xx</button>
+          <button type="button" class="chip" data-status="4xx">4xx</button>
+          <button type="button" class="chip" data-status="5xx">5xx</button>
+          <button type="button" class="chip" data-status="err">Err</button>
+        </div>
+        <div class="filter-chips" role="group" aria-label="Type filter" id="filter-types">
+          <button type="button" class="chip active" data-type="all">All</button>
+          <button type="button" class="chip" data-type="doc">Doc</button>
+          <button type="button" class="chip" data-type="css">CSS</button>
+          <button type="button" class="chip" data-type="js">JS</button>
+          <button type="button" class="chip" data-type="xhr">XHR/JSON</button>
+          <button type="button" class="chip" data-type="img">Image</button>
+          <button type="button" class="chip" data-type="font">Font</button>
+          <button type="button" class="chip" data-type="media">Media</button>
+          <button type="button" class="chip" data-type="other">Other</button>
+        </div>
+      </div>
+
+      <div class="entries-wrapper">
+        <div class="entries-table" id="entries-table" role="table" aria-label="HAR entries">
+          <div class="entries-head" role="row">
+            <div class="col-num" role="columnheader">#</div>
+            <div class="col-method sortable" role="columnheader" data-sort="method">Method <i class="fas fa-sort"></i></div>
+            <div class="col-status sortable" role="columnheader" data-sort="status">Status <i class="fas fa-sort"></i></div>
+            <div class="col-url sortable" role="columnheader" data-sort="url">URL <i class="fas fa-sort"></i></div>
+            <div class="col-type sortable" role="columnheader" data-sort="type">Type <i class="fas fa-sort"></i></div>
+            <div class="col-size sortable" role="columnheader" data-sort="size">Size <i class="fas fa-sort"></i></div>
+            <div class="col-time sortable" role="columnheader" data-sort="time">Time <i class="fas fa-sort"></i></div>
+            <div class="col-waterfall sortable" role="columnheader" data-sort="started">
+              <span>Waterfall</span>
+              <i class="fas fa-sort"></i>
+            </div>
+          </div>
+          <div class="entries-body" id="entries-body" role="rowgroup"></div>
+          <div class="entries-empty hidden" id="entries-empty">
+            <i class="fas fa-inbox"></i>
+            <p>No entries match the current filters.</p>
+            <button type="button" id="clear-filters-btn" class="btn-secondary">
+              <i class="fas fa-times-circle"></i> Clear filters
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-panel hidden" id="detail-panel" aria-label="Request details">
+        <div class="detail-header">
+          <div class="detail-header-main">
+            <span class="detail-method" id="detail-method">GET</span>
+            <span class="detail-status" id="detail-status">200</span>
+            <span class="detail-url" id="detail-url">—</span>
+          </div>
+          <button type="button" id="detail-close-btn" class="detail-close-btn" aria-label="Close detail panel">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="detail-tabs" role="tablist">
+          <button class="detail-tab active" type="button" role="tab" data-detail="headers">Headers</button>
+          <button class="detail-tab" type="button" role="tab" data-detail="cookies">Cookies</button>
+          <button class="detail-tab" type="button" role="tab" data-detail="query">Query</button>
+          <button class="detail-tab" type="button" role="tab" data-detail="request">Request</button>
+          <button class="detail-tab" type="button" role="tab" data-detail="response">Response</button>
+          <button class="detail-tab" type="button" role="tab" data-detail="timing">Timing</button>
+        </div>
+        <div class="detail-body" id="detail-body"></div>
+      </aside>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> HAR Timing Phases</h3>
+      <p class="section-desc">Each request entry has a <code>timings</code> object that describes how the browser spent time between starting the request and receiving the last byte. The viewer renders these phases as colored segments in the waterfall.</p>
+      <div class="phases-grid">
+        <div class="phase-card">
+          <span class="phase-swatch" style="background:#9ca3af"></span>
+          <span class="phase-name">blocked</span>
+          <span class="phase-desc">queued or stalled (connection limit, proxy)</span>
+        </div>
+        <div class="phase-card">
+          <span class="phase-swatch" style="background:#a78bfa"></span>
+          <span class="phase-name">dns</span>
+          <span class="phase-desc">DNS lookup of the host</span>
+        </div>
+        <div class="phase-card">
+          <span class="phase-swatch" style="background:#fb923c"></span>
+          <span class="phase-name">connect</span>
+          <span class="phase-desc">TCP connect to the server</span>
+        </div>
+        <div class="phase-card">
+          <span class="phase-swatch" style="background:#f472b6"></span>
+          <span class="phase-name">ssl</span>
+          <span class="phase-desc">TLS handshake (included in connect)</span>
+        </div>
+        <div class="phase-card">
+          <span class="phase-swatch" style="background:#34d399"></span>
+          <span class="phase-name">send</span>
+          <span class="phase-desc">uploading request bytes</span>
+        </div>
+        <div class="phase-card">
+          <span class="phase-swatch" style="background:#60a5fa"></span>
+          <span class="phase-name">wait</span>
+          <span class="phase-desc">server processing / TTFB</span>
+        </div>
+        <div class="phase-card">
+          <span class="phase-swatch" style="background:#facc15"></span>
+          <span class="phase-name">receive</span>
+          <span class="phase-desc">downloading response bytes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Understanding HAR Files</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a HAR file?</h2>
+          <p><strong>HAR (HTTP Archive)</strong> is a JSON-based format for recording HTTP traffic between a client and a server. Every major browser&rsquo;s DevTools can export the current Network tab as a <code>.har</code> file, and proxies like Charles, Fiddler, and Insomnia produce HAR exports as well.</p>
+          <p>A HAR file is a snapshot of a browsing session. it captures URLs, methods, status codes, request and response headers, cookies, request and response bodies (when available), and a detailed timing breakdown per request.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>How to export a HAR</h2>
+          <ul>
+            <li><strong>Chrome / Edge / Brave:</strong> DevTools &rarr; Network tab &rarr; reload the page &rarr; right-click any row &rarr; <em>Save all as HAR with content</em></li>
+            <li><strong>Firefox:</strong> DevTools &rarr; Network &rarr; gear icon &rarr; <em>Save All As HAR</em></li>
+            <li><strong>Safari:</strong> Web Inspector &rarr; Network &rarr; <em>Export</em> button (you may need to enable the Develop menu first)</li>
+            <li><strong>Charles Proxy:</strong> File &rarr; <em>Export Session</em> &rarr; choose HTTP Archive (.har)</li>
+            <li><strong>Fiddler:</strong> File &rarr; Export Sessions &rarr; <em>HTTPArchive v1.2</em></li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Treat HAR files as sensitive</h2>
+          <p>HAR files frequently contain <strong>authorization tokens</strong>, <strong>session cookies</strong>, <strong>OAuth bearer tokens</strong>, and request bodies that may include passwords or PII. Before posting a HAR in a bug report or sharing it with a vendor:</p>
+          <ul>
+            <li>Toggle <strong>Redact secrets</strong> in this viewer to mask <code>Authorization</code>, <code>Cookie</code>, and <code>Set-Cookie</code> headers</li>
+            <li>Use the filter bar to narrow down to only the requests that demonstrate the issue</li>
+            <li>Use <strong>Export filtered HAR</strong> to save a clean, minimal HAR that contains only what you need to share</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>What the waterfall tells you</h2>
+          <ul>
+            <li><strong>Long blocked time:</strong> too many requests to the same host. browsers limit concurrent connections per origin</li>
+            <li><strong>Long DNS:</strong> uncached hostname. consider DNS prefetch or a CDN with anycast</li>
+            <li><strong>Long connect / ssl:</strong> high RTT or TLS handshake cost. HTTP/2 or HTTP/3 multiplexing helps</li>
+            <li><strong>Long wait (TTFB):</strong> server-side slowness. inspect backend latency, cache hit rate, or N+1 queries</li>
+            <li><strong>Long receive:</strong> large response body or slow last mile. consider compression, code splitting, or image optimization</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> HAR Viewer FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a HAR file?</h3>
+        <p>A HAR (HTTP Archive) file is a JSON log of HTTP requests and responses captured by a browser or proxy. It contains URL, method, status, headers, cookies, bodies, and per-request timing data.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I open a HAR file?</h3>
+        <p>Drag a <code>.har</code> file onto the drop zone, click to browse, or paste the HAR JSON into the textarea. The file is parsed in your browser and rendered as a sortable, filterable table with a waterfall and a request detail panel.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Are my HAR contents uploaded?</h3>
+        <p>No. Parsing and rendering run entirely in your browser. No file, header, body, or URL is sent to any server. There is no upload, no logging, and no telemetry of HAR contents.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What sensitive data might a HAR contain?</h3>
+        <p>Authorization tokens, cookies, CSRF tokens, OAuth bearer tokens, and request bodies that may contain passwords or PII. Always inspect a HAR before sharing. Use the <strong>Redact secrets</strong> toggle to mask sensitive headers in the UI and in the exported HAR.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I export only the requests I want to share?</h3>
+        <p>Yes. Apply your filters (status, method, type, URL) then click <strong>Export filtered HAR</strong>. The download is a valid HAR 1.2 file with the original creator metadata preserved.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What does each waterfall color mean?</h3>
+        <p>Each segment represents a HAR timing phase: gray <em>blocked</em>, purple <em>dns</em>, orange <em>connect</em>, pink <em>ssl</em>, green <em>send</em>, blue <em>wait</em> (TTFB), yellow <em>receive</em>. See the HAR Timing Phases reference above.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why is the response body empty for some requests?</h3>
+        <p>Browsers do not always include response content in HAR exports. In Chrome you have to use <em>Save all as HAR with content</em> and the response must still be in memory. Image and binary responses are sometimes truncated, and some responses (cross-origin, opaque) are intentionally omitted by the browser.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What about very large HAR files?</h3>
+        <p>The viewer streams entries into the DOM in chunks and uses lightweight rendering for the table, so files with thousands of entries work in a typical browser. Detail panels are only built when you click a row. For extreme cases, narrow the file in DevTools before exporting.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does it work offline?</h3>
+        <p>Yes. The viewer is pure JavaScript with no external dependencies. After the page loads once, it works without an internet connection.</p>
+      </div>
+
+    </section>
+
+  </div>
+</div>
+
+<script defer src="{{ '/assets/js/har-viewer.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

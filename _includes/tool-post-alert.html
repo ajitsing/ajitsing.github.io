@@ -1,0 +1,65 @@
+{% assign latest_post = nil %}
+{% for post in site.posts %}
+  {% unless post.tags contains "dev-weekly" %}
+    {% assign latest_post = post %}
+    {% break %}
+  {% endunless %}
+{% endfor %}
+
+<div class="tool-post-alert">
+  {% if latest_post %}
+    {% if latest_post.subtitle %}
+      {% assign alert_subtitle = latest_post.subtitle %}
+    {% elsif latest_post.description %}
+      {% assign alert_subtitle = latest_post.description %}
+    {% else %}
+      {% assign alert_subtitle = latest_post.excerpt | strip_html | normalize_whitespace | truncatewords: 18 %}
+    {% endif %}
+    <div class="tool-post-alert-header">
+      <span class="tool-post-alert-label">From the blog</span>
+      <time class="tool-post-alert-date" datetime="{{ latest_post.date | date_to_xmlschema }}">{{ latest_post.date | date: "%b %-d, %Y" }}</time>
+    </div>
+    <div class="tool-post-alert-content">
+      {% if latest_post.thumbnail-img %}
+        {% assign alert_ext = latest_post.thumbnail-img | split: '.' | last %}
+        {% if alert_ext == 'svg' %}
+          {% assign alert_thumb = latest_post.thumbnail-img %}
+        {% elsif alert_ext == 'png' %}
+          {% assign alert_thumb = latest_post.thumbnail-img | replace: '.png', '-small.jpg' %}
+        {% else %}
+          {% assign alert_len = latest_post.thumbnail-img | size %}
+          {% assign alert_ext_len = alert_ext | size | plus: 1 %}
+          {% assign alert_base_len = alert_len | minus: alert_ext_len %}
+          {% assign alert_thumb = latest_post.thumbnail-img | slice: 0, alert_base_len | append: '-small.jpg' %}
+        {% endif %}
+        <a href="{{ latest_post.url | relative_url }}" class="tool-post-alert-thumb" onclick="gtag('event', 'click', {'event_category': 'Tool Post Alert', 'event_label': 'Thumbnail'});">
+          <img src="{{ alert_thumb | relative_url }}" alt="" loading="lazy" width="96" height="64">
+        </a>
+      {% endif %}
+      <div class="tool-post-alert-copy">
+        <a href="{{ latest_post.url | relative_url }}" class="tool-post-alert-title" onclick="gtag('event', 'click', {'event_category': 'Tool Post Alert', 'event_label': 'Title'});">{{ latest_post.title }}</a>
+        <p class="tool-post-alert-subtitle">{{ alert_subtitle }}</p>
+      </div>
+      <a href="{{ latest_post.url | relative_url }}" class="tool-post-alert-cta" onclick="gtag('event', 'click', {'event_category': 'Tool Post Alert', 'event_label': 'Read'});">
+        Read
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  {% else %}
+    <div class="tool-post-alert-header">
+      <span class="tool-post-alert-label">From the blog</span>
+    </div>
+    <p class="tool-post-alert-site-title">System design guides, explainers &amp; developer tools</p>
+    <p class="tool-post-alert-subtitle">{{ site.description | truncatewords: 20 }}</p>
+    <a href="{{ '/' | relative_url }}" class="tool-post-alert-cta">Browse posts</a>
+  {% endif %}
+  <p class="tool-post-alert-links">
+    <a href="{{ '/tools/' | relative_url }}">Developer tools</a>
+    <span aria-hidden="true">&middot;</span>
+    <a href="{{ '/' | relative_url }}">Latest posts</a>
+    <span aria-hidden="true">&middot;</span>
+    <a href="{{ '/explainers/' | relative_url }}">Explainers</a>
+  </p>
+</div>

@@ -234,6 +234,8 @@ css:
       Paste a CBOR payload as <strong>hex</strong> or <strong>base64</strong>, or drop a <code>.cbor</code> file, and see the decoded JSON instantly. Handles tags, bignums, byte strings, indefinite-length items, and COSE / CWT / CTAP2 structures. 100% client-side. nothing is uploaded.
     </p>
 
+    {% include ads/tool-banner.html %}
+
     <div class="cbor-tabs" role="tablist">
       <button class="cbor-tab-btn active" type="button" role="tab" aria-selected="true" aria-controls="decode-panel" id="tab-decode" data-tab="decode">
         <i class="fas fa-search"></i> Decode
@@ -242,8 +244,6 @@ css:
         <i class="fas fa-lightbulb"></i> Examples
       </button>
     </div>
-
-    {% include ads/tool-banner.html %}
 
     <div class="cbor-tab-panels">
       <div class="cbor-tab-panel" id="decode-panel" role="tabpanel" aria-labelledby="tab-decode" data-tab="decode">

@@ -1,4 +1,11 @@
-{% assign latest_post = site.posts | first %}
+{% assign latest_post = nil %}
+{% for post in site.posts %}
+  {% unless post.tags contains "dev-weekly" %}
+    {% assign latest_post = post %}
+    {% break %}
+  {% endunless %}
+{% endfor %}
+{% if latest_post %}
 <div class="new-post-alert">
   <div class="new-post-alert-content">
     <a href="{{ latest_post.url | relative_url }}" class="new-post-alert-thumbnail" onclick="gtag('event', 'click', {'event_category': 'New Post Alert', 'event_label': 'Thumbnail'});">
@@ -35,3 +42,4 @@
     </a>
   </div>
 </div>
+{% endif %}

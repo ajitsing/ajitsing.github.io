@@ -1,0 +1,393 @@
+---
+layout: default
+title: "SSL/TLS Certificate Decoder Online | Parse X.509 PEM & DER"
+subtitle: "Decode SSL certificates instantly. Inspect subject, issuer, validity, SANs, and fingerprints"
+seo: true
+description: "Free online SSL/TLS certificate decoder. Parse X.509 PEM and DER certificates in your browser. View subject, issuer, validity dates, SANs, key usage, fingerprints, and certificate chains. 100% client-side, no upload."
+keywords: "ssl certificate decoder, tls certificate decoder, x509 certificate decoder, certificate decoder online, pem certificate decoder, decode ssl certificate, parse x509 certificate, certificate inspector, ssl cert viewer, tls cert parser, certificate chain decoder, openssl certificate decoder alternative, view certificate details, certificate fingerprint, subject alternative name decoder, x509 pem decoder, der certificate decoder"
+thumbnail: /assets/img/tools/regex-tool-thumbnail.png
+share-img: /assets/img/tools/regex-tool-thumbnail.png
+permalink: /tools/ssl-certificate-decoder/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/ssl-certificate-decoder.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SSL/TLS Certificate Decoder",
+  "alternateName": ["SSL Certificate Decoder", "TLS Certificate Decoder", "X.509 Certificate Decoder", "PEM Certificate Decoder", "Certificate Inspector", "SSL Cert Viewer", "Certificate Chain Decoder", "X509 PEM Decoder"],
+  "description": "Free online SSL/TLS certificate decoder. Parse X.509 PEM and DER certificates in your browser. View subject, issuer, validity, SANs, fingerprints, and certificate chains.",
+  "url": "https://singhajit.com/tools/ssl-certificate-decoder/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Decode X.509 PEM and DER SSL/TLS certificates",
+    "Parse full certificate chains from pasted PEM bundles",
+    "View subject, issuer, serial number, and validity dates",
+    "Check certificate expiration status instantly",
+    "Inspect Subject Alternative Names (DNS, IP, email)",
+    "Display SHA-256 and SHA-1 fingerprints",
+    "Show public key algorithm and key size",
+    "List X.509 extensions with critical flag",
+    "Upload .pem, .crt, .cer, or .der files locally",
+    "100% client-side. Certificates never leave your browser"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/regex-tool-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "X.509 Certificate Reference",
+    "text": "X.509 certificates are the standard format for SSL/TLS. They contain a subject (who the cert is for), issuer (who signed it), validity period, public key, and extensions like Subject Alternative Names. Certificate chains link leaf certificates to intermediate and root CAs."
+  },
+  "keywords": "ssl certificate decoder, tls certificate decoder, x509 certificate decoder, pem certificate decoder, decode ssl certificate"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Decode an SSL/TLS Certificate Online",
+  "description": "Learn how to decode and inspect X.509 SSL/TLS certificates using this free online certificate decoder.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste or upload your certificate",
+      "text": "Paste PEM text (including BEGIN/END CERTIFICATE lines) or upload a .pem, .crt, .cer, or .der file. For certificate chains, paste the full bundle with multiple PEM blocks."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "View decoded certificate details",
+      "text": "The tool instantly parses each certificate and displays subject, issuer, serial number, validity dates, expiration status, public key info, and fingerprints."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Inspect SANs and extensions",
+      "text": "Review Subject Alternative Names for all hostnames and IPs covered by the certificate. Browse X.509 extensions including key usage and basic constraints."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Copy fingerprints for verification",
+      "text": "Copy SHA-256 or SHA-1 fingerprints to compare against server output from openssl x509 -fingerprint or your monitoring tools."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "SSL/TLS Certificate Decoder"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an X.509 SSL/TLS certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An X.509 certificate is a digital document that binds a public key to an identity (domain, organization, or device). Browsers and servers use it during TLS handshakes to establish encrypted HTTPS connections. It includes the subject, issuer, validity period, public key, and extensions like Subject Alternative Names."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I decode a PEM certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the full PEM text, including the -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- lines, into this decoder. The tool parses the Base64 content and displays all certificate fields instantly in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to decode SSL certificates online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This certificate decoder runs entirely in your browser using JavaScript. Your certificate is never uploaded to any server. However, private keys should never be pasted into any online tool. Only paste public certificates (.crt, .pem without private keys)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this tool decode a certificate chain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Paste a PEM bundle containing multiple certificates (leaf, intermediate, and root). The decoder parses each PEM block separately and labels them as leaf, intermediate, or root in the chain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Subject Alternative Name (SAN)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subject Alternative Names list additional identities covered by a certificate beyond the Common Name, such as DNS hostnames, IP addresses, and email addresses. Modern browsers require the hostname to match a SAN entry, not just the CN field."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check if a certificate is expired?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the certificate into this tool. It reads the notBefore and notAfter validity fields and shows whether the certificate is valid, expired, or not yet valid, along with human-readable dates and days until expiry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between PEM and DER format?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PEM is Base64-encoded text with BEGIN/END headers, commonly used in .pem and .crt files. DER is the raw binary ASN.1 encoding, used in .der and some .cer files. This tool supports both: paste PEM text or upload DER files directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do certificate fingerprints work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A certificate fingerprint is a hash (SHA-256 or SHA-1) of the entire DER-encoded certificate. It provides a short unique identifier for pinning and verification. Compare fingerprints from this tool with openssl x509 -noout -fingerprint -sha256 output."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SSL/TLS Certificate Decoder",
+      "item": "https://singhajit.com/tools/ssl-certificate-decoder/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="ssl-page-wrapper">
+  <div class="ssl-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-lock"></i>
+        SSL/TLS Certificate Decoder
+      </h1>
+      <p class="tool-subtitle">Decode X.509 certificates. Inspect subject, issuer, validity, SANs, and fingerprints</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>SSL certificate decoder</strong> to parse <strong>X.509 PEM and DER</strong> certificates instantly. View <strong>subject</strong>, <strong>issuer</strong>, <strong>validity dates</strong>, <strong>expiration status</strong>, <strong>Subject Alternative Names</strong>, <strong>fingerprints</strong>, and full <strong>certificate chains</strong>. Perfect for debugging TLS, HTTPS, and mTLS issues. 100% client-side. your certificates never leave your browser.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="ssl-decoder-main">
+      <div class="ssl-input-section">
+        <div class="section-header">
+          <label for="cert-input"><i class="fas fa-certificate"></i> Certificate Input</label>
+          <div class="input-actions">
+            <button type="button" id="paste-btn" class="btn-mini" title="Paste from clipboard">
+              <i class="fas fa-paste"></i> Paste
+            </button>
+            <button type="button" id="sample-btn" class="btn-mini" title="Load sample certificate">
+              <i class="fas fa-flask"></i> Sample
+            </button>
+            <button type="button" id="clear-btn" class="btn-mini" title="Clear input">
+              <i class="fas fa-trash-alt"></i> Clear
+            </button>
+          </div>
+        </div>
+
+        <div class="input-mode-row">
+          <span class="input-mode-label">Input:</span>
+          <div class="input-mode-buttons" role="group" aria-label="Input format">
+            <button type="button" class="mode-btn active" data-mode="pem">
+              <i class="fas fa-file-alt"></i> PEM
+            </button>
+            <button type="button" class="mode-btn" data-mode="der">
+              <i class="fas fa-hashtag"></i> Base64 DER
+            </button>
+            <button type="button" class="mode-btn" data-mode="file">
+              <i class="fas fa-file-upload"></i> File
+            </button>
+          </div>
+        </div>
+
+        <div id="text-input-wrapper" class="text-input-wrapper">
+          <label for="cert-input" class="sr-only">PEM certificate</label>
+          <textarea
+            id="cert-input"
+            spellcheck="false"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="-----BEGIN CERTIFICATE-----&#10;MIIDXTCCAkWgAwIBAgIJAKoL...&#10;-----END CERTIFICATE-----"
+            aria-describedby="cert-input-help"
+          ></textarea>
+          <p id="cert-input-help" class="input-help">
+            <i class="fas fa-info-circle"></i>
+            Paste one or more PEM blocks for a full chain. Decoding runs as you type.
+          </p>
+        </div>
+
+        <div id="file-input-wrapper" class="file-input-wrapper hidden">
+          <label for="cert-file" class="file-drop-zone" id="file-drop-zone">
+            <input type="file" id="cert-file" accept=".pem,.crt,.cer,.der,.txt" hidden>
+            <div class="file-drop-inner">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span class="file-drop-primary">Drop a certificate file here</span>
+              <span class="file-drop-secondary">or click to browse · <code>.pem</code> <code>.crt</code> <code>.cer</code> <code>.der</code> · processed locally</span>
+            </div>
+          </label>
+        </div>
+
+        <div id="parse-status" class="parse-status" role="status" aria-live="polite"></div>
+      </div>
+
+      <div id="results-section" class="results-section" style="display:none;">
+        <div id="chain-summary" class="chain-summary"></div>
+        <div id="cert-results"></div>
+      </div>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Common Certificate Fields</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Distinguished Name (DN)</h4>
+          <table>
+            <tr><td><code>CN</code></td><td>Common Name (hostname or entity)</td></tr>
+            <tr><td><code>O</code></td><td>Organization</td></tr>
+            <tr><td><code>OU</code></td><td>Organizational Unit</td></tr>
+            <tr><td><code>C</code></td><td>Country</td></tr>
+            <tr><td><code>ST</code></td><td>State or province</td></tr>
+            <tr><td><code>L</code></td><td>Locality (city)</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Key Algorithms</h4>
+          <table>
+            <tr><td><code>RSA</code></td><td>2048 or 4096-bit (legacy, widely supported)</td></tr>
+            <tr><td><code>ECDSA</code></td><td>P-256, P-384 (modern, smaller keys)</td></tr>
+            <tr><td><code>SHA-256</code></td><td>Recommended signature hash</td></tr>
+            <tr><td><code>SHA-1</code></td><td>Deprecated for new certificates</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> SSL/TLS Certificate Guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is an SSL/TLS certificate?</h2>
+          <p>An <strong>SSL/TLS certificate</strong> (technically an <strong>X.509</strong> certificate) proves identity during the TLS handshake that powers HTTPS. When you visit a website, the server presents its certificate; your browser verifies the signature chain up to a trusted root CA before establishing an encrypted connection.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>PEM vs DER format</h2>
+          <ul>
+            <li><strong>PEM:</strong> Base64 text with <code>-----BEGIN CERTIFICATE-----</code> headers. Common in <code>.pem</code>, <code>.crt</code>, and nginx/Apache configs.</li>
+            <li><strong>DER:</strong> Raw binary ASN.1. Used in Java keystores and some <code>.cer</code> / <code>.der</code> files.</li>
+            <li><strong>Certificate chain:</strong> A PEM file may contain multiple blocks: leaf (your domain), intermediate CA, and root CA.</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Using this certificate decoder</h2>
+          <ul>
+            <li><strong>Paste PEM:</strong> Copy output from <code>openssl x509 -in cert.pem -text</code> source, or your load balancer config.</li>
+            <li><strong>Upload files:</strong> Drop <code>.pem</code>, <code>.crt</code>, or binary <code>.der</code> files. Processing stays in your browser.</li>
+            <li><strong>Check expiry:</strong> Validity badges show if each certificate is valid, expired, or not yet active.</li>
+            <li><strong>Verify hostnames:</strong> Review SAN entries to ensure all domains and IPs are covered.</li>
+            <li><strong>Never paste private keys:</strong> Only decode public certificates. Private keys must stay secret.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> SSL Certificate Decoder FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is an X.509 SSL/TLS certificate?</h3>
+        <p>An <strong>X.509 certificate</strong> binds a public key to an identity and is signed by a Certificate Authority. Browsers use it during TLS to verify the server and establish encrypted HTTPS. It contains subject, issuer, validity dates, public key, and extensions.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I decode a PEM certificate?</h3>
+        <p>Paste the full PEM text including <code>-----BEGIN CERTIFICATE-----</code> and <code>-----END CERTIFICATE-----</code> lines. The decoder parses each block and shows all fields with human-readable dates and expiration status.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is it safe to decode certificates online?</h3>
+        <p>This tool runs <strong>100% in your browser</strong>. Certificates are never uploaded. Do not paste private keys. only public certificate files are safe to inspect here.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can this tool decode certificate chains?</h3>
+        <p>Yes. Paste a PEM bundle with multiple certificates. Each certificate is parsed separately and labeled as leaf, intermediate, or root in the chain.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What are Subject Alternative Names (SANs)?</h3>
+        <p><strong>SANs</strong> list all DNS names, IP addresses, and emails the certificate covers. Modern browsers require the hostname to match a SAN entry. A cert for <code>*.example.com</code> must list wildcards and apex domains correctly.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I check certificate expiration?</h3>
+        <p>Paste the certificate and look at the validity badge on each card. The tool shows <code>notBefore</code> and <code>notAfter</code> dates plus days until expiry or days since expiration.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do fingerprints compare to OpenSSL?</h3>
+        <p>SHA-256 and SHA-1 fingerprints match <code>openssl x509 -noout -fingerprint -sha256 -in cert.pem</code>. Use them to verify you are inspecting the same certificate served by your host.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/node-forge@1.3.1/dist/forge.min.js"></script>
+<script src="{{ '/assets/js/ssl-certificate-decoder.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

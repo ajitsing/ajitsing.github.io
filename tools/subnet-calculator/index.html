@@ -1,0 +1,591 @@
+---
+layout: default
+title: "Subnet Calculator | IPv4 & IPv6 CIDR Calculator"
+subtitle: "Free online IP subnet calculator. Calculate network, broadcast, host range, and subnet mask"
+seo: true
+description: "Free online subnet calculator for IPv4 and IPv6. Calculate network address, broadcast, CIDR, subnet mask, wildcard mask, usable hosts, and split subnets. Client-side, no signup."
+keywords: "subnet calculator, ip subnet calculator, cidr calculator, ipv4 subnet calculator, ipv6 subnet calculator, vlsm calculator, subnet mask calculator, network calculator, cidr to subnet mask, subnet mask calculator online, /24 subnet calculator, network address calculator, broadcast address calculator, ip range calculator, cidr notation, wildcard mask calculator, ip calculator, subnetting calculator, calculate subnet mask, ip subnet mask, ipv4 calculator, ipv6 prefix calculator, vlsm subnet calculator, classless inter domain routing, how many hosts in /24"
+thumbnail: /assets/img/tools/subnet-calculator-thumbnail.png
+share-img: /assets/img/tools/subnet-calculator-thumbnail.png
+permalink: /tools/subnet-calculator/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/subnet-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Subnet Calculator",
+  "alternateName": ["IP Subnet Calculator", "CIDR Calculator", "IPv4 Subnet Calculator", "IPv6 Subnet Calculator", "Subnet Mask Calculator", "Network Calculator", "VLSM Calculator", "IP Calculator", "CIDR to Subnet Mask", "Broadcast Address Calculator", "Network Address Calculator"],
+  "description": "Free online subnet calculator for IPv4 and IPv6. Calculate network address, broadcast, subnet mask, wildcard mask, usable hosts, host range, and split subnets instantly in your browser.",
+  "url": "https://singhajit.com/tools/subnet-calculator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Calculate IPv4 subnet from IP address and CIDR or subnet mask",
+    "Network address, broadcast, first and last usable host",
+    "Subnet mask, wildcard mask, and binary mask display",
+    "IPv6 prefix calculator with expanded and compressed notation",
+    "CIDR cheat sheet table for /0 through /32",
+    "Split subnet helper for VLSM planning",
+    "Common subnet presets (/24, /16, /8, point-to-point /30)",
+    "100% client-side — no data sent to servers",
+    "Copy any result with one click"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/subnet-calculator-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "Subnetting Reference",
+    "text": "CIDR notation appends a prefix length to an IP (e.g. 192.168.1.0/24). The prefix is the number of network bits. A /24 subnet has 256 addresses (254 usable hosts). Subnet mask 255.255.255.0 equals /24. Wildcard mask is the inverse of the subnet mask."
+  },
+  "keywords": "subnet calculator, cidr calculator, ip subnet calculator, subnet mask calculator, ipv4 subnet calculator, ipv6 subnet calculator"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Calculate Subnets Online",
+  "description": "Use this free subnet calculator to find network address, broadcast, host range, and subnet mask from an IP address and CIDR prefix.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your IP address and CIDR",
+      "text": "Type an IPv4 address like 192.168.1.10/24 or an IPv6 address like 2001:db8::1/64. You can also enter the IP and pick the prefix length with the slider."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Review subnet details",
+      "text": "The calculator shows network address, broadcast, subnet mask, wildcard mask, first and last usable host, and total usable addresses."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Split subnets for VLSM",
+      "text": "Choose a longer prefix in the Split Subnet section to list child subnets carved from your network block."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Subnet Calculator"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a subnet calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A subnet calculator is an online tool that computes network details from an IP address and CIDR prefix or subnet mask. It returns the network address, broadcast address, host range, subnet mask, wildcard mask, and number of usable hosts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is CIDR notation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CIDR (Classless Inter-Domain Routing) notation writes an IP address followed by a slash and prefix length, such as 192.168.1.0/24. The number after the slash (24) means 24 bits are used for the network portion, leaving 8 bits for hosts — 256 addresses total, 254 usable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many hosts are in a /24 subnet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A /24 subnet has 256 total IP addresses. After reserving the network address and broadcast address, there are 254 usable host addresses. Subnet mask 255.255.255.0 is equivalent to /24."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between subnet mask and wildcard mask?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A subnet mask marks which bits belong to the network (1s) versus hosts (0s). A wildcard mask is the bitwise inverse — used in ACLs and OSPF to match host portions. For /24, subnet mask is 255.255.255.0 and wildcard is 0.0.0.255."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a /30 subnet used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A /30 subnet provides 4 addresses (2 usable hosts) and is commonly used for point-to-point links between routers. It minimizes wasted addresses on WAN links."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are private IP address ranges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RFC 1918 private ranges: 10.0.0.0/8 (10.0.0.0–10.255.255.255), 172.16.0.0/12 (172.16.0.0–172.31.255.255), and 192.168.0.0/16 (192.168.0.0–192.168.255.255). These are not routable on the public internet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert CIDR to subnet mask?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Count the number of consecutive 1 bits in the 32-bit mask. /24 means 24 ones: 255.255.255.0. /16 is 255.255.0.0. /8 is 255.0.0.0. This subnet calculator converts CIDR to dotted-decimal mask automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is VLSM subnetting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Variable Length Subnet Masking (VLSM) divides a network into subnets of different sizes using different prefix lengths. For example, splitting a /24 into four /26 subnets. Use the Split Subnet feature in this tool to list child subnets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does IPv6 subnetting work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IPv6 uses 128-bit addresses with prefix lengths from /0 to /128. A typical LAN uses /64 (18 quintillion addresses per subnet). This calculator shows network prefix, address range, and compressed IPv6 notation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the network address vs broadcast address?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The network address has all host bits set to 0 — it identifies the subnet. The broadcast address has all host bits set to 1 — packets sent here reach all hosts on the subnet. Neither is assigned to a host."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this subnet calculator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This subnet calculator runs entirely in your browser. No signup, no server uploads, and no limits on calculations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does /32 mean in CIDR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A /32 is a single-host route — one IP address, often used for loopback or host routes. There is 1 address and typically 1 usable host (the host itself). Subnet mask is 255.255.255.255."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Subnet Calculator",
+      "item": "https://singhajit.com/tools/subnet-calculator/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Table",
+  "about": "IPv4 CIDR subnet mask reference with usable hosts",
+  "name": "CIDR Subnet Mask Cheat Sheet",
+  "description": "Reference table of CIDR prefix lengths /0 through /32 with subnet mask, wildcard mask, and host counts.",
+  "keywords": "cidr table, subnet mask chart, /24 hosts, cidr cheat sheet"
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="subnet-page-wrapper">
+  <div class="subnet-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-network-wired"></i>
+        Subnet Calculator
+      </h1>
+      <p class="tool-subtitle">Calculate IPv4 &amp; IPv6 subnets — network, broadcast, mask, and host range</p>
+    </header>
+
+    <p class="tool-intro">
+      Free <strong>subnet calculator</strong> and <strong>CIDR calculator</strong> for network engineers and developers. Enter an IP and prefix to get network address, broadcast, <strong>subnet mask</strong>, wildcard mask, usable hosts, and host range. Supports <strong>IPv4 subnet calculator</strong> and <strong>IPv6 prefix</strong> modes. 100% client-side — your IPs never leave the browser.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="ipv4" type="button">
+        <i class="fas fa-globe"></i>
+        IPv4 Subnet
+      </button>
+      <button class="mode-tab" data-mode="ipv6" type="button">
+        <i class="fas fa-project-diagram"></i>
+        IPv6 Prefix
+      </button>
+    </div>
+
+    <section id="ipv4-mode" class="mode-content active">
+      <div class="calculator-main">
+        <div class="input-section">
+          <label for="ipv4-input"><i class="fas fa-keyboard"></i> IPv4 Address (CIDR or IP)</label>
+          <div class="input-row">
+            <input type="text" id="ipv4-input" class="input-primary" placeholder="192.168.1.10/24" autocomplete="off" spellcheck="false">
+            <div class="cidr-controls">
+              <div class="cidr-row">
+                <span class="cidr-label">Prefix</span>
+                <select id="ipv4-cidr" class="cidr-select" aria-label="CIDR prefix length">
+                  {% for i in (0..32) %}
+                  <option value="{{ i }}"{% if i == 24 %} selected{% endif %}>/{{ i }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <input type="range" id="ipv4-cidr-slider" class="cidr-slider" min="0" max="32" value="24" aria-label="CIDR slider">
+            </div>
+          </div>
+          <div class="mask-row">
+            <label for="ipv4-mask-input">Subnet mask</label>
+            <input type="text" id="ipv4-mask-input" class="mask-input" value="255.255.255.0" placeholder="255.255.255.0" autocomplete="off" spellcheck="false">
+          </div>
+          <p id="ipv4-error" class="input-error" hidden></p>
+        </div>
+
+        <div class="presets-section">
+          <div class="presets-label"><i class="fas fa-bolt"></i> Common Subnets</div>
+          <div class="presets-chips">
+            <button type="button" class="preset-chip" data-cidr="8">/8</button>
+            <button type="button" class="preset-chip" data-cidr="16">/16</button>
+            <button type="button" class="preset-chip" data-cidr="22">/22</button>
+            <button type="button" class="preset-chip" data-cidr="23">/23</button>
+            <button type="button" class="preset-chip" data-cidr="24">/24</button>
+            <button type="button" class="preset-chip" data-cidr="26">/26</button>
+            <button type="button" class="preset-chip" data-cidr="27">/27</button>
+            <button type="button" class="preset-chip" data-cidr="28">/28</button>
+            <button type="button" class="preset-chip" data-cidr="29">/29</button>
+            <button type="button" class="preset-chip" data-cidr="30">/30</button>
+          </div>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-label">Network Address</div>
+            <div class="result-value" id="r-network">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-network" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Broadcast Address</div>
+            <div class="result-value" id="r-broadcast">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-broadcast" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">First Usable Host</div>
+            <div class="result-value" id="r-first">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-first" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Last Usable Host</div>
+            <div class="result-value" id="r-last">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-last" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Usable Hosts</div>
+            <div class="result-value" id="r-usable">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-usable" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Addresses</div>
+            <div class="result-value" id="r-total">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-total" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Subnet Mask</div>
+            <div class="result-value" id="r-mask">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-mask" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Wildcard Mask</div>
+            <div class="result-value" id="r-wildcard">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-wildcard" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card result-card-wide">
+            <div class="result-label">Mask (Binary)</div>
+            <div class="result-value" id="r-mask-binary">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-mask-binary" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">CIDR Notation</div>
+            <div class="result-value" id="r-cidr">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-cidr" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">IP Class</div>
+            <div class="result-value" id="r-class">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-class" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Scope</div>
+            <div class="result-value" id="r-scope">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-scope" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">IP Type</div>
+            <div class="result-value" id="r-type">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-type" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Hex IP</div>
+            <div class="result-value" id="r-hex">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-hex" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Integer IP</div>
+            <div class="result-value" id="r-integer">—</div>
+            <button type="button" class="btn-copy-result" data-target="r-integer" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+
+        <div class="split-section">
+          <h4><i class="fas fa-sitemap"></i> Split Subnet (VLSM)</h4>
+          <div class="split-controls">
+            <label for="split-prefix">Split into prefix</label>
+            <select id="split-prefix" class="cidr-select" aria-label="Split subnet prefix">
+              {% for i in (1..32) %}
+              <option value="{{ i }}"{% if i == 26 %} selected{% endif %}>/{{ i }}</option>
+              {% endfor %}
+            </select>
+            <span class="cidr-label">(must be longer than current prefix)</span>
+          </div>
+          <div id="split-results" class="split-results" hidden>
+            <table class="split-table">
+              <thead>
+                <tr>
+                  <th>Subnet (CIDR)</th>
+                  <th>Network</th>
+                  <th>Broadcast</th>
+                </tr>
+              </thead>
+              <tbody id="split-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ipv6-mode" class="mode-content">
+      <div class="calculator-main">
+        <div class="input-section">
+          <label for="ipv6-input"><i class="fas fa-keyboard"></i> IPv6 Address (with optional /prefix)</label>
+          <div class="input-row">
+            <input type="text" id="ipv6-input" class="input-primary" placeholder="2001:db8::1/64" autocomplete="off" spellcheck="false">
+            <div class="cidr-controls">
+              <div class="cidr-row">
+                <span class="cidr-label">Prefix</span>
+                <select id="ipv6-cidr" class="cidr-select" aria-label="IPv6 prefix length">
+                  {% for i in (0..128) %}
+                  <option value="{{ i }}"{% if i == 64 %} selected{% endif %}>/{{ i }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <input type="range" id="ipv6-cidr-slider" class="cidr-slider" min="0" max="128" value="64" aria-label="IPv6 prefix slider">
+            </div>
+          </div>
+          <p id="ipv6-error" class="input-error" hidden></p>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-card result-card-wide">
+            <div class="result-label">Expanded Address</div>
+            <div class="result-value" id="v6-expanded">—</div>
+            <button type="button" class="btn-copy-result" data-target="v6-expanded" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Compressed Address</div>
+            <div class="result-value" id="v6-compressed">—</div>
+            <button type="button" class="btn-copy-result" data-target="v6-compressed" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Network Prefix</div>
+            <div class="result-value" id="v6-prefix">—</div>
+            <button type="button" class="btn-copy-result" data-target="v6-prefix" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">First Address</div>
+            <div class="result-value" id="v6-first">—</div>
+            <button type="button" class="btn-copy-result" data-target="v6-first" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Last Address</div>
+            <div class="result-value" id="v6-last">—</div>
+            <button type="button" class="btn-copy-result" data-target="v6-last" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Addresses</div>
+            <div class="result-value" id="v6-total">—</div>
+            <button type="button" class="btn-copy-result" data-target="v6-total" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Address Type</div>
+            <div class="result-value" id="v6-type">—</div>
+            <button type="button" class="btn-copy-result" data-target="v6-type" title="Copy"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-table"></i> CIDR Subnet Mask Cheat Sheet</h3>
+      <p class="examples-intro">Click any row to apply that <strong>CIDR prefix</strong> in the IPv4 calculator. Subnet mask, wildcard mask, and host counts for <strong>/0</strong> through <strong>/32</strong>.</p>
+      <div class="reference-table-wrapper">
+        <table class="cidr-table">
+          <thead>
+            <tr>
+              <th>CIDR</th>
+              <th>Subnet Mask</th>
+              <th>Wildcard</th>
+              <th>Usable Hosts</th>
+              <th>Total Addresses</th>
+            </tr>
+          </thead>
+          <tbody id="cidr-table-body"></tbody>
+        </table>
+      </div>
+      <p class="table-hint"><i class="fas fa-hand-pointer"></i> Click any row to load that prefix in the calculator</p>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Subnetting &amp; CIDR Guide</h3>
+      <div class="syntax-guide-content">
+        <article class="guide-article">
+          <h2>How CIDR Subnetting Works</h2>
+          <p><strong>CIDR</strong> (Classless Inter-Domain Routing) replaces old classful networks (Class A, B, C) with flexible prefix lengths. An address like <code>10.0.5.20/22</code> means the first 22 bits identify the network; the remaining 10 bits are for hosts.</p>
+          <p>To find the <strong>network address</strong>, bitwise-AND the IP with the subnet mask. To find the <strong>broadcast</strong>, OR the network with the inverted mask (wildcard mask).</p>
+        </article>
+        <article class="guide-article">
+          <h2>Subnet Mask vs Wildcard Mask</h2>
+          <p>The <strong>subnet mask</strong> uses 1s for network bits and 0s for host bits. A <strong>wildcard mask</strong> flips this — 0s where bits must match, 1s where bits are ignored. ACLs on Cisco gear use wildcard masks: <code>0.0.0.255</code> matches any host in the last octet.</p>
+        </article>
+        <article class="guide-article">
+          <h2>Private IP Ranges (RFC 1918)</h2>
+          <ul>
+            <li><strong>10.0.0.0/8</strong> — 16,777,216 addresses (large corporate networks)</li>
+            <li><strong>172.16.0.0/12</strong> — 1,048,576 addresses (medium networks)</li>
+            <li><strong>192.168.0.0/16</strong> — 65,536 addresses (home and office LANs)</li>
+          </ul>
+        </article>
+        <article class="guide-article">
+          <h2>Common Subnet Sizes</h2>
+          <ul>
+            <li><strong>/32</strong> — Single host route (1 address)</li>
+            <li><strong>/30</strong> — Point-to-point WAN link (2 usable hosts)</li>
+            <li><strong>/24</strong> — Typical VLAN or office subnet (254 usable hosts)</li>
+            <li><strong>/16</strong> — Large site block (65,534 usable hosts)</li>
+            <li><strong>/8</strong> — Very large allocation (16M+ hosts)</li>
+          </ul>
+        </article>
+        <article class="guide-article">
+          <h2>IPv6 Prefixes</h2>
+          <p>IPv6 subnets are almost always <strong>/64</strong> on LANs — one subnet per interface with a vast address space. <strong>fc00::/7</strong> is Unique Local (ULA, like private IPv4). <strong>fe80::/10</strong> is link-local. Use the IPv6 tab above for prefix calculations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> Subnet Calculator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a subnet calculator?</h3>
+        <p>A <strong>subnet calculator</strong> computes network details from an IP address and CIDR prefix or subnet mask: network address, broadcast, host range, mask, wildcard, and usable host count.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is CIDR notation?</h3>
+        <p><strong>CIDR notation</strong> appends a slash and prefix length to an IP, e.g. <code>192.168.1.0/24</code>. The number 24 means 24 network bits — mask <code>255.255.255.0</code> and 254 usable hosts.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How many hosts are in a /24 subnet?</h3>
+        <p>A <strong>/24</strong> has 256 total addresses. Subtract network and broadcast for <strong>254 usable hosts</strong>. Mask: <code>255.255.255.0</code>.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the difference between subnet mask and wildcard mask?</h3>
+        <p><strong>Subnet mask</strong> marks network bits (1s). <strong>Wildcard mask</strong> is the inverse — used in ACLs. For /24: mask <code>255.255.255.0</code>, wildcard <code>0.0.0.255</code>.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is a /30 subnet used for?</h3>
+        <p><strong>/30</strong> gives 4 addresses (2 usable) — ideal for router-to-router point-to-point links with minimal waste.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What are private IP address ranges?</h3>
+        <p><strong>RFC 1918:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. Not routable on the public internet.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I convert CIDR to subnet mask?</h3>
+        <p>Add consecutive 1 bits left to right in a 32-bit word. /24 → <code>255.255.255.0</code>. This tool converts automatically when you change the prefix slider.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is VLSM subnetting?</h3>
+        <p><strong>VLSM</strong> uses different prefix lengths in one network. Split a /24 into four /26 subnets using the Split Subnet section above.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How does IPv6 subnetting work?</h3>
+        <p>IPv6 uses 128-bit addresses. Typical LAN prefix is <strong>/64</strong>. Enter an address in the IPv6 tab to see expanded, compressed, and network prefix forms.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the network address vs broadcast address?</h3>
+        <p><strong>Network address</strong> = all host bits 0. <strong>Broadcast</strong> = all host bits 1. Neither is assigned to a host interface.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is this subnet calculator free?</h3>
+        <p>Yes — 100% free, runs in your browser, no signup, no server uploads.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What does /32 mean in CIDR?</h3>
+        <p><strong>/32</strong> is a single-host route with mask <code>255.255.255.255</code> — one IP, often used for host routes or loopbacks.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script defer src="{{ '/assets/js/subnet-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

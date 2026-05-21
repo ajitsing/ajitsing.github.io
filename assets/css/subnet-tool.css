@@ -1,0 +1,745 @@
+/* ==============================================
+   Subnet Calculator Tool Styles
+   Matches existing tool theme (warm cream/beige)
+   ============================================== */
+
+.subnet-page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+}
+
+.subnet-tool {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0;
+  background: #faf8f5;
+}
+
+body:has(.subnet-tool) {
+  background: #faf8f5 !important;
+}
+
+.subnet-tool .tool-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 16px;
+  color: #faf8f5;
+  box-shadow: 0 4px 20px rgba(41, 37, 36, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.subnet-tool .tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #faf8f5;
+  position: relative;
+  z-index: 1;
+}
+
+.subnet-tool .tool-title i {
+  font-size: 1.6rem;
+  color: #fef3c7;
+  animation: pulse-network 2s ease-in-out infinite;
+}
+
+@keyframes pulse-network {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+.subnet-tool .tool-subtitle {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #d6d3d1;
+  margin: 0;
+  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+}
+
+.subnet-tool .tool-intro {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #57534e;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+  max-width: 800px;
+}
+
+.subnet-tool .tool-intro strong {
+  color: #44403c;
+}
+
+.subnet-tool .tool-intro code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.88rem;
+}
+
+/* Mode Tabs */
+.subnet-tool .mode-tabs {
+  display: flex;
+  margin-bottom: 24px;
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.subnet-tool .mode-tab {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #78716c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.subnet-tool .mode-tab:hover {
+  color: #44403c;
+}
+
+.subnet-tool .mode-tab.active {
+  background: #fffdf9;
+  color: #292524;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.subnet-tool .mode-content {
+  display: none;
+}
+
+.subnet-tool .mode-content.active {
+  display: block;
+}
+
+/* Calculator Panel */
+.subnet-tool .calculator-main {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.subnet-tool .input-section {
+  margin-bottom: 20px;
+}
+
+.subnet-tool .input-section > label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.subnet-tool .input-section > label i {
+  color: #78716c;
+}
+
+.subnet-tool .input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.subnet-tool .input-primary {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 1rem;
+  border: 2px solid #e7e0d5;
+  border-radius: 10px;
+  background: #292524;
+  color: #fef3c7;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.subnet-tool .input-primary:focus {
+  border-color: #78716c;
+}
+
+.subnet-tool .input-primary::placeholder {
+  color: #57534e;
+}
+
+.subnet-tool .cidr-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.subnet-tool .cidr-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subnet-tool .cidr-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #57534e;
+  white-space: nowrap;
+}
+
+.subnet-tool .cidr-select {
+  padding: 8px 10px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #292524;
+  cursor: pointer;
+  min-width: 72px;
+}
+
+.subnet-tool .cidr-slider {
+  width: 100%;
+  accent-color: #44403c;
+  cursor: pointer;
+}
+
+.subnet-tool .mask-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.subnet-tool .mask-row label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #57534e;
+}
+
+.subnet-tool .mask-input {
+  flex: 1;
+  min-width: 160px;
+  max-width: 200px;
+  padding: 8px 12px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #f5f0e8;
+  color: #292524;
+  outline: none;
+}
+
+.subnet-tool .mask-input:focus {
+  border-color: #78716c;
+  background: #fffdf9;
+}
+
+.subnet-tool .input-error {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #b91c1c;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+}
+
+.subnet-tool .input-error[hidden] {
+  display: none;
+}
+
+/* Presets */
+.subnet-tool .presets-section {
+  margin-bottom: 20px;
+}
+
+.subnet-tool .presets-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #57534e;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.subnet-tool .presets-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.subnet-tool .preset-chip {
+  padding: 6px 14px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 20px;
+  color: #44403c;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.subnet-tool .preset-chip:hover {
+  background: #292524;
+  color: #fef3c7;
+  border-color: #292524;
+}
+
+/* Results Grid */
+.subnet-tool .results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.subnet-tool .result-card {
+  background: #f5f0e8;
+  border: 2px solid #e7e0d5;
+  border-radius: 10px;
+  padding: 12px 14px;
+  position: relative;
+}
+
+.subnet-tool .result-card-wide {
+  grid-column: 1 / -1;
+}
+
+.subnet-tool .result-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #78716c;
+  margin-bottom: 4px;
+}
+
+.subnet-tool .result-value {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #292524;
+  word-break: break-all;
+  padding-right: 32px;
+}
+
+.subnet-tool .result-value.result-placeholder {
+  color: #a8a29e;
+  font-weight: 500;
+}
+
+.subnet-tool .result-value.result-error {
+  color: #b91c1c;
+}
+
+.subnet-tool .btn-copy-result {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: 1px solid #d6cfc4;
+  color: #78716c;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.15s ease;
+}
+
+.subnet-tool .btn-copy-result:hover {
+  background: #292524;
+  color: #fef3c7;
+  border-color: #292524;
+}
+
+/* Split Subnet */
+.subnet-tool .split-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #e7e0d5;
+}
+
+.subnet-tool .split-section h4 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subnet-tool .split-section h4 i {
+  color: #78716c;
+}
+
+.subnet-tool .split-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.subnet-tool .split-controls label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #57534e;
+}
+
+.subnet-tool .split-results {
+  overflow-x: auto;
+}
+
+.subnet-tool .split-results[hidden] {
+  display: none;
+}
+
+.subnet-tool .split-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+.subnet-tool .split-table th,
+.subnet-tool .split-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.subnet-tool .split-table th {
+  background: #f5f0e8;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.subnet-tool .split-table code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+}
+
+/* Reference / FAQ / Guide - shared with chmod pattern */
+.subnet-tool .reference-section {
+  margin-bottom: 32px;
+}
+
+.subnet-tool .reference-section h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subnet-tool .reference-section h3 i {
+  color: #059669;
+}
+
+.subnet-tool .reference-table-wrapper {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.subnet-tool .cidr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+.subnet-tool .cidr-table th,
+.subnet-tool .cidr-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.subnet-tool .cidr-table th {
+  background: #f5f0e8;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+}
+
+.subnet-tool .cidr-table td {
+  color: #57534e;
+}
+
+.subnet-tool .cidr-table code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.85rem;
+  background: #292524;
+  color: #fef3c7;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.subnet-tool .cidr-table .cidr-example-row {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.subnet-tool .cidr-table .cidr-example-row:hover {
+  background: #f5f0e8;
+}
+
+.subnet-tool .table-hint {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  color: #a8a29e;
+  text-align: center;
+  margin: 12px 0 0 0;
+}
+
+.subnet-tool .table-hint i {
+  margin-right: 4px;
+}
+
+.subnet-tool .examples-intro {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+.subnet-tool .syntax-guide-section {
+  margin-bottom: 32px;
+}
+
+.subnet-tool .syntax-guide-section > h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subnet-tool .syntax-guide-section > h3 i {
+  color: #7c3aed;
+}
+
+.subnet-tool .syntax-guide-content {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.subnet-tool .guide-article {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.subnet-tool .guide-article:last-child {
+  border-bottom: none;
+}
+
+.subnet-tool .guide-article h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+}
+
+.subnet-tool .guide-article p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+}
+
+.subnet-tool .guide-article code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.subnet-tool .guide-article ul {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0;
+}
+
+.subnet-tool .guide-article li {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  padding: 8px 0 8px 20px;
+  position: relative;
+  border-bottom: 1px solid #f5f0e8;
+}
+
+.subnet-tool .guide-article li::before {
+  content: "•";
+  color: #059669;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.subnet-tool .guide-article li strong {
+  color: #292524;
+}
+
+.subnet-tool .faq-section {
+  margin-bottom: 32px;
+  padding: 30px;
+  background: #f5f0e8;
+  border-radius: 16px;
+  border: 2px solid #e7e0d5;
+}
+
+.subnet-tool .faq-section > h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subnet-tool .faq-section > h2 i {
+  color: #78716c;
+}
+
+.subnet-tool .faq-item {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.subnet-tool .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.subnet-tool .faq-item h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 10px 0;
+}
+
+.subnet-tool .faq-item p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.subnet-tool .faq-item code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  color: #fef3c7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .subnet-tool .tool-title {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .subnet-tool .tool-header {
+    padding: 28px 20px;
+  }
+
+  .subnet-tool .input-row {
+    flex-direction: column;
+  }
+
+  .subnet-tool .cidr-controls {
+    width: 100%;
+  }
+
+  .subnet-tool .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subnet-tool .calculator-main {
+    padding: 16px;
+  }
+
+  .subnet-tool .faq-section {
+    padding: 20px 16px;
+  }
+}

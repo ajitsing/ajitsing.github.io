@@ -1,0 +1,483 @@
+---
+layout: default
+title: "User Agent Parser Online | Decode Browser, OS, Device from UA String"
+subtitle: "Parse user agent strings instantly. Detect browser, OS, device type, and bots"
+seo: true
+description: "Free online user agent parser. Decode UA strings in your browser to identify browser name, version, engine, operating system, device vendor, model, and bot/crawler detection. Single and bulk mode. 100% client-side, no upload."
+keywords: "user agent parser, ua parser, browser detector, bot detector, parse user agent online, ua decoder, user-agent string analyzer, mobile tablet desktop detection, user agent lookup, what is my user agent, useragent parser, http user agent analyzer, crawler detection, device detection from ua"
+thumbnail: /assets/img/tools/regex-tool-thumbnail.png
+share-img: /assets/img/tools/regex-tool-thumbnail.png
+permalink: /tools/user-agent-parser/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/user-agent-parser.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="revisit-after" content="7 days">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "User Agent Parser",
+  "alternateName": ["UA Parser", "User-Agent Decoder", "Browser Detector", "User Agent Analyzer", "UA String Parser", "Bot Detector", "Device Detector"],
+  "description": "Free online user agent parser. Decode UA strings in your browser to identify browser, engine, OS, device, and bot/crawler status. Single and bulk parsing modes.",
+  "url": "https://singhajit.com/tools/user-agent-parser/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Parse any HTTP User-Agent string instantly",
+    "Detect browser name, version, and major version",
+    "Identify rendering engine and version",
+    "Extract operating system name and version",
+    "Show device vendor, model, and type (mobile, tablet, desktop)",
+    "Detect bots, crawlers, and HTTP clients",
+    "Auto-detect your current browser user agent",
+    "Bulk mode: parse thousands of UAs from logs",
+    "Export bulk results as CSV or JSON",
+    "100% client-side. User agents never leave your browser"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/regex-tool-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "User-Agent String Reference",
+    "text": "The User-Agent HTTP header identifies the client software making a request. It typically includes a Mozilla/5.0 compatibility token, platform details, rendering engine, and browser name/version. Servers use it for analytics, feature detection, and bot filtering."
+  },
+  "keywords": "user agent parser, ua parser, browser detector, bot detector, parse user agent online"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Parse a User Agent String Online",
+  "description": "Learn how to decode HTTP User-Agent strings using this free online user agent parser.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste or detect your user agent",
+      "text": "Paste a User-Agent string from server logs, browser devtools, or click My Browser to auto-fill navigator.userAgent from your current session."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "View parsed browser, OS, and device fields",
+      "text": "The tool instantly parses the string and displays browser name and version, engine, operating system, device vendor/model/type, CPU architecture, and bot detection status."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Use bulk mode for log analysis",
+      "text": "Switch to Bulk mode and paste one User-Agent per line from access logs. Review summary stats, browser/OS breakdowns, and export results as CSV or JSON."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Copy or export results",
+      "text": "Copy individual field values, the raw UA string, or export the full bulk table for reporting and analytics pipelines."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "User Agent Parser"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a User-Agent string?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A User-Agent (UA) string is sent in the User-Agent HTTP request header. It describes the client software—browser, app, or bot—making the request. Web servers and CDNs log it for analytics, compatibility checks, and bot filtering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a typical User-Agent look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most browsers start with Mozilla/5.0 followed by platform tokens like Windows NT 10.0 or iPhone, then AppleWebKit or Gecko engine details, and finally Chrome/120.0.0.0 Safari/537.36 with the actual browser name and version at the end."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I detect bots and crawlers from a User-Agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bots often include keywords like bot, crawl, spider, or specific names like Googlebot. HTTP clients like curl, wget, python-requests, and go-http-client also have distinctive UA strings. This parser combines ua-parser-js with additional heuristics to flag likely bots."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I tell mobile from desktop in a User-Agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mobile UAs include Mobile, Android, iPhone, or iPad tokens. Tablet UAs may list iPad or Android without Mobile. This tool reads device.type from the parser and shows a device class badge: desktop, mobile, tablet, or bot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are User-Agent Client Hints?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Client Hints (Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform) are newer HTTP headers that expose structured browser and platform data. They complement but do not replace the User-Agent string. This tool parses the classic User-Agent header only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can User-Agent strings be spoofed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Browsers, bots, and scripts can send any User-Agent string. Never rely on UA alone for security decisions. Use it for analytics and coarse device hints, and combine with Client Hints, TLS fingerprinting, or challenge flows for stronger assurance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to parse user agents online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This user agent parser runs entirely in your browser using JavaScript. Your UA strings are never uploaded to any server. Log data stays on your machine unless you choose to export it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this compare to command-line UA parsers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CLI tools like ua-parser (Python), useragent (npm), or httpd log modules offer similar parsing for scripts. This browser tool is ideal for quick inspection, sharing results with teammates, and bulk paste from logs without installing dependencies."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "User Agent Parser",
+      "item": "https://singhajit.com/tools/user-agent-parser/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="ua-page-wrapper">
+  <div class="ua-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-user-secret"></i>
+        User Agent Parser
+      </h1>
+      <p class="tool-subtitle">Decode UA strings. Identify browser, OS, device, and bots</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>user agent parser</strong> to decode any <strong>HTTP User-Agent</strong> string instantly. Identify <strong>browser</strong>, <strong>engine</strong>, <strong>operating system</strong>, <strong>device type</strong>, and <strong>bot/crawler</strong> status. Perfect for debugging analytics, log analysis, and compatibility checks. <strong>Single</strong> and <strong>bulk</strong> modes. 100% client-side — your data never leaves your browser.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="ua-parser-main">
+      <div class="ua-mode-row">
+        <span class="ua-mode-label">Mode:</span>
+        <div class="ua-mode-tabs" role="tablist" aria-label="Parse mode">
+          <button type="button" class="ua-mode-tab active" data-mode="single" role="tab" aria-selected="true">
+            <i class="fas fa-font"></i> Single
+          </button>
+          <button type="button" class="ua-mode-tab" data-mode="bulk" role="tab" aria-selected="false">
+            <i class="fas fa-list"></i> Bulk
+          </button>
+        </div>
+      </div>
+
+      <div id="single-panel" class="ua-panel active">
+        <div class="ua-input-section">
+          <div class="section-header">
+            <label for="ua-input"><i class="fas fa-terminal"></i> User-Agent String</label>
+            <div class="input-actions">
+              <button type="button" id="paste-btn" class="btn-mini" title="Paste from clipboard">
+                <i class="fas fa-paste"></i> Paste
+              </button>
+              <button type="button" id="my-browser-btn" class="btn-mini" title="Use this browser's user agent">
+                <i class="fas fa-desktop"></i> My Browser
+              </button>
+              <div class="ua-sample-wrap">
+                <button type="button" id="sample-btn" class="btn-mini" title="Load sample user agents">
+                  <i class="fas fa-flask"></i> Sample <i class="fas fa-caret-down"></i>
+                </button>
+                <div id="sample-menu" class="ua-sample-menu" role="menu"></div>
+              </div>
+              <button type="button" id="clear-btn" class="btn-mini" title="Clear input">
+                <i class="fas fa-trash-alt"></i> Clear
+              </button>
+            </div>
+          </div>
+
+          <label for="ua-input" class="sr-only">User agent string</label>
+          <textarea
+            id="ua-input"
+            spellcheck="false"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36..."
+            aria-describedby="ua-input-help"
+          ></textarea>
+          <p id="ua-input-help" class="ua-input-help">
+            <i class="fas fa-info-circle"></i>
+            Parsing runs as you type. Click <strong>My Browser</strong> to inspect your current session.
+          </p>
+        </div>
+
+        <div id="single-results" class="ua-results-section" style="display:none;">
+          <div id="summary-badges" class="ua-summary-badges"></div>
+          <div id="result-grid" class="ua-result-grid"></div>
+          <div class="ua-raw-footer">
+            <h4>
+              <span><i class="fas fa-code"></i> Raw User-Agent</span>
+              <span>
+                <span id="char-count" class="ua-char-count"></span>
+                <button type="button" id="copy-raw-btn" class="btn-mini" title="Copy raw UA">
+                  <i class="fas fa-copy"></i> Copy
+                </button>
+              </span>
+            </h4>
+            <p id="raw-ua-text" class="ua-raw-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="bulk-panel" class="ua-panel">
+        <div class="ua-input-section">
+          <div class="section-header">
+            <label for="bulk-input"><i class="fas fa-list-ol"></i> Bulk User Agents</label>
+            <div class="input-actions"></div>
+          </div>
+
+          <label for="bulk-input" class="sr-only">Bulk user agents, one per line</label>
+          <textarea
+            id="bulk-input"
+            spellcheck="false"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="Paste one User-Agent per line from access logs&#10;Mozilla/5.0 ...&#10;Mozilla/5.0 ..."
+            aria-describedby="bulk-input-help"
+          ></textarea>
+          <p id="bulk-input-help" class="ua-input-help">
+            <i class="fas fa-info-circle"></i>
+            One UA per line. Up to 5,000 lines. Processed locally in your browser.
+          </p>
+        </div>
+
+        <div id="bulk-results" class="ua-results-section" style="display:none;">
+          <div id="bulk-stats" class="ua-bulk-stats"></div>
+          <div class="ua-bulk-breakdown">
+            <div class="ua-breakdown-card">
+              <h4><i class="fas fa-globe"></i> Top Browsers</h4>
+              <ul id="browser-breakdown" class="ua-breakdown-list"></ul>
+            </div>
+            <div class="ua-breakdown-card">
+              <h4><i class="fas fa-laptop"></i> Top Operating Systems</h4>
+              <ul id="os-breakdown" class="ua-breakdown-list"></ul>
+            </div>
+          </div>
+          <div class="ua-bulk-actions">
+            <button type="button" id="download-csv-btn" class="btn-mini">
+              <i class="fas fa-file-csv"></i> Download CSV
+            </button>
+            <button type="button" id="download-json-btn" class="btn-mini">
+              <i class="fas fa-file-code"></i> Download JSON
+            </button>
+            <button type="button" id="copy-table-btn" class="btn-mini">
+              <i class="fas fa-copy"></i> Copy Table
+            </button>
+          </div>
+          <div class="ua-table-wrap">
+            <table id="bulk-table" class="ua-bulk-table">
+              <thead>
+                <tr>
+                  <th data-sort="ua">User Agent <span class="sort-icon"><i class="fas fa-sort"></i></span></th>
+                  <th data-sort="browser">Browser <span class="sort-icon"><i class="fas fa-sort"></i></span></th>
+                  <th data-sort="version">Version <span class="sort-icon"><i class="fas fa-sort"></i></span></th>
+                  <th data-sort="os">OS <span class="sort-icon"><i class="fas fa-sort"></i></span></th>
+                  <th data-sort="device">Device <span class="sort-icon"><i class="fas fa-sort"></i></span></th>
+                  <th data-sort="type">Type <span class="sort-icon"><i class="fas fa-sort"></i></span></th>
+                  <th data-sort="isBot">Bot <span class="sort-icon"><i class="fas fa-sort"></i></span></th>
+                </tr>
+              </thead>
+              <tbody id="bulk-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="parse-status" class="ua-parse-status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Common User-Agent Tokens</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Browser &amp; Engine Tokens</h4>
+          <table>
+            <tr><td><code>Mozilla/5.0</code></td><td>Compatibility prefix (historical)</td></tr>
+            <tr><td><code>AppleWebKit</code></td><td>WebKit-based rendering engine</td></tr>
+            <tr><td><code>Gecko</code></td><td>Firefox engine family</td></tr>
+            <tr><td><code>Chrome/</code></td><td>Chromium version (also Edge, Opera)</td></tr>
+            <tr><td><code>Safari/</code></td><td>Safari or WebKit version token</td></tr>
+            <tr><td><code>Edg/</code></td><td>Microsoft Edge (Chromium)</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Platform &amp; Bot Indicators</h4>
+          <table>
+            <tr><td><code>Windows NT</code></td><td>Windows desktop</td></tr>
+            <tr><td><code>iPhone</code> / <code>iPad</code></td><td>Apple mobile / tablet</td></tr>
+            <tr><td><code>Android</code></td><td>Android OS</td></tr>
+            <tr><td><code>Mobile</code></td><td>Mobile-optimized browser</td></tr>
+            <tr><td><code>bot</code> / <code>crawl</code></td><td>Likely crawler or spider</td></tr>
+            <tr><td><code>curl</code> / <code>wget</code></td><td>Command-line HTTP client</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> User-Agent Guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a User-Agent string?</h2>
+          <p>The <strong>User-Agent</strong> HTTP header tells servers which client made a request—a desktop browser, mobile app, API client, or search crawler. Analytics pipelines, WAF rules, and responsive design often read it from access logs.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Structure of a typical browser UA</h2>
+          <ul>
+            <li><strong>Product token:</strong> Usually <code>Mozilla/5.0</code> for compatibility with legacy server sniffing.</li>
+            <li><strong>Platform:</strong> OS details such as <code>Windows NT 10.0</code>, <code>Macintosh</code>, or <code>iPhone; CPU iPhone OS 17_2</code>.</li>
+            <li><strong>Engine:</strong> <code>AppleWebKit/537.36</code> or <code>Gecko/20100101</code> identifies the rendering engine.</li>
+            <li><strong>Browser:</strong> The actual product, e.g. <code>Chrome/120.0.0.0</code> or <code>Firefox/121.0</code>, often after a Safari compatibility token.</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>User-Agent Client Hints</h2>
+          <p>Modern Chromium browsers also send <strong>Client Hints</strong> headers (<code>Sec-CH-UA</code>, <code>Sec-CH-UA-Mobile</code>, <code>Sec-CH-UA-Platform</code>) with structured, less spoofable metadata. The classic User-Agent string is still widely logged; this tool parses that header. For Client Hints, inspect request headers in your browser Network tab.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Using this user agent parser</h2>
+          <ul>
+            <li><strong>Single mode:</strong> Paste one UA from nginx, Apache, CloudFront, or browser devtools.</li>
+            <li><strong>My Browser:</strong> Instantly decode <code>navigator.userAgent</code> from your session.</li>
+            <li><strong>Bulk mode:</strong> Paste log extracts (one line per UA) and export CSV for spreadsheets.</li>
+            <li><strong>Bot detection:</strong> Review the Bot column before filtering crawlers from traffic reports.</li>
+            <li><strong>Privacy:</strong> All parsing happens locally—safe for production log samples.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> User Agent Parser FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a User-Agent string?</h3>
+        <p>A <strong>User-Agent</strong> string is sent in the <code>User-Agent</code> HTTP header. It describes the client—browser, app, or bot—making the request. Servers log it for analytics, compatibility, and bot filtering.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What does a typical User-Agent look like?</h3>
+        <p>Most browsers start with <code>Mozilla/5.0</code>, then platform tokens, engine details (<code>AppleWebKit</code> or <code>Gecko</code>), and end with the real browser name like <code>Chrome/120.0.0.0</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I detect bots and crawlers?</h3>
+        <p>Look for <code>bot</code>, <code>crawl</code>, <code>spider</code>, or names like <code>Googlebot</code>. CLI tools send <code>curl</code>, <code>python-requests</code>, or similar. This parser flags likely bots automatically.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I tell mobile from desktop?</h3>
+        <p>Mobile UAs include <code>Mobile</code>, <code>Android</code>, or <code>iPhone</code>. Tablets often list <code>iPad</code>. The device class badge shows desktop, mobile, tablet, or bot.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What are User-Agent Client Hints?</h3>
+        <p><strong>Client Hints</strong> (<code>Sec-CH-UA-*</code>) are newer headers with structured browser/platform data. They complement the User-Agent string. This tool parses the classic <code>User-Agent</code> header.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can User-Agent strings be spoofed?</h3>
+        <p>Yes. Any client can send a fake UA. Use it for analytics and coarse hints—not as a security boundary. Combine with Client Hints, CAPTCHAs, or rate limiting for bots.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is it safe to parse user agents online?</h3>
+        <p>This tool runs <strong>100% in your browser</strong>. UA strings are never uploaded. Your log data stays on your machine unless you export it.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How does this compare to CLI UA parsers?</h3>
+        <p>Python <code>ua-parser</code>, npm packages, and log processors offer similar output for scripts. This browser tool is ideal for quick checks, sharing with teammates, and bulk paste without installing tools.</p>
+      </div>
+    </section>
+
+    <p class="related-tools">
+      <i class="fas fa-tools"></i>
+      More tools:
+      <a href="{{ '/tools/' | relative_url }}">All developer tools</a> ·
+      <a href="{{ '/tools/har-viewer/' | relative_url }}">HAR File Viewer</a> ·
+      <a href="{{ '/tools/curl-converter/' | relative_url }}">Curl Converter</a>
+    </p>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.37/dist/ua-parser.min.js"></script>
+<script src="{{ '/assets/js/user-agent-parser.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

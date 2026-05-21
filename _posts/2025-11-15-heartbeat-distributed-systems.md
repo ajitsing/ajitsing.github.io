@@ -626,7 +626,7 @@ This prevents flapping (node rapidly switching between up and down).
 
 ### etcd: Lease-Based Heartbeat
 
-etcd uses a clever lease mechanism. Nodes hold leases that expire unless renewed.
+etcd uses a clever lease mechanism. Nodes hold leases that expire unless renewed. The full pattern is covered in our deep dive on the [Lease pattern in distributed systems](/distributed-systems/lease/){:target="_blank" rel="noopener"}.
 
 ```go
 // Go code for etcd lease-based heartbeat

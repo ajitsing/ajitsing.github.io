@@ -87,6 +87,113 @@
   var currentMode = 'pem';
   var parseTimer = null;
 
+  // node-forge 1.3.1 only knows how to parse RSA SubjectPublicKeyInfo and
+  // throws "Cannot read public key. OID is not RSA." for ECDSA / Ed25519 /
+  // Ed448 certs — which covers most modern certs (Let's Encrypt, Cloudflare,
+  // ACM, etc.). Patch publicKeyFromAsn1 so non-RSA keys return a metadata
+  // stub instead of aborting the whole certificate parse.
+  var EC_CURVE_OIDS = {
+    '1.2.840.10045.3.1.7': { name: 'P-256 (secp256r1)', bits: 256 },
+    '1.3.132.0.34': { name: 'P-384 (secp384r1)', bits: 384 },
+    '1.3.132.0.35': { name: 'P-521 (secp521r1)', bits: 521 },
+    '1.3.132.0.10': { name: 'secp256k1', bits: 256 },
+    '1.3.36.3.3.2.8.1.1.7': { name: 'brainpoolP256r1', bits: 256 },
+    '1.3.36.3.3.2.8.1.1.11': { name: 'brainpoolP384r1', bits: 384 },
+    '1.3.36.3.3.2.8.1.1.13': { name: 'brainpoolP512r1', bits: 512 }
+  };
+
+  function parseGenericSpki(spki) {
+    try {
+      var algId = spki.value[0];
+      var oid = forge.asn1.derToOid(algId.value[0].value);
+      if (oid === '1.2.840.10045.2.1') {
+        var curveOid = null;
+        var info = null;
+        if (algId.value.length > 1 && algId.value[1].type === forge.asn1.Type.OID) {
+          curveOid = forge.asn1.derToOid(algId.value[1].value);
+          info = EC_CURVE_OIDS[curveOid];
+        }
+        return {
+          _stub: true,
+          algorithm: 'EC',
+          oid: oid,
+          curveOid: curveOid,
+          curveName: info ? info.name : (curveOid || 'unknown curve'),
+          bits: info ? info.bits : null
+        };
+      }
+      if (oid === '1.3.101.112') {
+        return { _stub: true, algorithm: 'Ed25519', oid: oid, bits: 256 };
+      }
+      if (oid === '1.3.101.113') {
+        return { _stub: true, algorithm: 'Ed448', oid: oid, bits: 456 };
+      }
+      if (oid === '1.2.840.10040.4.1') {
+        return { _stub: true, algorithm: 'DSA', oid: oid, bits: null };
+      }
+      return { _stub: true, algorithm: 'Unknown (' + oid + ')', oid: oid, bits: null };
+    } catch (err) {
+      return { _stub: true, algorithm: 'Unknown', oid: null, bits: null };
+    }
+  }
+
+  function findSpkiNode(certAsn1) {
+    try {
+      var tbs = certAsn1.value[0];
+      var children = tbs.value;
+      var idx = 0;
+      // Skip optional [0] EXPLICIT version tag
+      if (children[0] && children[0].tagClass === forge.asn1.Class.CONTEXT_SPECIFIC) {
+        idx = 1;
+      }
+      // TBSCertificate after version: serial, sigAlg, issuer, validity, subject, SPKI
+      return children[idx + 5] || null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  if (typeof forge !== 'undefined' && forge.pki && !forge.pki._sslDecoderPatched) {
+    // (1) publicKeyFromAsn1: swallow non-RSA errors and return a metadata stub.
+    var _origPublicKeyFromAsn1 = forge.pki.publicKeyFromAsn1;
+    forge.pki.publicKeyFromAsn1 = function(obj) {
+      try {
+        return _origPublicKeyFromAsn1.call(this, obj);
+      } catch (err) {
+        return parseGenericSpki(obj);
+      }
+    };
+
+    // (2) certificateFromAsn1: bypass the hardcoded "OID is not RSA" early
+    // throw by temporarily swapping the SPKI algorithm OID to rsaEncryption,
+    // then restoring the real public-key metadata after parsing succeeds.
+    var _origCertFromAsn1 = forge.pki.certificateFromAsn1;
+    var RSA_OID_DER_BYTES = forge.asn1.oidToDer(forge.pki.oids.rsaEncryption).getBytes();
+    forge.pki.certificateFromAsn1 = function(obj, computeHash) {
+      try {
+        return _origCertFromAsn1.call(this, obj, computeHash);
+      } catch (err) {
+        if (!err || !/OID is not RSA/i.test(err.message || '')) throw err;
+        var spki = findSpkiNode(obj);
+        if (!spki || !spki.value || !spki.value[0] || !spki.value[0].value[0]) throw err;
+        var oidNode = spki.value[0].value[0];
+        var realKeyInfo = parseGenericSpki(spki);
+        var savedOid = oidNode.value;
+        oidNode.value = RSA_OID_DER_BYTES;
+        var cert;
+        try {
+          cert = _origCertFromAsn1.call(this, obj, computeHash);
+        } finally {
+          oidNode.value = savedOid;
+        }
+        cert.publicKey = realKeyInfo;
+        return cert;
+      }
+    };
+
+    forge.pki._sslDecoderPatched = true;
+  }
+
   function trackEvent(action, label) {
     if (typeof gtag === 'function') {
       gtag('event', action, {
@@ -165,17 +272,23 @@
     return clean;
   }
 
-  function certFingerprint(cert, algorithm) {
-    var asn1 = forge.pki.certificateToAsn1(cert);
-    var der = forge.asn1.toDer(asn1).getBytes();
+  function fingerprintFromDer(derBytes, algorithm) {
     var md = forge.md[algorithm].create();
-    md.update(der);
+    md.update(derBytes);
     return md.digest().toHex().toUpperCase().match(/.{1,2}/g).join(':');
   }
 
   function describePublicKey(cert) {
     var key = cert.publicKey;
     if (!key) return { type: '—', bits: '—', curve: null };
+
+    if (key._stub) {
+      var bitsStr = (typeof key.bits === 'number') ? (key.bits + ' bits') : '—';
+      if (key.algorithm === 'EC') {
+        return { type: 'EC (' + key.curveName + ')', bits: bitsStr, curve: key.curveName };
+      }
+      return { type: key.algorithm, bits: bitsStr, curve: null };
+    }
 
     if (key.n) {
       var bits = key.n.bitLength();
@@ -315,7 +428,13 @@
 
   function parseDerBytes(bytes) {
     var asn1 = forge.asn1.fromDer(bytes);
-    return forge.pki.certificateFromAsn1(asn1);
+    var cert = forge.pki.certificateFromAsn1(asn1);
+    return { cert: cert, der: bytes };
+  }
+
+  function pemToDerBytes(pem) {
+    var msg = forge.pem.decode(pem)[0];
+    return msg.body;
   }
 
   function parseInput(text) {
@@ -348,7 +467,7 @@
           return;
         }
         blocks.forEach(function(pem) {
-          certs.push(forge.pki.certificateFromPem(pem));
+          certs.push(parseDerBytes(pemToDerBytes(pem)));
         });
       }
 
@@ -419,22 +538,22 @@
       '</span>';
 
     var html = '';
-    certs.forEach(function(cert, index) {
-      html += renderCertCard(cert, index, certs.length);
+    certs.forEach(function(entry, index) {
+      html += renderCertCard(entry.cert, entry.der, index, certs.length);
     });
     elements.certResults.innerHTML = html;
     bindCopyButtons();
   }
 
-  function renderCertCard(cert, index, total) {
+  function renderCertCard(cert, der, index, total) {
     var subjectCn = getAttr(cert.subject.attributes, 'CN') || dnToString(cert.subject.attributes);
     var issuerCn = getAttr(cert.issuer.attributes, 'CN') || dnToString(cert.issuer.attributes);
     var notBefore = cert.validity.notBefore;
     var notAfter = cert.validity.notAfter;
     var validity = getValidityStatus(notBefore, notAfter);
     var pubKey = describePublicKey(cert);
-    var sha256 = certFingerprint(cert, 'sha256');
-    var sha1 = certFingerprint(cert, 'sha1');
+    var sha256 = fingerprintFromDer(der, 'sha256');
+    var sha1 = fingerprintFromDer(der, 'sha1');
     var sigOid = cert.siginfo && cert.siginfo.algorithmOid;
     var sigName = oidName(sigOid);
     var sanExt = cert.getExtension({ name: 'subjectAltName' });
@@ -590,8 +709,8 @@
       if (isDer) {
         var bytes = e.target.result;
         try {
-          var cert = parseDerBytes(bytes);
-          renderResults([cert]);
+          var entry = parseDerBytes(bytes);
+          renderResults([entry]);
           showStatus('Parsed certificate from ' + file.name, false);
         } catch (err) {
           showStatus('Could not parse DER file: ' + (err.message || 'Invalid format'), true);

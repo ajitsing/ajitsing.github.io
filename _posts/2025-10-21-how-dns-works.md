@@ -586,6 +586,8 @@ DNS breaks rarely, but when it does, the internet stops. When you see "DNS_PROBE
 
 ---
 
+{% include tool-cta.html tool="subnet-calculator" description="Calculate IPv4 subnets, CIDR ranges, and host counts for DNS and network planning." %}
+
 ## Further Reading
 
 DNS is just one piece of the puzzle. When you type a URL in the browser, DNS resolution is followed by TCP connections, TLS encryption, HTTP requests, server processing, and browser rendering. Read the full story in [What Happens When You Type a URL in the Browser](/what-happens-when-you-type-url-in-browser/).

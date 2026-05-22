@@ -933,6 +933,8 @@ git lg       # pretty log graph
 | Show commit details | `git show <commit>` |
 | Cherry pick commit | `git cherry-pick <commit>` |
 
+{% include tool-cta.html tool="text-diff" description="Compare branches, commits, or config files side by side before you merge or revert." %}
+
 ## Next Steps
 
 Once you are comfortable with these commands, look into:

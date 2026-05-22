@@ -506,6 +506,8 @@ graph TD
 - **Retention Policies** enforce time or size limits independent of replication state.
 - The [Hybrid Logical Clock](/distributed-systems/hybrid-clock/) gives each log entry a monotonic, time-aware version, which is what makes "delete everything before timestamp T" a meaningful operation across nodes.
 
+{% include tool-cta.html tool="epoch-converter" description="Convert retention and compaction timestamps tied to low watermarks in streaming systems." %}
+
 ## Key Takeaways for Developers
 
 1. **The Low Watermark is about cleanup, not visibility.** It answers "what can we delete?" while the [High Watermark](/distributed-systems/high-watermark/) answers "what can clients read?" They are two sides of the same coin.

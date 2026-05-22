@@ -483,6 +483,8 @@ Common permission numbers:
 - `644`: Owner can read and write, others can only read (regular files)
 - `600`: Only owner can read and write (private keys, passwords)
 
+{% include tool-cta.html tool="chmod-calculator" variant="inline" description="Convert between octal (755, 644) and symbolic (rwxr-xr-x) Linux permissions." %}
+
 ### Changing Ownership
 
 ```bash
@@ -770,10 +772,12 @@ Each step transforms the data:
 Once you are comfortable with basic Linux commands, these topics will make you even more effective:
 
 - **[Git Command Line](/git-command-line-basics/)**: Version control commands you will use alongside Linux commands daily
-- **[Cron Jobs](/explainer/cron-jobs-explained/)**: Schedule your scripts to run automatically
+- **[Cron Jobs](/explainer/cron-jobs-explained/)**: Schedule your scripts to run automatically — or use our [Cron Expression Tool](/tools/cron-expression/) to build schedules
 - **[cURL Commands](/explainer/curl-commands/)**: Make HTTP requests and test APIs from the terminal
 - **[Linux Directory Structure](/explainer/linux-directory-structure/)**: Understand where files live and why
 - **[Kubernetes Architecture](/devops/kubernetes-architecture/)**: Container orchestration that builds on these fundamentals
+
+{% include tool-cta.html tool="cron-expression" description="Build and validate crontab schedules for backups, log rotation, and automated jobs." %}
 
 ---
 

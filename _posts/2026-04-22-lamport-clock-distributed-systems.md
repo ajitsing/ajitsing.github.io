@@ -456,6 +456,8 @@ Lamport counters drift apart between nodes that talk infrequently. That is by de
 
 The most common production mistake is treating a Lamport counter as if it were a real timestamp. It is not. A counter of `4231` does not mean "January 4th". If you find yourself wanting to ask "what events happened in this hour", you want a [Hybrid Logical Clock](/distributed-systems/hybrid-clock/){:target="_blank" rel="noopener"} or a separate wall clock column. Use the right tool.
 
+{% include tool-cta.html tool="epoch-converter" variant="inline" description="Convert Lamport timestamps and wall-clock values when you debug distributed event ordering." %}
+
 ## Key Takeaways for Developers
 
 

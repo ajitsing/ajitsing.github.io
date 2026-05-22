@@ -531,6 +531,8 @@ console.log('Server listening on https://localhost:4433');
 
 Run this and you have a working WebTransport echo server!
 
+{% include tool-cta.html tool="har-viewer" variant="inline" description="Export HAR from Chrome DevTools to analyze WebTransport and HTTP/3 timing." %}
+
 ## Debugging WebTransport
 
 Chrome DevTools has excellent support:

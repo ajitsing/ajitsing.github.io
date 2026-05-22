@@ -530,6 +530,8 @@ graph TD
 
 If you want to see a more complete distributed pattern stack in action, the [transactional outbox pattern](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} and [two-phase commit](/distributed-systems/two-phase-commit/){:target="_blank" rel="noopener"} posts walk through how these primitives compose into reliable workflows.
 
+{% include tool-cta.html tool="epoch-converter" variant="inline" description="Convert physical time in hybrid logical clocks to readable dates." %}
+
 ## Key Takeaways for Developers
 
 1. **Reach for HLC when you need a versioned, time-aware total order.** That covers MVCC, distributed transactions, change data capture cursors, and consistent snapshots. It does not cover concurrency detection, where vector clocks still win.

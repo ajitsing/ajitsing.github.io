@@ -700,6 +700,8 @@ Once you know how Postgres works, the patterns elsewhere become familiar. The di
 
 For a longer head-to-head, see [PostgreSQL vs MongoDB vs DynamoDB](/postgresql-vs-mongodb-vs-dynamodb/){:target="_blank" rel="noopener"}. For lock semantics across engines, the [How Database Locks Work](/database-locks-explained/){:target="_blank" rel="noopener"} post covers shared, exclusive, advisory, and `SELECT FOR UPDATE` in detail.
 
+{% include tool-cta.html tool="sql-formatter" description="Format planner and EXPLAIN ANALYZE queries while you trace how PostgreSQL runs a query." %}
+
 ## Further Reading
 
 The PostgreSQL community has produced an unusual amount of high quality, freely available material on internals.

@@ -1009,6 +1009,8 @@ Multi-agent AI swarms are one of the most exciting architecture patterns in soft
 
 Build the simplest thing that works. Add complexity only when you have evidence it is needed. And always, always, keep a human in the loop.
 
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens across multi-agent handoffs, shared context, and tool results." %}
+
 ## Further Reading
 
 - [How to Build AI Agents That Actually Work](/building-ai-agents/) - Start here if you are new to AI agents

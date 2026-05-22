@@ -115,6 +115,8 @@ Research shows that putting everything in a huge context window can hurt perform
 
 This is why context engineering is about quality over quantity. It is not about dumping everything in. It is about selecting and structuring the right information.
 
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens in your context window before you send prompts to GPT-4, Claude, or other models." %}
+
 ## Practical Techniques
 
 ### 1. Semantic Chunking

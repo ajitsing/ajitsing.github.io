@@ -343,6 +343,8 @@ There is no single best setting. Test with real questions and adjust. For more o
 
 RAG is the right default when “answer from this set of documents” is the main use case.
 
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens in retrieved chunks and your system prompt to stay within context limits and control API cost." %}
+
 ## Key Takeaways
 
 1. **RAG is retrieve then generate.** Index documents (chunk, embed, store). At query time, embed the question, retrieve chunks, send them to the LLM as context.
@@ -356,6 +358,8 @@ RAG is the right default when “answer from this set of documents” is the mai
 5. **Always instruct the LLM** to answer only from the provided context and to say when the answer is not there. Reduces hallucinations and improves trust.
 
 6. **Evaluate on real questions.** Retrieval metrics (e.g. recall@k) help, but the only test that matters is whether the final answer is correct and grounded.
+
+{% include tool-cta.html tool="curl-converter" variant="inline" description="Convert curl examples from embedding and vector DB APIs into Python or Node.js code." %}
 
 Building a RAG application is not magic. It is a retrieval pipeline plus the same LLM call you already use. Get the pipeline right, then iterate on chunking and retrieval. For the basics of that LLM call and conversation memory, see [Building Your First LLM Application](/building-your-first-llm-application/). For how to think about what you put in front of the model, see [Context Engineering](/context-engineering/).
 

@@ -780,6 +780,9 @@ Distributed counters are a perfect example of how "simple" problems become fasci
 - **Need partition tolerance?** Consider CRDTs
 - **Need blazing speed?** Use local aggregation
 
+{% include tool-cta.html tool="snowflake-decoder" description="Decode Snowflake-style IDs used in distributed counters and sharded systems." %}
+{% include tool-cta.html tool="uuid-generator" description="Generate UUIDs for counter shards, request IDs, and idempotent keys." %}
+
 ## Further Reading
 
 - [CAP Theorem and Counters](https://en.wikipedia.org/wiki/CAP_theorem)

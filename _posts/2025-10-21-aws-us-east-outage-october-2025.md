@@ -147,6 +147,8 @@ Untested DR plans are wishful thinking. Run quarterly failover drills and chaos 
 
 ---
 
+{% include tool-cta.html tool="sla-calculator" description="See how much downtime 99.99% and 99.9% SLA allow and why a long outage exceeds the annual budget." %}
+
 ## The Bottom Line
 
 A network load balancer health check bug caused DNS failures that cascaded into a 12-hour outage affecting millions. The lesson: **single points of failure will fail.**

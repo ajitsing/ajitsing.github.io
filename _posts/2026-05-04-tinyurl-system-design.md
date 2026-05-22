@@ -754,6 +754,10 @@ A URL shortener with no rate limit, no reputation check, and no abuse interstiti
 
 Click counts are best-effort by definition. Trying to make them strictly consistent across regions destroys redirect latency. Pick eventual, accept the small lag, and explain it in the product.
 
+{% include tool-cta.html tool="uuid-generator" description="Generate collision-resistant IDs for short codes, sharding keys, and request tracing." %}
+{% include tool-cta.html tool="ulid-generator" variant="inline" description="Generate time-sortable ULIDs when you want sortable IDs without a Snowflake coordinator." %}
+{% include tool-cta.html tool="url-encoder" variant="inline" description="Percent-encode redirect targets and query parameters when you build URL shortener APIs." %}
+
 ## Further Reading
 
 If you want to go deeper, these are the best sources.

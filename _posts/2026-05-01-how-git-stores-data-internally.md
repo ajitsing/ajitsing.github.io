@@ -721,6 +721,8 @@ Once you understand Git's storage model, the differences from older systems beco
 
 Git's design choice (a fully decentralized, content-addressable object store) is the thing that makes offline work, fast branching, and trivial replication possible. Most modern hosted Git platforms layer different replication strategies on top of the same object model, which is exactly what we walked through in [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/){:target="_blank" rel="noopener"}.
 
+{% include tool-cta.html tool="text-diff" description="Compare blob, tree, and commit data or patch files when you learn Git internals." %}
+
 ## Further Reading
 
 If you want to go deeper, these are the canonical sources.

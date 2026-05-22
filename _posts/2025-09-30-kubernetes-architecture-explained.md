@@ -431,6 +431,8 @@ While this article focused on Deployments and Pods, Kubernetes supports other wo
 - **Jobs**: Run tasks to completion (batch processing, migrations)
 - **CronJobs**: Run Jobs on a schedule using [cron expressions](/tools/cron-expression/) (backups, reports, cleanup tasks)
 
+{% include tool-cta.html tool="subnet-calculator" description="Calculate pod CIDRs, service subnets, and cluster network ranges for Kubernetes networking." %}
+
 ## Conclusion
 
 Kubernetes might seem complex at first, but its architecture is actually quite elegant. By separating concerns between the control plane (decision making) and worker nodes (execution), it creates a scalable, resilient platform for running distributed applications.

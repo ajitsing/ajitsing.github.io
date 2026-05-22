@@ -606,6 +606,8 @@ New result:
 
 **Improvement**: 12 seconds down to 15 milliseconds. 800x faster.
 
+{% include tool-cta.html tool="sql-formatter" description="Format EXPLAIN and index DDL examples from this guide before you run them on your database." %}
+
 ## Key Takeaways
 
 1. **Indexes are B-trees** that provide O(log n) lookups instead of O(n) table scans.

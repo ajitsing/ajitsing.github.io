@@ -370,6 +370,9 @@ You now have the foundation to automate your development workflow. Start small:
 
 GitHub Actions can do much more than we covered - from managing releases to automating issue responses. But these basics will handle 90% of what most developers need.
 
+{% include tool-cta.html tool="cron-expression" description="Build and validate cron schedules for workflow triggers and scheduled jobs in GitHub Actions." %}
+{% include tool-cta.html tool="yaml-validator" description="Validate workflow YAML before you push and catch syntax errors in CI configs." %}
+
 ---
 
 *For safer production deployments, check out [Feature Flags: How to Deploy Code Without Releasing Features](/feature-flags-guide/) to learn how to decouple deployment from release and enable gradual rollouts.*

@@ -875,6 +875,8 @@ AI code review is moving fast. Here is where the field is heading:
 
 ---
 
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens in PR diffs and review prompts before you hit context limits or exceed your API budget." %}
+
 ## Wrapping Up
 
 An AI code review assistant is not magic. It is a webhook listener, a context builder, an LLM call, and a GitHub API poster. You can build a working version in a day.

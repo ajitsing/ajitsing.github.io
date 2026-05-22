@@ -1373,6 +1373,8 @@ USER node
 
 ---
 
+{% include tool-cta.html tool="yaml-validator" description="Validate docker-compose.yml and stack files before you deploy to staging or production." %}
+
 ## Related Posts
 
 These posts go deeper into container and orchestration topics:

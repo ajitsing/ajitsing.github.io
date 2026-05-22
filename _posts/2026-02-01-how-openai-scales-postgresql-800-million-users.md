@@ -804,6 +804,8 @@ flowchart LR
 
 ---
 
+{% include tool-cta.html tool="sql-formatter" description="Format PostgreSQL queries and migration scripts when you study large-scale Postgres patterns." %}
+
 ## Key Takeaways
 
 1. **Start with connection pooling.** PgBouncer is the easiest win. Most applications hit connection limits before query performance limits.

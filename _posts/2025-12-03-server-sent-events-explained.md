@@ -667,6 +667,8 @@ SSE isn't perfect. Here's when to look elsewhere:
 
 **Serverless:** AWS Lambda, Cloud Functions, and similar platforms timeout after seconds to minutes. SSE needs long-lived connections. Use Long Polling or WebSocket services like AWS API Gateway WebSockets.
 
+{% include tool-cta.html tool="har-viewer" description="Inspect SSE streams, event payloads, and connection duration in HAR files." %}
+
 ## Key Takeaways
 
 **1. SSE is HTTP streaming.** No protocol upgrade, no special ports. Works with your existing infrastructure.

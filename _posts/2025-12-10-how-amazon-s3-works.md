@@ -732,6 +732,8 @@ S3 isn't just a storage service. It's a foundation that other services build on:
 
 Understanding S3 deeply makes you better at all of these.
 
+{% include tool-cta.html tool="base64-encoder" variant="inline" description="Encode or decode Base64 metadata and small payloads when you experiment with S3 APIs." %}
+
 ## Conclusion
 
 S3 appears simple: upload files, download files. But underneath is a marvel of distributed systems engineering. It handles scale, durability, and consistency problems that would break most systems.

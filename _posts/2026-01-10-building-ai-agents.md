@@ -843,6 +843,8 @@ The best way to learn is to build. Start simple and add complexity only when you
 
 ---
 
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens for agent prompts, tool results, and multi-step loops before costs add up in production." %}
+
 **Further Reading:**
 
 - [Building Your First LLM Application](/building-your-first-llm-application/) - Start here to learn the fundamentals of LLM applications before building agents

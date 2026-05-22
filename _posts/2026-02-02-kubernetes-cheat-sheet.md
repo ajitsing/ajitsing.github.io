@@ -958,7 +958,9 @@ kubectl get cronjobs
 kubectl logs job/my-job
 ```
 
-For cron expression syntax, see [Cron Jobs Explained](/explainer/cron-jobs-explained/) or use the [Cron Expression Tool](/tools/cron-expression/).
+For cron expression syntax, see [Cron Jobs Explained](/explainer/cron-jobs-explained/) or use our Cron Expression Tool below.
+
+{% include tool-cta.html tool="cron-expression" description="Translate Kubernetes CronJob schedules to plain English and preview next run times." %}
 
 ---
 
@@ -1184,6 +1186,8 @@ These posts go deeper into specific topics:
 - [System Design Cheat Sheet](/system-design-cheat-sheet/)
 - [Role of Queues in System Design](/role-of-queues-in-system-design/)
 - [Service Discovery Explained](/explainer/service-discovery/)
+
+{% include tool-cta.html tool="yaml-validator" description="Validate and format Kubernetes manifests, Helm values, and CI YAML before you apply them." %}
 
 **Related Tools**:
 - [Docker Cheat Sheet](/devops/docker-cheat-sheet/) - Container commands and Dockerfile best practices

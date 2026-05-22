@@ -545,6 +545,8 @@ graph TD
 - The **Low Watermark** determines when old log entries can be cleaned up
 - The [Hybrid Logical Clock](/distributed-systems/hybrid-clock/) provides the monotonic, time-aware version stamps that the high watermark indexes into
 
+{% include tool-cta.html tool="epoch-converter" description="Convert log offsets and commit timestamps when you work with high watermarks in Kafka or databases." %}
+
 ## Key Takeaways for Developers
 
 1. **The high watermark is about visibility, not storage.** Entries above it still exist in the log. They're just not visible to clients until they're committed.

@@ -167,6 +167,8 @@ print(add_numbers(5))
 
 ---
 
+{% include tool-cta.html tool="llm-token-counter" description="See how prompt length affects token count and cost before you change system instructions." %}
+
 ## Conclusion
 
 Prompt engineering is a powerful skill that enables software developers to harness the full potential of AI models. By crafting clear, specific, and well-structured prompts, you can achieve more accurate and relevant results, saving time and enhancing productivity. Start experimenting with prompts today and unlock new possibilities in your AI-driven projects.

@@ -215,6 +215,8 @@ Yes, it's expensive. But compare that cost to 6 hours of global downtime.
 
 ---
 
+{% include tool-cta.html tool="sla-calculator" description="Calculate allowed downtime for your SLA targets and see how a multi-hour outage compares." %}
+
 ## The Bottom Line
 
 

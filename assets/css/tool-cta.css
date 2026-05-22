@@ -1,0 +1,141 @@
+/* Tool CTA — post → developer tool promotion */
+.tool-cta {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Block variant */
+.tool-cta--block {
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #f0f9fb 0%, #e0f2f6 100%);
+  border: 1px solid #b8dce6;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 133, 161, 0.1);
+}
+
+.tool-cta-block-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tool-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0085A1 0%, #006d8a 100%);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.tool-cta-copy {
+  flex: 1;
+  min-width: 200px;
+}
+
+.tool-cta-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #0085A1;
+  margin-bottom: 0.25rem;
+}
+
+.tool-cta-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.tool-cta-title a {
+  color: #2d3748 !important;
+  text-decoration: none !important;
+}
+
+.tool-cta-title a:hover {
+  color: #0085A1 !important;
+}
+
+.tool-cta-description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #4a5568;
+}
+
+.tool-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1rem;
+  background: #0085A1;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.tool-cta-button:hover {
+  background: #006d8a;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* Inline variant */
+.tool-cta--inline {
+  margin: 1.5rem 0;
+  padding: 0.85rem 1rem;
+  background: #f0f9fb;
+  border-left: 4px solid #0085A1;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #4a5568;
+}
+
+.tool-cta-inline-label {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #0085A1;
+  margin-right: 0.35rem;
+}
+
+.tool-cta-inline-link {
+  font-weight: 700;
+  color: #0085A1 !important;
+  text-decoration: none !important;
+}
+
+.tool-cta-inline-link:hover {
+  text-decoration: underline !important;
+}
+
+.tool-cta-inline-desc {
+  color: #4a5568;
+}
+
+@media (max-width: 640px) {
+  .tool-cta-block-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tool-cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

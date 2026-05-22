@@ -376,6 +376,8 @@ curl -X POST http://localhost:8000/chat \
   -d '{"message": "Hello, how are you?"}'
 ```
 
+{% include tool-cta.html tool="curl-converter" variant="inline" description="Convert this curl call to Python requests, httpx, or another client for your LLM backend." %}
+
 ### Add Error Handling
 
 LLM APIs can fail. Add proper error handling:
@@ -950,6 +952,8 @@ LLM APIs charge per token. Optimize costs:
 3. **Limit max_tokens**: Prevent runaway generations
 4. **Summarize long conversations**: Compress old messages instead of sending full history
 5. **Use local models**: [Ollama](/running-llms-locally/) is free after hardware costs
+
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens in prompts and responses before you ship. Compare cost across GPT-4, Claude, Llama, and Gemini." %}
 
 ## Next Steps
 

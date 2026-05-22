@@ -421,6 +421,8 @@ From the [Java subreddit](https://www.reddit.com/r/java/):
 
 ---
 
+{% include tool-cta.html tool="quartz-scheduler" description="Build and validate Quartz cron expressions for scheduled jobs in Java and Spring Boot." %}
+
 ## The Bottom Line
 
 Java 25 is the most developer-friendly Java release since Java 8. The simplified syntax makes teaching easier. Scoped Values solve a 25-year-old problem. The performance improvements are substantial. The memory savings translate directly to lower cloud costs.

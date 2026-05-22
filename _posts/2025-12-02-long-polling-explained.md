@@ -602,6 +602,8 @@ Despite WebSockets and Server-Sent Events being widely available, Long Polling h
 
 **Fallback mechanisms:** Even apps that primarily use WebSockets often fall back to Long Polling when WebSocket connections fail.
 
+{% include tool-cta.html tool="har-viewer" description="Capture HAR files from long-polling requests in DevTools and inspect timing, headers, and connections." %}
+
 ## Key Takeaways
 
 **1. Long Polling is HTTP polling done right.** The server holds the connection until it has data, eliminating wasted requests and reducing latency.

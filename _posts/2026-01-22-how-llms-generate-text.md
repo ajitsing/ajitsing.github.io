@@ -605,6 +605,8 @@ Since you pay per token:
 | Context window | Maximum input length | Plan for this limit |
 | RLHF | Training from human preferences | Why models feel "helpful" |
 
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens in sample prompts and outputs to understand context window usage and cost." %}
+
 ## Key Takeaways
 
 1. **LLMs are next-token predictors.** Everything else emerges from this simple objective. They do not "understand" or "think" in the human sense. They predict plausible continuations.

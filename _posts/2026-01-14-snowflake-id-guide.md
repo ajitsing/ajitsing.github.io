@@ -330,8 +330,8 @@ Here's a direct comparison:
 - Simpler setup is more important than performance
 - You're using UUID-native databases like PostgreSQL
 
-> **Need UUIDs?** Use [UUID Generator](/tools/uuid-generator/) to generate UUID v4 (random) or UUID v7 (timestamp-based, time-sortable like Snowflake IDs but in UUID format).
-{: .box-note}
+{% include tool-cta.html tool="snowflake-decoder" description="Paste a Snowflake ID to decode the timestamp, worker ID, and sequence for Twitter, Discord, and other formats." %}
+{% include tool-cta.html tool="uuid-generator" variant="inline" description="Generate UUID v4 or time-sortable UUID v7 when you need decentralized IDs instead of Snowflake IDs." %}
 
 ## The Clock Skew Problem
 

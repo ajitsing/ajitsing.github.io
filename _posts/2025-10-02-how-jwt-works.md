@@ -551,10 +551,7 @@ curl http://localhost:3000/api/profile \
 
 ## Debugging JWT
 
-> **Try it now:** Use [JWT Decoder & Inspector](/tools/jwt-decoder/) to decode and inspect any JWT token instantly. Color-coded header/payload/signature, human-readable timestamps, and expiration checking, all 100% client-side.
-{: .box-note}
-
-Use [JWT Decoder & Inspector](/tools/jwt-decoder/) to decode and inspect tokens visually, right in your browser, 100% client-side.
+{% include tool-cta.html tool="jwt-decoder" description="Decode and inspect JWT tokens in your browser. View the header, payload, and expiration." %}
 
 Or in code:
 ```javascript

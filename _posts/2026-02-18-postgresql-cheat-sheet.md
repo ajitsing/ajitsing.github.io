@@ -1392,6 +1392,8 @@ WHERE NOT bl.granted;
 
 ---
 
+{% include tool-cta.html tool="sql-formatter" description="Format SQL from this cheat sheet for PostgreSQL, MySQL, and other dialects." %}
+
 ## Related Posts
 
 These posts go deeper into specific database topics:

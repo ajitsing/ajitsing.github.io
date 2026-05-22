@@ -36,11 +36,7 @@ I used to copy regex patterns from Stack Overflow without understanding them. Th
 
 This cheat sheet is what I wish I had back then. Real patterns, clear explanations, and examples you can actually use.
 
-<div class="tool-highlight" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 2px solid #10b981; border-radius: 12px; padding: 25px; margin: 30px 0; text-align: center;">
-  <h3 style="color: #065f46; margin: 0 0 15px 0;"><i class="fas fa-flask"></i> Test Your Patterns Live</h3>
-  <p style="color: #374151; margin-bottom: 15px;">Every pattern in this cheat sheet can be tested in our free regex tester. See matches highlighted in real time, understand your pattern with explanations, and visualize capture groups.</p>
-  <a href="/tools/regex-tester/" style="display: inline-block; background: #059669; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;"><i class="fas fa-code"></i> Open Regex Tester</a>
-</div>
+{% include tool-cta.html tool="regex-tester" description="Test every pattern in this cheat sheet with live highlighting and capture groups." %}
 
 ## Table of Contents
 
@@ -665,11 +661,7 @@ Always test with:
 - Newlines and special whitespace
 - Invalid input
 
-<div class="tool-highlight" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 2px solid #10b981; border-radius: 12px; padding: 25px; margin: 30px 0; text-align: center;">
-  <h3 style="color: #065f46; margin: 0 0 15px 0;"><i class="fas fa-rocket"></i> Ready to Practice?</h3>
-  <p style="color: #374151; margin-bottom: 15px;">The best way to learn regex is by doing. Try these patterns in our interactive tester with real-time matching and explanations.</p>
-  <a href="/tools/regex-tester/" style="display: inline-block; background: #059669; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;"><i class="fas fa-code"></i> Open Regex Tester</a>
-</div>
+{% include tool-cta.html tool="regex-tester" description="Test every pattern from this cheat sheet with live highlighting and capture groups." %}
 
 ## Next Steps
 

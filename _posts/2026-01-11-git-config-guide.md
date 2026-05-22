@@ -892,6 +892,8 @@ git config --show-origin user.email
 
 This shows which file contains that setting.
 
+{% include tool-cta.html tool="text-diff" variant="inline" description="Diff two versions of .gitconfig or hook scripts before you apply changes on other machines." %}
+
 ## Next Steps
 
 With your Git properly configured, you are ready to use it effectively. Check out:

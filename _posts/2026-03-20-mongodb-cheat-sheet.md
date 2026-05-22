@@ -1598,6 +1598,8 @@ If an index shows zero queries since the last server restart, it is just overhea
 
 ---
 
+{% include tool-cta.html tool="json-validator" description="Validate JSON export output and API payloads when you work with MongoDB documents." %}
+
 ## Related Posts
 
 These posts go deeper into specific database topics:

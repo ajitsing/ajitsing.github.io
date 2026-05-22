@@ -493,6 +493,8 @@ A: YAML is similar but lacks explicit length markers and tabular arrays. TOON is
 **Q: Does this work with Claude, Gemini, etc.?**  
 A: Yes. TOON reduces tokens regardless of which LLM you use. All modern LLMs charge based on tokens.
 
+{% include tool-cta.html tool="llm-token-counter" description="Compare token counts for the same JSON and TOON payload before you switch formats in production." %}
+
 ## The Bottom Line
 
 TOON isn't magic. It's just a smarter way to format data when talking to LLMs.

@@ -853,6 +853,8 @@ MCP is evolving fast. Here is what the community and specification are moving to
 
 ---
 
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens for tool definitions and MCP context before you connect servers to production agents." %}
+
 ## Getting Started
 
 If you made it this far, here is the fastest path to getting hands-on:

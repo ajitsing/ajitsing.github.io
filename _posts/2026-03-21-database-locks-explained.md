@@ -1039,6 +1039,8 @@ If you need a distributed lock across multiple services (not just database conne
 
 ---
 
+{% include tool-cta.html tool="sql-formatter" description="Format lock monitoring and transaction SQL from this guide for easier debugging." %}
+
 ## Further Reading
 
 This post covered how database locks work and how to use them effectively. Here are related topics to dig deeper:

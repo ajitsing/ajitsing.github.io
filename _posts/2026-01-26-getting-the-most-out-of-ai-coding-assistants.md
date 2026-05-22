@@ -575,6 +575,8 @@ Simple code is easier to review, easier to debug, and easier to maintain. Do not
 | Refactor | "Refactor this to [goal]. Keep the same behavior." |
 | Code review | "Review this code for [security/performance/readability]. List specific issues." |
 
+{% include tool-cta.html tool="llm-token-counter" description="Count tokens in your specs, diffs, and chat context before you send them to coding assistants." %}
+
 ## Key Takeaways
 
 1. **Plan first.** Write requirements in a markdown file before coding. Have AI critique your plan. This prevents confusion later.

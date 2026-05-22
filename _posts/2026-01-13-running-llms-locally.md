@@ -844,6 +844,8 @@ ls -la *.gguf
 2. Check the model's documentation on Hugging Face
 3. Use tools like Ollama that handle templates automatically
 
+{% include tool-cta.html tool="llm-token-counter" description="Compare token counts for local and cloud models when you benchmark prompts on Ollama or llama.cpp." %}
+
 ## Key Takeaways
 
 1. **Start with Ollama.** It handles all the complexity. One command to install, one command to run.

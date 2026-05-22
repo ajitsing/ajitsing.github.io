@@ -216,6 +216,8 @@ TLS 1.3 reduced the handshake from two round trips (TLS 1.2) to one round trip. 
 
 On a modern server, TLS adds about 1-2ms of processing time per connection. The bigger cost is the round trip latency. For a 100ms RTT connection, TLS 1.2 added 200ms. TLS 1.3 cut that to 100ms. QUIC (HTTP/3) combines TCP and TLS into one round trip, bringing it down further.
 
+{% include tool-cta.html tool="ssl-certificate-decoder" variant="inline" description="Inspect X.509 certificates from a PEM file. Check validity, SANs, issuer, and fingerprints." %}
+
 ---
 
 ## Step 5: HTTP Request
@@ -244,6 +246,8 @@ Connection: keep-alive
 - **Headers**: Metadata about the request. `Accept-Encoding: gzip, br` tells the server the browser can handle compressed responses. `Cookie` sends stored session data.
 - **HTTP Version**: Most browsers today negotiate HTTP/2 or HTTP/3 during the TLS handshake.
 
+{% include tool-cta.html tool="user-agent-parser" variant="inline" description="Paste a User-Agent string to see browser, OS, device, and bot details." %}
+
 ### HTTP/1.1 vs HTTP/2 vs HTTP/3
 
 | Feature | HTTP/1.1 | HTTP/2 | HTTP/3 |
@@ -258,6 +262,8 @@ HTTP/2 was a big improvement because it multiplexed multiple requests over a sin
 But HTTP/2 still uses TCP, and TCP treats all streams as one connection. If one packet is lost, TCP holds up everything until it is retransmitted. This is **head-of-line blocking**.
 
 HTTP/3 fixes this by using [QUIC, a protocol built on UDP](/how-webtransport-works/) that treats each stream independently. A lost packet in one stream does not block the others.
+
+{% include tool-cta.html tool="har-viewer" description="Export a HAR file from Chrome DevTools and inspect requests, headers, and timing." %}
 
 ---
 

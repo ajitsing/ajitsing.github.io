@@ -1,0 +1,92 @@
+jwt-decoder:
+  title: "JWT Decoder and Inspector"
+  description: "Decode JWT tokens in your browser. View the header, payload, claims, and expiration."
+  link: "/tools/jwt-decoder/"
+ssl-certificate-decoder:
+  title: "SSL/TLS Certificate Decoder"
+  description: "Parse X.509 certificates. See subject, issuer, validity, SANs, and fingerprints."
+  link: "/tools/ssl-certificate-decoder/"
+llm-token-counter:
+  title: "LLM Token Counter"
+  description: "Count tokens for GPT-4, Claude, Llama, Gemini, and Mistral. Estimate prompt cost."
+  link: "/tools/llm-token-counter/"
+uuid-generator:
+  title: "UUID Generator and Decoder"
+  description: "Generate UUID v4 and v7. Decode existing UUIDs and extract timestamps."
+  link: "/tools/uuid-generator/"
+ulid-generator:
+  title: "ULID Generator and Decoder"
+  description: "Generate sortable ULIDs and decode timestamps from existing IDs."
+  link: "/tools/ulid-generator/"
+snowflake-decoder:
+  title: "Snowflake ID Decoder"
+  description: "Decode Twitter, Discord, and Instagram Snowflake IDs into timestamps and components."
+  link: "/tools/snowflake-decoder/"
+epoch-converter:
+  title: "Epoch Timestamp Converter"
+  description: "Convert Unix epoch seconds or milliseconds to readable dates and back."
+  link: "/tools/epoch-converter/"
+cron-expression:
+  title: "Cron Expression Translator"
+  description: "Translate cron to plain English, validate syntax, and preview next run times."
+  link: "/tools/cron-expression/"
+quartz-scheduler:
+  title: "Quartz Cron Generator"
+  description: "Build and validate Quartz cron expressions for Java and Spring Boot."
+  link: "/tools/quartz-scheduler/"
+json-validator:
+  title: "JSON Validator and Formatter"
+  description: "Validate JSON with line and column errors. Format output in one click."
+  link: "/tools/json-validator/"
+yaml-validator:
+  title: "YAML Validator and Formatter"
+  description: "Validate YAML for Kubernetes, Docker Compose, and CI configs."
+  link: "/tools/yaml-validator/"
+toml-validator:
+  title: "TOML Validator and Formatter"
+  description: "Validate TOML for Cargo.toml, pyproject.toml, and Hugo configs."
+  link: "/tools/toml-validator/"
+sql-formatter:
+  title: "SQL Formatter and Beautifier"
+  description: "Format SQL for MySQL, PostgreSQL, SQL Server, and Oracle."
+  link: "/tools/sql-formatter/"
+base64-encoder:
+  title: "Base64 Encoder and Decoder"
+  description: "Encode text to Base64 or decode Base64 strings with UTF-8 support."
+  link: "/tools/base64-encoder/"
+url-encoder:
+  title: "URL Encoder and Decoder"
+  description: "Percent-encode strings for URLs or decode URL-encoded text."
+  link: "/tools/url-encoder/"
+curl-converter:
+  title: "Curl Converter"
+  description: "Convert curl commands to Python, Go, Java, Axios, PHP, C#, and more."
+  link: "/tools/curl-converter/"
+har-viewer:
+  title: "HAR File Viewer"
+  description: "Open HAR exports from Chrome or Firefox. Inspect requests, headers, and timing."
+  link: "/tools/har-viewer/"
+user-agent-parser:
+  title: "User Agent Parser"
+  description: "Parse User-Agent strings for browser, OS, device, and bot detection."
+  link: "/tools/user-agent-parser/"
+subnet-calculator:
+  title: "Subnet Calculator"
+  description: "Calculate IPv4 and IPv6 subnets. Get network, broadcast, mask, and host ranges."
+  link: "/tools/subnet-calculator/"
+chmod-calculator:
+  title: "Chmod Calculator"
+  description: "Convert between octal and symbolic Linux file permissions."
+  link: "/tools/chmod-calculator/"
+sla-calculator:
+  title: "SLA and Uptime Calculator"
+  description: "Calculate allowed downtime for 99.9%, 99.99%, and other SLA targets."
+  link: "/tools/sla-calculator/"
+regex-tester:
+  title: "Regex Tester and Debugger"
+  description: "Test regular expressions with live highlighting and capture groups."
+  link: "/tools/regex-tester/"
+text-diff:
+  title: "Text Diff Checker"
+  description: "Compare two text or code blocks with side by side and inline diff views."
+  link: "/tools/text-diff/"

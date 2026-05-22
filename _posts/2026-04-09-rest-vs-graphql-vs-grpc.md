@@ -721,6 +721,8 @@ When events need to flow between services asynchronously, combine gRPC for synch
 
 ## <i class="fas fa-code"></i> What Each Protocol Looks Like in Code
 
+{% include tool-cta.html tool="curl-converter" variant="inline" description="Paste a curl example from REST docs and convert it to Python, Go, Java, or Axios code." %}
+
 Let us build the same API -- get a user by ID -- in all three protocols to see the practical differences.
 
 ### REST (Node.js + Express)
@@ -911,6 +913,8 @@ graph LR
 **Not monitoring GraphQL query performance.** Since all GraphQL requests go to one endpoint (`POST /graphql`), your standard per-endpoint monitoring is useless. You need per-query monitoring with [distributed tracing](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/) to find slow resolvers. Tools like [OpenTelemetry](/opentelemetry-production-guide/) can help here.
 
 ---
+
+{% include tool-cta.html tool="json-validator" description="Validate JSON request and response bodies while you prototype REST and GraphQL APIs." %}
 
 ## <i class="fas fa-check-circle"></i> Summary: Which One Should You Pick?
 

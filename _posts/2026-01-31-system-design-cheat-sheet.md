@@ -715,6 +715,8 @@ Use [OpenTelemetry](/opentelemetry-production-guide/) as the vendor-neutral inst
 
 For more details, see [SLI, SLO, SLA Explained](/explainer/sli-slo-sla-explained/).
 
+{% include tool-cta.html tool="sla-calculator" variant="inline" description="Turn SLA percentages like 99.9% and 99.99% into allowed downtime per day, week, and month." %}
+
 ---
 
 ## Capacity Estimation
@@ -865,6 +867,9 @@ Components:
 9. **Search Index**: Full-text search capabilities
 
 ---
+
+{% include tool-cta.html tool="uuid-generator" description="Generate UUID v4 and v7 for distributed services, databases, and API resources." %}
+{% include tool-cta.html tool="epoch-converter" variant="inline" description="Convert Unix timestamps when you debug ordering, TTLs, and event timelines." %}
 
 ## Further Reading
 

@@ -1,0 +1,39 @@
+{% comment %}
+  Promote relevant glossary terms from a blog post.
+  Usage:
+    {% include glossary-callout.html terms="lease,fencing-token,ttl,heartbeat" %}
+  Parameters:
+    terms (required) - comma-separated list of glossary slugs (must match _glossary/<slug>.md)
+    title - optional override (default: "Glossary terms in this post")
+{% endcomment %}
+
+{% assign callout_terms = include.terms | split: "," %}
+{% assign callout_title = include.title | default: "Glossary terms in this post" %}
+
+{% if callout_terms.size > 0 %}
+<aside class="glossary-callout" role="note" aria-label="Glossary terms used in this post">
+  <div class="glossary-callout-header">
+    <span class="glossary-callout-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+    </span>
+    <h3 class="glossary-callout-title">{{ callout_title }}</h3>
+  </div>
+  <ul class="glossary-callout-list">
+    {% for slug_raw in callout_terms %}
+      {% assign slug = slug_raw | strip %}
+      {% assign term = site.glossary | where: "slug", slug | first %}
+      {% if term %}
+        <li>
+          <a href="{{ term.url | relative_url }}" onclick="if(typeof gtag==='function'){gtag('event','click',{'event_category':'Glossary Callout','event_label':'{{ term.title | escape }}'});}">
+            <strong>{{ term.title }}</strong>
+            <span class="glossary-callout-definition">{{ term.definition | markdownify | strip_html | truncatewords: 22 }}</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</aside>
+{% endif %}

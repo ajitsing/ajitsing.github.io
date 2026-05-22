@@ -36,6 +36,8 @@ That's a nightmare scenario, right? In the world of databases and distributed sy
 
 Today, we'll dive into what WAL is, why it exists, and how it keeps your data safe.
 
+{% include glossary-callout.html terms="write-ahead-log,replicated-log,consensus,raft,high-watermark,two-phase-commit" %}
+
 ## The Problem: When Things Go Wrong at the Worst Time
 
 Let's start with a story that'll make any developer's blood pressure spike.

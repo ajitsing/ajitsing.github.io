@@ -39,6 +39,8 @@ This is the problem at the heart of every distributed database, every consensus 
 
 The answer is a pattern called **Replicated Log**. It's the backbone of systems like etcd, CockroachDB, Apache Kafka, and ZooKeeper. And once you understand it, a lot of distributed systems start making sense.
 
+{% include glossary-callout.html terms="replicated-log,consensus,raft,paxos,high-watermark,quorum" %}
+
 ## The Problem: Order Matters More Than You Think
 
 Let's say you have two servers sharing a bank account with a balance of $1000. Two requests arrive at almost the same time:

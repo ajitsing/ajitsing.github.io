@@ -46,6 +46,8 @@ If you say yes, you have a problem. That message only exists on two out of three
 
 This is the exact problem the **High Watermark** pattern solves. It draws a line in the log and says: everything below this line is safe. Everything above it? Not yet.
 
+{% include glossary-callout.html terms="high-watermark,replicated-log,raft,quorum,write-ahead-log,consensus" %}
+
 ## The Problem: When Replication Lags Behind Visibility
 
 In any distributed system that uses [leader-follower replication](/distributed-systems/replicated-log/), the leader is always ahead of the followers. That's by design. The leader accepts writes first, then replicates them.

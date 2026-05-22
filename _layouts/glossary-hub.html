@@ -1,0 +1,267 @@
+---
+layout: base
+body-class: glossary-hub-page
+hide-explore-posts: true
+css:
+  - /assets/css/glossary.css
+---
+
+{% assign all_terms = site.glossary | sort_natural: "title" %}
+{% assign alphabet = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" | split: "," %}
+{% assign hub_url = page.url | absolute_url %}
+
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ hub_url }}#collection",
+      "url": "{{ hub_url }}",
+      "name": {{ page.title | jsonify }},
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page.description | jsonify }},
+      {% if page.keywords %}
+      "keywords": {{ page.keywords | jsonify }},
+      {% endif %}
+      "inLanguage": "en-US",
+      "isFamilyFriendly": true,
+      "datePublished": "2026-05-22",
+      "dateModified": "{{ site.time | date_to_xmlschema }}",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Software Engineers",
+        "name": "Software engineers, system designers, backend developers, and engineering interview candidates"
+      },
+      "learningResourceType": "Glossary",
+      "educationalLevel": "Intermediate to Advanced",
+      "isPartOf": { "@id": "{{ site.url }}#website" },
+      "author": { "@id": "{{ site.url }}#author" },
+      "publisher": { "@id": "{{ site.url }}#organization" },
+      "mainEntity": { "@id": "{{ hub_url }}#dictionary" },
+      "breadcrumb": { "@id": "{{ hub_url }}#breadcrumb" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "{{ hub_url }}#dictionary",
+      "name": "Software Engineering Glossary",
+      "url": "{{ hub_url }}",
+      "description": {{ page.description | jsonify }},
+      "inLanguage": "en-US",
+      "hasDefinedTerm": [
+        {% for term in all_terms %}
+        {% assign term_def_plain = term.definition | markdownify | strip_html | strip_newlines | strip %}
+        {
+          "@type": "DefinedTerm",
+          "@id": "{{ term.url | absolute_url }}#term",
+          "name": {{ term.title | jsonify }},
+          "description": {{ term_def_plain | jsonify }},
+          "url": "{{ term.url | absolute_url }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "{{ hub_url }}#itemlist",
+      "name": "Glossary terms",
+      "numberOfItems": {{ all_terms.size }},
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {% for term in all_terms %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "url": "{{ term.url | absolute_url }}",
+          "name": {{ term.title | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ hub_url }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Glossary",
+          "item": "{{ hub_url }}"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}#author",
+      "name": "{{ site.author }}",
+      "url": "{{ site.url }}/aboutme",
+      {% if site.author-job-title %}
+      "jobTitle": "{{ site.author-job-title }}",
+      {% endif %}
+      {% if site.author-expertise %}
+      "knowsAbout": [{% for area in site.author-expertise %}"{{ area }}"{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      {% endif %}
+      "sameAs": [
+        {% if site.social-network-links.twitter %}"https://twitter.com/{{ site.social-network-links.twitter }}"{% endif %}{% if site.social-network-links.github %},
+        "https://github.com/{{ site.social-network-links.github }}"{% endif %}{% if site.social-network-links.linkedin %},
+        "https://www.linkedin.com/in/{{ site.social-network-links.linkedin }}"{% endif %}
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}#organization",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}",
+      {% if site.avatar %}
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.avatar | absolute_url }}",
+        "width": 400,
+        "height": 400
+      },
+      {% endif %}
+      "founder": { "@id": "{{ site.url }}#author" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}#website",
+      "url": "{{ site.url }}",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "publisher": { "@id": "{{ site.url }}#organization" },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
+
+<div class="glossary-hub-container">
+
+  <header class="glossary-hub-header">
+    <h1 class="glossary-hub-title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="glossary-hub-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+    <p class="glossary-hub-meta">{{ all_terms.size }} term{% if all_terms.size != 1 %}s{% endif %} and counting</p>
+  </header>
+
+  <div class="glossary-hub-search">
+    <input
+      type="search"
+      id="glossary-filter-input"
+      class="glossary-hub-search-input"
+      placeholder="Search the glossary..."
+      autocomplete="off"
+      aria-label="Search glossary terms"
+    >
+    <p class="glossary-hub-no-results" id="glossary-no-results" hidden>
+      No terms match your search. Try a different keyword.
+    </p>
+  </div>
+
+  <nav class="glossary-alpha-nav" aria-label="Jump to letter">
+    {% for letter in alphabet %}
+      {% assign letter_terms = all_terms | where_exp: "term", "term.title" | where_exp: "term", "term.title contains letter" %}
+      {% assign matches_letter = false %}
+      {% for term in all_terms %}
+        {% assign first_char = term.title | slice: 0, 1 | upcase %}
+        {% if first_char == letter %}
+          {% assign matches_letter = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      {% if matches_letter %}
+        <a href="#letter-{{ letter }}" class="glossary-alpha-link">{{ letter }}</a>
+      {% else %}
+        <span class="glossary-alpha-link glossary-alpha-link-disabled" aria-disabled="true">{{ letter }}</span>
+      {% endif %}
+    {% endfor %}
+  </nav>
+
+  <div class="glossary-hub-list" id="glossary-hub-list">
+    {% for letter in alphabet %}
+      {% assign letter_terms = "" | split: "" %}
+      {% for term in all_terms %}
+        {% assign first_char = term.title | slice: 0, 1 | upcase %}
+        {% if first_char == letter %}
+          {% assign letter_terms = letter_terms | push: term %}
+        {% endif %}
+      {% endfor %}
+      {% if letter_terms.size > 0 %}
+      <section class="glossary-letter-group" id="letter-{{ letter }}" data-letter="{{ letter }}">
+        <h2 class="glossary-letter-heading">{{ letter }}</h2>
+        <div class="glossary-term-grid">
+          {% for term in letter_terms %}
+          <article
+            class="glossary-term-card"
+            data-glossary-term="{{ term.title | downcase }}{% if term.also-known-as %} {% for alt in term.also-known-as %}{{ alt | downcase }} {% endfor %}{% endif %}"
+          >
+            <a href="{{ term.url | relative_url }}" class="glossary-term-card-link">
+              <h3 class="glossary-term-card-title">{{ term.title }}</h3>
+              {% if term.also-known-as %}
+              <p class="glossary-term-card-aka">{{ term.also-known-as | join: ", " }}</p>
+              {% endif %}
+              <p class="glossary-term-card-definition">
+                {{ term.definition | markdownify | strip_html | truncatewords: 28 }}
+              </p>
+            </a>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="glossary-hub-footer-cta">
+    <p>
+      Looking for a deep dive instead of a definition? Browse the
+      <a href="{{ '/distributed-systems/' | relative_url }}">distributed systems</a>,
+      <a href="{{ '/system-design/' | relative_url }}">system design</a>, and
+      <a href="{{ '/database/' | relative_url }}">database</a> hubs.
+    </p>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  var input = document.getElementById('glossary-filter-input');
+  var noResults = document.getElementById('glossary-no-results');
+  if (!input) return;
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.glossary-term-card'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.glossary-letter-group'));
+
+  function applyFilter() {
+    var query = input.value.trim().toLowerCase();
+    var anyVisible = false;
+
+    cards.forEach(function(card) {
+      var haystack = (card.getAttribute('data-glossary-term') || '') + ' ' + (card.textContent || '').toLowerCase();
+      var match = query === '' || haystack.indexOf(query) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) anyVisible = true;
+    });
+
+    groups.forEach(function(group) {
+      var visibleCards = group.querySelectorAll('.glossary-term-card:not([style*="display: none"])');
+      group.style.display = visibleCards.length > 0 ? '' : 'none';
+    });
+
+    if (noResults) {
+      noResults.hidden = anyVisible;
+    }
+  }
+
+  input.addEventListener('input', applyFilter);
+})();
+</script>

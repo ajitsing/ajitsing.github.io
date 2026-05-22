@@ -39,6 +39,8 @@ This is where gossip dissemination comes in. Instead of one server telling every
 
 This is the same way rumors spread through an office. You tell two colleagues at the coffee machine. They each tell two more. By lunch, everyone knows. That's gossip dissemination, and it's one of the most important patterns in distributed systems.
 
+{% include glossary-callout.html terms="gossip-protocol,heartbeat,eventual-consistency,quorum" %}
+
 ## The Problem: Broadcasting Is Expensive
 
 Let's say you have a cluster of 10 servers. One server discovers that Server 7 just crashed. How does it tell the rest?

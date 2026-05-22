@@ -41,8 +41,9 @@ navbar-links:
     - Database: "/database"
     - Distributed Systems: "/distributed-systems"
     - Design Patterns: "/design-patterns"
+    - Tech News: "/software-development-news"
   Tools: "/tools/"
-  Tech News: "/software-development-news"
+  Glossary: "/glossary/"
 
 # --- Logo --- #
 
@@ -185,6 +186,9 @@ collections:
   explainers:
     output: true
     permalink: /explainer/:name/
+  glossary:
+    output: true
+    permalink: /glossary/:name/
 
 kramdown:
   input: GFM
@@ -211,6 +215,14 @@ defaults:
     values:
       layout: "explainer"
       comments: false
+  -
+    scope:
+      path: ""
+      type: "glossary"
+    values:
+      layout: "glossary-term"
+      comments: false
+      seo: true
   -
     scope:
       path: "" # all files

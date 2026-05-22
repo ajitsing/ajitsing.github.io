@@ -1,0 +1,14 @@
+---
+layout: glossary-hub
+title: "Software Engineering Glossary"
+meta-title: "Software Engineering Glossary: Distributed Systems, Databases, System Design"
+subtitle: "Plain English definitions for the engineering ideas you keep running into."
+seo: true
+description: "A small, hand written glossary of distributed systems, database, and system design terms. Each entry has a short definition, a few key points, and links to longer articles. Covers consensus, Paxos, Raft, quorum, lease, write ahead log, two phase commit, gossip protocol, CAP theorem, eventual consistency, and more."
+keywords: "software engineering glossary, distributed systems glossary, system design glossary, database glossary, dictionary of distributed systems terms, what is consensus, what is paxos, what is raft, what is quorum, what is a lease, what is write-ahead log, what is two-phase commit, what is gossip protocol, what is cap theorem, eventual consistency definition, fencing token definition, replicated log definition, leader election definition, hybrid logical clock definition, high watermark definition, split brain definition, ttl distributed systems"
+thumbnail: /assets/img/ajit-singh-blog-og.png
+share-img: /assets/img/ajit-singh-blog-og.png
+permalink: /glossary/
+social-share: true
+speakable: true
+---

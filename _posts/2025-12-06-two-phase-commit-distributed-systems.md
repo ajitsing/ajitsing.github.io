@@ -46,6 +46,8 @@ Now you have a problem: the customer paid $100, one item is locked in inventory,
 
 This is the **distributed transaction problem**. And it's been haunting developers since the 1970s. The solution? **Two-Phase Commit**, a protocol that coordinates commits across multiple databases to ensure atomicity.
 
+{% include glossary-callout.html terms="two-phase-commit,consensus,write-ahead-log,replicated-log,quorum" %}
+
 ## Why Single Database Transactions Don't Help
 
 In a single database, transactions are elegant:

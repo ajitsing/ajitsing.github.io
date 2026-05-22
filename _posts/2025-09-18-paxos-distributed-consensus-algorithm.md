@@ -38,6 +38,8 @@ This is the **distributed consensus problem**: getting multiple computers to agr
 
 In this post, we'll explore how Paxos ensures that distributed systems stay consistent, even when networks fail and servers crash.
 
+{% include glossary-callout.html terms="paxos,consensus,raft,quorum,replicated-log,leader-election" %}
+
 ## The Problem: Getting Everyone to Agree is Hard
 
 Let's start with a story that shows just how tricky consensus can be.

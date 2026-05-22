@@ -34,6 +34,8 @@ Your users start seeing timeouts. Requests pile up. Other servers keep routing t
 
 This is the nightmare scenario that heartbeat mechanisms prevent. Let me show you how.
 
+{% include glossary-callout.html terms="heartbeat,lease,ttl,leader-election,gossip-protocol,split-brain" %}
+
 ## The Problem: How Do You Know If Something Is Dead?
 
 In a single server application, failure is obvious. The process crashes, you get an exception, and you restart it. Simple.

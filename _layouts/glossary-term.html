@@ -1,0 +1,156 @@
+---
+layout: base
+body-class: glossary-term-page
+hide-explore-posts: true
+css:
+  - /assets/css/glossary.css
+  - /assets/css/tool-cta.css
+---
+
+{% include glossary-schema.html %}
+
+<div class="glossary-term-wrapper">
+  <main class="glossary-term-main">
+
+    <nav class="glossary-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
+        <li aria-current="page">{{ page.title }}</li>
+      </ol>
+    </nav>
+
+    <article class="glossary-term">
+
+      <header class="glossary-term-header">
+        <span class="glossary-badge">Software Engineering Glossary</span>
+        <h1 class="glossary-title">{{ page.title }}</h1>
+        {% if page.also-known-as %}
+        <div class="glossary-aka">
+          <span class="glossary-aka-label">Also known as:</span>
+          {% for alt in page.also-known-as %}
+            <span class="glossary-aka-chip">{{ alt }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </header>
+
+      <section class="glossary-definition-card" aria-label="Definition">
+        <h2 class="glossary-section-label">Definition</h2>
+        {{ page.definition | markdownify }}
+      </section>
+
+      <div class="glossary-content-grid">
+        <div class="glossary-content-main">
+
+          {% if page.key_takeaways %}
+          <section class="glossary-takeaways">
+            <h2>Key Takeaways</h2>
+            <ul>
+              {% for point in page.key_takeaways %}
+              <li>{{ point | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+          {% endif %}
+
+          {% if page.how_it_works %}
+          <section class="glossary-how-it-works">
+            <h2>How It Works</h2>
+            <ol>
+              {% for step in page.how_it_works %}
+              <li>{{ step | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+              {% endfor %}
+            </ol>
+          </section>
+          {% endif %}
+
+          {% if page.real_world %}
+          <section class="glossary-real-world">
+            <h2>Where It Is Used</h2>
+            <ul>
+              {% for example in page.real_world %}
+              <li>{{ example | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+          {% endif %}
+
+          {% if content and content != "" %}
+          <section class="glossary-extended">
+            {{ content }}
+          </section>
+          {% endif %}
+
+        </div>
+
+        <aside class="glossary-sidebar" aria-label="Related references">
+
+          {% if page.related_terms %}
+          <div class="glossary-sidebar-widget">
+            <h3>Related Terms</h3>
+            <ul class="glossary-related-list">
+              {% for term_slug in page.related_terms %}
+                {% assign related_term = site.glossary | where: "slug", term_slug | first %}
+                {% if related_term %}
+                  <li>
+                    <a href="{{ related_term.url | relative_url }}">{{ related_term.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if page.related_posts %}
+          <div class="glossary-sidebar-widget">
+            <h3>Read More</h3>
+            <ul class="glossary-related-list">
+              {% for post_url in page.related_posts %}
+                {% assign related_post = site.posts | where: "url", post_url | first %}
+                {% if related_post %}
+                  <li>
+                    <a href="{{ related_post.url | relative_url }}">{{ related_post.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if page.related_explainers %}
+          <div class="glossary-sidebar-widget">
+            <h3>Visual Explainers</h3>
+            <ul class="glossary-related-list">
+              {% for explainer_url in page.related_explainers %}
+                {% assign related_explainer = site.explainers | where: "url", explainer_url | first %}
+                {% if related_explainer %}
+                  <li>
+                    <a href="{{ related_explainer.url | relative_url }}">{{ related_explainer.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if page.related_tools %}
+          <div class="glossary-sidebar-widget glossary-sidebar-tools">
+            <h3>Try the Tool</h3>
+            {% for tool_slug in page.related_tools %}
+              {% include tool-cta.html tool=tool_slug variant="block" %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+        </aside>
+      </div>
+
+    </article>
+
+    <nav class="glossary-back-nav" aria-label="Glossary navigation">
+      <a href="{{ '/glossary/' | relative_url }}" class="glossary-back-link">&larr; Back to Glossary</a>
+    </nav>
+
+  </main>
+</div>

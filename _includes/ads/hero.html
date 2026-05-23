@@ -1,22 +1,63 @@
 {% if site.manual_ads %}
 <style>
-  .hero-ad { display: none; width: 100%; background: #f3f4f6; border-bottom: 1px solid #e5e7eb; padding: calc(5rem + 18px) 0 14px; contain: layout; }
-  .hero-ad__inner { width: 970px; height: 250px; margin: 0 auto; }
-  .hero-ad__unit { display: block; width: 970px; height: 250px; }
+  .hero-banner {
+    display: none;
+    width: 100%;
+    padding: calc(5rem + 18px) 0 18px;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #eef2f7;
+    background-image:
+      url('{{ "/assets/img/hero-network-bg.svg" | relative_url }}'),
+      linear-gradient(135deg, #f8fafc 0%, #eef2f7 55%, #e7ecf3 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center center, center center;
+    background-size: cover, cover;
+    contain: layout;
+  }
+  .hero-banner__inner {
+    width: 970px;
+    margin: 0 auto;
+  }
+  .hero-banner__card {
+    width: 970px;
+    height: 250px;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: none;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 200ms ease, box-shadow 200ms ease;
+  }
+  /* Only frame the slot once AdSense reports a real creative was served. */
+  .hero-banner__card:has(ins[data-ad-status="filled"]) {
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 18px rgba(15, 23, 42, 0.06);
+  }
+  .hero-banner__unit {
+    display: block;
+    width: 970px;
+    height: 250px;
+  }
   @media (min-width: 992px) {
-    .hero-ad { display: block; }
-    .hero-ad + .header-section .intro-header { margin-top: 1.25rem; }
+    .hero-banner { display: block; }
+    .hero-banner + .header-section .intro-header { margin-top: 1.25rem; }
   }
   @media (min-width: 1200px) {
-    .hero-ad { padding-top: calc(8.125rem + 18px); }
+    .hero-banner { padding-top: calc(8.125rem + 18px); }
   }
 </style>
-<aside class="hero-ad" aria-label="Advertisement">
-  <div class="hero-ad__inner">
-    <ins class="adsbygoogle hero-ad__unit"
-         style="display:inline-block;width:970px;height:250px"
-         data-ad-client="ca-pub-2886086145980317"
-         data-ad-slot="1787846424"></ins>
+<aside class="hero-banner" aria-label="Sponsored placement">
+  <div class="hero-banner__inner">
+    <div class="hero-banner__card">
+      <ins class="adsbygoogle hero-banner__unit"
+           style="display:inline-block;width:970px;height:250px"
+           data-ad-client="ca-pub-2886086145980317"
+           data-ad-slot="1787846424"></ins>
+    </div>
   </div>
   <script>
     (function () {

@@ -1,6 +1,10 @@
 <!-- TODO this file has become a mess, refactor it -->
 
-{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+{% if page.tags contains 'dev-weekly' %}
+  {% assign date_format = "%B %-d, %Y at 9:00 AM" %}
+{% else %}
+  {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+{% endif %}
 
 {% if page.cover-img or page.title %}
 

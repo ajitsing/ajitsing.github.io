@@ -83,7 +83,7 @@
     },
     {% endif %}
     {
-      "@type": "{% if page.layout == 'explainer' %}TechArticle{% else %}BlogPosting{% endif %}",
+      "@type": "{% if page.layout == 'explainer' %}TechArticle{% elsif page.tags contains 'dev-weekly' %}NewsArticle{% else %}BlogPosting{% endif %}",
       "@id": "{{ page.url | absolute_url }}#article",
       "headline": "{{ page.title | escape }}",
       "name": "{{ page.title | escape }}",
@@ -180,7 +180,7 @@
         {% endif %}
       },
       "publisher": {
-        "@type": "Organization",
+        "@type": "{% if page.tags contains 'dev-weekly' %}NewsMediaOrganization{% else %}Organization{% endif %}",
         "@id": "{{ site.url }}#organization",
         "name": "{{ site.title }}",
         "url": "{{ site.url }}",

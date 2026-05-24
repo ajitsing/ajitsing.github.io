@@ -149,8 +149,15 @@
   <!-- DNS prefetch for lower-priority domains -->
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-  {% if page.layout == 'home' %}
+  {% if page.robots %}
+  <meta name="robots" content="{{ page.robots }}">
+  {% elsif page.tags contains 'dev-weekly' %}
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  {% elsif page.layout == 'home' %}
   <meta name="robots" content="index, follow">
+  {% endif %}
+
+  {% if page.layout == 'home' %}
   <meta name="classification" content="Technology, Programming, Software Engineering">
   <meta name="category" content="Software Engineering Blog">
   <meta name="coverage" content="Worldwide">

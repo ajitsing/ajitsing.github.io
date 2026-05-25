@@ -101,7 +101,14 @@
         "@type": "WebPage",
         "@id": "{{ page.url | absolute_url }}"
       },
-      {% if page.share-img %}
+      {% if page.discover-img %}
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ page.discover-img | absolute_url }}",
+        "width": 1200,
+        "height": 630
+      },
+      {% elsif page.share-img %}
       "image": {
         "@type": "ImageObject",
         "url": "{{ page.share-img | absolute_url }}",

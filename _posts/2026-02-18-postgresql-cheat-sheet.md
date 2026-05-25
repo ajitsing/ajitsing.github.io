@@ -1190,7 +1190,7 @@ FROM pg_stat_user_tables
 ORDER BY n_dead_tup DESC;
 ```
 
-PostgreSQL runs autovacuum in the background, but on busy tables with lots of updates and deletes, it might not keep up. If you see dead rows piling up, you might need to tune the autovacuum settings or run manual VACUUM during off-peak hours.
+PostgreSQL runs autovacuum in the background, but on busy tables with lots of updates and deletes, it might not keep up. If you see dead rows piling up, you might need to tune the autovacuum settings or run manual VACUUM during off-peak hours. For a deep dive on tuning, dead tuple cleanup, transaction ID wraparound, and the cost-based throttling model, see our guide on [PostgreSQL MVCC and Autovacuum](/postgresql-mvcc-autovacuum/){:target="_blank" rel="noopener"}.
 
 ### Finding Slow Queries
 
@@ -1400,6 +1400,7 @@ These posts go deeper into specific database topics:
 
 **PostgreSQL Deep Dives**:
 - [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/) - How parser, planner, executor, MVCC, and the WAL fit together
+- [PostgreSQL MVCC and Autovacuum: The Developer's Guide](/postgresql-mvcc-autovacuum/) - Dead tuples, table bloat, and tuning autovacuum for production
 - [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/)
 - [PostgreSQL 18: The Release That Makes Databases Fast Again](/postgres-18-features/)
 - [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/)

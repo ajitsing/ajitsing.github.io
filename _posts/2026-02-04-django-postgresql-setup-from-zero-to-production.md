@@ -308,7 +308,7 @@ For managed PostgreSQL (AWS RDS, Render, etc.) you typically set `sslmode` to `r
 Other useful timeouts you can pass the same way:
 
 - **lock_timeout** – How long to wait for a lock before giving up (e.g. `-c lock_timeout=5000` for 5 seconds).
-- **idle_in_transaction_session_timeout** – Close connections that stay in a transaction but idle (helps avoid holding locks or bloating connection count). For example `-c idle_in_transaction_session_timeout=60000` (60 seconds).
+- **idle_in_transaction_session_timeout** – Close connections that stay in a transaction but idle (helps avoid holding locks or bloating connection count). For example `-c idle_in_transaction_session_timeout=60000` (60 seconds). Idle transactions also block autovacuum from cleaning up dead tuples, so this setting matters for write-heavy apps. See our guide on [PostgreSQL MVCC and Autovacuum](/postgresql-mvcc-autovacuum/){:target="_blank" rel="noopener"} for the full story.
 
 You can combine them: `'options': '-c timezone=UTC -c statement_timeout=30000 -c idle_in_transaction_session_timeout=60000'`.
 

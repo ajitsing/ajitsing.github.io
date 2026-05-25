@@ -557,7 +557,7 @@ This is why a plain `SELECT` in PostgreSQL or MySQL InnoDB does not acquire any 
 | **Bloat risk** | Yes, if VACUUM falls behind | Lower, undo log is separate |
 | **Transaction IDs** | xmin/xmax per row | Transaction ID + undo pointers |
 
-PostgreSQL keeps old row versions in the same table, which can cause table bloat if [VACUUM does not keep up](/postgresql-cheat-sheet/#performance-and-troubleshooting). MySQL InnoDB stores old versions in a separate undo log, which avoids bloat in the main data but adds complexity.
+PostgreSQL keeps old row versions in the same table, which can cause table bloat if VACUUM does not keep up. For a deep dive on dead tuples, table bloat, and tuning autovacuum, see our guide on [PostgreSQL MVCC and Autovacuum](/postgresql-mvcc-autovacuum/){:target="_blank" rel="noopener"}. MySQL InnoDB stores old versions in a separate undo log, which avoids bloat in the main data but adds complexity.
 
 ### MVCC Does Not Eliminate All Locks
 

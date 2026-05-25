@@ -827,6 +827,7 @@ flowchart LR
 **Related Posts:**
 
 - [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/) - Why connection pooling, short transactions, and good plans matter so much
+- [PostgreSQL MVCC and Autovacuum: The Developer's Guide](/postgresql-mvcc-autovacuum/) - Dead tuples, table bloat, and tuning autovacuum for production
 - [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/) - Choosing the right database for your project
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Essential psql commands, queries, and performance tuning
 - [How Database Indexing Works](/database-indexing-explained/) - Deep dive into B-trees and index optimization

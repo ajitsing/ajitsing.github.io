@@ -584,7 +584,7 @@ The value of CDC plus the outbox is that the WAL becomes the canonical timeline 
 
 ### Cleanup is part of the design, not an afterthought
 
-A `DELETE FROM outbox WHERE published = true` job feels obvious. It also generates WAL for every row, creates dead tuples, requires VACUUM to reclaim space, and competes for locks with writers. Time partitioning and `DROP PARTITION` skips all of that and is essentially free in WAL terms. We covered the same idea for hot tables in [the database locks deep dive](/database-locks-explained/){:target="_blank" rel="noopener"} and the [Postgres internals post](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"}.
+A `DELETE FROM outbox WHERE published = true` job feels obvious. It also generates WAL for every row, creates dead tuples, requires VACUUM to reclaim space, and competes for locks with writers. Time partitioning and `DROP PARTITION` skips all of that and is essentially free in WAL terms. We covered the same idea for hot tables in [the database locks deep dive](/database-locks-explained/){:target="_blank" rel="noopener"}, the [Postgres internals post](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"}, and our deep dive on [PostgreSQL MVCC and Autovacuum](/postgresql-mvcc-autovacuum/){:target="_blank" rel="noopener"} that explains why dead tuples accumulate and how to tune vacuum.
 
 ### Treat slots like persistent state
 

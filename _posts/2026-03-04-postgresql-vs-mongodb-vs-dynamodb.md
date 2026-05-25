@@ -598,6 +598,7 @@ And when you get to the scale where one database is not enough, you will know. Y
 ## Related Reading
 
 - [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/) - practical scaling techniques for PostgreSQL
+- [PostgreSQL MVCC and Autovacuum](/postgresql-mvcc-autovacuum/) - why Postgres bloats and how to keep it healthy
 - [Database Indexing Explained](/database-indexing-explained/) - how indexes work under the hood
 - [Database Locks Explained](/database-locks-explained/) - how each database handles locking and concurrency control
 - [How Databases Store Data Internally](/how-databases-store-data-internally/) - pages, B-trees, and buffer pools

@@ -467,7 +467,7 @@ This design has three big consequences every developer should internalise.
 2. **Indexes also bloat.** Each new tuple version needs new index entries unless [HOT (Heap Only Tuple)](https://www.postgresql.org/docs/current/storage-hot.html){:target="_blank" rel="noopener"} kicks in (when no indexed column changed and the page has free space).
 3. **Long running transactions are dangerous.** A `BEGIN` from yesterday holds a snapshot that prevents vacuum from reclaiming any tuple newer than that snapshot. The fix is short transactions and the `idle_in_transaction_session_timeout` GUC.
 
-The classic write up is Bruce Momjian's [MVCC Unmasked](https://momjian.us/main/writings/pgsql/mvcc.pdf){:target="_blank" rel="noopener"} talk. For a friendly walkthrough, the [MVCC introduction](https://www.postgresql.org/docs/current/mvcc-intro.html){:target="_blank" rel="noopener"} in the official docs is short and clear. If you want to compare with how other databases handle concurrency, the [Database Locks](/database-locks-explained/){:target="_blank" rel="noopener"} post covers locking and isolation in general.
+The classic write up is Bruce Momjian's [MVCC Unmasked](https://momjian.us/main/writings/pgsql/mvcc.pdf){:target="_blank" rel="noopener"} talk. For a friendly walkthrough, the [MVCC introduction](https://www.postgresql.org/docs/current/mvcc-intro.html){:target="_blank" rel="noopener"} in the official docs is short and clear, or check out our in-depth guide on [PostgreSQL MVCC and Autovacuum](/postgresql-mvcc-autovacuum/){:target="_blank" rel="noopener"}. If you want to compare with how other databases handle concurrency, the [Database Locks](/database-locks-explained/){:target="_blank" rel="noopener"} post covers locking and isolation in general.
 
 ## The Write-Ahead Log
 
@@ -623,7 +623,7 @@ It does two things per pass:
 1. **VACUUM**: marks dead tuple slots reusable, freezes very old tuples to prevent transaction id wraparound, and updates the visibility map.
 2. **ANALYZE**: refreshes `pg_statistic` so the planner has accurate row estimates.
 
-The single most common production tuning is to make autovacuum **more aggressive on large hot tables**, by setting per table `autovacuum_vacuum_scale_factor = 0.05` and `autovacuum_vacuum_cost_limit = 1000`. Reference: [Routine Vacuuming](https://www.postgresql.org/docs/current/routine-vacuuming.html){:target="_blank" rel="noopener"} and [autovacuum settings](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html){:target="_blank" rel="noopener"}.
+The single most common production tuning is to make autovacuum **more aggressive on large hot tables**, by setting per table `autovacuum_vacuum_scale_factor = 0.05` and `autovacuum_vacuum_cost_limit = 1000`. For a practical guide on tuning thresholds and cost parameters, check out our guide on [PostgreSQL MVCC and Autovacuum](/postgresql-mvcc-autovacuum/){:target="_blank" rel="noopener"}. Reference: [Routine Vacuuming](https://www.postgresql.org/docs/current/routine-vacuuming.html){:target="_blank" rel="noopener"} and [autovacuum settings](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html){:target="_blank" rel="noopener"}.
 
 ### Background Writer
 

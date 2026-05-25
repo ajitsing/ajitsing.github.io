@@ -46,7 +46,11 @@
 <link rel="canonical" href="{{ page.url | absolute_url | strip_index }}">
 {% endif %}
 
-{% if page.share-img %}
+{% if page.discover-img %}
+<meta property="og:image" content="{{ page.discover-img | absolute_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{% elsif page.share-img %}
 <meta property="og:image" content="{{ page.share-img | absolute_url }}">
 {% elsif page.thumbnail %}
 <meta property="og:image" content="{{ page.thumbnail | absolute_url }}">
@@ -93,7 +97,9 @@
 <meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}">
 {% endif %}
 
-{% if page.share-img %}
+{% if page.discover-img %}
+<meta name="twitter:image" content="{{ page.discover-img | absolute_url }}">
+{% elsif page.share-img %}
 <meta name="twitter:image" content="{{ page.share-img | absolute_url }}">
 {% elsif page.cover-img %}
 <meta name="twitter:image" content="{{ page.cover-img | absolute_url }}">

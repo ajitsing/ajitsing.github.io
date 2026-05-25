@@ -151,7 +151,7 @@
 
   {% if page.robots %}
   <meta name="robots" content="{{ page.robots }}">
-  {% elsif page.tags contains 'dev-weekly' %}
+  {% elsif page.discover-img %}
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   {% elsif page.layout == 'home' %}
   <meta name="robots" content="index, follow">

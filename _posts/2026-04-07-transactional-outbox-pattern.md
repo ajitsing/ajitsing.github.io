@@ -732,7 +732,7 @@ After working with the outbox pattern in production systems, here are the things
 
 **5. Use the outbox for domain events, not database changes.** The outbox should contain business events like `OrderCreated`, `PaymentProcessed`, `UserRegistered`. Not database-level changes like `row_inserted` or `column_updated`. Domain events are meaningful to consumers. Database changes are not.
 
-**6. Plan for outbox table growth.** In a system processing 1,000 orders per second, the outbox table gets 86 million rows per day. You need a cleanup strategy from day one, not as an afterthought when the database runs out of disk space.
+**6. Plan for outbox table growth.** In a system processing 1,000 orders per second, the outbox table gets 86 million rows per day. You need a cleanup strategy from day one, not as an afterthought when the database runs out of disk space. Row-by-row deletes on a hot outbox table also create dead tuples and index bloat in Postgres; see [PostgreSQL MVCC and Autovacuum](/postgresql-mvcc-autovacuum/){:target="_blank" rel="noopener"} for why partitioning is better than deleting.
 
 **7. Monitor the lag religiously.** The gap between event creation and event publication is the most important metric. If it is growing, investigate immediately. A growing lag means your consumers are working with increasingly stale data.
 

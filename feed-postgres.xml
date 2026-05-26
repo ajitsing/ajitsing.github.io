@@ -1,0 +1,39 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>{{ site.title | xml_escape }} — PostgreSQL</title>
+    <description>PostgreSQL articles from {{ site.title | xml_escape }} — internals, performance, scaling, MVCC, autovacuum, query planning, and production tuning.</description>
+    <link>{{ '' | absolute_url }}</link>
+    <language>en-us</language>
+    <atom:link href="{{ '/feed-postgres.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
+    {% for post in site.posts %}
+      {% assign is_postgres = false %}
+      {% if post.tags contains 'postgres' or post.tags contains 'postgresql' %}
+        {% assign is_postgres = true %}
+      {% elsif post.url contains 'postgres' %}
+        {% assign is_postgres = true %}
+      {% endif %}
+      {% if is_postgres %}
+        {% unless post.categories contains 'tech-news' or post.categories contains 'dev-weekly' %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <description>
+          {% if post.subtitle %}{{ post.subtitle | xml_escape }} — {% endif %}
+          {{ post.content | strip_html | xml_escape | truncatewords: 50 }}
+        </description>
+        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <link>{{ post.url | absolute_url }}</link>
+        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <dc:creator>{{ site.author | xml_escape }}</dc:creator>
+        <author>{{ site.author | xml_escape }}</author>
+        {% if post.categories %}{% for cat in post.categories %}<category>{{ cat | xml_escape }}</category>{% endfor %}{% endif %}
+      </item>
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  </channel>
+</rss>

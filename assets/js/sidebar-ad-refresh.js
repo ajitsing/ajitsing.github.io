@@ -1,6 +1,6 @@
 (function() {
   var VIEWABILITY_THRESHOLD = 0.5;
-  var MAX_REFRESHES = 20;
+  var MAX_REFRESHES = 5;
   var UNFILLED_RETRY_MS = 6000;
   var MAX_UNFILLED_RETRIES = 5;
 

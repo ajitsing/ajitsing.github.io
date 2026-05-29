@@ -87,6 +87,8 @@ A notification system has four promises. Everything else is a feature on top.
 3. **Honor user preferences.** Opt-outs, quiet hours, channel choice, frequency caps.
 4. **Stay up when one provider is down.** Twilio outages should not block push notifications.
 
+{% include ads/display.html %}
+
 That sounds modest, until you add the shape of real traffic. A normal Tuesday afternoon sees a steady stream of transactional events: payment confirmations, order updates, message pings. Then marketing schedules a 10 million row "spring sale" blast at noon. Then a regulatory alert fires for half a million users. Then a third-party webhook tells you 200,000 emails bounced. All in the same minute.
 
 The whole system has to absorb that without head-of-line blocking, without losing a single one-time password, and without spending three months of a senior engineer's time every quarter chasing "where did my email go."
@@ -542,6 +544,8 @@ flowchart TB
     class Store store
     class Leader leader
 ```
+
+{% include ads/in-article.html %}
 
 The scheduler does three things every tick:
 

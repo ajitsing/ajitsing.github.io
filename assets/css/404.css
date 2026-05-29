@@ -22,6 +22,27 @@
   font-weight: 400;
 }
 
+.error-404-ad {
+  width: 100%;
+  max-width: 728px;
+  margin: 24px auto 8px;
+  padding: 0;
+  text-align: center;
+  contain: layout;
+}
+
+.error-404-ad__unit {
+  display: block;
+  width: 100%;
+  min-height: 90px;
+}
+
+@media (min-width: 768px) {
+  .error-404-ad__unit {
+    min-height: 250px;
+  }
+}
+
 .error-404-image {
   max-width: 400px;
   width: 100%;
@@ -29,6 +50,10 @@
   margin: 30px 0;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.error-404-image--fallback {
+  display: none;
 }
 
 .error-404-actions {

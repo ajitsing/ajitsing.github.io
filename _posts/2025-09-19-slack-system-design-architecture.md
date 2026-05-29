@@ -425,4 +425,4 @@ The result? A system handling billions of messages that feels instant.
 
 ---
 
-*Want to dive deeper into system design? Check out [How Google Docs Works](/how-google-docs-works/) for real-time collaborative editing, [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/) for high-throughput data streaming, and [WebSockets Explained](/explainer/websockets-explained/) for the underlying protocol that powers these systems.*
+*Want to dive deeper into system design? Check out [How Google Docs Works](/how-google-docs-works/){:target="_blank" rel="noopener"} for real-time collaborative editing, [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/){:target="_blank" rel="noopener"} for high-throughput data streaming, [Notification System Design](/notification-system-design/){:target="_blank" rel="noopener"} for how the push notifications, channel emails, and digest messages flow out of a system like Slack, and [WebSockets Explained](/explainer/websockets-explained/){:target="_blank" rel="noopener"} for the underlying protocol that powers these systems.*

@@ -675,7 +675,7 @@ def delete_message(message):
 
 ---
 
-*Want to learn more about distributed systems patterns? Check out the [System Design Cheat Sheet](/system-design-cheat-sheet/) for a complete reference, [How Kafka Works](/distributed-systems/how-kafka-works/) for log-based messaging, [Two-Phase Commit](/distributed-systems/two-phase-commit-distributed-systems/) for distributed transactions, and [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/) for idempotency patterns.*
+*Want to learn more about distributed systems patterns? Check out the [System Design Cheat Sheet](/system-design-cheat-sheet/){:target="_blank" rel="noopener"} for a complete reference, [How Kafka Works](/distributed-systems/how-kafka-works/){:target="_blank" rel="noopener"} for log-based messaging, [Two-Phase Commit](/distributed-systems/two-phase-commit/){:target="_blank" rel="noopener"} for distributed transactions, [Notification System Design](/notification-system-design/){:target="_blank" rel="noopener"} for how priority queues, DLQs, and idempotency power push, SMS, and email at scale, and [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/){:target="_blank" rel="noopener"} for idempotency patterns.*
 
 **Further Reading**:
 - [RabbitMQ Tutorials](https://www.rabbitmq.com/getstarted.html)

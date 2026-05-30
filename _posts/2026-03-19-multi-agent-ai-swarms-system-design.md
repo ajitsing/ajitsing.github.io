@@ -10,7 +10,7 @@ share-img: /assets/img/posts/artificial-intelligence/multi-agent-ai-swarms-thumb
 thumbnail-img: /assets/img/posts/artificial-intelligence/multi-agent-ai-swarms-thumb.png
 description: "Learn how to architect multi-agent AI systems. This deep dive covers orchestration patterns (supervisor, pipeline, mesh), inter-agent communication, memory management, framework comparison (LangGraph vs CrewAI vs AutoGen), production failures, and practical lessons for software developers building agentic AI swarms."
 keywords: "multi-agent AI systems, AI agent orchestration, multi-agent architecture, AI agent swarm, agentic AI, multi-agent design patterns, LangGraph vs CrewAI, AI agent frameworks, multi-agent orchestration patterns, supervisor pattern AI, AI agent communication, multi-agent memory management, autonomous AI agents, AI agent production, building multi-agent systems, AI workflow orchestration, AI agent coordination, multi-agent system design, agent swarm architecture, CrewAI vs AutoGen, LangGraph tutorial, AI agent design patterns"
-tags: ["AI", "system-design"]
+tags: ["ai", "system-design"]
 comments: true
 social-share: true
 popular: true

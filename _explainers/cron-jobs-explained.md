@@ -363,10 +363,33 @@ flowchart LR
         </div>
       </div>
 
+      <div class="white-container">
+        <h2 class="section-title">Generating a Cron Expression</h2>
+
+        <p>You don't have to write cron syntax by hand. The fastest way to get a correct schedule is to use a <strong>cron expression generator</strong>: you describe when the job should run, and the generator produces a valid <code>crontab</code> line for you. Here is how to <strong>generate a cron expression</strong>:</p>
+
+        <div class="field-card">
+          <h3 class="field-title">1. Pick the schedule</h3>
+          <p class="field-description">Choose the minute, hour, day, month, and weekday for your job. For example, "every weekday at 9 AM" or "the 1st of every month at midnight".</p>
+        </div>
+
+        <div class="field-card">
+          <h3 class="field-title">2. Let the generator build the expression</h3>
+          <p class="field-description">A <strong>cron generator</strong> maps your choices to the five fields automatically. "Every weekday at 9 AM" becomes <code>0 9 * * 1-5</code>, and "the 1st of every month at midnight" becomes <code>0 0 1 * *</code>.</p>
+        </div>
+
+        <div class="field-card">
+          <h3 class="field-title">3. Add your command</h3>
+          <p class="field-description">Append the command to the generated expression to create a full crontab entry. <code>0 9 * * 1-5</code> becomes <code>0 9 * * 1-5 /path/to/report.sh</code>, then add it with <code>crontab -e</code>.</p>
+        </div>
+
+        <p>The same approach works for Linux crontab, Kubernetes CronJobs, and GitHub Actions, since they all use the standard 5-field format.</p>
+      </div>
+
       <div class="tool-cta">
-        <h3><i class="fas fa-tools"></i> Build Your Cron Expression</h3>
-        <p>Not sure if you got the syntax right? Use our free tool to parse or build cron expressions.</p>
-        <a href="/tools/cron-expression/">Try Cron Expression Tool →</a>
+        <h3><i class="fas fa-tools"></i> Generate Your Cron Expression</h3>
+        <p>Skip the syntax. Use our free cron expression generator to build, generate, and validate cron expressions in seconds.</p>
+        <a href="/tools/cron-expression/">Open the Cron Expression Generator →</a>
       </div>
 
       <div class="white-container">

@@ -982,6 +982,82 @@ body:has(.cron-tool) {
 }
 
 /* ==========================================================================
+   Generator lead + How to Generate section
+   ========================================================================== */
+.tool-mode-lead {
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.tool-mode-lead strong {
+  color: #44403c;
+}
+
+.generator-guide-section {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+
+.generator-guide-section h2 {
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.generator-guide-section h2 i {
+  color: #7c3aed;
+}
+
+.generator-guide-section p {
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  margin: 0 0 12px 0;
+  line-height: 1.7;
+}
+
+.generator-guide-section p:last-child {
+  margin-bottom: 0;
+}
+
+.generator-steps {
+  margin: 0 0 12px 0;
+  padding-left: 22px;
+}
+
+.generator-steps li {
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.generator-steps li strong {
+  color: #44403c;
+}
+
+.generator-guide-section code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #fef3c7;
+}
+
+/* ==========================================================================
    FAQ Section
    ========================================================================== */
 

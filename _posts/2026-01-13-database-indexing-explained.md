@@ -640,6 +640,7 @@ New result:
 - [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - MongoDB indexes, explain(), and query optimization
 - [Database Locks Explained](/database-locks-explained/) - How indexes affect locking behavior and concurrency
 - [ULID Explained: Sortable Unique IDs](/ulid-guide/) - Why time-ordered keys keep B-tree indexes healthy compared to random UUIDs
+- [GUID Explained: C# and SQL Server](/guid-explained/) - Why random NEWID() fragments a clustered index and how NEWSEQUENTIALID() fixes it
 - [N+1 Query Problem](/explainer/n-plus-one-query-problem/) - Another common database performance killer
 - [Caching Strategies](/caching-strategies-explained/) - When even indexes are not fast enough
 - [PostgreSQL Documentation: Indexes](https://www.postgresql.org/docs/current/indexes.html)

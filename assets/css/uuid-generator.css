@@ -72,6 +72,18 @@ body:has(.uuid-tool) {
   color: #44403c;
 }
 
+.uuid-tool .tool-intro .learn-link {
+  color: #292524;
+  text-decoration: underline;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.uuid-tool .tool-intro .learn-link:hover {
+  color: #44403c;
+}
+
 /* Section Headers */
 .uuid-tool .section-header {
   display: flex;

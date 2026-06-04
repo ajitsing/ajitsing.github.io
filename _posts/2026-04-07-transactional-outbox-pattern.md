@@ -560,7 +560,7 @@ Design operations so that running them twice produces the same result. For examp
 
 Include a version or sequence number in events. Consumers reject events with a version they have already processed or that is out of order.
 
-Idempotent consumers are not optional when using the outbox pattern. They are a requirement. For a deeper look at how message brokers handle delivery guarantees, see [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/).
+Idempotent consumers are not optional when using the outbox pattern. They are a requirement. The general server-side version of this technique, identifying each request and replaying the saved result on a retry, is the [Idempotent Receiver pattern](/distributed-systems/idempotent-receiver/). For a deeper look at how message brokers handle delivery guarantees, see [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/).
 
 ---
 

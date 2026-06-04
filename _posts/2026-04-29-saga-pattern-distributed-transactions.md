@@ -701,6 +701,7 @@ If you are designing your first saga today, the order to read other things in is
 - [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/){:target="_blank" rel="noopener"} - Picking the broker that carries your saga events
 - [Role of Queues in System Design](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"} - How queues power both choreography and orchestration sagas
 - [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/){:target="_blank" rel="noopener"} - Idempotency in production at scale
+- [Idempotent Receiver](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"} - The pattern that makes every saga step and compensation safe to retry
 - [Flash Sale System Design](/flash-sale-system-design/){:target="_blank" rel="noopener"} - Reserve-charge-settle as a saga across Redis, Kafka, and the payment gateway
 - [Notification System Design](/notification-system-design/){:target="_blank" rel="noopener"} - How "send the apology email" compensations actually get delivered in production
 - [Modular Monolith Architecture](/modular-monolith-architecture/){:target="_blank" rel="noopener"} - The simpler alternative if you do not yet need microservices

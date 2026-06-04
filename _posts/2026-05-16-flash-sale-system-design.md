@@ -740,7 +740,7 @@ The database is the source of truth for orders, not for stock during the sale. O
 
 ### Idempotency Is Not Optional
 
-Every order create, payment, refund, and notification must be safe to retry. The client retries on network drops. The queue redelivers on consumer crashes. The database fires under retry storms. If any of these can create duplicates, you will see duplicates the first sale you run at scale.
+Every order create, payment, refund, and notification must be safe to retry. The client retries on network drops. The queue redelivers on consumer crashes. The database fires under retry storms. If any of these can create duplicates, you will see duplicates the first sale you run at scale. The general technique behind the idempotency keys used here is the [Idempotent Receiver pattern](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"}.
 
 ### Async Everything That Is Not the Decision
 

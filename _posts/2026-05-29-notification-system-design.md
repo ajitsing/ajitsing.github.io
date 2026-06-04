@@ -457,7 +457,7 @@ For users not currently connected, the dispatcher writes the notification to an 
 
 ## Idempotency: The Single Most Important Detail
 
-If you remember one thing from this post, remember this: **set the idempotency key in Redis before you call the provider, not after.**
+If you remember one thing from this post, remember this: **set the idempotency key in Redis before you call the provider, not after.** This is the [Idempotent Receiver pattern](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"} applied to a notification dispatcher.
 
 The reason is subtle. When the dispatcher calls Twilio or FCM, the request can succeed on the provider side but the response can time out before it reaches the dispatcher. A naive retry will send the same SMS twice. The user gets two OTPs. They get suspicious. They contact support.
 

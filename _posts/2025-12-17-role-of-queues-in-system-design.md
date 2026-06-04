@@ -659,7 +659,7 @@ def delete_message(message):
 
 2. **Use queues for the right reasons**: async processing, traffic smoothing, fault isolation, and fan-out messaging.
 
-3. **Make consumers idempotent**. Messages will be delivered twice. Handle it gracefully.
+3. **Make consumers idempotent**. Messages will be delivered twice. Handle it gracefully with the [Idempotent Receiver pattern](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"}.
 
 4. **Always have a DLQ**. Poison messages shouldn't block your queue forever.
 

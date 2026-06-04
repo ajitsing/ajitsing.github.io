@@ -824,7 +824,7 @@ void process(Message msg) {
 }
 ```
 
-Make your processing **idempotent** - processing the same message twice has the same effect as processing it once.
+Make your processing **idempotent** - processing the same message twice has the same effect as processing it once. This is the [Idempotent Receiver pattern](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"}, and it is the only reliable way to deal with Kafka's at-least-once delivery on the consumer side.
 
 ## When NOT to Use Kafka
 

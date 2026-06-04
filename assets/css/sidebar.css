@@ -129,10 +129,6 @@
   min-height: 600px;
 }
 
-.sidebar-sticky-ad.ad-unfilled {
-  display: none;
-}
-
 .sidebar-title {
   font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.85rem;

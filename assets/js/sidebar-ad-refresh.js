@@ -73,7 +73,6 @@
   // ===== When ad fills: stop retries, start 30s refresh =====
   function onAdFilled() {
     adIsFilled = true;
-    container.classList.remove('ad-unfilled');
 
     if (retryTimer) { clearTimeout(retryTimer); retryTimer = null; }
     retryCount = 0;
@@ -95,7 +94,6 @@
   // ===== FLOW 1: Unfilled retries (6s, up to 5 attempts) =====
   function scheduleRetry() {
     if (retryCount >= MAX_UNFILLED_RETRIES) {
-      container.classList.add('ad-unfilled');
       return;
     }
     if (retryTimer) clearTimeout(retryTimer);

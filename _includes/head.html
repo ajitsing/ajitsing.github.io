@@ -126,7 +126,7 @@
     {% endfor %}
   {% endif %}
 
-  {% unless page.layout contains 'glossary' %}
+  {% unless page.layout == 'glossary-hub' %}
   <script>
     (function() {
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;

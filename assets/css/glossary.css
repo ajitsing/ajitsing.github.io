@@ -16,7 +16,7 @@
 .glossary-hub-container {
   max-width: 1162px;
   margin: 0 auto;
-  padding: 5rem 1rem 3rem;
+  padding: 7rem 1rem 3rem;
   color: #404040;
   font-family: 'Lora', 'Lora Fallback', 'Times New Roman', serif;
 }
@@ -24,7 +24,7 @@
 @media (min-width: 992px) {
   .glossary-term-wrapper,
   .glossary-hub-container {
-    padding: 6rem 1rem 3.5rem;
+    padding: 8.5rem 1rem 3.5rem;
   }
 }
 
@@ -356,6 +356,61 @@
 
 .glossary-sidebar-tools .tool-cta {
   margin: 0;
+}
+
+.glossary-sidebar-ad {
+  text-align: center;
+  contain: layout;
+}
+
+.glossary-sidebar-ad .ad-label {
+  margin-bottom: 0.85rem;
+}
+
+.glossary-sidebar-ad .sidebar-sticky-ad {
+  min-height: 620px;
+}
+
+.glossary-sidebar-ad .adsbygoogle {
+  display: block;
+  width: 100%;
+  min-height: 600px;
+}
+
+.glossary-sidebar-ad .sidebar-sticky-ad.ad-unfilled {
+  display: none;
+}
+
+/* ============================================================
+   Glossary term: end-of-page related grid + grid ad
+   ============================================================ */
+.glossary-term-more {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.glossary-term-more-title {
+  font-family: 'Open Sans', 'Open Sans Fallback', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 1.5rem;
+}
+
+.glossary-grid-ad {
+  margin-top: 2rem;
+  text-align: center;
+  contain: layout;
+}
+
+.glossary-grid-ad .ad-label {
+  margin-bottom: 0.85rem;
+}
+
+.glossary-grid-ad .adsbygoogle {
+  display: block;
+  width: 100%;
 }
 
 /* ============================================================

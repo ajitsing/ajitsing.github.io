@@ -45,6 +45,8 @@ Your Kafka cluster has been running in production for six months. Everything loo
 
 This is the problem the **Low Watermark** pattern solves. It tells the system: everything before this point? You can let it go.
 
+{% include glossary-callout.html terms="low-watermark,high-watermark,write-ahead-log,replicated-log,consensus" %}
+
 ## The Problem: Logs That Never Stop Growing
 
 Every durable distributed system writes to some form of [write-ahead log (WAL)](/distributed-systems/write-ahead-log/). Every database insert, every Kafka message, every Raft command goes into a log first. That log is what keeps your data safe when nodes crash.

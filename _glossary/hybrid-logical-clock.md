@@ -19,7 +19,7 @@ real_world:
   - "CockroachDB uses HLCs as commit timestamps and to drive uncertainty windows for serializable reads."
   - "YugabyteDB and TiDB use HLC based timestamps for cross shard consistency."
   - "MongoDB's clusterTime is an HLC used for causal consistency across replica sets."
-related_terms: ["consensus", "replicated-log"]
+related_terms: ["lamport-clock", "consensus", "replicated-log"]
 related_posts:
   - "/distributed-systems/hybrid-clock/"
   - "/distributed-systems/lamport-clock/"

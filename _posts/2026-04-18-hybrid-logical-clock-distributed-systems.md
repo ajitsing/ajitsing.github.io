@@ -50,7 +50,7 @@ That clock skew is normal. NTP keeps clocks within a few milliseconds of each ot
 
 This is the exact problem the **Hybrid Logical Clock** pattern solves. It combines the readability of wall clock time with the causal correctness of a [Lamport Clock](https://martinfowler.com/articles/patterns-of-distributed-systems/lamport-clock.html){:target="_blank" rel="noopener"} so you get both in a single 64 bit timestamp.
 
-{% include glossary-callout.html terms="hybrid-logical-clock,consensus,replicated-log,eventual-consistency" %}
+{% include glossary-callout.html terms="hybrid-logical-clock,lamport-clock,consensus,replicated-log,eventual-consistency" %}
 
 ## The Problem: Two Bad Choices for Time
 

@@ -66,7 +66,7 @@ That second request is not a bug in the client. It is the correct, expected beha
 
 So the real question is on the server side: **how do you process the same request twice without doing the work twice?** That is exactly what the Idempotent Receiver pattern answers, and it is one of the most useful patterns a backend developer can internalise. This post walks through why duplicates are unavoidable, how the pattern works, how Stripe, Kafka, and Raft implement it, and the production traps that catch people.
 
-{% include glossary-callout.html terms="consensus,replicated-log,raft,write-ahead-log" %}
+{% include glossary-callout.html terms="idempotent-receiver,consensus,replicated-log,raft,write-ahead-log" %}
 
 ## Why You Will Always Get Duplicate Requests
 

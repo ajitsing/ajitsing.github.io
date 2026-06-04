@@ -5,6 +5,9 @@
       All <span class="pill-count">({{ total_posts }})</span>
     </button>
 
+    <a href="{{ '/glossary/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Glossary'});">
+      <i class="fas fa-book"></i> Glossary
+    </a>
     <a href="{{ '/explainers/' | relative_url }}" class="category-pill hub-pill" onclick="gtag('event', 'click', {'event_category': 'Home Navigation', 'event_label': 'Explainers'});">
       <i class="fas fa-lightbulb"></i> Explainers
     </a>

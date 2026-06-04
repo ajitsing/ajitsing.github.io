@@ -19,7 +19,7 @@ real_world:
   - "etcd, Consul, and CockroachDB use Raft to keep their replicas in sync."
   - "Google Chubby and Spanner use Paxos for locking and global transactions."
   - "ZooKeeper uses a Paxos-flavoured protocol called Zab to back HBase, Kafka, and many other systems."
-related_terms: ["paxos", "raft", "quorum", "leader-election", "replicated-log"]
+related_terms: ["paxos", "raft", "quorum", "leader-election", "replicated-log", "idempotent-receiver"]
 related_posts:
   - "/distributed-systems/paxos/"
   - "/distributed-systems/replicated-log/"

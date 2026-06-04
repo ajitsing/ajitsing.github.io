@@ -86,22 +86,6 @@ css:
 
         <aside class="glossary-sidebar" aria-label="Related references">
 
-          {% if page.related_terms %}
-          <div class="glossary-sidebar-widget">
-            <h3>Related Terms</h3>
-            <ul class="glossary-related-list">
-              {% for term_slug in page.related_terms %}
-                {% assign related_term = site.glossary | where: "slug", term_slug | first %}
-                {% if related_term %}
-                  <li>
-                    <a href="{{ related_term.url | relative_url }}">{{ related_term.title }}</a>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </div>
-          {% endif %}
-
           {% if page.related_posts %}
           <div class="glossary-sidebar-widget">
             <h3>Read More</h3>
@@ -118,35 +102,46 @@ css:
           </div>
           {% endif %}
 
-          {% if page.related_explainers %}
-          <div class="glossary-sidebar-widget">
-            <h3>Visual Explainers</h3>
-            <ul class="glossary-related-list">
-              {% for explainer_url in page.related_explainers %}
-                {% assign related_explainer = site.explainers | where: "url", explainer_url | first %}
-                {% if related_explainer %}
-                  <li>
-                    <a href="{{ related_explainer.url | relative_url }}">{{ related_explainer.title }}</a>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </div>
-          {% endif %}
-
-          {% if page.related_tools %}
-          <div class="glossary-sidebar-widget glossary-sidebar-tools">
-            <h3>Try the Tool</h3>
-            {% for tool_slug in page.related_tools %}
-              {% include tool-cta.html tool=tool_slug variant="block" %}
-            {% endfor %}
-          </div>
-          {% endif %}
+          {% include glossary-sidebar-ad.html %}
 
         </aside>
       </div>
 
     </article>
+
+    {% if page.related_terms %}
+    <section class="glossary-term-more" aria-label="Related glossary terms">
+      <h2 class="glossary-term-more-title">Related glossary terms</h2>
+      <div class="glossary-term-grid">
+        {% for term_slug in page.related_terms %}
+          {% assign more_term = site.glossary | where: "slug", term_slug | first %}
+          {% if more_term %}
+          <article class="glossary-term-card">
+            <a href="{{ more_term.url | relative_url }}" class="glossary-term-card-link" onclick="if(typeof gtag==='function'){gtag('event','click',{'event_category':'Glossary Related Grid','event_label':'{{ more_term.title | escape }}'});}">
+              <h3 class="glossary-term-card-title">{{ more_term.title }}</h3>
+              {% if more_term.also-known-as %}
+              <p class="glossary-term-card-aka">{{ more_term.also-known-as | join: ", " }}</p>
+              {% endif %}
+              <p class="glossary-term-card-definition">{{ more_term.definition | markdownify | strip_html | truncatewords: 24 }}</p>
+            </a>
+          </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if site.manual_ads %}
+      <div class="glossary-grid-ad">
+        <span class="ad-label"><span class="ad-label-text">Advertisement</span></span>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-format="autorelaxed"
+             data-ad-client="ca-pub-2886086145980317"
+             data-ad-slot="REPLACE_WITH_GLOSSARY_GRID_SLOT"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
 
     <nav class="glossary-back-nav" aria-label="Glossary navigation">
       <a href="{{ '/glossary/' | relative_url }}" class="glossary-back-link">&larr; Back to Glossary</a>

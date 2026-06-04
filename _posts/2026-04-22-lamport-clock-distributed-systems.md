@@ -50,6 +50,8 @@ That afternoon is exactly what Leslie Lamport had in mind in 1977 when he sketch
 
 This post walks through what a Lamport Clock is, how the algorithm works, how to extend it to a total order, where it shows up in production systems like Cassandra, Kafka, and Raft, and how it relates to its more famous cousins, the [vector clock](https://en.wikipedia.org/wiki/Vector_clock){:target="_blank" rel="noopener"} and the [Hybrid Logical Clock](/distributed-systems/hybrid-clock/){:target="_blank" rel="noopener"}.
 
+{% include glossary-callout.html terms="lamport-clock,hybrid-logical-clock,consensus,replicated-log,write-ahead-log" %}
+
 ## The Problem: There Is No Global Now
 
 In a single process, ordering events is trivial. The CPU executes one instruction at a time. The program counter is your clock. Done.

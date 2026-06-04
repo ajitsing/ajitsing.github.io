@@ -53,6 +53,8 @@ It is 2 AM. Your order service starts responding slowly. Within seconds, the pay
 
 This is a cascading failure. And the circuit breaker pattern exists to stop it.
 
+{% include glossary-callout.html terms="circuit-breaker,thundering-herd,rate-limiting,heartbeat" %}
+
 ## Table of Contents
 
 1. [What Is the Circuit Breaker Pattern?](#what-is-the-circuit-breaker-pattern)

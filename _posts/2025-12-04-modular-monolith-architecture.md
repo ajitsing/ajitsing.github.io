@@ -32,6 +32,8 @@ Microservices aren't always the answer. For most teams, they bring network laten
 
 There's a middle ground: the modular monolith. Clear boundaries and team autonomy without the distributed systems tax. It's how [Shopify handles billions in Black Friday sales](/shopify-system-design/) with a single deployable application—and why companies like Basecamp and GitHub chose this path too.
 
+{% include glossary-callout.html terms="modular-monolith,cqrs,message-queue" %}
+
 ## What is a Modular Monolith?
 
 A modular monolith is a single deployable application that's internally divided into well-defined modules. Each module owns its domain, has clear boundaries, and communicates with other modules through explicit interfaces.

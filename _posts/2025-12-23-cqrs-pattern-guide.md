@@ -32,6 +32,8 @@ Your analytics dashboard is crawling. Users are complaining that the checkout pa
 
 This is the problem CQRS was designed to solve.
 
+{% include glossary-callout.html terms="cqrs,transactional-outbox,message-queue,eventual-consistency" %}
+
 ## What is CQRS?
 
 CQRS stands for Command Query Responsibility Segregation. The name sounds intimidating, but the idea is simple: use separate models for reading and writing data.

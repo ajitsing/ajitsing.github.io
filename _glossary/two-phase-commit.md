@@ -19,7 +19,7 @@ real_world:
   - "PostgreSQL supports 2PC through PREPARE TRANSACTION and COMMIT PREPARED for distributed transactions."
   - "The XA standard and JTA use 2PC to coordinate transactions across databases and message brokers in Java EE."
   - "Many microservice systems replace 2PC with the saga pattern to avoid the blocking case."
-related_terms: ["consensus", "write-ahead-log", "replicated-log", "quorum", "acid", "database-lock"]
+related_terms: ["consensus", "write-ahead-log", "replicated-log", "quorum", "acid", "database-lock", "saga-pattern"]
 related_posts:
   - "/distributed-systems/two-phase-commit/"
   - "/saga-pattern-distributed-transactions/"

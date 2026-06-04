@@ -19,7 +19,7 @@ real_world:
   - "DynamoDB defaults to eventual consistency. Strongly consistent reads cost extra."
   - "Cassandra has tunable consistency, with eventual being the cheapest and most available setting."
   - "DNS, S3 in its early years, and Git itself are all eventually consistent in real life."
-related_terms: ["cap-theorem", "gossip-protocol", "consensus", "quorum"]
+related_terms: ["cap-theorem", "gossip-protocol", "consensus", "quorum", "caching", "cqrs"]
 related_posts:
   - "/distributed-systems/majority-quorum/"
 ---

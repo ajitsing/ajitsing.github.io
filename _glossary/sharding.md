@@ -19,7 +19,7 @@ real_world:
   - "MongoDB shards collections by a shard key; DynamoDB partitions by the partition key under the hood."
   - "Vitess shards MySQL behind a routing layer, the approach YouTube and many others use."
   - "Google Spanner splits data into splits across servers for global, horizontally scaled SQL."
-related_terms: ["database-index", "quorum", "cap-theorem", "consensus"]
+related_terms: ["database-index", "quorum", "cap-theorem", "consensus", "consistent-hashing"]
 related_posts:
   - "/postgresql-vs-mongodb-vs-dynamodb/"
   - "/consistent-hashing-explained/"

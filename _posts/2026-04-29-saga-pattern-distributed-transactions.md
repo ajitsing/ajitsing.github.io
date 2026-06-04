@@ -75,6 +75,8 @@ If you have already read the [Transactional Outbox Pattern](/transactional-outbo
 
 > **TL;DR**: A saga is a sequence of local transactions linked by events or commands. Each step has a compensating transaction. There is no global lock, no XA, and no distributed deadlocks. You pick choreography for simple flows, orchestration for anything you actually want to debug. Pair sagas with the outbox pattern, make every step idempotent, and use Temporal or AWS Step Functions before you write your own engine.
 
+{% include glossary-callout.html terms="saga-pattern,transactional-outbox,two-phase-commit,idempotent-receiver" %}
+
 ## Why You Cannot Just Use a Database Transaction
 
 In a [modular monolith](/modular-monolith-architecture/){:target="_blank" rel="noopener"}, the trip booking flow is easy. One database, one transaction, ACID does the rest:

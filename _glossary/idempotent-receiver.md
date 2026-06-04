@@ -21,7 +21,7 @@ real_world:
   - "Stripe idempotency keys: send an Idempotency-Key header and a retry with the same key returns the first result instead of charging the card twice."
   - "Kafka idempotent producers assign a producer id and a per partition sequence number so the broker drops a retried record it has already written."
   - "[Raft](/glossary/raft/) and other [consensus](/glossary/consensus/) systems use client sessions with serial numbers so a command retried during a leader change is not applied twice."
-related_terms: ["replicated-log", "consensus", "raft", "write-ahead-log", "lease", "ttl"]
+related_terms: ["replicated-log", "consensus", "raft", "write-ahead-log", "lease", "ttl", "saga-pattern", "transactional-outbox", "message-queue"]
 related_posts:
   - "/distributed-systems/idempotent-receiver/"
   - "/transactional-outbox-pattern/"

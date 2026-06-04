@@ -34,6 +34,8 @@ You need a rate limiter. But not just any rate limiter - you need one that's sma
 
 Let's discuss how to build one.
 
+{% include glossary-callout.html terms="rate-limiting,thundering-herd,circuit-breaker,caching" %}
+
 ## The Problem With Fixed Rate Limits
 
 Most rate limiters are dumb. They follow rigid rules:

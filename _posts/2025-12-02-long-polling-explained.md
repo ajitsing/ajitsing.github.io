@@ -36,6 +36,8 @@ You reach for Long Polling. It's not glamorous. It's not cutting edge. But it wo
 
 Let's understand how this simple technique works and when it still makes sense in 2025.
 
+{% include glossary-callout.html terms="long-polling,server-sent-events,message-queue" %}
+
 ## The Problem With Regular Polling
 
 To understand Long Polling, you first need to understand why regular polling fails at scale.

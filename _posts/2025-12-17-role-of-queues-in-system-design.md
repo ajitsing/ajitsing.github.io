@@ -35,6 +35,8 @@ Message queues are one of those patterns that separate systems that scale from s
 
 Let's fix that. By the end of this post, you'll understand exactly when to use queues, which queue technology to pick, and how companies like Uber, Slack, and Stripe use them to handle millions of requests.
 
+{% include glossary-callout.html terms="message-queue,transactional-outbox,idempotent-receiver,cqrs" %}
+
 ## The Problem: Tight Coupling Breaks Systems
 
 Picture a simple e-commerce checkout flow:

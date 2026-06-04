@@ -41,6 +41,8 @@ You check the logs. The database went from handling 500 queries per second to re
 
 This is the thundering herd problem. And it has taken down systems at companies of every size.
 
+{% include glossary-callout.html terms="thundering-herd,caching,circuit-breaker,rate-limiting" %}
+
 ## Table of Contents
 
 1. [What Is the Thundering Herd Problem?](#what-is-the-thundering-herd-problem)

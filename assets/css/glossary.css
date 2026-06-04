@@ -14,7 +14,7 @@
 
 .glossary-term-wrapper,
 .glossary-hub-container {
-  max-width: 1162px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 7rem 1rem 3rem;
   color: #404040;
@@ -32,7 +32,7 @@
    Glossary term page
    ============================================================ */
 .glossary-term-main {
-  max-width: 920px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
@@ -177,8 +177,8 @@
 
 @media (min-width: 992px) {
   .glossary-content-grid {
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: 2.5rem;
+    grid-template-columns: minmax(0, 1fr) 342px;
+    gap: 3rem;
   }
 }
 

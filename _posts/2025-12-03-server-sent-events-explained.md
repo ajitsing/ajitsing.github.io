@@ -44,6 +44,8 @@ SSE gives you real-time server push over a single HTTP connection. Built into br
 
 Let's fix that.
 
+{% include glossary-callout.html terms="server-sent-events,long-polling,message-queue" %}
+
 ## What Are Server-Sent Events?
 
 Server-Sent Events is a standard that allows servers to push data to browsers over HTTP. Unlike WebSockets, it's one-way: server to client only. But that's exactly what you need for most real-time use cases.

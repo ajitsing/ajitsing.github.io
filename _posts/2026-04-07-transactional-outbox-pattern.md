@@ -72,6 +72,8 @@ The **transactional outbox pattern** is how you fix it.
 
 ---
 
+{% include glossary-callout.html terms="transactional-outbox,saga-pattern,message-queue,idempotent-receiver" %}
+
 ## <i class="fas fa-exclamation-triangle"></i> The Dual Write Problem
 
 The dual write problem happens when a service needs to do two things that must succeed together:

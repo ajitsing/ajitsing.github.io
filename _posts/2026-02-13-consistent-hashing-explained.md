@@ -43,6 +43,8 @@ This is the problem consistent hashing solves. When that server crashes, only ab
 
 Consistent hashing is one of those techniques that shows up everywhere in distributed systems. DynamoDB, Cassandra, Memcached, CDNs, load balancers. Once you understand how it works, you will see it in almost every system design discussion.
 
+{% include glossary-callout.html terms="consistent-hashing,sharding,caching,quorum" %}
+
 ## The Problem: Traditional Hashing Breaks When Servers Change
 
 Let's say you have 4 cache servers and you want to distribute keys across them. The simple approach is:

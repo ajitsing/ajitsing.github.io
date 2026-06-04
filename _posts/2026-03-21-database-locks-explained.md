@@ -73,6 +73,8 @@ This guide covers everything a software developer needs to know about database l
 
 > **TL;DR**: Databases use **shared locks** (reads) and **exclusive locks** (writes) to manage concurrent access. Lock granularity ranges from row-level to table-level. **Pessimistic locking** grabs locks upfront with `SELECT FOR UPDATE`. **Optimistic locking** checks for conflicts at commit time using version columns. **MVCC** lets readers work without blocking writers. **Deadlocks** happen when transactions wait on each other in a cycle. Keep transactions short, lock in consistent order, and use the right locking strategy for your workload.
 
+{% include glossary-callout.html terms="database-lock,mvcc,two-phase-commit,acid" %}
+
 ## Table of Contents
 
 - [Why Locks Exist](#why-locks-exist)

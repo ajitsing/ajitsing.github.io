@@ -48,6 +48,8 @@ This guide covers everything a software developer needs to know about database i
 
 > **TL;DR**: Database indexes are data structures (usually B-trees) that speed up data retrieval by avoiding full table scans. Use indexes on columns in WHERE, JOIN, and ORDER BY clauses. Composite indexes must follow the leftmost prefix rule. Too many indexes slow down writes. Use EXPLAIN to verify your queries are using indexes correctly.
 
+{% include glossary-callout.html terms="database-index,lsm-tree,query-planner,write-ahead-log" %}
+
 ## What is a Database Index?
 
 Think of a database index like the index at the back of a textbook. If you want to find information about "B-trees", you do not read the entire book. You go to the index, find "B-trees", and it tells you the exact page numbers.

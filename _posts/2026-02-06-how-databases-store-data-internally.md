@@ -47,6 +47,8 @@ This guide walks through how databases store data, from the physical files on di
 
 > **TL;DR**: Databases store data in fixed-size **pages** (8-16KB blocks) organized into files on disk. Pages get cached in a **buffer pool** in memory. Data is organized using **B-trees** for fast lookups. All writes go to a **Write-Ahead Log** first for crash recovery. Row stores keep row data together (good for transactions). Column stores group column values (good for analytics).
 
+{% include glossary-callout.html terms="lsm-tree,acid,database-index,write-ahead-log" %}
+
 ## The Journey of a Query
 
 Before diving into storage details, here is the high-level picture of what happens when you run a query:

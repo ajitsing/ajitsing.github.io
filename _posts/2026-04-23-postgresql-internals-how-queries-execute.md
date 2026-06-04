@@ -52,6 +52,8 @@ This post is a tour of **PostgreSQL internals** from the developer's seat. Not a
 
 If you want a refresher on storage first, the [How Databases Store Data Internally](/how-databases-store-data-internally/){:target="_blank" rel="noopener"} post covers pages, slotted pages, and B-trees. If you want a hands on companion, the [PostgreSQL cheat sheet](/postgresql-cheat-sheet/){:target="_blank" rel="noopener"} has every command we use here.
 
+{% include glossary-callout.html terms="query-planner,database-index,mvcc" %}
+
 ## The 30 Second Picture
 
 Before we zoom in, here is the whole pipeline on one slide.

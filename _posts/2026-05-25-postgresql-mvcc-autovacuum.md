@@ -63,6 +63,8 @@ To keep a database running fast, developers need to understand exactly how Postg
 
 ---
 
+{% include glossary-callout.html terms="mvcc,autovacuum,database-lock,acid,write-ahead-log" %}
+
 ## Multi-Version Concurrency Control (MVCC) Explained
 
 In a database, multiple users want to read and write data at the same time. If a reader is reading a row while a writer is updating it, the reader might see a half-written row. 

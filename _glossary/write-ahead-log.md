@@ -20,7 +20,7 @@ real_world:
   - "Apache Kafka exposes its log directly. Each topic partition is essentially a distributed WAL."
   - "Cassandra calls it the CommitLog and pairs it with the in memory memtable and on disk SSTables."
   - "etcd writes every Raft log entry to its WAL before applying it to the boltdb store."
-related_terms: ["replicated-log", "consensus", "raft", "two-phase-commit", "high-watermark", "low-watermark"]
+related_terms: ["replicated-log", "consensus", "raft", "two-phase-commit", "high-watermark", "low-watermark", "lsm-tree", "mvcc"]
 related_posts:
   - "/distributed-systems/replicated-log/"
 ---

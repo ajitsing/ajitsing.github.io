@@ -57,6 +57,8 @@ This guide breaks down all three. Not with bullet points and marketing copy, but
 
 ---
 
+{% include glossary-callout.html terms="sharding,acid,database-index,cap-theorem" %}
+
 ## Quick Comparison
 
 | | PostgreSQL | MongoDB | DynamoDB |

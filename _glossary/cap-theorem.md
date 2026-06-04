@@ -19,7 +19,7 @@ real_world:
   - "DynamoDB and Cassandra default to AP. They favor availability and accept eventual consistency."
   - "Spanner and CockroachDB lean CP. They will refuse to commit during partitions to keep reads consistent."
   - "MongoDB lets you tune per write. Majority writes plus linearizable reads is CP leaning. w:1 with secondaryPreferred reads is AP leaning."
-related_terms: ["consensus", "quorum", "eventual-consistency", "split-brain"]
+related_terms: ["consensus", "quorum", "eventual-consistency", "split-brain", "sharding"]
 related_posts:
   - "/distributed-systems/majority-quorum/"
 ---

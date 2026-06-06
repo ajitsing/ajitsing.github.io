@@ -164,11 +164,11 @@ flowchart TB
 
     Push["fa:fa-mobile <b>Push dispatcher</b><br/>FCM and APNs"]
     Email["fa:fa-envelope <b>Email dispatcher</b><br/>SES, SendGrid"]
-    SMS["fa:fa-comment-sms <b>SMS dispatcher</b><br/>Twilio, Vonage"]
+    SMS["fa:fa-sms <b>SMS dispatcher</b><br/>Twilio, Vonage"]
     InApp["fa:fa-bell <b>In-app dispatcher</b><br/>WebSocket, SSE"]
 
     DLQ["fa:fa-skull-crossbones <b>Dead-letter queue</b><br/>retries exhausted"]
-    Webhook["fa:fa-arrow-rotate-left <b>Webhook handler</b><br/>provider callbacks"]
+    Webhook["fa:fa-undo <b>Webhook handler</b><br/>provider callbacks"]
     Log[("fa:fa-clipboard-list <b>Delivery log</b><br/>Cassandra or DynamoDB")]
 
     Prod --> API
@@ -321,9 +321,9 @@ flowchart TB
     User{"fa:fa-id-card <b>User exists?</b>"}
     Cat{"fa:fa-toggle-on <b>Category opt-in?</b>"}
     Quiet{"fa:fa-moon <b>Within quiet hours?</b>"}
-    Rate{"fa:fa-gauge-high <b>Under rate limit?</b>"}
+    Rate{"fa:fa-tachometer-alt <b>Under rate limit?</b>"}
     Render["fa:fa-pen-fancy <b>Render templates<br/>per channel</b>"]
-    Fan["fa:fa-share-nodes <b>Fan out to channel topics</b>"]
+    Fan["fa:fa-share-alt <b>Fan out to channel topics</b>"]
     Drop["fa:fa-trash <b>Drop, log reason</b>"]
     Defer["fa:fa-clock <b>Defer to schedule</b>"]
     Agg["fa:fa-layer-group <b>Aggregate or drop</b>"]

@@ -49,7 +49,7 @@ This guide explains what a GUID is, how the 32 hex digits are laid out, how it d
 
 {% include tool-cta.html tool="uuid-generator" description="Generate a GUID or UUID in your browser, pick v4 or v7, bulk generate, and decode the version and timestamp of any existing value." %}
 
-## <i class="fas fa-circle-question"></i> What Is a GUID?
+## <i class="fas fa-question-circle"></i> What Is a GUID?
 
 GUID stands for **Globally Unique Identifier**. It is a 128-bit value that you can generate on any machine, at any time, with almost no chance of ever producing the same value twice. That lets many systems create IDs independently without asking a central database for the next number.
 
@@ -63,7 +63,7 @@ That is 32 hexadecimal digits split into five groups by hyphens. Behind the scen
 
 The single most useful thing to know: **a GUID is a UUID**. GUID is the term Microsoft uses in .NET, SQL Server, COM, and Windows. UUID (Universally Unique Identifier) is the term used in the standard, [RFC 9562](https://datatracker.ietf.org/doc/html/rfc9562){:target="_blank"}, and in languages like Java, Python, and Go. Same 128 bits, same layout, different name. Once you know that, every UUID article on the internet applies to GUIDs too.
 
-## <i class="fas fa-diagram-project"></i> The GUID Format and Structure
+## <i class="fas fa-project-diagram"></i> The GUID Format and Structure
 
 The `8-4-4-4-12` pattern is not random. Those five groups map onto the 16 bytes like this:
 
@@ -115,7 +115,7 @@ flowchart LR
 
 Everything else is the actual identifier data: random bits, a timestamp, or both, depending on the version.
 
-## <i class="fas fa-code-compare"></i> GUID vs UUID: Same Thing, Different Name
+## <i class="fas fa-balance-scale"></i> GUID vs UUID: Same Thing, Different Name
 
 Because people search for both terms, it helps to be blunt about the relationship.
 
@@ -230,14 +230,14 @@ When you fill that key with random `NEWID()` values, every insert lands at a ran
 
 ```mermaid
 flowchart TB
-    subgraph rnd["fa:fa-shuffle NEWID() random inserts"]
+    subgraph rnd["fa:fa-random NEWID() random inserts"]
         N1["Insert 9f2c..."] --> P1["Page 42"]
         N2["Insert 1a8e..."] --> P2["Page 891"]
         N3["Insert c70d..."] --> P3["Page 7"]
         N4["Insert 4b11..."] --> P4["Page 523"]
     end
 
-    subgraph seq["fa:fa-arrow-right-long NEWSEQUENTIALID() ordered inserts"]
+    subgraph seq["fa:fa-long-arrow-alt-right NEWSEQUENTIALID() ordered inserts"]
         S1["Insert ...0001"] --> Q1["Page 100"]
         S2["Insert ...0002"] --> Q1
         S3["Insert ...0003"] --> Q1
@@ -261,7 +261,7 @@ This is the same B-tree behavior that affects every random key. The mechanics ar
 
 {% include ads/in-article.html %}
 
-## <i class="fas fa-triangle-exclamation"></i> Common GUID Gotchas
+## <i class="fas fa-exclamation-triangle"></i> Common GUID Gotchas
 
 These are the details that bite teams in production.
 
@@ -281,7 +281,7 @@ GUIDs are case-insensitive, but string comparisons are not. If one system stores
 
 Old version 1 GUIDs embed a timestamp and the network card address of the machine that made them. If you generate IDs with a v1 library and expose them publicly, you may be leaking more than you intend. Prefer v4 for random IDs or v7 for sortable ones.
 
-## <i class="fas fa-circle-check"></i> When to Use a GUID (and When Not To)
+## <i class="fas fa-check-circle"></i> When to Use a GUID (and When Not To)
 
 **A GUID is a good fit when:**
 
@@ -297,7 +297,7 @@ Old version 1 GUIDs embed a timestamp and the network card address of the machin
 - You want short, readable, URL-friendly IDs. A [ULID](/ulid-guide/){:target="_blank"} is 26 characters instead of 36.
 - You are at very high write throughput on known nodes, where a [Snowflake ID](/snowflake-id-guide/){:target="_blank"} packs more into 64 bits.
 
-## <i class="fas fa-list-check"></i> Key Takeaways
+## <i class="fas fa-tasks"></i> Key Takeaways
 
 **1. A GUID is a UUID.** Same 128 bits, same `8-4-4-4-12` format, same RFC 9562. GUID is just the Microsoft name.
 

@@ -77,7 +77,7 @@ flowchart TB
     Gate["fa:fa-key <b>Token Gate</b><br/>N tokens for N units<br/>blocks over-admission"]
     Inv["fa:fa-bolt <b>Redis Inventory</b><br/>atomic Lua DECR<br/>~100K ops per second"]
     Q["fa:fa-list <b>Order Queue (Kafka)</b><br/>decouples checkout<br/>from payment"]
-    Worker["fa:fa-gear <b>Order Worker</b><br/>writes the order row<br/>handles payment saga"]
+    Worker["fa:fa-cog <b>Order Worker</b><br/>writes the order row<br/>handles payment saga"]
     DB[("fa:fa-database <b>Order DB</b><br/>UNIQUE(user, sale)<br/>final safety net")]
 
     User --> CDN --> WR --> Gate --> Inv --> Q --> Worker --> DB
@@ -207,7 +207,7 @@ This is the part where engineers get tripped up. Overselling is when two request
 flowchart TB
     Need["fa:fa-question <b>How do we decrement<br/>10,000 units safely?</b>"]
     A["fa:fa-lock <b>Pessimistic Lock</b><br/>SELECT ... FOR UPDATE"]
-    B["fa:fa-arrows-rotate <b>Optimistic Lock</b><br/>UPDATE ... WHERE version = ?"]
+    B["fa:fa-sync <b>Optimistic Lock</b><br/>UPDATE ... WHERE version = ?"]
     C["fa:fa-bolt <b>Redis Lua DECR</b><br/>atomic in-memory script"]
     D["fa:fa-key <b>Token Gate</b><br/>pre-mint N tokens"]
 
@@ -429,7 +429,7 @@ flowchart LR
     ZSet["fa:fa-list-ol Redis ZSET<br/>(score = random)"]
     Admit["fa:fa-door-open Admission Worker<br/>(every 1 sec)"]
     Token["fa:fa-ticket Signed Admission Token<br/>(JWT, 60 sec TTL)"]
-    App["fa:fa-cart-shopping Real Checkout"]
+    App["fa:fa-shopping-cart Real Checkout"]
 
     Users --> WRApp --> ZSet
     ZSet --> Admit --> Token --> App
@@ -532,7 +532,7 @@ Most "load" on a flash sale is bots, not customers. Sneaker drops are an arms ra
 ```mermaid
 flowchart LR
     Bot["fa:fa-robot Bot Traffic"]
-    Edge["fa:fa-shield-halved WAF / Edge Firewall<br/>(Cloudflare, AWS WAF)"]
+    Edge["fa:fa-shield-alt WAF / Edge Firewall<br/>(Cloudflare, AWS WAF)"]
     Captcha["fa:fa-puzzle-piece CAPTCHA / Proof of Work<br/>(at waiting room entry)"]
     RL["fa:fa-stopwatch Token Bucket Rate Limiter<br/>(per IP, per user, per device)"]
     Score["fa:fa-flag Fraud Scoring<br/>(residential vs DC IP, JS fingerprint)"]
@@ -595,7 +595,7 @@ flowchart LR
         APRedis["fa:fa-bolt APAC Redis<br/>(shard of stock)"]
     end
 
-    Reb["fa:fa-arrows-rotate Reconciler<br/>(rebalance unsold every 30s)"]
+    Reb["fa:fa-sync Reconciler<br/>(rebalance unsold every 30s)"]
 
     USRedis <--> Reb
     EURedis <--> Reb

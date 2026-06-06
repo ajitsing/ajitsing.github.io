@@ -83,7 +83,7 @@ flowchart TB
     B["fa:fa-bolt <b>Case B</b><br/>Server processed it,<br/>then crashed before replying"]
     C["fa:fa-unlink <b>Case C</b><br/>Server processed and replied,<br/>reply lost on the way back"]
 
-    Retry["fa:fa-rotate-right <b>Client retries</b><br/>It cannot tell A, B and C apart"]
+    Retry["fa:fa-redo <b>Client retries</b><br/>It cannot tell A, B and C apart"]
 
     Send --> Wait
     Wait --> A
@@ -187,17 +187,17 @@ A naive version of this is dangerously easy to get wrong. The trap is recording 
 ```mermaid
 flowchart TB
     Recv["fa:fa-inbox <b>Request arrives</b><br/>client id + request number"]
-    Check{"fa:fa-magnifying-glass <b>Already processed?</b>"}
+    Check{"fa:fa-search <b>Already processed?</b>"}
     Replay["fa:fa-clone <b>Return saved response</b><br/>no side effect"]
 
     subgraph Atomic["fa:fa-lock &nbsp; One atomic step"]
         direction TB
-        Work["fa:fa-gear <b>Do the work</b><br/>charge, insert, publish"]
-        Store["fa:fa-floppy-disk <b>Record id + response</b>"]
+        Work["fa:fa-cog <b>Do the work</b><br/>charge, insert, publish"]
+        Store["fa:fa-save <b>Record id + response</b>"]
         Work --> Store
     end
 
-    Done["fa:fa-circle-check <b>Return fresh response</b>"]
+    Done["fa:fa-check-circle <b>Return fresh response</b>"]
 
     Recv --> Check
     Check -->|Yes| Replay
@@ -441,7 +441,7 @@ When you add an idempotent receiver to a service, walk this list:
 2. <i class="fas fa-database"></i> **Dedup store.** A table or key-value store mapping key to saved response, with a unique constraint on the key.
 3. <i class="fas fa-lock"></i> **Atomicity.** The side effect and the dedup record commit together. One transaction, or an outbox.
 4. <i class="fas fa-clone"></i> **Replay.** On a duplicate, return the stored response, including status and body. Do no work.
-5. <i class="fas fa-people-arrows"></i> **Concurrency.** A unique constraint or lock handles two duplicates racing in at once.
+5. <i class="fas fa-exchange-alt"></i> **Concurrency.** A unique constraint or lock handles two duplicates racing in at once.
 6. <i class="fas fa-clock"></i> **Expiry.** A low-water mark, session lease, or TTL keeps the store bounded.
 7. <i class="fas fa-vial"></i> **Tests.** Send every request twice in your test suite. Inject crashes between "do work" and "save record". The bugs only show up under failure.
 

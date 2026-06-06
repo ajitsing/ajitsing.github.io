@@ -940,6 +940,7 @@ git lg       # pretty log graph
 Once you are comfortable with these commands, look into:
 
 - [How Git Stores Data Internally](/how-git-stores-data-internally/) to understand the object model behind every command
+- [Git Flow vs GitHub Flow](/git-flow-vs-github-flow/) to choose a branching strategy for your team
 - [Git hooks](/print-custom-messages-after-executing-git-commands/) for automating tasks
 - [GitHub Actions](/github-actions-basics-cicd-automation/) for CI/CD automation
 - [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) to see what really happens on the server side of every `git push`

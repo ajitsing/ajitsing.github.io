@@ -238,7 +238,7 @@ flowchart TD
     Launcher -->|Spawns| Worker1["<b>Autovacuum Worker 1</b><br/>Cleans Table A"]
     Launcher -->|Spawns| Worker2["<b>Autovacuum Worker 2</b><br/>Cleans Table B"]
     
-    subgraph Stats["fa:fa-chart-simple Stats Collector"]
+    subgraph Stats["fa:fa-chart-bar Stats Collector"]
         TableStats["pg_stat_user_tables<br/>Tracks n_dead_tup"]
     end
 

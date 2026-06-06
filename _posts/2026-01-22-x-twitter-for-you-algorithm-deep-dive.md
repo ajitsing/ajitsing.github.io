@@ -2,6 +2,7 @@
 layout: post
 seo: true
 title: "X Algorithm Explained: How the Open Source Recommendation System Works"
+meta-title: "How X's Open Source Recommendation Algorithm Works"
 subtitle: "A detailed explanation of X's open source algorithm from the GitHub repository — how the recommendation system works, from candidate sourcing to Grok-based ranking"
 date: 2026-01-22
 last-modified-date: 2026-04-08

@@ -152,7 +152,7 @@ Each walsender has its own backend memory (around 10 to 20 MB of static cost) an
 flowchart LR
     TX["fa:fa-database Long Transaction"]
     RB["fa:fa-microchip Reorder Buffer<br/>logical_decoding_work_mem<br/>(default 64MB)"]
-    Spill["fa:fa-hard-drive Spill Files<br/>pg_replslot/&lt;slot&gt;/"]
+    Spill["fa:fa-hdd Spill Files<br/>pg_replslot/&lt;slot&gt;/"]
     Out["fa:fa-arrow-right Sent to walsender"]
 
     TX --> RB
@@ -344,7 +344,7 @@ The fix is a [Debezium heartbeat](https://debezium.io/documentation/reference/st
 ```mermaid
 flowchart LR
     Quiet["fa:fa-bed Outbox table<br/>(idle for 6h)"]
-    HB["fa:fa-heart-pulse Heartbeat<br/>tick every 30s"]
+    HB["fa:fa-heartbeat Heartbeat<br/>tick every 30s"]
     HBT["fa:fa-table heartbeat table<br/>or pg_logical_emit_message"]
     Slot["fa:fa-bookmark Slot advances"]
     WAL["fa:fa-broom WAL recycled"]
@@ -507,7 +507,7 @@ flowchart TB
         OB["fa:fa-table outbox (partitioned by day)"]
         Pub["fa:fa-filter PUBLICATION outbox_pub<br/>FOR TABLE outbox"]
         Slot["fa:fa-bookmark slot: outbox_slot<br/>pgoutput, max_slot_wal_keep_size=100GB"]
-        HB["fa:fa-heart-pulse Debezium heartbeat<br/>(pg_logical_emit_message every 30s)"]
+        HB["fa:fa-heartbeat Debezium heartbeat<br/>(pg_logical_emit_message every 30s)"]
     end
 
     subgraph CDC["fa:fa-stream Kafka Connect + Debezium"]

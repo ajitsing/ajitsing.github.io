@@ -351,7 +351,7 @@ When one node is not enough, partition by the short code itself.
 flowchart LR
     Req["fa:fa-link GET /aB3xK9"]
     H["fa:fa-hashtag hash(aB3xK9)"]
-    R["fa:fa-circle-nodes Hash Ring"]
+    R["fa:fa-project-diagram Hash Ring"]
     S1["fa:fa-database Shard 1"]
     S2["fa:fa-database Shard 2"]
     S3["fa:fa-database Shard 3"]
@@ -386,7 +386,7 @@ flowchart LR
     Redis["fa:fa-bolt Redis Cluster<br/>(sharded by code)"]
     DB["fa:fa-database Primary DB"]
 
-    Client["fa:fa-user-large Client"] --> Edge
+    Client["fa:fa-user Client"] --> Edge
     Edge -->|"miss"| App
     App -->|"miss"| Redis
     Redis -->|"miss"| DB
@@ -582,7 +582,7 @@ flowchart TB
 
     subgraph Async["fa:fa-list Async Pipeline"]
         Kafka["fa:fa-stream Kafka"]
-        Worker["fa:fa-gear Analytics Worker"]
+        Worker["fa:fa-cog Analytics Worker"]
         OLAP["fa:fa-warehouse Analytics Store<br/>(ClickHouse / BigQuery)"]
     end
 

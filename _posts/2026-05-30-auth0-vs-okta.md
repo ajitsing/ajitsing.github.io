@@ -153,9 +153,9 @@ The clearest way to see the difference is to look at where each product sits rel
 flowchart LR
     Cust["fa:fa-user <b>Customer</b><br/>signs in to your product"]
     WebApp["fa:fa-globe <b>Your Web / Mobile App</b><br/>React, iOS, Android"]
-    Auth0["fa:fa-shield-halved <b>Auth0 Tenant</b><br/>Universal Login + Actions"]
+    Auth0["fa:fa-shield-alt <b>Auth0 Tenant</b><br/>Universal Login + Actions"]
     BizAPI["fa:fa-server <b>Your APIs</b><br/>protected by JWT access tokens"]
-    Social["fa:fa-share-nodes <b>Social IdPs</b><br/>Google, Apple, GitHub, Facebook"]
+    Social["fa:fa-share-alt <b>Social IdPs</b><br/>Google, Apple, GitHub, Facebook"]
 
     Cust --> WebApp --> Auth0
     Auth0 --> Social
@@ -179,7 +179,7 @@ On the Auth0 side, the platform is part of **the product you ship**. Customers n
 flowchart LR
     Dir["fa:fa-sitemap <b>Source of Truth</b><br/>Workday, AD, HRIS"]
     Emp["fa:fa-user-tie <b>Employee</b><br/>signs in to work tools"]
-    Okta["fa:fa-building-shield <b>Okta Tenant</b><br/>Universal Directory + MFA"]
+    Okta["fa:fa-shield-alt <b>Okta Tenant</b><br/>Universal Directory + MFA"]
     SaaS["fa:fa-cloud <b>SaaS Apps</b><br/>Salesforce, Slack, GitHub, AWS"]
 
     Dir -->|"SCIM provisioning"| Okta
@@ -232,13 +232,13 @@ This is the table you will end up sending around in Slack when someone asks "but
 |---|---|---|
 | <i class="fas fa-key"></i> **OAuth 2.0 / OIDC** | Full IdP and SP | Full IdP and SP |
 | <i class="fas fa-key"></i> **SAML 2.0** | Full IdP and SP | Full IdP and SP, 1,300+ pre-built |
-| <i class="fas fa-shield-halved"></i> **MFA** | TOTP, push, SMS, email, WebAuthn, Duo | Okta Verify push, FIDO2, YubiKey, Smart Card, Duo |
-| <i class="fas fa-mobile-screen"></i> **Passwordless / Passkeys** | Email and SMS magic link, WebAuthn, Passkeys | Okta FastPass, FIDO2, email magic link |
-| <i class="fas fa-share-nodes"></i> **Social login** | 30+ providers, one-click setup | 15+ providers |
+| <i class="fas fa-shield-alt"></i> **MFA** | TOTP, push, SMS, email, WebAuthn, Duo | Okta Verify push, FIDO2, YubiKey, Smart Card, Duo |
+| <i class="fas fa-mobile-alt"></i> **Passwordless / Passkeys** | Email and SMS magic link, WebAuthn, Passkeys | Okta FastPass, FIDO2, email magic link |
+| <i class="fas fa-share-alt"></i> **Social login** | 30+ providers, one-click setup | 15+ providers |
 | <i class="fas fa-id-card"></i> **Enterprise connections** | LDAP, AD, ADFS, Google Workspace, SAML, OIDC | Universal Directory, AD/LDAP agent, ADFS, GSuite |
-| <i class="fas fa-users-gear"></i> **B2B organizations** | Native Organizations feature | Org2Org or hub-spoke pattern |
+| <i class="fas fa-users-cog"></i> **B2B organizations** | Native Organizations feature | Org2Org or hub-spoke pattern |
 | <i class="fas fa-robot"></i> **Machine-to-machine** | Client credentials grant, per-token billing | OAuth for Okta, API Access Management |
-| <i class="fas fa-arrows-rotate"></i> **SCIM provisioning** | Basic | Excellent, the category default |
+| <i class="fas fa-sync"></i> **SCIM provisioning** | Basic | Excellent, the category default |
 | <i class="fas fa-network-wired"></i> **Pre-built app catalog** | Curated marketplace | 8,000+ ([OIN](https://www.okta.com/integrations/){:target="_blank" rel="noopener"}) |
 | <i class="fas fa-code"></i> **Extensibility model** | Actions (Node.js + npm) | Workflows (visual) and Hooks |
 | <i class="fas fa-chart-line"></i> **Adaptive risk** | Bot detection, attack protection, risk score | ThreatInsight, behavior-based policies |
@@ -572,7 +572,7 @@ When in doubt, walk this tree.
 
 ```mermaid
 flowchart TD
-    Start(["fa:fa-circle-question <b>Who is your user?</b>"])
+    Start(["fa:fa-question-circle <b>Who is your user?</b>"])
     Start --> Q1{"Customer or employee?"}
 
     Q1 -->|Customer| Q2{"Do you ship a<br/>customer-facing<br/>product?"}
@@ -622,16 +622,16 @@ flowchart LR
     end
 
     subgraph Customers["Customer Identity"]
-        WebApp["fa:fa-mobile-screen <b>Web + Mobile Apps</b>"]
-        Auth0T["fa:fa-shield-halved <b>Auth0 Tenant</b><br/>Universal Login + Actions"]
+        WebApp["fa:fa-mobile-alt <b>Web + Mobile Apps</b>"]
+        Auth0T["fa:fa-shield-alt <b>Auth0 Tenant</b><br/>Universal Login + Actions"]
         BizAPI["fa:fa-server <b>Product APIs</b><br/>JWT validation"]
     end
 
     subgraph Workforce["Workforce Identity"]
-        Okta["fa:fa-building-shield <b>Okta Tenant</b><br/>Universal Directory"]
+        Okta["fa:fa-shield-alt <b>Okta Tenant</b><br/>Universal Directory"]
         HR["fa:fa-id-badge <b>HRIS</b><br/>Workday / BambooHR"]
         SaaS["fa:fa-cloud <b>SaaS Apps</b><br/>Slack, GitHub, Salesforce, AWS"]
-        Admin["fa:fa-screwdriver-wrench <b>Internal Admin</b><br/>back office, dashboards"]
+        Admin["fa:fa-tools <b>Internal Admin</b><br/>back office, dashboards"]
     end
 
     subgraph Audit["Shared Audit + Detection"]

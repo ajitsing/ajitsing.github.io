@@ -379,4 +379,6 @@ GitHub Actions can do much more than we covered - from managing releases to auto
 
 *Ever wondered what GitHub does with your code after `git push`? See [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) for a tour of Spokes, the three-replica storage system that backs every Actions checkout.*
 
+*Your CI/CD pipeline works hand in hand with your branching strategy. See [Git Flow vs GitHub Flow](/git-flow-vs-github-flow/) to choose the workflow that fits how often you deploy.*
+
 *Got questions about GitHub Actions or want to share your automation wins? Drop a comment below. And if you found this helpful, consider sharing it with a fellow developer.*

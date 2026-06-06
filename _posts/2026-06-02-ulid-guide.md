@@ -46,7 +46,7 @@ This guide walks through what a ULID actually is, how the format works bit by bi
 
 {% include tool-cta.html tool="ulid-generator" description="Generate, decode, and validate ULIDs in your browser. Bulk generate up to 100 at once and extract the embedded timestamp." %}
 
-## <i class="fas fa-circle-question"></i> What Is a ULID?
+## <i class="fas fa-question-circle"></i> What Is a ULID?
 
 ULID stands for **Universally Unique Lexicographically Sortable Identifier**. It was created by Alizain Feerasta and published as an open [spec on GitHub](https://github.com/ulid/spec){:target="_blank"}. The goal was simple: keep the 128-bit uniqueness of a UUID but make the IDs sort by creation time.
 
@@ -75,7 +75,7 @@ Here is the headline list of what a ULID gives you, straight from the spec:
 - No special characters, so it is URL-safe
 - Monotonic sort order within the same millisecond
 
-## <i class="fas fa-diagram-project"></i> The ULID Structure
+## <i class="fas fa-project-diagram"></i> The ULID Structure
 
 A ULID is two parts glued together: a timestamp and some randomness.
 
@@ -110,7 +110,7 @@ Here is what each part does:
 
 **Why 80 bits of randomness?** That is `2^80`, or about 1.21 septillion values, generated fresh every millisecond. Two ULIDs colliding in the same millisecond is something you will never see in a real system.
 
-## <i class="fas fa-arrow-down-1-9"></i> Why "Lexicographically Sortable" Matters
+## <i class="fas fa-sort-numeric-down"></i> Why "Lexicographically Sortable" Matters
 
 This is the whole point of a ULID, so it is worth slowing down.
 
@@ -155,7 +155,7 @@ One quirk worth knowing: 26 Base32 characters can technically hold 130 bits, but
 
 {% include ads/in-article.html %}
 
-## <i class="fas fa-gears"></i> How a ULID Is Generated
+## <i class="fas fa-cogs"></i> How a ULID Is Generated
 
 Generating a ULID is two steps: read the clock, add randomness. The interesting part is what happens when you generate more than one in the same millisecond.
 
@@ -210,7 +210,7 @@ There are two things to keep in mind:
 
 2. **It only works on one node.** Monotonicity is tracked in memory on a single generator. Two processes, or two servers, have no shared counter. Across nodes you only get ordering as good as your clock synchronization. Do not rely on strict monotonicity across a cluster.
 
-## <i class="fas fa-code-compare"></i> ULID vs UUID vs UUID v7
+## <i class="fas fa-balance-scale"></i> ULID vs UUID vs UUID v7
 
 This is the comparison most people come here for. UUID v4 is the random one everybody knows. UUID v7, standardized in [RFC 9562](https://datatracker.ietf.org/doc/html/rfc9562){:target="_blank"}, is the newer time-ordered UUID that competes directly with ULID.
 
@@ -319,14 +319,14 @@ This is where ULIDs earn their keep. To see why, look at how random IDs behave i
 
 ```mermaid
 flowchart TB
-    subgraph rnd["fa:fa-shuffle Random UUID v4 inserts"]
+    subgraph rnd["fa:fa-random Random UUID v4 inserts"]
         U1["Insert abc..."] --> P1["Page 42"]
         U2["Insert xyz..."] --> P2["Page 891"]
         U3["Insert def..."] --> P3["Page 7"]
         U4["Insert mno..."] --> P4["Page 523"]
     end
 
-    subgraph seq["fa:fa-arrow-right-long Time-ordered ULID inserts"]
+    subgraph seq["fa:fa-long-arrow-alt-right Time-ordered ULID inserts"]
         S1["Insert 01..A"] --> Q1["Page 100"]
         S2["Insert 01..B"] --> Q1
         S3["Insert 01..C"] --> Q1
@@ -352,7 +352,7 @@ If you are choosing a database engine alongside your ID strategy, the [PostgreSQ
 
 {% include ads/in-article.html %}
 
-## <i class="fas fa-triangle-exclamation"></i> The Gotchas Nobody Mentions
+## <i class="fas fa-exclamation-triangle"></i> The Gotchas Nobody Mentions
 
 ULIDs are great, but they are not free of sharp edges. These are the ones that trip up real teams.
 
@@ -376,7 +376,7 @@ As covered earlier, generating many ULIDs in one millisecond can overflow the 80
 
 A ULID generated on a server whose clock is 200 ms fast will sort ahead of IDs that were actually created later on a correct clock. Within one process the order is exact. Across a fleet, you are trusting NTP. For most apps this is fine, but do not treat cross-node ULID order as a strict event log. If you need that, look at logical clocks instead.
 
-## <i class="fas fa-circle-check"></i> When to Use ULIDs (and When Not To)
+## <i class="fas fa-check-circle"></i> When to Use ULIDs (and When Not To)
 
 **Reach for a ULID when:**
 
@@ -392,7 +392,7 @@ A ULID generated on a server whose clock is 200 ms fast will sort ahead of IDs t
 - You need the smallest possible IDs at very high throughput on known nodes. Consider Snowflake IDs.
 - Exposing creation time would leak business or user information.
 
-## <i class="fas fa-list-check"></i> Key Takeaways
+## <i class="fas fa-tasks"></i> Key Takeaways
 
 **1. A ULID is a 128-bit ID in a friendlier wrapper.** 48-bit millisecond timestamp, 80 random bits, encoded as 26 Crockford Base32 characters.
 

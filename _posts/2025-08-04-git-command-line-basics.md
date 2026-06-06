@@ -348,6 +348,8 @@ If you want to expand your terminal skills beyond Git, check out the [Linux Comm
 
 Want to know what is happening on disk every time you run these commands? The post on [How Git Stores Data Internally](/how-git-stores-data-internally/) walks through the `.git` folder, the four object types, the index, refs, and pack files. And to see what happens on the other side of `git push origin main`, [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) covers the Spokes replication system and three-replica voting protocol.
 
+Once you are comfortable with branching and merging, the next decision is how your team should use branches day to day. The [Git Flow vs GitHub Flow](/git-flow-vs-github-flow/) guide compares the two most common branching strategies and helps you pick the right one.
+
 ---
 
 *What are your favorite commands? Share your thoughts in the comments below!*

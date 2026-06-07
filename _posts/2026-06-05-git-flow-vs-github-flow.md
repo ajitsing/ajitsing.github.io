@@ -170,9 +170,9 @@ git switch develop
 git merge --no-ff hotfix/1.2.1
 ```
 
-There is also the [git-flow command-line extension](https://github.com/nvie/gitflow){:target="_blank" rel="noopener"} that wraps all of this into commands like `git flow feature start` and `git flow release finish`, so you do not have to remember every merge by hand.
-
 {% include ads/in-article.html %}
+
+There is also the [git-flow command-line extension](https://github.com/nvie/gitflow){:target="_blank" rel="noopener"} that wraps all of this into commands like `git flow feature start` and `git flow release finish`, so you do not have to remember every merge by hand.
 
 ### What Git Flow is good at
 
@@ -220,6 +220,8 @@ gitGraph
     merge "fix/header" tag: "deploy"
 ```
 
+{% include ads/display.html %}
+
 ### How a change flows through GitHub Flow
 
 The whole lifecycle fits in six steps:
@@ -261,8 +263,6 @@ Notice what is missing. There is no special path for an urgent fix. A hotfix in 
 - **Big features get awkward.** A large change that takes weeks does not fit neatly into a short-lived branch. You end up needing [feature flags](/feature-flags-guide/){:target="_blank" rel="noopener"} to merge unfinished work safely.
 - **Less of a buffer.** There is no release branch to stabilize on. The safety net is your test suite, full stop.
 
-{% include ads/display.html %}
-
 ## <i class="fas fa-balance-scale"></i> Git Flow vs GitHub Flow: Side by Side
 
 Here is the comparison most people come for, in one table.
@@ -280,6 +280,8 @@ Here is the comparison most people come for, in one table.
 | Best for | Versioned, packaged, or regulated software | Web apps and SaaS |
 | Needs strong CI/CD | Helpful | Essential |
 | Year introduced | 2010 | 2011 |
+
+{% include ads/in-article.html %}
 
 The single biggest difference is the `develop` branch. Git Flow keeps a permanent staging layer between your work and production. GitHub Flow removes it and trusts `main` plus your tests instead. Almost every other difference flows from that one decision.
 
@@ -381,7 +383,6 @@ In Git Flow, a hotfix must merge into both `main` and `develop`. Teams routinely
 
 No model survives contact with reality unchanged. Plenty of teams run a "GitHub Flow plus a staging branch" hybrid, or a trimmed Git Flow without release branches. That is fine. The branching strategy serves the team, not the other way around. Start simple, and add structure only when a real problem demands it.
 
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-tools"></i> A Few Practical Tips Whatever You Choose
 

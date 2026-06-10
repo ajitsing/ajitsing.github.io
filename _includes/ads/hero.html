@@ -20,11 +20,7 @@
   }
   .hero-banner__card {
     width: 970px;
-    /* min-height (not height): AdSense responsive ads inject height:auto!important
-       on parent nodes, which overrides a fixed height and collapses the band when
-       the ad is short/unfilled. min-height survives that override and keeps the
-       reserved 250px (a 970-wide horizontal ad maxes at 970x250, so no CLS). */
-    min-height: 250px;
+    height: 250px;
     margin: 0 auto;
     background: transparent;
     border-radius: 10px;
@@ -58,11 +54,9 @@
   <div class="hero-banner__inner">
     <div class="hero-banner__card">
       <ins class="adsbygoogle hero-banner__unit"
-           style="display:block;width:970px;height:250px"
+           style="display:inline-block;width:970px;height:250px"
            data-ad-client="ca-pub-2886086145980317"
-           data-ad-slot="1787846424"
-           data-ad-format="horizontal"
-           data-full-width-responsive="false"></ins>
+           data-ad-slot="1787846424"></ins>
     </div>
   </div>
   <script>

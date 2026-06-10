@@ -73,7 +73,11 @@
       } else {
         contentContainer.appendChild(ad);
       }
-      pushToAdSense();
+      if (ad.offsetWidth > 0) {
+        pushToAdSense();
+      } else {
+        ad.parentNode && ad.parentNode.removeChild(ad);
+      }
     });
   }
 

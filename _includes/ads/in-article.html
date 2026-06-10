@@ -46,7 +46,7 @@
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function(entries) {
         if (entries[0].isIntersecting) { io.disconnect(); requestAd(); }
-      }, { rootMargin: '600px 0px' });
+      }, { rootMargin: '1000px 0px' });
       io.observe(wrap);
     } else {
       requestAd();

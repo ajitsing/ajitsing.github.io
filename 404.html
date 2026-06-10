@@ -34,7 +34,14 @@ description: "Page not found - The requested page doesn't exist on this site."
          data-ad-slot="3389164403"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <script>
+    (function() {
+      var ins = document.currentScript.parentNode.querySelector('ins.adsbygoogle');
+      if (ins && ins.offsetWidth > 0) {
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+      } else if (ins) { ins.remove(); }
+    })();
+    </script>
   </aside>
   {% endif %}
 
@@ -48,14 +55,36 @@ description: "Page not found - The requested page doesn't exist on this site."
       var ad = document.querySelector('.error-404-ad');
       var img = document.querySelector('.error-404-image--fallback');
       if (!ad || !img) return;
+      var ins = ad.querySelector('ins.adsbygoogle');
+      var done = false;
+
+      function showImage() {
+        if (done) return;
+        done = true;
+        ad.style.display = 'none';
+        img.style.display = 'block';
+      }
+
+      if (!ins) { showImage(); return; }
+
+      function check() {
+        if (done) return;
+        var status = ins.getAttribute('data-ad-status');
+        if (status === 'filled' || ins.querySelector('iframe')) { done = true; return; }
+        if (status === 'unfilled') { showImage(); return; }
+      }
+
+      new MutationObserver(check).observe(ins, {
+        attributes: true, attributeFilter: ['data-ad-status']
+      });
+      check();
+
+      // Safety net: if AdSense never reports a status, show the image.
       setTimeout(function () {
-        var ins = ad.querySelector('ins.adsbygoogle');
-        var filled = ins && (ins.getAttribute('data-ad-status') === 'filled' || ins.querySelector('iframe'));
-        if (!filled) {
-          ad.style.display = 'none';
-          img.style.display = 'block';
+        if (!done && ins.getAttribute('data-ad-status') !== 'filled' && !ins.querySelector('iframe')) {
+          showImage();
         }
-      }, 2500);
+      }, 8000);
     })();
   </script>
   {% endif %}

@@ -249,7 +249,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 170px;
+  /* Reserve enough height for a ~250-280px display fallback to avoid CLS. */
+  min-height: 300px;
 }
 
 .hub-in-grid-ad .adsbygoogle {

@@ -1,11 +1,22 @@
 {% if site.manual_ads %}
-<div class="sidebar-sticky-ad" data-ad-refresh="30">
+<div class="sidebar-sticky-ad" data-ad-refresh="60">
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-2886086145980317"
        data-ad-slot="1353070800"
-       data-ad-format="vertical"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+  (function() {
+    var container = document.currentScript.closest('.sidebar-sticky-ad');
+    if (container && container.offsetWidth > 0) {
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    } else if (container) {
+      var ins = container.querySelector('.adsbygoogle');
+      if (ins) ins.remove();
+    }
+  })();
+  </script>
   <script defer src="{{ '/assets/js/sidebar-ad-refresh.js' | relative_url }}"></script>
 </div>
 {% endif %}

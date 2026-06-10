@@ -29,7 +29,12 @@ layout: default
            data-ad-client="ca-pub-2886086145980317"
            data-ad-slot="9096626276"></ins>
       <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
+        (function() {
+          var ins = document.currentScript.parentNode.querySelector('ins.adsbygoogle');
+          if (ins && ins.offsetWidth > 0) {
+            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+          } else if (ins) { ins.remove(); }
+        })();
       </script>
     </div>
     {% endif %}

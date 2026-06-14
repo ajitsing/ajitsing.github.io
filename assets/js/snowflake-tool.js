@@ -32,6 +32,7 @@
   const localTime = document.getElementById('local-time');
   const relativeTime = document.getElementById('relative-time');
   const unixTime = document.getElementById('unix-time');
+  const epochConvertLink = document.getElementById('epoch-convert-link');
   const bitSign = document.getElementById('bit-sign');
   const bitTimestamp = document.getElementById('bit-timestamp');
   const bitWorker = document.getElementById('bit-worker');
@@ -88,6 +89,12 @@
 
     if (shareResultBtn) {
       shareResultBtn.addEventListener('click', handleShareResult);
+    }
+
+    if (epochConvertLink) {
+      epochConvertLink.addEventListener('click', () => {
+        trackEvent('cross_tool_click', 'to_epoch_converter', unixTime.textContent);
+      });
     }
 
     tabBtns.forEach(btn => {
@@ -248,6 +255,10 @@
     localTime.textContent = formatLocal(decoded.date);
     relativeTime.textContent = formatRelative(decoded.date);
     unixTime.textContent = decoded.timestamp.toString();
+
+    if (epochConvertLink) {
+      epochConvertLink.href = '/tools/epoch-converter/?ts=' + decoded.timestamp;
+    }
 
     bitSign.textContent = '0';
     bitTimestamp.textContent = decoded.timestampBits.toLocaleString();

@@ -11,7 +11,7 @@ thumbnail-img: /assets/img/posts/system-design/x-algorithm-thumbnail.svg
 share-img: /assets/img/posts/system-design/x-algorithm-thumbnail.svg
 permalink: /system-design/x-twitter-for-you-algorithm/
 description: "The X algorithm explained — a detailed breakdown of how Twitter's open source recommendation algorithm works in 2026. Covers the full GitHub repository (xai-org/x-algorithm), the Grok-based transformer ranking model, Two-Tower retrieval, candidate pipeline architecture, scoring weights, and practical lessons for building recommendation systems at scale."
-keywords: "X algorithm, X algorithm explained, X algorithm open source, X algorithm open source github, X algorithm github, X algorithm how it works, X algorithm 2026, X twitter algorithm 2026, twitter algorithm how it works, X platform recommendation algorithm, X recommendation algorithm open source, X algorithm github repository, X algorithm github open source 2026, X platform recommendation algorithm how it works, twitter algorithm explained, X For You feed algorithm, Grok transformer ranking, xAI algorithm, social media algorithm, content recommendation, feed ranking, Twitter recommendation, X algorithm open source code"
+keywords: "X algorithm, X algorithm explained, X algorithm open source, X algorithm open source github, X algorithm github, X algorithm how it works, X algorithm 2026, X twitter algorithm 2026, twitter algorithm how it works, X platform recommendation algorithm, X recommendation algorithm open source, X algorithm github repository, X algorithm github open source 2026, X platform recommendation algorithm how it works, twitter algorithm explained, X For You feed algorithm, Grok transformer ranking, xAI algorithm, social media algorithm, content recommendation, feed ranking, Twitter recommendation, X algorithm open source code, vector database, managed vector database, vector search, approximate nearest neighbor search, Pinecone, Milvus, Weaviate, MLOps platform, machine learning infrastructure, model serving, feature store, GPU infrastructure, recommendation system architecture, embeddings"
 tags: [system-design, machine-learning, software-engineering]
 comments: true
 
@@ -289,7 +289,7 @@ flowchart LR
     style Match fill:#e8f5e9,stroke:#388e3c
 ```
 
-The User Tower encodes your features and engagement history into a 512-dimensional vector. The Candidate Tower does the same for all posts. Finding relevant posts becomes a similarity search: which post embeddings are closest to your user embedding?
+The User Tower encodes your features and engagement history into a 512-dimensional vector. The Candidate Tower does the same for all posts. Finding relevant posts becomes a similarity search: which post embeddings are closest to your user embedding? In production this is an approximate nearest neighbor (ANN) search, the same operation a managed vector database is built to run.
 
 This is the same pattern used in [vector databases and RAG systems](/explainer/vector-databases-and-rag/). The difference is scale. X runs this across billions of posts in real-time.
 
@@ -444,7 +444,17 @@ Looking at the repository structure reveals interesting language choices:
 
 {% include ads/in-article.html %}
 
-This is a common pattern in ML systems. Python for flexibility during model development, Rust for performance in production serving. The Rust compilation ensures memory safety and predictable latency.
+This is a common pattern in ML systems. Python for flexibility during model development, Rust for performance in production serving. The Rust compilation ensures memory safety and predictable latency. If you are building your own model serving infrastructure, this split between a training language and a serving language is a good default.
+
+## Building This Yourself: Vector Databases and MLOps Tooling
+
+X built Thunder and Phoenix in house, but you do not have to. Most of the building blocks now exist as products you can rent.
+
+The Two-Tower retrieval step is really a vector search problem. You encode users and posts into embeddings, then find the closest matches. A managed vector database like [Pinecone](https://www.pinecone.io/), [Milvus](https://milvus.io/docs), or Weaviate handles this for you, including the approximate nearest neighbor (ANN) search that keeps lookups fast across billions of vectors. This is the same foundation behind [vector databases and RAG](/explainer/vector-databases-and-rag/), applied to recommendations instead of search.
+
+Around the model you need the rest of the stack. An MLOps platform handles training, versioning, and deployment. A feature store keeps your user and item features consistent between training and serving, which is exactly the kind of skew that quietly ruins recommendation quality. Model serving infrastructure, often backed by GPU instances, runs the transformer at low latency. None of this is glamorous, but it is where most real recommendation systems spend their budget.
+
+The lesson is that the algorithm is the easy part to copy. The data pipelines, the vector search, and the serving infrastructure are what take real work.
 
 ## Design Patterns Worth Stealing from X's Open Source Code
 

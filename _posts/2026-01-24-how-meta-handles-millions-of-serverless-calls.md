@@ -9,7 +9,7 @@ permalink: /meta-xfaas-serverless-at-scale/
 share-img: /assets/img/posts/system-design/meta-xfaas-serverless-thumbnail.png
 thumbnail-img: /assets/img/posts/system-design/meta-xfaas-serverless-thumbnail.png
 description: "Deep dive into Meta's XFaaS serverless platform. Learn how they handle 11.5 million function calls per second with 66% CPU utilization. Practical lessons on cold start elimination, load distribution, congestion control, and building serverless systems at scale."
-keywords: "Meta serverless, XFaaS, serverless at scale, function as a service, FaaS architecture, serverless cold start, AWS Lambda alternative, serverless performance, distributed systems, Meta infrastructure, Facebook serverless, serverless best practices, cloud functions, serverless optimization, high throughput serverless, load balancing serverless, worker pool, serverless scheduling"
+keywords: "Meta serverless, XFaaS, serverless at scale, function as a service, FaaS architecture, serverless cold start, AWS Lambda alternative, serverless performance, distributed systems, Meta infrastructure, Facebook serverless, serverless best practices, cloud functions, serverless optimization, high throughput serverless, load balancing serverless, worker pool, serverless scheduling, serverless cost optimization, cloud cost management, FinOps, AWS Lambda pricing, Azure Functions, Google Cloud Functions, serverless monitoring, observability, application performance monitoring, APM, distributed tracing, OpenTelemetry, cloud cost optimization"
 tags: [system-design, distributed-systems]
 comments: true
 
@@ -49,7 +49,7 @@ faq:
     answer: "No. Meta explicitly uses XFaaS only for non-user-facing functions like notifications and thumbnail generation. Serverless functions have too much variable latency for consistent user-facing performance, so they keep customer-facing code on more predictable infrastructure."
 ---
 
-When we think about serverless at scale, most of us picture AWS Lambda or Google Cloud Functions handling a few thousand requests per second. Meta operates at a different level entirely.
+When we think about serverless at scale, most of us picture AWS Lambda, Google Cloud Functions, or Azure Functions handling a few thousand requests per second. On those managed platforms you pay [per invocation and per gigabyte second](https://aws.amazon.com/lambda/pricing/), so the pricing model rewards short, efficient functions. Meta operates at a different level entirely.
 
 Their internal platform called XFaaS processes **trillions of function calls per day**. At peak capacity, that is roughly **11.5 million function calls per second** across more than 100,000 servers in dozens of datacenter regions.
 
@@ -80,9 +80,9 @@ Before diving into architecture, let me explain why that 66% CPU utilization num
 
 Typical cloud FaaS platforms run at much lower utilization rates. The problem is cold starts. When a function has not been called recently, the platform needs to spin up a new container, load the code, initialize the runtime, and then execute. This takes time, sometimes seconds.
 
-To hide this latency, platforms keep containers warm and idle, waiting for requests. That means paying for servers that are sitting around doing nothing.
+To hide this latency, platforms keep containers warm and idle, waiting for requests. That means paying for servers that are sitting around doing nothing. On a public cloud the same waste shows up directly on your bill, which is why serverless cost optimization usually starts with cold start behavior.
 
-Meta cannot afford that. At their scale, every percentage point of wasted capacity means thousands of servers burning electricity for no reason. Getting to 66% utilization while maintaining performance is the result of careful engineering across the entire stack.
+Meta cannot afford that. At their scale, every percentage point of wasted capacity means thousands of servers burning electricity for no reason. Getting to 66% utilization while maintaining performance is the result of careful engineering across the entire stack. It also depends on good observability, because you cannot push utilization this high without precise visibility into where every cycle goes.
 
 ## XFaaS Architecture Overview
 
@@ -480,7 +480,17 @@ Track:
 
 What gets measured gets improved.
 
-### <i class="fas fa-route"></i> Lesson 5: Consider Geographic Load Balancing
+### <i class="fas fa-coins"></i> Lesson 5: Tie Utilization to Cost and Observability
+
+Meta cares about 66% utilization because idle capacity is wasted money. The same logic drives serverless cost optimization for everyone else, even if you never run 100,000 servers.
+
+On public platforms you pay per invocation and per gigabyte second, so cost tracks closely with how your functions actually run. A keep warm strategy that hides cold starts also adds to the bill, and so does retry traffic when you have weak [rate limiting](/dynamic-rate-limiter-system-design/) at your entry points. This is where serverless cost management and the broader practice of [FinOps](https://www.finops.org/introduction/what-is-finops/) come in. The idea is simple. Make engineers see the cost of their functions next to the latency numbers, then let them make the trade off.
+
+You cannot optimize what you cannot see. Distributed tracing and application performance monitoring (APM) tools give you per function latency, cold start frequency, and downstream call timing. Open standards like [OpenTelemetry](https://opentelemetry.io/docs/) let you collect this data without locking yourself to one observability vendor. Once a cold start or a slow database call shows up in a trace, the fix is usually obvious.
+
+**Developer lesson**: Put cost and observability data in the same dashboard as your latency graphs. A function that is cheap but slow, or fast but expensive, is a decision waiting to be made. You can only make it when both numbers are visible.
+
+### <i class="fas fa-route"></i> Lesson 6: Consider Geographic Load Balancing
 
 If you run in multiple regions, route based on load, not just geography. A request handled by a less busy distant server often beats one stuck in a local queue.
 
@@ -529,7 +539,7 @@ Meta is not the only company operating at this scale. But they are one of the fe
 - [XFaaS Paper (SOSP 2023)](https://www.cs.cmu.edu/~dskarlat/publications/xfaas_sosp23.pdf) - The original paper with all technical details
 - [How X Handles 500M Daily Posts](/system-design/x-twitter-for-you-algorithm/) - Another look at hyperscale architecture
 - [Service Discovery Patterns](/explainer/service-discovery/) - How distributed systems find each other
-- [Rate Limiting and Throttling](/rate-limiting-and-throttling/) - Protecting your APIs from overload
+- [Rate Limiting and Throttling](/dynamic-rate-limiter-system-design/) - Protecting your APIs from overload
 - [Queues in System Design](/queues-in-system-design/) - Using queues to handle traffic spikes
 
 *References: [SOSP 2023 Paper](https://www.cs.cmu.edu/~dskarlat/publications/xfaas_sosp23.pdf), [Engineer's Codex](https://read.engineerscodex.com/p/meta-xfaas-serverless-functions-explained), [Communications of the ACM](https://cacm.acm.org/research/metas-hyperscale-infrastructure-overview-and-insights/), [Micah Lerner's Paper Review](https://newsletter.micahlerner.com/p/paper-review-xfaas-hyperscale-and)*

@@ -9,7 +9,7 @@ permalink: /git-flow-vs-github-flow/
 thumbnail-img: /assets/img/posts/git/git-flow-vs-github-flow.png
 share-img: /assets/img/posts/git/git-flow-vs-github-flow.png
 description: "Git Flow vs GitHub Flow compared in plain language. See how each branching strategy handles features, releases, and hotfixes, and which Git workflow fits your team."
-keywords: "git flow vs github flow, github flow vs git flow, git flow, github flow, gitflow, gitflow workflow, git branching strategy, git branching strategies, branching strategies, git workflow, feature branch workflow, develop branch, release branch, hotfix branch, trunk based development, git flow vs github flow vs trunk based, difference between git flow and github flow, which git workflow to use, continuous deployment branching, git flow diagram, vincent driessen branching model"
+keywords: "git flow vs github flow, github flow vs git flow, git flow, github flow, gitflow, gitflow workflow, git branching strategy, git branching strategies, branching strategies, git workflow, feature branch workflow, develop branch, release branch, hotfix branch, trunk based development, git flow vs github flow vs trunk based, difference between git flow and github flow, which git workflow to use, continuous deployment branching, git flow diagram, vincent driessen branching model, CI/CD pipeline, continuous integration, continuous delivery, GitHub Actions, GitLab CI/CD, CircleCI, Jenkins, feature flag management, feature flags, LaunchDarkly, DevOps, DORA metrics, release management, deployment automation, source code management"
 tags: ["git", "version-control", "devops", "software-engineering"]
 social-share: true
 comments: true
@@ -253,7 +253,7 @@ Notice what is missing. There is no special path for an urgent fix. A hotfix in 
 
 - **Simplicity.** Two kinds of branches and one rule. New teammates learn it in minutes.
 - **Fast feedback.** Small branches merge quickly, so integration problems show up while they are still small.
-- **Natural fit for CI/CD.** Every merge to `main` is a deployable unit, which lines up perfectly with automated pipelines like [GitHub Actions](/github-actions-basics-cicd-automation/){:target="_blank" rel="noopener"}.
+- **Natural fit for CI/CD.** Every merge to `main` is a deployable unit, which lines up perfectly with automated pipelines like [GitHub Actions](/github-actions-basics-cicd-automation/){:target="_blank" rel="noopener"}, GitLab CI/CD, or CircleCI.
 - **Code review built in.** The pull request is the heart of the flow, so review is not an afterthought.
 
 ### Where GitHub Flow hurts
@@ -291,7 +291,7 @@ The second biggest difference is how releases work. In Git Flow, a release is a 
 
 You cannot talk about this in 2026 without mentioning the third option, because it is where many strong teams have landed: **trunk-based development**.
 
-Trunk-based development takes GitHub Flow's "one main branch" idea and pushes it further. Instead of branches that live for a day or two, developers commit to the trunk (`main`) almost continuously, often through branches that exist for only a few hours. Unfinished work is hidden behind [feature flags](/feature-flags-guide/){:target="_blank" rel="noopener"} so it can ship to production turned off, then be switched on later.
+Trunk-based development takes GitHub Flow's "one main branch" idea and pushes it further. Instead of branches that live for a day or two, developers commit to the trunk (`main`) almost continuously, often through branches that exist for only a few hours. Unfinished work is hidden behind [feature flags](/feature-flags-guide/){:target="_blank" rel="noopener"}, usually managed through a feature flag management platform, so it can ship to production turned off, then be switched on later.
 
 ```mermaid
 flowchart LR
@@ -394,6 +394,16 @@ These habits pay off under every workflow:
 4. <i class="fas fa-vial"></i> **Run CI on every branch.** Catch failures on the feature branch, not after it lands.
 5. <i class="fas fa-cogs"></i> **Set sensible defaults once.** A good [git config](/git-config-guide/){:target="_blank" rel="noopener"} with `pull.rebase`, `fetch.prune`, and `push.autoSetupRemote` removes a lot of daily friction.
 6. <i class="fas fa-toggle-on"></i> **Decouple deploy from release.** [Feature flags](/feature-flags-guide/){:target="_blank" rel="noopener"} let you ship code that is turned off, which makes short branches and continuous deployment far safer.
+
+## <i class="fas fa-toolbox"></i> The Tooling Behind These Workflows
+
+A branching strategy is only as good as the machinery underneath it. The lighter the workflow, the more it leans on automation.
+
+CI/CD is the first piece. GitHub Flow and trunk-based development both bet that `main` is always shippable, and that bet only pays off if every push runs your tests and deploys cleanly. A [CI/CD pipeline](/github-actions-basics-cicd-automation/){:target="_blank" rel="noopener"} on [GitHub Actions](https://docs.github.com/en/actions){:target="_blank" rel="noopener"}, GitLab CI/CD, CircleCI, or Jenkins is what turns "merge to main" into "live in production" without a human babysitting it.
+
+The second piece is feature flag management. Rolling your own flags is fine until you need targeting, gradual rollouts, and a kill switch. A [feature flag](/feature-flags-guide/){:target="_blank" rel="noopener"} platform like [LaunchDarkly](https://launchdarkly.com/), Unleash, or Split handles that, which is what makes short branches and continuous deployment safe at scale.
+
+Once both are in place, track whether they actually help. The [DORA](https://dora.dev/){:target="_blank" rel="noopener"} metrics, deployment frequency, lead time, change failure rate, and time to restore, tell you if your workflow is speeding the team up or quietly slowing it down.
 
 ## <i class="fas fa-flag-checkered"></i> Wrapping Up
 

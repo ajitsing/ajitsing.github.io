@@ -8,8 +8,8 @@ categories: git
 permalink: /git-config-guide/
 share-img: /assets/img/posts/git-commands/git-config-thumb.png
 thumbnail-img: /assets/img/posts/git-commands/git-config-thumb.png
-description: "Complete git config guide with gitconfig example you can copy. Learn how to set git config options, edit git config file, configure git repo config, and use settings like feature.manyFiles true. Covers git setup config for user identity, aliases, editors, credentials, and performance."
-keywords: "git config, git config set, gitconfig, gitconfig options, gitconfig example, edit git config, edit git config file, git config file, git configuration, git repo config, git setup config, git config feature.manyfiles true, git global config, git config user, git aliases, git config editor, git credential helper, how to configure git, git settings, git config list, git config email, git config username, git local config"
+description: "Complete git config guide with gitconfig example you can copy. Learn how to set git config options, edit git config file, configure git repo config, and use settings like feature.manyFiles true. Covers git setup config for user identity, aliases, editors, credentials, commit signing, and performance."
+keywords: "git config, git config set, gitconfig, gitconfig options, gitconfig example, edit git config, edit git config file, git config file, git configuration, git repo config, git setup config, git config feature.manyfiles true, git global config, git config user, git aliases, git config editor, git credential helper, how to configure git, git settings, git config list, git config email, git config username, git local config, git commit signing, git config gpgsign, git config user.signingkey, ssh commit signing, gpg key signing, git credential manager, git personal access token, git secrets management, git config ci/cd pipeline, git lfs config, git config security"
 tags: ["git", "version-control", "devops"]
 comments: true
 
@@ -36,7 +36,11 @@ faq:
   - question: "How do I create Git aliases?"
     answer: "Run git config --global alias.shortcut 'command'. For example, git config --global alias.co checkout creates an alias so git co works like git checkout. For shell commands, prefix with ! like alias.lg '!git log --oneline --graph'."
   - question: "How do I store Git credentials so I do not have to type my password?"
-    answer: "On macOS use git config --global credential.helper osxkeychain. On Windows use git config --global credential.helper manager. On Linux use git config --global credential.helper cache for temporary storage or git config --global credential.helper store for permanent (less secure) storage."
+    answer: "On macOS use git config --global credential.helper osxkeychain. On Windows use git config --global credential.helper manager. On Linux use git config --global credential.helper cache for temporary storage or git config --global credential.helper store for permanent (less secure) storage. A credential helper is also the safest place to store a personal access token, which most Git hosts now require instead of a password."
+  - question: "How do I sign my Git commits?"
+    answer: "Set a signing key and turn on automatic signing. To sign with an SSH key you already use: git config --global gpg.format ssh, git config --global user.signingkey ~/.ssh/id_ed25519.pub, then git config --global commit.gpgsign true. To sign with GPG: git config --global user.signingkey YOUR_KEY_ID and git config --global commit.gpgsign true. Signed commits show a Verified badge on GitHub, GitLab, and Bitbucket and are often required for software supply chain security."
+  - question: "How do I configure Git in a CI/CD pipeline?"
+    answer: "Most pipelines need a Git identity before they can commit. At the start of the job run git config --global user.name 'CI Bot' and git config --global user.email 'ci@example.com'. To push changes, pipelines authenticate with a personal access token or deploy key through a credential helper rather than an interactive password prompt."
   - question: "How do I use different Git configs for work and personal projects?"
     answer: "Use conditional includes in your global gitconfig. Add [includeIf \"gitdir:~/work/\"] followed by path = ~/.gitconfig-work. Then create ~/.gitconfig-work with your work email and settings. Git automatically uses the right config based on the repository location."
   - question: "What does git config --global pull.rebase true do?"
@@ -60,6 +64,7 @@ This guide covers every **git config** setting that matters, from basic identity
 - [Diff and Merge Tools](#diff-and-merge-tools)
 - [Pull and Push Behavior](#pull-and-push-behavior)
 - [Credential Management](#credential-management)
+- [Commit Signing (GPG and SSH)](#commit-signing-gpg-and-ssh)
 - [Performance Settings](#performance-settings)
 - [Useful Miscellaneous Settings](#useful-miscellaneous-settings)
 - [Sample gitconfig File](#sample-gitconfig-file)
@@ -87,6 +92,9 @@ Here is a quick reference of the most useful **gitconfig options**. Click any se
 | [`help.autocorrect`](#auto-correct) | `10` | Fix typos with 1s delay |
 | [`feature.manyFiles`](#many-files-mode) | `true` | Performance boost for large repos |
 | [`credential.helper`](#credential-management) | `osxkeychain` | Store passwords securely |
+| [`commit.gpgsign`](#commit-signing-gpg-and-ssh) | `true` | Sign every commit |
+| [`user.signingkey`](#commit-signing-gpg-and-ssh) | `~/.ssh/id_ed25519.pub` | Key used to sign commits |
+| [`gpg.format`](#commit-signing-gpg-and-ssh) | `ssh` | Sign with an SSH key |
 | [`color.ui`](#enabledisable-colors) | `auto` | Colored terminal output |
 
 ## Where Git Stores Configuration (Git Config File Locations)
@@ -634,7 +642,7 @@ Now `git push` works on new branches without needing `-u origin branch-name`.
 {% include ads/in-article.html %}
 
 
-Store your credentials so you do not have to type passwords repeatedly.
+Store your credentials so you do not have to type passwords repeatedly. A credential helper is also the safest place to keep a personal access token, which most Git hosts now require instead of a password. For teams, a dedicated credential manager or secrets management tool keeps those tokens out of plaintext files.
 
 ### macOS
 
@@ -685,6 +693,55 @@ git remote set-url origin git@github.com:user/repo.git
 
 See [GitHub's SSH documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) for setting up SSH keys.
 
+## Commit Signing (GPG and SSH)
+
+Signing your commits proves they actually came from you. On GitHub, GitLab, and Bitbucket, signed commits show a "Verified" badge. For teams that care about software supply chain security, commit signing is often a requirement, and many organizations enforce it on protected branches.
+
+Git supports two signing methods: GPG, the traditional approach, and SSH, which is simpler because it reuses a key you probably already have.
+
+### Sign with an SSH Key
+
+If you already use an SSH key for authentication, you can reuse it for signing. This is the easiest setup:
+
+```bash
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
+git config --global commit.gpgsign true
+```
+
+Now every commit is signed automatically. To also sign your tags:
+
+```bash
+git config --global tag.gpgsign true
+```
+
+{% include ads/in-article.html %}
+
+### Sign with a GPG Key
+
+If you use GPG, set your signing key and turn on automatic signing:
+
+```bash
+git config --global user.signingkey YOUR_KEY_ID
+git config --global commit.gpgsign true
+```
+
+Find your key ID with `gpg --list-secret-keys --keyid-format=long`. If GPG cannot find your terminal to prompt for the passphrase, add this to your shell profile:
+
+```bash
+export GPG_TTY=$(tty)
+```
+
+### Sign a Single Commit
+
+If you would rather not sign everything, sign on demand instead:
+
+```bash
+git commit -S -m "Signed commit message"
+```
+
+To learn what actually goes into the commit you are signing, see [How Git Stores Data Internally](/how-git-stores-data-internally/).
+
 ## Performance Settings
 
 For large repositories, these settings can improve performance.
@@ -714,6 +771,21 @@ git config --global feature.manyFiles true
 ```
 
 This enables several performance features including `index.skipHash` and the file system monitor.
+
+### Large Files with Git LFS
+
+Binary assets like videos, datasets, and design files bloat your repository and slow down every clone. [Git LFS (Large File Storage)](https://git-lfs.com/) keeps them out of your main history and stores them separately. After installing it, enable it and track a file type:
+
+```bash
+git lfs install
+git lfs track "*.psd"
+```
+
+Git LFS writes filter settings into your git config. Check what it configured:
+
+```bash
+git config --get-regexp filter.lfs
+```
 
 ### Commit Graph
 
@@ -792,6 +864,7 @@ Here is a complete example you can use as a starting point. Copy this to `~/.git
 [user]
     name = Your Name
     email = you@example.com
+    signingkey = ~/.ssh/id_ed25519.pub
 
 [init]
     defaultBranch = main
@@ -831,6 +904,12 @@ Here is a complete example you can use as a starting point. Copy this to `~/.git
 
 [merge]
     conflictstyle = diff3
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    format = ssh
 
 [diff]
     renames = copies
@@ -891,6 +970,17 @@ git config --show-origin user.email
 ```
 
 This shows which file contains that setting.
+
+### Configure Git in a CI/CD Pipeline
+
+Automated pipelines often need a Git identity before they can commit, for example to bump a version or push a changelog. Set it at the start of your CI/CD job:
+
+```bash
+git config --global user.name "CI Bot"
+git config --global user.email "ci@example.com"
+```
+
+In ephemeral build containers, `--global` is fine because the identity only needs to last for that one job. To push changes, pipelines authenticate with a personal access token or a deploy key through a credential helper instead of an interactive password prompt. See [GitHub Actions](/github-actions-basics-cicd-automation/) for a full automation walkthrough.
 
 {% include tool-cta.html tool="text-diff" variant="inline" description="Diff two versions of .gitconfig or hook scripts before you apply changes on other machines." %}
 

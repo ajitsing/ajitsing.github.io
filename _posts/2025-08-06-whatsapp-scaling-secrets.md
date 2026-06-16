@@ -91,6 +91,8 @@ Erlang was created by Ericsson in the 1980s for telephone switches. Those system
 - Hot code updates
 - Distributed computing
 
+{% include ads/in-article.html %}
+
 ### The Actor Model
 
 Erlang uses the actor model for concurrency. Instead of threads sharing memory (and fighting over locks), you have isolated processes that communicate through messages.
@@ -136,9 +138,6 @@ The magic is in how lightweight these processes are:
 | Context switch | Expensive | Cheap |
 | Max per machine | Thousands | Millions |
 | Crash isolation | Takes down app | Process restarts |
-
-
-{% include ads/in-article.html %}
 
 
 A single WhatsApp server can run 2+ million Erlang processes. Try that with Java threads.
@@ -230,7 +229,7 @@ graph TB
     CDN --> OBJ
 </code></pre>
 
-{% include ads/display.html %}
+{% include ads/in-article.html %}
 
 Each server runs thousands of Erlang processes, one per connected user. The Mnesia cluster stores session data and routing information. MySQL handles persistent user data. The CDN serves media files.
 

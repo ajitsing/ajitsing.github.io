@@ -106,6 +106,8 @@ flowchart TB
     class F1,F2 good
 ```
 
+{% include ads/in-article.html %}
+
 The leader does not make the cluster faster. It makes the cluster *agree*, and agreement is the thing that was missing.
 
 ## <i class="fas fa-crown"></i> What the Leader and Followers Pattern Is
@@ -137,8 +139,6 @@ That is the deal the pattern offers:
 - **Failover is automatic.** The same election machinery that bootstrapped the first leader replaces a failed one.
 
 The price is real and worth naming. Write throughput is capped by what one leader can handle. There is a brief unavailability window during failover while a new leader is chosen. And the leader is a hotspot you have to protect. For most systems that need correctness, that trade is a bargain. When it is not, you reach for leaderless replication, which we cover at the end.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-vote-yea"></i> How a Leader Gets Elected
 
@@ -206,6 +206,8 @@ sequenceDiagram
     Note over F: timer expires<br/>start election (gen 6)
 ```
 
+{% include ads/in-article.html %}
+
 A leader is never assumed alive. It is only ever *recently seen alive*. The instant that recency lapses, the cluster moves to replace it. That single discipline is what turns a crashed primary from a 3 AM page into a non-event.
 
 ## <i class="fas fa-stopwatch"></i> The Generation Clock: Fencing Out Zombie Leaders
@@ -259,8 +261,6 @@ sequenceDiagram
 The key moment is "majority acked". The leader does not confirm the write to the client the instant it touches its own disk. It waits until a [majority quorum](/distributed-systems/majority-quorum/){:target="_blank" rel="noopener"} of followers have stored it. Only then is the entry considered **committed**, and the leader advances its [high-water mark](/distributed-systems/high-watermark/){:target="_blank" rel="noopener"}, the index up to which entries are safe to apply and expose to readers.
 
 Why wait for a majority? Because a majority is the smallest group that is guaranteed to overlap with the majority that elects the next leader. That overlap means the next leader is certain to have every committed entry, so no acknowledged write can ever be lost in a failover. This is the quiet handshake between the [replicated log](/distributed-systems/replicated-log/){:target="_blank" rel="noopener"} and the election rule that "a candidate's log must be at least as up to date" from earlier. They are two halves of the same safety guarantee.
-
-{% include ads/display.html %}
 
 ## <i class="fas fa-book-reader"></i> Reads: The Consistency Knob
 

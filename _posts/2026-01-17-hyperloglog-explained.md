@@ -108,6 +108,8 @@ flowchart LR
     style G fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 ## How the Algorithm Works
 
 Here is the step-by-step process:
@@ -130,10 +132,6 @@ Here is the step-by-step process:
 3. Apply small/large range corrections if needed
 4. Return the estimate
 ```
-
-
-{% include ads/in-article.html %}
-
 
 The harmonic mean is used instead of arithmetic mean because it is less sensitive to outliers. One register with an unusually high value will not skew the entire estimate.
 
@@ -222,6 +220,8 @@ flowchart TD
     style M fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
     style R fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 Each node counts locally, then you merge at the end. No need to send raw data around.
 

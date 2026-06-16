@@ -118,6 +118,8 @@ app.listen(3000);
 
 That's it. 25 lines for a working real-time server.
 
+{% include ads/in-article.html %}
+
 ### Client Side (JavaScript)
 
 ```javascript
@@ -165,9 +167,6 @@ data: {"message": "Market closing in 5 minutes"}
 | `event` | Event type. Client can listen to specific types |
 | `id` | Event ID. Browser sends this as `Last-Event-ID` header on reconnect |
 | `retry` | Milliseconds before browser retries after disconnect |
-
-
-{% include ads/in-article.html %}
 
 
 ### Handling Different Event Types
@@ -304,7 +303,7 @@ Here's when to use each:
 | Proxy/firewall friendly | Yes | Sometimes blocked | Yes |
 
 
-{% include ads/display.html %}
+{% include ads/in-article.html %}
 
 
 **Choose SSE when:**

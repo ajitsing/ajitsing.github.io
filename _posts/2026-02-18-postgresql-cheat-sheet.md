@@ -32,7 +32,7 @@ faq:
   - question: "What is EXPLAIN ANALYZE in PostgreSQL and how do I use it?"
     answer: "EXPLAIN ANALYZE runs your query and shows the actual execution plan with real timing information. Use it like: EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'test@example.com'. Look for Seq Scan on large tables (means no index is being used), high actual time values, and large row estimates vs actual rows. This helps you identify slow queries and missing indexes."
   - question: "How do I import a CSV file into PostgreSQL?"
-    answer: "Use the COPY command: COPY table_name FROM '/path/to/file.csv' WITH (FORMAT csv, HEADER true). From psql, use \\copy which runs client-side: \\copy table_name FROM 'file.csv' WITH (FORMAT csv, HEADER true). COPY is much faster than individual INSERT statements for bulk loading."
+    answer: "Use the COPY command: COPY table_name FROM 'yourfile.csv' WITH (FORMAT csv, HEADER true) when the file is on the database server, using a path the server can read. From psql, use \\copy which runs client-side: \\copy table_name FROM 'file.csv' WITH (FORMAT csv, HEADER true). COPY is much faster than individual INSERT statements for bulk loading."
   - question: "How do I add an index in PostgreSQL?"
     answer: "Use CREATE INDEX: CREATE INDEX idx_users_email ON users(email). For unique constraints, use CREATE UNIQUE INDEX. For production databases, use CREATE INDEX CONCURRENTLY to avoid locking the table during index creation. Check if your index is being used with EXPLAIN ANALYZE on your queries."
   - question: "How do I find and kill long-running queries in PostgreSQL?"

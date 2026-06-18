@@ -631,9 +631,9 @@ The same patterns show up in every flash sale postmortem.
 | Payment gateway slow | Orders pile up in `PENDING_PAYMENT` | Reservation TTL of 10 min plus compensating transaction to return stock |
 | User clicks Buy twice | Two order rows for one user | Idempotency key + `UNIQUE(user_id, sale_id)` |
 | Multi-region replica lag | User sees "in stock" in one region, "sold out" in another | Tolerate the inconsistency; show "trying to reserve..." instead of "in stock"; reconcile every 30 sec |
-| Sale opens 1 sec early due to clock skew | Some users get a head start | NTP, monotonic clocks on the admission worker; consider [hybrid logical clocks](/hybrid-logical-clock-distributed-systems/){:target="_blank" rel="noopener"} for global ordering |
+| Sale opens 1 sec early due to clock skew | Some users get a head start | NTP, monotonic clocks on the admission worker; consider [hybrid logical clocks](/distributed-systems/hybrid-clock/){:target="_blank" rel="noopener"} for global ordering |
 
-A useful pattern for the worst-case fix is the [circuit breaker](/circuit-breaker-pattern-explained/){:target="_blank" rel="noopener"}: if the order DB throws errors at greater than 5 percent rate for 10 seconds, the circuit opens, the order API switches to "we are working on it, please retry in a moment", and the queue accumulates intent without losing it. Better than 502s.
+A useful pattern for the worst-case fix is the [circuit breaker](/circuit-breaker-pattern/){:target="_blank" rel="noopener"}: if the order DB throws errors at greater than 5 percent rate for 10 seconds, the circuit opens, the order API switches to "we are working on it, please retry in a moment", and the queue accumulates intent without losing it. Better than 502s.
 
 ## Comparison With Real Services
 

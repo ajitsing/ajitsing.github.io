@@ -8,6 +8,8 @@ categories: devops
 thumbnail-img: /assets/img/devops/k8s-thumbnail.png
 share-img: /assets/img/devops/k8s-thumbnail.png
 permalink: /devops/kubernetes-architecture/
+redirect_from:
+  - /kubernetes-architecture-explained/
 description: "Deep dive into Kubernetes architecture - understand how the control plane, worker nodes, and core components work together to orchestrate containers at scale. Learn from real-world examples and practical insights."
 keywords: "kubernetes architecture, k8s components, control plane, worker nodes, etcd, kube-apiserver, container orchestration, microservices, cloud native, system design"
 tags: [system-design, devops]

@@ -9,6 +9,8 @@ share-img: /assets/img/posts/system-design/rate-limiter-thumbnail.png
 categories: system-design
 tags: [system-design]
 permalink: /dynamic-rate-limiter-system-design/
+redirect_from:
+  - /rate-limiting-and-throttling/
 description: "Learn how to design and implement a dynamic rate limiter that adapts to system load, user behavior, and traffic patterns. Real-world strategies from Stripe, Twitter, and Netflix."
 keywords: "rate limiter, API rate limiting, dynamic throttling, token bucket, leaky bucket, distributed rate limiting, system design, API gateway, Redis rate limiting"
 seo: true

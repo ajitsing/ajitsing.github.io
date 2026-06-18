@@ -540,6 +540,6 @@ Meta is not the only company operating at this scale. But they are one of the fe
 - [How X Handles 500M Daily Posts](/system-design/x-twitter-for-you-algorithm/) - Another look at hyperscale architecture
 - [Service Discovery Patterns](/explainer/service-discovery/) - How distributed systems find each other
 - [Rate Limiting and Throttling](/dynamic-rate-limiter-system-design/) - Protecting your APIs from overload
-- [Queues in System Design](/queues-in-system-design/) - Using queues to handle traffic spikes
+- [Role of Queues in System Design](/role-of-queues-in-system-design/) - Using queues to handle traffic spikes
 
 *References: [SOSP 2023 Paper](https://www.cs.cmu.edu/~dskarlat/publications/xfaas_sosp23.pdf), [Engineer's Codex](https://read.engineerscodex.com/p/meta-xfaas-serverless-functions-explained), [Communications of the ACM](https://cacm.acm.org/research/metas-hyperscale-infrastructure-overview-and-insights/), [Micah Lerner's Paper Review](https://newsletter.micahlerner.com/p/paper-review-xfaas-hyperscale-and)*

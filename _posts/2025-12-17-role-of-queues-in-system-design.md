@@ -9,6 +9,8 @@ tags: [system-design]
 thumbnail-img: /assets/img/posts/system-design/queues-thumbnail.png
 share-img: /assets/img/posts/system-design/queues-thumbnail.png
 permalink: /role-of-queues-in-system-design/
+redirect_from:
+  - /queues-in-system-design/
 description: "Deep dive into message queues in system design. Learn when and why to use queues, popular queue technologies like RabbitMQ, Kafka, and SQS, and real-world patterns from Uber, Slack, and Stripe. Practical guide with architecture diagrams and code examples."
 keywords: "message queue, system design, rabbitmq, kafka, sqs, async processing, distributed systems, microservices, producer consumer pattern, pub sub, dead letter queue, event driven architecture"
 seo: true

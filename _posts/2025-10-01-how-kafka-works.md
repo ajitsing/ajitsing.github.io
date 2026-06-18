@@ -9,6 +9,8 @@ categories: distributed-systems
 thumbnail-img: /assets/img/posts/kafka/kafka-thumbnail.png
 share-img: /assets/img/posts/kafka/kafka-thumbnail.png
 permalink: /distributed-systems/how-kafka-works/
+redirect_from:
+  - /how-kafka-works/
 description: "Deep dive into Apache Kafka architecture - understand topics, partitions, consumer groups, and how Kafka achieves high throughput and fault tolerance. Learn from real-world examples and practical insights for building scalable data pipelines."
 keywords: "apache kafka, kafka architecture, distributed systems, message broker, event streaming, kafka topics, kafka partitions, consumer groups, data pipelines, real-time processing, kafka performance, log-based messaging"
 tags: [distributed-systems]

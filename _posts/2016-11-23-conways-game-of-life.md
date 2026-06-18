@@ -6,6 +6,8 @@ title: Conway's Game Of Life
 description: Learn about Conway's Game of Life, its rules, and how to implement it in JavaScript with code and demo.
 share-img: /assets/img/posts/game_of_life/cover.png
 permalink: /conways-game-of-life/
+redirect_from:
+  - /conways-game-life/
 gh-repo: ajitsing/game_of_life
 gh-badge: [star, fork, follow]
 tags: [javascript, game]

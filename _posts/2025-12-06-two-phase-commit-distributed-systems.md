@@ -9,6 +9,8 @@ categories: distributed-systems
 thumbnail-img: /assets/img/posts/distributed-systems/two-phase-commit-thumb.png
 share-img: /assets/img/posts/distributed-systems/two-phase-commit-thumb.png
 permalink: /distributed-systems/two-phase-commit/
+redirect_from:
+  - /distributed-systems/two-phase-commit-distributed-systems/
 description: "What is 2 phase commit? Complete guide to the two phase commit protocol (2PC) for distributed transactions. Learn how the 2 phase commit protocol coordinates atomicity across multiple databases, its phases, failure scenarios, and implementations in PostgreSQL, MySQL, and microservices."
 keywords: "two phase commit protocol, two-phase commit, 2 phase commit, 2 phase commit protocol, what is 2 phase commit, 2PC protocol, 2PC, distributed transactions, distributed systems, database consistency, atomic commit, transaction coordinator, prepare commit, XA transactions, saga pattern, distributed database, ACID transactions, commit protocol, database replication, microservices transactions"
 tags: [distributed-systems]

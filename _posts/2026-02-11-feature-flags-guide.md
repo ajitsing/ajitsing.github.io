@@ -386,7 +386,7 @@ def is_enabled(flag_name):
 - Limited functionality
 - Hard to manage many flags
 
-**When to use:** Docker/[Kubernetes](/kubernetes-architecture-explained/) deployments, toggling features per environment, simple on/off toggles.
+**When to use:** Docker/[Kubernetes](/devops/kubernetes-architecture/) deployments, toggling features per environment, simple on/off toggles.
 
 ### Level 3: Application Database
 

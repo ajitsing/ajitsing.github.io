@@ -8,6 +8,8 @@ categories: distributed-systems
 thumbnail-img: /assets/img/posts/distributed-systems/hybrid-clock-thumb.png
 share-img: /assets/img/posts/distributed-systems/hybrid-clock-thumb.png
 permalink: /distributed-systems/hybrid-clock/
+redirect_from:
+  - /hybrid-logical-clock-distributed-systems/
 description: "Learn how the Hybrid Logical Clock (HLC) pattern works in distributed systems. Complete guide with examples from CockroachDB, MongoDB, and YugabyteDB. Covers the HLC algorithm, 64 bit timestamp format, causal consistency, consistent snapshots, and how HLC compares to Lamport and vector clocks."
 keywords: "hybrid logical clock, hybrid clock, HLC, distributed systems, lamport clock vs hybrid logical clock, hybrid logical clock algorithm, hybrid logical clock cockroachdb, mongodb cluster time, yugabytedb hybrid time, distributed systems design pattern, causal consistency, consistent snapshot, distributed timestamp, clock skew, NTP, wall clock time, logical clock, vector clock, monotonic clock, happens before, multi version concurrency control, MVCC, distributed transactions, leader follower replication, write ahead log, kulkarni demirbas hybrid logical clock"
 tags: [distributed-systems]

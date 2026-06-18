@@ -674,8 +674,8 @@ Both support comments, but differ in structure and ecosystem.
 
 **Building scalable systems?** Check out these related posts:
 
-- [How Kafka Works](/how-kafka-works/)
-- [Kubernetes Architecture Explained](/kubernetes-architecture-explained/)
+- [How Kafka Works](/distributed-systems/how-kafka-works/)
+- [Kubernetes Architecture Explained](/devops/kubernetes-architecture/)
 - [How to Build a Dynamic Rate Limiter](/dynamic-rate-limiter-system-design/)
 
 **References:**

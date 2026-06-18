@@ -8,6 +8,8 @@ categories: system-design
 thumbnail-img: /assets/img/posts/system-design/circuit-breaker-thumb.png
 share-img: /assets/img/posts/system-design/circuit-breaker-thumb.png
 permalink: /circuit-breaker-pattern/
+redirect_from:
+  - /circuit-breaker-pattern-explained/
 description: "What is the circuit breaker pattern? Learn how it prevents cascading failures in microservices with closed, open, and half-open states. Includes Resilience4j, Go, and Python examples, architecture diagrams, and real-world patterns from Netflix."
 keywords: "circuit breaker pattern, circuit breaker microservices, cascading failure, fault tolerance, resilience pattern, circuit breaker states, circuit breaker vs retry, resilience4j circuit breaker, hystrix circuit breaker, bulkhead pattern, microservices resilience, distributed systems fault tolerance, circuit breaker implementation, half open circuit breaker, circuit breaker design pattern, fail fast pattern, service mesh circuit breaker, graceful degradation"
 tags: [system-design, distributed-systems]

@@ -6,6 +6,8 @@ subtitle: "Build consistent object families without specifying concrete classes"
 date: 2025-06-07
 categories: design-patterns
 permalink: /design-patterns/abstract-factory/
+redirect_from:
+  - /abstract-factory-design-pattern/
 share-img: /assets/img/posts/design-patterns/abstract-factory-design-pattern.png
 thumbnail-img: /assets/img/posts/design-patterns/abstract-factory-design-pattern.png
 description: "Learn Abstract Factory pattern in Java. Create families of related objects without specifying concrete classes."

@@ -327,7 +327,7 @@ Ask yourself: does creating multiple instances actually cause problems? If not, 
 
 **[Factory Method](/factory-method-design-pattern/)** can return a singleton instance. Many factories are themselves singletons that control object creation.
 
-**[Abstract Factory](/abstract-factory-design-pattern/)** is often implemented as a singleton when you need one factory for the entire application.
+**[Abstract Factory](/design-patterns/abstract-factory/)** is often implemented as a singleton when you need one factory for the entire application.
 
 **[Flyweight](/flyweight-design-pattern/)** shares intrinsic state between objects. Singleton shares the entire object. Flyweight is like having multiple singletons distinguished by a key.
 

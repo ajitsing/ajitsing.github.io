@@ -238,6 +238,8 @@ When you ask for your feed, Thunder looks at who you follow and returns their re
 
 The retention period is configurable. Posts older than the threshold get automatically trimmed. This keeps memory usage bounded while ensuring fresh content is always available.
 
+{% include ads/in-article.html %}
+
 ## Phoenix: The ML Powerhouse
 <small>[View source on GitHub](https://github.com/xai-org/x-algorithm/tree/main/phoenix)</small>
 
@@ -394,8 +396,6 @@ Here's what we know about the weights from the source code:
 | Mute Author | Negative | -2.0 |
 | Report | Negative | -5.0 |
 
-{% include ads/display.html %}
-
 Notice how negative signals carry massive weights. A single block is worth -3.0, while a like is only +0.5. The algorithm heavily penalizes content you'd find annoying.
 
 **This is the key insight**: X optimizes for long-term user retention, not short-term engagement. Showing you rage-bait that gets clicks but makes you block the author is a net negative.
@@ -441,8 +441,6 @@ Looking at the repository structure reveals interesting language choices:
 - Phoenix model training
 - Embedding generation
 - Offline analysis
-
-{% include ads/in-article.html %}
 
 This is a common pattern in ML systems. Python for flexibility during model development, Rust for performance in production serving. The Rust compilation ensures memory safety and predictable latency. If you are building your own model serving infrastructure, this split between a training language and a serving language is a good default.
 

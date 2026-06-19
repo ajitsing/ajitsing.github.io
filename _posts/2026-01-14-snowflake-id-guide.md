@@ -141,8 +141,6 @@ Both Twitter and Discord use Snowflake IDs, but they chose different starting po
 | Twitter | 1288834974657 | Nov 4, 2010 |
 | Discord | 1420070400000 | Jan 1, 2015 |
 
-{% include ads/in-article.html %}
-
 **Why does the epoch matter?**
 
 The 41-bit timestamp stores milliseconds since the epoch. Starting from a later date means:
@@ -189,8 +187,6 @@ const userId = "123456789012345678";
 console.log(getDiscordTimestamp(userId));
 // Output: 2017-03-15T12:34:56.789Z
 ```
-
-{% include ads/display.html %}
 
 **For Twitter IDs (Python):**
 
@@ -302,6 +298,8 @@ System.out.println("User ID: " + userId);    // 7155791234567890124
 - [phxql/snowflake-id](https://github.com/phxql/snowflake-id) - Customizable bit allocation
 - [HMWCS/java-snowflake-id-generator](https://github.com/HMWCS/java-snowflake-id-generator) - Optimized with CAS for high throughput
 
+{% include ads/in-article.html %}
+
 ## Snowflake ID vs UUID: When to Use Which
 
 Here's a direct comparison:
@@ -336,8 +334,6 @@ Here's a direct comparison:
 ## The Clock Skew Problem
 
 Snowflake IDs depend on accurate system clocks. What happens if a server's clock goes backward?
-
-{% include ads/in-article.html %}
 
 **The problem:**
 

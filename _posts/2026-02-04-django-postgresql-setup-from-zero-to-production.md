@@ -2,13 +2,13 @@
 layout: post
 title: "Django PostgreSQL Setup: From Zero to Production"
 subtitle: "Connect Django to PostgreSQL, run migrations, and get it ready for production"
-description: "Create a Django + PostgreSQL setup from scratch: uv and django-admin, create database and user, and configure settings.py in detail. Covers DATABASES keys, OPTIONS, env vars, split settings, migrations, and production (CONN_MAX_AGE, PgBouncer, SSL)."
+description: "Django PostgreSQL setup for production: DATABASES in settings.py, migrations, SSL, PgBouncer, managed PostgreSQL on AWS RDS and cloud platforms. Step-by-step developer tutorial."
 date: 2026-02-04
 categories: database
 thumbnail-img: /assets/img/posts/database/django-postgresql-setup.png
 share-img: /assets/img/posts/database/django-postgresql-setup.png
 permalink: /django-postgresql-setup-from-zero-to-production/
-keywords: "django postgresql, django postgresql setup, connect django to postgresql, django postgres, django database postgresql, django postgresql tutorial, django settings.py postgresql, psycopg2 django, django postgresql connection, django postgresql production, django migrate postgresql, django postgresql install, use postgresql with django, django postgresql configuration, postgresql django backend, django database configuration"
+keywords: "django postgresql, django postgresql setup, connect django to postgresql, django postgres, django database postgresql, django postgresql tutorial, django settings.py postgresql, psycopg2 django, django postgresql connection, django postgresql production, django migrate postgresql, django postgresql install, use postgresql with django, django postgresql configuration, postgresql django backend, django database configuration, managed postgresql hosting, aws rds postgresql, amazon rds, google cloud sql postgresql, azure database for postgresql, heroku postgres, cloud database, managed database service, postgresql database backup, database monitoring, database security, dj-database-url, django pgbouncer, django gunicorn postgresql"
 comments: true
 seo: true
 social-share: true
@@ -22,7 +22,7 @@ key-takeaways:
   - "Every DATABASES key (ENGINE, NAME, USER, PASSWORD, HOST, PORT) is required; OPTIONS is passed through to psycopg2 (e.g. sslmode, connect_timeout, statement_timeout)"
   - "Use environment variables for credentials. Optionally split settings into base/local/production and set DJANGO_SETTINGS_MODULE"
   - "Run migrate to create tables; use dbshell or connection.ensure_connection() to verify the setup"
-  - "For production: use CONN_MAX_AGE for connection reuse or PgBouncer for a shared pool; set SSL and statement_timeout in OPTIONS as needed"
+  - "For production: use CONN_MAX_AGE for connection reuse or PgBouncer for a shared pool; set SSL and statement_timeout in OPTIONS as needed; use a managed database service for hosting and enable automated backups"
 
 faq:
   - question: "How do I connect Django to PostgreSQL?"
@@ -39,13 +39,34 @@ faq:
     answer: "Lower CONN_MAX_AGE or set it to 0 so each request closes its connection. Reduce the number of gunicorn/uwsgi workers, or put a connection pooler (PgBouncer) between Django and PostgreSQL. See our post on how OpenAI scales PostgreSQL for connection pooling details."
   - question: "Can I use Django with PostgreSQL on Windows?"
     answer: "Yes. Install PostgreSQL for Windows and psycopg2-binary. Point Django to localhost and port 5432. If you hit install issues with psycopg2, use psycopg2-binary; it includes prebuilt binaries."
+  - question: "What is the best managed PostgreSQL hosting for Django?"
+    answer: "There is no single best option; it depends on your cloud and budget. Amazon RDS for PostgreSQL and Aurora PostgreSQL are common on AWS. Google Cloud SQL for PostgreSQL fits GCP stacks. Azure Database for PostgreSQL fits Microsoft-centric teams. Heroku Postgres, Render, Neon, and Supabase are popular for smaller apps and fast setup. All expose a hostname, port, database name, and credentials that map directly to Django DATABASES or DATABASE_URL; enable TLS (sslmode require or verify-full) per provider docs."
+  - question: "How do I back up a Django PostgreSQL database?"
+    answer: "Django does not back up the database by itself. For self-hosted PostgreSQL use pg_dump (logical backup) or pg_basebackup for physical backups, usually on a schedule from cron or your orchestrator. Managed services (RDS, Cloud SQL, Azure, Heroku Postgres) offer automated backups and often point-in-time recovery; turn those on in the console and test a restore. Keep backups encrypted and off the app server for database security."
+
+citations:
+  - name: "Databases | Django documentation"
+    url: "https://docs.djangoproject.com/en/stable/ref/databases/"
+    author: "Django Software Foundation"
+  - name: "Psycopg 2 documentation"
+    url: "https://www.psycopg.org/docs/"
+    author: "Psycopg"
+  - name: "PgBouncer configuration"
+    url: "https://www.pgbouncer.org/config.html"
+    author: "PgBouncer"
+  - name: "Amazon RDS for PostgreSQL"
+    url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html"
+    author: "Amazon Web Services"
+  - name: "dj-database-url"
+    url: "https://github.com/jazzband/dj-database-url"
+    author: "Jazzband"
 ---
 
 Django ships with SQLite out of the box. When you need real concurrency or are ready to deploy, you switch to DBs like PostgreSQL. This guide walks through creating a Django project from scratch and wiring it to PostgreSQL: project layout, database and user creation, and a detailed look at `settings.py` so you know exactly what each option does and where to put it.
 
 > **TL;DR**: Create a Django project with uv, add psycopg2-binary, create a database and user in PostgreSQL, then set `DATABASES` in `settings.py` (ENGINE, NAME, USER, PASSWORD, HOST, PORT). Run `migrate` and you have a working Django PostgreSQL setup.
 
-## Table of Contents
+## <i class="fas fa-list"></i> Table of Contents {#table-of-contents}
 
 - [What You Need](#what-you-need)
 - [Step 1: Create the Project with uv and Django](#step-1-create-the-project-with-uv-and-django)
@@ -63,19 +84,23 @@ Django ships with SQLite out of the box. When you need real concurrency or are r
 - [Production Configuration](#production-configuration)
   - [Credentials](#credentials)
   - [Connection pooling](#connection-pooling)
+  - [Managed PostgreSQL hosting](#managed-postgresql-hosting)
+  - [Backups and monitoring](#backups-and-monitoring)
   - [SSL and debugging](#ssl-and-debugging)
 - [Avoiding N+1 Queries](#avoiding-n1-queries)
-- [Summary](#summary)
+- [Wrapping Up](#wrapping-up)
 
-## What You Need
+{% include ads/in-article.html %}
 
-You need Python 3.10+, [uv](https://docs.astral.sh/uv/) (install with `curl -LsSf https://astral.sh/uv/install.sh | sh`), and PostgreSQL installed and running.
+## <i class="fas fa-tools"></i> What You Need {#what-you-need}
+
+You need Python 3.10+, [uv](https://docs.astral.sh/uv/){:target="_blank" rel="noopener"} (install with `curl -LsSf https://astral.sh/uv/install.sh | sh`), and PostgreSQL installed and running.
 
 - **macOS:** `brew install postgresql@16` then `brew services start postgresql@16`
 - **Ubuntu/Debian:** `sudo apt install postgresql postgresql-contrib` then `sudo systemctl start postgresql`
 - **Docker:** `docker run -d --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:16`. From Django use `HOST=localhost`; from another container use `host.docker.internal`. Default port is 5432.
 
-If you are new to PostgreSQL, the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) has the commands for creating databases and users. Bookmark it; you will use it when you tune queries or debug connection issues.
+If you are new to PostgreSQL, the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/){:target="_blank" rel="noopener"} has the commands for creating databases and users. Bookmark it; you will use it when you tune queries or debug connection issues.
 
 Django does not talk to PostgreSQL directly. It uses the psycopg2 driver. You set the connection in `settings.py`; Django and psycopg2 do the rest.
 
@@ -106,7 +131,7 @@ flowchart LR
 
 Request hits Django. Django reads `settings.py`, opens a connection via psycopg2, and talks to PostgreSQL on port 5432. That is the whole chain.
 
-## Step 1: Create the Project with uv and Django
+## <i class="fas fa-rocket"></i> Step 1: Create the Project with uv and Django {#step-1-create-the-project-with-uv-and-django}
 
 Create a new directory and a Python project with uv. uv creates a virtual environment and a `pyproject.toml` for you.
 
@@ -148,15 +173,11 @@ myapp/
     wsgi.py
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Django loads settings from the module in `DJANGO_SETTINGS_MODULE`. When you run `uv run python manage.py runserver`, that defaults to `config.settings`. The file you edit is `config/settings.py`.
 
-## Step 2: Create the PostgreSQL Database and User
+## <i class="fas fa-database"></i> Step 2: Create the PostgreSQL Database and User {#step-2-create-the-postgresql-database-and-user}
 
-One thing that trips people up: Django does not create the database. You create it once in PostgreSQL and give Django the name and credentials. The [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) has the full command set; below is the minimum you need.
+One thing that trips people up: Django does not create the database. You create it once in PostgreSQL and give Django the name and credentials. The [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/){:target="_blank" rel="noopener"} has the full command set; below is the minimum you need.
 
 Connect to PostgreSQL as the superuser. On macOS with Homebrew PostgreSQL you often have a user with your OS username; on Linux the default superuser is usually `postgres`.
 
@@ -195,7 +216,7 @@ psql -U myapp -d myapp_db -h localhost -c '\conninfo'
 
 You should see connection info for `myapp_db` as user `myapp`. If that works, Django will be able to connect with the same credentials.
 
-## Step 3: Configure Django settings.py
+## <i class="fas fa-cog"></i> Step 3: Configure Django settings.py {#step-3-configure-django-settingspy}
 
 Open `config/settings.py`. Out of the box you get SQLite. It looks like this:
 
@@ -268,8 +289,7 @@ DATABASES = {
 }
 ```
 
-
-{% include ads/display.html %}
+{% include ads/in-article.html %}
 
 
 **Option reference (all passed via OPTIONS):**
@@ -282,7 +302,7 @@ DATABASES = {
 | **keepalives_idle** | Seconds of inactivity before the first keepalive is sent. 0 = system default. |
 | **keepalives_interval** | Seconds between keepalive retransmits if the server does not respond. 0 = system default. |
 | **keepalives_count** | Number of keepalives that can be lost before the connection is considered dead. 0 = system default. |
-| **options** | Server command-line options at connection start, e.g. `-c timezone=UTC` or `-c statement_timeout=60000`. See PostgreSQL [runtime config](https://www.postgresql.org/docs/current/runtime-config.html). |
+| **options** | Server command-line options at connection start, e.g. `-c timezone=UTC` or `-c statement_timeout=60000`. See PostgreSQL [runtime config](https://www.postgresql.org/docs/current/runtime-config.html){:target="_blank" rel="noopener"}. |
 | **application_name** | Label for this connection in `pg_stat_activity` and in server logs. Helps with debugging and connection tracking. |
 | **fallback_application_name** | Used if `application_name` is not set (e.g. by a generic pooler). |
 | **sslmode** | `disable` = no SSL; `allow` = try non-SSL then SSL; `prefer` = try SSL first (default); `require` = SSL required; `verify-ca` = verify server cert against CA; `verify-full` = verify cert and hostname. |
@@ -356,13 +376,9 @@ DATABASES = {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 This parses the URL and sets `ENGINE`, `NAME`, `USER`, `PASSWORD`, `HOST`, `PORT` for you. `conn_max_age` and `conn_health_checks` are Django options (see [Connection pooling](#connection-pooling)).
 
-## Step 4: Run Migrations and Verify
+## <i class="fas fa-check-circle"></i> Step 4: Run Migrations and Verify {#step-4-run-migrations-and-verify}
 
 Database and user exist; settings.py points at them. Create Django’s tables and confirm the connection.
 
@@ -415,7 +431,7 @@ connection.ensure_connection()
 
 If that returns without error, your Django + Postgres setup is working.
 
-## Optional: First App and a Model
+## <i class="fas fa-puzzle-piece"></i> Optional: First App and a Model {#optional-first-app-and-a-model}
 
 Skip this if you only need the database connected. To see the full flow from model to table in PostgreSQL, add a small app.
 
@@ -451,15 +467,11 @@ uv run python manage.py makemigrations items
 uv run python manage.py migrate
 ```
 
-Django generates SQL and applies it to PostgreSQL. To see the SQL for a migration: `uv run python manage.py sqlmigrate items 0001`. Then open `dbshell` and run `\dt` again; you will see `items_item`. Your Django + Postgres setup is now creating tables from models. For production deployments, run migrations as part of your release process; for large tables, prefer additive migrations (nullable columns, backfill, then add constraints). The [OpenAI PostgreSQL scaling post](/how-openai-scales-postgresql/) has more on migrations at scale.
+Django generates SQL and applies it to PostgreSQL. To see the SQL for a migration: `uv run python manage.py sqlmigrate items 0001`. Then open `dbshell` and run `\dt` again; you will see `items_item`. Your Django + Postgres setup is now creating tables from models. For production deployments, run migrations as part of your release process; for large tables, prefer additive migrations (nullable columns, backfill, then add constraints). The [OpenAI PostgreSQL scaling post](/how-openai-scales-postgresql/){:target="_blank" rel="noopener"} has more on migrations at scale.
 
-## Production Configuration
+## <i class="fas fa-server"></i> Production Configuration {#production-configuration}
 
-
-{% include ads/display.html %}
-
-
-When you deploy, you care about credentials, connection pooling, SSL, and debugging. Here is what actually matters.
+When you deploy, you care about credentials, connection pooling, managed PostgreSQL hosting, backups, SSL, and debugging. Here is what actually matters.
 
 ### Credentials
 
@@ -521,7 +533,7 @@ On the PgBouncer side you configure a database and user that proxy to the real P
 - **transaction** – One server connection per transaction; after `COMMIT`/`ROLLBACK` the server connection is reused. Fewer server connections, but Django uses features that assume a single connection per request (e.g. prepared statements, `SET` session variables), so **transaction** mode can cause subtle issues unless you test carefully. **Session** mode is the safe default for Django.
 - **statement** – One server connection per statement (aggressive multiplexing). Not suitable for Django, which relies on transactions and session state.
 
-Typical PgBouncer config snippet (see [PgBouncer docs](https://www.pgbouncer.org/config.html) for full reference):
+Typical PgBouncer config snippet (see [PgBouncer docs](https://www.pgbouncer.org/config.html){:target="_blank" rel="noopener"} for full reference):
 
 ```ini
 [databases]
@@ -540,34 +552,46 @@ So up to 1000 client connections from Django can share 25 connections to Postgre
 
 **CONN_MAX_AGE with PgBouncer** – With a pooler in front, many setups use `CONN_MAX_AGE=0` so each request gets a connection from the pool and returns it immediately; the pooler then reuses the underlying server connection. Alternatively you can set a small value (e.g. 60) so Django reuses its connection to PgBouncer for multiple requests and reduces reconnect overhead to the pooler; either way, the number of server connections is still limited by the pooler’s `pool_size`.
 
-For more on connection pooling at scale (including read replicas and multiple pools), see [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/).
+For more on connection pooling at scale (including read replicas and multiple pools), see [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/){:target="_blank" rel="noopener"}.
+
+### <i class="fas fa-cloud"></i> Managed PostgreSQL hosting {#managed-postgresql-hosting}
+
+Most teams eventually run the database as a **managed database service** instead of patching Postgres on a VM. A **cloud database** still looks like `HOST`, `PORT`, `NAME`, `USER`, and `PASSWORD` to Django; you usually get a `DATABASE_URL` and keep using `dj-database-url` or explicit `DATABASES` with `OPTIONS['sslmode']` set per the provider.
+
+Pick the product that matches your cloud and compliance needs, not the logo on a blog post. **Amazon RDS for PostgreSQL** (and Aurora PostgreSQL) are the default on AWS. **Google Cloud SQL for PostgreSQL** fits GCP deployments. **Azure Database for PostgreSQL** fits Microsoft-centric stacks. **Heroku Postgres**, **Render**, **Neon**, and **Supabase** are common when you want a **managed PostgreSQL hosting** tier with fast provisioning. All of these map cleanly to the same Django settings you already use; the difference is who runs upgrades, storage, and failover.
+
+### <i class="fas fa-save"></i> Backups and monitoring {#backups-and-monitoring}
+
+**PostgreSQL database backup** is not something Django does for you. On servers you control, schedule `pg_dump` (logical) or use your platform’s volume snapshots; test restores on a staging instance. On a **managed database service**, enable automated backups and point-in-time recovery in the console, then prove you can restore to a scratch database at least once a quarter.
+
+For **database monitoring**, use `pg_stat_statements` and slow-query logs on the server side, and APM or logging on the app side. Pair that with **database security** basics: least-privilege DB users, TLS to the instance, and secrets in a vault or managed env vars, not in git. For day-to-day commands and performance checks, keep the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/){:target="_blank" rel="noopener"} handy.
 
 ### SSL and debugging
 
 **SSL** – For managed PostgreSQL (RDS, Render, etc.) set `'OPTIONS': {'sslmode': 'require'}` or whatever your provider requires.
 
-**Debugging** – To log every SQL statement, add to `settings.py` (only for local or debug): `LOGGING = {'version': 1, 'handlers': {'console': {'class': 'logging.StreamHandler'}}, 'loggers': {'django.db.backends': {'level': 'DEBUG', 'handlers': ['console']}}}`. Turn it off in production. For slow-query analysis in PostgreSQL, see the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/#performance-and-troubleshooting).
+**Debugging** – To log every SQL statement, add to `settings.py` (only for local or debug): `LOGGING = {'version': 1, 'handlers': {'console': {'class': 'logging.StreamHandler'}}, 'loggers': {'django.db.backends': {'level': 'DEBUG', 'handlers': ['console']}}}`. Turn it off in production. For slow-query analysis in PostgreSQL, see the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/#performance-and-troubleshooting){:target="_blank" rel="noopener"}.
 
-## Avoiding N+1 Queries
+## <i class="fas fa-bolt"></i> Avoiding N+1 Queries {#avoiding-n1-queries}
 
-Once you have related models (e.g. Author and Book), you can hit N+1 queries: one query for the list, then one extra query per row for a related object. Django loads relations lazily. Use `select_related('author')` for ForeignKey and OneToOne, and `prefetch_related('tags')` for reverse or many-to-many so Django fetches them in one or two queries. Full walkthrough: [N+1 query problem](/explainer/n-plus-one-query-problem/). For tuning slow queries and indexes, see the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) and [Database Indexing Explained](/database-indexing-explained/).
+Once you have related models (e.g. Author and Book), you can hit N+1 queries: one query for the list, then one extra query per row for a related object. Django loads relations lazily. Use `select_related('author')` for ForeignKey and OneToOne, and `prefetch_related('tags')` for reverse or many-to-many so Django fetches them in one or two queries. Full walkthrough: [N+1 query problem](/explainer/n-plus-one-query-problem/){:target="_blank" rel="noopener"}. For tuning slow queries and indexes, see the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/){:target="_blank" rel="noopener"} and [Database Indexing Explained](/database-indexing-explained/){:target="_blank" rel="noopener"}.
 
-## Summary
+## <i class="fas fa-flag-checkered"></i> Wrapping Up {#wrapping-up}
 
-Create the project with uv, add Django and psycopg2-binary, and create the app (e.g. config). Create the database and user in PostgreSQL; Django does not create the database. Set DATABASES in config/settings.py with ENGINE, NAME, USER, PASSWORD, HOST, PORT; use `os.environ.get()` for credentials and add OPTIONS and CONN_MAX_AGE when you need timeouts or connection reuse. Run migrate to create Django’s tables; use `manage.py check`, `dbshell`, or `connection.ensure_connection()` to verify. Use select_related and prefetch_related to avoid N+1 queries. In production keep credentials in env vars or DATABASE_URL, use CONN_MAX_AGE or PgBouncer for pooling, and set SSL and statement_timeout in OPTIONS as needed.
+Create the project with uv, add Django and psycopg2-binary, and create the app (e.g. config). Create the database and user in PostgreSQL; Django does not create the database. Set DATABASES in config/settings.py with ENGINE, NAME, USER, PASSWORD, HOST, PORT; use `os.environ.get()` for credentials and add OPTIONS and CONN_MAX_AGE when you need timeouts or connection reuse. Run migrate to create Django’s tables; use `manage.py check`, `dbshell`, or `connection.ensure_connection()` to verify. Use select_related and prefetch_related to avoid N+1 queries. In production keep credentials in env vars or DATABASE_URL, use CONN_MAX_AGE or PgBouncer for pooling, set SSL and statement_timeout in OPTIONS as needed, and run PostgreSQL on a managed service with tested backups.
 
-For day-to-day PostgreSQL commands and tuning, use the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/). For scaling connections and read replicas, see [How OpenAI Scales PostgreSQL](/how-openai-scales-postgresql/).
+For day-to-day PostgreSQL commands and tuning, use the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/){:target="_blank" rel="noopener"}. For scaling connections and read replicas, see [How OpenAI Scales PostgreSQL](/how-openai-scales-postgresql/){:target="_blank" rel="noopener"}.
 
 ---
 
 **Related posts:**
 
-- [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) – Commands, queries, and troubleshooting for PostgreSQL
-- [N+1 Query Problem Explained](/explainer/n-plus-one-query-problem/) – How to fix N+1 with select_related and prefetch_related
-- [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/) – Connection pooling, read replicas, and production patterns
-- [Database Indexing Explained](/database-indexing-explained/) – How indexes work when you tune slow queries
+- [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/){:target="_blank" rel="noopener"} – Commands, queries, and troubleshooting for PostgreSQL
+- [N+1 Query Problem Explained](/explainer/n-plus-one-query-problem/){:target="_blank" rel="noopener"} – How to fix N+1 with select_related and prefetch_related
+- [How OpenAI Scales PostgreSQL to 800 Million Users](/how-openai-scales-postgresql/){:target="_blank" rel="noopener"} – Connection pooling, read replicas, and production patterns
+- [Database Indexing Explained](/database-indexing-explained/){:target="_blank" rel="noopener"} – How indexes work when you tune slow queries
 
 **Further reading:**
 
-- [Django Databases documentation](https://docs.djangoproject.com/en/stable/ref/databases/) – Official reference for ENGINE, OPTIONS, and CONN_MAX_AGE
-- [How to Use PostgreSQL in Django](https://www.freecodecamp.org/news/how-to-use-postgresql-in-django/) – FreeCodeCamp tutorial with step-by-step setup
+- [Django Databases documentation](https://docs.djangoproject.com/en/stable/ref/databases/){:target="_blank" rel="noopener"} – Official reference for ENGINE, OPTIONS, and CONN_MAX_AGE
+- [How to Use PostgreSQL in Django](https://www.freecodecamp.org/news/how-to-use-postgresql-in-django/){:target="_blank" rel="noopener"} – FreeCodeCamp tutorial with step-by-step setup

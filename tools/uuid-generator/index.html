@@ -160,6 +160,22 @@ css:
         "@type": "Answer",
         "text": "A UUID is 128 bits (16 bytes) displayed as 32 hexadecimal characters in 5 groups separated by hyphens: 8-4-4-4-12. Example: 550e8400-e29b-41d4-a716-446655440000. The 13th character indicates the version (1-7), and the 17th character indicates the variant (8, 9, a, or b for RFC 9562)."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use UUIDs as primary keys in a managed cloud database?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you need globally unique keys without coordination. Prefer UUID v7 for relational primary keys when index locality matters; UUID v4 is fine when insert order does not affect performance. Use your database engine's native UUID type where available and monitor index health."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do microservices and APIs use UUIDs as identifiers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Services can generate UUIDs locally without a central sequence, which avoids coordination bottlenecks and single points of failure. UUIDs also work well as stable opaque identifiers in URLs and JSON APIs."
+      }
     }
   ]
 }
@@ -368,6 +384,13 @@ css:
           </ul>
           <p>Use our <a href="/tools/snowflake-decoder/">Snowflake ID Decoder</a> to decode Discord, Twitter, and Instagram IDs.</p>
         </article>
+
+        <article class="guide-article">
+          <h2>UUIDs as Primary Keys in Cloud Databases and Microservices</h2>
+          <p>Many teams use UUIDs as <strong>primary keys</strong> in managed PostgreSQL or MySQL services because each service can mint IDs without a central allocator. That fits microservices and public APIs: a new row or resource gets a stable identifier before any cross-service round trip.</p>
+          <p>The tradeoff is index layout. Random UUID v4 keys scatter inserts across a B-tree; UUID v7 (or other time-ordered schemes) keeps new keys mostly at the end of the index. For how indexes behave on disk, see <a href="/database-indexing-explained/">database indexing explained</a>. When you are choosing a managed engine, <a href="/postgresql-vs-mongodb-vs-dynamodb/">PostgreSQL vs MongoDB vs DynamoDB</a> compares common operational models; for a concrete production-style stack, <a href="/django-postgresql-setup-from-zero-to-production/">Django and PostgreSQL from zero to production</a> walks through a full relational setup.</p>
+          <p>For REST-style APIs, UUIDs also work well in URLs and JSON bodies as opaque resource IDs, as long as you treat them as strings and keep generation cryptographically sound (this tool uses <code>crypto.getRandomValues()</code> in the browser).</p>
+        </article>
       </div>
     </section>
 
@@ -407,6 +430,16 @@ css:
       <div class="faq-item">
         <h3>How do I extract a timestamp from a UUID?</h3>
         <p>UUID v1 and v7 contain embedded timestamps. Paste any UUID into the decoder above and it will automatically detect the version and extract the timestamp. For UUID v7, the first 48 bits encode Unix milliseconds.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Should I use UUIDs as primary keys in a managed cloud database?</h3>
+        <p>Yes, if you need globally unique keys without coordination. Prefer <strong>UUID v7</strong> (or another time-ordered scheme) for relational primary keys when index locality matters; <strong>UUID v4</strong> is fine when insert order does not affect performance. Always align with your engine&rsquo;s recommended types (e.g. <code>UUID</code> in PostgreSQL) and monitor index bloat like any other high-churn key.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why do microservices and APIs use UUIDs as identifiers?</h3>
+        <p>Each service can generate IDs locally, so creating a row or resource does not block on a shared sequence. That avoids single points of failure and eases merges across environments. UUIDs also make stable, opaque public IDs in URLs and JSON payloads.</p>
       </div>
 
       <div class="faq-item">

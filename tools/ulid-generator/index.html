@@ -160,6 +160,22 @@ css:
         "@type": "Answer",
         "text": "With 80 bits of randomness, there are 1.21 x 10^24 possible ULIDs per millisecond. With monotonic generation, the practical limit depends on increments but is effectively unlimited for real-world use cases. Collisions are statistically impossible."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Are ULIDs good primary keys for a cloud-managed database?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes when you want globally unique keys that stay roughly time-ordered. ULIDs append well to B-tree indexes in relational engines, unlike random UUID v4. Use appropriate column types and normal indexing practices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do ULIDs help order and correlate events across services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lexicographic sort of ULIDs orders them by creation time. The first 10 characters encode Unix milliseconds, so decoding a ULID recovers the same instant across services for log correlation and replay."
+      }
     }
   ]
 }
@@ -387,6 +403,13 @@ css:
           </ul>
           <p>This results in 26 characters for 128 bits, compared to 36 characters for a UUID. ULIDs are case-insensitive: <code>01ARZ3NDEK</code> and <code>01arz3ndek</code> are the same ULID.</p>
         </article>
+
+        <article class="guide-article">
+          <h2>Using ULIDs in Cloud Databases and Event-Driven Systems</h2>
+          <p>Because the timestamp is the leading part of a ULID, new IDs sort like time-ordered keys in a <strong>managed database</strong>. That keeps inserts near the end of a B-tree index, which is the same reason teams pick ULIDs over random UUID v4 for high-write tables. For how indexes behave, see <a href="/database-indexing-explained/">database indexing explained</a>; for engine tradeoffs, <a href="/postgresql-vs-mongodb-vs-dynamodb/">PostgreSQL vs MongoDB vs DynamoDB</a> is a practical comparison.</p>
+          <p>In <strong>event-driven</strong> designs, ULIDs work well as message or record IDs: you can sort a stream by ID and get rough chronological order without a separate timestamp column. For background on streaming, <a href="/how-kafka-works/">how Kafka works</a> and <a href="/kafka-vs-rabbitmq-vs-sqs/">Kafka vs RabbitMQ vs SQS</a> cover common delivery patterns where sortable IDs help operators replay or debug ordered logs.</p>
+          <p>The embedded millisecond time also pairs naturally with <strong>correlation IDs</strong>: when the same ULID appears in multiple log lines or services, decoding the prefix with this tool gives you a shared instant for triage. The wire format is defined in the <a href="https://github.com/ulid/spec" target="_blank" rel="noopener">ULID specification</a>.</p>
+        </article>
       </div>
     </section>
 
@@ -427,6 +450,16 @@ css:
       <div class="faq-item">
         <h3>Can two ULIDs ever collide?</h3>
         <p>With 80 bits of randomness per millisecond, collisions are practically impossible. You would need to generate about 1.21 x 10<sup>12</sup> ULIDs in the same millisecond for a 50% collision chance. With monotonic generation, collisions are impossible by design.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Are ULIDs good primary keys for a cloud-managed database?</h3>
+        <p>Yes, when you want globally unique keys that stay roughly time-ordered. ULIDs append well to B-tree indexes in PostgreSQL, MySQL, and similar engines, unlike random UUID v4. Pair them with your provider&rsquo;s native string or binary column types and normal indexing hygiene.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do ULIDs help order and correlate events across services?</h3>
+        <p>String-sorting ULIDs orders them by creation time, which helps when tailing logs or replaying a partition. The first 10 characters encode Unix milliseconds, so decoding a ULID with this tool recovers the same instant across services without a shared clock display format.</p>
       </div>
 
       <div class="faq-item">

@@ -213,6 +213,22 @@ css:
         "@type": "Answer",
         "text": "ISO 8601 is an international standard for date and time representation. The format is YYYY-MM-DDTHH:mm:ss.sssZ (e.g., 2024-01-01T00:00:00.000Z). The 'T' separates date and time, and 'Z' indicates UTC timezone."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert an epoch timestamp I found in a log file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copy the numeric value from your log line and paste it into the converter. Thirteen digits usually means milliseconds; ten digits usually means seconds. Click Convert to see UTC, local time, and ISO 8601."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do logging and monitoring platforms store time as Unix timestamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unix timestamps are one number per event, easy to sort and index, efficient in storage, and unambiguous across timezones. Monitoring, APM, and security analytics often normalize to Unix time for aggregation and comparison."
+      }
     }
   ]
 }
@@ -654,6 +670,13 @@ console.log(date.toISOString());</code></pre>
           </ul>
         </article>
 
+        <article class="guide-article">
+          <h2>Reading Epoch Timestamps in Logs and Monitoring Tools</h2>
+          <p>When you copy a number out of a log line, an APM trace, a cloud monitoring dashboard, or a SIEM alert, it is often a <strong>Unix epoch</strong> in seconds or milliseconds. Converting it here tells you the exact wall-clock moment that event happened, without guessing timezones.</p>
+          <p>Many systems store event time as epoch because it is compact, easy to sort, and avoids ambiguous string formats. That is the same reason APIs and databases use timestamps: one integer maps to one instant in UTC. If you are correlating spans across services, <a href="/distributed-tracing-jaeger-vs-tempo-vs-zipkin/">distributed tracing</a> and <a href="/opentelemetry-production-guide/">OpenTelemetry</a> are common ways those timestamps show up in practice.</p>
+          <p>If your log shows milliseconds (13 digits), paste it as-is; if it shows seconds (10 digits), paste that. This converter auto-detects and shows UTC, local time, and ISO 8601 so you can match what you see in your log management or monitoring tool.</p>
+        </article>
+
       </div>
     </section>
 
@@ -719,6 +742,16 @@ console.log(date.toISOString());</code></pre>
       <div class="faq-item">
         <h3>Why do developers use Unix timestamps?</h3>
         <p>Unix timestamps are <strong>timezone-independent</strong>, easy to compare (just compare numbers), efficient to store, and avoid date format ambiguity. They're the standard for APIs, databases, and log files.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I convert an epoch timestamp I found in a log file?</h3>
+        <p>Copy the numeric value from your log line (often labeled <code>timestamp</code>, <code>ts</code>, or <code>time</code>) and paste it into the converter above. If it has 13 digits it is usually milliseconds; if 10 digits, seconds. Click <strong>Convert</strong> to see the human-readable time in UTC and your local zone, plus ISO 8601 for matching other tools.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why do logging and monitoring platforms store time as Unix timestamps?</h3>
+        <p>Epoch values are a single number per event, so they sort and index efficiently, compress well in log storage, and stay unambiguous across regions. Monitoring dashboards, APM traces, and security analytics pipelines often normalize to Unix time so machines can aggregate and compare events without parsing many date string formats.</p>
       </div>
     </section>
 

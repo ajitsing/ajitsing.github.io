@@ -1,0 +1,43 @@
+Copyright (c) 2026 Ajit Singh. All Rights Reserved.
+
+This repository powers the website https://singhajit.com.
+
+1. ORIGINAL CONTENT
+   All original content in this repository — including but not limited to
+   blog posts, articles, explainers, glossary entries, tutorials, images,
+   diagrams, illustrations, and the original source code of the interactive
+   tools (e.g. files under /tools and /assets/js authored by the copyright
+   holder) — is the exclusive property of Ajit Singh and is protected by
+   copyright law.
+
+   No part of this original content may be reproduced, copied, modified,
+   republished, redistributed, mirrored, publicly displayed, or deployed —
+   in whole or in part, in any form or by any means — without the prior
+   written permission of the copyright holder.
+
+   In particular, you may NOT clone, fork, or otherwise copy this repository
+   in order to publish a duplicate, derivative, or competing version of this
+   website or its content.
+
+2. PERMITTED USE
+   You may view the source of this repository for personal, educational, and
+   reference purposes. Short quotations of textual content are permitted for
+   the purposes of commentary, criticism, or review, provided clear
+   attribution is given with a link back to the original page on
+   https://singhajit.com.
+
+3. THIRD-PARTY COMPONENTS
+   This website is built on top of the Beautiful Jekyll theme
+   (https://github.com/daattali/beautiful-jekyll), which is distributed under
+   the MIT License and remains subject to its original license terms. Other
+   third-party libraries, fonts, and assets included in this repository
+   likewise remain governed by their respective licenses. Nothing in this
+   license is intended to restrict rights granted to you by those upstream
+   licenses with respect to those components.
+
+4. NO WARRANTY
+   This repository is provided "as is", without warranty of any kind, express
+   or implied. The copyright holder shall not be liable for any claim,
+   damages, or other liability arising from the use of this repository.
+
+For permissions and inquiries, contact: jeetsingh.ajit@gmail.com

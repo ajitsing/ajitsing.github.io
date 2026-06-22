@@ -431,19 +431,23 @@
     }
 
     try {
-      var parsed = window.smolToml.parse(tomlString);
+      var parsed = window.tomlLib.parse(tomlString);
       return { valid: true, parsed: parsed, error: null };
     } catch (e) {
       var position = null;
       if (typeof e.line === 'number') {
         position = {
-          line: e.line,
-          column: (typeof e.column === 'number') ? e.column : 1
+          line: e.line + 1,
+          column: (typeof e.col === 'number') ? e.col + 1 : 1
         };
       }
       var message = e.message || 'Unknown TOML error';
-      // Clean up error message — remove "Invalid TOML: " prefix if present
-      message = message.replace(/^Invalid TOML document:\s*/i, '').replace(/^Invalid TOML:\s*/i, '');
+      // Clean up error message — drop library prefixes and the trailing
+      // "at row X, col Y, pos Z:" code snippet (line/column shown separately)
+      message = message
+        .replace(/^Invalid TOML document:\s*/i, '')
+        .replace(/^Invalid TOML:\s*/i, '')
+        .replace(/\s*at row \d+, col \d+, pos \d+:[\s\S]*$/, '');
       return { valid: false, error: message, position: position };
     }
   }
@@ -455,7 +459,7 @@
     }
 
     try {
-      var formatted = window.smolToml.stringify(result.parsed);
+      var formatted = window.tomlLib.stringify(result.parsed);
       return { valid: true, formatted: formatted.trimEnd(), parsed: result.parsed, error: null };
     } catch (e) {
       return { valid: false, error: e.message || 'Failed to format TOML', position: null };
@@ -518,7 +522,7 @@
 
     if (result.valid) {
       try {
-        var formatted = window.smolToml.stringify(result.parsed).trimEnd();
+        var formatted = window.tomlLib.stringify(result.parsed).trimEnd();
         updateOutput(formatted, 'toml');
       } catch (e) {
         // If stringify fails, just show the original input
@@ -728,9 +732,9 @@
     trackEvent('tool_load', 'toml_validator_tool');
   }
 
-  // Wait for smol-toml library before initializing
+  // Wait for the TOML library before initializing
   function initWhenReady() {
-    if (window.smolToml && window.smolToml.parse) {
+    if (window.tomlLib && window.tomlLib.parse) {
       init();
     } else {
       window.addEventListener('toml-lib-ready', function() {

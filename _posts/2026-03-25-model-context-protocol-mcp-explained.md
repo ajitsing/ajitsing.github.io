@@ -867,6 +867,6 @@ If you made it this far, here is the fastest path to getting hands-on:
 
 4. **Explore the ecosystem.** Browse the [reference servers](https://github.com/modelcontextprotocol/servers) and community projects to see how others structure their MCP servers.
 
-If you have been building [RAG applications](/building-your-first-rag-application/) or [AI agents](/building-ai-agents/), MCP is the natural next step. It takes the tools and integrations you have already built and makes them available to every AI application through a single protocol.
+If you have been building [RAG applications](/building-your-first-rag-application/) or [AI agents](/building-ai-agents/), MCP is the natural next step. It takes the tools and integrations you have already built and makes them available to every AI application through a single protocol. And once a server is connected, you can package the workflows that use it as reusable playbooks. See [how to create and use Skills in Cursor](/how-to-create-and-use-skills-in-cursor/) to pair your MCP tools with on-demand instructions the agent follows automatically.
 
 The era of building custom integrations for every AI tool is ending. MCP is how we connect AI to everything else.

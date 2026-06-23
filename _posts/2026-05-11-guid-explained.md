@@ -13,7 +13,6 @@ keywords: "guid, what is a guid, generate guid, generate guid online, new guid, 
 seo: true
 social-share: true
 comments: true
-popular: true
 
 quick-answer: "A GUID (Globally Unique Identifier) is Microsoft's name for a UUID: a **128-bit** value written as **32 hexadecimal digits** in the `8-4-4-4-12` pattern, like `550e8400-e29b-41d4-a716-446655440000`. It is the same format and standard (RFC 9562) as a UUID. `Guid.NewGuid()` in C# creates a random version 4 GUID, SQL Server uses `NEWID()` and `NEWSEQUENTIALID()`, and PowerShell uses `New-Guid`."
 

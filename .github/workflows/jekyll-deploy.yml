@@ -47,6 +47,18 @@ jobs:
       - name: Build with Jekyll
         run: bundle exec jekyll build
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Minify CSS and JS
+        run: |
+          npx --yes esbuild@0.23.0 $(find _site/assets/css -name '*.css') \
+            --minify --outdir=_site/assets/css --allow-overwrite
+          npx --yes esbuild@0.23.0 $(find _site/assets/js -name '*.js') \
+            --minify --outdir=_site/assets/js --allow-overwrite
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

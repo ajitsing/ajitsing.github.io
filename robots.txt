@@ -6,4 +6,5 @@ Sitemap: https://singhajit.com/sitemap.xml
 
 # LLMs.txt for AI crawlers
 # See https://llmstxt.org for specification
-LLMs-Txt: https://singhajit.com/llms.txt
+# (referenced as a comment because LLMs-Txt is not a standard robots.txt directive)
+# https://singhajit.com/llms.txt

@@ -1,0 +1,57 @@
+{% assign grid_slot = include.slot | default: "9096626276" %}
+{% assign grid_fallback_slot = include.fallback-slot | default: "5138071441" %}
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-2886086145980317"
+     data-ad-slot="{{ grid_slot }}"
+     data-matched-content-ui-type="image_stacked,image_card_stacked"
+     data-matched-content-columns-num="1,4"
+     data-matched-content-rows-num="4,2"></ins>
+<script>
+(function() {
+  var wrap = document.currentScript.parentNode;
+  var ins = wrap.querySelector('ins.adsbygoogle');
+  if (!ins) return;
+  var requested = false, fallbackDone = false;
+
+  function requestAd() {
+    if (requested) return;
+    if (!(wrap.offsetWidth > 0)) { ins.remove(); return; }
+    requested = true;
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    var obs = new MutationObserver(function() {
+      var status = ins.getAttribute('data-ad-status');
+      if (status === 'filled') { obs.disconnect(); }
+      else if (status === 'unfilled') { obs.disconnect(); showFallback(); }
+    });
+    obs.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
+  }
+
+  // Backfill the native no-fill with a responsive display unit.
+  function showFallback() {
+    if (fallbackDone) return;
+    fallbackDone = true;
+    ins.remove();
+    var fb = document.createElement('ins');
+    fb.className = 'adsbygoogle';
+    fb.style.display = 'block';
+    fb.setAttribute('data-ad-client', 'ca-pub-2886086145980317');
+    fb.setAttribute('data-ad-slot', '{{ grid_fallback_slot }}');
+    fb.setAttribute('data-ad-format', 'auto');
+    fb.setAttribute('data-full-width-responsive', 'true');
+    wrap.appendChild(fb);
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+  }
+
+  // Lazy-load: only request as the slot approaches the viewport.
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) { io.disconnect(); requestAd(); }
+    }, { rootMargin: '1000px 0px' });
+    io.observe(wrap);
+  } else {
+    requestAd();
+  }
+})();
+</script>

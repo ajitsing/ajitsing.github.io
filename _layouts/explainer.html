@@ -23,19 +23,7 @@ layout: default
     {% if site.manual_ads %}
     <div class="explainer-above-rss-ad">
       <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="autorelaxed"
-           data-ad-client="ca-pub-2886086145980317"
-           data-ad-slot="9096626276"></ins>
-      <script>
-        (function() {
-          var ins = document.currentScript.parentNode.querySelector('ins.adsbygoogle');
-          if (ins && ins.offsetWidth > 0) {
-            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-          } else if (ins) { ins.remove(); }
-        })();
-      </script>
+      {% include ads/grid.html %}
     </div>
     {% endif %}
 

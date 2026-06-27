@@ -56,8 +56,8 @@
 <meta property="og:image" content="{{ page.thumbnail | absolute_url }}">
 {% elsif page.cover-img %}
 <meta property="og:image" content="{{ page.cover-img | absolute_url }}">
-{% elsif site.avatar %}
-<meta property="og:image" content="{{ site.avatar | absolute_url }}">
+{% elsif site.avatar or site.seo-image %}
+<meta property="og:image" content="{{ site.avatar | default: site.seo-image | absolute_url }}">
 {% endif %}
 
 {% if page.layout == 'post' or page.layout == 'explainer' %}
@@ -103,6 +103,6 @@
 <meta name="twitter:image" content="{{ page.share-img | absolute_url }}">
 {% elsif page.cover-img %}
 <meta name="twitter:image" content="{{ page.cover-img | absolute_url }}">
-{% elsif site.avatar %}
-<meta name="twitter:image" content="{{ site.avatar | absolute_url }}">
+{% elsif site.avatar or site.seo-image %}
+<meta name="twitter:image" content="{{ site.avatar | default: site.seo-image | absolute_url }}">
 {% endif %}

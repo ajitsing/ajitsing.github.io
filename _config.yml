@@ -51,6 +51,11 @@ navbar-links:
 # Remove this parameter if you don't want an image in the navbar
 # avatar: "/assets/img/avatar-hero.png"
 
+# Image used only for SEO / structured data (publisher logo, Organization logo,
+# and og:image / twitter:image fallback). This is intentionally separate from
+# `avatar` so it never renders in the navbar.
+seo-image: "/favicon-192.png"
+
 # By default, the image is cut into a circle. You can disable this behaviour here.
 # round-avatar: true
 

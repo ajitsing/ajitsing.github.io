@@ -122,10 +122,10 @@
         "width": 1200,
         "height": 630
       },
-      {% elsif site.avatar %}
+      {% elsif site.avatar or site.seo-image %}
       "image": {
         "@type": "ImageObject",
-        "url": "{{ site.avatar | absolute_url }}",
+        "url": "{{ site.avatar | default: site.seo-image | absolute_url }}",
         "width": 400,
         "height": 400
       },
@@ -190,15 +190,13 @@
         "@type": "{% if page.tags contains 'dev-weekly' %}NewsMediaOrganization{% else %}Organization{% endif %}",
         "@id": "{{ site.url }}#organization",
         "name": "{{ site.title }}",
-        "url": "{{ site.url }}",
-        {% if site.avatar %}
+        "url": "{{ site.url }}"{% if site.avatar or site.seo-image %},
         "logo": {
           "@type": "ImageObject",
-          "url": "{{ site.avatar | absolute_url }}",
+          "url": "{{ site.avatar | default: site.seo-image | absolute_url }}",
           "width": 400,
           "height": 400
-        }
-        {% endif %}
+        }{% endif %}
       },
       {% if page.tags %}
       "keywords": "{{ page.tags | join: ', ' }}",

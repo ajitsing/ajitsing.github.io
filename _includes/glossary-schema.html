@@ -102,10 +102,10 @@
       "@id": "{{ site.url }}#organization",
       "name": "{{ site.title }}",
       "url": "{{ site.url }}",
-      {% if site.avatar %}
+      {% if site.avatar or site.seo-image %}
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ site.avatar | absolute_url }}",
+        "url": "{{ site.avatar | default: site.seo-image | absolute_url }}",
         "width": 400,
         "height": 400
       },

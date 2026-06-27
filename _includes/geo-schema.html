@@ -1,6 +1,6 @@
 {% if page.layout == "post" or page.layout == "explainer" %}
 
-{% if page.share-img %}{% assign page_image = page.share-img %}{% elsif page.thumbnail %}{% assign page_image = page.thumbnail %}{% elsif page.cover-img %}{% assign page_image = page.cover-img %}{% else %}{% assign page_image = site.avatar %}{% endif %}
+{% if page.share-img %}{% assign page_image = page.share-img %}{% elsif page.thumbnail %}{% assign page_image = page.thumbnail %}{% elsif page.cover-img %}{% assign page_image = page.cover-img %}{% else %}{% assign page_image = site.avatar | default: site.seo-image %}{% endif %}
 
 {% if page.citations %}
 <script type="application/ld+json">

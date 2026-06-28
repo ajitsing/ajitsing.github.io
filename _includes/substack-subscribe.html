@@ -1,0 +1,41 @@
+<div class="substack-banner">
+  <div class="substack-banner-content">
+    <div class="substack-banner-left">
+      <div class="substack-banner-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 4h16v2.5H4V4zm0 4.5h16V20l-8-4.5L4 20V8.5z"/>
+        </svg>
+      </div>
+      <div class="substack-banner-text">
+        <h3>Subscribe via <span class="substack-highlight">Email</span> <span class="substack-free-badge">Always Free</span></h3>
+        <p>Get new posts in your inbox. No paywall, No spam.</p>
+        <ul class="substack-benefits">
+          <li><i class="fas fa-check"></i> New deep-dives &amp; tutorials</li>
+          <li><i class="fas fa-check"></i> The Dev Weekly roundup</li>
+          <li><i class="fas fa-check"></i> Unsubscribe anytime</li>
+        </ul>
+      </div>
+    </div>
+    <div class="substack-banner-embed">
+      <iframe src="{{ site.substack-url }}/embed" title="Subscribe to {{ site.author }} on Substack" loading="lazy" scrolling="no"></iframe>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var root = document.currentScript.closest('.substack-banner');
+      if (!root) return;
+      var iframe = root.querySelector('iframe');
+      if (!iframe) return;
+      var fired = false;
+      window.addEventListener('blur', function() {
+        setTimeout(function() {
+          if (fired || document.activeElement !== iframe) return;
+          fired = true;
+          if (typeof gtag === 'function') {
+            gtag('event', 'subscribe_interaction', {'event_category': 'Substack Subscribe', 'event_label': 'Email Banner'});
+          }
+        }, 0);
+      });
+    })();
+  </script>
+</div>

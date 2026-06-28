@@ -112,6 +112,9 @@ url-pretty: "singhajit.com"
 # Full URL for SEO and schema
 url: "https://singhajit.com"
 
+# Substack publication URL
+substack-url: "https://singhajitdotcom.substack.com"
+
 # Create a "tags" index page and make tags on each post clickable
 link-tags: true
 

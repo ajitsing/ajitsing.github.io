@@ -1,6 +1,5 @@
 {% if site.manual_ads %}
-<div class="glossary-sidebar-widget glossary-sidebar-ad">
-  <span class="ad-label"><span class="ad-label-text">Advertisement</span></span>
+<div class="glossary-sidebar-ad">
   <div class="sidebar-sticky-ad" data-ad-refresh="40">
     <ins class="adsbygoogle"
          style="display:block"
@@ -10,7 +9,7 @@
          data-full-width-responsive="true"></ins>
     <script>
     (function() {
-      var container = document.currentScript.closest('.glossary-sidebar-ad');
+      var container = document.currentScript.closest('.sidebar-sticky-ad');
       if (container && container.offsetWidth > 0) {
         try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
       } else if (container) {

@@ -1,0 +1,32 @@
+{% assign resp_slot = include.slot | default: "5138071441" %}
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2886086145980317"
+     data-ad-slot="{{ resp_slot }}"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(function() {
+  var wrap = document.currentScript.parentNode;
+  var ins = wrap.querySelector('ins.adsbygoogle');
+  if (!ins) return;
+  var requested = false;
+
+  function requestAd() {
+    if (requested) return;
+    if (!(wrap.offsetWidth > 0)) { ins.remove(); return; }
+    requested = true;
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+  }
+
+  // Lazy-load: only request as the slot approaches the viewport.
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) { io.disconnect(); requestAd(); }
+    }, { rootMargin: '1000px 0px' });
+    io.observe(wrap);
+  } else {
+    requestAd();
+  }
+})();
+</script>

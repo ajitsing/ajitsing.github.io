@@ -363,12 +363,16 @@
   contain: layout;
 }
 
-.glossary-sidebar-ad .ad-label {
-  margin-bottom: 0.85rem;
-}
-
 .glossary-sidebar-ad .sidebar-sticky-ad {
+  position: sticky;
+  top: 80px;
+  margin-top: 1.5rem;
+  padding: 1rem;
   min-height: 620px;
+  background: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  contain: layout;
 }
 
 .glossary-sidebar-ad .adsbygoogle {

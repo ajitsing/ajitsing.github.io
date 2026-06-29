@@ -428,6 +428,7 @@ Start small. Pick the one workflow you explained most this week, write it down a
 
 **Related posts:**
 
+- [How to Use Cursor: 12 Tips to 10x Your Productivity](/how-to-use-cursor/){:target="_blank" rel="noopener"} - Master every Cursor surface, with skills as one piece of the workflow
 - [Model Context Protocol (MCP) Explained](/model-context-protocol-mcp-explained/){:target="_blank" rel="noopener"} - How agents connect to external tools, the perfect companion to skills
 - [Building AI Agents](/building-ai-agents/){:target="_blank" rel="noopener"} - The patterns behind the agents that run your skills
 - [Prompt Engineering Basics](/prompt-engineering-basics/){:target="_blank" rel="noopener"} - Write the clear instructions that make skills work

@@ -278,7 +278,7 @@ flowchart LR
 | Cache Layer | What It Caches | Tools |
 |-------------|---------------|-------|
 | **Browser** | Static assets, API responses | HTTP headers (Cache-Control) |
-| **CDN** | Static files, media, edge content | Cloudflare, CloudFront, Fastly |
+| **[CDN](/cdn-system-design/)** | Static files, media, edge content | Cloudflare, CloudFront, Fastly |
 | **Application** | Computed values, session data | In-memory (Guava, Caffeine) |
 | **Distributed** | Shared data across servers | Redis, Memcached |
 | **Database** | Query results, frequently accessed rows | MySQL query cache, PostgreSQL |

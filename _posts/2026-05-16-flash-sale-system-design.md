@@ -513,7 +513,7 @@ A flash sale page has a brutally simple cache profile.
 | Stock counter JSON (`/sales/:id/stock`) | 1 second, edge SWR | Users want a quick "in stock / out" signal |
 | User-specific state | not cached | Per-user, per-request |
 
-The single biggest win is **caching the countdown page on the CDN**. Before the sale opens, 10 million people refresh the page hoping the button activates. If the page is on Cloudflare, Fastly, or CloudFront with a 10 second TTL, your origin sees a few thousand requests, not millions. The same pattern shows up in [how Cloudflare handles redirect-heavy and event-driven workloads](https://blog.cloudflare.com/){:target="_blank" rel="noopener"}.
+The single biggest win is **caching the countdown page on the [CDN](/cdn-system-design/)**. Before the sale opens, 10 million people refresh the page hoping the button activates. If the page is on Cloudflare, Fastly, or CloudFront with a 10 second TTL, your origin sees a few thousand requests, not millions. The same pattern shows up in [how Cloudflare handles redirect-heavy and event-driven workloads](https://blog.cloudflare.com/){:target="_blank" rel="noopener"}.
 
 A small but important detail: the **stock indicator** on the page (the "1,247 left" string) is a different problem from the actual stock decrement. It is a hint, not a contract. A short-TTL CDN cache on `/sales/:id/stock` is fine, and the official answer to "is it in stock" is the response of `POST /orders`. Mixing the two creates a worse user experience because users see the page say "in stock" and the order say "sold out" milliseconds later. Set expectations on the page: "Stock updates may lag by a few seconds. Final availability is confirmed at checkout."
 

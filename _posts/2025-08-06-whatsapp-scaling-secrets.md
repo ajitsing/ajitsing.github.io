@@ -231,7 +231,7 @@ graph TB
 
 {% include ads/in-article.html %}
 
-Each server runs thousands of Erlang processes, one per connected user. The Mnesia cluster stores session data and routing information. MySQL handles persistent user data. The CDN serves media files.
+Each server runs thousands of Erlang processes, one per connected user. The Mnesia cluster stores session data and routing information. MySQL handles persistent user data. The [CDN](/cdn-system-design/) serves media files.
 
 ## How Messages Flow
 

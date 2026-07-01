@@ -848,7 +848,7 @@ def get_user(user_id):
 
 ### CDN Caching
 
-CDNs like Cloudflare implement caching at the edge:
+[CDNs](/cdn-system-design/) like Cloudflare implement caching at the edge:
 
 ```
 # Cache-Control header for CDN caching

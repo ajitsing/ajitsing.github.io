@@ -692,7 +692,7 @@ This is a defense in depth approach. Request coalescing prevents the stampede. C
 
 ### <i class="fab fa-golang"></i> Go Standard Library: singleflight
 
-Go's approach is the most developer friendly. The `golang.org/x/sync/singleflight` package provides request coalescing as a standard library utility. It is widely used in Go services at companies like Cloudflare, where they handle millions of requests per second at their CDN edge.
+Go's approach is the most developer friendly. The `golang.org/x/sync/singleflight` package provides request coalescing as a standard library utility. It is widely used in Go services at companies like Cloudflare, where they handle millions of requests per second at their [CDN](/cdn-system-design/) edge.
 
 When thousands of requests arrive for the same cached resource during a cache miss, `singleflight` ensures only one goroutine calls the backend. The rest simply wait for that result. This pattern is so effective that it has become the default approach for cache access in most Go services.
 

@@ -480,7 +480,7 @@ The big win: when a Memcached server goes down, only the keys on that server are
 
 ### CDNs (Akamai, Cloudflare)
 
-Content Delivery Networks use consistent hashing to route content requests to edge servers. When a user requests a file, the CDN hashes the URL to determine which edge server should [cache](/caching-strategies-explained/) that content.
+[Content Delivery Networks](/cdn-system-design/) use consistent hashing to route content requests to edge servers. When a user requests a file, the CDN hashes the URL to determine which edge server should [cache](/caching-strategies-explained/) that content.
 
 This ensures that the same content is consistently served from the same edge server, maximizing cache hit rates. When edge servers are added or removed (for maintenance or scaling), only a fraction of content needs to be re-fetched from the origin.
 

@@ -323,7 +323,7 @@ flowchart LR
 
 For static content (images, CSS, JS files), the request might never reach your origin server. A CDN like [Cloudflare](/how-cloudflare-supports-55-million-requests-per-second/) or AWS CloudFront caches content at edge locations around the world. If you are in Tokyo, the CDN serves the cached file from a server in Tokyo instead of fetching it from a server in Virginia.
 
-CDNs use **anycast routing** where one IP address maps to hundreds of servers globally, and your request automatically goes to the nearest one.
+[CDNs](/cdn-system-design/) use **anycast routing** where one IP address maps to hundreds of servers globally, and your request automatically goes to the nearest one.
 
 ### Load Balancer
 

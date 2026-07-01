@@ -481,7 +481,7 @@ flowchart TB
 
 **Why this works:**
 
-- **CDN**: Serves images, CSS, JavaScript. Takes 90% of the load off your servers.
+- **[CDN](/cdn-system-design/)**: Serves images, CSS, JavaScript. Takes 90% of the load off your servers.
 - **Queue**: Prevents the stampede. System processes users at sustainable rate. (See [Role of Queues in System Design](/role-of-queues-in-system-design/) for queue patterns.)
 - **Rate limiting**: Stops one user from hogging resources with 1000 requests/second. (For implementation details, check out [Building a Dynamic Rate Limiter](/dynamic-rate-limiter-system-design/).)
 - **Read replicas**: Search queries go to replicas. Writes go to primary. Read/write separation.

@@ -64,7 +64,7 @@ Now here is the trap. The obvious fix is to run a [consensus algorithm](/distrib
 
 The **Consistent Core** pattern is the way out. Instead of making the whole cluster agree, you stand up a tiny cluster off to the side, just 3 to 5 nodes, that is strongly consistent and fault tolerant. The big data cluster asks that little cluster the hard questions. Kafka did exactly this with ZooKeeper for a decade. Kubernetes does it with etcd today. This post explains what the pattern is, why it exists, how the core works inside, and how the systems you use every day are built on it.
 
-{% include glossary-callout.html terms="consensus,linearizability,quorum,leader-election,replicated-log,lease" %}
+{% include glossary-callout.html terms="consistent-core,linearizability,consensus,quorum,leader-election,generation-clock,lease" %}
 
 ## <i class="fas fa-question-circle"></i> The Problem: Consensus Does Not Scale With Cluster Size
 

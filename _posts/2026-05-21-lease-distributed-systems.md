@@ -53,7 +53,7 @@ A lease is a lock with a time limit. The holder gets exclusive access to somethi
 
 This post walks through what a lease is, why plain locks are dangerous in a distributed setting, how fencing tokens fix the last sharp edge, how to implement leases on top of a [consensus protocol](/distributed-systems/paxos/){:target="_blank" rel="noopener"}, and how real systems like [Google Chubby](https://research.google/pubs/the-chubby-lock-service-for-loosely-coupled-distributed-systems/){:target="_blank" rel="noopener"}, [ZooKeeper](https://zookeeper.apache.org/doc/current/zookeeperOver.html){:target="_blank" rel="noopener"}, [etcd](https://etcd.io/docs/v3.5/learning/api/){:target="_blank" rel="noopener"}, [Kubernetes](https://kubernetes.io/docs/concepts/architecture/leases/){:target="_blank" rel="noopener"}, and [HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html){:target="_blank" rel="noopener"} use leases under the hood.
 
-{% include glossary-callout.html terms="lease,fencing-token,ttl,heartbeat,leader-election,split-brain" %}
+{% include glossary-callout.html terms="lease,fencing-token,ttl,consistent-core,heartbeat,leader-election,split-brain" %}
 
 ## The Problem: Locks Without an Expiry Are Dangerous
 

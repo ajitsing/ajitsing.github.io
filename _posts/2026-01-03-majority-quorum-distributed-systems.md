@@ -39,7 +39,7 @@ This is the distributed systems nightmare. When data lives on multiple servers, 
 
 The answer is a pattern called **Majority Quorum**, and it's the reason your distributed databases don't descend into chaos.
 
-{% include glossary-callout.html terms="quorum,consensus,paxos,raft,cap-theorem,split-brain" %}
+{% include glossary-callout.html terms="quorum,linearizability,consensus,paxos,raft,cap-theorem,split-brain" %}
 
 ## The Problem: When Servers Disagree
 

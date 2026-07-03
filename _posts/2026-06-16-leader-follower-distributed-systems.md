@@ -66,7 +66,7 @@ That is the whole idea behind the **Leader and Followers** pattern. You pick one
 
 This post walks through what the pattern is, why a single leader makes consistency tractable, how a new leader gets elected, how heartbeats and a generation clock keep the cluster honest, and how real systems put it all together. If you have already read about the [replicated log](/distributed-systems/replicated-log/){:target="_blank" rel="noopener"} or [majority quorum](/distributed-systems/majority-quorum/){:target="_blank" rel="noopener"}, this is the pattern that ties them together.
 
-{% include glossary-callout.html terms="leader-election,replicated-log,heartbeat,quorum,split-brain,consensus" %}
+{% include glossary-callout.html terms="leader-election,generation-clock,consistent-core,replicated-log,quorum,split-brain,heartbeat" %}
 
 ## <i class="fas fa-question-circle"></i> The Problem: Replication Needs a Referee
 
@@ -105,6 +105,8 @@ flowchart TB
     class LD leader
     class F1,F2 good
 ```
+
+{% include ads/in-article.html %}
 
 The leader does not make the cluster faster. It makes the cluster *agree*, and agreement is the thing that was missing.
 

@@ -235,7 +235,7 @@ If your storage layer cannot check fencing tokens, you do not have a safe distri
 
 ## How Leases Are Implemented: The Consistent Core
 
-A lease is only useful if everyone agrees on who holds it. That agreement is the job of a [Consistent Core](https://martinfowler.com/articles/patterns-of-distributed-systems/consistent-core.html){:target="_blank" rel="noopener"}. A small, strongly consistent cluster, usually three or five nodes, runs a consensus protocol like [Raft](/distributed-systems/replicated-log/){:target="_blank" rel="noopener"} or [Paxos](/distributed-systems/paxos/){:target="_blank" rel="noopener"} and serves lease operations as state machine commands.
+A lease is only useful if everyone agrees on who holds it. That agreement is the job of a [Consistent Core](/distributed-systems/consistent-core/){:target="_blank" rel="noopener"}. A small, strongly consistent cluster, usually three or five nodes, runs a consensus protocol like [Raft](/distributed-systems/replicated-log/){:target="_blank" rel="noopener"} or [Paxos](/distributed-systems/paxos/){:target="_blank" rel="noopener"} and serves lease operations as state machine commands.
 
 ```mermaid
 graph TD

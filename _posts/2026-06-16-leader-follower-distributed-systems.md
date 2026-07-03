@@ -106,8 +106,6 @@ flowchart TB
     class F1,F2 good
 ```
 
-{% include ads/in-article.html %}
-
 The leader does not make the cluster faster. It makes the cluster *agree*, and agreement is the thing that was missing.
 
 ## <i class="fas fa-crown"></i> What the Leader and Followers Pattern Is
@@ -312,7 +310,7 @@ In practice there are two architectural styles for electing and tracking the lea
 
 **Built-in consensus.** The cluster elects its own leader using a consensus protocol baked right in. Raft (etcd, Consul, CockroachDB, TiKV), ZAB (ZooKeeper), and Multi-Paxos systems work this way. The election and the data replication run on the same set of nodes. This is self-contained but means every such system reimplements the hard parts.
 
-**External consistent core.** The cluster offloads leader election to a small, separate, strongly consistent coordination service, a [consistent core](https://martinfowler.com/articles/patterns-of-distributed-systems/consistent-core.html){:target="_blank" rel="noopener"}. The candidates race to grab a [lease](/distributed-systems/lease/){:target="_blank" rel="noopener"} or create an ephemeral node in ZooKeeper or etcd, and whoever wins is the leader. Kafka historically used ZooKeeper this way, Kubernetes components use a lease in etcd, and countless applications use ZooKeeper or etcd purely for leader election.
+**External consistent core.** The cluster offloads leader election to a small, separate, strongly consistent coordination service, a [consistent core](/distributed-systems/consistent-core/){:target="_blank" rel="noopener"}. The candidates race to grab a [lease](/distributed-systems/lease/){:target="_blank" rel="noopener"} or create an ephemeral node in ZooKeeper or etcd, and whoever wins is the leader. Kafka historically used ZooKeeper this way, Kubernetes components use a lease in etcd, and countless applications use ZooKeeper or etcd purely for leader election.
 
 ```mermaid
 flowchart LR
@@ -503,7 +501,7 @@ If the leader confirms a write to the client after only writing locally, a failo
 
 ### Pointing clients at a fixed leader address
 
-Leaders move. Clients that hardcode the current leader's address break on every failover. Clients should discover the leader dynamically, through the cluster's metadata or a [consistent core](https://martinfowler.com/articles/patterns-of-distributed-systems/consistent-core.html){:target="_blank" rel="noopener"}, and retry on the "I am not the leader" response.
+Leaders move. Clients that hardcode the current leader's address break on every failover. Clients should discover the leader dynamically, through the cluster's metadata or a [consistent core](/distributed-systems/consistent-core/){:target="_blank" rel="noopener"}, and retry on the "I am not the leader" response.
 
 ### Rolling your own when you do not have to
 

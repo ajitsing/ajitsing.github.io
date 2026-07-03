@@ -34,6 +34,8 @@ That's Shopify. But here's the wild part: they're simultaneously handling this f
 
 How does a system handle that kind of load without falling apart? Let me show you the engineering behind one of the most successful e-commerce platforms ever built.
 
+{% include glossary-callout.html terms="microservices,load-balancing,message-queue,caching,sharding" %}
+
 ## The Problem That Shaped Everything
 
 Back in 2004, Tobias Lütke wanted to sell snowboards online. He tried every e-commerce platform available and hated them all. So he did what any frustrated developer would do: he built his own.

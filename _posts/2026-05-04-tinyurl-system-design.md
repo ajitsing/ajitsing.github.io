@@ -57,6 +57,8 @@ This post is a working answer to **how to design TinyURL** that you can use in a
 
 If you want a quick refresher on the building blocks first, the [System design cheat sheet](/system-design-cheat-sheet/){:target="_blank" rel="noopener"}, [Caching strategies](/caching-strategies-explained/){:target="_blank" rel="noopener"}, and [Consistent hashing](/consistent-hashing-explained/){:target="_blank" rel="noopener"} cover most of what we will reach for.
 
+{% include glossary-callout.html terms="caching,sharding,consistent-hashing,load-balancing,rate-limiting" %}
+
 ## What a URL Shortener Actually Does
 
 A URL shortener has two endpoints and one promise.

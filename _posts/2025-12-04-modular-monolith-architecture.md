@@ -32,7 +32,7 @@ Microservices aren't always the answer. For most teams, they bring network laten
 
 There's a middle ground: the modular monolith. Clear boundaries and team autonomy without the distributed systems tax. It's how [Shopify handles billions in Black Friday sales](/shopify-system-design/) with a single deployable application—and why companies like Basecamp and GitHub chose this path too.
 
-{% include glossary-callout.html terms="modular-monolith,cqrs,message-queue" %}
+{% include glossary-callout.html terms="modular-monolith,microservices,cqrs,message-queue" %}
 
 ## What is a Modular Monolith?
 

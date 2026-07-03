@@ -50,6 +50,8 @@ This is not luck. It is the result of deliberate technical choices that most dev
 
 This post breaks down exactly how they did it. No fluff. Just the architecture decisions that made massive scale possible with minimal resources.
 
+{% include glossary-callout.html terms="websocket,load-balancing,microservices,message-queue" %}
+
 ## WhatsApp By The Numbers
 
 Before diving into the architecture, here is what WhatsApp handles today:

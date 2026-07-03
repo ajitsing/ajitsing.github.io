@@ -30,6 +30,8 @@ Picture this: it's Black Friday, millions of shoppers worldwide are frantically 
 
 Yes, you read that right. While most companies struggle with a few thousand concurrent users, Cloudflare has built a system so elegant and efficient that it makes handling internet-scale traffic look almost effortless. But here's the kicker—they didn't do it by throwing endless hardware at the problem. Instead, they solved it through brilliant engineering principles that every developer should understand.
 
+{% include glossary-callout.html terms="load-balancing,cdn,rate-limiting,caching,consistent-hashing" %}
+
 ## The Humble Beginning of a Giant
 
 Back in July 2009, in a small office in California, three entrepreneurs had a simple yet audacious vision: make the internet faster and more reliable for everyone. They called their company Cloudflare, and today it processes a staggering 20% of all internet traffic. That's right—one in every five web requests you make probably passes through Cloudflare's network.

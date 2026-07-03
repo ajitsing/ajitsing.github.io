@@ -86,6 +86,8 @@ If you want a broader picture of how queues fit into system architecture, start 
 
 ---
 
+{% include glossary-callout.html terms="message-queue,pub-sub,idempotent-receiver,transactional-outbox" %}
+
 ## Quick Comparison
 
 | | Kafka | RabbitMQ | Amazon SQS |

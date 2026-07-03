@@ -44,6 +44,8 @@ The core challenges they solved:
 
 Let's see how they built a system that never sleeps.
 
+{% include glossary-callout.html terms="websocket,pub-sub,message-queue,load-balancing,microservices" %}
+
 ## Slack's Architecture: The 30,000-Foot View
 
 Before diving into the nitty-gritty, here's how Slack's system looks from above:

@@ -40,6 +40,8 @@ This is one of the most impressive pieces of engineering on the web. Google Docs
 
 How does it work? That's what we're going to break down.
 
+{% include glossary-callout.html terms="websocket,caching,eventual-consistency" %}
+
 ## The Core Problem: Concurrent Editing
 
 Collaborative editing sounds simple until you try to build it. Here's why it's hard.

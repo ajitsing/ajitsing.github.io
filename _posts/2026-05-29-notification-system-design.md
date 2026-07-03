@@ -78,6 +78,8 @@ This post is the working answer to **how to design a notification system** that 
 
 If you want to brush up on the building blocks first, the [System design cheat sheet](/system-design-cheat-sheet/){:target="_blank" rel="noopener"}, [Role of queues in system design](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"}, [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/){:target="_blank" rel="noopener"}, and [Caching strategies explained](/caching-strategies-explained/){:target="_blank" rel="noopener"} cover most of the primitives we will lean on.
 
+{% include glossary-callout.html terms="pub-sub,message-queue,idempotent-receiver,rate-limiting,thundering-herd" %}
+
 ## What a Notification System Has To Do
 
 A notification system has four promises. Everything else is a feature on top.

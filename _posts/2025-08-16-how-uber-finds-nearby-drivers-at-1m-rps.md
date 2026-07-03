@@ -32,6 +32,8 @@ Picture this. You're standing outside Select City Walk in Saket, tired after sho
 
 What just happened behind that simple tap? Let me tell you the story of one of the most fascinating distributed systems ever built.
 
+{% include glossary-callout.html terms="load-balancing,sharding,consistent-hashing,caching" %}
+
 ## The Problem That Started It All
 
 Back in 2010-2012, Uber was a small San Francisco startup. Their first system was simple - when you requested a ride, they'd just loop through every available driver in the city and find the closest one. Worked fine when they had 50 drivers. 

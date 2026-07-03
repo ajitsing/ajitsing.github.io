@@ -43,7 +43,7 @@ The result? Cache inconsistencies, stale data bugs, or systems that are slower t
 
 This guide covers the core caching strategies that every backend developer needs to understand. No fluff, just the patterns, when to use them, and the tradeoffs you should know about.
 
-{% include glossary-callout.html terms="caching,thundering-herd,consistent-hashing,eventual-consistency" %}
+{% include glossary-callout.html terms="caching,cdn,thundering-herd,consistent-hashing,eventual-consistency" %}
 
 ## Why Caching Matters
 

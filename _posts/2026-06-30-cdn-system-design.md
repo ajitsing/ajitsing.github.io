@@ -66,6 +66,8 @@ A **content delivery network**, or CDN, fixes this by changing one thing: the di
 
 This post walks through **CDN system design** from the ground up. You will see what a CDN actually is, how a request flows through it, how caching and routing really work, how to keep your origin protected, and how to design one if it comes up in a [system design interview](/system-design-cheat-sheet/){:target="_blank" rel="noopener"}.
 
+{% include glossary-callout.html terms="cdn,caching,load-balancing,consistent-hashing,eventual-consistency" %}
+
 ## <i class="fas fa-question-circle"></i> What a CDN Actually Is
 
 A CDN is a geographically distributed group of servers that cache content close to users so it loads faster. That is the whole idea in one sentence. Everything else is detail about how it does that well.

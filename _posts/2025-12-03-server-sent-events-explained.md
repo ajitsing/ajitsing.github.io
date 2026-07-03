@@ -44,7 +44,7 @@ SSE gives you real-time server push over a single HTTP connection. Built into br
 
 Let's fix that.
 
-{% include glossary-callout.html terms="server-sent-events,long-polling,message-queue" %}
+{% include glossary-callout.html terms="server-sent-events,websocket,long-polling,message-queue" %}
 
 ## What Are Server-Sent Events?
 

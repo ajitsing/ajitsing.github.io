@@ -59,6 +59,8 @@ This post is a working answer to **how to design a flash sale system** that you 
 
 If you want a refresher on the building blocks first, the [System design cheat sheet](/system-design-cheat-sheet/){:target="_blank" rel="noopener"}, [Caching strategies](/caching-strategies-explained/){:target="_blank" rel="noopener"}, [Database locks explained](/database-locks-explained/){:target="_blank" rel="noopener"}, and [Role of queues in system design](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"} cover most of what we will reach for.
 
+{% include glossary-callout.html terms="load-balancing,caching,rate-limiting,thundering-herd,message-queue" %}
+
 ## What a Flash Sale System Actually Has To Do
 
 A flash sale has three promises. Everything else is a feature on top.

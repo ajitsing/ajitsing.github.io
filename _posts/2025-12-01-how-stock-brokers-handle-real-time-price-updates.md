@@ -36,6 +36,8 @@ Behind that flickering number is one of the most demanding real-time systems in 
 
 How do stock brokers handle real-time price updates at this scale? Let's trace the journey of a stock price from the exchange floor to your screen.
 
+{% include glossary-callout.html terms="websocket,pub-sub,message-queue,server-sent-events,long-polling" %}
+
 ## The 400 Millisecond Race
 
 When someone buys or sells a stock on an exchange, that trade creates a price update. This update needs to travel from the exchange's servers to every broker, then to every user watching that stock.

@@ -3,7 +3,8 @@
   .hero-banner {
     display: none;
     width: 100%;
-    padding: calc(5rem + 18px) 0 18px;
+    margin-top: 72px;
+    padding: 42px 0 18px;
     border-bottom: 1px solid #e2e8f0;
     background-color: #eef2f7;
     background-image:
@@ -47,7 +48,10 @@
     .hero-banner + .header-section .intro-header { margin-top: 1.25rem; }
   }
   @media (min-width: 1200px) {
-    .hero-banner { padding-top: calc(8.125rem + 18px); }
+    .hero-banner {
+      margin-top: 72px;
+      padding-top: 42px;
+    }
   }
 </style>
 <aside class="hero-banner" aria-label="Sponsored placement">
@@ -69,6 +73,7 @@
         s.async = true;
         s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2886086145980317';
         s.crossOrigin = 'anonymous';
+        s.fetchPriority = 'high';
         document.head.appendChild(s);
       }
       (window.adsbygoogle = window.adsbygoogle || []).push({});

@@ -9,6 +9,8 @@ css:
 
 {% include glossary-schema.html %}
 
+{% include ads/hero.html %}
+
 <div class="glossary-term-wrapper">
   <main class="glossary-term-main">
 
@@ -39,6 +41,8 @@ css:
         <h2 class="glossary-section-label">Definition</h2>
         {{ page.definition | markdownify }}
       </section>
+
+      {% include ads/display.html %}
 
       <div class="glossary-content-grid">
         <div class="glossary-content-main">
@@ -128,13 +132,6 @@ css:
           {% endif %}
         {% endfor %}
       </div>
-
-      {% if site.manual_ads %}
-      <div class="glossary-grid-ad">
-        <span class="ad-label"><span class="ad-label-text">Advertisement</span></span>
-        {% include ads/grid.html %}
-      </div>
-      {% endif %}
     </section>
     {% endif %}
 

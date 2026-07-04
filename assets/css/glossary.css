@@ -26,6 +26,12 @@
   .glossary-hub-container {
     padding: 8.5rem 1rem 3.5rem;
   }
+
+  /* Hero banner already clears the fixed nav, so drop the wrapper's
+     top padding to remove the large gap between hero and content. */
+  .hero-banner + .glossary-term-wrapper {
+    padding-top: 2.5rem;
+  }
 }
 
 /* ============================================================
@@ -356,6 +362,25 @@
 
 .glossary-sidebar-tools .tool-cta {
   margin: 0;
+}
+
+.glossary-term-page .post-mid-ad--display,
+.glossary-term-page .post-mid-ad--display .adsbygoogle {
+  min-height: 0;
+}
+
+.glossary-term-page .post-mid-ad--display {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.glossary-term-page .post-mid-ad--display:has(ins[data-ad-status="filled"]) {
+  margin: 32px 0;
+  padding: 20px 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .glossary-sidebar-ad {

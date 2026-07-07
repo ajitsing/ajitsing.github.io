@@ -678,7 +678,7 @@ Key design decisions Netflix made:
 
 **Fallback everything**: Every Hystrix command has a fallback. If the personalized recommendation service is down, show generic trending movies. If the user's viewing history is unavailable, show the default homepage. The user gets a degraded experience, not a broken one.
 
-**Request collapsing**: When multiple threads request the same data within a short window, Hystrix batches them into a single backend call. This prevents a [thundering herd](/thundering-herd-problem/) of duplicate requests.
+**[Request collapsing](/glossary/request-coalescing/)**: When multiple threads request the same data within a short window, Hystrix batches them into a single backend call. This prevents a [thundering herd](/thundering-herd-problem/) of duplicate requests.
 
 **Monitoring with Hystrix Dashboard**: Netflix monitors circuit breaker state in real time. When a breaker trips, they know immediately which service is failing and how many requests are being short-circuited.
 

@@ -626,7 +626,7 @@ The patterns repeat in every URL shortener postmortem.
 
 | Failure | Symptom | Fix |
 |---|---|---|
-| Cache miss storm on a viral link | All app servers hit the DB at the same time for the same code | Single-flight (one in-flight DB lookup per key per server), short negative-cache TTL, request coalescing at the CDN |
+| Cache miss storm on a viral link | All app servers hit the DB at the same time for the same code | Single-flight (one in-flight DB lookup per key per server), short negative-cache TTL, [request coalescing](/glossary/request-coalescing/) at the CDN |
 | Counter contention | Single auto-increment is a write hot spot | Switch to Snowflake IDs or KGS with batched ranges |
 | Replica lag visible to user | User creates link, immediately tries to read it from replica, gets 404 | Read-your-writes via primary on the create flow, or pin reads to primary for `<5s` after a write |
 | Analytics queue down | Click events back up | Drop on the floor with metrics, never block the redirect |

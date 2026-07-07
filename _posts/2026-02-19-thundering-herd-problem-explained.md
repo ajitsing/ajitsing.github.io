@@ -264,7 +264,7 @@ AWS recommends this exact pattern in their architecture best practices. It is si
 
 ### 2. Request Coalescing (Singleflight Pattern)
 
-Request coalescing groups identical concurrent requests and executes only one backend call. All other requests wait for that single result.
+[Request coalescing](/glossary/request-coalescing/) groups identical concurrent requests and executes only one backend call. All other requests wait for that single result.
 
 ```mermaid
 sequenceDiagram

@@ -415,7 +415,7 @@ Three things make gRPC significantly faster than REST:
 
 A user object as JSON: ~200 bytes. The same user object as protobuf: ~60 bytes.
 
-**2. HTTP/2 multiplexing.** REST typically uses HTTP/1.1, where each request needs its own TCP connection (or waits for the previous request on a shared connection). HTTP/2 multiplexes multiple requests over a single TCP connection, so you can send dozens of requests simultaneously without head-of-line blocking.
+**2. HTTP/2 multiplexing.** REST typically uses HTTP/1.1, where each request needs its own TCP connection (or waits for the previous request on a shared connection). HTTP/2 multiplexes multiple requests over a single TCP connection, so you can send dozens of requests simultaneously without [head-of-line blocking](/glossary/head-of-line-blocking/).
 
 **3. Header compression.** HTTP/2 compresses headers with HPACK, so repeated metadata (auth tokens, content types) is not sent in full on every request.
 

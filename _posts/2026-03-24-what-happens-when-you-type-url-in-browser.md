@@ -174,7 +174,7 @@ These sequence numbers are not just formalities. They allow both sides to detect
 
 The three-way handshake takes one full round trip (RTT). If you are in New York connecting to a server in Singapore, that round trip might be 200ms. That is 200ms before any data flows.
 
-This is one reason modern protocols like [HTTP/3 and QUIC](/how-webtransport-works/) are replacing TCP. QUIC combines the transport and encryption handshakes into a single round trip, cutting connection time in half.
+This is one reason modern protocols like [HTTP/3 and QUIC](/how-webtransport-works/) are replacing TCP. [QUIC](/glossary/quic/) combines the transport and encryption handshakes into a single round trip, cutting connection time in half.
 
 ---
 
@@ -259,7 +259,7 @@ Connection: keep-alive
 
 HTTP/2 was a big improvement because it multiplexed multiple requests over a single TCP connection. Instead of waiting for one request to finish before sending the next, the browser can fire off requests for the HTML, CSS, JavaScript, and images all at once.
 
-But HTTP/2 still uses TCP, and TCP treats all streams as one connection. If one packet is lost, TCP holds up everything until it is retransmitted. This is **head-of-line blocking**.
+But HTTP/2 still uses TCP, and TCP treats all streams as one connection. If one packet is lost, TCP holds up everything until it is retransmitted. This is [**head-of-line blocking**](/glossary/head-of-line-blocking/).
 
 HTTP/3 fixes this by using [QUIC, a protocol built on UDP](/how-webtransport-works/) that treats each stream independently. A lost packet in one stream does not block the others.
 

@@ -72,7 +72,7 @@ sequenceDiagram
     Server->>Server: Now deliver all three
 ```
 
-Even though Packets 2 and 3 arrived successfully, they sit in a buffer waiting for Packet 1. Your chat message is blocked by a lost game state update. This is **head-of-line blocking**.
+Even though Packets 2 and 3 arrived successfully, they sit in a buffer waiting for Packet 1. Your chat message is blocked by a lost game state update. This is [**head-of-line blocking**](/glossary/head-of-line-blocking/).
 
 **Real impact**: A single lost packet (1% loss rate is common on mobile networks) can add 100-200ms latency spikes to your entire application.
 
@@ -100,7 +100,7 @@ Yes. And that's exactly why it's perfect.
 
 ### The QUIC Foundation
 
-QUIC (Quick UDP Internet Connections) was developed by Google and is now an IETF standard. Think of it as "TCP reimagined with 20 years of hindsight."
+[QUIC](/glossary/quic/) (Quick UDP Internet Connections) was developed by Google and is now an IETF standard. Think of it as "TCP reimagined with 20 years of hindsight."
 
 **Key innovations**:
 

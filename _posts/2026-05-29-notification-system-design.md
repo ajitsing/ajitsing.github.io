@@ -93,7 +93,7 @@ A notification system has four promises. Everything else is a feature on top.
 
 That sounds modest, until you add the shape of real traffic. A normal Tuesday afternoon sees a steady stream of transactional events: payment confirmations, order updates, message pings. Then marketing schedules a 10 million row "spring sale" blast at noon. Then a regulatory alert fires for half a million users. Then a third-party webhook tells you 200,000 emails bounced. All in the same minute.
 
-The whole system has to absorb that without head-of-line blocking, without losing a single one-time password, and without spending three months of a senior engineer's time every quarter chasing "where did my email go."
+The whole system has to absorb that without [head-of-line blocking](/glossary/head-of-line-blocking/), without losing a single one-time password, and without spending three months of a senior engineer's time every quarter chasing "where did my email go."
 
 ### Functional and Non Functional Requirements
 

@@ -65,7 +65,7 @@ That waiting is the hidden tax on almost every networked system. When a client s
 
 The **Request Pipeline** pattern is the fix, and it is one of the highest-leverage ideas in distributed systems. Instead of send, wait, receive, repeat, you keep sending requests while earlier ones are still in flight. This post covers what the pattern is, why it works, how to build it correctly with two threads and flow control, the head-of-line blocking trap that bites everyone, and how HTTP/2, Redis, Kafka, and PostgreSQL all lean on it.
 
-{% include glossary-callout.html terms="message-queue,heartbeat,replicated-log,consensus" %}
+{% include glossary-callout.html terms="head-of-line-blocking,quic,message-queue,replicated-log" %}
 
 ## <i class="fas fa-hourglass-half"></i> The Problem: Waiting Wastes the Wire
 
@@ -254,7 +254,7 @@ The out-of-order approach is more flexible but adds a real hazard when you mix i
 
 ## <i class="fas fa-traffic-light"></i> Head-of-Line Blocking: The Famous HTTP Pipelining Failure
 
-Here is the trap that sank the most famous attempt at pipelining. If a connection guarantees responses in order, then **one slow request stalls every response behind it**, even requests that already finished. The fast responses are stuck in line behind the slow one. This is called **head-of-line (HOL) blocking**, and it is the single biggest reason naive pipelining disappoints.
+Here is the trap that sank the most famous attempt at pipelining. If a connection guarantees responses in order, then **one slow request stalls every response behind it**, even requests that already finished. The fast responses are stuck in line behind the slow one. This is called [**head-of-line (HOL) blocking**](/glossary/head-of-line-blocking/){:target="_blank" rel="noopener"}, and it is the single biggest reason naive pipelining disappoints.
 
 ```mermaid
 flowchart LR
@@ -280,7 +280,7 @@ flowchart LR
 
 The real fix arrived with **HTTP/2**, and it is a beautiful application of the correlated-response idea. HTTP/2 **multiplexes** many independent **streams** over a single TCP connection. Each stream has its own ID (a correlation ID by another name), so responses can interleave and arrive in any order without blocking each other at the application layer. One slow response no longer holds up the fast ones.
 
-But there was still a subtler layer of HOL blocking underneath. Because HTTP/2 runs over TCP, which is a single ordered byte stream, a lost packet forces TCP to wait for the retransmission before delivering *any* later bytes, stalling all streams at once. [HTTP/3](https://www.rfc-editor.org/rfc/rfc9114.html){:target="_blank" rel="noopener"} solves this by running over [QUIC](/how-webtransport-works/){:target="_blank" rel="noopener"}, which gives each stream its own independent delivery, so a lost packet only stalls its own stream. The progression from HTTP/1.1 to HTTP/2 to HTTP/3 is really the story of chasing head-of-line blocking out of pipelining, one layer at a time.
+But there was still a subtler layer of HOL blocking underneath. Because HTTP/2 runs over TCP, which is a single ordered byte stream, a lost packet forces TCP to wait for the retransmission before delivering *any* later bytes, stalling all streams at once. [HTTP/3](https://www.rfc-editor.org/rfc/rfc9114.html){:target="_blank" rel="noopener"} solves this by running over [QUIC](/glossary/quic/){:target="_blank" rel="noopener"}, which gives each stream its own independent delivery, so a lost packet only stalls its own stream. The progression from HTTP/1.1 to HTTP/2 to HTTP/3 is really the story of chasing head-of-line blocking out of pipelining, one layer at a time.
 
 ## <i class="fas fa-server"></i> The Pattern in Real Systems
 

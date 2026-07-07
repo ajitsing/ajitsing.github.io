@@ -123,7 +123,7 @@ A well-configured CDN cuts **Time to First Byte (TTFB)** by 200 to 600 ms compar
 
 - **Shorter distance.** Fewer kilometers means fewer milliseconds per round trip.
 - **Warm connections.** Edge servers keep optimized, often pre-established connections to users and to the origin, so the expensive handshakes happen less often.
-- **Modern transport at the edge.** Major CDNs terminate HTTP/3 over QUIC at the edge even when your origin still speaks HTTP/1.1, so users get the faster protocol for free.
+- **Modern transport at the edge.** Major CDNs terminate HTTP/3 over [QUIC](/glossary/quic/) at the edge even when your origin still speaks HTTP/1.1, so users get the faster protocol for free.
 - **Offloaded origin.** With most traffic absorbed at the edge, your origin stays responsive under load instead of buckling during a spike.
 
 This is also why a CDN is a core building block in almost every large-scale architecture, from a [URL shortener](/tinyurl-system-design/){:target="_blank" rel="noopener"} serving redirects to a [video pipeline](/netflix-video-processing-pipeline/){:target="_blank" rel="noopener"} streaming to millions.
@@ -247,7 +247,7 @@ flowchart TD
 
 Two more techniques work alongside tiers to keep the origin calm:
 
-- **Request collapsing (coalescing).** If many users ask for the same uncached object at once, the edge fetches it from upstream a single time and serves the one response to everyone who was waiting. This is the direct cure for the thundering herd.
+- **[Request collapsing (coalescing)](/glossary/request-coalescing/).** If many users ask for the same uncached object at once, the edge fetches it from upstream a single time and serves the one response to everyone who was waiting. This is the direct cure for the thundering herd.
 - **Cache reserve.** A large, disk-backed cache that holds objects longer than the hot edge caches, giving a second chance for a hit before the origin is touched.
 
 Done right, the origin ends up serving a tiny fraction of a percent of total requests. This kind of layered defense is the same instinct behind a good [rate limiter](/dynamic-rate-limiter-system-design/){:target="_blank" rel="noopener"} or a well-placed [queue](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"}: shield the precious, expensive resource at the back.
@@ -347,7 +347,7 @@ flowchart TD
 
 - **Request routing layer.** Anycast plus geo-aware DNS to send users to the nearest healthy PoP.
 - **Edge PoPs.** Cache storage (memory plus disk), an eviction policy (LRU or similar), and optional edge compute.
-- **Tiered caching and origin shield.** To minimize origin load and prevent thundering herds, with request collapsing.
+- **Tiered caching and origin shield.** To minimize origin load and prevent [thundering herds](/glossary/thundering-herd/), with request collapsing.
 - **Origin and object store.** The source of truth, often [object storage like S3](/how-amazon-s3-works/){:target="_blank" rel="noopener"}.
 - **Control plane.** Distributes config, cache rules, and purge commands to every PoP, and uses [consistent hashing](/consistent-hashing-explained/){:target="_blank" rel="noopener"} to map content to cache nodes so that adding or removing nodes does not blow away the whole cache.
 - **Telemetry.** Track cache hit ratio, latency percentiles, and error rates per PoP. You cannot tune what you cannot see, so lean on solid [distributed tracing](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/){:target="_blank" rel="noopener"} and metrics.

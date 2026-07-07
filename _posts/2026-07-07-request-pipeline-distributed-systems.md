@@ -3,7 +3,7 @@ layout: post
 seo: true
 title: "Request Pipeline Pattern in Distributed Systems"
 subtitle: "Why one-request-at-a-time wastes your network, and how sending many requests without waiting for replies cuts latency and lifts throughput"
-date: 2026-07-06
+date: 2026-07-07
 categories: distributed-systems
 thumbnail-img: /assets/img/posts/distributed-systems/request-pipeline-thumb.png
 share-img: /assets/img/posts/distributed-systems/request-pipeline-thumb.png

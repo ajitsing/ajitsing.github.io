@@ -3,8 +3,8 @@ layout: default
 title: "Twitter & Discord Snowflake ID Decoder Online"
 subtitle: "Instantly Decode 64-bit Snowflake IDs for Twitter, Discord, and Instagram"
 seo: true
-description: "Snowflake ID decoder online. Convert any Twitter/X or Discord snowflake ID to date and timestamp instantly. Look up Discord message & account creation dates, decode LinkedIn activity IDs and the Twitter epoch 1288834974657. Free, secure, in-browser, no signup."
-keywords: "snowflake id decoder, twitter snowflake id decoder, twitter snowflake id decoder online, snowflake id to date, discord snowflake to timestamp, discord id to timestamp, discord message id lookup, discord snowflake decoder, twitter id decoder, decode snowflake id, snowflake decoder online, discord id decoder, instagram id decoder, linkedin activity id timestamp, linkedin snowflake decoder, snowflake timestamp, discord snowflake, twitter snowflake, twitter epoch 1288834974657, id generator, distributed id, snowflake id primary key, distributed database id, snowflake id vs uuid"
+description: "Twitter snowflake ID decoder online. Convert any Twitter or Discord snowflake ID to date and timestamp instantly. Free, secure, in-browser."
+keywords: "snowflake id decoder, twitter snowflake id decoder, twitter snowflake id decoder online, snowflake id to date, discord snowflake to timestamp, discord id to timestamp, twitter id decoder, decode snowflake id, snowflake decoder online, discord id decoder, instagram id decoder, snowflake timestamp, discord snowflake, twitter snowflake, id generator, distributed id, snowflake id primary key, distributed database id, snowflake id vs uuid"
 thumbnail: /assets/img/tools/snowflake-decoder-thumbnail.png
 share-img: /assets/img/tools/snowflake-decoder-thumbnail.png
 permalink: /tools/snowflake-decoder/
@@ -22,7 +22,7 @@ css:
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Snowflake ID Decoder",
-  "alternateName": ["Twitter Snowflake ID Decoder Online", "Snowflake ID to Date", "Discord ID Decoder", "Discord Message ID Lookup", "Discord Snowflake Decoder", "Twitter ID Decoder", "Snowflake Timestamp Decoder", "Discord ID to Timestamp", "Instagram ID Decoder", "LinkedIn Activity ID Decoder", "Snowflake ID Generator"],
+  "alternateName": ["Twitter Snowflake ID Decoder Online", "Snowflake ID to Date", "Discord ID Decoder", "Twitter ID Decoder", "Snowflake Timestamp Decoder", "Discord ID to Timestamp", "Instagram ID Decoder", "Snowflake ID Generator"],
   "description": "Twitter snowflake ID decoder online. Convert any Twitter or Discord snowflake ID to date and timestamp instantly. Free, secure, in-browser.",
   "url": "https://singhajit.com/tools/snowflake-decoder/",
   "applicationCategory": "DeveloperApplication",
@@ -39,10 +39,8 @@ css:
   },
   "featureList": [
     "Decode Discord Snowflake IDs to timestamps",
-    "Discord message ID lookup and account creation date",
-    "Decode Twitter/X Snowflake IDs to timestamps (epoch 1288834974657)",
+    "Decode Twitter/X Snowflake IDs to timestamps",
     "Decode Instagram IDs to timestamps",
-    "Decode LinkedIn activity IDs to timestamps",
     "Shareable link with ID and platform in URL for easy sharing",
     "Visual bit structure breakdown",
     "Generate sample Snowflake IDs",
@@ -78,7 +76,7 @@ css:
       "@type": "HowToStep",
       "position": 2,
       "name": "Select the platform epoch",
-      "text": "Choose the correct platform (Discord, Twitter, Instagram, or LinkedIn) as each uses a different epoch timestamp for their Snowflake IDs. Twitter uses epoch 1288834974657, Discord uses 1420070400000, and Instagram and LinkedIn use the Unix epoch (0). Twitter is selected by default."
+      "text": "Choose the correct platform (Discord, Twitter, or Instagram) as each uses a different epoch timestamp for their Snowflake IDs. Twitter is selected by default."
     },
     {
       "@type": "HowToStep",
@@ -135,30 +133,6 @@ css:
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "To decode a Discord ID: take the ID, right-shift by 22 bits to get the timestamp, then add Discord's epoch (1420070400000, January 1, 2015). This tool does this automatically. just paste any Discord ID and select 'Discord' as the platform."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I do a Discord message ID lookup?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Enable Developer Mode in Discord (Settings > Advanced), right-click a message and choose 'Copy Message ID', then paste it into this tool with Discord selected. A Discord message ID is a Snowflake, so the tool converts it to a timestamp and shows the exact date and time the message was sent."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I decode a LinkedIn activity ID?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Take the numeric activity ID from a LinkedIn URN (for example urn:li:activity:7024360000000000000), paste it into this tool, and select LinkedIn. LinkedIn stores a millisecond Unix timestamp in the top 41 bits of the ID, so the tool reveals when the post was published."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Twitter epoch 1288834974657?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "1288834974657 is Twitter/X's Snowflake epoch: November 4, 2010, 01:42:54.657 UTC. To convert a Twitter/X snowflake ID to a timestamp, right-shift the ID by 22 bits and add 1288834974657. This tool applies that epoch automatically when Twitter/X is selected."
       }
     },
     {
@@ -274,11 +248,11 @@ css:
         <i class="fas fa-snowflake"></i>
         Twitter & Discord Snowflake ID Decoder
       </h1>
-      <p class="tool-subtitle">Decode Discord, Twitter, Instagram & LinkedIn Snowflake IDs to date and timestamp</p>
+      <p class="tool-subtitle">Decode Discord, Twitter & Instagram Snowflake IDs to date and timestamp</p>
     </header>
   
   <p class="tool-intro">
-    Use this <strong>online</strong> tool to decode <strong>Discord IDs</strong>, <strong>Twitter IDs</strong>, <strong>Instagram IDs</strong>, and <strong>LinkedIn activity IDs</strong> and get the <strong>date</strong> and timestamp. Snowflake IDs contain embedded timestamps—this tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
+    Use this <strong>online</strong> tool to decode <strong>Discord IDs</strong>, <strong>Twitter IDs</strong>, and <strong>Instagram IDs</strong> and get the <strong>date</strong> and timestamp. Snowflake IDs contain embedded timestamps—this tool extracts them instantly. <a href="/snowflake-id-guide/" class="learn-link">Learn how Snowflake IDs work →</a>
   </p>
 
     {% include ads/tool-banner.html %}
@@ -328,10 +302,6 @@ css:
             <button class="platform-btn" data-platform="instagram" data-epoch="0">
               <i class="fab fa-instagram"></i>
               Instagram
-            </button>
-            <button class="platform-btn" data-platform="linkedin" data-epoch="0">
-              <i class="fab fa-linkedin"></i>
-              LinkedIn
             </button>
             <button class="platform-btn" data-platform="custom" data-epoch="0">
               <i class="fas fa-cog"></i>
@@ -467,11 +437,6 @@ css:
           <span class="example-desc">Post ID (2020)</span>
           <code>6667327224000000123</code>
         </button>
-        <button class="example-btn" data-id="7024360000000000000" data-platform="linkedin">
-          <span class="example-platform"><i class="fab fa-linkedin"></i> LinkedIn</span>
-          <span class="example-desc">Activity ID (2023)</span>
-          <code>7024360000000000000</code>
-        </button>
       </div>
     </section>
 
@@ -580,11 +545,6 @@ css:
               <td><code>0</code></td>
               <td>Unix epoch (custom sharding)</td>
             </tr>
-            <tr>
-              <td><i class="fab fa-linkedin"></i> LinkedIn</td>
-              <td><code>0</code></td>
-              <td>Unix epoch (timestamp in top 41 bits)</td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -609,26 +569,6 @@ css:
             <li><strong>Convert to date:</strong> The result is Unix milliseconds</li>
           </ul>
           <p>Or just paste the ID above and let this tool do it for you!</p>
-        </article>
-
-        <article class="guide-article">
-          <h2>Discord Message ID Lookup</h2>
-          <p>A <strong>Discord message ID lookup</strong> works because every message ID is a Snowflake with the send time baked in. Enable Developer Mode in Discord (Settings &rarr; Advanced), right-click any message and choose <em>Copy Message ID</em>, then paste it above with <strong>Discord</strong> selected. The tool converts the Discord snowflake to a timestamp instantly, so you can see the exact date and time a message was posted, no bot required.</p>
-        </article>
-
-        <article class="guide-article">
-          <h2>When Was a Discord Account Created?</h2>
-          <p>To find out <strong>when a Discord account was created</strong>, copy the user ID (Copy User ID) and paste it above. Because a Discord user ID is a Snowflake, its top bits encode the account's creation timestamp. The same trick reveals when a server, channel, or role was made. This is the fastest way to check a Discord snowflake ID's creation date without any third-party service.</p>
-        </article>
-
-        <article class="guide-article">
-          <h2>Decode a LinkedIn Activity ID</h2>
-          <p>LinkedIn post and comment URNs (for example <code>urn:li:activity:7024360000000000000</code>) are Snowflake-style IDs. The top 41 bits hold a millisecond timestamp measured from the <strong>Unix epoch</strong> (epoch 0), not a custom platform epoch. Paste the numeric activity ID above with <strong>LinkedIn</strong> selected to decode a LinkedIn activity ID timestamp and see exactly when the post was published.</p>
-        </article>
-
-        <article class="guide-article epoch-callout">
-          <h2>Twitter/X Snowflake Epoch Reference</h2>
-          <p>The official <strong>Twitter/X Snowflake epoch is <code>1288834974657</code></strong> (November 4, 2010, 01:42:54.657 UTC). Every Twitter/X snowflake ID timestamp is measured in milliseconds from this epoch: shift the ID right by 22 bits and add <code>1288834974657</code> to get the Unix timestamp. Discord instead uses <code>1420070400000</code>, while Instagram and LinkedIn measure from the Unix epoch (<code>0</code>).</p>
         </article>
 
         <article class="guide-article">
@@ -723,21 +663,6 @@ css:
       <div class="faq-item">
         <h3>How do I decode a Discord ID to timestamp?</h3>
         <p>Paste the Discord ID into this tool and select "Discord" as the platform. The tool extracts the timestamp by right-shifting the ID by 22 bits and adding Discord's epoch (January 1, 2015). You'll see the exact creation date and time.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I do a Discord message ID lookup?</h3>
-        <p>Enable Developer Mode in Discord, right-click a message and choose "Copy Message ID", then paste it above with Discord selected. A Discord message ID is a Snowflake, so this tool converts it to a timestamp and shows the exact date and time the message was sent.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I decode a LinkedIn activity ID?</h3>
-        <p>Take the numeric activity ID from a LinkedIn URN (e.g. <code>urn:li:activity:7024360000000000000</code>), paste it above, and select LinkedIn. LinkedIn stores a millisecond Unix timestamp in the top 41 bits of the ID, so the tool reveals when the post was published.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What is the Twitter epoch 1288834974657?</h3>
-        <p><code>1288834974657</code> is Twitter/X's Snowflake epoch: November 4, 2010, 01:42:54.657 UTC. To convert a Twitter/X snowflake ID to a timestamp, right-shift the ID by 22 bits and add <code>1288834974657</code>. This tool applies that epoch automatically when Twitter/X is selected.</p>
       </div>
 
       <div class="faq-item">

@@ -74,7 +74,7 @@ sitemap: true
 <div class="privacy-page" markdown="1">
 
 <div class="privacy-updated">
-  <i class="fas fa-calendar-alt"></i> Last updated: March 19, 2026
+  <i class="fas fa-calendar-alt"></i> Last updated: July 9, 2026
 </div>
 
 This privacy policy explains how **singhajit.com** ("this site", "we") collects, uses, and protects information when you visit. This site is a personal technical blog and does not sell products or services. Your privacy matters and this policy is written in plain language so you know exactly what happens when you visit.
@@ -117,7 +117,7 @@ You can opt out of Google Analytics by installing the [Google Analytics Opt-out 
 
 ### Google AdSense
 
-This site displays advertisements through Google AdSense to support free content. Google AdSense may use cookies to serve ads based on your prior visits to this site or other sites. Google's use of advertising cookies enables it and its partners to serve ads based on your browsing patterns.
+This site displays advertisements through Google AdSense to support free content. Google AdSense may use cookies to serve ads based on your prior visits to this site or other sites. Google's use of advertising cookies enables it and its partners to serve ads based on your browsing patterns. To ensure you see high-quality ads rather than irrelevant spam, and to protect our site against malicious automated bots, our ad partners also utilize technical data signals like IP address. This helps verified buyers confirm that a real person is viewing the page.
 
 You can opt out of personalized advertising by visiting [Google Ads Settings](https://adssettings.google.com/) or [aboutads.info](http://www.aboutads.info/choices/).
 

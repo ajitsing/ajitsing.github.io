@@ -3,6 +3,8 @@ name: Jekyll site deploy
 on:
   push:
     branches: ["master"]
+  schedule:
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:
@@ -43,6 +45,11 @@ jobs:
         run: |
           echo "adunblock_code: \"$ADUNBLOCK_CODE\"" >> _config.yml
           echo "adunblock_script_url: \"$ADUNBLOCK_SCRIPT_URL\"" >> _config.yml
+
+      - name: Fetch top-viewed posts (GoatCounter)
+        env:
+          GOAT_COUNTER: ${{ secrets.GOAT_COUNTER }}
+        run: bash scripts/fetch-top-viewed.sh
 
       - name: Build with Jekyll
         run: bundle exec jekyll build

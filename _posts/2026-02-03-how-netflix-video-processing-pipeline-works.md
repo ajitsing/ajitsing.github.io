@@ -12,7 +12,6 @@ keywords: "Netflix video encoding, video processing pipeline, Netflix architectu
 comments: true
 seo: true
 social-share: true
-popular: true
 tags: [system-design, distributed-systems]
 
 quick-answer: "Netflix processes videos through a three-stage microservices pipeline: **Ingest** (receive and validate source files), **Processing** (split into chunks, encode in parallel across hundreds of EC2 instances using VMAF quality metrics), and **Distribution** (deliver via Open Connect CDN). Each title gets a custom encoding ladder optimized for its content complexity."

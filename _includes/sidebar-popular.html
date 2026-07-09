@@ -3,93 +3,54 @@
     Popular Posts
   </h3>
   <ul class="popular-posts-list">
+    {% assign popular_limit = 6 %}
     {% assign popular_count = 0 %}
+    {% assign popular_urls = "|" %}
+
     {% for post in site.posts %}
-      {% if post.popular and popular_count < 6 %}
-        <li class="popular-post-item">
-          <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
-            {% if post.thumbnail-img %}
-            {% assign thumb_ext = post.thumbnail-img | split: '.' | last %}
-            {% if thumb_ext == 'svg' %}
-              {% assign sidebar_thumb = post.thumbnail-img %}
-            {% elsif thumb_ext == 'png' %}
-              {% assign sidebar_thumb = post.thumbnail-img | replace: '.png', '-small.jpg' %}
-            {% else %}
-              {% assign thumb_len = post.thumbnail-img | size %}
-              {% assign ext_len = thumb_ext | size | plus: 1 %}
-              {% assign base_len = thumb_len | minus: ext_len %}
-              {% assign sidebar_thumb = post.thumbnail-img | slice: 0, base_len | append: '-small.jpg' %}
-            {% endif %}
-            <div class="popular-post-thumb">
-              <img src="{{ sidebar_thumb | relative_url }}" alt="{{ post.title }}" loading="lazy" width="56" height="56">
-            </div>
-            {% elsif post.share-img %}
-            <div class="popular-post-thumb">
-              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy" width="56" height="56">
-            </div>
-            {% else %}
-            <div class="popular-post-thumb popular-post-thumb-placeholder">
-              <i class="fas fa-file-alt"></i>
-            </div>
-            {% endif %}
-            <div class="popular-post-content">
-              <span class="popular-post-title">{{ post.title }}</span>
-              <span class="popular-post-meta">
-                <span class="popular-post-date">{{ post.date | date: "%b %Y" }}</span>
-                {% if post.tags.size > 0 %}
-                  <span class="popular-post-tag">{{ post.tags.first }}</span>
-                {% endif %}
-              </span>
-            </div>
-          </a>
-        </li>
+      {% if post.popular and popular_count < popular_limit %}
+        {% include popular-post-item.html post=post %}
+        {% assign popular_urls = popular_urls | append: post.url | append: "|" %}
         {% assign popular_count = popular_count | plus: 1 %}
       {% endif %}
     {% endfor %}
-    
-    {% comment %} Fallback: if no posts marked as popular, show recent posts {% endcomment %}
-    {% if popular_count == 0 %}
-      {% for post in site.posts limit: 6 %}
-        {% unless post.tags contains "dev-weekly" %}
-        <li class="popular-post-item">
-          <a href="{{ post.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ post.title | escape }}'});">
-            {% if post.thumbnail-img %}
-            {% assign thumb_ext = post.thumbnail-img | split: '.' | last %}
-            {% if thumb_ext == 'svg' %}
-              {% assign sidebar_thumb = post.thumbnail-img %}
-            {% elsif thumb_ext == 'png' %}
-              {% assign sidebar_thumb = post.thumbnail-img | replace: '.png', '-small.jpg' %}
-            {% else %}
-              {% assign thumb_len = post.thumbnail-img | size %}
-              {% assign ext_len = thumb_ext | size | plus: 1 %}
-              {% assign base_len = thumb_len | minus: ext_len %}
-              {% assign sidebar_thumb = post.thumbnail-img | slice: 0, base_len | append: '-small.jpg' %}
-            {% endif %}
-            <div class="popular-post-thumb">
-              <img src="{{ sidebar_thumb | relative_url }}" alt="{{ post.title }}" loading="lazy" width="56" height="56">
-            </div>
-            {% elsif post.share-img %}
-            <div class="popular-post-thumb">
-              <img src="{{ post.share-img | relative_url }}" alt="{{ post.title }}" loading="lazy" width="56" height="56">
-            </div>
-            {% else %}
-            <div class="popular-post-thumb popular-post-thumb-placeholder">
-              <i class="fas fa-file-alt"></i>
-            </div>
-            {% endif %}
-            <div class="popular-post-content">
-              <span class="popular-post-title">{{ post.title }}</span>
-              <span class="popular-post-meta">
-                <span class="popular-post-date">{{ post.date | date: "%b %Y" }}</span>
-                {% if post.tags.size > 0 %}
-                  <span class="popular-post-tag">{{ post.tags.first }}</span>
+
+    {% if popular_count < popular_limit and site.data.top_viewed.posts %}
+      {% for entry in site.data.top_viewed.posts %}
+        {% if popular_count < popular_limit %}
+          {% assign gc_path = entry.path | strip %}
+          {% if gc_path != "" and gc_path != "/" %}
+            {% assign gc_alt = gc_path | append: "/" %}
+            {% assign found = false %}
+            {% for cand in site.posts %}
+              {% unless found %}
+                {% if cand.url == gc_path or cand.url == gc_alt %}
+                  {% assign url_token = cand.url | prepend: "|" | append: "|" %}
+                  {% unless popular_urls contains url_token %}
+                    {% include popular-post-item.html post=cand %}
+                    {% assign popular_urls = popular_urls | append: cand.url | append: "|" %}
+                    {% assign popular_count = popular_count | plus: 1 %}
+                  {% endunless %}
+                  {% assign found = true %}
                 {% endif %}
-              </span>
-            </div>
-          </a>
-        </li>
-        {% endunless %}
+              {% endunless %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if popular_count == 0 %}
+      {% assign fallback_count = 0 %}
+      {% for post in site.posts %}
+        {% if fallback_count < popular_limit %}
+          {% unless post.tags contains "dev-weekly" %}
+            {% include popular-post-item.html post=post %}
+            {% assign fallback_count = fallback_count | plus: 1 %}
+          {% endunless %}
+        {% endif %}
       {% endfor %}
     {% endif %}
   </ul>
+  <script defer src="{{ '/assets/js/popular-views.js' | relative_url }}"></script>
 </aside>

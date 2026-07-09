@@ -13,7 +13,6 @@ keywords: "snowflake id, snowflake ids, discord snowflake id length, twitter sno
 seo: true
 social-share: true
 comments: true
-popular: true
 
 quick-answer: "Snowflake IDs are 64-bit unique identifiers: **41-bit timestamp** + **10-bit machine ID** + **12-bit sequence**. Each server generates IDs independently without coordination. IDs are time-sortable, smaller than UUIDs (64 vs 128 bits), and efficient as database primary keys. Extract timestamp by right-shifting 22 bits and adding epoch."
 

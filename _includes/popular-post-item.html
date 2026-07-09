@@ -1,0 +1,39 @@
+{% assign p = include.post %}
+<li class="popular-post-item">
+  <a href="{{ p.url | relative_url }}" class="popular-post-link" onclick="gtag('event', 'click', {'event_category': 'Sidebar', 'event_label': '{{ p.title | escape }}'});">
+    {% if p.thumbnail-img %}
+    {% assign thumb_ext = p.thumbnail-img | split: '.' | last %}
+    {% if thumb_ext == 'svg' %}
+      {% assign sidebar_thumb = p.thumbnail-img %}
+    {% elsif thumb_ext == 'png' %}
+      {% assign sidebar_thumb = p.thumbnail-img | replace: '.png', '-small.jpg' %}
+    {% else %}
+      {% assign thumb_len = p.thumbnail-img | size %}
+      {% assign ext_len = thumb_ext | size | plus: 1 %}
+      {% assign base_len = thumb_len | minus: ext_len %}
+      {% assign sidebar_thumb = p.thumbnail-img | slice: 0, base_len | append: '-small.jpg' %}
+    {% endif %}
+    <div class="popular-post-thumb">
+      <img src="{{ sidebar_thumb | relative_url }}" alt="{{ p.title }}" loading="lazy" width="56" height="56">
+    </div>
+    {% elsif p.share-img %}
+    <div class="popular-post-thumb">
+      <img src="{{ p.share-img | relative_url }}" alt="{{ p.title }}" loading="lazy" width="56" height="56">
+    </div>
+    {% else %}
+    <div class="popular-post-thumb popular-post-thumb-placeholder">
+      <i class="fas fa-file-alt"></i>
+    </div>
+    {% endif %}
+    <div class="popular-post-content">
+      <span class="popular-post-title">{{ p.title }}</span>
+      <span class="popular-post-meta">
+        <span class="popular-post-date">{{ p.date | date: "%b %Y" }}</span>
+        {% if p.tags.size > 0 %}
+          <span class="popular-post-tag">{{ p.tags.first }}</span>
+        {% endif %}
+        <span class="popular-post-views" data-gc-path="{{ p.url }}" hidden></span>
+      </span>
+    </div>
+  </a>
+</li>

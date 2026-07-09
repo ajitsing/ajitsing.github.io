@@ -15,6 +15,7 @@
     discord: 1420070400000n,
     twitter: 1288834974657n,
     instagram: 0n,
+    linkedin: 0n,
     custom: 0n
   };
 

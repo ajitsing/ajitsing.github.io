@@ -20,7 +20,7 @@ ulid-generator:
   link: "/tools/ulid-generator/"
 snowflake-decoder:
   title: "Snowflake ID Decoder"
-  description: "Decode Twitter, Discord, and Instagram Snowflake IDs into timestamps and components."
+  description: "Decode Twitter, Discord, Instagram, and LinkedIn Snowflake IDs into timestamps and components."
   link: "/tools/snowflake-decoder/"
 epoch-converter:
   title: "Epoch Timestamp Converter"

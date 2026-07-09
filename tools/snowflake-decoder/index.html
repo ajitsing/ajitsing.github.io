@@ -303,6 +303,10 @@ css:
               <i class="fab fa-instagram"></i>
               Instagram
             </button>
+            <button class="platform-btn" data-platform="linkedin" data-epoch="0">
+              <i class="fab fa-linkedin"></i>
+              LinkedIn
+            </button>
             <button class="platform-btn" data-platform="custom" data-epoch="0">
               <i class="fas fa-cog"></i>
               Custom
@@ -437,6 +441,11 @@ css:
           <span class="example-desc">Post ID (2020)</span>
           <code>6667327224000000123</code>
         </button>
+        <button class="example-btn" data-id="7024360000000000000" data-platform="linkedin">
+          <span class="example-platform"><i class="fab fa-linkedin"></i> LinkedIn</span>
+          <span class="example-desc">Activity ID (2023)</span>
+          <code>7024360000000000000</code>
+        </button>
       </div>
     </section>
 
@@ -544,6 +553,11 @@ css:
               <td><i class="fab fa-instagram"></i> Instagram</td>
               <td><code>0</code></td>
               <td>Unix epoch (custom sharding)</td>
+            </tr>
+            <tr>
+              <td><i class="fab fa-linkedin"></i> LinkedIn</td>
+              <td><code>0</code></td>
+              <td>Unix epoch (timestamp in top 41 bits)</td>
             </tr>
           </tbody>
         </table>
@@ -663,6 +677,11 @@ css:
       <div class="faq-item">
         <h3>How do I decode a Discord ID to timestamp?</h3>
         <p>Paste the Discord ID into this tool and select "Discord" as the platform. The tool extracts the timestamp by right-shifting the ID by 22 bits and adding Discord's epoch (January 1, 2015). You'll see the exact creation date and time.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I decode a LinkedIn activity ID?</h3>
+        <p>Take the numeric activity ID from a LinkedIn URN (e.g. <code>7024360000000000000</code>), paste it above, and select LinkedIn. LinkedIn stores a millisecond Unix timestamp in the top 41 bits of the ID, so the tool reveals when the post was published.</p>
       </div>
 
       <div class="faq-item">

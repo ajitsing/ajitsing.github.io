@@ -23,4 +23,5 @@ related_terms: ["thundering-herd", "circuit-breaker", "caching", "message-queue"
 related_posts:
   - "/dynamic-rate-limiter-system-design/"
   - "/thundering-herd-problem/"
+  - "/multi-tenant-database-isolation/"
 ---

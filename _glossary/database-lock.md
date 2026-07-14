@@ -19,8 +19,9 @@ real_world:
   - "SELECT ... FOR UPDATE is the standard way to lock rows for inventory and payment flows."
   - "SELECT ... FOR UPDATE SKIP LOCKED turns a plain table into a simple job queue."
   - "PostgreSQL and MySQL InnoDB both combine MVCC for reads with row locks for writes."
-related_terms: ["mvcc", "acid", "two-phase-commit", "autovacuum"]
+related_terms: ["mvcc", "acid", "two-phase-commit", "autovacuum", "row-level-security"]
 related_posts:
   - "/database-locks-explained/"
   - "/postgresql-mvcc-autovacuum/"
+  - "/multi-tenant-database-isolation/"
 ---

@@ -22,4 +22,5 @@ real_world:
 related_terms: ["cqrs", "message-queue", "saga-pattern"]
 related_posts:
   - "/modular-monolith-architecture/"
+  - "/multi-tenant-database-isolation/"
 ---

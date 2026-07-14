@@ -19,9 +19,10 @@ real_world:
   - "PostgreSQL supports B-tree, hash, GIN, GiST, BRIN, partial, and covering (INCLUDE) indexes."
   - "MySQL InnoDB always makes the primary key the clustered index, with secondary indexes pointing back to it."
   - "Covering indexes answer a query entirely from the index, skipping the table lookup."
-related_terms: ["lsm-tree", "query-planner", "write-ahead-log", "sharding"]
+related_terms: ["lsm-tree", "query-planner", "write-ahead-log", "sharding", "row-level-security"]
 related_posts:
   - "/database-indexing-explained/"
   - "/how-databases-store-data-internally/"
   - "/postgresql-internals-how-queries-execute/"
+  - "/multi-tenant-database-isolation/"
 ---

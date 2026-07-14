@@ -778,7 +778,7 @@ You might be surprised by the silence.
 
 ---
 
-*Building a system that needs to scale? Check out [How Shopify Powers 5 Million Stores](/shopify-system-design/) for a deep dive into their modular monolith, and [How Kafka Works](/distributed-systems/how-kafka-works/) when you need event-driven communication between modules.*
+*Building a system that needs to scale? Check out [How Shopify Powers 5 Million Stores](/shopify-system-design/) for a deep dive into their modular monolith, [Designing Database Isolation for B2B Multi-Tenant SaaS](/multi-tenant-database-isolation/) when many customers share one database, and [How Kafka Works](/distributed-systems/how-kafka-works/) when you need event-driven communication between modules.*
 
 *References: [Martin Fowler on Monolith First](https://martinfowler.com/bliki/MonolithFirst.html), [Sam Newman on Distributed Monoliths](https://samnewman.io/blog/2015/04/07/microservices-for-greenfield/), [Shopify Engineering Blog](https://shopify.engineering/), [Kamil Grzybek - Modular Monolith Primer](https://www.kamilgrzybek.com/design/modular-monolith-primer/)*
 

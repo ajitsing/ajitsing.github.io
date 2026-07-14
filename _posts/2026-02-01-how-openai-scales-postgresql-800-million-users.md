@@ -831,6 +831,7 @@ flowchart LR
 - [PostgreSQL vs MongoDB vs DynamoDB: Which Should You Use in 2026?](/postgresql-vs-mongodb-vs-dynamodb/) - Choosing the right database for your project
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Essential psql commands, queries, and performance tuning
 - [How Database Indexing Works](/database-indexing-explained/) - Deep dive into B-trees and index optimization
+- [Designing Database Isolation for B2B Multi-Tenant SaaS](/multi-tenant-database-isolation/) - Shared schema, RLS, and when to graduate tenants to dedicated databases
 - [B-Tree Data Structure](/data-structures/b-tree/) - The data structure behind PostgreSQL indexes
 - [Caching Strategies Explained](/caching-strategies-explained/) - When and how to add caching
 - [N+1 Query Problem](/explainer/n-plus-one-query-problem/) - Fix this common performance killer

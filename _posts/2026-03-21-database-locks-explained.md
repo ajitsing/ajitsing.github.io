@@ -1049,6 +1049,7 @@ This post covered how database locks work and how to use them effectively. Here 
 
 - [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/) - Where MVCC, snapshots, and `xmin` / `xmax` actually live
 - [How Database Indexing Works](/database-indexing-explained/) - Indexes determine how many rows your queries lock
+- [Designing Database Isolation for B2B Multi-Tenant SaaS](/multi-tenant-database-isolation/) - How shared-schema tenants create noisy-neighbor lock pressure
 - [How Databases Store Data Internally](/how-databases-store-data-internally/) - Pages, B-trees, and buffer pools that underpin locking
 - [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) - Monitoring queries, transactions, and lock debugging
 - [MongoDB Cheat Sheet](/mongodb-cheat-sheet/) - MongoDB uses document-level locking with a different concurrency model

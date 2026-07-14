@@ -9,9 +9,11 @@
 
     {% for post in site.posts %}
       {% if post.popular and popular_count < popular_limit %}
-        {% include popular-post-item.html post=post %}
-        {% assign popular_urls = popular_urls | append: post.url | append: "|" %}
-        {% assign popular_count = popular_count | plus: 1 %}
+        {% unless post.tags contains "dev-weekly" %}
+          {% include popular-post-item.html post=post %}
+          {% assign popular_urls = popular_urls | append: post.url | append: "|" %}
+          {% assign popular_count = popular_count | plus: 1 %}
+        {% endunless %}
       {% endif %}
     {% endfor %}
 
@@ -25,11 +27,13 @@
             {% for cand in site.posts %}
               {% unless found %}
                 {% if cand.url == gc_path or cand.url == gc_alt %}
-                  {% assign url_token = cand.url | prepend: "|" | append: "|" %}
-                  {% unless popular_urls contains url_token %}
-                    {% include popular-post-item.html post=cand %}
-                    {% assign popular_urls = popular_urls | append: cand.url | append: "|" %}
-                    {% assign popular_count = popular_count | plus: 1 %}
+                  {% unless cand.tags contains "dev-weekly" %}
+                    {% assign url_token = cand.url | prepend: "|" | append: "|" %}
+                    {% unless popular_urls contains url_token %}
+                      {% include popular-post-item.html post=cand %}
+                      {% assign popular_urls = popular_urls | append: cand.url | append: "|" %}
+                      {% assign popular_count = popular_count | plus: 1 %}
+                    {% endunless %}
                   {% endunless %}
                   {% assign found = true %}
                 {% endif %}
@@ -40,13 +44,16 @@
       {% endfor %}
     {% endif %}
 
-    {% if popular_count == 0 %}
-      {% assign fallback_count = 0 %}
+    {% if popular_count < popular_limit %}
       {% for post in site.posts %}
-        {% if fallback_count < popular_limit %}
+        {% if popular_count < popular_limit %}
           {% unless post.tags contains "dev-weekly" %}
-            {% include popular-post-item.html post=post %}
-            {% assign fallback_count = fallback_count | plus: 1 %}
+            {% assign url_token = post.url | prepend: "|" | append: "|" %}
+            {% unless popular_urls contains url_token %}
+              {% include popular-post-item.html post=post %}
+              {% assign popular_urls = popular_urls | append: post.url | append: "|" %}
+              {% assign popular_count = popular_count | plus: 1 %}
+            {% endunless %}
           {% endunless %}
         {% endif %}
       {% endfor %}

@@ -34,7 +34,7 @@ fi
 END=$(date -u +%Y-%m-%dT23:59:59Z)
 UPDATED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
-EXCLUDE_RE='^/$|^/tools(/|$)|^/glossary(/|$)|^/explainer(/|$)|^/archive(/|$)|^/privacy|^/tags(/|$)|^/assets/|^/feed|^/search|^/css/|^/js/|^/img/|^/fonts/'
+EXCLUDE_RE='^/$|^/tools(/|$)|^/glossary(/|$)|^/explainer(/|$)|^/archive(/|$)|^/privacy|^/tags(/|$)|^/assets/|^/feed|^/search|^/css/|^/js/|^/img/|^/fonts/|^/dev-weekly'
 
 TMP_ALL=$(mktemp)
 TMP_KEPT=$(mktemp)

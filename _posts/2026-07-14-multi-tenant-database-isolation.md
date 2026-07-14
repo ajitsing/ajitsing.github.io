@@ -71,7 +71,7 @@ Your first enterprise prospect asks a simple question on the security call: "Can
 
 This post walks through the three classic isolation models, when each one fits, how **PostgreSQL [Row Level Security (RLS)](/glossary/row-level-security/)**{:target="_blank" rel="noopener"} fits into a shared schema design, and the operational details that actually stop leaks: tenant context, indexes, connection pools, noisy neighbors, and a hybrid graduation path. If you need a Postgres command reference while you read, keep the [PostgreSQL cheat sheet](/postgresql-cheat-sheet/){:target="_blank" rel="noopener"} open.
 
-{% include glossary-callout.html terms="row-level-security,database-index,database-lock,sharding,rate-limiting,modular-monolith,acid" %}
+{% include glossary-callout.html terms="row-level-security,database-index,database-lock,sharding,modular-monolith" %}
 
 ## <i class="fas fa-building"></i> What B2B Multi-Tenancy Really Means
 

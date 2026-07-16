@@ -1,0 +1,41 @@
+{% comment %}
+Minimal in-article subscribe banner. Designed to fit exactly within the
+reserved in-article ad slot height (no CLS) and to blend with the article
+content. Pass defer-src=true to hold the iframe until it is revealed.
+{% endcomment %}
+{% assign inline_sub_label = include.label | default: "In-article Fallback" %}
+<div class="inline-sub">
+  <div class="inline-sub__main">
+    <span class="inline-sub__badge" aria-hidden="true"><i class="fas fa-paper-plane"></i></span>
+    <div class="inline-sub__copy">
+      <span class="inline-sub__eyebrow">The Newsletter</span>
+      <h3 class="inline-sub__title">Never miss a post</h3>
+      <p class="inline-sub__pitch">New posts and the Dev Weekly roundup, straight to your inbox. Always free, no spam.</p>
+    </div>
+  </div>
+  <div class="inline-sub__form">
+    <iframe {% if include.defer-src %}data-src{% else %}src{% endif %}="{{ site.substack-url }}/embed"
+            title="Subscribe to {{ site.author }} on Substack"
+            loading="eager"
+            scrolling="no"></iframe>
+  </div>
+  <script>
+    (function() {
+      var root = document.currentScript.closest('.inline-sub');
+      if (!root) return;
+      var iframe = root.querySelector('iframe');
+      if (!iframe) return;
+      var fired = false;
+      var label = {{ inline_sub_label | jsonify }};
+      window.addEventListener('blur', function() {
+        setTimeout(function() {
+          if (fired || document.activeElement !== iframe) return;
+          fired = true;
+          if (typeof gtag === 'function') {
+            gtag('event', 'subscribe_interaction', {'event_category': 'Substack Subscribe', 'event_label': label});
+          }
+        }, 0);
+      });
+    })();
+  </script>
+</div>

@@ -2,20 +2,30 @@
 <style>
   .hero-banner {
     display: none;
+    position: relative;
     width: 100%;
     margin-top: 72px;
     padding: 42px 0 18px;
     border-bottom: 1px solid #e2e8f0;
     background-color: #eef2f7;
-    background-image:
-      url('{{ "/assets/img/hero-network-bg.svg" | relative_url }}'),
-      linear-gradient(135deg, #f8fafc 0%, #eef2f7 55%, #e7ecf3 100%);
-    background-repeat: no-repeat, no-repeat;
-    background-position: center center, center center;
-    background-size: cover, cover;
+    background-image: linear-gradient(135deg, #f8fafc 0%, #eef2f7 55%, #e7ecf3 100%);
+    overflow: hidden;
     contain: layout;
   }
+  /* Real <img> (not CSS background) so LCP can get fetchpriority=high. */
+  .hero-banner__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    z-index: 0;
+  }
   .hero-banner__inner {
+    position: relative;
+    z-index: 1;
     width: 970px;
     margin: 0 auto;
   }
@@ -55,6 +65,14 @@
   }
 </style>
 <aside class="hero-banner" aria-label="Sponsored placement">
+  <img class="hero-banner__bg"
+       src="{{ '/assets/img/hero-network-bg.svg' | relative_url }}"
+       alt=""
+       width="1200"
+       height="360"
+       decoding="async"
+       fetchpriority="high"
+       aria-hidden="true">
   <div class="hero-banner__inner">
     <div class="hero-banner__card">
       <ins class="adsbygoogle hero-banner__unit"

@@ -14,12 +14,12 @@
         {% if alert_ext == 'svg' %}
           {% assign alert_thumb = latest_post.thumbnail-img %}
         {% elsif alert_ext == 'png' %}
-          {% assign alert_thumb = latest_post.thumbnail-img | replace: '.png', '-small.jpg' %}
+          {% assign alert_thumb = latest_post.thumbnail-img | replace: '.png', '-small.webp' %}
         {% else %}
           {% assign alert_len = latest_post.thumbnail-img | size %}
           {% assign alert_ext_len = alert_ext | size | plus: 1 %}
           {% assign alert_base_len = alert_len | minus: alert_ext_len %}
-          {% assign alert_thumb = latest_post.thumbnail-img | slice: 0, alert_base_len | append: '-small.jpg' %}
+          {% assign alert_thumb = latest_post.thumbnail-img | slice: 0, alert_base_len | append: '-small.webp' %}
         {% endif %}
         <img src="{{ alert_thumb | relative_url }}" alt="{{ latest_post.title }}" loading="lazy" width="72" height="48">
       {% else %}

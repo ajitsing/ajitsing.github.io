@@ -6,12 +6,12 @@
     {% if thumb_ext == 'svg' %}
       {% assign sidebar_thumb = p.thumbnail-img %}
     {% elsif thumb_ext == 'png' %}
-      {% assign sidebar_thumb = p.thumbnail-img | replace: '.png', '-small.jpg' %}
+      {% assign sidebar_thumb = p.thumbnail-img | replace: '.png', '-small.webp' %}
     {% else %}
       {% assign thumb_len = p.thumbnail-img | size %}
       {% assign ext_len = thumb_ext | size | plus: 1 %}
       {% assign base_len = thumb_len | minus: ext_len %}
-      {% assign sidebar_thumb = p.thumbnail-img | slice: 0, base_len | append: '-small.jpg' %}
+      {% assign sidebar_thumb = p.thumbnail-img | slice: 0, base_len | append: '-small.webp' %}
     {% endif %}
     <div class="popular-post-thumb">
       <img src="{{ sidebar_thumb | relative_url }}" alt="{{ p.title }}" loading="lazy" width="56" height="56">

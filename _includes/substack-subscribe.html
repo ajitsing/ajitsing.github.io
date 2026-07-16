@@ -18,29 +18,7 @@
       </div>
     </div>
     <div class="substack-banner-embed">
-      <iframe src="{{ site.substack-url }}/embed"
-              title="Subscribe to {{ site.author }} on Substack"
-              loading="lazy"
-              scrolling="no"></iframe>
+      {% include substack-embed.html label=substack_label %}
     </div>
   </div>
-  <script>
-    (function() {
-      var root = document.currentScript.closest('.substack-banner');
-      if (!root) return;
-      var iframe = root.querySelector('iframe');
-      if (!iframe) return;
-      var fired = false;
-      var label = {{ substack_label | jsonify }};
-      window.addEventListener('blur', function() {
-        setTimeout(function() {
-          if (fired || document.activeElement !== iframe) return;
-          fired = true;
-          if (typeof gtag === 'function') {
-            gtag('event', 'subscribe_interaction', {'event_category': 'Substack Subscribe', 'event_label': label});
-          }
-        }, 0);
-      });
-    })();
-  </script>
 </div>

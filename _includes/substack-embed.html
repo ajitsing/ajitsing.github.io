@@ -1,0 +1,127 @@
+{% comment %}
+Lazy Substack embed: button for immediate load, otherwise load when the
+block nears the viewport (avoids third-party cookies until then).
+{% endcomment %}
+{% assign embed_label = include.label | default: "Subscribe" %}
+<div class="substack-embed" data-substack-embed>
+  <button type="button" class="substack-embed__load">
+    <span class="substack-embed__load-icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+    <span class="substack-embed__load-text">Subscribe with email</span>
+  </button>
+  <iframe data-src="{{ site.substack-url }}/embed"
+          title="Subscribe to {{ site.author }} on Substack"
+          loading="lazy"
+          scrolling="no"
+          hidden></iframe>
+  <script>
+    (function() {
+      var root = document.currentScript.closest('[data-substack-embed]');
+      if (!root || root.__substackBound) return;
+      root.__substackBound = true;
+
+      var OBSERVER_MARGIN = '200px 0px';
+      var FALLBACK_DELAY_MS = 5000;
+      var btn = root.querySelector('.substack-embed__load');
+      var iframe = root.querySelector('iframe');
+      var label = {{ embed_label | jsonify }};
+      var io = null;
+      var mo = null;
+      var fallbackTimer = null;
+      if (!btn || !iframe) return;
+
+      function cleanup() {
+        if (io) {
+          io.disconnect();
+          io = null;
+        }
+        if (mo) {
+          mo.disconnect();
+          mo = null;
+        }
+        if (fallbackTimer) {
+          clearTimeout(fallbackTimer);
+          fallbackTimer = null;
+        }
+      }
+
+      // In-article ad fallback stays in the viewport while hidden; don't fetch yet.
+      function isEligible() {
+        if (root.closest('[aria-hidden="true"]')) return false;
+        var shell = root.closest('.post-mid-ad__substack');
+        if (!shell) return true;
+        var wrap = shell.parentElement;
+        return !!(wrap && wrap.classList.contains('post-mid-ad--substack'));
+      }
+
+      function nearViewport() {
+        var rect = root.getBoundingClientRect();
+        var margin = 200;
+        return rect.bottom >= -margin && rect.top <= (window.innerHeight || 0) + margin;
+      }
+
+      function activate(fromClick) {
+        if (iframe.src) return;
+        if (!fromClick && !isEligible()) return;
+
+        var src = iframe.getAttribute('data-src');
+        if (!src) return;
+
+        cleanup();
+
+        iframe.src = src;
+        iframe.removeAttribute('data-src');
+        iframe.hidden = false;
+        btn.hidden = true;
+        root.classList.add('substack-embed--active');
+
+        if (fromClick && typeof gtag === 'function') {
+          gtag('event', 'subscribe_interaction', {
+            'event_category': 'Substack Subscribe',
+            'event_label': label
+          });
+        }
+      }
+
+      function tryAutoLoad() {
+        if (!isEligible()) return;
+        if (nearViewport()) activate(false);
+      }
+
+      btn.addEventListener('click', function() {
+        activate(true);
+      });
+
+      if ('IntersectionObserver' in window) {
+        io = new IntersectionObserver(function(entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              tryAutoLoad();
+              return;
+            }
+          }
+        }, { rootMargin: OBSERVER_MARGIN });
+        io.observe(root);
+
+        var shell = root.closest('.post-mid-ad__substack');
+        if (shell && shell.parentElement) {
+          mo = new MutationObserver(function() {
+            tryAutoLoad();
+          });
+          mo.observe(shell.parentElement, { attributes: true, attributeFilter: ['class'] });
+          mo.observe(shell, { attributes: true, attributeFilter: ['aria-hidden'] });
+        }
+      } else {
+        function scheduleFallback() {
+          fallbackTimer = setTimeout(function() {
+            tryAutoLoad();
+          }, FALLBACK_DELAY_MS);
+        }
+        if (document.readyState === 'complete') {
+          scheduleFallback();
+        } else {
+          window.addEventListener('load', scheduleFallback);
+        }
+      }
+    })();
+  </script>
+</div>

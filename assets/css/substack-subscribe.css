@@ -86,6 +86,59 @@
   background: #ffffff;
 }
 
+/* Click-to-load Substack facade (avoids third-party cookies until intent) */
+.substack-embed {
+  width: 100%;
+}
+
+.substack-embed__load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 52px;
+  padding: 0.85rem 1.25rem;
+  border: none;
+  border-radius: 10px;
+  background: #0085A1;
+  color: #ffffff;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.substack-embed__load:hover,
+.substack-embed__load:focus-visible {
+  background: #006d85;
+  outline: none;
+}
+
+.substack-embed__load:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 133, 161, 0.35);
+}
+
+.substack-embed__load-icon {
+  display: inline-flex;
+  font-size: 0.95rem;
+}
+
+.substack-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  border: 0;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.substack-embed iframe[hidden] {
+  display: none;
+}
+
 /* ============================================================
    Email banner (replaces the old RSS banner)
    Reuses the dark shell look from rss-banner.css
@@ -217,6 +270,16 @@
   border: 0;
   border-radius: 12px;
   background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.substack-banner-embed .substack-embed__load {
+  min-height: 56px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.substack-banner-embed .substack-embed--active iframe {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 

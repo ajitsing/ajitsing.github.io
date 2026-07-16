@@ -136,6 +136,17 @@
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.10);
 }
 
+.inline-sub__form .substack-embed__load {
+  min-height: 52px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.10);
+}
+
+.inline-sub__form .substack-embed iframe {
+  height: 150px;
+  min-height: 150px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.10);
+}
+
 @media (max-width: 768px) {
   .inline-sub {
     height: 250px;

@@ -131,6 +131,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var APPLAUSE_CSS = 'https://unpkg.com/applause-button/dist/applause-button.css';
   var APPLAUSE_JS = 'https://unpkg.com/applause-button/dist/applause-button.js';
   var OBSERVER_MARGIN = '200px 0px';
+  // Match prior show band: article overlaps ~30%–60% of the viewport.
+  var VISIBILITY_ROOT_MARGIN = '-30% 0px -40% 0px';
   var visible = false;
   var applauseLoading = false;
 
@@ -204,42 +206,33 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(s);
   }
 
-  function update() {
-    var rect = article.getBoundingClientRect();
-    var show = rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.3;
-
-    if (show !== visible) {
-      visible = show;
-      toolbar.classList.toggle('visible', show);
-    }
+  function setToolbarVisible(show) {
+    if (show === visible) return;
+    visible = show;
+    toolbar.classList.toggle('visible', show);
   }
 
-  var ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() {
-        update();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
+  if ('IntersectionObserver' in window) {
+    var visibilityIo = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        setToolbarVisible(entries[i].isIntersecting);
+      }
+    }, { rootMargin: VISIBILITY_ROOT_MARGIN, threshold: 0 });
+    visibilityIo.observe(article);
 
-  if (!('IntersectionObserver' in window)) {
-    loadApplause();
-  } else {
-    var io = new IntersectionObserver(function(entries) {
+    var loadIo = new IntersectionObserver(function(entries) {
       for (var i = 0; i < entries.length; i++) {
         if (entries[i].isIntersecting) {
-          io.disconnect();
+          loadIo.disconnect();
           loadApplause();
           return;
         }
       }
     }, { rootMargin: OBSERVER_MARGIN });
-    io.observe(article);
+    loadIo.observe(article);
+  } else {
+    loadApplause();
+    setToolbarVisible(true);
   }
-
-  update();
 });
 </script>

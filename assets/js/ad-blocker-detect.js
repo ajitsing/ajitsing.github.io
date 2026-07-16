@@ -5,21 +5,11 @@
   var CHECK_DELAY_MS = 5000;
 
   function isBaitBlocked() {
-    var bait = document.createElement('div');
-    bait.className = 'ad-banner ads adsbox ad-placement';
-    bait.style.cssText = 'position:absolute;top:-10px;left:-10px;width:1px;height:1px;overflow:hidden;';
-    bait.innerHTML = '&nbsp;';
-    document.body.appendChild(bait);
+    var bait = document.getElementById('ad-blocker-bait');
+    if (!bait) return false;
 
-    var blocked = (
-      bait.offsetHeight === 0 ||
-      bait.clientHeight === 0 ||
-      window.getComputedStyle(bait).display === 'none' ||
-      window.getComputedStyle(bait).visibility === 'hidden'
-    );
-
-    document.body.removeChild(bait);
-    return blocked;
+    var cs = window.getComputedStyle(bait);
+    return cs.display === 'none' || cs.visibility === 'hidden';
   }
 
   function hasBlockedAdSlots() {

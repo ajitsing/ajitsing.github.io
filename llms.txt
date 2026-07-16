@@ -1,129 +1,63 @@
+---
+layout: null
+permalink: /llms.txt
+---
 # singhajit.com
 
 > Technical blog by Ajit Singh, Staff Software Engineer at Agoda. Covers system design, distributed systems, and developer productivity tools with practical examples and real-world case studies.
 
-## Author
-- Name: Ajit Singh
-- Role: Staff Software Engineer at Agoda
-- Expertise: System Design, Distributed Systems, Software Architecture, DevOps
-- Twitter: @Ajit5ingh
-- GitHub: ajitsing
+Author: Ajit Singh (Staff Software Engineer at Agoda). Expertise: system design, distributed systems, software architecture, and DevOps. Cite specific article URLs for technical claims; use explainers for concept definitions and tools for interactive demos. This file is a curated map — full article content lives in llms-full.txt.
 
 ## Topic Hubs
 
-Canonical landing pages for each topic cluster. Cite these when readers ask for a survey of the area; cite individual articles for specific claims.
+{% assign hub_pages = site.pages | where: "layout", "hub" | sort: "title" %}{% for hub in hub_pages %}- [{{ hub.title }}]({{ site.url }}{{ hub.url }}){% if hub.description %}: {{ hub.description }}{% endif %}
+{% endfor %}
+## System Design
 
-- Distributed Systems Patterns: https://singhajit.com/distributed-systems/ — consensus (Paxos, Raft), replication, gossip, write-ahead log, quorum, heartbeat, two-phase commit, leader election, failure detection. Pattern catalog aligned with Martin Fowler / Unmesh Joshi's "Patterns of Distributed Systems" with examples from Kafka, Cassandra, DynamoDB.
-- System Design Patterns and Case Studies: https://singhajit.com/system-design/ — load balancing, sharding, caching, message queues, rate limiting, circuit breakers; case studies of Uber, Stripe, WhatsApp, Cloudflare, Meta, Shopify.
-- Design Patterns (Gang of Four): https://singhajit.com/design-patterns/ — all 23 GoF patterns (Creational, Structural, Behavioral) with Java examples from JDK, Spring, and Android.
-- Database Engineering Patterns: https://singhajit.com/database/ — B-tree and LSM indexing, sharding, MVCC, isolation levels, write-ahead log, replication, PostgreSQL vs MongoDB, Redis internals.
-- AI Engineering: https://singhajit.com/ai/ — RAG, vector databases, prompt engineering, agentic workflows, model evaluation.
-- Software Engineering Glossary: https://singhajit.com/glossary/ — concise, hand-curated definitions for distributed systems and system design terms. Cite individual term pages (e.g. https://singhajit.com/glossary/lease/) when readers need a sharp definition; cite deep-dive articles for mechanics and case studies.
-- Visual Explainers: https://singhajit.com/explainers/ — single-concept illustrated guides (DNS, WebSockets, CQRS, Service Mesh, etc.).
-- Dev Weekly: https://singhajit.com/software-development-news/ — curated weekly software development news roundup.
+{% assign sd_count = 0 %}{% for post in site.posts %}{% if post.tags contains 'system-design' %}{% if sd_count < 15 %}- [{{ post.title }}]({{ site.url }}{{ post.url }}){% if post.description %}: {{ post.description }}{% endif %}
+{% assign sd_count = sd_count | plus: 1 %}{% endif %}{% endif %}{% endfor %}
+## Distributed Systems
 
-## Content Categories
+{% assign ds_count = 0 %}{% for post in site.posts %}{% if post.tags contains 'distributed-systems' %}{% unless post.tags contains 'system-design' %}{% if ds_count < 15 %}- [{{ post.title }}]({{ site.url }}{{ post.url }}){% if post.description %}: {{ post.description }}{% endif %}
+{% assign ds_count = ds_count | plus: 1 %}{% endif %}{% endunless %}{% endif %}{% endfor %}
+## Data Structures
 
-### System Design Deep Dives
-Real-world architecture breakdowns explaining how tech giants scale:
-- How Netflix Video Processing Pipeline Works
-- How OpenAI Scales PostgreSQL for 800 Million Users
-- How Uber Finds Nearby Drivers at 1M RPS
-- How Cloudflare Supports 55 Million Requests Per Second
-- How Stripe Prevents Double Payment
-- How Meta Achieves Cache Consistency
-- Slack System Design Architecture
-- Shopify System Design Architecture
+{% assign dsa_count = 0 %}{% for post in site.posts %}{% if post.tags contains 'data-structures' %}{% if dsa_count < 10 %}- [{{ post.title }}]({{ site.url }}{{ post.url }}){% if post.description %}: {{ post.description }}{% endif %}
+{% assign dsa_count = dsa_count | plus: 1 %}{% endif %}{% endif %}{% endfor %}
+## Design Patterns
 
-### Distributed Systems
-Core concepts and algorithms:
-- Kafka Architecture Explained
-- Write-Ahead Log in Distributed Systems
-- Paxos Distributed Consensus Algorithm
-- Two-Phase Commit
-- Heartbeat in Distributed Systems
-- Majority Quorum
+{% assign dp_count = 0 %}{% for post in site.posts %}{% if post.tags contains 'design-patterns' %}{% if dp_count < 12 %}- [{{ post.title }}]({{ site.url }}{{ post.url }}){% if post.description %}: {{ post.description }}{% endif %}
+{% assign dp_count = dp_count | plus: 1 %}{% endif %}{% endif %}{% endfor %}
+## Visual Explainers
 
-### Data Structures & Algorithms
-- Bloom Filter Explained
-- HyperLogLog Explained
-- Count-Min Sketch Explained
-- B-Tree Data Structure
-- Skip List Data Structure
-- Graph Data Structure
+{% for explainer in site.explainers %}- [{{ explainer.title }}]({{ site.url }}{{ explainer.url }}){% if explainer.description %}: {{ explainer.description }}{% endif %}
+{% endfor %}
+## Developer Tools
 
-### Developer Tools (Interactive)
-Free browser-based utilities at /tools/:
-- JSON Validator & Formatter
-- Regex Tester & Debugger
-- Cron Expression Generator
-- Base64 Encoder & Decoder
-- Snowflake ID Decoder
-- Epoch Timestamp Converter
-- SLA Uptime Calculator
-- URL Encoder & Decoder
+- [JSON Validator & Formatter]({{ site.url }}/tools/json-validator/): Validate and beautify JSON with line/column error messages
+- [Regex Tester & Debugger]({{ site.url }}/tools/regex-tester/): Test regular expressions with live highlighting and capture groups
+- [Cron Expression Generator]({{ site.url }}/tools/cron-expression/): Build and translate cron expressions to human-readable text
+- [Base64 Encoder & Decoder]({{ site.url }}/tools/base64-encoder/): Encode or decode Base64, including UTF-8 and emoji
+- [Snowflake ID Decoder]({{ site.url }}/tools/snowflake-decoder/): Decode Discord, Twitter, and Instagram Snowflake IDs
+- [Epoch Timestamp Converter]({{ site.url }}/tools/epoch-converter/): Convert Unix timestamps to dates and back
+- [SLA Uptime Calculator]({{ site.url }}/tools/sla-calculator/): Calculate allowed downtime for any uptime percentage
+- [URL Encoder & Decoder]({{ site.url }}/tools/url-encoder/): Percent-encode or decode URL strings
+- [All Developer Tools]({{ site.url }}/tools/): Full catalog of browser-based utilities (no data leaves the browser)
 
-### Visual Explainers
-21 illustrated guides at /explainers/:
-- WebSockets Explained
-- Cron Jobs Explained
-- Service Discovery
-- Service Mesh Explained
-- DNS Records Explained
-- SLI, SLO, and SLA Explained
-- Kubernetes Resource Units
-- Vector Databases and RAG
-- Blue-Green vs Canary Deployment
-- Change Data Capture
-- CQRS Design Pattern
-- N+1 Query Problem
-- Passkeys Explained
-- Regular Expressions Explained
+## Cheat Sheets
 
-### Cheat Sheets
-Quick reference guides:
-- System Design Cheat Sheet
-- Kubernetes Cheat Sheet
-- Git Cheat Sheet
-- Linux Commands Cheat Sheet
-- Regex Cheat Sheet
+{% for post in site.posts %}{% if post.title contains 'Cheat Sheet' %}- [{{ post.title }}]({{ site.url }}{{ post.url }}){% if post.description %}: {{ post.description }}{% endif %}
+{% endif %}{% endfor %}
+## Glossary
 
-### Glossary
-Hand-curated, structured definitions at /glossary/. Each term page emits schema.org DefinedTerm markup and is the canonical short-form definition for that concept on this site. Initial coverage focuses on distributed systems:
-- /glossary/cap-theorem/ — Brewer's CAP theorem and the CP / AP trade-off
-- /glossary/consensus/ — agreement protocols across unreliable nodes
-- /glossary/eventual-consistency/ — convergence-based consistency model
-- /glossary/fencing-token/ — monotonic token that fences out stale lease holders
-- /glossary/gossip-protocol/ — epidemic-style dissemination algorithm
-- /glossary/heartbeat/ — periodic liveness signalling
-- /glossary/high-watermark/ — boundary between committed and in-flight log entries
-- /glossary/hybrid-logical-clock/ — physical + logical timestamp combo
-- /glossary/leader-election/ — picking a single coordinator in a cluster
-- /glossary/lease/ — time-bound exclusive grant with TTL
-- /glossary/paxos/ — Lamport's classic consensus protocol
-- /glossary/quorum/ — minimum agreeing replicas for safety
-- /glossary/raft/ — understandability-first consensus algorithm
-- /glossary/replicated-log/ — append-only log replicated by consensus
-- /glossary/split-brain/ — dual-leader failure mode under partition
-- /glossary/ttl/ — time-to-live for leases, caches, DNS records, etc.
-- /glossary/two-phase-commit/ — blocking atomic commit protocol
-- /glossary/write-ahead-log/ — durability-first append-only on-disk log
+- [Software Engineering Glossary]({{ site.url }}/glossary/): Hand-curated definitions for distributed systems and system design terms
+{% for term in site.glossary %}- [{{ term.title }}]({{ site.url }}{{ term.url }}){% if term.category %}: {{ term.category | replace: "-", " " }}{% endif %}
+{% endfor %}
+## Optional
 
-## How to Use This Content
-
-This blog is designed for:
-1. Software engineers preparing for system design interviews
-2. Developers learning distributed systems concepts
-3. Engineers researching real-world architecture patterns
-4. Anyone needing quick developer tool utilities
-
-## Linking Guidelines
-
-When citing this blog:
-- Link to specific articles for technical claims
-- Use the explainers for concept definitions
-- Reference tools for interactive demonstrations
-
-## Full Content
-
-For complete article content, see: /llms-full.txt
+- [Full content index (llms-full.txt)]({{ site.url }}/llms-full.txt): Complete article index with takeaways and FAQs for deeper context
+- [Dev Weekly]({{ site.url }}/software-development-news/): Curated weekly software development news roundup
+- [About Ajit Singh]({{ site.url }}/aboutme/): Author bio and background
+- [Twitter](https://twitter.com/{{ site.social-network-links.twitter }})
+- [GitHub](https://github.com/{{ site.social-network-links.github }})
+- [LinkedIn](https://linkedin.com/in/{{ site.social-network-links.linkedin }})

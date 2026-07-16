@@ -6,14 +6,25 @@ var BeautifulJekyllJS = {
   numImgs : null,
 
   init : function() {
-    // Shorten the navbar after scrolling a little bit down
-    $(window).scroll(function() {
-        if ($(".navbar").offset().top > 50) {
-            $(".navbar").addClass("top-nav-short");
-        } else {
-            $(".navbar").removeClass("top-nav-short");
-        }
-    });
+    // Shorten the navbar after scrolling a little bit down.
+    // Use scrollY (no layout) instead of $(".navbar").offset().top.
+    var navbar = document.querySelector('.navbar');
+    var ticking = false;
+
+    function updateNav() {
+      ticking = false;
+      if (!navbar) return;
+      var scrolled = (window.scrollY || window.pageYOffset || 0) > 50;
+      navbar.classList.toggle('top-nav-short', scrolled);
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateNav();
 
     // On mobile, hide the avatar when expanding the navbar menu
     $('#main-navbar').on('show.bs.collapse', function () {

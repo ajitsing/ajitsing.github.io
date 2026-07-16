@@ -67,12 +67,10 @@
       fallback.removeAttribute('aria-hidden');
     }
 
-    // A real creative renders an iframe with actual height. Unfilled ads and
-    // the never-loaded case (e.g. localhost, where the AdSense script is not
-    // injected) leave the ins empty or with a 0-height iframe.
+    // A real creative sets data-ad-status=filled. Unfilled ads may inject a
+    // 0-height iframe — do not use offsetHeight (forced reflow).
     function adRendered() {
-      var frame = ins.querySelector('iframe');
-      return !!frame && frame.offsetHeight > 1;
+      return ins.getAttribute('data-ad-status') === 'filled';
     }
 
     // Read data-ad-status. Note: unfilled ads still inject a 0-height iframe,
@@ -93,7 +91,8 @@
         if (settled) return;
 
         // Slot never laid out (hidden container): nothing to show, nothing to shift.
-        if (!(wrap.offsetWidth > 0)) {
+        // clientWidth avoids an extra layout path vs offsetWidth in some engines.
+        if (!(wrap.clientWidth > 0)) {
           settled = true;
           removeFallback();
           wrap.style.display = 'none';
@@ -122,10 +121,7 @@
       });
     }
 
-    // Ad blockers: swap to the banner immediately, no lazy wait.
-    if (adBlocked()) { showFallback(); return; }
-
-    // Otherwise request the ad only as the slot nears the viewport.
+    // Request the ad only as the slot nears the viewport (no sync layout at parse).
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) { io.disconnect(); requestAd(); }

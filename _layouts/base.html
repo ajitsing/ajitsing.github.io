@@ -25,6 +25,11 @@ common-js:
   {% include head.html %}
 
   <body{% if layout.body-class %} class="{{ layout.body-class }}"{% endif %}>
+    {%- comment -%}
+      Static ad-blocker bait: present from first paint so detection can read
+      computed styles without appendChild → offsetHeight forced reflows.
+    {%- endcomment -%}
+    <div id="ad-blocker-bait" class="adsbygoogle adsbox ad-banner ad-placement" aria-hidden="true" style="position:absolute;left:-10000px;top:0;width:1px;height:1px;overflow:hidden;pointer-events:none;">&nbsp;</div>
 
     {% include nav.html %}
 

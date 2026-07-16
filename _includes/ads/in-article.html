@@ -26,24 +26,22 @@
       fallback = null;
     }
 
-    // Detect ad blockers via a bait element and the slot's own visibility.
+    // Detect ad blockers via a static bait (#ad-blocker-bait) and the slot.
+    // Avoid appendChild + offsetHeight (forced reflow).
     function adBlocked() {
       try {
-        var bait = document.createElement('div');
-        bait.className = 'adsbygoogle adsbox ad-banner ad-placement';
-        bait.style.cssText = 'position:absolute;left:-10000px;top:0;width:1px;height:1px;pointer-events:none;';
-        bait.innerHTML = '&nbsp;';
-        document.body.appendChild(bait);
-        var cs = window.getComputedStyle(bait);
-        var blocked = bait.offsetHeight === 0 || cs.display === 'none' || cs.visibility === 'hidden';
-        document.body.removeChild(bait);
-        if (blocked) return true;
+        var s = window.getComputedStyle(ins);
+        if (s.display === 'none' || s.visibility === 'hidden') return true;
       } catch (e) {}
 
       try {
-        var s = window.getComputedStyle(ins);
-        return s.display === 'none' || s.visibility === 'hidden';
-      } catch (e) { return false; }
+        var bait = document.getElementById('ad-blocker-bait');
+        if (!bait) return false;
+        var cs = window.getComputedStyle(bait);
+        return cs.display === 'none' || cs.visibility === 'hidden';
+      } catch (e) {
+        return false;
+      }
     }
 
     // Ad served: keep it and drop the unused subscribe banner.
@@ -89,33 +87,39 @@
     function requestAd() {
       if (settled) return;
 
-      // Slot never laid out (hidden container): nothing to show, nothing to shift.
-      if (!(wrap.offsetWidth > 0)) {
-        settled = true;
-        removeFallback();
-        wrap.style.display = 'none';
-        return;
-      }
-
-      if (adBlocked()) { showFallback(); return; }
-
-      try { (adsbygoogle = window.adsbygoogle || []).push({}); }
-      catch (e) { showFallback(); return; }
-
-      // Some blockers hide the slot right after the push.
-      if (adBlocked()) { showFallback(); return; }
-
-      var obs = new MutationObserver(function () { resolve(obs); });
-      obs.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
-
-      // Safety net for stuck slots, or when the AdSense script never loads
-      // (localhost) and no status is ever set.
-      setTimeout(function () {
+      // Defer geometry checks to the next frame so we don't force a sync
+      // reflow right after earlier DOM/style work.
+      requestAnimationFrame(function () {
         if (settled) return;
-        if (resolve(obs)) return;
-        obs.disconnect();
-        if (adRendered()) keepAd(); else showFallback();
-      }, 3500);
+
+        // Slot never laid out (hidden container): nothing to show, nothing to shift.
+        if (!(wrap.offsetWidth > 0)) {
+          settled = true;
+          removeFallback();
+          wrap.style.display = 'none';
+          return;
+        }
+
+        if (adBlocked()) { showFallback(); return; }
+
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); }
+        catch (e) { showFallback(); return; }
+
+        // Some blockers hide the slot right after the push.
+        if (adBlocked()) { showFallback(); return; }
+
+        var obs = new MutationObserver(function () { resolve(obs); });
+        obs.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
+
+        // Safety net for stuck slots, or when the AdSense script never loads
+        // (localhost) and no status is ever set.
+        setTimeout(function () {
+          if (settled) return;
+          if (resolve(obs)) return;
+          obs.disconnect();
+          if (adRendered()) keepAd(); else showFallback();
+        }, 3500);
+      });
     }
 
     // Ad blockers: swap to the banner immediately, no lazy wait.

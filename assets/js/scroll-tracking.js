@@ -16,17 +16,15 @@
   }
 
   function getDocumentHeight() {
+    // Prefer scrollHeight only — avoids offsetHeight forced layout.
     return Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.clientHeight,
-      document.documentElement.scrollHeight,
-      document.documentElement.offsetHeight
+      document.body.scrollHeight || 0,
+      document.documentElement.scrollHeight || 0
     );
   }
 
   function getWindowHeight() {
-    return window.innerHeight || document.documentElement.clientHeight;
+    return window.innerHeight || document.documentElement.clientHeight || 0;
   }
 
   function getScrollTop() {

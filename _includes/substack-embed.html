@@ -53,12 +53,6 @@ block nears the viewport (avoids third-party cookies until then).
         return !!(wrap && wrap.classList.contains('post-mid-ad--substack'));
       }
 
-      function nearViewport() {
-        var rect = root.getBoundingClientRect();
-        var margin = 200;
-        return rect.bottom >= -margin && rect.top <= (window.innerHeight || 0) + margin;
-      }
-
       function activate(fromClick) {
         if (iframe.src) return;
         if (!fromClick && !isEligible()) return;
@@ -84,7 +78,9 @@ block nears the viewport (avoids third-party cookies until then).
 
       function tryAutoLoad() {
         if (!isEligible()) return;
-        if (nearViewport()) activate(false);
+        // After reveal, trust IntersectionObserver — avoid getBoundingClientRect
+        // right after classList / aria mutations (forced reflow).
+        activate(false);
       }
 
       btn.addEventListener('click', function() {
@@ -105,7 +101,11 @@ block nears the viewport (avoids third-party cookies until then).
         var shell = root.closest('.post-mid-ad__substack');
         if (shell && shell.parentElement) {
           mo = new MutationObserver(function() {
-            tryAutoLoad();
+            if (!isEligible()) return;
+            // Let style settle, then rely on IO or activate if already near view.
+            requestAnimationFrame(function() {
+              tryAutoLoad();
+            });
           });
           mo.observe(shell.parentElement, { attributes: true, attributeFilter: ['class'] });
           mo.observe(shell, { attributes: true, attributeFilter: ['aria-hidden'] });

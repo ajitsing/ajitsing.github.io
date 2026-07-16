@@ -59,6 +59,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Purge unused Bootstrap CSS
+        run: bash scripts/purge-bootstrap-css.sh
+
       - name: Minify CSS and JS
         run: |
           npx --yes esbuild@0.23.0 $(find _site/assets/css -name '*.css') \

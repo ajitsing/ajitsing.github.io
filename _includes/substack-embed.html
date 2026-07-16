@@ -1,7 +1,3 @@
-{% comment %}
-Lazy Substack embed: button for immediate load, otherwise load when the
-block nears the viewport (avoids third-party cookies until then).
-{% endcomment %}
 {% assign embed_label = include.label | default: "Subscribe" %}
 <div class="substack-embed" data-substack-embed>
   <button type="button" class="substack-embed__load">
@@ -20,13 +16,15 @@ block nears the viewport (avoids third-party cookies until then).
       root.__substackBound = true;
 
       var OBSERVER_MARGIN = '200px 0px';
-      var FALLBACK_DELAY_MS = 5000;
       var btn = root.querySelector('.substack-embed__load');
       var iframe = root.querySelector('iframe');
       var label = {{ embed_label | jsonify }};
       var io = null;
       var mo = null;
-      var fallbackTimer = null;
+      var engaged = false;
+      var observing = false;
+      var scrollOpts = { passive: true };
+      var clickOpts = { capture: true };
       if (!btn || !iframe) return;
 
       function cleanup() {
@@ -38,10 +36,8 @@ block nears the viewport (avoids third-party cookies until then).
           mo.disconnect();
           mo = null;
         }
-        if (fallbackTimer) {
-          clearTimeout(fallbackTimer);
-          fallbackTimer = null;
-        }
+        window.removeEventListener('scroll', onEngage, scrollOpts);
+        document.removeEventListener('click', onEngage, clickOpts);
       }
 
       // In-article ad fallback stays in the viewport while hidden; don't fetch yet.
@@ -83,45 +79,55 @@ block nears the viewport (avoids third-party cookies until then).
         activate(false);
       }
 
+      function startObserver() {
+        if (observing || iframe.src) return;
+        observing = true;
+
+        if ('IntersectionObserver' in window) {
+          io = new IntersectionObserver(function(entries) {
+            for (var i = 0; i < entries.length; i++) {
+              if (entries[i].isIntersecting) {
+                tryAutoLoad();
+                return;
+              }
+            }
+          }, { rootMargin: OBSERVER_MARGIN });
+          io.observe(root);
+
+          var shell = root.closest('.post-mid-ad__substack');
+          if (shell && shell.parentElement) {
+            mo = new MutationObserver(function() {
+              if (!isEligible()) return;
+              // Let style settle, then rely on IO or activate if already near view.
+              requestAnimationFrame(function() {
+                tryAutoLoad();
+              });
+            });
+            mo.observe(shell.parentElement, { attributes: true, attributeFilter: ['class'] });
+            mo.observe(shell, { attributes: true, attributeFilter: ['aria-hidden'] });
+          }
+        } else {
+          tryAutoLoad();
+        }
+      }
+
+      function onEngage(e) {
+        if (engaged) return;
+        // Facade button owns its click (analytics + immediate load).
+        if (e && e.type === 'click' && btn.contains(e.target)) return;
+
+        engaged = true;
+        window.removeEventListener('scroll', onEngage, scrollOpts);
+        document.removeEventListener('click', onEngage, clickOpts);
+        startObserver();
+      }
+
       btn.addEventListener('click', function() {
         activate(true);
       });
 
-      if ('IntersectionObserver' in window) {
-        io = new IntersectionObserver(function(entries) {
-          for (var i = 0; i < entries.length; i++) {
-            if (entries[i].isIntersecting) {
-              tryAutoLoad();
-              return;
-            }
-          }
-        }, { rootMargin: OBSERVER_MARGIN });
-        io.observe(root);
-
-        var shell = root.closest('.post-mid-ad__substack');
-        if (shell && shell.parentElement) {
-          mo = new MutationObserver(function() {
-            if (!isEligible()) return;
-            // Let style settle, then rely on IO or activate if already near view.
-            requestAnimationFrame(function() {
-              tryAutoLoad();
-            });
-          });
-          mo.observe(shell.parentElement, { attributes: true, attributeFilter: ['class'] });
-          mo.observe(shell, { attributes: true, attributeFilter: ['aria-hidden'] });
-        }
-      } else {
-        function scheduleFallback() {
-          fallbackTimer = setTimeout(function() {
-            tryAutoLoad();
-          }, FALLBACK_DELAY_MS);
-        }
-        if (document.readyState === 'complete') {
-          scheduleFallback();
-        } else {
-          window.addEventListener('load', scheduleFallback);
-        }
-      }
+      window.addEventListener('scroll', onEngage, scrollOpts);
+      document.addEventListener('click', onEngage, clickOpts);
     })();
   </script>
 </div>

@@ -12,11 +12,11 @@
 
   {% unless page.layout contains 'glossary' %}
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
   {% if site.adunblock_script_url %}
     {% assign adunblock_parts = site.adunblock_script_url | split: '/' %}
     {% assign adunblock_origin = adunblock_parts[0] | append: '//' | append: adunblock_parts[2] %}
-  <link rel="preconnect" href="{{ adunblock_origin }}" crossorigin>
+  <link rel="dns-prefetch" href="{{ adunblock_origin }}">
   {% endif %}
   {% endunless %}
 
@@ -86,6 +86,13 @@
     {% endfor %}
   {% endif %}
 
+  {% if layout.extra-deferred-css %}
+    {% for css in layout.extra-deferred-css %}
+      <link rel="stylesheet" href="{{ css | relative_url }}" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="{{ css | relative_url }}"></noscript>
+    {% endfor %}
+  {% endif %}
+
   {% if layout.deferred-ext-css %}
     {% for css in layout.deferred-ext-css %}
       {% if css.href %}
@@ -130,7 +137,8 @@
   <script>
     (function() {
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
-      function init() {
+
+      window.__loadAdsbygoogle = function() {
         if (window.__adsbyLoaded) return;
         window.__adsbyLoaded = true;
         var s = document.createElement('script');
@@ -138,11 +146,20 @@
         s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2886086145980317';
         s.crossOrigin = 'anonymous';
         document.head.appendChild(s);
+      };
+
+      function schedule() {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(window.__loadAdsbygoogle, { timeout: 2000 });
+        } else {
+          setTimeout(window.__loadAdsbygoogle, 1000);
+        }
       }
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(init, { timeout: 1500 });
+
+      if (document.readyState === 'complete') {
+        schedule();
       } else {
-        setTimeout(init, 1500);
+        window.addEventListener('load', schedule);
       }
     })();
   </script>

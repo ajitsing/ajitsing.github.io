@@ -9,7 +9,7 @@
          data-ad-slot="4015567555"></ins>
   </div>
   <div class="post-mid-ad__substack" aria-hidden="true">
-    {% include ads/in-article-subscribe.html label="In-article Fallback" defer-src=true %}
+    {% include ads/in-article-subscribe.html label="In-article Fallback" %}
   </div>
   <script>
   (function () {
@@ -64,12 +64,7 @@
       if (slot) slot.remove();
       if (!fallback) return;
 
-      var iframe = fallback.querySelector('iframe[data-src]');
-      if (iframe) {
-        iframe.src = iframe.getAttribute('data-src');
-        iframe.removeAttribute('data-src');
-      }
-
+      // Keep Substack behind click-to-load (no third-party cookies until intent).
       wrap.classList.add('post-mid-ad--substack');
       fallback.removeAttribute('aria-hidden');
     }

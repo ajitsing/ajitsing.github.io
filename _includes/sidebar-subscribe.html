@@ -6,24 +6,6 @@
   </h3>
   <p class="subscribe-pitch">Get new posts on system design, distributed systems, tech news, and AI delivered straight to your inbox.</p>
   <div class="subscribe-embed">
-    <iframe src="{{ site.substack-url }}/embed" title="Subscribe to {{ site.author }} on Substack" loading="lazy" scrolling="no"></iframe>
+    {% include substack-embed.html label="Sidebar" %}
   </div>
-  <script>
-    (function() {
-      var root = document.currentScript.closest('.sidebar-subscribe');
-      if (!root) return;
-      var iframe = root.querySelector('iframe');
-      if (!iframe) return;
-      var fired = false;
-      window.addEventListener('blur', function() {
-        setTimeout(function() {
-          if (fired || document.activeElement !== iframe) return;
-          fired = true;
-          if (typeof gtag === 'function') {
-            gtag('event', 'subscribe_interaction', {'event_category': 'Substack Subscribe', 'event_label': 'Sidebar'});
-          }
-        }, 0);
-      });
-    })();
-  </script>
 </aside>

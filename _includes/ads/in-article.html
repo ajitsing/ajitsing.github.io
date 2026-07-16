@@ -1,52 +1,136 @@
 {% if site.manual_ads %}
 <div class="post-mid-ad">
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center;"
-       data-ad-layout="in-article"
-       data-ad-format="fluid"
-       data-ad-client="ca-pub-2886086145980317"
-       data-ad-slot="4015567555"></ins>
+  <div class="post-mid-ad__slot">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-2886086145980317"
+         data-ad-slot="4015567555"></ins>
+  </div>
+  <div class="post-mid-ad__substack" aria-hidden="true">
+    {% include ads/in-article-subscribe.html label="In-article Fallback" defer-src=true %}
+  </div>
   <script>
-  (function() {
+  (function () {
     var wrap = document.currentScript.parentNode;
+    var slot = wrap.querySelector('.post-mid-ad__slot');
     var ins = wrap.querySelector('ins.adsbygoogle');
+    var fallback = wrap.querySelector('.post-mid-ad__substack');
     if (!ins) return;
-    var requested = false, fallbackDone = false;
+
+    var settled = false;
+
+    function removeFallback() {
+      if (fallback && fallback.parentNode) fallback.remove();
+      fallback = null;
+    }
+
+    // Detect ad blockers via a bait element and the slot's own visibility.
+    function adBlocked() {
+      try {
+        var bait = document.createElement('div');
+        bait.className = 'adsbygoogle adsbox ad-banner ad-placement';
+        bait.style.cssText = 'position:absolute;left:-10000px;top:0;width:1px;height:1px;pointer-events:none;';
+        bait.innerHTML = '&nbsp;';
+        document.body.appendChild(bait);
+        var cs = window.getComputedStyle(bait);
+        var blocked = bait.offsetHeight === 0 || cs.display === 'none' || cs.visibility === 'hidden';
+        document.body.removeChild(bait);
+        if (blocked) return true;
+      } catch (e) {}
+
+      try {
+        var s = window.getComputedStyle(ins);
+        return s.display === 'none' || s.visibility === 'hidden';
+      } catch (e) { return false; }
+    }
+
+    // Ad served: keep it and drop the unused subscribe banner.
+    function keepAd() {
+      if (settled) return;
+      settled = true;
+      removeFallback();
+    }
+
+    // No ad: drop the ad slot and reveal the subscribe banner. The reserved
+    // height comes from CSS (.post-mid-ad min-height), and AdSense's unfilled
+    // collapse only hits the inner .post-mid-ad__slot, so the outer box keeps
+    // its size — the banner overlay fills it with no layout shift.
+    function showFallback() {
+      if (settled) return;
+      settled = true;
+
+      if (slot) slot.remove();
+      if (!fallback) return;
+
+      var iframe = fallback.querySelector('iframe[data-src]');
+      if (iframe) {
+        iframe.src = iframe.getAttribute('data-src');
+        iframe.removeAttribute('data-src');
+      }
+
+      wrap.classList.add('post-mid-ad--substack');
+      fallback.removeAttribute('aria-hidden');
+    }
+
+    // A real creative renders an iframe with actual height. Unfilled ads and
+    // the never-loaded case (e.g. localhost, where the AdSense script is not
+    // injected) leave the ins empty or with a 0-height iframe.
+    function adRendered() {
+      var frame = ins.querySelector('iframe');
+      return !!frame && frame.offsetHeight > 1;
+    }
+
+    // Read data-ad-status. Note: unfilled ads still inject a 0-height iframe,
+    // so status must be checked before any iframe-presence heuristic.
+    function resolve(obs) {
+      var status = ins.getAttribute('data-ad-status');
+      if (status === 'unfilled') { obs.disconnect(); showFallback(); return true; }
+      if (status === 'filled') { obs.disconnect(); keepAd(); return true; }
+      return false;
+    }
 
     function requestAd() {
-      if (requested) return;
-      if (!(wrap.offsetWidth > 0)) { ins.remove(); return; }
-      requested = true;
-      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-      var obs = new MutationObserver(function() {
-        var status = ins.getAttribute('data-ad-status');
-        if (status === 'filled') { obs.disconnect(); }
-        else if (status === 'unfilled') { obs.disconnect(); showFallback(); }
-      });
+      if (settled) return;
+
+      // Slot never laid out (hidden container): nothing to show, nothing to shift.
+      if (!(wrap.offsetWidth > 0)) {
+        settled = true;
+        removeFallback();
+        wrap.style.display = 'none';
+        return;
+      }
+
+      if (adBlocked()) { showFallback(); return; }
+
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); }
+      catch (e) { showFallback(); return; }
+
+      // Some blockers hide the slot right after the push.
+      if (adBlocked()) { showFallback(); return; }
+
+      var obs = new MutationObserver(function () { resolve(obs); });
       obs.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
+
+      // Safety net for stuck slots, or when the AdSense script never loads
+      // (localhost) and no status is ever set.
+      setTimeout(function () {
+        if (settled) return;
+        if (resolve(obs)) return;
+        obs.disconnect();
+        if (adRendered()) keepAd(); else showFallback();
+      }, 3500);
     }
 
-    // Backfill the native no-fill with a responsive display unit.
-    function showFallback() {
-      if (fallbackDone) return;
-      fallbackDone = true;
-      ins.remove();
-      var fb = document.createElement('ins');
-      fb.className = 'adsbygoogle';
-      fb.style.display = 'block';
-      fb.setAttribute('data-ad-client', 'ca-pub-2886086145980317');
-      fb.setAttribute('data-ad-slot', '5138071441');
-      fb.setAttribute('data-ad-format', 'auto');
-      fb.setAttribute('data-full-width-responsive', 'true');
-      wrap.appendChild(fb);
-      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-    }
+    // Ad blockers: swap to the banner immediately, no lazy wait.
+    if (adBlocked()) { showFallback(); return; }
 
-    // Lazy-load: only request as the slot approaches the viewport.
+    // Otherwise request the ad only as the slot nears the viewport.
     if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function(entries) {
+      var io = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) { io.disconnect(); requestAd(); }
-      }, { rootMargin: '1000px 0px' });
+      }, { rootMargin: '1500px 0px' });
       io.observe(wrap);
     } else {
       requestAd();

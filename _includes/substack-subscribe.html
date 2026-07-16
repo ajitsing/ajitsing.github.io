@@ -1,3 +1,4 @@
+{% assign substack_label = include.label | default: "Email Banner" %}
 <div class="substack-banner">
   <div class="substack-banner-content">
     <div class="substack-banner-left">
@@ -17,7 +18,10 @@
       </div>
     </div>
     <div class="substack-banner-embed">
-      <iframe src="{{ site.substack-url }}/embed" title="Subscribe to {{ site.author }} on Substack" loading="lazy" scrolling="no"></iframe>
+      <iframe src="{{ site.substack-url }}/embed"
+              title="Subscribe to {{ site.author }} on Substack"
+              loading="lazy"
+              scrolling="no"></iframe>
     </div>
   </div>
   <script>
@@ -27,12 +31,13 @@
       var iframe = root.querySelector('iframe');
       if (!iframe) return;
       var fired = false;
+      var label = {{ substack_label | jsonify }};
       window.addEventListener('blur', function() {
         setTimeout(function() {
           if (fired || document.activeElement !== iframe) return;
           fired = true;
           if (typeof gtag === 'function') {
-            gtag('event', 'subscribe_interaction', {'event_category': 'Substack Subscribe', 'event_label': 'Email Banner'});
+            gtag('event', 'subscribe_interaction', {'event_category': 'Substack Subscribe', 'event_label': label});
           }
         }, 0);
       });

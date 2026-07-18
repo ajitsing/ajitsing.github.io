@@ -892,6 +892,7 @@ These posts go deeper into specific topics:
 - [How Uber Finds Nearby Drivers at 1M RPS](/how-uber-finds-nearby-drivers-1-million-requests-per-second/)
 - [Slack System Design Architecture](/slack-system-design/)
 - [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/)
+- [Payment System Design](/payment-system-design/)
 - [How WhatsApp Scales](/whatsapp-scaling-secrets/)
 - [Design TinyURL: System Design Interview Guide](/tinyurl-system-design/)
 

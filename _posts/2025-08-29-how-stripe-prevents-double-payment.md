@@ -37,7 +37,7 @@ Now your test account shows two charges.
 
 This is the duplicate payment problem. It happens in production too, and when real money is involved, it creates angry customers and support tickets.
 
-Stripe processes billions of dollars in payments. They cannot afford duplicate charges. So they built a system to prevent them. Understanding how it works will make you a better developer, whether you use Stripe or build your own payment system.
+Stripe processes billions of dollars in payments. They cannot afford duplicate charges. So they built a system to prevent them. Understanding how it works will make you a better developer, whether you use Stripe or [build your own payment system](/payment-system-design/){:target="_blank" rel="noopener"}.
 
 ## Why Duplicate Payments Happen
 
@@ -745,6 +745,6 @@ Each service derives its key from the original, maintaining the idempotency chai
 
 ---
 
-*For more on building reliable systems, check out the [Idempotent Receiver pattern](/distributed-systems/idempotent-receiver/) for the general theory behind idempotency keys, [CQRS Pattern Guide](/cqrs-pattern-guide/) for separating reads and writes, [Caching Strategies Explained](/caching-strategies-explained/) for response caching patterns, [Flash sale system design](/flash-sale-system-design/) for how idempotency keys keep ten million buyers from creating duplicate orders, and [Snowflake ID Guide](/snowflake-id-guide/) for generating unique IDs at scale.*
+*For more on building reliable systems, check out the [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"} guide for the full architecture around idempotency, ledgers, and reconciliation, the [Idempotent Receiver pattern](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"} for the general theory behind idempotency keys, [CQRS Pattern Guide](/cqrs-pattern-guide/){:target="_blank" rel="noopener"} for separating reads and writes, [Caching Strategies Explained](/caching-strategies-explained/){:target="_blank" rel="noopener"} for response caching patterns, [Flash sale system design](/flash-sale-system-design/){:target="_blank" rel="noopener"} for how idempotency keys keep ten million buyers from creating duplicate orders, and [Snowflake ID Guide](/snowflake-id-guide/){:target="_blank" rel="noopener"} for generating unique IDs at scale.*
 
 *References: [Stripe Idempotency Keys Documentation](https://stripe.com/docs/api/idempotent_requests), [Stripe API Error Handling](https://stripe.com/docs/error-handling)*

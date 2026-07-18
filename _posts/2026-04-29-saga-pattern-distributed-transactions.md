@@ -564,7 +564,7 @@ Refunds based on the original charge amount, instead of looking up the current s
 
 ### 3. Non-idempotent steps
 
-A step charges a card, then crashes before publishing the event. The retry charges again. Now the saga has succeeded *and* the customer has two charges. Use idempotency keys, an inbox table, or both.
+A step charges a card, then crashes before publishing the event. The retry charges again. Now the saga has succeeded *and* the customer has two charges. Use idempotency keys, an inbox table, or both. For how that fits into a full charge flow with a ledger and reconciliation, see [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"}.
 
 ### 4. Synchronous calls inside the saga
 
@@ -697,6 +697,7 @@ If you are designing your first saga today, the order to read other things in is
 **Related Posts:**
 
 - [Transactional Outbox Pattern](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} - The reliable event publishing foundation under every saga
+- [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"} - A full charge, refund, and ledger flow built on sagas and outbox
 - [Two-Phase Commit Explained](/distributed-systems/two-phase-commit/){:target="_blank" rel="noopener"} - The pattern sagas were invented to replace
 - [CQRS Pattern Guide](/cqrs-pattern-guide/){:target="_blank" rel="noopener"} - The read-write split that pairs naturally with sagas
 - [Circuit Breaker Pattern](/circuit-breaker-pattern/){:target="_blank" rel="noopener"} - Protecting saga steps from flaky downstreams

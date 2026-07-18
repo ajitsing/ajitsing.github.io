@@ -517,7 +517,7 @@ The outbox pattern guarantees **at-least-once delivery**, not exactly-once. Here
 
 Now the consumer gets the same event twice. If the consumer blindly processes every event it receives, you end up with duplicate side effects. Double emails. Double inventory deductions. Double charges.
 
-This is the same problem that [Stripe solves with idempotency keys](/how-stripe-prevents-double-payment/). The solution is the same: make your consumers idempotent.
+This is the same problem that [Stripe solves with idempotency keys](/how-stripe-prevents-double-payment/){:target="_blank" rel="noopener"}, and it shows up end to end in [payment system design](/payment-system-design/){:target="_blank" rel="noopener"}. The solution is the same: make your consumers idempotent.
 
 ### Strategies for idempotent consumers
 
@@ -750,4 +750,4 @@ Start simple. Add an outbox table. Build a polling relay. Make your consumers id
 
 If you are building microservices, this pattern is not optional. It is infrastructure.
 
-For more on how queues and brokers fit into system architecture, check out [Role of Queues in System Design](/role-of-queues-in-system-design/) and [How Kafka Works](/distributed-systems/how-kafka-works/). If you are deciding which synchronous API protocol to use alongside your async messaging layer, [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/) covers the trade-offs. And before you take Debezium to production, the [database impact analysis of Debezium and the outbox on Postgres](/debezium-outbox-postgres-database-impact/) explains where the CPU lands, why WAL retention is the real risk, and the monitoring you need on day one.
+For more on how queues and brokers fit into system architecture, check out [Role of Queues in System Design](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"} and [How Kafka Works](/distributed-systems/how-kafka-works/){:target="_blank" rel="noopener"}. If you are deciding which synchronous API protocol to use alongside your async messaging layer, [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/){:target="_blank" rel="noopener"} covers the trade-offs. And before you take Debezium to production, the [database impact analysis of Debezium and the outbox on Postgres](/debezium-outbox-postgres-database-impact/){:target="_blank" rel="noopener"} explains where the CPU lands, why WAL retention is the real risk, and the monitoring you need on day one. For a full system that leans on the outbox for money movement, see [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"}.

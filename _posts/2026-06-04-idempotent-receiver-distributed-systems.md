@@ -458,6 +458,7 @@ The combination of an at-least-once channel and an idempotent receiver is the ho
 **Related posts:**
 
 - [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/){:target="_blank" rel="noopener"} - Idempotency keys running in production at scale
+- [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"} - How idempotent receivers, ledgers, and sagas fit into a full charge flow
 - [Transactional Outbox Pattern](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} - Commit the side effect and the dedup record together
 - [Saga Pattern Explained](/saga-pattern-distributed-transactions/){:target="_blank" rel="noopener"} - Why every saga step and compensation must be idempotent
 - [Two-Phase Commit](/distributed-systems/two-phase-commit/){:target="_blank" rel="noopener"} - The strongly consistent alternative and why brokers avoid it

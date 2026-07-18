@@ -19,8 +19,9 @@ real_world:
   - "Order checkout flows (reserve stock, charge card, ship) are the canonical saga example."
   - "Temporal, Camunda, and AWS Step Functions are common orchestration engines for sagas."
   - "The [transactional outbox](/glossary/transactional-outbox/) is how saga events are published reliably."
-related_terms: ["transactional-outbox", "two-phase-commit", "idempotent-receiver", "message-queue"]
+related_terms: ["transactional-outbox", "two-phase-commit", "idempotent-receiver", "message-queue", "double-entry-ledger"]
 related_posts:
   - "/saga-pattern-distributed-transactions/"
   - "/transactional-outbox-pattern/"
+  - "/payment-system-design/"
 ---

@@ -518,7 +518,7 @@ Here's what makes it terrifying: payments can fail in 15 different ways.
 
 ### The Idempotency Pattern (Stolen from Stripe)
 
-Remember [how Stripe prevents double payments](/how-stripe-prevents-double-payment/)? Same principle here.
+Remember [how Stripe prevents double payments](/how-stripe-prevents-double-payment/){:target="_blank" rel="noopener"}? Same principle here. For the full charge path around that key, including the ledger and reconciliation, see [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"}.
 
 Every payment request gets a unique idempotency key (e.g., `booking_R789456_attempt_1697123456`). When a user retries after a timeout, the system checks if that key already exists. If the payment succeeded the first time, return the cached result instead of charging again.
 
@@ -700,5 +700,5 @@ You now know what they learned the hard way. Build carefully, test ruthlessly.
 
 ---
 
-*Want to dive deeper? Check out [Database Locks Explained](/database-locks-explained/){:target="_blank" rel="noopener"} for how SELECT FOR UPDATE and pessimistic locking work under the hood, the [Flash sale system design](/flash-sale-system-design/){:target="_blank" rel="noopener"} for how the same patterns scale to ten million buyers fighting for ten thousand units, the [Notification system design](/notification-system-design/){:target="_blank" rel="noopener"} for how to deliver the booking confirmation, the seat reminder, and the support escalation without sending the same SMS twice, the [BookMyShow engineering blog](https://blog.bookmyshow.com/){:target="_blank" rel="noopener"} for war stories from the trenches, and explore [distributed systems patterns](https://martinfowler.com/articles/patterns-of-distributed-systems/){:target="_blank" rel="noopener"} to level up your architecture game.*
+*Want to dive deeper? Check out [Database Locks Explained](/database-locks-explained/){:target="_blank" rel="noopener"} for how SELECT FOR UPDATE and pessimistic locking work under the hood, the [Flash sale system design](/flash-sale-system-design/){:target="_blank" rel="noopener"} for how the same patterns scale to ten million buyers fighting for ten thousand units, [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"} for the charge, ledger, and reconciliation layer behind checkout, the [Notification system design](/notification-system-design/){:target="_blank" rel="noopener"} for how to deliver the booking confirmation, the seat reminder, and the support escalation without sending the same SMS twice, the [BookMyShow engineering blog](https://blog.bookmyshow.com/){:target="_blank" rel="noopener"} for war stories from the trenches, and explore [distributed systems patterns](https://martinfowler.com/articles/patterns-of-distributed-systems/){:target="_blank" rel="noopener"} to level up your architecture game.*
 

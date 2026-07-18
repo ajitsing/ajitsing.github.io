@@ -19,10 +19,11 @@ real_world:
   - "PostgreSQL, MySQL InnoDB, and SQL Server provide ACID transactions as their default behaviour."
   - "Financial, SaaS, and e-commerce systems pick relational databases mainly for these guarantees."
   - "Many NoSQL stores relax ACID for availability and speed, then add back limited transactions later (DynamoDB transactions, MongoDB multi-document transactions)."
-related_terms: ["mvcc", "database-lock", "two-phase-commit", "write-ahead-log", "row-level-security"]
+related_terms: ["mvcc", "database-lock", "two-phase-commit", "write-ahead-log", "row-level-security", "double-entry-ledger"]
 related_posts:
   - "/how-databases-store-data-internally/"
   - "/postgresql-mvcc-autovacuum/"
   - "/postgresql-vs-mongodb-vs-dynamodb/"
   - "/multi-tenant-database-isolation/"
+  - "/payment-system-design/"
 ---

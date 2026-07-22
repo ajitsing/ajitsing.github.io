@@ -62,7 +62,7 @@ A database index works the same way. Instead of scanning every row in a table to
 | O(n) time complexity | O(log n) time complexity |
 | 8 seconds | 15 milliseconds |
 
-The difference is dramatic, especially as tables grow larger.
+The difference is dramatic, especially as tables grow larger. The same idea applies to other structures: [graph traversal](/data-structures/graph/#bfs-dfs-time-complexity) is O(V + E) with an adjacency list but O(V²) with a matrix, because the representation determines how much work you repeat per element.
 
 ## How Indexes Work: The B-Tree
 

@@ -625,7 +625,7 @@ Many insertions can cause frequent splits. Deletions can cause merges. This is w
 
 - [Database Indexing Explained](/database-indexing-explained/) - How indexes use B-trees in practice
 - [Skip List Explained](/data-structures/skip-list/) - A simpler alternative for in-memory sorted data (used by Redis and LevelDB)
-- [Graph Data Structure Explained](/data-structures/graph/) - Another fundamental data structure
+- [Graph Data Structure Explained](/data-structures/graph/#bfs-dfs-time-complexity) - Graph traversal is O(V+E) with an adjacency list, O(V²) with a matrix
 - [Bloom Filter Explained](/data-structures/bloom-filter/) - When you need fast membership testing
 - [Use The Index, Luke](https://use-the-index-luke.com/) - Excellent resource on SQL indexing and B-trees
 - [PostgreSQL B-tree Documentation](https://www.postgresql.org/docs/current/btree.html)

@@ -299,7 +299,7 @@ A CDN in 2026 is far more than a dumb cache. Because the edge already sits betwe
 - **TLS termination.** The edge handles the HTTPS handshake close to the user, which is faster, and keeps a warm connection back to the origin.
 - **Edge compute.** Run small bits of code at the edge to personalize responses, do auth checks, rewrite requests, or assemble pages without an origin round trip. Cloudflare Workers (V8 isolates with sub-millisecond cold starts), AWS Lambda@Edge, Fastly Compute@Edge (WebAssembly), and Akamai EdgeWorkers all do this.
 - **Image and media optimization.** Resize images on the fly and convert to modern formats like WebP or AVIF, so a phone gets a small image and a desktop gets a sharp one, all from the edge.
-- **Security at the edge.** A **web application firewall (WAF)** filters malicious requests, **DDoS protection** absorbs volumetric attacks across the anycast network, and bot management blocks scrapers before they ever reach your origin.
+- **Security at the edge.** A **web application firewall (WAF)** filters malicious requests, [**DDoS protection**](/ddos-attack-and-protection/){:target="_blank" rel="noopener"} absorbs volumetric attacks across the anycast network, and bot management blocks scrapers before they ever reach your origin.
 
 The flip side of concentrating so much at the edge is concentration risk: when a big provider has a bad day, a large slice of the web feels it. The [Cloudflare outage of November 2025](/cloudflare-outage-november-2025/){:target="_blank" rel="noopener"} and the way [Cloudflare serves 55 million requests a second](/how-cloudflare-supports-55-million-requests-per-second/){:target="_blank" rel="noopener"} are two sides of the same coin: enormous reach, and enormous blast radius.
 

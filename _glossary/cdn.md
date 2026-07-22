@@ -19,9 +19,10 @@ real_world:
   - "Akamai, Cloudflare, Amazon CloudFront, and Fastly are the major CDN providers."
   - "The original [consistent hashing](/glossary/consistent-hashing/) work at MIT was motivated by CDN caching for Akamai."
   - "Netflix runs its own CDN, Open Connect, placing appliances inside ISP networks to stream video."
-related_terms: ["caching", "load-balancing", "consistent-hashing", "eventual-consistency", "thundering-herd"]
+related_terms: ["caching", "load-balancing", "consistent-hashing", "eventual-consistency", "thundering-herd", "ddos-attack"]
 related_posts:
   - "/cdn-system-design/"
   - "/caching-strategies-explained/"
+  - "/ddos-attack-and-protection/"
   - "/how-cloudflare-supports-55-million-requests-per-second/"
 ---

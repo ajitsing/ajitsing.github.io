@@ -208,7 +208,7 @@ Notice that `send()` returns a `future` immediately instead of a response. The c
 
 ## <i class="fas fa-tachometer-alt"></i> The Non-Negotiable Part: Flow Control
 
-If you take one thing from this post, take this: **a pipeline without flow control is a denial-of-service attack on your own server**. If the client can send as fast as it likes, and the server is slower than the client, then unacknowledged requests pile up. They pile up in the network buffers, in the server's receive queue, and in the server's memory. Eventually the server runs out of memory and falls over, and you have turned a performance optimization into an outage.
+If you take one thing from this post, take this: **a pipeline without flow control is a [denial-of-service attack](/ddos-attack-and-protection/){:target="_blank" rel="noopener"} on your own server**. If the client can send as fast as it likes, and the server is slower than the client, then unacknowledged requests pile up. They pile up in the network buffers, in the server's receive queue, and in the server's memory. Eventually the server runs out of memory and falls over, and you have turned a performance optimization into an outage.
 
 The fix is **back pressure**: cap the number of requests that can be in flight at once. That is the `MAX_INFLIGHT` semaphore in the code above. The client is allowed to have, say, 100 unacknowledged requests outstanding. When it hits the limit, `send()` blocks until a response comes back and frees a slot. This lets a fast sender automatically match the pace of a slower receiver.
 

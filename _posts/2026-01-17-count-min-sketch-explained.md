@@ -252,7 +252,7 @@ class HeavyHitterTracker:
 
 ### Network Traffic Analysis
 
-Track byte counts per IP address to detect DDoS attacks or bandwidth hogs:
+Track byte counts per IP address to detect [DDoS attacks](/ddos-attack-and-protection/){:target="_blank" rel="noopener"} or bandwidth hogs:
 
 ```python
 # Every packet

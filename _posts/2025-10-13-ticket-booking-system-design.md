@@ -32,7 +32,7 @@ November 2022, 14 million Taylor Swift fans logged into Ticketmaster at the exac
 
 Within minutes, the entire system collapsed. Fans saw spinning wheels, error messages, and phantom seats that disappeared the moment they clicked "Buy". The crash was so catastrophic it triggered Congressional hearings and multiple lawsuits.
 
-The shocking part? This wasn't a DDoS attack from bots or hackers. It was legitimate fans, just trying to buy tickets.
+The shocking part? This wasn't a [DDoS attack](/ddos-attack-and-protection/){:target="_blank" rel="noopener"} from bots or hackers. It was legitimate fans, just trying to buy tickets.
 
 Ticketmaster's CEO later admitted: "The site couldn't handle the demand." But here's what makes this fascinating for us developers - this is one of the hardest problems in distributed systems, disguised as a simple web form.
 

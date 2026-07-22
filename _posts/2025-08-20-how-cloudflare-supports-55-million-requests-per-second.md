@@ -106,7 +106,7 @@ Running PostgreSQL at Cloudflare's scale requires some serious optimization wiza
 
 While handling 55 million requests per second is impressive, doing it securely is the real challenge. Cloudflare's security systems process every single request, looking for threats in real-time.
 
-Their **DDoS protection** doesn't just block obvious attacks—it uses machine learning to understand normal traffic patterns and automatically adapts to new attack vectors. When a massive botnet launches an attack, Cloudflare's Anycast network distributes the attack across hundreds of locations, making it much easier to absorb and mitigate.
+Their [**DDoS protection**](/ddos-attack-and-protection/){:target="_blank" rel="noopener"} doesn't just block obvious attacks—it uses machine learning to understand normal traffic patterns and automatically adapts to new attack vectors. When a massive botnet launches an attack, Cloudflare's Anycast network distributes the attack across hundreds of locations, making it much easier to absorb and mitigate.
 
 The **Web Application Firewall (WAF)** operates with similar intelligence, using signatures and behavioral analysis to block everything from SQL injection attacks to sophisticated application-layer exploits—all without adding noticeable latency.
 

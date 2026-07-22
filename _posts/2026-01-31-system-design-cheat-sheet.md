@@ -880,6 +880,7 @@ These posts go deeper into specific topics:
 - [How Meta Achieves Cache Consistency](/meta-cache-consistency/)
 
 **Database and Storage**:
+- [Graph Data Structure Explained](/data-structures/graph/#bfs-dfs-time-complexity) - BFS and DFS traversal time complexity by representation
 - [Write-Ahead Log in Distributed Systems](/distributed-systems/write-ahead-log/)
 - [How Amazon S3 Works](/how-amazon-s3-works/)
 

@@ -659,7 +659,7 @@ Redis creator Antirez explained: skip lists are simpler to implement correctly, 
 
 - [B-Tree Data Structure Explained](/data-structures/b-tree/) - How databases use trees for disk-based storage
 - [Bloom Filter Explained](/data-structures/bloom-filter/) - Another probabilistic data structure
-- [Graph Data Structure Explained](/data-structures/graph/) - Graphs and graph algorithms
+- [Graph Data Structure Explained](/data-structures/graph/#bfs-dfs-time-complexity) - BFS and DFS time complexity: O(V+E) with adjacency list, O(V²) with matrix
 - [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) - How hash tables handle collisions
 - [William Pugh's Original Paper](https://ftp.cs.umd.edu/pub/skipLists/skiplists.pdf) - The 1989 paper that introduced skip lists
 - [Skip Lists: Done Right](https://ticki.github.io/blog/skip-lists-done-right/) - Practical implementation insights

@@ -2,18 +2,41 @@
 layout: post
 seo: true
 title: "Complete Guide to Graph Data Structure: BFS, DFS, Adjacency List vs Matrix"
-subtitle: "Complete guide to graph data structure fundamentals. Learn adjacency list vs adjacency matrix, BFS and DFS in data structure, directed acyclic graphs, and 20+ core graph algorithms with implementations."
+meta-title: "BFS & DFS Time Complexity: O(V+E) vs O(V²)"
+subtitle: "Graph fundamentals with BFS and DFS time complexity explained: O(V+E) with adjacency list, O(V²) with adjacency matrix, plus 20+ algorithms with code."
 date: 2026-01-20
+last-modified-date: 2026-07-22
 categories: data-structures
 thumbnail-img: /assets/img/posts/data_structures/graph-thumbnail.png
 share-img: /assets/img/posts/data_structures/graph-thumbnail.png
 permalink: /data-structures/graph/
-description: "Learn graph data structure from basics to advanced. Understand adjacency list and adjacency matrix representations, BFS time complexity O(V+E) adjacency list, DFS time complexity O(V+E) adjacency list, BFS and DFS in data structure, directed acyclic graphs (DAG), Dijkstra algorithm, Union-Find, and 20+ graph algorithms with complete code implementations and time complexity analysis."
-keywords: "graph data structure, directed acyclic graphs, adjacency list, adjacency list graph, adjacency list in data structure, adjacency list representation of graph, adjacency matrix, bfs and dfs in data structure, BFS DFS, bfs time complexity o(v+e) adjacency list, dfs time complexity o(v+e) adjacency list, dfs time complexity adjacency list, dfs adjacency list, bfs adjacency list, bfs time complexity adjacency list, graph algorithms, Dijkstra algorithm, Union-Find, Kruskal algorithm, Prim algorithm, graph traversal, shortest path algorithm, topological sort, minimum spanning tree, graph fundamentals, graph algorithm implementation, adjacency list vs matrix, cycle detection, connected components, graph algorithm complexity, DAG, graph representation, graph data structure explained, graph theory algorithms"
+description: "BFS and DFS run in O(V+E) with an adjacency list and O(V²) with an adjacency matrix. See why, with code, comparison tables, and 20+ graph algorithms."
+meta-description: "BFS and DFS run in O(V+E) with an adjacency list and O(V²) with an adjacency matrix. See why, with code and a comparison table."
+keywords: "graph data structure, bfs time complexity, dfs time complexity, adjacency list, adjacency matrix, bfs dfs, graph traversal, graph algorithms, directed acyclic graph, dijkstra algorithm, topological sort, union-find, shortest path, adjacency list vs matrix"
 tags: [data-structures, algorithms]
 comments: true
 
-quick-answer: "Graphs = nodes + edges. **Adjacency list** = O(V+E) space, best for sparse graphs. **Adjacency matrix** = O(V²) space, fast edge lookup. **BFS** = level-by-level, shortest path in unweighted graphs. **DFS** = go deep, used for cycle detection and topological sort. **DAG** (directed acyclic graph) = can be topologically sorted."
+quick-answer: "BFS and DFS both run in **O(V + E)** time with an adjacency list and **O(V²)** with an adjacency matrix. Adjacency list = O(V+E) space, best for sparse graphs. Adjacency matrix = O(V²) space, fast edge lookup. Use BFS for shortest unweighted paths; use DFS for cycle detection and topological sort."
+
+key-takeaways:
+  - "BFS and DFS both run in O(V + E) time with an adjacency list and O(V²) with an adjacency matrix."
+  - "Adjacency list iterates only real neighbors; adjacency matrix scans every column in a row to find neighbors."
+  - "For sparse graphs (E << V²), adjacency list is faster and uses less space."
+  - "Space: adjacency list O(V + E), adjacency matrix O(V²)."
+
+main-answer: "BFS and DFS have O(V + E) time complexity with an adjacency list and O(V²) with an adjacency matrix. The difference comes from how neighbors are found: lists iterate actual edges, matrices scan all V columns per vertex."
+
+comparison-table:
+  name: "BFS and DFS Time Complexity by Graph Representation"
+  description: "Time complexity of BFS and DFS using adjacency list vs adjacency matrix"
+
+citations:
+  - name: "MIT 6.006 Introduction to Algorithms"
+    url: "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/"
+    author: "MIT OpenCourseWare"
+  - name: "Introduction to Algorithms (CLRS)"
+    url: "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"
+    author: "Cormen, Leiserson, Rivest, and Stein"
 
 faq:
   - question: "What is a graph data structure?"
@@ -21,23 +44,27 @@ faq:
   - question: "What is the difference between directed and undirected graphs?"
     answer: "In a directed graph, edges have direction - an edge from A to B is different from B to A. Think of following someone on Twitter (one-way). In an undirected graph, edges are bidirectional - if A is connected to B, then B is connected to A. Think of Facebook friendships (mutual)."
   - question: "What is the difference between adjacency list and adjacency matrix?"
-    answer: "An adjacency list in data structure stores, for each node, a list of its neighbors. The adjacency list representation of graph is space-efficient for sparse graphs (few edges), using O(V + E) space. An adjacency matrix is a 2D array where matrix[i][j] indicates if there's an edge between nodes i and j. It's better for dense graphs and fast edge lookups, but uses O(V²) space. For most graph problems, the adjacency list graph representation is preferred."
+    answer: "An adjacency list stores, for each node, a list of its neighbors. It is space-efficient for sparse graphs, using O(V + E) space. An adjacency matrix is a 2D array where matrix[i][j] indicates if there is an edge between nodes i and j. It supports O(1) edge lookups but uses O(V²) space. For most graph problems, the adjacency list is preferred."
   - question: "When should I use BFS vs DFS?"
-    answer: "BFS and DFS in data structure serve different purposes. Use BFS (Breadth-First Search) when you need the shortest path in an unweighted graph, or when you want to explore level by level. Use DFS (Depth-First Search) for cycle detection, topological sorting, finding connected components, or when you need to explore deep paths. Both BFS and DFS in data structure have O(V + E) time complexity when using adjacency list representation. The BFS time complexity O(V+E) adjacency list and DFS time complexity O(V+E) adjacency list are the same because both algorithms visit each vertex once and check each edge once. DFS uses less memory (stack vs queue)."
+    answer: "Use BFS (Breadth-First Search) when you need the shortest path in an unweighted graph or want to explore level by level. Use DFS (Depth-First Search) for cycle detection, topological sorting, finding connected components, or exploring deep paths. Both run in O(V + E) time with an adjacency list because each visits every vertex once and examines every edge once. DFS uses less memory (stack vs queue)."
   - question: "What is the time complexity of BFS with adjacency list?"
-    answer: "BFS time complexity O(V+E) adjacency list is achieved because BFS visits each vertex exactly once and examines each edge exactly once when using adjacency list representation. The O(V) term comes from visiting all V vertices, and the O(E) term comes from iterating through all E edges in the adjacency lists. This makes BFS time complexity adjacency list representation optimal for sparse graphs. The space complexity is O(V) for the queue and visited set."
+    answer: "BFS runs in O(V + E) time with an adjacency list. The O(V) term comes from visiting all V vertices, and the O(E) term comes from iterating through all E edges in the adjacency lists. Space complexity is O(V) for the queue and visited set."
   - question: "What is the time complexity of DFS with adjacency list?"
-    answer: "DFS time complexity O(V+E) adjacency list is achieved because DFS visits each vertex exactly once and examines each edge exactly once when using adjacency list representation. The O(V) term comes from visiting all V vertices, and the O(E) term comes from iterating through all E edges in the adjacency lists. This makes DFS time complexity adjacency list representation optimal for sparse graphs. The space complexity is O(V) for the recursion stack (or explicit stack) and visited set."
+    answer: "DFS runs in O(V + E) time with an adjacency list. Each vertex is visited once (O(V)) and each edge is examined once (O(E)). Space complexity is O(V) for the recursion stack or explicit stack plus the visited set."
+  - question: "What is the time complexity of BFS with adjacency matrix?"
+    answer: "BFS runs in O(V²) time with an adjacency matrix. To find neighbors of a vertex, you must scan all V columns in that vertex's row, and you do this for each of the V vertices."
+  - question: "What is the time complexity of DFS with adjacency matrix?"
+    answer: "DFS runs in O(V²) time with an adjacency matrix for the same reason as BFS: finding neighbors requires scanning an entire row of length V for every vertex."
   - question: "What is Dijkstra's algorithm and when is it used?"
     answer: "Dijkstra's algorithm finds the shortest path from a source node to all other nodes in a weighted graph with non-negative weights. It's used in GPS navigation, network routing, and any problem requiring shortest path calculations. It uses a priority queue and has O((V + E) log V) time complexity."
   - question: "What are real-world applications of graphs?"
     answer: "Graphs are used in social networks (friend connections), GPS navigation (roads and intersections), package managers (dependency resolution), compiler design (control flow graphs), recommendation systems (user-item relationships), fraud detection (transaction networks), and web crawling (pages and links)."
   - question: "What is a DAG (Directed Acyclic Graph)?"
-    answer: "Directed acyclic graphs (DAGs) are directed graphs with no cycles. Directed acyclic graphs are fundamental in computer science, used in task scheduling (tasks with dependencies), build systems (compilation order), and data pipelines (processing order). The key property of directed acyclic graphs is that they can be topologically sorted, which is impossible for graphs with cycles. Topological sort can order nodes in a directed acyclic graph such that all dependencies come before dependents."
+    answer: "A directed acyclic graph (DAG) is a directed graph with no cycles. DAGs are used in task scheduling, build systems, and data pipelines. The key property is that nodes can be topologically sorted so all dependencies come before dependents."
   - question: "How do I detect cycles in a graph?"
     answer: "For undirected graphs, use DFS and check if you encounter an already visited node (that's not the parent). For directed graphs, use DFS with a recursion stack to track nodes in the current path. If you revisit a node in the recursion stack, there's a cycle."
   - question: "What is the time complexity of graph traversal?"
-    answer: "Both BFS and DFS have O(V + E) time complexity where V is the number of vertices and E is the number of edges when using adjacency list representation. The BFS time complexity O(V+E) adjacency list and DFS time complexity O(V+E) adjacency list are achieved because you visit each vertex once and check each edge once. The space complexity is O(V) for the visited set and queue/stack."
+    answer: "BFS and DFS run in O(V + E) time with an adjacency list and O(V²) with an adjacency matrix, where V is the number of vertices and E is the number of edges. Space complexity is O(V) for the visited set and queue or stack."
   - question: "When should I use a graph database instead of a relational database?"
     answer: "Use graph databases (like Neo4j, Amazon Neptune) when relationships are as important as the data itself, when you need to traverse relationships frequently, when queries involve multiple hops (find friends of friends), or when the schema is highly connected. Relational databases work better for structured, tabular data."
 ---
@@ -64,18 +91,19 @@ This guide covers graph data structure fundamentals and core algorithms. Learn h
 1. [What is a Graph Data Structure?](#what-is-a-graph-data-structure)
 2. [Types of Graphs](#types-of-graphs)
 3. [Graph Representations](#graph-representations-adjacency-list-vs-adjacency-matrix)
-4. [BFS and DFS in Data Structure](#bfs-and-dfs-in-data-structure)
-5. [Shortest Path Algorithms](#shortest-path-algorithms)
-6. [Union-Find (Disjoint Set)](#union-find-disjoint-set)
-7. [Minimum Spanning Tree](#minimum-spanning-tree-mst)
-8. [Common Graph Problems and Solutions](#common-graph-problems-and-solutions)
-9. [Real-World Applications](#real-world-applications)
-10. [Common Graph Problem Patterns](#common-graph-problem-patterns)
-11. [Interview Problem Templates](#interview-problem-templates)
-12. [Interview Tips and Strategies](#interview-tips-and-strategies)
-13. [Complexity Cheat Sheet](#complexity-cheat-sheet)
-14. [Further Reading](#further-reading)
-15. [Conclusion](#conclusion)
+4. [BFS and DFS Time Complexity](#bfs-dfs-time-complexity)
+5. [BFS and DFS in Data Structure](#bfs-and-dfs-in-data-structure)
+6. [Shortest Path Algorithms](#shortest-path-algorithms)
+7. [Union-Find (Disjoint Set)](#union-find-disjoint-set)
+8. [Minimum Spanning Tree](#minimum-spanning-tree-mst)
+9. [Common Graph Problems and Solutions](#common-graph-problems-and-solutions)
+10. [Real-World Applications](#real-world-applications)
+11. [Common Graph Problem Patterns](#common-graph-problem-patterns)
+12. [Interview Problem Templates](#interview-problem-templates)
+13. [Interview Tips and Strategies](#interview-tips-and-strategies)
+14. [Complexity Cheat Sheet](#complexity-cheat-sheet)
+15. [Further Reading](#further-reading)
+16. [Conclusion](#conclusion)
 
 ## What is a Graph Data Structure?
 
@@ -197,9 +225,9 @@ How you store a graph in memory affects both space usage and operation speed. Th
 
 ### Adjacency List in Data Structure
 
-The **adjacency list** is one of the most common ways to represent a graph data structure. The **adjacency list representation of graph** stores, for each vertex, a list of all vertices adjacent to it. This makes the adjacency list graph representation ideal for sparse graphs.
+The **adjacency list** is one of the most common ways to represent a graph. It stores, for each vertex, a list of all vertices adjacent to it. This is ideal for sparse graphs where E << V².
 
-When implementing an **adjacency list in data structure**, you create a data structure where each node maps to a list of its neighbors. The **adjacency list graph** representation is space-efficient and allows fast iteration over neighbors.
+When implementing an adjacency list, each node maps to a list of its neighbors. The representation is space-efficient and allows fast iteration over neighbors.
 
 ```python
 graph = {
@@ -224,13 +252,13 @@ graph = {
 
 **Best for**: Sparse graphs, graphs where you iterate over neighbors frequently.
 
-**Time Complexity Benefits**: The adjacency list enables **BFS time complexity O(V+E) adjacency list** and **DFS time complexity O(V+E) adjacency list** because it allows efficient iteration over only the actual neighbors of each vertex, rather than checking all possible vertices. This makes the **DFS adjacency list** and BFS with adjacency list optimal for traversal algorithms.
+With an adjacency list, BFS and DFS both run in O(V + E) time because the algorithm iterates only over actual neighbors, not all possible vertices. See [BFS and DFS time complexity](#bfs-dfs-time-complexity) for the full breakdown.
 
-**Interview Tip**: The adjacency list is the preferred representation for most graph problems in coding interviews because real-world graphs are typically sparse. When asked about graph representation, always mention that the **adjacency list in data structure** is more space-efficient for sparse graphs and enables optimal **BFS time complexity O(V+E) adjacency list** and **DFS time complexity O(V+E) adjacency list**.
+**Interview Tip**: The adjacency list is the preferred representation for most graph problems in coding interviews because real-world graphs are typically sparse. Mention that it uses O(V + E) space and enables O(V + E) traversal time.
 
 ### Adjacency Matrix Representation
 
-The **adjacency matrix** is another way to represent a graph data structure. Unlike the adjacency list representation of graph, the adjacency matrix uses a 2D array where `matrix[i][j]` indicates if there is an edge between nodes i and j. The adjacency matrix representation is better for dense graphs or when you need O(1) edge lookups.
+The **adjacency matrix** is another way to represent a graph. Unlike an adjacency list, the matrix uses a 2D array where `matrix[i][j]` indicates if there is an edge between nodes i and j. It is better for dense graphs or when you need O(1) edge lookups.
 
 ```python
 # Undirected graph
@@ -275,9 +303,29 @@ When choosing between adjacency list and adjacency matrix, consider your use cas
 | Remove edge | O(degree) | O(1) |
 | Space | O(V + E) | O(V²) |
 
-For most real-world graphs (which are sparse), **adjacency list representation of graph** is the better choice. The adjacency list graph representation is space-efficient and allows fast iteration over neighbors. Social networks, road networks, and dependency graphs all have far fewer edges than the maximum possible, making **adjacency list in data structure** the preferred representation.
+For most real-world graphs (which are sparse), the adjacency list is the better choice. Social networks, road networks, and dependency graphs all have far fewer edges than the maximum possible. An adjacency list uses O(V + E) space compared to O(V²) for an adjacency matrix.
 
-When implementing a graph data structure, you'll most commonly use an adjacency list. The **adjacency list representation of graph** stores, for each vertex, a list of all vertices adjacent to it, making it ideal for sparse graphs where the number of edges is much less than V². The **adjacency list graph** approach uses O(V + E) space compared to O(V²) for adjacency matrix.
+## BFS and DFS Time Complexity: Adjacency List O(V+E) vs Adjacency Matrix O(V²) {#bfs-dfs-time-complexity}
+
+Now that you know how graphs are stored, here is how representation affects traversal speed. Both BFS and DFS visit every vertex once and examine every edge once. With an **adjacency list**, that costs **O(V + E)**. With an **adjacency matrix**, finding neighbors requires scanning an entire row, so traversal costs **O(V²)**.
+
+| Representation | BFS time | DFS time | Why |
+|----------------|----------|----------|-----|
+| Adjacency list | O(V + E) | O(V + E) | Iterate only actual neighbors |
+| Adjacency matrix | O(V²) | O(V²) | Scan all V columns per row |
+
+**Why adjacency list is O(V + E):**
+
+1. **Vertex processing (O(V))**: Each vertex is visited exactly once.
+2. **Edge processing (O(E))**: For each vertex, the algorithm iterates through its neighbors in the adjacency list. Each edge is examined once (directed) or twice (undirected).
+3. **Why the matrix is different**: With a matrix, finding neighbors of vertex *i* means scanning all V entries in row *i*. Done for all V vertices, that is O(V²) regardless of how many edges exist.
+
+**Worked example**: For a graph with V = 1000 vertices and E = 2000 edges:
+
+- Adjacency list: O(1000 + 2000) = **O(3000)** operations
+- Adjacency matrix: O(1000²) = **O(1,000,000)** operations
+
+For sparse graphs where E << V², the adjacency list is dramatically faster. The sections below cover BFS and DFS implementations and 20+ algorithms built on these traversal fundamentals.
 
 ## BFS and DFS in Data Structure
 
@@ -285,7 +333,7 @@ When implementing a graph data structure, you'll most commonly use an adjacency 
 
 ### Breadth-First Search (BFS) in Data Structure
 
-**BFS (Breadth-First Search)** is a graph traversal algorithm that explores level by level. Start at a node, visit all its neighbors, then visit all their neighbors, and so on. BFS in data structure is particularly useful for finding shortest paths in unweighted graphs. When using adjacency list representation, BFS achieves **BFS time complexity O(V+E) adjacency list**, making it efficient for sparse graphs.
+**BFS (Breadth-First Search)** is a graph traversal algorithm that explores level by level. Start at a node, visit all its neighbors, then visit all their neighbors, and so on. BFS is particularly useful for finding shortest paths in unweighted graphs. With an adjacency list, BFS runs in O(V + E) time.
 
 ```mermaid
 graph TD
@@ -325,33 +373,17 @@ def bfs(graph, start):
 - Finding all nodes at a certain distance
 - Web crawling with breadth-first strategy
 
-**Time Complexity**: O(V + E) when using adjacency list representation. The **BFS time complexity O(V+E) adjacency list** comes from visiting each vertex once (O(V)) and examining each edge once (O(E)). This assumes the graph is represented as an adjacency list, which allows efficient neighbor iteration.
+**Time Complexity**: O(V + E) with an adjacency list; O(V²) with an adjacency matrix. Visiting each vertex once contributes O(V); examining each edge once contributes O(E).
 
 **Space Complexity**: O(V) for the queue and visited set
 
-**Note**: The O(V + E) time complexity assumes adjacency list representation. With adjacency matrix, BFS would be O(V²) because you'd need to check all V nodes for each vertex to find neighbors.
-
-### BFS Time Complexity O(V+E) with Adjacency List
-
-Understanding why **BFS time complexity O(V+E) adjacency list** is achieved requires examining how BFS processes the graph:
-
-1. **Vertex Processing (O(V))**: BFS visits each vertex exactly once. When a vertex is dequeued, it's marked as visited and never processed again. This contributes O(V) to the time complexity.
-
-2. **Edge Processing (O(E))**: For each vertex, BFS iterates through all its neighbors using the adjacency list. Since each edge appears in exactly one adjacency list (for directed graphs) or two lists (for undirected graphs), all edges are examined exactly once or twice, contributing O(E) to the time complexity.
-
-3. **Why Adjacency List Matters**: The adjacency list allows BFS to iterate only over actual neighbors, not all possible vertices. With an adjacency matrix, BFS would need to check all V vertices for each vertex to find neighbors, resulting in O(V²) time complexity.
-
-**Example**: For a graph with V=1000 vertices and E=2000 edges:
-- **BFS time complexity O(V+E) adjacency list**: O(1000 + 2000) = O(3000) operations
-- With adjacency matrix: O(1000²) = O(1,000,000) operations
-
-The **BFS time complexity adjacency list** representation is optimal for sparse graphs where E << V², which is the case for most real-world graphs.
+**Note**: With an adjacency matrix, BFS must scan all V columns in each row to find neighbors, giving O(V²) total time. See the [complexity comparison](#bfs-dfs-time-complexity) at the top of this guide.
 
 {% include ads/in-article.html %}
 
 ### Depth-First Search (DFS) in Data Structure
 
-**DFS (Depth-First Search)** is another fundamental graph traversal algorithm. DFS goes deep before going wide. Start at a node, follow one path as far as possible, then backtrack. DFS in data structure is essential for cycle detection, topological sorting, and exploring all paths in a graph. When using **DFS adjacency list** representation, DFS achieves **DFS time complexity O(V+E) adjacency list**, making it efficient for sparse graphs.
+**DFS (Depth-First Search)** is another fundamental graph traversal algorithm. DFS goes deep before going wide. Start at a node, follow one path as far as possible, then backtrack. DFS is essential for cycle detection, topological sorting, and exploring all paths in a graph. With an adjacency list, DFS also runs in O(V + E) time.
 
 ```mermaid
 graph TD
@@ -407,27 +439,11 @@ def dfs_iterative(graph, start):
 - Solving mazes
 - Path finding (when you need any path, not necessarily shortest)
 
-**Time Complexity**: O(V + E) when using adjacency list representation. The **DFS time complexity O(V+E) adjacency list** comes from visiting each vertex once (O(V)) and examining each edge once (O(E)). This assumes the graph is represented as an adjacency list, which allows efficient neighbor iteration.
+**Time Complexity**: O(V + E) with an adjacency list; O(V²) with an adjacency matrix.
 
 **Space Complexity**: O(V) for the stack/recursion and visited set
 
-**Note**: The O(V + E) time complexity assumes adjacency list representation. With adjacency matrix, DFS would be O(V²) because you'd need to check all V nodes for each vertex to find neighbors.
-
-### DFS Time Complexity O(V+E) with Adjacency List
-
-Understanding why **DFS time complexity O(V+E) adjacency list** is achieved requires examining how DFS processes the graph:
-
-1. **Vertex Processing (O(V))**: DFS visits each vertex exactly once. When a vertex is pushed onto the stack (or recursed into), it's marked as visited and never processed again. This contributes O(V) to the time complexity.
-
-2. **Edge Processing (O(E))**: For each vertex, DFS iterates through all its neighbors using the adjacency list. Since each edge appears in exactly one adjacency list (for directed graphs) or two lists (for undirected graphs), all edges are examined exactly once or twice, contributing O(E) to the time complexity.
-
-3. **Why Adjacency List Matters**: The **DFS adjacency list** representation allows DFS to iterate only over actual neighbors, not all possible vertices. With an adjacency matrix, DFS would need to check all V vertices for each vertex to find neighbors, resulting in O(V²) time complexity.
-
-**Example**: For a graph with V=1000 vertices and E=2000 edges:
-- **DFS time complexity O(V+E) adjacency list**: O(1000 + 2000) = O(3000) operations
-- With adjacency matrix: O(1000²) = O(1,000,000) operations
-
-The **DFS time complexity adjacency list** representation is optimal for sparse graphs where E << V², which is the case for most real-world graphs. The **DFS adjacency list** approach is preferred in most graph algorithms because it provides both time and space efficiency.
+**Note**: The matrix representation forces a full row scan per vertex. See [BFS and DFS time complexity](#bfs-dfs-time-complexity) for why.
 
 ### BFS vs DFS in Data Structure: When to Use Which
 
@@ -442,7 +458,7 @@ Understanding when to use BFS vs DFS in data structure is crucial for solving gr
 | Finding all nodes at distance k | Yes | No |
 | Exploring all paths | No | Yes |
 
-In practice, DFS is more commonly used because it uses less memory and is easier to implement recursively. Use BFS when you specifically need the shortest path or level-by-level exploration. Both BFS and DFS in data structure have O(V + E) time complexity when using adjacency list representation. The **BFS time complexity O(V+E) adjacency list** and **DFS time complexity O(V+E) adjacency list** are identical, making them equally efficient for most graph problems.
+In practice, DFS is more commonly used because it uses less memory and is easier to implement recursively. Use BFS when you specifically need the shortest path or level-by-level exploration. Both algorithms have the same O(V + E) time complexity with an adjacency list.
 
 ## Shortest Path Algorithms
 
@@ -980,7 +996,7 @@ Most real-world graphs are sparse (E << V²), so adjacency lists are usually bet
 
 ### Time Complexity
 
-- **Traversal (BFS/DFS)**: O(V + E) with adjacency list representation. The **BFS time complexity O(V+E) adjacency list** and **DFS time complexity O(V+E) adjacency list** are optimal for sparse graphs.
+- **Traversal (BFS/DFS)**: O(V + E) with adjacency list; O(V²) with adjacency matrix
 - **Dijkstra**: O((V + E) log V)
 - **Cycle Detection**: O(V + E) with adjacency list
 - **Topological Sort**: O(V + E) with adjacency list
@@ -1238,8 +1254,8 @@ def has_cycle_directed_template(graph):
 
 | Algorithm | Time Complexity | Space Complexity | Notes |
 |-----------|----------------|------------------|-------|
-| BFS | O(V + E) | O(V) | Queue + visited set. BFS time complexity O(V+E) adjacency list assumes adjacency list representation. |
-| DFS | O(V + E) | O(V) | Stack/recursion + visited. DFS time complexity O(V+E) adjacency list assumes adjacency list representation. |
+| BFS | O(V + E) list / O(V²) matrix | O(V) | Queue + visited set |
+| DFS | O(V + E) list / O(V²) matrix | O(V) | Stack/recursion + visited |
 | Dijkstra | O((V + E) log V) | O(V) | With binary heap |
 | Bellman-Ford | O(VE) | O(V) | Works with negative weights |
 | Floyd-Warshall | O(V³) | O(V²) | All-pairs shortest path |
@@ -1255,9 +1271,8 @@ def has_cycle_directed_template(graph):
 | Bipartite Check | O(V + E) | O(V) | BFS/DFS with coloring |
 
 **Key Insights**:
-- Most graph algorithms are O(V + E) for sparse graphs when using adjacency list representation
-- The **BFS time complexity O(V+E) adjacency list** and **DFS time complexity O(V+E) adjacency list** are optimal for sparse graphs
-- With adjacency matrix, BFS and DFS would be O(V²) instead of O(V+E)
+- Most graph algorithms are O(V + E) for sparse graphs when using an adjacency list
+- With an adjacency matrix, BFS and DFS are O(V²) instead of O(V + E)
 - Dense graphs (E ≈ V²) make some algorithms slower
 - Space is usually O(V) for visited/queue/stack
 - Union-Find is nearly constant time per operation
@@ -1349,14 +1364,12 @@ Quick reference for all algorithms covered in this guide:
 | Connected components | DFS or Union-Find | O(V + E) with adjacency list |
 | Bipartite check | BFS/DFS | O(V + E) with adjacency list |
 
-**Note**: All O(V + E) complexities assume adjacency list representation. The **BFS time complexity O(V+E) adjacency list** and **DFS time complexity O(V+E) adjacency list** are optimal for sparse graphs.
+**Note**: O(V + E) complexities assume an adjacency list. With a matrix, BFS and DFS are O(V²).
 
 ## Conclusion
 
 Graph algorithms form the foundation of many computer science problems. Focus on understanding the core principles: why each algorithm works, when to use it, and its time and space complexity.
 
-Start with the fundamentals: BFS, DFS, and graph representations. Understanding that **BFS time complexity O(V+E) adjacency list** and **DFS time complexity O(V+E) adjacency list** are achieved through efficient neighbor iteration is crucial. Master these before moving to more complex algorithms like Dijkstra and MST algorithms. Each algorithm builds on previous concepts, so a solid foundation is essential.
+Start with the fundamentals: BFS, DFS, and graph representations. Know that both traversals run in O(V + E) with an adjacency list and O(V²) with an adjacency matrix because of how neighbors are found. Master these before moving to Dijkstra and MST algorithms.
 
-Remember that when using **DFS adjacency list** or BFS with adjacency list representation, you achieve optimal O(V+E) time complexity for sparse graphs. This is why adjacency lists are preferred for most graph problems.
-
-Keep learning, keep practicing, and most importantly, understand the "why" behind each algorithm.
+Adjacency lists are preferred for most graph problems because real-world graphs are sparse. Keep learning, keep practicing, and understand the "why" behind each algorithm.

@@ -116,7 +116,7 @@ Let's trace through what happens when you write and read data in a quorum-based 
 
 ### Write Operations
 
-When a client writes data, the system sends the write to all nodes but only waits for a majority to acknowledge.
+When a client writes data, the system sends the write to all nodes but only waits for a majority to acknowledge. While those acknowledgements trickle in, the coordinator parks the client request in a [request waiting list](/distributed-systems/request-waiting-list/){:target="_blank" rel="noopener"} and replies only once the quorum is reached.
 
 <img src="/assets/img/posts/distributed-systems/write-majority-quorum.png" alt="Write quorum in distributed systems showing client sending write request to 5 nodes, receiving acknowledgment from 3 nodes (majority) while Node 4 responds slowly and Node 5 is down, resulting in successful write operation" title="Write Majority Quorum - How distributed databases achieve consensus with partial node responses" loading="lazy" />
 

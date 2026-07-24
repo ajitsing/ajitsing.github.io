@@ -174,7 +174,7 @@ flowchart TB
 
 {% include ads/in-article.html %}
 
-Because the sender and receiver run independently, requests keep flowing out while responses flow in. The piece that ties them together is a **correlation ID**: every request carries a unique number, and the client keeps a map of "requests I have sent but not yet heard back about." When a response arrives, the receiver reads its correlation ID, looks up the pending request, and hands back the result (completes the future, fires the callback, unblocks the caller).
+Because the sender and receiver run independently, requests keep flowing out while responses flow in. The piece that ties them together is a **correlation ID**: every request carries a unique number, and the client keeps a [request waiting list](/distributed-systems/request-waiting-list/){:target="_blank" rel="noopener"}, a map of "requests I have sent but not yet heard back about." When a response arrives, the receiver reads its correlation ID, looks up the pending request, and hands back the result (completes the future, fires the callback, unblocks the caller).
 
 Here is the shape of it in Python-flavoured pseudocode, kept small so the structure is clear.
 

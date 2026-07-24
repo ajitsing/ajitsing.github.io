@@ -19,9 +19,10 @@ real_world:
   - "Cassandra and DynamoDB let you pick the read and write quorum per query, like ONE, QUORUM, or ALL."
   - "Raft and Paxos commit log entries only after a majority quorum has stored them."
   - "Kafka's in-sync replica set is a quorum that decides which producer writes are safe to commit."
-related_terms: ["consensus", "paxos", "raft", "replicated-log", "leader-election"]
+related_terms: ["consensus", "paxos", "raft", "replicated-log", "leader-election", "request-waiting-list"]
 related_posts:
   - "/distributed-systems/majority-quorum/"
   - "/distributed-systems/replicated-log/"
   - "/distributed-systems/paxos/"
+  - "/distributed-systems/request-waiting-list/"
 ---

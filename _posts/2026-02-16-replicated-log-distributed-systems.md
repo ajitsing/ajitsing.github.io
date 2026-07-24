@@ -140,7 +140,7 @@ Once the leader receives acknowledgments from a [majority of nodes](/distributed
 
 ### Step 6: Apply to State Machine
 
-The leader applies the committed entry to its own state machine and responds to the client. Followers learn about the commit through subsequent messages from the leader and apply the entry to their own state machines.
+The leader applies the committed entry to its own state machine and responds to the client. Until this moment the client's request sat in a [request waiting list](/distributed-systems/request-waiting-list/){:target="_blank" rel="noopener"} keyed by log index, waiting for the entry to commit. Followers learn about the commit through subsequent messages from the leader and apply the entry to their own state machines.
 
 ```mermaid
 sequenceDiagram

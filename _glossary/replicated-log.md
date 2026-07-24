@@ -19,9 +19,10 @@ real_world:
   - "etcd's raft log is a replicated log. The boltdb store on each node is a state machine that gets built from it."
   - "Kafka exposes its log directly as the API. Every topic partition is a replicated log."
   - "CockroachDB and TiKV run thousands of small Raft groups, each one managing one replicated log per data range."
-related_terms: ["consensus", "raft", "paxos", "high-watermark", "quorum", "write-ahead-log", "idempotent-receiver"]
+related_terms: ["consensus", "raft", "paxos", "high-watermark", "quorum", "write-ahead-log", "idempotent-receiver", "request-waiting-list"]
 related_posts:
   - "/distributed-systems/replicated-log/"
   - "/distributed-systems/high-watermark/"
   - "/distributed-systems/paxos/"
+  - "/distributed-systems/request-waiting-list/"
 ---

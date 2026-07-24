@@ -258,7 +258,7 @@ This is the guarantee: **the high watermark ensures clients never see data that 
 
 ### Why Uncommitted Entries Can Be Lost
 
-When the old leader had entries 6 and 7, it hadn't received enough acknowledgments. The client that sent those writes didn't get a confirmation response either. From the client's perspective, those writes might not have happened. The client knows to retry.
+When the old leader had entries 6 and 7, it hadn't received enough acknowledgments. The client that sent those writes didn't get a confirmation response either: those requests sat in the leader's [request waiting list](/distributed-systems/request-waiting-list/){:target="_blank" rel="noopener"} and timed out instead of completing. From the client's perspective, those writes might not have happened. The client knows to retry.
 
 If the system had served those entries to other clients before they were committed, those clients would have acted on data that later vanished. Orders would disappear, balances would jump, audit trails would have gaps. The high watermark prevents all of this.
 

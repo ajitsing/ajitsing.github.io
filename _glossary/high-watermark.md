@@ -19,9 +19,10 @@ real_world:
   - "Kafka's high watermark is the largest offset consumers can read. Anything above it is still inside the in sync replica set's flight."
   - "Raft calls the same idea the commit index. The leader marks entries committed once a majority has stored them."
   - "Pulsar, BookKeeper, and HDFS all use a watermark style boundary between durable and in flight data."
-related_terms: ["low-watermark", "replicated-log", "consensus", "raft", "quorum", "write-ahead-log"]
+related_terms: ["low-watermark", "replicated-log", "consensus", "raft", "quorum", "write-ahead-log", "request-waiting-list"]
 related_posts:
   - "/distributed-systems/high-watermark/"
   - "/distributed-systems/low-watermark/"
   - "/distributed-systems/replicated-log/"
+  - "/distributed-systems/request-waiting-list/"
 ---

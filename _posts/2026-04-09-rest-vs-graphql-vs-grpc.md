@@ -373,6 +373,8 @@ Google developed gRPC internally as "Stubby" and open-sourced it in 2015. It was
 
 gRPC uses **Protocol Buffers** (protobuf) for serialization and **HTTP/2** as the transport protocol. You define your service in a `.proto` file, and the protobuf compiler generates client and server code in your language of choice.
 
+{% include tool-cta.html tool="protobuf-decoder" variant="inline" description="Paste a hex or base64 protobuf payload and inspect field numbers, wire types, and nested messages without a .proto file." %}
+
 ```protobuf
 // user_service.proto
 syntax = "proto3";
@@ -516,7 +518,7 @@ This is better than REST URL versioning because you do not have to maintain mult
 
 **No browser support.** Browsers cannot make raw HTTP/2 requests with the framing that gRPC needs. gRPC-Web exists as a workaround, but it requires a proxy (Envoy or grpc-web) between the browser and the server, and it does not support client streaming or bidirectional streaming.
 
-**Not human-readable.** You cannot read a protobuf payload in your browser dev tools or curl output. Debugging requires tools like `grpcurl` or Bloom RPC. This slows down development and makes troubleshooting harder.
+**Not human-readable.** You cannot read a protobuf payload in your browser dev tools or curl output. Debugging usually needs `grpcurl`, Bloom RPC, or an online [Protobuf Decoder](/tools/protobuf-decoder/) that can inspect wire format without a `.proto` file. This slows down development and makes troubleshooting harder.
 
 **Steeper learning curve.** You need to learn Protocol Buffers, understand `.proto` file syntax, set up code generation pipelines, and manage generated code across repos. REST just uses HTTP and JSON, which every developer already knows.
 
@@ -916,6 +918,8 @@ graph LR
 
 {% include tool-cta.html tool="json-validator" description="Validate JSON request and response bodies while you prototype REST and GraphQL APIs." %}
 
+{% include tool-cta.html tool="protobuf-decoder" description="Decode gRPC / Protocol Buffers payloads from hex or base64. See field numbers, wire types, and nested messages without a .proto schema." %}
+
 ## <i class="fas fa-check-circle"></i> Summary: Which One Should You Pick?
 
 | Scenario | Pick | Why |
@@ -952,3 +956,4 @@ If you are building systems where API design matters, these related posts go dee
 - [Caching Strategies Explained](/caching-strategies-explained/) -- Deep dive on the caching advantage REST has over GraphQL
 - [Circuit Breaker Pattern](/circuit-breaker-pattern/) -- Protecting your services when downstream APIs fail
 - [Server-Sent Events Explained](/server-sent-events-explained/) -- The HTTP-native alternative for server push when gRPC is not an option
+- [Protobuf Decoder](/tools/protobuf-decoder/) -- Inspect binary Protocol Buffers payloads as a field tree and JSON when you debug gRPC traffic

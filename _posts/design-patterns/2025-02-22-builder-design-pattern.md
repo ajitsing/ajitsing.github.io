@@ -483,7 +483,7 @@ private HttpClient(Builder builder) {
 
 **OkHttp**: `Request.Builder` and `OkHttpClient.Builder` for HTTP configuration.
 
-**Protocol Buffers**: Generated builders for all message types.
+**[Protocol Buffers](/tools/protobuf-decoder/)**: Generated builders for all message types.
 
 **JPA Criteria API**: `CriteriaBuilder` for constructing queries.
 

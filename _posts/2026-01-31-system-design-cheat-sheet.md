@@ -485,7 +485,7 @@ APIs are contracts between services. Design them carefully.
 | Learning Curve | Low | Medium | Higher |
 | Best For | Public APIs, CRUD | Flexible frontends | Internal microservices |
 
-For a detailed comparison with architecture patterns, performance benchmarks, and a decision flowchart, see [REST vs GraphQL vs gRPC: How to Pick the Right API Protocol](/rest-vs-graphql-vs-grpc/).
+For a detailed comparison with architecture patterns, performance benchmarks, and a decision flowchart, see [REST vs GraphQL vs gRPC: How to Pick the Right API Protocol](/rest-vs-graphql-vs-grpc/). When you need to inspect a binary protobuf payload from a gRPC trace or hex dump, use the [Protobuf Decoder](/tools/protobuf-decoder/).
 
 ### REST Best Practices
 

@@ -871,3 +871,4 @@ For teams that have not yet invested in an observability stack and are choosing 
 - [How Kafka Works](/distributed-systems/how-kafka-works/) - event streaming and why trace context propagation across queues is not automatic
 - [Feature Flags Guide](/feature-flags-guide/) - canary releases and rollouts are easier to debug when you have traces correlated to feature flag state
 - [PostgreSQL vs MongoDB vs DynamoDB](/postgresql-vs-mongodb-vs-dynamodb/) - same format, choosing between tools with real trade-offs
+- [Protobuf Decoder](/tools/protobuf-decoder/) - inspect OTLP and other protobuf payloads when debugging collectors and exporters

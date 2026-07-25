@@ -2,6 +2,10 @@ jwt-decoder:
   title: "JWT Decoder and Inspector"
   description: "Decode JWT tokens in your browser. View the header, payload, claims, and expiration."
   link: "/tools/jwt-decoder/"
+protobuf-decoder:
+  title: "Protobuf Decoder"
+  description: "Decode Protocol Buffers wire format from hex or base64 without a .proto schema."
+  link: "/tools/protobuf-decoder/"
 ssl-certificate-decoder:
   title: "SSL/TLS Certificate Decoder"
   description: "Parse X.509 certificates. See subject, issuer, validity, SANs, and fingerprints."

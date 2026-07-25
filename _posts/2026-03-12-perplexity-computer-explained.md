@@ -189,7 +189,7 @@ This is where the AI reasoning happens. Perplexity's cloud infrastructure runs C
 4. Manages persistent memory about you across sessions
 5. Coordinates 400+ external service connectors (Gmail, Slack, GitHub, Notion, Snowflake, and more)
 
-The internal API uses protobuf definitions with a service called `LlmApi` that handles both streaming and non-streaming completions. This clean abstraction separates the model routing logic from the LLM layer, meaning they can swap models without redesigning the system.
+The internal API uses [protobuf](/tools/protobuf-decoder/) definitions with a service called `LlmApi` that handles both streaming and non-streaming completions. This clean abstraction separates the model routing logic from the LLM layer, meaning they can swap models without redesigning the system.
 
 ### Firecracker VMs: Isolated Execution
 

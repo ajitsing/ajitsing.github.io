@@ -1,0 +1,574 @@
+---
+layout: default
+title: "Protobuf Decoder Online | Decode Protocol Buffers"
+subtitle: "Decode protobuf wire format to a field tree and JSON in your browser"
+seo: true
+description: "Free online protobuf decoder. Paste hex or base64, or drop a .pb file, and instantly see field numbers, wire types, and values without a .proto schema. Nested messages, strings, packed repeated fields, varints, and floats. 100% client-side."
+keywords: "protobuf decoder, protobuf decoder online, decode protobuf, protocol buffers decoder, protobuf wire format, protoc decode_raw, protobuf without proto, protobuf to json, protobuf hex decoder, protobuf base64 decoder, gRPC protobuf decoder, protobuf field number, protobuf wire type, protobuf varint, protobuf nested message, protobuf parser online"
+thumbnail: /assets/img/tools/protobuf-tool-thumbnail.png
+share-img: /assets/img/tools/protobuf-tool-thumbnail.png
+permalink: /tools/protobuf-decoder/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/protobuf-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Protobuf Decoder",
+  "alternateName": ["Protocol Buffers Decoder", "Protobuf Wire Format Viewer", "protoc decode_raw Online", "Protobuf to JSON", "Protobuf Hex Decoder", "gRPC Protobuf Decoder", "Decode Protobuf Without .proto"],
+  "description": "Free online protobuf decoder. Decode Protocol Buffers wire format from hex, base64, or file without a .proto schema. Shows field numbers, wire types, nested messages, and all plausible type interpretations. 100% client-side.",
+  "url": "https://singhajit.com/tools/protobuf-decoder/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Decode protobuf from hex, base64, base64url, or file",
+    "No .proto schema required (like protoc --decode_raw)",
+    "Annotated field tree with field number, wire type, offset, and length",
+    "All plausible type interpretations (uint/int/sint/bool, float/double, string/bytes/message)",
+    "Recursive nested message detection",
+    "Packed repeated field heuristic",
+    "BigInt support for 64-bit integers",
+    "Optional gzip auto-decompress",
+    "Warns on trailing bytes instead of failing",
+    "Copy decoded JSON or download as .json",
+    "100% client-side. No data leaves your browser",
+    "Works offline after first load"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/protobuf-tool-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "Protobuf Wire Format Reference",
+    "text": "Protocol Buffers encode each field as a tag varint ((field_number << 3) | wire_type) followed by a value. Wire types: 0 varint, 1 64-bit, 2 length-delimited, 5 32-bit. Without a .proto schema you recover field numbers and wire types, but not field names."
+  },
+  "keywords": "protobuf decoder, protobuf decoder online, decode protobuf, protocol buffers decoder, protobuf wire format, protoc decode_raw, protobuf to json"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Decode a Protobuf Payload Without a .proto File",
+  "description": "Decode a Protocol Buffers binary payload to a field tree and JSON in your browser, from hex, base64, or a file, without needing the original .proto schema.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Pick an input format",
+      "text": "Choose Hex, Base64, Base64URL, Auto, or File depending on how you have the protobuf payload. Hex is common when copying bytes from Wireshark, tcpdump, or hex dumps. Base64 is common in gRPC traces and API logs."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Paste the payload",
+      "text": "Paste the encoded bytes into the textarea. Hex input tolerates 0x prefixes, spaces, commas, and newlines. For File mode, drag and drop a .pb or .bin file."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Inspect the annotated field tree",
+      "text": "Each row shows the field number, wire type, primary value, and all plausible interpretations (for example a varint as uint64, int64, sint64, or bool). Length-delimited fields that parse as nested messages expand into a subtree."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Copy or download JSON",
+      "text": "Switch to Pretty JSON and use Copy JSON or Download to export the structure keyed by field number. Decoding happens entirely in your browser; nothing is uploaded."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Protobuf Decoder"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I decode protobuf without a .proto file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool performs wire-format analysis like protoc --decode_raw. It recovers field numbers, wire types, and raw values from the binary data. Field names and exact semantic types live only in the .proto schema and cannot be recovered from the bytes alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are protobuf wire types?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Protobuf uses four active wire types: 0 (Varint) for int32/64, uint, sint, bool, and enum; 1 (64-bit) for fixed64, sfixed64, and double; 2 (Length-delimited) for string, bytes, embedded messages, and packed repeated fields; and 5 (32-bit) for fixed32, sfixed32, and float. Wire types 3 and 4 (groups) are deprecated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I decode a protobuf hex dump?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the hex into this tool with Hex mode selected (spaces, 0x prefixes, and newlines are fine). The decoder walks each tag and value and shows an annotated field tree plus a JSON export keyed by field number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are length-delimited fields interpreted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool first tries to parse the bytes as a nested protobuf message. If that fails, it checks for valid UTF-8 and shows a string. It also tries a packed-repeated heuristic. Raw hex is always available as a fallback."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my protobuf payload uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Decoding runs entirely in your browser using JavaScript. No payload, file, or decoded result is sent to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between this and protoc --decode_raw?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both recover field numbers and wire types without a schema. This tool runs in the browser, shows multiple type interpretations side by side, recursively expands nested messages, and exports JSON. protoc --decode_raw is a CLI that prints a text tree."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do I see multiple interpretations for one field?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The wire format stores a wire type, not the full Protobuf type. A varint could be int32, uint64, sint64, bool, or enum. A length-delimited blob could be a string, bytes, packed repeated values, or a nested message. The decoder shows every plausible reading so you can pick the one that matches your context."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool support gRPC payloads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for the protobuf message body. Paste the message bytes (hex or base64) after stripping the gRPC framing (1-byte compressed flag + 4-byte length). Gzip-compressed bodies are decompressed automatically when DecompressionStream is available."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Protobuf Decoder",
+      "item": "https://singhajit.com/tools/protobuf-decoder/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="protobuf-page-wrapper">
+  <div class="protobuf-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-cubes"></i>
+        Protobuf Decoder Online
+      </h1>
+      <p class="tool-subtitle">Decode Protocol Buffers wire format without a .proto schema</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>protobuf decoder</strong> to inspect binary Protocol Buffers payloads as an annotated field tree and JSON. Paste <strong>hex</strong> or <strong>base64</strong>, or drop a <code>.pb</code> file. No <code>.proto</code> required. works like <code>protoc --decode_raw</code>, entirely in your browser.
+    </p>
+
+    <div class="cross-tool-banner">
+      <i class="fas fa-info-circle"></i>
+      <span>Decoding another binary format? Try the <a href="/tools/cbor-decoder/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Protobuf Decoder','event_label':'to_cbor_from_banner'})}">CBOR Decoder</a> for RFC 8949 payloads, or the <a href="/tools/jwt-decoder/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Protobuf Decoder','event_label':'to_jwt_from_banner'})}">JWT Decoder</a> for tokens.</span>
+    </div>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="decoder-main">
+      <div class="input-section">
+        <div class="input-mode-row">
+          <label class="input-mode-label">Input format:</label>
+          <div class="input-mode-buttons" role="group" aria-label="Input format">
+            <button class="mode-btn active" type="button" data-mode="hex">
+              <i class="fas fa-hashtag"></i> Hex
+            </button>
+            <button class="mode-btn" type="button" data-mode="base64">
+              <i class="fas fa-exchange-alt"></i> Base64
+            </button>
+            <button class="mode-btn" type="button" data-mode="base64url">
+              <i class="fas fa-link"></i> Base64URL
+            </button>
+            <button class="mode-btn" type="button" data-mode="auto">
+              <i class="fas fa-magic"></i> Auto
+            </button>
+            <button class="mode-btn" type="button" data-mode="file">
+              <i class="fas fa-file-upload"></i> File
+            </button>
+          </div>
+        </div>
+
+        <div id="text-input-wrapper" class="text-input-wrapper">
+          <label for="protobuf-input" class="sr-only">Protobuf payload</label>
+          <textarea
+            id="protobuf-input"
+            class="protobuf-textarea"
+            spellcheck="false"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="Paste protobuf bytes as hex. e.g. 08 96 01 12 07 74 65 73 74 69 6e 67"
+            aria-describedby="input-help"
+          ></textarea>
+          <p id="input-help" class="input-help">
+            <i class="fas fa-info-circle"></i>
+            Hex tolerates <code>0x</code>, spaces, commas, and newlines. Decoding runs as you type. No <code>.proto</code> needed.
+          </p>
+        </div>
+
+        <div id="file-input-wrapper" class="file-input-wrapper hidden">
+          <label for="protobuf-file" class="file-drop-zone" id="file-drop-zone">
+            <input type="file" id="protobuf-file" accept=".pb,.bin,.dat,application/octet-stream" hidden>
+            <div class="file-drop-inner">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span class="file-drop-primary">Drop a <code>.pb</code> / <code>.bin</code> file here</span>
+              <span class="file-drop-secondary">or click to browse. processed locally</span>
+            </div>
+          </label>
+          <div id="file-meta" class="file-meta hidden">
+            <i class="fas fa-file"></i>
+            <span id="file-meta-name">—</span>
+            <span class="file-meta-sep">·</span>
+            <span id="file-meta-size">—</span>
+            <button type="button" id="file-clear-btn" class="file-clear-btn" title="Remove file">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button type="button" id="paste-btn" class="btn-secondary" title="Paste from clipboard">
+            <i class="fas fa-paste"></i> Paste
+          </button>
+          <button type="button" id="clear-btn" class="btn-secondary" title="Clear input">
+            <i class="fas fa-times"></i> Clear
+          </button>
+          <button type="button" id="sample-btn" class="btn-secondary" title="Load a sample payload">
+            <i class="fas fa-flask"></i> Load sample
+          </button>
+          <span class="action-spacer"></span>
+          <button type="button" id="copy-btn" class="btn-secondary" title="Copy decoded JSON" disabled>
+            <i class="fas fa-copy"></i> Copy JSON
+          </button>
+          <button type="button" id="download-btn" class="btn-secondary" title="Download decoded JSON" disabled>
+            <i class="fas fa-download"></i> Download
+          </button>
+        </div>
+
+        <div id="error-message" class="error-message hidden" role="alert">
+          <i class="fas fa-exclamation-circle"></i>
+          <span id="error-text"></span>
+        </div>
+
+        <div id="warning-message" class="warning-message hidden" role="status">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span id="warning-text"></span>
+        </div>
+      </div>
+
+      <div id="result-section" class="result-section hidden">
+        <div class="result-header">
+          <h3><i class="fas fa-stream"></i> Decoded Output</h3>
+          <div class="result-view-tabs" role="tablist" aria-label="Result view">
+            <button class="view-tab active" type="button" role="tab" aria-selected="true" data-view="tree">
+              <i class="fas fa-sitemap"></i> Annotated Tree
+            </button>
+            <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="pretty">
+              <i class="fas fa-align-left"></i> Pretty JSON
+            </button>
+          </div>
+        </div>
+
+        <div class="result-meta" id="result-meta">
+          <span class="meta-pill" title="Input size in bytes">
+            <i class="fas fa-arrow-down"></i>
+            <span id="meta-input">0 B</span>
+          </span>
+          <span class="meta-pill" title="Total fields including nested">
+            <i class="fas fa-list-ol"></i>
+            <span id="meta-output">0 fields</span>
+          </span>
+          <span class="meta-pill" title="Decode time">
+            <i class="fas fa-stopwatch"></i>
+            <span id="meta-time">0 ms</span>
+          </span>
+          <span class="meta-pill" title="Top-level field count">
+            <i class="fas fa-layer-group"></i>
+            <span id="meta-type">—</span>
+          </span>
+        </div>
+
+        <div class="result-view active" id="view-tree" data-view="tree">
+          <div class="protobuf-tree" id="output-tree" tabindex="0"></div>
+        </div>
+
+        <div class="result-view hidden" id="view-pretty" data-view="pretty">
+          <pre class="protobuf-output" id="output-json" tabindex="0"><code></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="examples-section">
+      <h3><i class="fas fa-lightbulb"></i> Try These Examples</h3>
+      <p class="section-desc">Click any sample to load it into the decoder above. All samples are hex.</p>
+      <div class="examples-grid">
+        <button class="example-btn" type="button" data-hex="089601" data-label="Varint 150">
+          <span class="example-platform"><i class="fas fa-hashtag"></i> Varint</span>
+          <span class="example-desc">Field 1 = 150</span>
+          <code>08 96 01</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="120774657374696e67" data-label="String testing">
+          <span class="example-platform"><i class="fas fa-font"></i> String</span>
+          <span class="example-desc">Field 2 = "testing"</span>
+          <code>12 07 74 65 73...</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="089601120774657374696e67" data-label="Mixed message">
+          <span class="example-platform"><i class="fas fa-cube"></i> Message</span>
+          <span class="example-desc">id=150, name="testing"</span>
+          <code>08 96 01 12 07...</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="1a020801" data-label="Nested message">
+          <span class="example-platform"><i class="fas fa-sitemap"></i> Nested</span>
+          <span class="example-desc">Field 3 embeds {1: 1}</span>
+          <code>1a 02 08 01</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="2001" data-label="Bool true">
+          <span class="example-platform"><i class="fas fa-toggle-on"></i> Bool</span>
+          <span class="example-desc">Field 4 = true</span>
+          <code>20 01</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="2d64000000" data-label="Fixed32 100">
+          <span class="example-platform"><i class="fas fa-microchip"></i> Fixed32</span>
+          <span class="example-desc">Field 5 = 100</span>
+          <code>2d 64 00 00 00</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="31000000000000f83f" data-label="Double 1.5">
+          <span class="example-platform"><i class="fas fa-percentage"></i> Double</span>
+          <span class="example-desc">Field 6 = 1.5</span>
+          <code>31 00 00 00...</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="3801" data-label="Zigzag -1">
+          <span class="example-platform"><i class="fas fa-exchange-alt"></i> Sint64</span>
+          <span class="example-desc">Field 7 zigzag → -1</span>
+          <code>38 01</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="4203010203" data-label="Packed repeated">
+          <span class="example-platform"><i class="fas fa-layer-group"></i> Packed</span>
+          <span class="example-desc">Field 8 = [1, 2, 3]</span>
+          <code>42 03 01 02 03</code>
+        </button>
+        <button class="example-btn" type="button" data-hex="08ffffffffffffffffff0122086e65676174697665" data-label="Negative int64">
+          <span class="example-platform"><i class="fas fa-minus"></i> Int64</span>
+          <span class="example-desc">Field 1 = -1 (10-byte varint)</span>
+          <code>08 ff..ff 01 22...</code>
+        </button>
+      </div>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Protobuf Wire Types</h3>
+      <div class="major-types-grid">
+        <div class="major-type-card">
+          <span class="major-type-num">0</span>
+          <span class="major-type-name">Varint</span>
+          <span class="major-type-desc">int / uint / sint / bool / enum</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">1</span>
+          <span class="major-type-name">64-bit</span>
+          <span class="major-type-desc">fixed64 / sfixed64 / double</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">2</span>
+          <span class="major-type-name">Length-delimited</span>
+          <span class="major-type-desc">string / bytes / message / packed</span>
+        </div>
+        <div class="major-type-card">
+          <span class="major-type-num">5</span>
+          <span class="major-type-name">32-bit</span>
+          <span class="major-type-desc">fixed32 / sfixed32 / float</span>
+        </div>
+      </div>
+
+      <div class="tags-reference">
+        <h4>Tag Encoding</h4>
+        <table class="tags-table">
+          <thead>
+            <tr><th>Concept</th><th>Formula / Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>tag</code></td><td><code>(field_number &lt;&lt; 3) | wire_type</code> encoded as a varint</td></tr>
+            <tr><td>Field numbers</td><td>1–536,870,911 (field 0 is invalid)</td></tr>
+            <tr><td>Varint</td><td>7 data bits per byte; high bit set means more bytes follow</td></tr>
+            <tr><td>Zigzag (sint)</td><td><code>(n &lt;&lt; 1) ^ (n &gt;&gt; 63)</code> maps signed ints to unsigned varints efficiently</td></tr>
+            <tr><td>Length-delimited</td><td>Varint length, then that many bytes (string, bytes, nested message, or packed)</td></tr>
+            <tr><td>Groups 3 / 4</td><td>Deprecated start/end group markers; labeled but not expanded</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> Understanding Protobuf Wire Format</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is Protocol Buffers?</h2>
+          <p><strong>Protocol Buffers (protobuf)</strong> is Google's language-neutral binary serialization format. You define messages in a <code>.proto</code> schema, compile code generators, and exchange compact binary payloads over gRPC, Kafka, and many APIs. Unlike JSON, the wire format does not include field names. only field numbers and wire types. so a schema-free decoder can recover structure and values, but not the human-readable names.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>How to read a protobuf payload by hand</h2>
+          <ul>
+            <li><strong>Read a tag varint:</strong> low 3 bits are the wire type; the rest is the field number</li>
+            <li><strong>Wire type 0:</strong> read another varint (the value)</li>
+            <li><strong>Wire type 1:</strong> read the next 8 bytes little-endian</li>
+            <li><strong>Wire type 2:</strong> read a length varint, then that many bytes</li>
+            <li><strong>Wire type 5:</strong> read the next 4 bytes little-endian</li>
+            <li><strong>Repeat</strong> until the buffer is consumed</li>
+          </ul>
+          <p>Example: <code>08 96 01</code> → tag <code>0x08</code> = field 1, wire type 0; value varint <code>0x96 0x01</code> = 150.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Decoding without a .proto (like protoc --decode_raw)</h2>
+          <p>Running <code>protoc --decode_raw &lt; message.bin</code> prints field numbers and values without a schema. This online tool does the same in your browser and adds:</p>
+          <ul>
+            <li>Multiple type interpretations per field (uint vs sint vs bool, float vs fixed32, string vs nested message)</li>
+            <li>Recursive expansion of nested messages</li>
+            <li>Packed-repeated detection</li>
+            <li>JSON export keyed by field number</li>
+          </ul>
+          <p>What you still cannot recover without the <code>.proto</code>: field names (<code>user_id</code> vs <code>1</code>), enum symbolic names, and oneof groupings.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Where protobuf shows up</h2>
+          <ul>
+            <li><strong>gRPC:</strong> request and response message bodies</li>
+            <li><strong>Kubernetes / etcd / Envoy:</strong> many control-plane APIs use protobuf</li>
+            <li><strong>Android / mobile:</strong> compact payloads between apps and backends</li>
+            <li><strong>Observability:</strong> OpenTelemetry OTLP traces and metrics</li>
+            <li><strong>Storage:</strong> protobuf blobs in Kafka topics, object stores, and databases</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Protobuf vs JSON vs CBOR</h2>
+          <ul>
+            <li><strong>Smaller than JSON:</strong> field numbers instead of names; binary ints and floats</li>
+            <li><strong>Schema-first:</strong> evolving messages safely needs the <code>.proto</code> and field-number discipline</li>
+            <li><strong>Not self-describing:</strong> unlike JSON or CBOR, you need the schema (or a wire-format viewer like this) to interpret payloads</li>
+            <li><strong>CBOR</strong> is closer to self-describing JSON-in-binary. try our <a href="/tools/cbor-decoder/">CBOR Decoder</a> when that is what you have</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> Protobuf Decoder FAQ</h2>
+
+      <div class="faq-item">
+        <h3>Can I decode protobuf without a .proto file?</h3>
+        <p>Yes. This tool performs wire-format analysis like <code>protoc --decode_raw</code>. It recovers field numbers, wire types, and values. Field names live only in the <code>.proto</code> and cannot be recovered from the bytes alone.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What are protobuf wire types?</h3>
+        <p>Four wire types matter: <strong>0 Varint</strong> (int/uint/sint/bool/enum), <strong>1 64-bit</strong> (fixed64/sfixed64/double), <strong>2 Length-delimited</strong> (string/bytes/message/packed), and <strong>5 32-bit</strong> (fixed32/sfixed32/float). Types 3 and 4 (groups) are deprecated.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I decode a protobuf hex dump?</h3>
+        <p>Paste the hex above with Hex mode selected. Spaces, commas, and <code>0x</code> prefixes are fine. The Annotated Tree shows each field; Pretty JSON exports a structure keyed by field number.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How are length-delimited fields interpreted?</h3>
+        <p>The decoder tries a nested-message parse first, then valid UTF-8 as a string, then a packed-repeated heuristic, and always offers a raw hex view.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why do I see multiple interpretations for one field?</h3>
+        <p>The wire type is not the full Protobuf type. A varint could be <code>int64</code>, <code>uint64</code>, <code>sint64</code>, or <code>bool</code>. Pick the reading that matches your schema or context.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between this and protoc --decode_raw?</h3>
+        <p>Same idea. schema-free wire walk. This tool runs in the browser, shows side-by-side interpretations, expands nested messages, and exports JSON. <code>protoc --decode_raw</code> is a CLI text dump.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does this tool support gRPC payloads?</h3>
+        <p>Yes for the message body. Strip the gRPC frame (1-byte flag + 4-byte big-endian length), then paste the remaining bytes. Gzip-compressed bodies are decompressed automatically when the browser supports <code>DecompressionStream</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data uploaded anywhere?</h3>
+        <p>No. Decoding runs entirely in your browser. No payload, file, or decoded result is sent to any server.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I encode a protobuf message?</h3>
+        <p>Encoding needs the schema (or generated stubs). This v1 tool focuses on decoding. Use <code>protoc</code>, your language's protobuf library, or a schema-aware encoder with your <code>.proto</code> file.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+
+<script defer src="{{ '/assets/js/protobuf-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

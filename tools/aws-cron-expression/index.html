@@ -1,0 +1,744 @@
+---
+layout: default
+title: "AWS EventBridge Cron Expression Generator & Parser"
+subtitle: "Free online AWS EventBridge cron expression generator, validator, and translator"
+seo: true
+description: "Free AWS EventBridge cron expression generator and parser. Build, validate, and translate AWS 6-field cron expressions and rate expressions. Supports ?, L, W, # syntax. Compatible with Amazon EventBridge Rules, EventBridge Scheduler, CloudWatch Events, and AWS Lambda schedules."
+keywords: "aws eventbridge cron, aws cron expression, eventbridge cron expression, aws cron generator, eventbridge cron generator, aws cron expression generator, aws cron parser, eventbridge schedule cron, aws cron syntax, aws cron expression validator, amazon eventbridge cron, cloudwatch events cron, aws lambda cron, aws scheduler cron, cron(minutes hours day month day-of-week year), aws rate expression, rate(5 minutes), aws cron ? question mark, aws cron L last day, aws cron W weekday, aws cron # nth day, eventbridge scheduler cron, terraform aws_scheduler_schedule cron, aws cron vs linux cron, aws cron expression examples, aws cron translator, aws cron checker"
+thumbnail: /assets/img/tools/aws-cron-tool-thumbnail.png
+share-img: /assets/img/tools/aws-cron-tool-thumbnail.png
+permalink: /tools/aws-cron-expression/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/aws-cron-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<!-- Structured Data: WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AWS EventBridge Cron Expression Generator & Parser",
+  "alternateName": ["AWS Cron Generator", "EventBridge Cron Expression Generator", "AWS Cron Expression Validator", "Amazon EventBridge Cron Parser", "AWS Scheduler Cron Builder", "AWS Rate Expression Generator", "CloudWatch Events Cron Tool", "AWS Lambda Cron Generator"],
+  "description": "Free AWS EventBridge cron expression generator and parser. Build, validate, and translate AWS 6-field cron expressions and rate expressions. Supports ?, L, W, #. Compatible with EventBridge Rules, EventBridge Scheduler, and Lambda schedules.",
+  "url": "https://singhajit.com/tools/aws-cron-expression/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Generate AWS EventBridge 6-field cron expressions visually",
+    "Parse and validate AWS cron expressions with cron(...) wrapper support",
+    "Translate AWS cron expressions to plain English",
+    "Support for AWS-specific syntax: ?, L, W, #",
+    "Calculate next 3 execution times in UTC",
+    "Build and translate rate(value unit) expressions",
+    "Compatible with EventBridge Rules, EventBridge Scheduler, CloudWatch Events, and Lambda",
+    "Works offline. No server required"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/aws-cron-tool-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "AWS EventBridge Cron Syntax Reference",
+    "text": "AWS EventBridge cron expressions have six required fields: minutes (0-59), hours (0-23), day-of-month (1-31), month (1-12 or JAN-DEC), day-of-week (1-7 or SUN-SAT), and year (1970-2199). Wrap in cron(...). One of day-of-month or day-of-week must be ?. Supports L, W, and # wildcards. Rate expressions use rate(value unit)."
+  },
+  "keywords": "aws eventbridge cron, aws cron expression, eventbridge cron generator, aws cron parser, aws rate expression, amazon eventbridge schedule"
+}
+</script>
+
+<!-- Structured Data: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Create an AWS EventBridge Cron Expression",
+  "description": "Learn how to build, validate, and translate AWS EventBridge cron expressions with this free online tool.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Understand the 6 AWS cron fields",
+      "text": "An AWS EventBridge cron expression has 6 required fields: minutes (0-59), hours (0-23), day-of-month (1-31), month (1-12), day-of-week (1-7, Sunday=1), and year (1970-2199). Always wrap the expression in cron(...)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Use ? for day-of-month or day-of-week",
+      "text": "AWS requires exactly one of day-of-month or day-of-week to be ?. You cannot set both fields to a value or both to *. Example: cron(0 18 ? * MON-FRI *) runs at 6 PM UTC on weekdays."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Generate or paste your expression",
+      "text": "Use the generator tab to build a schedule from dropdowns, or paste an existing expression into the parser. The tool translates it to plain English and shows the next run times in UTC."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "AWS EventBridge Cron Expression Generator"
+  }
+}
+</script>
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AWS EventBridge cron expression?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AWS EventBridge cron expression is a 6-field schedule string used by Amazon EventBridge Rules, EventBridge Scheduler, CloudWatch Events, and Lambda. The format is cron(minutes hours day-of-month month day-of-week year). Unlike Linux crontab (5 fields), AWS requires a year field and the ? wildcard in one of the day fields."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is AWS EventBridge cron different from Linux cron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Linux crontab uses 5 fields (minute, hour, day, month, weekday). AWS EventBridge uses 6 fields inside cron(...), with a required year field. AWS also requires ? in either day-of-month or day-of-week, numbers weekdays 1-7 (Sunday=1), and supports L, W, and # wildcards that Linux cron does not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does ? mean in AWS EventBridge cron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The question mark (?) means 'no specific value'. Exactly one of day-of-month or day-of-week must be ?. If you schedule by weekday (e.g. MON-FRI), set day-of-month to ?. If you schedule by date (e.g. day 1), set day-of-week to ?."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AWS EventBridge cron use UTC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EventBridge Rules (legacy CloudWatch Events) always interpret cron expressions in UTC. EventBridge Scheduler can use UTC or a timezone you specify when creating the schedule. Always confirm which product you are using before scheduling for a local business window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an AWS rate expression?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rate expression is a simpler alternative to cron for fixed intervals. The format is rate(value unit), where unit is minute(s), hour(s), or day(s). Example: rate(5 minutes) runs every 5 minutes. Use singular unit names when value is 1: rate(1 hour)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I run an EventBridge rule every weekday at 6 PM UTC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use cron(0 18 ? * MON-FRI *). The ? in day-of-month is required because day-of-week is set. Year * means every year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I schedule on the last day of every month in AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use cron(0 0 L * ? *). The L in day-of-month means the last day of the month. Day-of-week must be ? when day-of-month has a value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does L, W, and # mean in AWS cron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L means last (last day of month, or last weekday like 6L for last Friday). W means nearest weekday (e.g. 15W). # means the nth occurrence of a weekday (e.g. 3#2 is the second Tuesday). These are AWS/Quartz-style wildcards not available in Linux crontab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a 5-field Linux cron expression in EventBridge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. AWS rejects 5-field expressions. Convert by wrapping in cron(...), adding a year field (usually *), and putting ? in one day field. Example: 0 9 * * 1-5 becomes cron(0 9 ? * MON-FRI *)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I use AWS EventBridge cron expressions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use them in EventBridge Rules (Schedule expression), EventBridge Scheduler (ScheduleExpression), Lambda event source schedules, CloudWatch Events, Terraform aws_cloudwatch_event_rule / aws_scheduler_schedule, CloudFormation, and the AWS Console schedule editor."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AWS EventBridge Cron Expression Generator",
+      "item": "https://singhajit.com/tools/aws-cron-expression/"
+    }
+  ]
+}
+</script>
+
+<!-- Structured Data: Table -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Table",
+  "about": "Common AWS EventBridge cron expression examples with human-readable descriptions",
+  "name": "AWS EventBridge Cron Expression Examples",
+  "description": "Reference table of commonly used AWS EventBridge cron and rate expressions with plain English translations. Compatible with EventBridge Rules, EventBridge Scheduler, and Lambda.",
+  "keywords": "aws eventbridge cron, aws cron examples, eventbridge schedule examples, aws rate expression",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 28,
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "item": {"@type": "Thing", "name": "cron(0 12 * * ? *)", "description": "Every day at noon UTC"}},
+      {"@type": "ListItem", "position": 2, "item": {"@type": "Thing", "name": "cron(0 0 * * ? *)", "description": "Every day at midnight UTC"}},
+      {"@type": "ListItem", "position": 3, "item": {"@type": "Thing", "name": "cron(0 18 ? * MON-FRI *)", "description": "Weekdays at 6 PM UTC"}},
+      {"@type": "ListItem", "position": 4, "item": {"@type": "Thing", "name": "cron(0/5 * * * ? *)", "description": "Every 5 minutes"}},
+      {"@type": "ListItem", "position": 5, "item": {"@type": "Thing", "name": "cron(0/15 * * * ? *)", "description": "Every 15 minutes"}},
+      {"@type": "ListItem", "position": 6, "item": {"@type": "Thing", "name": "cron(0 */2 * * ? *)", "description": "Every 2 hours"}},
+      {"@type": "ListItem", "position": 7, "item": {"@type": "Thing", "name": "cron(0/5 8-17 ? * MON-FRI *)", "description": "Every 5 minutes during business hours"}},
+      {"@type": "ListItem", "position": 8, "item": {"@type": "Thing", "name": "cron(0 9 ? * MON-FRI *)", "description": "Weekdays at 9 AM UTC"}},
+      {"@type": "ListItem", "position": 9, "item": {"@type": "Thing", "name": "cron(0 0 L * ? *)", "description": "Last day of month at midnight"}},
+      {"@type": "ListItem", "position": 10, "item": {"@type": "Thing", "name": "cron(15 10 ? * 6L *)", "description": "Last Friday of month at 10:15"}},
+      {"@type": "ListItem", "position": 11, "item": {"@type": "Thing", "name": "cron(0 8 ? * 3#2 *)", "description": "Second Tuesday of month at 8 AM"}},
+      {"@type": "ListItem", "position": 12, "item": {"@type": "Thing", "name": "cron(0 0 1 * ? *)", "description": "First day of month at midnight"}},
+      {"@type": "ListItem", "position": 13, "item": {"@type": "Thing", "name": "cron(0 0 1 1 ? *)", "description": "New Year's Day at midnight"}},
+      {"@type": "ListItem", "position": 14, "item": {"@type": "Thing", "name": "rate(5 minutes)", "description": "Every 5 minutes"}},
+      {"@type": "ListItem", "position": 15, "item": {"@type": "Thing", "name": "rate(1 hour)", "description": "Every hour"}},
+      {"@type": "ListItem", "position": 16, "item": {"@type": "Thing", "name": "rate(1 day)", "description": "Every day"}}
+    ]
+  }
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="aws-cron-page-wrapper">
+  <div class="aws-cron-tool">
+<header class="tool-header">
+    <h1 class="tool-title">
+      <i class="fab fa-aws"></i>
+      AWS EventBridge Cron Expression Generator
+    </h1>
+    <p class="tool-subtitle">Free AWS cron expression generator, parser, and translator for EventBridge &amp; Scheduler</p>
+  </header>
+
+  <p class="tool-intro">
+    Use this free <strong>AWS EventBridge cron expression generator</strong> to build, parse, and validate Amazon EventBridge 6-field cron schedules. Paste any <code>cron(...)</code> or <code>rate(...)</code> expression to translate it to plain English and preview the next UTC run times. Compatible with <strong>EventBridge Rules</strong>, <strong>EventBridge Scheduler</strong>, <strong>CloudWatch Events</strong>, and <strong>Lambda</strong> schedules.
+  </p>
+
+<div class="cross-tool-banner">
+  <i class="fas fa-info-circle"></i>
+  <span>Need standard 5-field Unix cron? Try <a href="/tools/cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'AWS Cron Tool','event_label':'to_cron_from_banner'})}">Cron Expression Generator</a>. Using Java/Spring? Try <a href="/tools/quartz-scheduler/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'AWS Cron Tool','event_label':'to_quartz_from_banner'})}">Quartz Scheduler Cron Tool</a>.</span>
+</div>
+
+{% include ads/tool-banner.html %}
+
+<div class="utc-note">
+  <i class="fas fa-globe"></i>
+  <span><strong>UTC by default.</strong> EventBridge Rules always run in UTC. EventBridge Scheduler can use a timezone you choose. This tool shows next runs in UTC. AWS cron needs <strong>6 fields</strong> (year required) and <code>?</code> in one day field.</span>
+</div>
+
+<p class="tool-mode-lead">Choose <strong>Parse &amp; Translate</strong> to paste an existing AWS schedule, or <strong>Generate</strong> to build a valid <code>cron(...)</code> expression from dropdowns.</p>
+
+<div class="mode-tabs">
+    <button class="mode-tab active" data-mode="parse">
+      <i class="fas fa-search"></i>
+      Parse &amp; Translate
+    </button>
+    <button class="mode-tab" data-mode="build">
+      <i class="fas fa-wrench"></i>
+      Generate
+    </button>
+  </div>
+
+<section id="parse-mode" class="mode-content active">
+    <div class="input-section">
+      <label for="aws-cron-input">Enter AWS cron or rate expression:</label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="aws-cron-input"
+          placeholder="cron(0 18 ? * MON-FRI *)"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button id="parse-btn" class="btn-primary">
+          <i class="fas fa-play"></i>
+          Parse
+        </button>
+      </div>
+    </div>
+
+<div class="breakdown-section">
+      <div class="aws-cron-fields-compact">
+        <div class="aws-cron-field" data-field="minute" title="0-59">
+          <span class="field-value">0</span>
+          <span class="field-label">min</span>
+        </div>
+        <div class="aws-cron-field" data-field="hour" title="0-23">
+          <span class="field-value">18</span>
+          <span class="field-label">hour</span>
+        </div>
+        <div class="aws-cron-field" data-field="dayOfMonth" title="1-31, ?, L, W">
+          <span class="field-value">?</span>
+          <span class="field-label">day(M)</span>
+        </div>
+        <div class="aws-cron-field" data-field="month" title="1-12 or JAN-DEC">
+          <span class="field-value">*</span>
+          <span class="field-label">month</span>
+        </div>
+        <div class="aws-cron-field" data-field="dayOfWeek" title="1-7 (SUN=1), ?, L, #">
+          <span class="field-value">2-6</span>
+          <span class="field-label">day(W)</span>
+        </div>
+        <div class="aws-cron-field" data-field="year" title="1970-2199 (required)">
+          <span class="field-value">*</span>
+          <span class="field-label">year</span>
+        </div>
+      </div>
+    </div>
+
+<div class="result-section">
+      <div class="result-card human-readable">
+        <h3><i class="fas fa-comment-alt"></i> Translation (Human Readable)</h3>
+        <p id="human-readable">Enter an AWS EventBridge cron or rate expression above</p>
+      </div>
+
+      <div class="result-card next-runs">
+        <h3><i class="fas fa-calendar-alt"></i> Next 3 Scheduled Runs (UTC)</h3>
+        <ul id="next-runs">
+          <li class="placeholder">Enter an expression to see upcoming runs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<section id="build-mode" class="mode-content">
+    <div class="builder-compact">
+      <div class="builder-row">
+        <div class="builder-col">
+          <label>Minute</label>
+          <select id="aws-minute-select">
+            <option value="0">0</option>
+            <option value="*">Every</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="45">45</option>
+            <option value="*/5">Every 5</option>
+            <option value="0/5">0/5 (every 5)</option>
+            <option value="*/10">Every 10</option>
+            <option value="*/15">Every 15</option>
+            <option value="*/30">Every 30</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Hour</label>
+          <select id="aws-hour-select">
+            <option value="*">Every</option>
+            <option value="0">0 (12 AM)</option>
+            <option value="1">1 AM</option>
+            <option value="2">2 AM</option>
+            <option value="3">3 AM</option>
+            <option value="6">6 AM</option>
+            <option value="8">8 AM</option>
+            <option value="9">9 AM</option>
+            <option value="10">10 AM</option>
+            <option value="12">12 PM</option>
+            <option value="14">2 PM</option>
+            <option value="15">3 PM</option>
+            <option value="17">5 PM</option>
+            <option value="18" selected>6 PM</option>
+            <option value="21">9 PM</option>
+            <option value="23">11 PM</option>
+            <option value="8-17">8-17 (biz hrs)</option>
+            <option value="*/2">Every 2 hrs</option>
+            <option value="*/3">Every 3 hrs</option>
+            <option value="*/6">Every 6 hrs</option>
+            <option value="*/12">Every 12 hrs</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Day (Month)</label>
+          <select id="aws-dom-select">
+            <option value="?" selected>? (any)</option>
+            <option value="*">Every</option>
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="1,15">1st &amp; 15th</option>
+            <option value="L">L (last day)</option>
+            <option value="LW">LW (last weekday)</option>
+            <option value="15W">15W (nearest wkday)</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Month</label>
+          <select id="aws-month-select">
+            <option value="*">Every</option>
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+            <option value="1,4,7,10">Quarterly</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Day (Week)</label>
+          <select id="aws-dow-select">
+            <option value="?">? (any)</option>
+            <option value="*">Every</option>
+            <option value="MON-FRI" selected>Mon-Fri</option>
+            <option value="2-6">2-6 (Mon-Fri)</option>
+            <option value="SUN,SAT">Sat-Sun</option>
+            <option value="SUN">Sunday</option>
+            <option value="MON">Monday</option>
+            <option value="TUE">Tuesday</option>
+            <option value="WED">Wednesday</option>
+            <option value="THU">Thursday</option>
+            <option value="FRI">Friday</option>
+            <option value="SAT">Saturday</option>
+            <option value="3#2">2nd Tuesday</option>
+            <option value="6#1">1st Friday</option>
+            <option value="6#3">3rd Friday</option>
+            <option value="2L">Last Monday</option>
+            <option value="6L">Last Friday</option>
+          </select>
+        </div>
+        <div class="builder-col">
+          <label>Year</label>
+          <select id="aws-year-select">
+            <option value="*">Every (*)</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2026-2030">2026-2030</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+<div class="generated-section">
+      <div class="generated-output">
+        <code id="generated-cron">cron(0 18 ? * MON-FRI *)</code>
+        <button id="copy-btn" class="btn-secondary" title="Copy to clipboard">
+          <i class="fas fa-copy"></i>
+          Copy
+        </button>
+        <button id="share-btn" class="btn-secondary" title="Copy shareable link">
+          <i class="fas fa-share-alt"></i>
+          Share
+        </button>
+      </div>
+    </div>
+
+<div class="result-section build-results">
+      <div class="result-card human-readable">
+        <h3><i class="fas fa-comment-alt"></i> Human Readable</h3>
+        <p id="generated-description">At 6:00 PM, Mon through Fri (UTC)</p>
+      </div>
+      <div class="result-card next-runs">
+        <h3><i class="fas fa-calendar-alt"></i> Next 3 Runs (UTC)</h3>
+        <ul id="build-next-runs">
+          <li class="placeholder">Build an expression to see upcoming runs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<section class="reference-section">
+    <h3><i class="fas fa-book"></i> AWS EventBridge Cron Quick Reference</h3>
+    <div class="reference-grid">
+      <div class="reference-card">
+        <h4>Field Values (6 required)</h4>
+        <table>
+          <tr><td>Minutes</td><td>0-59</td></tr>
+          <tr><td>Hours</td><td>0-23</td></tr>
+          <tr><td>Day-of-month</td><td>1-31</td></tr>
+          <tr><td>Month</td><td>1-12 / JAN-DEC</td></tr>
+          <tr><td>Day-of-week</td><td>1-7 / SUN-SAT</td></tr>
+          <tr><td>Year</td><td>1970-2199 (required)</td></tr>
+        </table>
+      </div>
+      <div class="reference-card">
+        <h4>Special Characters</h4>
+        <table>
+          <tr><td><code>*</code></td><td>Any value</td></tr>
+          <tr><td><code>?</code></td><td>No specific value (day fields)</td></tr>
+          <tr><td><code>,</code></td><td>List separator</td></tr>
+          <tr><td><code>-</code></td><td>Range</td></tr>
+          <tr><td><code>/</code></td><td>Step values</td></tr>
+          <tr><td><code>L</code></td><td>Last (day/weekday)</td></tr>
+          <tr><td><code>W</code></td><td>Nearest weekday</td></tr>
+          <tr><td><code>#</code></td><td>Nth occurrence</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+<section class="rate-helper-section">
+    <h3><i class="fas fa-tachometer-alt"></i> AWS Rate Expression Builder</h3>
+    <p class="examples-intro">Prefer a fixed interval? EventBridge also accepts <strong>rate expressions</strong>. Build one here and copy it into your schedule.</p>
+    <div class="rate-builder">
+      <label for="rate-value">Every</label>
+      <input type="number" id="rate-value" value="5" min="1" max="999">
+      <select id="rate-unit">
+        <option value="minutes" selected>minutes</option>
+        <option value="hours">hours</option>
+        <option value="days">days</option>
+      </select>
+      <span id="rate-description" style="color:#78716c;font-size:0.9rem;">Every 5 minutes</span>
+    </div>
+    <div class="rate-output">
+      <code id="rate-output">rate(5 minutes)</code>
+      <button id="rate-copy-btn" class="btn-secondary" title="Copy rate expression">
+        <i class="fas fa-copy"></i>
+        Copy
+      </button>
+    </div>
+  </section>
+
+<section class="reference-section examples-table-section">
+    <h3><i class="fas fa-lightbulb"></i> AWS EventBridge Cron Expression Examples</h3>
+    <p class="examples-intro">Click any expression to load it into the parser. All examples are valid for <strong>EventBridge Rules</strong>, <strong>EventBridge Scheduler</strong>, and <strong>Lambda</strong> schedule expressions.</p>
+
+    <table class="aws-cron-examples-table" id="aws-cron-examples-table">
+      <thead>
+        <tr>
+          <th>AWS Expression</th>
+          <th>Description</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="example-row" data-cron="cron(0 12 * * ? *)"><td><code>cron(0 12 * * ? *)</code></td><td>Every day at noon UTC</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 * * ? *)"><td><code>cron(0 0 * * ? *)</code></td><td>Every day at midnight UTC</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="cron(0 6 * * ? *)"><td><code>cron(0 6 * * ? *)</code></td><td>Every day at 6 AM UTC</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="cron(0 9 * * ? *)"><td><code>cron(0 9 * * ? *)</code></td><td>Every day at 9 AM UTC</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="cron(0 18 * * ? *)"><td><code>cron(0 18 * * ? *)</code></td><td>Every day at 6 PM UTC</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="cron(0 9,18 * * ? *)"><td><code>cron(0 9,18 * * ? *)</code></td><td>Twice daily (9 AM and 6 PM)</td><td>Daily</td></tr>
+        <tr class="example-row" data-cron="cron(0/5 * * * ? *)"><td><code>cron(0/5 * * * ? *)</code></td><td>Every 5 minutes</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="cron(0/15 * * * ? *)"><td><code>cron(0/15 * * * ? *)</code></td><td>Every 15 minutes</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="cron(0/30 * * * ? *)"><td><code>cron(0/30 * * * ? *)</code></td><td>Every 30 minutes</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="cron(0 */2 * * ? *)"><td><code>cron(0 */2 * * ? *)</code></td><td>Every 2 hours</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="cron(0 */6 * * ? *)"><td><code>cron(0 */6 * * ? *)</code></td><td>Every 6 hours</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="cron(0/5 8-17 ? * MON-FRI *)"><td><code>cron(0/5 8-17 ? * MON-FRI *)</code></td><td>Every 5 min, business hours</td><td>Interval</td></tr>
+        <tr class="example-row" data-cron="cron(0 18 ? * MON-FRI *)"><td><code>cron(0 18 ? * MON-FRI *)</code></td><td>Weekdays at 6 PM UTC</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="cron(0 9 ? * MON-FRI *)"><td><code>cron(0 9 ? * MON-FRI *)</code></td><td>Weekdays at 9 AM UTC</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="cron(0 10 ? * SUN,SAT *)"><td><code>cron(0 10 ? * SUN,SAT *)</code></td><td>Weekends at 10 AM UTC</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 ? * MON *)"><td><code>cron(0 0 ? * MON *)</code></td><td>Every Monday at midnight</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="cron(0 15 ? * FRI *)"><td><code>cron(0 15 ? * FRI *)</code></td><td>Every Friday at 3 PM</td><td>Weekday</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 1 * ? *)"><td><code>cron(0 0 1 * ? *)</code></td><td>First day of month at midnight</td><td>Monthly</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 15 * ? *)"><td><code>cron(0 0 15 * ? *)</code></td><td>15th of month at midnight</td><td>Monthly</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 L * ? *)"><td><code>cron(0 0 L * ? *)</code></td><td>Last day of month at midnight</td><td>AWS Special</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 LW * ? *)"><td><code>cron(0 0 LW * ? *)</code></td><td>Last weekday of month</td><td>AWS Special</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 15W * ? *)"><td><code>cron(0 0 15W * ? *)</code></td><td>Nearest weekday to the 15th</td><td>AWS Special</td></tr>
+        <tr class="example-row" data-cron="cron(15 10 ? * 6L *)"><td><code>cron(15 10 ? * 6L *)</code></td><td>Last Friday at 10:15</td><td>AWS Special</td></tr>
+        <tr class="example-row" data-cron="cron(0 8 ? * 3#2 *)"><td><code>cron(0 8 ? * 3#2 *)</code></td><td>Second Tuesday at 8 AM</td><td>AWS Special</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 1 1 ? *)"><td><code>cron(0 0 1 1 ? *)</code></td><td>New Year's Day at midnight</td><td>Yearly</td></tr>
+        <tr class="example-row" data-cron="cron(0 0 1 1,4,7,10 ? *)"><td><code>cron(0 0 1 1,4,7,10 ? *)</code></td><td>Quarterly (Jan, Apr, Jul, Oct)</td><td>Yearly</td></tr>
+        <tr class="example-row" data-cron="rate(5 minutes)"><td><code>rate(5 minutes)</code></td><td>Every 5 minutes</td><td>Rate</td></tr>
+        <tr class="example-row" data-cron="rate(1 hour)"><td><code>rate(1 hour)</code></td><td>Every hour</td><td>Rate</td></tr>
+        <tr class="example-row" data-cron="rate(1 day)"><td><code>rate(1 day)</code></td><td>Every day</td><td>Rate</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+<section class="syntax-guide-section">
+    <h3><i class="fas fa-graduation-cap"></i> AWS EventBridge Cron Syntax Guide</h3>
+    <div class="syntax-guide-content">
+
+      <article class="guide-article">
+        <h2>Understanding AWS EventBridge Cron Expressions</h2>
+        <p>An <strong>AWS EventBridge cron expression</strong> defines when a schedule fires. It has <strong>six required fields</strong>, wrapped in <code>cron(...)</code>, and is used by Amazon EventBridge Rules, EventBridge Scheduler, CloudWatch Events, and Lambda. Unlike Linux crontab (5 fields), AWS always includes a <strong>year</strong> field and requires the <code>?</code> wildcard in one day field.</p>
+
+        <div class="syntax-diagram">
+          <code>cron(minutes hours day-of-month month day-of-week year)</code><br><br>
+          <code>┌───────────── minutes (0-59)</code><br>
+          <code>│ ┌───────────── hours (0-23)</code><br>
+          <code>│ │ ┌───────────── day-of-month (1-31)</code><br>
+          <code>│ │ │ ┌───────────── month (1-12 or JAN-DEC)</code><br>
+          <code>│ │ │ │ ┌───────────── day-of-week (1-7 or SUN-SAT)</code><br>
+          <code>│ │ │ │ │ ┌───────── year (1970-2199)</code><br>
+          <code>│ │ │ │ │ │</code><br>
+          <code>0 18 ? * MON-FRI *</code>
+        </div>
+      </article>
+
+      <article class="guide-article">
+        <h2>AWS Cron vs Linux Cron: Key Differences</h2>
+
+        <h3>Field Count and Wrapper</h3>
+        <p>Linux crontab uses <strong>5 fields</strong>. AWS uses <strong>6 fields</strong> inside <code>cron(...)</code>. A bare 5-field string like <code>0 9 * * 1-5</code> is rejected. Convert it to <code>cron(0 9 ? * MON-FRI *)</code>. Need the standard format? Use our <a href="/tools/cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'AWS Cron Tool','event_label':'to_cron_from_guide'})}">Cron Expression Generator</a>.</p>
+
+        <h3>The ? Requirement</h3>
+        <p>You cannot set both day-of-month and day-of-week. One must be <code>?</code>. This is the most common AWS scheduling mistake. If you constrain weekdays, put <code>?</code> in day-of-month. If you constrain a date, put <code>?</code> in day-of-week.</p>
+
+        <h3>Day-of-Week Numbering</h3>
+        <p>AWS numbers weekdays <strong>1-7 where 1 = Sunday</strong> (same as Quartz). You can also use names: <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, <code>SAT</code>. Linux cron uses 0-6 with Sunday = 0.</p>
+
+        <h3>Timezone</h3>
+        <p>EventBridge Rules always use <strong>UTC</strong>. EventBridge Scheduler lets you pick a timezone. Confirm which product you are configuring before scheduling for a local business window.</p>
+      </article>
+
+      <article class="guide-article">
+        <h2>AWS Special Characters Explained</h2>
+
+        <h3>? (No Specific Value)</h3>
+        <p>Required in either day-of-month or day-of-week. Example: <code>cron(0 18 ? * MON-FRI *)</code> means 6 PM UTC on weekdays.</p>
+
+        <h3>L (Last)</h3>
+        <p>In day-of-month, <code>L</code> is the last day of the month. In day-of-week, <code>6L</code> is the last Friday. Example: <code>cron(0 0 L * ? *)</code> fires at midnight on the last day of every month.</p>
+
+        <h3>W (Nearest Weekday)</h3>
+        <p>In day-of-month only. <code>15W</code> means the nearest weekday to the 15th. <code>LW</code> means the last weekday of the month.</p>
+
+        <h3># (Nth Occurrence)</h3>
+        <p>In day-of-week only. <code>3#2</code> means the second Tuesday of the month (3 = Tuesday). You can define only one <code>#</code> expression in the field — lists with <code>#</code> are invalid.</p>
+      </article>
+
+      <article class="guide-article">
+        <h2>Rate Expressions</h2>
+        <p>For fixed intervals, AWS also supports <strong>rate expressions</strong>: <code>rate(value unit)</code>. Units are <code>minute</code>/<code>minutes</code>, <code>hour</code>/<code>hours</code>, or <code>day</code>/<code>days</code>. Use the singular form when value is 1: <code>rate(1 hour)</code>, not <code>rate(1 hours)</code>. Examples: <code>rate(5 minutes)</code>, <code>rate(12 hours)</code>, <code>rate(1 day)</code>.</p>
+      </article>
+
+      <article class="guide-article">
+        <h2>Where to Use AWS Cron Expressions</h2>
+        <ul>
+          <li><strong>EventBridge Rules:</strong> Schedule expression in the console or <code>ScheduleExpression</code> API parameter.</li>
+          <li><strong>EventBridge Scheduler:</strong> Preferred for new workloads. Supports timezones and one-time schedules.</li>
+          <li><strong>Lambda:</strong> Event source schedules that invoke your function on a cron or rate.</li>
+          <li><strong>Terraform:</strong> <code>aws_cloudwatch_event_rule</code> or <code>aws_scheduler_schedule</code> with <code>schedule_expression</code>.</li>
+          <li><strong>CloudFormation / CDK:</strong> Same <code>cron(...)</code> and <code>rate(...)</code> strings in schedule properties.</li>
+        </ul>
+      </article>
+
+      <article class="guide-article">
+        <h2>Common AWS Cron Mistakes</h2>
+        <ul>
+          <li><strong>Missing year field:</strong> Pasting a 5-field Linux expression. Always add year (usually <code>*</code>).</li>
+          <li><strong>Both day fields set:</strong> Forgetting <code>?</code>. One of day-of-month or day-of-week must be <code>?</code>.</li>
+          <li><strong>Missing cron() wrapper:</strong> AWS expects <code>cron(0 18 ? * MON-FRI *)</code>, not the bare fields alone (in console/API schedule fields).</li>
+          <li><strong>Timezone surprise:</strong> Scheduling for 9 AM local when the rule runs in UTC.</li>
+          <li><strong>Using L/W/# in Linux cron:</strong> These only work in AWS (and Quartz). Standard crontab rejects them.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+<section class="faq-section">
+    <h2><i class="fas fa-question-circle"></i> AWS EventBridge Cron FAQ</h2>
+
+    <div class="faq-item">
+      <h3>What is an AWS EventBridge cron expression?</h3>
+      <p>An <strong>AWS EventBridge cron expression</strong> is a 6-field schedule string used by Amazon EventBridge Rules, EventBridge Scheduler, CloudWatch Events, and Lambda. The format is <code>cron(minutes hours day-of-month month day-of-week year)</code>. Unlike Linux crontab (5 fields), AWS requires a year field and <code>?</code> in one of the day fields.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How is AWS EventBridge cron different from Linux cron?</h3>
+      <p>Linux crontab uses <strong>5 fields</strong>. AWS uses <strong>6 fields</strong> inside <code>cron(...)</code>, requires a year field, requires <code>?</code> in one day field, numbers weekdays 1-7 (Sunday=1), and supports <code>L</code>, <code>W</code>, and <code>#</code>. Use our <a href="/tools/cron-expression/">standard Cron tool</a> for 5-field expressions.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does ? mean in AWS EventBridge cron?</h3>
+      <p>The <code>?</code> means "no specific value". Exactly one of day-of-month or day-of-week must be <code>?</code>. If you schedule by weekday, set day-of-month to <code>?</code>. If you schedule by date, set day-of-week to <code>?</code>.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does AWS EventBridge cron use UTC?</h3>
+      <p>EventBridge Rules always interpret cron in <strong>UTC</strong>. EventBridge Scheduler can use UTC or a timezone you specify. This tool previews next runs in UTC.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is an AWS rate expression?</h3>
+      <p>A <strong>rate expression</strong> is a simpler alternative for fixed intervals: <code>rate(value unit)</code>. Units are minute(s), hour(s), or day(s). Example: <code>rate(5 minutes)</code>. Use singular when value is 1: <code>rate(1 hour)</code>.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I run an EventBridge rule every weekday at 6 PM UTC?</h3>
+      <p>Use <code>cron(0 18 ? * MON-FRI *)</code>. The <code>?</code> in day-of-month is required because day-of-week is set. Year <code>*</code> means every year.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I schedule on the last day of every month?</h3>
+      <p>Use <code>cron(0 0 L * ? *)</code>. The <code>L</code> in day-of-month means the last day. Day-of-week must be <code>?</code>.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does L, W, and # mean in AWS cron?</h3>
+      <p><code>L</code> = last day or last weekday (<code>6L</code> = last Friday). <code>W</code> = nearest weekday (<code>15W</code>). <code>#</code> = nth weekday (<code>3#2</code> = second Tuesday). These are not available in Linux crontab.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I use a 5-field Linux cron expression in EventBridge?</h3>
+      <p>No. Convert by wrapping in <code>cron(...)</code>, adding a year field (usually <code>*</code>), and putting <code>?</code> in one day field. Example: <code>0 9 * * 1-5</code> becomes <code>cron(0 9 ? * MON-FRI *)</code>.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Where do I use AWS EventBridge cron expressions?</h3>
+      <p>In EventBridge Rules, EventBridge Scheduler, Lambda schedules, Terraform (<code>aws_cloudwatch_event_rule</code> / <code>aws_scheduler_schedule</code>), CloudFormation, CDK, and the AWS Console schedule editor.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is AWS EventBridge cron the same as Quartz cron?</h3>
+      <p>They are similar (both use <code>?</code>, <code>L</code>, <code>W</code>, <code>#</code> and 1-7 weekdays), but AWS has <strong>no seconds field</strong> and <strong>requires year</strong>. Quartz is second-minute-hour-... with optional year. Use our <a href="/tools/quartz-scheduler/">Quartz Scheduler tool</a> for Java/Spring schedules.</p>
+    </div>
+  </section>
+
+</div>
+</div>
+
+
+<script defer src="{{ '/assets/js/aws-cron-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

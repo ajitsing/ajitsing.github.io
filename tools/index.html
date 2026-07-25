@@ -3,8 +3,8 @@ layout: default
 title: "Developer Tools"
 subtitle: "Free online tools for developers"
 seo: true
-description: "Free online developer tools including JSON validator, YAML validator, TOML validator, JWT decoder, SSL TLS certificate decoder, user agent parser, UUID generator, regex tester, cron expression generator, Quartz Scheduler cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, SQL formatter, QR code generator, Lorem Ipsum generator, LLM Token Counter for GPT, Claude, Llama, Gemini, HAR file viewer, and more. Validate JSON, YAML, and TOML online, decode JWT tokens, generate UUIDs, test regex patterns, build cron schedules, parse Quartz cron expressions, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs, format SQL queries, create QR codes, generate lorem ipsum placeholder text, count LLM tokens for any prompt, inspect HAR network captures with these browser-based utilities. No signup required, 100% client-side."
-keywords: "developer tools, online tools, json validator, validate json online, json formatter, yaml validator, validate yaml online, yaml formatter, yaml to json, toml validator, validate toml online, toml formatter, toml to json, cargo toml validator, pyproject toml validator, jwt decoder, decode jwt token, jwt debugger, jwt inspector, ssl certificate decoder, tls certificate decoder, x509 certificate decoder, pem certificate decoder, user agent parser, ua parser, browser detector, bot detector, parse user agent online, uuid generator, uuid v4 generator, uuid v7 generator, guid generator, regex tester, cron expression generator, cron tool, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, subnet calculator, cidr calculator, ip subnet calculator, subnet mask calculator, url encoder, url decoder, percent encoding, urlencode, sql formatter, sql beautifier, sql query formatter, format sql online, qr code generator, qrcode generator, generate qr, free qr code generator, create qr code, custom qr code, lorem ipsum generator, placeholder text generator, dummy text generator, lipsum generator, llm token counter, gpt token counter, openai token counter, claude token counter, tiktoken online, count tokens, ai prompt token counter, har file viewer, har viewer online, har analyzer, http archive viewer, har waterfall, chrome har viewer, dev tools, programming tools, code tools, web developer tools, free developer tools"
+description: "Free online developer tools including JSON validator, YAML validator, TOML validator, JWT decoder, SSL TLS certificate decoder, user agent parser, UUID generator, regex tester, cron expression generator, Quartz Scheduler cron expression generator, AWS EventBridge cron expression generator, Base64 encoder decoder, Snowflake ID decoder, Epoch timestamp converter, SLA uptime calculator, URL encoder decoder, SQL formatter, QR code generator, Lorem Ipsum generator, LLM Token Counter for GPT, Claude, Llama, Gemini, HAR file viewer, and more. Validate JSON, YAML, and TOML online, decode JWT tokens, generate UUIDs, test regex patterns, build cron schedules, parse Quartz and AWS EventBridge cron expressions, encode and decode Base64, decode Discord IDs, convert Unix timestamps, calculate SLA downtime, encode URLs, format SQL queries, create QR codes, generate lorem ipsum placeholder text, count LLM tokens for any prompt, inspect HAR network captures with these browser-based utilities. No signup required, 100% client-side."
+keywords: "developer tools, online tools, json validator, validate json online, json formatter, yaml validator, validate yaml online, yaml formatter, yaml to json, toml validator, validate toml online, toml formatter, toml to json, cargo toml validator, pyproject toml validator, jwt decoder, decode jwt token, jwt debugger, jwt inspector, ssl certificate decoder, tls certificate decoder, x509 certificate decoder, pem certificate decoder, user agent parser, ua parser, browser detector, bot detector, parse user agent online, uuid generator, uuid v4 generator, uuid v7 generator, guid generator, regex tester, cron expression generator, cron tool, aws eventbridge cron, aws cron expression generator, regex debugger, base64 encoder, base64 decoder, base64 encode online, base64 decode online, snowflake id decoder, discord id decoder, twitter id decoder, epoch converter, unix timestamp converter, timestamp to date, sla calculator, uptime calculator, downtime calculator, 99.9 uptime, subnet calculator, cidr calculator, ip subnet calculator, subnet mask calculator, url encoder, url decoder, percent encoding, urlencode, sql formatter, sql beautifier, sql query formatter, format sql online, qr code generator, qrcode generator, generate qr, free qr code generator, create qr code, custom qr code, lorem ipsum generator, placeholder text generator, dummy text generator, lipsum generator, llm token counter, gpt token counter, openai token counter, claude token counter, tiktoken online, count tokens, ai prompt token counter, har file viewer, har viewer online, har analyzer, http archive viewer, har waterfall, chrome har viewer, dev tools, programming tools, code tools, web developer tools, free developer tools"
 thumbnail: /assets/img/tools/regex-tool-thumbnail.png
 share-img: /assets/img/tools/regex-tool-thumbnail.png
 permalink: /tools/
@@ -123,6 +123,19 @@ css:
       "name": "Quartz Scheduler Cron Expression Generator",
       "description": "Parse, validate, and build Quartz Scheduler cron expressions (6-7 fields). Supports ?, L, W, # syntax. Compatible with Java Quartz and Spring Boot.",
       "url": "https://singhajit.com/tools/quartz-scheduler/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "name": "AWS EventBridge Cron Expression Generator",
+      "description": "Generate, parse, and validate AWS EventBridge 6-field cron expressions and rate expressions. Supports ?, L, W, #. Compatible with EventBridge Rules, Scheduler, and Lambda.",
+      "url": "https://singhajit.com/tools/aws-cron-expression/",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Any",
       "offers": {
@@ -379,7 +392,7 @@ css:
       }
     }
   ],
-  "numberOfItems": 25,
+  "numberOfItems": 26,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -414,120 +427,126 @@ css:
     {
       "@type": "ListItem",
       "position": 6,
+      "url": "https://singhajit.com/tools/aws-cron-expression/",
+      "name": "AWS EventBridge Cron Expression Generator"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
       "url": "https://singhajit.com/tools/base64-encoder/",
       "name": "Base64 Encoder & Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "url": "https://singhajit.com/tools/jwt-decoder/",
       "name": "JWT Decoder & Inspector"
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
       "url": "https://singhajit.com/tools/ssl-certificate-decoder/",
       "name": "SSL/TLS Certificate Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "url": "https://singhajit.com/tools/snowflake-decoder/",
       "name": "Snowflake ID Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 11,
       "url": "https://singhajit.com/tools/uuid-generator/",
       "name": "UUID Generator & Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 12,
       "url": "https://singhajit.com/tools/ulid-generator/",
       "name": "ULID Generator & Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 13,
       "url": "https://singhajit.com/tools/epoch-converter/",
       "name": "Epoch Timestamp Converter"
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 14,
       "url": "https://singhajit.com/tools/sla-calculator/",
       "name": "SLA Uptime Calculator"
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "url": "https://singhajit.com/tools/url-encoder/",
       "name": "URL Encoder & Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "url": "https://singhajit.com/tools/qr-code-generator/",
       "name": "QR Code Generator"
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "url": "https://singhajit.com/tools/lorem-ipsum-generator/",
       "name": "Lorem Ipsum Generator"
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "url": "https://singhajit.com/tools/toml-validator/",
       "name": "TOML Validator & Formatter"
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 19,
       "url": "https://singhajit.com/tools/chmod-calculator/",
       "name": "Chmod Calculator"
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 20,
       "url": "https://singhajit.com/tools/subnet-calculator/",
       "name": "Subnet Calculator"
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 21,
       "url": "https://singhajit.com/tools/text-diff/",
       "name": "Text Diff Checker"
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 22,
       "url": "https://singhajit.com/tools/llm-token-counter/",
       "name": "LLM Token Counter"
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 23,
       "url": "https://singhajit.com/tools/cbor-decoder/",
       "name": "CBOR Decoder"
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 24,
       "url": "https://singhajit.com/tools/curl-converter/",
       "name": "Curl Converter"
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 25,
       "url": "https://singhajit.com/tools/har-viewer/",
       "name": "HAR File Viewer"
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 26,
       "url": "https://singhajit.com/tools/user-agent-parser/",
       "name": "User Agent Parser"
     }
@@ -675,6 +694,25 @@ css:
           <span class="feature-tag"><i class="fas fa-language"></i> Translator</span>
           <span class="feature-tag"><i class="fas fa-wrench"></i> Builder</span>
           <span class="feature-tag"><i class="fab fa-java"></i> Quartz/Spring</span>
+        </div>
+      </div>
+      <div class="tool-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </a>
+
+    <!-- AWS EventBridge Cron Expression Tool -->
+    <a href="{{ '/tools/aws-cron-expression/' | relative_url }}" class="tool-card" onclick="gtag('event', 'click', {'event_category': 'Tools', 'event_label': 'AWS EventBridge Cron'});">
+      <div class="tool-icon">
+        <i class="fab fa-aws"></i>
+      </div>
+      <div class="tool-info">
+        <h2 class="tool-title">AWS EventBridge Cron</h2>
+        <p class="tool-description">Generate, parse, and validate AWS EventBridge 6-field cron expressions and rate expressions. Supports ?, L, W, #. For EventBridge Rules, Scheduler, and Lambda.</p>
+        <div class="tool-features">
+          <span class="feature-tag"><i class="fas fa-language"></i> Translator</span>
+          <span class="feature-tag"><i class="fas fa-wrench"></i> Builder</span>
+          <span class="feature-tag"><i class="fab fa-aws"></i> EventBridge</span>
         </div>
       </div>
       <div class="tool-arrow">

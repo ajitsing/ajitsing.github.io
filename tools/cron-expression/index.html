@@ -383,7 +383,7 @@ css:
 
 <div class="cross-tool-banner" style="display:flex;align-items:center;gap:10px;padding:12px 18px;margin-bottom:24px;background:#f5f0e8;border:2px solid #e7e0d5;border-radius:10px;font-size:0.9rem;color:#44403c;line-height:1.5;">
   <i class="fas fa-info-circle" style="color:#78716c;font-size:1.1rem;flex-shrink:0;"></i>
-  <span>Using Quartz Scheduler (Java/Spring Boot) with 6-7 field expressions? Try <a href="/tools/quartz-scheduler/" style="color:#44403c;font-weight:600;text-decoration:underline;" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Cron Tool','event_label':'to_quartz_from_banner'})}">Quartz Scheduler Cron Tool</a>. Supports <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">?</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">L</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">W</code> <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">#</code> syntax.</span>
+  <span>Using Quartz (Java/Spring)? Try <a href="/tools/quartz-scheduler/" style="color:#44403c;font-weight:600;text-decoration:underline;" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Cron Tool','event_label':'to_quartz_from_banner'})}">Quartz Scheduler Cron Tool</a>. Building Amazon EventBridge schedules? Try <a href="/tools/aws-cron-expression/" style="color:#44403c;font-weight:600;text-decoration:underline;" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Cron Tool','event_label':'to_aws_from_banner'})}">AWS EventBridge Cron Generator</a> for 6-field <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">cron(...)</code> and <code style="background:#292524;color:#fef3c7;padding:1px 5px;border-radius:3px;font-size:0.85rem;">rate(...)</code> expressions.</span>
 </div>
 
 {% include ads/tool-banner.html %}
@@ -761,7 +761,7 @@ css:
         <p>Azure Pipelines also use 5-field cron expressions, placed in YAML under <code>schedules: - cron:</code>. Azure DevOps interprets the expression in UTC by default, so account for the offset when scheduling for a local business window. The same expression you build above drops straight into the <code>cron</code> key.</p>
         
         <h3>AWS EventBridge Scheduler</h3>
-        <p>AWS is the main exception: its scheduler uses a 6-field cron format (with a year field) and slightly different syntax for the day-of-week and day-of-month fields. The standard 5-field expression you generate here is a starting point, but verify it against the AWS documentation before pasting it into an EventBridge rule or <code>aws_scheduler_schedule</code> Terraform resource.</p>
+        <p>AWS is the main exception: its scheduler uses a 6-field cron format (with a year field) and slightly different syntax for the day-of-week and day-of-month fields. Use our dedicated <a href="/tools/aws-cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Cron Tool','event_label':'to_aws_from_guide'})}">AWS EventBridge Cron Generator</a> to build and validate <code>cron(...)</code> and <code>rate(...)</code> expressions for EventBridge Rules, EventBridge Scheduler, and Lambda.</p>
       </article>
 
       <article class="guide-article">

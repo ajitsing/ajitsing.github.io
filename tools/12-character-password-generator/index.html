@@ -1,0 +1,205 @@
+---
+layout: default
+title: "12 Character Password Generator"
+subtitle: "Generate a strong 12-character random password instantly"
+seo: true
+description: "Generate a strong random 12-character password in your browser. Free 12 character password generator with optional spaces, symbols, and one-click copy. 100% client-side."
+keywords: "12 character password generator, 12 character password, password generator 12 characters, random 12 character password"
+thumbnail: /assets/img/tools/password-generator-thumbnail.png
+share-img: /assets/img/tools/password-generator-thumbnail.png
+permalink: /tools/12-character-password-generator/
+default_length: 12
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/password-generator.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "SoftwareApplication"],
+  "name": "12 Character Password Generator",
+  "alternateName": ["12-character password generator", "Random 12 character password"],
+  "description": "Generate a strong random 12-character password in your browser. Free 12 character password generator with optional spaces, symbols, and one-click copy. 100% client-side.",
+  "url": "https://singhajit.com/tools/12-character-password-generator/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript and a modern browser with Web Crypto API",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Generate a random 12-character password",
+    "Uppercase, lowercase, numbers, symbols, and optional spaces",
+    "Exclude ambiguous characters",
+    "Word-based passphrase mode",
+    "One-click copy, client-side only"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/password-generator-thumbnail.png"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to generate a 12-character password",
+  "description": "Create and copy a strong random 12-character password in your browser.",
+  "totalTime": "PT1M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Confirm length",
+      "text": "This page defaults to 12 characters. Keep that preset, or adjust the slider if you need a different length."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Choose character sets",
+      "text": "Enable uppercase, lowercase, numbers, and symbols for a strong mix. Optionally allow spaces or exclude ambiguous characters."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy the password",
+      "text": "Click Copy to place the password on your clipboard. Click Regenerate for another one. Nothing is sent to a server."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "12 Character Password Generator"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a 12-character password strong enough?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twelve characters with mixed uppercase, lowercase, numbers, and symbols is a widely used baseline for everyday accounts when longer lengths are not required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I include spaces or symbols?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Enable Symbols for special characters and Spaces if the site allows whitespace. Spaces count toward the 12-character length."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my password uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Passwords are generated locally with crypto.getRandomValues and never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use this page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Length is already set to 12. Choose your character sets, then click Copy. Regenerate anytime for a new password."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://singhajit.com" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://singhajit.com/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Password Generator", "item": "https://singhajit.com/tools/password-generator/" },
+    { "@type": "ListItem", "position": 4, "name": "12 Character Password Generator", "item": "https://singhajit.com/tools/12-character-password-generator/" }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="pg-page-wrapper">
+  <div class="pg-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-key"></i>
+        12 Character Password Generator
+      </h1>
+      <p class="tool-subtitle">Generate a strong random 12-character password</p>
+    </header>
+
+    <p class="tool-intro">
+      Create a strong random <strong>12-character password</strong> instantly in your browser.
+      Length defaults to 12, which fits email, social, and SaaS accounts that require at least 12 characters.
+      Choose uppercase, lowercase, numbers, symbols, or spaces, then copy with one click.
+      Free, no signup, and fully client-side.
+    </p>
+
+    {% include tools/password-generator-app.html default_length=page.default_length %}
+    {% include tools/password-generator-crosslinks.html %}
+    {% include tools/password-generator-length-guide.html length=12 %}
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> FAQ</h2>
+      <div class="faq-item">
+        <h3>Is a 12-character password strong enough?</h3>
+        <p>Twelve characters with mixed uppercase, lowercase, numbers, and symbols is a widely used baseline for everyday accounts when longer lengths are not required.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I include spaces or symbols?</h3>
+        <p>
+          Yes. Turn on Symbols and optionally Spaces. Spaces count toward the 12-character total.
+          Exclude ambiguous characters if you want something easier to read aloud.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Is my password uploaded?</h3>
+        <p>
+          No. Generation uses <code>crypto.getRandomValues</code> in your browser and never leaves your device.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Need a different length?</h3>
+        <p>
+          See
+          <a href="{{ '/tools/8-character-password-generator/' | relative_url }}">8</a>,
+          <a href="{{ '/tools/12-character-password-generator/' | relative_url }}">12</a>,
+          <a href="{{ '/tools/16-character-password-generator/' | relative_url }}">16</a>,
+          <a href="{{ '/tools/24-character-password-generator/' | relative_url }}">24</a>, or
+          <a href="{{ '/tools/32-character-password-generator/' | relative_url }}">32</a>
+          characters, or the
+          <a href="{{ '/tools/password-generator/' | relative_url }}">Password Generator</a>
+          hub for all options.
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+<script src="{{ '/assets/js/eff-wordlist.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/password-generator.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

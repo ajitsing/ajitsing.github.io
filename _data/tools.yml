@@ -94,3 +94,7 @@ text-diff:
   title: "Text Diff Checker"
   description: "Compare two text or code blocks with side by side and inline diff views."
   link: "/tools/text-diff/"
+password-generator:
+  title: "Password Generator"
+  description: "Generate strong random passwords and memorable passphrases. Dedicated 8, 12, 16, 24, and 32 character password generators."
+  link: "/tools/password-generator/"

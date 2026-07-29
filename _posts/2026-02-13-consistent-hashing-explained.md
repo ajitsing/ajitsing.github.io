@@ -464,7 +464,7 @@ DynamoDB uses virtual nodes and a preference list (ordered list of nodes respons
 
 ### Apache Cassandra
 
-Cassandra uses consistent hashing as its core data distribution mechanism. Every row in Cassandra has a partition key, and the partition key is hashed (using Murmur3 by default) to determine which node stores it.
+Cassandra, the best known [wide column store](/wide-column-stores-explained/){:target="_blank" rel="noopener"}, uses consistent hashing as its core data distribution mechanism. Every row in Cassandra has a partition key, and the partition key is hashed (using Murmur3 by default) to determine which node stores it.
 
 Cassandra uses 256 virtual nodes per server by default. This gives a fairly even distribution even with clusters of just 3 to 5 nodes. The token range each node owns is visible and can be manually adjusted.
 

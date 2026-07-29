@@ -19,8 +19,9 @@ real_world:
   - "RocksDB and LevelDB are the canonical LSM engines, embedded in many larger systems."
   - "Cassandra and ScyllaDB store data as memtables plus SSTables with compaction."
   - "Bigtable, HBase, and the storage layer under CockroachDB and TiKV are LSM based."
-related_terms: ["database-index", "write-ahead-log", "query-planner"]
+related_terms: ["database-index", "write-ahead-log", "query-planner", "wide-column-store"]
 related_posts:
   - "/how-databases-store-data-internally/"
   - "/database-indexing-explained/"
+  - "/wide-column-stores-explained/"
 ---

@@ -360,7 +360,7 @@ Database choice is one of the most important architectural decisions.
 |------|------------|----------|----------|
 | **Document** | JSON documents | MongoDB, CouchDB | Content management, catalogs |
 | **Key-Value** | Simple key to value | Redis, DynamoDB | Caching, sessions |
-| **Column-Family** | Wide columns | Cassandra, HBase | Time series, analytics |
+| **[Column-Family](/wide-column-stores-explained/){:target="_blank" rel="noopener"}** | Wide columns | Cassandra, HBase | Time series, analytics |
 | **Graph** | Nodes and edges | Neo4j, Amazon Neptune | Social networks, recommendations |
 
 ### Database Scaling Patterns

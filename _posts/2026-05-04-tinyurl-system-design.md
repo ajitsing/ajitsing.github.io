@@ -338,7 +338,7 @@ Both work. Pick the one your team operates well.
 | Choice | When it fits | Risks |
 |---|---|---|
 | PostgreSQL or MySQL with read replicas | Up to a few hundred million rows, single region, modest QPS | Primary becomes a bottleneck if write rate spikes; replica lag affects newly created codes |
-| DynamoDB or Cassandra (or ScyllaDB) | Billions of rows, multi region, very high redirect QPS | Eventual consistency on reads; harder to do analytical queries; per-request cost adds up |
+| DynamoDB or [Cassandra (or ScyllaDB)](/wide-column-stores-explained/){:target="_blank" rel="noopener"} | Billions of rows, multi region, very high redirect QPS | Eventual consistency on reads; harder to do analytical queries; per-request cost adds up |
 | Hybrid (SQL for create, NoSQL for read mirror) | Mixed workloads, audit-heavy products | Two stores to keep in sync; complexity tax |
 
 For a system design interview, the right answer is "for our target of 38 writes per second and 100K redirect peak QPS, a partitioned PostgreSQL with replicas is fine, and we can move the read path to DynamoDB or Cassandra later if growth demands it." Concrete, defensible, and honest.

@@ -19,7 +19,8 @@ real_world:
   - "Amazon DynamoDB and Apache Cassandra place data on a consistent hash ring with virtual nodes."
   - "Memcached client libraries and many CDNs use it to route keys to nodes."
   - "Discord and many proxy layers use it for sticky, balanced routing."
-related_terms: ["sharding", "quorum", "caching", "gossip-protocol"]
+related_terms: ["sharding", "quorum", "caching", "gossip-protocol", "wide-column-store"]
 related_posts:
   - "/consistent-hashing-explained/"
+  - "/wide-column-stores-explained/"
 ---

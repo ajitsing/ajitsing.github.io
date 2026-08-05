@@ -19,8 +19,9 @@ real_world:
   - "CQRS is often paired with event sourcing, though neither requires the other."
   - "It fits read-heavy systems like dashboards, feeds, and reporting where read and write shapes differ a lot."
   - "Events flow reliably from write to read side using the [transactional outbox](/glossary/transactional-outbox/) and a [message queue](/glossary/message-queue/)."
-related_terms: ["transactional-outbox", "message-queue", "eventual-consistency", "saga-pattern"]
+related_terms: ["transactional-outbox", "message-queue", "eventual-consistency", "saga-pattern", "columnar-database"]
 related_posts:
   - "/cqrs-pattern-guide/"
   - "/transactional-outbox-pattern/"
+  - "/columnar-databases-explained/"
 ---

@@ -80,7 +80,7 @@ A **wide column store** (also called a column-family store) is a NoSQL database 
 The crucial thing to get straight up front: **a wide column store is not a columnar database.** They sound identical and mean opposite things.
 
 - A **wide column store** (Cassandra, Bigtable, HBase, ScyllaDB) is row-oriented under the hood. It groups rows into partitions and is built for high-volume writes and key-based reads. This is an OLTP-style tool.
-- A **columnar** or **column-oriented database** (ClickHouse, BigQuery, Amazon Redshift) physically stores all values of a single column next to each other on disk so it can scan and aggregate one column across billions of rows quickly. This is an OLAP analytics tool.
+- A **[columnar](/columnar-databases-explained/){:target="_blank" rel="noopener"}** or **column-oriented database** (ClickHouse, BigQuery, Amazon Redshift) physically stores all values of a single column next to each other on disk so it can scan and aggregate one column across billions of rows quickly. This is an OLAP analytics tool.
 
 The [row store versus column store](/how-databases-store-data-internally/){:target="_blank" rel="noopener"} distinction is about physical layout for analytics. The "wide column" label is about a flexible, sparse data model for scale. Keep them separate in your head and half the confusion disappears.
 

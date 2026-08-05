@@ -428,7 +428,7 @@ SELECT * FROM pg_stat_bgwriter;
 
 So far, we have discussed row-oriented storage where all columns of a row are stored together on the same page. This is how PostgreSQL, MySQL, Oracle, and most transactional databases work.
 
-But there is another approach: **column-oriented storage** where all values for each column are stored together.
+But there is another approach: **[column-oriented storage](/columnar-databases-explained/){:target="_blank" rel="noopener"}** where all values for each column are stored together.
 
 ### Row Store (Row-Oriented)
 

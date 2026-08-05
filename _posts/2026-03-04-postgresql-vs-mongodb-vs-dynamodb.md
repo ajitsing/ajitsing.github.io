@@ -161,7 +161,7 @@ WHERE attributes->>'category' = 'electronics'
 ### When to choose PostgreSQL
 
 - You have relational data (orders, users, inventory, financial records)
-- You need complex reporting queries across relational data (for heavy analytics at scale, you will eventually want a dedicated column store like ClickHouse or BigQuery alongside it)
+- You need complex reporting queries across relational data (for heavy analytics at scale, you will eventually want a dedicated [column store like ClickHouse or BigQuery](/columnar-databases-explained/){:target="_blank" rel="noopener"} alongside it)
 - You want ACID guarantees across multiple tables
 - You are starting a new project and are not sure what you need
 - Your team knows SQL

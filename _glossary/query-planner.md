@@ -19,8 +19,9 @@ real_world:
   - "PostgreSQL's planner is a classic cost-based optimizer driven by pg_statistic and EXPLAIN ANALYZE."
   - "MySQL, SQL Server, and Oracle all ship cost-based optimizers with their own statistics and hints."
   - "Query hints and planner settings let you nudge the optimizer when its estimates are wrong."
-related_terms: ["database-index", "mvcc", "lsm-tree", "autovacuum"]
+related_terms: ["database-index", "mvcc", "lsm-tree", "autovacuum", "columnar-database"]
 related_posts:
   - "/postgresql-internals-how-queries-execute/"
   - "/database-indexing-explained/"
+  - "/columnar-databases-explained/"
 ---

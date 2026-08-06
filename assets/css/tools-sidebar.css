@@ -217,3 +217,37 @@
     padding: 15px 12px 30px;
   }
 }
+
+/* Wrap featured-on badges in a horizontal row */
+.tools-badges-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tools-badges-row a {
+  display: inline-flex;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.tools-badges-row img {
+  display: block;
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  .tools-badges-row {
+    gap: 0.75rem;
+  }
+
+  .tools-badges-row img {
+    height: 40px;
+  }
+}

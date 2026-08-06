@@ -3,7 +3,7 @@ layout: post
 seo: true
 title: "Columnar Databases Explained: ClickHouse, BigQuery, and Redshift"
 subtitle: "How column-oriented storage, compression, and vectorized execution make analytical queries 10 to 100 times faster"
-date: 2026-08-01
+date: 2026-08-05
 categories: database
 permalink: /columnar-databases-explained/
 thumbnail-img: /assets/img/posts/database/columnar-databases-explained-thumb.png

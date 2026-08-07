@@ -19,8 +19,9 @@ real_world:
   - "Kubernetes kubelets renew node heartbeats through the Lease API to prove the node is alive."
   - "Raft leaders send AppendEntries heartbeats to stop followers from starting new elections."
   - "Cassandra and DynamoDB use gossip heartbeats so every node has an eventually consistent view of who is in the cluster."
-related_terms: ["lease", "ttl", "leader-election", "gossip-protocol", "fencing-token"]
+related_terms: ["lease", "ttl", "leader-election", "gossip-protocol", "fencing-token", "emergent-leader"]
 related_posts:
   - "/distributed-systems/heartbeat/"
   - "/distributed-systems/lease/"
+  - "/distributed-systems/emergent-leader/"
 ---

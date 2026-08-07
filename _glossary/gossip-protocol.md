@@ -19,7 +19,8 @@ real_world:
   - "Cassandra uses gossip to spread cluster membership, schema versions, and load info."
   - "DynamoDB and Riak use gossip style protocols and Phi accrual failure detection for membership and anti entropy."
   - "Consul, Serf, and Memberlist use SWIM, a gossip based failure detector, for service health checks."
-related_terms: ["heartbeat", "consensus", "quorum"]
+related_terms: ["heartbeat", "consensus", "quorum", "emergent-leader"]
 related_posts:
   - "/distributed-systems/heartbeat/"
+  - "/distributed-systems/emergent-leader/"
 ---

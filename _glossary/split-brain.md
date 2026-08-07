@@ -19,7 +19,8 @@ real_world:
   - "MongoDB, Redis Sentinel, and Kafka all use quorum based leader election to make split brain unlikely or bounded."
   - "Galera Cluster and PostgreSQL clusters used to suffer from split brain when partitions outpaced quorum logic."
   - "VMware vSphere uses STONITH to forcibly kill a partitioned host before it can write."
-related_terms: ["leader-election", "fencing-token", "quorum", "consensus", "cap-theorem"]
+related_terms: ["leader-election", "fencing-token", "quorum", "consensus", "cap-theorem", "emergent-leader"]
 related_posts:
   - "/distributed-systems/lease/"
+  - "/distributed-systems/emergent-leader/"
 ---

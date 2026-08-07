@@ -359,6 +359,7 @@ The pattern is powerful but not free.
 Skip the pattern when:
 
 - Your cluster is a single node or a small fixed set that never changes. Plain configuration is simpler.
+- Your cluster is peer-to-peer and can let a coordinator fall out of its membership order instead of depending on a separate core. That is the [emergent leader](/distributed-systems/emergent-leader/){:target="_blank" rel="noopener"} pattern, used by Akka and Hazelcast.
 - You are tempted to store bulk data in the core. Do not; it is for metadata only.
 - Your framework already gives you one. If you are on Kubernetes, you already have etcd. Do not stand up a second ZooKeeper for the same job.
 

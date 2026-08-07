@@ -19,9 +19,10 @@ real_world:
   - "ZooKeeper and etcd are consistent cores. Kafka, HBase, and Solr have used ZooKeeper for coordination."
   - "Kubernetes stores all cluster state in etcd while worker nodes scale independently as the data plane."
   - "TiKV and CockroachDB keep range metadata in a Raft based core while data ranges scale out."
-related_terms: ["consensus", "quorum", "leader-election", "lease", "replicated-log", "linearizability"]
+related_terms: ["consensus", "quorum", "leader-election", "lease", "replicated-log", "linearizability", "emergent-leader"]
 related_posts:
   - "/distributed-systems/consistent-core/"
   - "/distributed-systems/lease/"
   - "/distributed-systems/leader-follower/"
+  - "/distributed-systems/emergent-leader/"
 ---

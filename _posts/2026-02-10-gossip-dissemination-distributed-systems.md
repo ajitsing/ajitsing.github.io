@@ -649,7 +649,7 @@ The key takeaways:
 3. **Piggybacking saves bandwidth**: SWIM combines failure detection with membership updates on the same messages
 4. **Anti-entropy catches what gossip misses**: Run periodic full repairs to guarantee consistency
 5. **Tune fanout and interval for your use case**: Fanout of 2 to 3 with 1 second intervals works for most systems
-6. **No single point of failure**: Every node participates equally. No central coordinator needed.
+6. **No single point of failure**: Every node participates equally, and that shared membership view is exactly what lets a peer-to-peer cluster derive a coordinator through the [emergent leader](/distributed-systems/emergent-leader/){:target="_blank" rel="noopener"} pattern instead of relying on a central one.
 
 The next time you wonder how Cassandra knows which nodes are alive, or how Consul discovers new services, or how blockchain transactions reach every node in the network, the answer is gossip. Simple, scalable, and proven at massive scale.
 

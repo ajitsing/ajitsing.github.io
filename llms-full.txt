@@ -100,6 +100,10 @@ All tools run 100% client-side in the browser. No data is sent to servers.
 - URL: {{ site.url }}/tools/json-validator/
 - Purpose: Validate JSON syntax with detailed error messages showing line and column numbers. Format and beautify JSON data.
 
+### CSV to JSON Converter
+- URL: {{ site.url }}/tools/csv-to-json/
+- Purpose: Convert CSV or TSV text and files into pretty-printed JSON arrays of objects or arrays. Auto-detect delimiters, optional headers, copy and download.
+
 ### Regex Tester & Debugger
 - URL: {{ site.url }}/tools/regex-tester/
 - Purpose: Test regular expressions with real-time highlighting, pattern explanation, and capture group visualization.

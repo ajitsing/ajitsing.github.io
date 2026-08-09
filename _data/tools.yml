@@ -50,6 +50,10 @@ toml-validator:
   title: "TOML Validator and Formatter"
   description: "Validate TOML for Cargo.toml, pyproject.toml, and Hugo configs."
   link: "/tools/toml-validator/"
+csv-to-json:
+  title: "CSV to JSON Converter"
+  description: "Convert CSV to JSON with headers, delimiters, copy, and download."
+  link: "/tools/csv-to-json/"
 sql-formatter:
   title: "SQL Formatter and Beautifier"
   description: "Format SQL for MySQL, PostgreSQL, SQL Server, and Oracle."

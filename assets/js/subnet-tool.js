@@ -318,7 +318,7 @@
     if (!el) return;
     el.textContent = value;
     el.classList.toggle('result-error', !!isError);
-    el.classList.toggle('result-placeholder', value === '—' || value.startsWith('Enter'));
+    el.classList.toggle('result-placeholder', value === '-' || value.startsWith('Enter'));
   }
 
   function showIPv4Error(msg) {
@@ -387,7 +387,7 @@
       'r-network', 'r-broadcast', 'r-first', 'r-last', 'r-usable', 'r-total',
       'r-mask', 'r-wildcard', 'r-mask-binary', 'r-cidr', 'r-class', 'r-scope',
       'r-type', 'r-hex', 'r-integer'
-    ].forEach(id => setResult(id, '—'));
+    ].forEach(id => setResult(id, '-'));
     if (splitResults) splitResults.hidden = true;
   }
 
@@ -417,7 +417,7 @@
 
   function clearIPv6Results() {
     ['v6-expanded', 'v6-compressed', 'v6-prefix', 'v6-first', 'v6-last', 'v6-total', 'v6-type']
-      .forEach(id => setResult(id, '—'));
+      .forEach(id => setResult(id, '-'));
   }
 
   function updateSplitSubnets(ip, parentCidr) {
@@ -467,7 +467,7 @@
   }
 
   function copyText(text, btn) {
-    if (!text || text === '—') return;
+    if (!text || text === '-') return;
     navigator.clipboard.writeText(text).then(() => {
       if (!btn) return;
       const icon = btn.querySelector('i');

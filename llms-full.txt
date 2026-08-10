@@ -112,6 +112,10 @@ All tools run 100% client-side in the browser. No data is sent to servers.
 - URL: {{ site.url }}/tools/xpath-tester/
 - Purpose: Test XPath 1.0 expressions against XML or HTML. View matching nodes, paths, snippets, and scalar string/number/boolean results.
 
+### HMAC Generator & Verifier
+- URL: {{ site.url }}/tools/hmac-generator/
+- Purpose: Generate and verify HMAC-SHA1, SHA-256, SHA-384, and SHA-512 digests with hex or Base64 output using the Web Crypto API.
+
 ### Cron Expression Generator
 - URL: {{ site.url }}/tools/cron-expression/
 - Purpose: Parse, validate, and build cron job expressions visually. Translate cron expressions to human-readable text.

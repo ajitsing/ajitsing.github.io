@@ -211,7 +211,7 @@
     if (tokenCount > 0 && chars > 0) {
       dom.statRatio.textContent = (chars / tokenCount).toFixed(2);
     } else {
-      dom.statRatio.textContent = '—';
+      dom.statRatio.textContent = '-';
     }
   }
 
@@ -296,7 +296,7 @@
     const ratio = dom.statRatio.textContent;
     const tag = model.kind === 'openai' ? 'exact' : 'approx';
     const summary =
-      'LLM Token Counter — ' + model.label + ' (' + tag + ')\n' +
+      'LLM Token Counter - ' + model.label + ' (' + tag + ')\n' +
       'Tokens:     ' + tokens + '\n' +
       'Characters: ' + chars + '\n' +
       'Words:      ' + words + '\n' +

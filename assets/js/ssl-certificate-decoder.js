@@ -89,7 +89,7 @@
 
   // node-forge 1.3.1 only knows how to parse RSA SubjectPublicKeyInfo and
   // throws "Cannot read public key. OID is not RSA." for ECDSA / Ed25519 /
-  // Ed448 certs — which covers most modern certs (Let's Encrypt, Cloudflare,
+  // Ed448 certs - which covers most modern certs (Let's Encrypt, Cloudflare,
   // ACM, etc.). Patch publicKeyFromAsn1 so non-RSA keys return a metadata
   // stub instead of aborting the whole certificate parse.
   var EC_CURVE_OIDS = {
@@ -210,7 +210,7 @@
   }
 
   function formatDate(date) {
-    if (!date || isNaN(date.getTime())) return '—';
+    if (!date || isNaN(date.getTime())) return '-';
     return date.toLocaleString(undefined, {
       year: 'numeric',
       month: 'short',
@@ -242,7 +242,7 @@
   }
 
   function dnToString(attrs) {
-    if (!attrs || !attrs.length) return '—';
+    if (!attrs || !attrs.length) return '-';
     return attrs
       .map(function(a) {
         var name = a.shortName || a.name || a.type;
@@ -262,11 +262,11 @@
   }
 
   function oidName(oid) {
-    return OID_NAMES[oid] || oid || '—';
+    return OID_NAMES[oid] || oid || '-';
   }
 
   function formatSerial(serialHex) {
-    if (!serialHex) return '—';
+    if (!serialHex) return '-';
     var clean = serialHex.replace(/:/g, '').toUpperCase();
     if (clean.length <= 32) return clean.match(/.{1,2}/g).join(':');
     return clean;
@@ -280,10 +280,10 @@
 
   function describePublicKey(cert) {
     var key = cert.publicKey;
-    if (!key) return { type: '—', bits: '—', curve: null };
+    if (!key) return { type: '-', bits: '-', curve: null };
 
     if (key._stub) {
-      var bitsStr = (typeof key.bits === 'number') ? (key.bits + ' bits') : '—';
+      var bitsStr = (typeof key.bits === 'number') ? (key.bits + ' bits') : '-';
       if (key.algorithm === 'EC') {
         return { type: 'EC (' + key.curveName + ')', bits: bitsStr, curve: key.curveName };
       }
@@ -295,14 +295,14 @@
       return { type: 'RSA', bits: bits + ' bits', curve: null };
     }
     if (key.q) {
-      return { type: 'DSA', bits: (key.p ? key.p.bitLength() : '—') + ' bits', curve: null };
+      return { type: 'DSA', bits: (key.p ? key.p.bitLength() : '-') + ' bits', curve: null };
     }
     if (key.curve) {
       var curveOid = key.curve.oid || '';
       var curveName = forge.pki.oids[curveOid] || curveOid || 'EC';
-      return { type: 'EC (' + curveName + ')', bits: key.n ? key.n.bitLength() + ' bits' : '—', curve: curveName };
+      return { type: 'EC (' + curveName + ')', bits: key.n ? key.n.bitLength() + ' bits' : '-', curve: curveName };
     }
-    return { type: 'Unknown', bits: '—', curve: null };
+    return { type: 'Unknown', bits: '-', curve: null };
   }
 
   function parseSubjectAltName(ext) {
@@ -387,13 +387,13 @@
       try {
         if (name === 'subjectAltName') {
           var sans = parseSubjectAltName(ext);
-          value = sans.length ? sans.length + ' name(s)' : '—';
+          value = sans.length ? sans.length + ' name(s)' : '-';
         } else if (name === 'keyUsage') {
-          value = parseKeyUsage(ext) || '—';
+          value = parseKeyUsage(ext) || '-';
         } else if (name === 'extKeyUsage') {
-          value = parseExtendedKeyUsage(ext) || '—';
+          value = parseExtendedKeyUsage(ext) || '-';
         } else if (name === 'basicConstraints') {
-          value = parseBasicConstraints(ext) || '—';
+          value = parseBasicConstraints(ext) || '-';
         } else if (name === 'subjectKeyIdentifier') {
           value = formatHexId(ext.subjectKeyIdentifier) || 'present';
         } else if (name === 'authorityKeyIdentifier') {
@@ -568,7 +568,7 @@
       });
       sanHtml += '</ul>';
     } else {
-      sanHtml = '<span class="field-value">—</span>';
+      sanHtml = '<span class="field-value">-</span>';
     }
 
     var extRows = '';
@@ -614,8 +614,8 @@
       '<div class="field-grid">' +
       buildFieldRow('Subject', dnToString(cert.subject.attributes), false) +
       buildFieldRow('Issuer', dnToString(cert.issuer.attributes), false) +
-      buildFieldRow('Common Name', getAttr(cert.subject.attributes, 'CN') || '—', false) +
-      buildFieldRow('Organization', getAttr(cert.subject.attributes, 'O') || '—', false) +
+      buildFieldRow('Common Name', getAttr(cert.subject.attributes, 'CN') || '-', false) +
+      buildFieldRow('Organization', getAttr(cert.subject.attributes, 'O') || '-', false) +
       '</div></div>' +
       '<div class="field-group">' +
       '<h4 class="field-group-title"><i class="fas fa-calendar-alt"></i> Validity</h4>' +

@@ -1,5 +1,5 @@
 /* ==========================================================================
- * CBOR Decoder (RFC 8949) — pure JavaScript, no dependencies.
+ * CBOR Decoder (RFC 8949) - pure JavaScript, no dependencies.
  *
  * Decoder surface:
  *   CBOR.decode(uint8Array) -> { value, bytesRead }
@@ -688,7 +688,7 @@
   }
 
   function topLevelTypeLabel(bytes) {
-    if (bytes.length === 0) return '—';
+    if (bytes.length === 0) return '-';
     const initial = bytes[0];
     const major = initial >> 5;
     const names = ['uint', 'nint', 'bytes', 'text', 'array', 'map', 'tag', 'simple/float'];
@@ -944,8 +944,8 @@
     function clearFile() {
       fileInput.value = '';
       fileMeta.classList.add('hidden');
-      fileName.textContent = '—';
-      fileSize.textContent = '—';
+      fileName.textContent = '-';
+      fileSize.textContent = '-';
     }
 
     // -------------------- decode driver --------------------

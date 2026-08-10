@@ -58,6 +58,10 @@ xpath-tester:
   title: "XPath Tester"
   description: "Test XPath expressions against XML or HTML with live match results."
   link: "/tools/xpath-tester/"
+hmac-generator:
+  title: "HMAC Generator and Verifier"
+  description: "Generate and verify HMAC-SHA256 and other HMAC signatures in your browser."
+  link: "/tools/hmac-generator/"
 sql-formatter:
   title: "SQL Formatter and Beautifier"
   description: "Format SQL for MySQL, PostgreSQL, SQL Server, and Oracle."

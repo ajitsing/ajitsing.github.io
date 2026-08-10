@@ -135,7 +135,7 @@
         continue;
       }
 
-      // Key = value pair — find the first unquoted =
+      // Key = value pair - find the first unquoted =
       var eqIdx = findUnquotedEquals(line);
       if (eqIdx >= 0) {
         var keyPart = line.substring(0, eqIdx);
@@ -442,7 +442,7 @@
         };
       }
       var message = e.message || 'Unknown TOML error';
-      // Clean up error message — drop library prefixes and the trailing
+      // Clean up error message - drop library prefixes and the trailing
       // "at row X, col Y, pos Z:" code snippet (line/column shown separately)
       message = message
         .replace(/^Invalid TOML document:\s*/i, '')
@@ -559,7 +559,7 @@
     if (result.valid) {
       updateOutput(result.json, 'json', result.parsed);
       showResult(true, null, null);
-      elements.resultMessage.textContent = 'Valid TOML — Converted to JSON';
+      elements.resultMessage.textContent = 'Valid TOML - Converted to JSON';
     } else {
       updateOutput(null);
       showResult(false, result.error, result.position);

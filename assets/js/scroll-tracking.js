@@ -16,7 +16,7 @@
   }
 
   function getDocumentHeight() {
-    // Prefer scrollHeight only — avoids offsetHeight forced layout.
+    // Prefer scrollHeight only - avoids offsetHeight forced layout.
     return Math.max(
       document.body.scrollHeight || 0,
       document.documentElement.scrollHeight || 0

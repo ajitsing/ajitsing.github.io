@@ -1,5 +1,5 @@
 /* ==========================================================================
- * Curl Converter — parser + generators + UI (no dependencies)
+ * Curl Converter - parser + generators + UI (no dependencies)
  * ========================================================================== */
 (function () {
   'use strict';
@@ -346,7 +346,7 @@
             const name = arg.slice(0, eq);
             let value = arg.slice(eq + 1);
             if (value.charAt(0) === '@') {
-              ir.warnings.push('File upload @' + value.slice(1) + ' — replace with local path in generated code');
+              ir.warnings.push('File upload @' + value.slice(1) + ' - replace with local path in generated code');
               part = { name: name, value: value.slice(1), file: true, path: value.slice(1) };
             } else if (value.charAt(0) === '<') {
               ir.warnings.push('Form field ' + name + ' uses stdin; not supported');

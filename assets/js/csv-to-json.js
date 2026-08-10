@@ -493,7 +493,7 @@
     var rowCount = useHeaders ? data.length : parsedCsv.rows.length;
     var label = rowCount === 1 ? '1 row converted' : rowCount + ' rows converted';
     elements.statusCount.textContent = label;
-    showResult(true, 'Converted to JSON — ' + label, null, null);
+    showResult(true, 'Converted to JSON - ' + label, null, null);
 
     if (source !== 'auto') {
       trackEvent('convert', 'success', rowCount);

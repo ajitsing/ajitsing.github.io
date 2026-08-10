@@ -1203,6 +1203,8 @@ mongoimport --db=mydb --collection=users --mode=upsert --upsertFields=email --fi
 - `mongodump` / `mongorestore`: for full backups and restores. Binary format, preserves all BSON types
 - `mongoexport` / `mongoimport`: for moving data between systems, sharing with other tools, or loading CSV data
 
+{% include tool-cta.html tool="csv-to-json" variant="inline" description="Convert a CSV export to JSON when another tool or API expects documents instead of rows." %}
+
 ---
 
 ## Users, Roles, and Authentication

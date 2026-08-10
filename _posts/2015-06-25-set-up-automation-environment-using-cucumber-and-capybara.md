@@ -120,7 +120,9 @@ In this step we are searching for a query in google. There are few things to no
 
 1. Variable search_box contains the selector of search input box on google home page. I found this selector using inspect element, which is not so difficult to find. And similarly I have added the selector for search_button in our step.
 
-2. Now we use capybara's find method to find that particular element on the page. First we are calling find for getting the search input box and then we are calling the set method on it to fill in the query which we want to search.
+2. Now we use capybara's find method to find that particular element on the page. First we are calling find for getting the search input box and then we are calling the set method on it to fill in the query which we want to search. Capybara accepts CSS (`#lst-ib`) or XPath (`//input[@name='q']`) for the same lookup.
+
+{% include tool-cta.html tool="xpath-tester" variant="inline" description="Try XPath expressions against sample HTML before you hard-code them in step definitions." %}
 
 3. And then we are calling find method to find the search button and calling click method to click on the button.
 

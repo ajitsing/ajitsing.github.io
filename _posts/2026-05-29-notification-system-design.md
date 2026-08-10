@@ -585,6 +585,8 @@ Three details that catch teams late:
 - **Webhooks duplicate.** Idempotency at the webhook handler is just as important as in the dispatcher. Use the provider's event id as a unique key.
 - **Webhook authentication is per-provider.** SES uses SNS signing. Twilio signs with HMAC-SHA1. SendGrid uses ECDSA. Get them all right or you will read garbage signed payloads from someone else.
 
+{% include tool-cta.html tool="hmac-generator" variant="inline" description="Generate and verify HMAC digests when you debug provider webhook signatures." %}
+
 ## Storage: What Goes Where
 
 The notification system writes three classes of data, and each one belongs in a different store.
@@ -706,7 +708,7 @@ The corresponding push dispatcher worker is just as small. It reads from `notif.
 
 That is the shape end to end. To turn it into something you would actually run, you add the preference cache, the webhook handler, the scheduler, the DLQ reconciler, the metrics, and the dashboards. The shape does not change.
 
-You can experiment with the building blocks using the [Base64 encoder](/tools/base64-encoder/){:target="_blank" rel="noopener"} or [JWT decoder](/tools/jwt-decoder/){:target="_blank" rel="noopener"} on this blog.
+You can experiment with the building blocks using the [HMAC generator](/tools/hmac-generator/){:target="_blank" rel="noopener"}, [Base64 encoder](/tools/base64-encoder/){:target="_blank" rel="noopener"}, or [JWT decoder](/tools/jwt-decoder/){:target="_blank" rel="noopener"} on this blog.
 
 ## What Senior Interviewers Look For
 

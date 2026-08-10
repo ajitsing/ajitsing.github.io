@@ -75,4 +75,7 @@ decode encoded_string, 'image.jpeg'
 
 #above code will create a file with name image.jpeg in the current  directory.
 ```
+
+{% include tool-cta.html tool="base64-to-pdf" description="Decode Base64 back into a PDF in the browser, or encode a PDF file to Base64 for APIs and storage." %}
+
 <br>

@@ -452,6 +452,9 @@ The mechanics:
 2. **Estimate position.** `ZRANK` gives the user's position. The client polls every few seconds for an updated position and an estimated wait.
 3. **Admit in batches.** A worker pops the bottom N users every second with `ZPOPMIN`. The chosen N is the rate the downstream checkout can sustain (say, 20k per second).
 4. **Issue a signed token.** Each admitted user receives a JWT or HMAC-signed token with a 60-second expiry. The order API verifies the signature and rejects any request without a valid, unexpired token. This is what stops a user from sharing or replaying their admission.
+
+{% include tool-cta.html tool="hmac-generator" variant="inline" description="Generate or verify HMAC digests when you design short-lived admission tokens." %}
+
 5. **Cap the room.** If the sorted set grows past a soft limit (say, 20 million entries), the waiting room returns a friendly "we are at capacity, try again in a minute" instead of accepting more users. This is the difference between a slow site and a dead site.
 
 The pattern is the standard one across [Ticketmaster, Nike SNKRS, Supreme, and Shopify Plus](https://shopify.engineering/surviving-flashes-of-high-write-traffic-using-scriptable-load-balancers-part-i){:target="_blank" rel="noopener"} for shop drops. Shopify in particular published a long write-up on how they built **request buffering and a checkout throttle** at the load balancer with Lua scripts in their edge tier, which is the same idea applied one layer up.

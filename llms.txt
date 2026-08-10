@@ -37,6 +37,7 @@ Author: Ajit Singh (Staff Software Engineer at Agoda). Expertise: system design,
 - [JSON Validator & Formatter]({{ site.url }}/tools/json-validator/): Validate and beautify JSON with line/column error messages
 - [CSV to JSON Converter]({{ site.url }}/tools/csv-to-json/): Convert CSV to JSON with headers, delimiters, and download
 - [Regex Tester & Debugger]({{ site.url }}/tools/regex-tester/): Test regular expressions with live highlighting and capture groups
+- [XPath Tester]({{ site.url }}/tools/xpath-tester/): Test XPath expressions against XML or HTML with live matches
 - [Cron Expression Generator]({{ site.url }}/tools/cron-expression/): Build and translate cron expressions to human-readable text
 - [Base64 Encoder & Decoder]({{ site.url }}/tools/base64-encoder/): Encode or decode Base64, including UTF-8 and emoji
 - [Snowflake ID Decoder]({{ site.url }}/tools/snowflake-decoder/): Decode Discord, Twitter, and Instagram Snowflake IDs

@@ -1,0 +1,481 @@
+---
+layout: default
+title: "XPath Tester | Test XPath Online Free"
+subtitle: "Test XPath expressions against XML and HTML instantly"
+seo: true
+description: "Free online XPath tester. Test XPath expressions against XML or HTML with live match results, node paths, and scalar values. XPath 1.0 via your browser. 100% client-side. Your data never leaves your browser."
+keywords: "xpath tester, xpath online, test xpath, xpath evaluator, xpath checker, xpath query tester, xpath against xml, xpath against html, xpath expression tester, free xpath tester, online xpath tester, xpath 1.0 tester, xpath playground, xpath matcher"
+thumbnail: /assets/img/tools/xpath-tester-thumbnail.png
+share-img: /assets/img/tools/xpath-tester-thumbnail.png
+permalink: /tools/xpath-tester/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/xpath-tester.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "XPath Tester",
+  "alternateName": ["XPath Online Tester", "XPath Evaluator", "XPath Checker", "Test XPath Online", "XPath Playground", "XPath Query Tester", "Free XPath Tester"],
+  "description": "Free online XPath tester. Test XPath expressions against XML or HTML with live match results, node paths, and scalar values.",
+  "url": "https://singhajit.com/tools/xpath-tester/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Test XPath expressions against XML and HTML",
+    "Live match results with node paths and snippets",
+    "Supports node-sets, strings, numbers, and booleans",
+    "HTML and XML document modes",
+    "Clickable XPath examples library",
+    "Copy expression and shareable link",
+    "100% client-side. No data sent to servers",
+    "Works offline after loading",
+    "Free to use with no signup required"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/xpath-tester-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "XPath Syntax Reference",
+    "text": "XPath (XML Path Language) selects nodes from an XML or HTML document. Common axes include // (descendant), / (child), @ (attribute), text(), and predicates like [@id='main']. Browsers evaluate XPath 1.0."
+  },
+  "keywords": "xpath tester, xpath online, test xpath, xpath evaluator, xpath checker, xpath query tester"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Test XPath Online",
+  "description": "Learn how to test XPath expressions against XML or HTML using this free online XPath tester.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste your XML or HTML",
+      "text": "Choose HTML or XML mode, then paste the document you want to query into the document area."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter an XPath expression",
+      "text": "Type an XPath query such as //div[@class='item'] or //book/title. Results update as you type."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Review matches",
+      "text": "Inspect matched nodes with type, path, and a content snippet. Scalar expressions show string, number, or boolean values."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "XPath Tester"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an XPath tester?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An XPath tester lets you write an XPath expression and evaluate it against an XML or HTML document. You see matching nodes or scalar values instantly, which helps debug scrapers, tests, and XML queries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I test XPath online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste your XML or HTML into the document field, enter an XPath expression, and review the matches. This tool runs in your browser using native XPath 1.0 evaluation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool support XPath 2.0 or 3.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Browsers implement XPath 1.0 via document.evaluate. Expressions that require XPath 2.0+ features such as if expressions or sequences beyond 1.0 will not work here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use HTML or XML mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use HTML mode for HTML pages and fragments. Use XML mode for well-formed XML such as feeds, SOAP responses, or config files. XML mode reports parse errors when the markup is invalid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe when using this XPath tester?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Evaluation runs entirely in your browser. Your document and XPath expression are never uploaded to a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I select elements by attribute in XPath?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a predicate with @. Examples: //div[@id='main'], //a[@href], and //input[@type='text']. You can combine conditions with and/or."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between / and // in XPath?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "/ selects from the root along the child axis. // selects descendants at any depth. For example, /html/body/div is a direct path, while //div finds every div in the document."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can XPath return text, numbers, or booleans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Node expressions return node-sets. Functions like string(//title), count(//item), and boolean(//error) return scalar string, number, or boolean results."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "XPath Tester",
+      "item": "https://singhajit.com/tools/xpath-tester/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Table",
+  "about": "Common XPath expressions with examples",
+  "name": "XPath Expression Examples",
+  "description": "A reference table of commonly used XPath 1.0 expressions for selecting nodes in XML and HTML.",
+  "keywords": "xpath examples, xpath expressions, xpath cheat sheet, xpath selectors",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 12,
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "item": {"@type": "Thing", "name": "//title", "description": "All title elements"}},
+      {"@type": "ListItem", "position": 2, "item": {"@type": "Thing", "name": "//div[@id='main']", "description": "Div with id main"}},
+      {"@type": "ListItem", "position": 3, "item": {"@type": "Thing", "name": "//a/@href", "description": "All href attributes on anchors"}},
+      {"@type": "ListItem", "position": 4, "item": {"@type": "Thing", "name": "//book[price>10]", "description": "Books with price greater than 10"}},
+      {"@type": "ListItem", "position": 5, "item": {"@type": "Thing", "name": "//li[1]", "description": "First li in each parent"}},
+      {"@type": "ListItem", "position": 6, "item": {"@type": "Thing", "name": "//li[last()]", "description": "Last li in each parent"}},
+      {"@type": "ListItem", "position": 7, "item": {"@type": "Thing", "name": "//*[contains(@class,'card')]", "description": "Elements whose class contains card"}},
+      {"@type": "ListItem", "position": 8, "item": {"@type": "Thing", "name": "string(//h1)", "description": "String value of the first h1"}},
+      {"@type": "ListItem", "position": 9, "item": {"@type": "Thing", "name": "count(//item)", "description": "Number of item nodes"}},
+      {"@type": "ListItem", "position": 10, "item": {"@type": "Thing", "name": "//text()[normalize-space()]", "description": "Non-empty text nodes"}},
+      {"@type": "ListItem", "position": 11, "item": {"@type": "Thing", "name": "//p/following-sibling::p[1]", "description": "Next sibling paragraph"}},
+      {"@type": "ListItem", "position": 12, "item": {"@type": "Thing", "name": "boolean(//error)", "description": "True if an error element exists"}}
+    ]
+  }
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="xpath-page-wrapper">
+  <div class="xpath-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-sitemap"></i>
+        XPath Tester
+      </h1>
+      <p class="tool-subtitle">Test XPath expressions against XML and HTML with live match results</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>XPath tester</strong> to <strong>test XPath online</strong> against XML or HTML. Enter an expression, see matching nodes, paths, and scalar values instantly. Built for debugging scrapers, UI tests, and XML queries. 100% client-side. Your data never leaves your browser.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="xpath-tester-main">
+      <div class="input-section">
+        <label for="xpath-input">XPath Expression:</label>
+        <div class="expression-row">
+          <div class="pattern-input-wrapper">
+            <input
+              type="text"
+              id="xpath-input"
+              placeholder="//div[@class='item']"
+              autocomplete="off"
+              spellcheck="false"
+            >
+          </div>
+        </div>
+        <div id="xpath-error" class="pattern-error"></div>
+        <div class="action-buttons">
+          <button id="evaluate-btn" class="btn-primary" type="button">
+            <i class="fas fa-play"></i>
+            Evaluate
+          </button>
+          <button id="sample-btn" class="btn-secondary" type="button">
+            <i class="fas fa-flask"></i>
+            Sample
+          </button>
+          <button id="clear-btn" class="btn-secondary" type="button">
+            <i class="fas fa-trash-alt"></i>
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <div class="input-section">
+        <div class="label-row">
+          <label for="document-input">Document:</label>
+          <div class="mode-tabs" role="group" aria-label="Document type">
+            <button type="button" class="mode-tab active" data-mode="html">HTML</button>
+            <button type="button" class="mode-tab" data-mode="xml">XML</button>
+          </div>
+        </div>
+        <div class="test-string-wrapper">
+          <textarea
+            id="document-input"
+            rows="14"
+            placeholder="Paste XML or HTML here..."
+            spellcheck="false"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="results-section single-column">
+        <div class="result-card matches-card">
+          <h3>
+            <i class="fas fa-list"></i>
+            Results
+            <span id="match-count" class="match-count">0</span>
+          </h3>
+          <div id="results-panel">
+            <span class="placeholder">Enter an XPath expression and document to see results</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="share-section">
+      <button id="copy-xpath-btn" class="btn-secondary" type="button" title="Copy XPath">
+        <i class="fas fa-copy"></i>
+        Copy XPath
+      </button>
+      <button id="share-btn" class="btn-secondary" type="button" title="Copy shareable link">
+        <i class="fas fa-share-alt"></i>
+        Share Link
+      </button>
+    </div>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> XPath Quick Reference</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Axes &amp; Paths</h4>
+          <table>
+            <tr><td><code>/</code></td><td>Child from root or context</td></tr>
+            <tr><td><code>//</code></td><td>Descendant at any depth</td></tr>
+            <tr><td><code>.</code></td><td>Current node</td></tr>
+            <tr><td><code>..</code></td><td>Parent node</td></tr>
+            <tr><td><code>@attr</code></td><td>Attribute</td></tr>
+            <tr><td><code>*</code></td><td>Any element</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Predicates &amp; Functions</h4>
+          <table>
+            <tr><td><code>[1]</code></td><td>First node</td></tr>
+            <tr><td><code>[last()]</code></td><td>Last node</td></tr>
+            <tr><td><code>[@id='x']</code></td><td>Attribute equals</td></tr>
+            <tr><td><code>contains()</code></td><td>Substring match</td></tr>
+            <tr><td><code>text()</code></td><td>Text nodes</td></tr>
+            <tr><td><code>count()</code></td><td>Node count</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="examples-section">
+      <h3><i class="fas fa-lightbulb"></i> XPath Examples</h3>
+      <p style="font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:0.9rem;color:#78716c;margin:0 0 12px;">Click a row to load the expression against the sample document.</p>
+      <table class="xpath-examples-table">
+        <thead>
+          <tr>
+            <th>Expression</th>
+            <th>What it selects</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="example-row" data-xpath="//book/title" data-mode="xml">
+            <td><code>//book/title</code></td>
+            <td>All book titles</td>
+          </tr>
+          <tr class="example-row" data-xpath="//book[@category='web']/title" data-mode="xml">
+            <td><code>//book[@category='web']/title</code></td>
+            <td>Titles of web-category books</td>
+          </tr>
+          <tr class="example-row" data-xpath="//book[price&gt;30]" data-mode="xml">
+            <td><code>//book[price&gt;30]</code></td>
+            <td>Books priced over 30</td>
+          </tr>
+          <tr class="example-row" data-xpath="//book/author" data-mode="xml">
+            <td><code>//book/author</code></td>
+            <td>All author elements</td>
+          </tr>
+          <tr class="example-row" data-xpath="count(//book)" data-mode="xml">
+            <td><code>count(//book)</code></td>
+            <td>Number of books</td>
+          </tr>
+          <tr class="example-row" data-xpath="string(//bookstore/book[1]/title)" data-mode="xml">
+            <td><code>string(//bookstore/book[1]/title)</code></td>
+            <td>First book title as string</td>
+          </tr>
+          <tr class="example-row" data-xpath="//div[@id='main']//a" data-mode="html">
+            <td><code>//div[@id='main']//a</code></td>
+            <td>Links inside #main</td>
+          </tr>
+          <tr class="example-row" data-xpath="//*[contains(@class,'card')]" data-mode="html">
+            <td><code>//*[contains(@class,'card')]</code></td>
+            <td>Elements with class containing card</td>
+          </tr>
+          <tr class="example-row" data-xpath="//h2/text()" data-mode="html">
+            <td><code>//h2/text()</code></td>
+            <td>Text nodes of h2 elements</td>
+          </tr>
+          <tr class="example-row" data-xpath="boolean(//form)" data-mode="html">
+            <td><code>boolean(//form)</code></td>
+            <td>True if a form exists</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> XPath Guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is XPath?</h2>
+          <p><strong>XPath (XML Path Language)</strong> is a query language for selecting nodes from an XML or HTML document tree. It is used in Selenium, scrapers, XML processors, XSLT, and browser DevTools. This <strong>XPath tester</strong> evaluates XPath 1.0 expressions with your browser’s native engine.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>HTML vs XML mode</h2>
+          <p><strong>HTML mode</strong> parses markup with the HTML parser, which is forgiving and suitable for web pages. <strong>XML mode</strong> requires well-formed XML and surfaces parse errors when tags are mismatched. Pick the mode that matches your source document.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Writing effective XPath</h2>
+          <ul>
+            <li><strong>Prefer specific paths:</strong> <code>//div[@id='main']//li</code> is clearer than a long chain of positional indexes.</li>
+            <li><strong>Use predicates:</strong> Filter with <code>[@attr='value']</code>, <code>[contains(.,'text')]</code>, or <code>[position()&lt;3]</code>.</li>
+            <li><strong>Mind namespaces:</strong> Prefixed XML may need local-name() tricks in XPath 1.0 when prefixes are unknown.</li>
+            <li><strong>Scalars matter:</strong> Wrap selections in <code>string()</code>, <code>count()</code>, or <code>boolean()</code> when you need a single value.</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Using this XPath tester</h2>
+          <p>Paste a document, enter an expression, and review the Results panel. Node matches show type, a simple path, and a snippet. Scalar results show the typed value. Use Sample to load a bookstore XML or HTML page, and Share Link to copy a URL with your expression and mode. For related text tooling, try the <a href="{{ '/tools/regex-tester/' | relative_url }}">Regex Tester</a> or validate structured data with the <a href="{{ '/tools/json-validator/' | relative_url }}">JSON Validator</a>.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> XPath Tester FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is an XPath tester?</h3>
+        <p>An <strong>XPath tester</strong> lets you write an XPath expression and evaluate it against an XML or HTML document. You see matching nodes or scalar values instantly, which helps debug scrapers, tests, and XML queries.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I test XPath online?</h3>
+        <p>Paste your XML or HTML into the document field, enter an XPath expression, and review the matches. This tool runs in your browser using native XPath 1.0 evaluation.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does this tool support XPath 2.0 or 3.0?</h3>
+        <p>No. Browsers implement <strong>XPath 1.0</strong> via <code>document.evaluate</code>. Expressions that require XPath 2.0+ features will not work here.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Should I use HTML or XML mode?</h3>
+        <p>Use <strong>HTML</strong> for web pages and fragments. Use <strong>XML</strong> for well-formed XML such as feeds or config files. XML mode reports parse errors when the markup is invalid.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data safe when using this XPath tester?</h3>
+        <p>Yes. Evaluation runs entirely in your browser. Your document and XPath expression are never uploaded to a server.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I select elements by attribute in XPath?</h3>
+        <p>Use a predicate with <code>@</code>. Examples: <code>//div[@id='main']</code>, <code>//a[@href]</code>, and <code>//input[@type='text']</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between / and // in XPath?</h3>
+        <p><code>/</code> selects along the child axis from the root or context. <code>//</code> selects descendants at any depth. <code>/html/body/div</code> is a direct path; <code>//div</code> finds every <code>div</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can XPath return text, numbers, or booleans?</h3>
+        <p>Yes. Node expressions return node-sets. Functions like <code>string(//title)</code>, <code>count(//item)</code>, and <code>boolean(//error)</code> return scalar values. Need pattern matching on text instead? Try the <a href="{{ '/tools/regex-tester/' | relative_url }}">Regex Tester</a>.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="{{ '/assets/js/xpath-tester.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

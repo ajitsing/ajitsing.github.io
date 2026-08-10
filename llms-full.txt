@@ -108,6 +108,10 @@ All tools run 100% client-side in the browser. No data is sent to servers.
 - URL: {{ site.url }}/tools/regex-tester/
 - Purpose: Test regular expressions with real-time highlighting, pattern explanation, and capture group visualization.
 
+### XPath Tester
+- URL: {{ site.url }}/tools/xpath-tester/
+- Purpose: Test XPath 1.0 expressions against XML or HTML. View matching nodes, paths, snippets, and scalar string/number/boolean results.
+
 ### Cron Expression Generator
 - URL: {{ site.url }}/tools/cron-expression/
 - Purpose: Parse, validate, and build cron job expressions visually. Translate cron expressions to human-readable text.

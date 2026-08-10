@@ -54,6 +54,10 @@ csv-to-json:
   title: "CSV to JSON Converter"
   description: "Convert CSV to JSON with headers, delimiters, copy, and download."
   link: "/tools/csv-to-json/"
+xpath-tester:
+  title: "XPath Tester"
+  description: "Test XPath expressions against XML or HTML with live match results."
+  link: "/tools/xpath-tester/"
 sql-formatter:
   title: "SQL Formatter and Beautifier"
   description: "Format SQL for MySQL, PostgreSQL, SQL Server, and Oracle."

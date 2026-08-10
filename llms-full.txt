@@ -124,6 +124,10 @@ All tools run 100% client-side in the browser. No data is sent to servers.
 - URL: {{ site.url }}/tools/base64-encoder/
 - Purpose: Encode text to Base64 or decode Base64 to text. Supports UTF-8 characters including emojis.
 
+### Base64 to PDF Converter
+- URL: {{ site.url }}/tools/base64-to-pdf/
+- Purpose: Convert Base64 to PDF with in-browser preview and download, or encode uploaded PDF files to Base64 or data URLs.
+
 ### Snowflake ID Decoder
 - URL: {{ site.url }}/tools/snowflake-decoder/
 - Purpose: Decode Discord, Twitter, and Instagram Snowflake IDs to timestamps. Visualize the 64-bit structure.

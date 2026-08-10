@@ -70,6 +70,10 @@ base64-encoder:
   title: "Base64 Encoder and Decoder"
   description: "Encode text to Base64 or decode Base64 strings with UTF-8 support."
   link: "/tools/base64-encoder/"
+base64-to-pdf:
+  title: "Base64 to PDF Converter"
+  description: "Convert Base64 to PDF with preview and download, or encode PDF to Base64."
+  link: "/tools/base64-to-pdf/"
 url-encoder:
   title: "URL Encoder and Decoder"
   description: "Percent-encode strings for URLs or decode URL-encoded text."

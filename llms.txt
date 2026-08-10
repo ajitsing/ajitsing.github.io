@@ -41,6 +41,7 @@ Author: Ajit Singh (Staff Software Engineer at Agoda). Expertise: system design,
 - [HMAC Generator & Verifier]({{ site.url }}/tools/hmac-generator/): Generate and verify HMAC-SHA256 and other HMAC signatures
 - [Cron Expression Generator]({{ site.url }}/tools/cron-expression/): Build and translate cron expressions to human-readable text
 - [Base64 Encoder & Decoder]({{ site.url }}/tools/base64-encoder/): Encode or decode Base64, including UTF-8 and emoji
+- [Base64 to PDF Converter]({{ site.url }}/tools/base64-to-pdf/): Convert Base64 to PDF with preview, or encode PDF to Base64
 - [Snowflake ID Decoder]({{ site.url }}/tools/snowflake-decoder/): Decode Discord, Twitter, and Instagram Snowflake IDs
 - [Epoch Timestamp Converter]({{ site.url }}/tools/epoch-converter/): Convert Unix timestamps to dates and back
 - [SLA Uptime Calculator]({{ site.url }}/tools/sla-calculator/): Calculate allowed downtime for any uptime percentage

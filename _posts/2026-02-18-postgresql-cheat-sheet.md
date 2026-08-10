@@ -1037,6 +1037,8 @@ If you do not have server file system access (common in cloud databases like RDS
 
 The difference: `COPY` runs on the database server and reads/writes server files. `\copy` streams data through the psql client connection. `COPY` is faster for large datasets, but `\copy` works when you do not have access to the server filesystem.
 
+{% include tool-cta.html tool="csv-to-json" variant="inline" description="Turn a CSV export into JSON when you need to feed an API, script, or document store." %}
+
 ---
 
 ## Users, Roles, and Permissions

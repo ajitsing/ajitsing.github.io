@@ -279,6 +279,8 @@ A webhook handler that touches money has to be careful about three things:
 - **Process idempotently.** Processors retry webhooks and can send the same event more than once. Key the handler on the event id, record processed ids, and drop duplicates. This is the [idempotent receiver](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"} again, applied to incoming events.
 - **Return fast, work later.** Acknowledge the webhook quickly with a `200`, then do the real work asynchronously. Processors treat a slow response as a failure and retry, which only makes your load worse.
 
+{% include tool-cta.html tool="hmac-generator" description="Generate or verify HMAC signatures the way payment processors sign webhook payloads." %}
+
 The webhook drives the payment state machine forward. A `charge.settled` event moves the payment from `Captured` to `Settled` and writes the matching ledger entries. Without webhooks, you would never know the true, final state of a payment.
 
 ## <i class="fas fa-sync"></i> Reconciliation: Proving the Money Matches

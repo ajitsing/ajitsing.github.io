@@ -248,6 +248,8 @@ app.get('/api/profile', authenticateJWT, (req, res) => {
 - All servers need the same secret
 - If compromised, attacker can create tokens
 
+{% include tool-cta.html tool="hmac-generator" variant="inline" description="HS256 is HMAC-SHA256. Generate and verify keyed digests with the same secret your auth server uses." %}
+
 **RS256 (Asymmetric)**: Private key signs, public key verifies
 - One auth server has private key
 - All services verify with public key

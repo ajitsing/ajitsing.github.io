@@ -18,7 +18,7 @@
 
   function generateQR(text, size, errorCorrection, fgColor, bgColor) {
     if (typeof QRious === 'undefined') {
-      // Library not yet loaded — retry briefly
+      // Library not yet loaded - retry briefly
       var attempts = 0;
       var retryInterval = setInterval(function() {
         attempts++;

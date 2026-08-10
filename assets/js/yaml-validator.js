@@ -431,7 +431,7 @@
     if (result.valid) {
       updateOutput(result.json, 'json', result.parsed);
       showResult(true, null, null);
-      elements.resultMessage.textContent = 'Valid YAML — Converted to JSON';
+      elements.resultMessage.textContent = 'Valid YAML - Converted to JSON';
     } else {
       updateOutput(null);
       showResult(false, result.error, result.position);

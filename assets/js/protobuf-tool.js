@@ -1,5 +1,5 @@
 /* ==========================================================================
- * Protobuf Decoder (Wire Format Viewer) — pure JavaScript, no dependencies.
+ * Protobuf Decoder (Wire Format Viewer) - pure JavaScript, no dependencies.
  *
  * Schema-free decode equivalent to `protoc --decode_raw`.
  *
@@ -719,7 +719,7 @@
       if (m === 'hex') return 'Paste protobuf bytes as hex. e.g. 08 96 01 12 07 74 65 73 74 69 6e 67';
       if (m === 'base64') return 'Paste base64-encoded protobuf. e.g. CJYBEgd0ZXN0aW5n';
       if (m === 'base64url') return 'Paste base64url-encoded protobuf (no padding required)';
-      if (m === 'auto') return 'Paste hex or base64 — format is auto-detected';
+      if (m === 'auto') return 'Paste hex or base64 - format is auto-detected';
       return '';
     }
 
@@ -874,8 +874,8 @@
     function clearFile() {
       fileInput.value = '';
       fileMeta.classList.add('hidden');
-      fileName.textContent = '—';
-      fileSize.textContent = '—';
+      fileName.textContent = '-';
+      fileSize.textContent = '-';
     }
 
     function runDecode(input) {

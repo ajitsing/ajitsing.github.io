@@ -246,7 +246,7 @@
   /**
    * AWS requires exactly one of day-of-month or day-of-week to be '?'
    * when the other has a specific value. Both cannot be '?'.
-   * If neither is '?', both must be '*' — but AWS docs say you can't use
+   * If neither is '?', both must be '*' - but AWS docs say you can't use
    * * in both; one must be ?. So we require one to be ?.
    */
   function isValidAwsCron(parsed) {
@@ -463,7 +463,7 @@
         } else {
           const start = parseInt(range, 10);
           const stepNum = parseInt(step, 10);
-          // 0/5 style — values from start stepping
+          // 0/5 style - values from start stepping
           for (let i = start; i <= 59; i += stepNum) values.push(i);
         }
       } else {
@@ -675,7 +675,7 @@
         valueSpan.textContent = parsed[field];
         el.classList.add('highlight');
       } else if (parsed && parsed.type === 'rate') {
-        valueSpan.textContent = '—';
+        valueSpan.textContent = '-';
         el.classList.remove('highlight');
       } else {
         valueSpan.textContent = '*';

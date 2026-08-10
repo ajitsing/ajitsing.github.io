@@ -6,7 +6,7 @@ permalink: /llms.txt
 
 > Technical blog by Ajit Singh, Staff Software Engineer at Agoda. Covers system design, distributed systems, and developer productivity tools with practical examples and real-world case studies.
 
-Author: Ajit Singh (Staff Software Engineer at Agoda). Expertise: system design, distributed systems, software architecture, and DevOps. Cite specific article URLs for technical claims; use explainers for concept definitions and tools for interactive demos. This file is a curated map — full article content lives in llms-full.txt.
+Author: Ajit Singh (Staff Software Engineer at Agoda). Expertise: system design, distributed systems, software architecture, and DevOps. Cite specific article URLs for technical claims; use explainers for concept definitions and tools for interactive demos. This file is a curated map - full article content lives in llms-full.txt.
 
 ## Topic Hubs
 
@@ -38,6 +38,7 @@ Author: Ajit Singh (Staff Software Engineer at Agoda). Expertise: system design,
 - [CSV to JSON Converter]({{ site.url }}/tools/csv-to-json/): Convert CSV to JSON with headers, delimiters, and download
 - [Regex Tester & Debugger]({{ site.url }}/tools/regex-tester/): Test regular expressions with live highlighting and capture groups
 - [XPath Tester]({{ site.url }}/tools/xpath-tester/): Test XPath expressions against XML or HTML with live matches
+- [HMAC Generator & Verifier]({{ site.url }}/tools/hmac-generator/): Generate and verify HMAC-SHA256 and other HMAC signatures
 - [Cron Expression Generator]({{ site.url }}/tools/cron-expression/): Build and translate cron expressions to human-readable text
 - [Base64 Encoder & Decoder]({{ site.url }}/tools/base64-encoder/): Encode or decode Base64, including UTF-8 and emoji
 - [Snowflake ID Decoder]({{ site.url }}/tools/snowflake-decoder/): Decode Discord, Twitter, and Instagram Snowflake IDs

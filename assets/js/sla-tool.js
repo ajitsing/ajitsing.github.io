@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function formatDuration(seconds) {
-        if (seconds < 0) return '—';
+        if (seconds < 0) return '-';
         
         const days = Math.floor(seconds / 86400);
         const hours = Math.floor((seconds % 86400) / 3600);
@@ -82,11 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateResults(uptimePercent) {
         if (isNaN(uptimePercent) || uptimePercent < 0 || uptimePercent > 100) {
-        downtimeDay.textContent = '—';
-        downtimeWeek.textContent = '—';
-        downtimeMonth.textContent = '—';
-        downtimeQuarter.textContent = '—';
-        downtimeYear.textContent = '—';
+        downtimeDay.textContent = '-';
+        downtimeWeek.textContent = '-';
+        downtimeMonth.textContent = '-';
+        downtimeQuarter.textContent = '-';
+        downtimeYear.textContent = '-';
         return;
         }
 
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetElement = document.getElementById(targetId);
         const text = targetElement.textContent;
 
-        if (text && text !== '—') {
+        if (text && text !== '-') {
             navigator.clipboard.writeText(text).then(() => {
                 showCopyFeedback(event.currentTarget);
                 trackEvent('copy', 'Copy: ' + targetId);

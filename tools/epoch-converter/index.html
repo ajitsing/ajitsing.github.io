@@ -3,7 +3,7 @@ layout: default
 title: "Epoch Converter | Epoch to Date & Unix Timestamp to UTC Online"
 subtitle: "Convert epoch seconds to date, unix timestamp to UTC, and date to epoch"
 seo: true
-description: "Free epoch converter online — convert epoch to date, unix timestamp to UTC, or seconds to date instantly. Paste any epoch timestamp and get the date in UTC, local time, and ISO 8601. Also convert dates back to unix epoch seconds. Supports seconds & milliseconds. 100% client-side, your data never leaves your browser."
+description: "Free epoch converter online - convert epoch to date, unix timestamp to UTC, or seconds to date instantly. Paste any epoch timestamp and get the date in UTC, local time, and ISO 8601. Also convert dates back to unix epoch seconds. Supports seconds & milliseconds. 100% client-side, your data never leaves your browser."
 keywords: "epoch converter, epoch to date, unix timestamp to utc, seconds to date, epoch seconds to date, convert unix epoch, epoc converter, epoch timestamp to date, epoch date converter, epoch converter online, epoch seconds to date time, epoch converter utc, unix timestamp converter, epoch time converter, unix time converter, date to epoch, timestamp to date, convert timestamp to date, epoch timestamp, unix epoch, seconds to date time, milliseconds to date, date to unix timestamp, epoch to utc"
 thumbnail: /assets/img/tools/epoch-converter-thumbnail.png
 share-img: /assets/img/tools/epoch-converter-thumbnail.png
@@ -290,14 +290,14 @@ css:
         <div class="current-values">
           <div class="current-value-item">
             <span class="value-label">Seconds</span>
-            <code class="value-display" id="current-seconds">—</code>
+            <code class="value-display" id="current-seconds">-</code>
             <button class="btn-copy-mini" data-copy="current-seconds" title="Copy">
               <i class="fas fa-copy"></i>
             </button>
           </div>
           <div class="current-value-item">
             <span class="value-label">Milliseconds</span>
-            <code class="value-display" id="current-milliseconds">—</code>
+            <code class="value-display" id="current-milliseconds">-</code>
             <button class="btn-copy-mini" data-copy="current-milliseconds" title="Copy">
               <i class="fas fa-copy"></i>
             </button>
@@ -353,28 +353,28 @@ css:
         <div class="timestamp-cards">
           <div class="timestamp-card primary">
             <div class="timestamp-label">UTC Time</div>
-            <div class="timestamp-value" id="result-utc">—</div>
+            <div class="timestamp-value" id="result-utc">-</div>
             <button class="btn-copy-card" data-copy="result-utc" title="Copy">
               <i class="fas fa-copy"></i>
             </button>
           </div>
           <div class="timestamp-card">
             <div class="timestamp-label">Local Time</div>
-            <div class="timestamp-value" id="result-local">—</div>
+            <div class="timestamp-value" id="result-local">-</div>
             <button class="btn-copy-card" data-copy="result-local" title="Copy">
               <i class="fas fa-copy"></i>
             </button>
           </div>
           <div class="timestamp-card">
             <div class="timestamp-label">ISO 8601</div>
-            <div class="timestamp-value mono" id="result-iso">—</div>
+            <div class="timestamp-value mono" id="result-iso">-</div>
             <button class="btn-copy-card" data-copy="result-iso" title="Copy">
               <i class="fas fa-copy"></i>
             </button>
           </div>
           <div class="timestamp-card">
             <div class="timestamp-label">Relative</div>
-            <div class="timestamp-value" id="result-relative">—</div>
+            <div class="timestamp-value" id="result-relative">-</div>
           </div>
         </div>
 
@@ -383,26 +383,26 @@ css:
           <div class="format-grid">
             <div class="format-item">
               <span class="format-label">RFC 2822</span>
-              <code class="format-value" id="result-rfc2822">—</code>
+              <code class="format-value" id="result-rfc2822">-</code>
               <button class="btn-copy-mini" data-copy="result-rfc2822" title="Copy">
                 <i class="fas fa-copy"></i>
               </button>
             </div>
             <div class="format-item">
               <span class="format-label">Day of Week</span>
-              <span class="format-value" id="result-day">—</span>
+              <span class="format-value" id="result-day">-</span>
             </div>
             <div class="format-item">
               <span class="format-label">Week of Year</span>
-              <span class="format-value" id="result-week">—</span>
+              <span class="format-value" id="result-week">-</span>
             </div>
             <div class="format-item">
               <span class="format-label">Day of Year</span>
-              <span class="format-value" id="result-dayofyear">—</span>
+              <span class="format-value" id="result-dayofyear">-</span>
             </div>
             <div class="format-item">
               <span class="format-label">Detected Format</span>
-              <span class="format-value" id="result-format">—</span>
+              <span class="format-value" id="result-format">-</span>
             </div>
           </div>
         </div>
@@ -485,7 +485,7 @@ css:
           <div class="timestamp-output-card">
             <div class="output-label">Seconds</div>
             <div class="output-value-wrapper">
-              <code class="output-value" id="output-seconds">—</code>
+              <code class="output-value" id="output-seconds">-</code>
               <button class="btn-copy-output" data-copy="output-seconds" title="Copy">
                 <i class="fas fa-copy"></i>
               </button>
@@ -494,7 +494,7 @@ css:
           <div class="timestamp-output-card">
             <div class="output-label">Milliseconds</div>
             <div class="output-value-wrapper">
-              <code class="output-value" id="output-milliseconds">—</code>
+              <code class="output-value" id="output-milliseconds">-</code>
               <button class="btn-copy-output" data-copy="output-milliseconds" title="Copy">
                 <i class="fas fa-copy"></i>
               </button>
@@ -620,7 +620,7 @@ console.log(date.toISOString());</code></pre>
         <article class="guide-article">
           <h2>Converting Unix Timestamp to UTC</h2>
           <p>A <strong>unix timestamp</strong> is inherently a <strong>UTC</strong> value. It counts seconds from January 1, 1970 00:00:00 UTC, so converting a <strong>unix timestamp to UTC</strong> means calculating the date and time that many seconds after the epoch.</p>
-          <p>For example, <code>1704067200</code> is exactly 1,704,067,200 seconds after midnight UTC on January 1, 1970 — which gives you <strong>January 1, 2024 00:00:00 UTC</strong>. This <strong>epoch converter</strong> does the math instantly and also shows the equivalent in your local timezone.</p>
+          <p>For example, <code>1704067200</code> is exactly 1,704,067,200 seconds after midnight UTC on January 1, 1970 - which gives you <strong>January 1, 2024 00:00:00 UTC</strong>. This <strong>epoch converter</strong> does the math instantly and also shows the equivalent in your local timezone.</p>
           <p>In code, converting <strong>seconds to date</strong> is straightforward:</p>
           <ul>
             <li><strong>JavaScript:</strong> <code>new Date(1704067200 * 1000).toUTCString()</code></li>

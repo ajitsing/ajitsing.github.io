@@ -45,7 +45,7 @@ css:
     "CIDR cheat sheet table for /0 through /32",
     "Split subnet helper for VLSM planning",
     "Common subnet presets (/24, /16, /8, point-to-point /30)",
-    "100% client-side — no data sent to servers",
+    "100% client-side - no data sent to servers",
     "Copy any result with one click"
   ],
   "screenshot": "https://singhajit.com/assets/img/tools/subnet-calculator-thumbnail.png",
@@ -109,7 +109,7 @@ css:
       "name": "What is CIDR notation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CIDR (Classless Inter-Domain Routing) notation writes an IP address followed by a slash and prefix length, such as 192.168.1.0/24. The number after the slash (24) means 24 bits are used for the network portion, leaving 8 bits for hosts — 256 addresses total, 254 usable."
+        "text": "CIDR (Classless Inter-Domain Routing) notation writes an IP address followed by a slash and prefix length, such as 192.168.1.0/24. The number after the slash (24) means 24 bits are used for the network portion, leaving 8 bits for hosts - 256 addresses total, 254 usable."
       }
     },
     {
@@ -125,7 +125,7 @@ css:
       "name": "What is the difference between subnet mask and wildcard mask?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A subnet mask marks which bits belong to the network (1s) versus hosts (0s). A wildcard mask is the bitwise inverse — used in ACLs and OSPF to match host portions. For /24, subnet mask is 255.255.255.0 and wildcard is 0.0.0.255."
+        "text": "A subnet mask marks which bits belong to the network (1s) versus hosts (0s). A wildcard mask is the bitwise inverse - used in ACLs and OSPF to match host portions. For /24, subnet mask is 255.255.255.0 and wildcard is 0.0.0.255."
       }
     },
     {
@@ -173,7 +173,7 @@ css:
       "name": "What is the network address vs broadcast address?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The network address has all host bits set to 0 — it identifies the subnet. The broadcast address has all host bits set to 1 — packets sent here reach all hosts on the subnet. Neither is assigned to a host."
+        "text": "The network address has all host bits set to 0 - it identifies the subnet. The broadcast address has all host bits set to 1 - packets sent here reach all hosts on the subnet. Neither is assigned to a host."
       }
     },
     {
@@ -189,7 +189,7 @@ css:
       "name": "What does /32 mean in CIDR?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A /32 is a single-host route — one IP address, often used for loopback or host routes. There is 1 address and typically 1 usable host (the host itself). Subnet mask is 255.255.255.255."
+        "text": "A /32 is a single-host route - one IP address, often used for loopback or host routes. There is 1 address and typically 1 usable host (the host itself). Subnet mask is 255.255.255.255."
       }
     }
   ]
@@ -244,11 +244,11 @@ css:
         <i class="fas fa-network-wired"></i>
         Subnet Calculator
       </h1>
-      <p class="tool-subtitle">Calculate IPv4 &amp; IPv6 subnets — network, broadcast, mask, and host range</p>
+      <p class="tool-subtitle">Calculate IPv4 &amp; IPv6 subnets - network, broadcast, mask, and host range</p>
     </header>
 
     <p class="tool-intro">
-      Free <strong>subnet calculator</strong> and <strong>CIDR calculator</strong> for network engineers and developers. Enter an IP and prefix to get network address, broadcast, <strong>subnet mask</strong>, wildcard mask, usable hosts, and host range. Supports <strong>IPv4 subnet calculator</strong> and <strong>IPv6 prefix</strong> modes. 100% client-side — your IPs never leave the browser.
+      Free <strong>subnet calculator</strong> and <strong>CIDR calculator</strong> for network engineers and developers. Enter an IP and prefix to get network address, broadcast, <strong>subnet mask</strong>, wildcard mask, usable hosts, and host range. Supports <strong>IPv4 subnet calculator</strong> and <strong>IPv6 prefix</strong> modes. 100% client-side - your IPs never leave the browser.
     </p>
 
     {% include ads/tool-banner.html %}
@@ -308,77 +308,77 @@ css:
         <div class="results-grid">
           <div class="result-card">
             <div class="result-label">Network Address</div>
-            <div class="result-value" id="r-network">—</div>
+            <div class="result-value" id="r-network">-</div>
             <button type="button" class="btn-copy-result" data-target="r-network" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Broadcast Address</div>
-            <div class="result-value" id="r-broadcast">—</div>
+            <div class="result-value" id="r-broadcast">-</div>
             <button type="button" class="btn-copy-result" data-target="r-broadcast" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">First Usable Host</div>
-            <div class="result-value" id="r-first">—</div>
+            <div class="result-value" id="r-first">-</div>
             <button type="button" class="btn-copy-result" data-target="r-first" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Last Usable Host</div>
-            <div class="result-value" id="r-last">—</div>
+            <div class="result-value" id="r-last">-</div>
             <button type="button" class="btn-copy-result" data-target="r-last" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Usable Hosts</div>
-            <div class="result-value" id="r-usable">—</div>
+            <div class="result-value" id="r-usable">-</div>
             <button type="button" class="btn-copy-result" data-target="r-usable" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Total Addresses</div>
-            <div class="result-value" id="r-total">—</div>
+            <div class="result-value" id="r-total">-</div>
             <button type="button" class="btn-copy-result" data-target="r-total" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Subnet Mask</div>
-            <div class="result-value" id="r-mask">—</div>
+            <div class="result-value" id="r-mask">-</div>
             <button type="button" class="btn-copy-result" data-target="r-mask" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Wildcard Mask</div>
-            <div class="result-value" id="r-wildcard">—</div>
+            <div class="result-value" id="r-wildcard">-</div>
             <button type="button" class="btn-copy-result" data-target="r-wildcard" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card result-card-wide">
             <div class="result-label">Mask (Binary)</div>
-            <div class="result-value" id="r-mask-binary">—</div>
+            <div class="result-value" id="r-mask-binary">-</div>
             <button type="button" class="btn-copy-result" data-target="r-mask-binary" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">CIDR Notation</div>
-            <div class="result-value" id="r-cidr">—</div>
+            <div class="result-value" id="r-cidr">-</div>
             <button type="button" class="btn-copy-result" data-target="r-cidr" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">IP Class</div>
-            <div class="result-value" id="r-class">—</div>
+            <div class="result-value" id="r-class">-</div>
             <button type="button" class="btn-copy-result" data-target="r-class" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Scope</div>
-            <div class="result-value" id="r-scope">—</div>
+            <div class="result-value" id="r-scope">-</div>
             <button type="button" class="btn-copy-result" data-target="r-scope" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">IP Type</div>
-            <div class="result-value" id="r-type">—</div>
+            <div class="result-value" id="r-type">-</div>
             <button type="button" class="btn-copy-result" data-target="r-type" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Hex IP</div>
-            <div class="result-value" id="r-hex">—</div>
+            <div class="result-value" id="r-hex">-</div>
             <button type="button" class="btn-copy-result" data-target="r-hex" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Integer IP</div>
-            <div class="result-value" id="r-integer">—</div>
+            <div class="result-value" id="r-integer">-</div>
             <button type="button" class="btn-copy-result" data-target="r-integer" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
         </div>
@@ -434,37 +434,37 @@ css:
         <div class="results-grid">
           <div class="result-card result-card-wide">
             <div class="result-label">Expanded Address</div>
-            <div class="result-value" id="v6-expanded">—</div>
+            <div class="result-value" id="v6-expanded">-</div>
             <button type="button" class="btn-copy-result" data-target="v6-expanded" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Compressed Address</div>
-            <div class="result-value" id="v6-compressed">—</div>
+            <div class="result-value" id="v6-compressed">-</div>
             <button type="button" class="btn-copy-result" data-target="v6-compressed" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Network Prefix</div>
-            <div class="result-value" id="v6-prefix">—</div>
+            <div class="result-value" id="v6-prefix">-</div>
             <button type="button" class="btn-copy-result" data-target="v6-prefix" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">First Address</div>
-            <div class="result-value" id="v6-first">—</div>
+            <div class="result-value" id="v6-first">-</div>
             <button type="button" class="btn-copy-result" data-target="v6-first" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Last Address</div>
-            <div class="result-value" id="v6-last">—</div>
+            <div class="result-value" id="v6-last">-</div>
             <button type="button" class="btn-copy-result" data-target="v6-last" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Total Addresses</div>
-            <div class="result-value" id="v6-total">—</div>
+            <div class="result-value" id="v6-total">-</div>
             <button type="button" class="btn-copy-result" data-target="v6-total" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
           <div class="result-card">
             <div class="result-label">Address Type</div>
-            <div class="result-value" id="v6-type">—</div>
+            <div class="result-value" id="v6-type">-</div>
             <button type="button" class="btn-copy-result" data-target="v6-type" title="Copy"><i class="fas fa-copy"></i></button>
           </div>
         </div>
@@ -501,29 +501,29 @@ css:
         </article>
         <article class="guide-article">
           <h2>Subnet Mask vs Wildcard Mask</h2>
-          <p>The <strong>subnet mask</strong> uses 1s for network bits and 0s for host bits. A <strong>wildcard mask</strong> flips this — 0s where bits must match, 1s where bits are ignored. ACLs on Cisco gear use wildcard masks: <code>0.0.0.255</code> matches any host in the last octet.</p>
+          <p>The <strong>subnet mask</strong> uses 1s for network bits and 0s for host bits. A <strong>wildcard mask</strong> flips this - 0s where bits must match, 1s where bits are ignored. ACLs on Cisco gear use wildcard masks: <code>0.0.0.255</code> matches any host in the last octet.</p>
         </article>
         <article class="guide-article">
           <h2>Private IP Ranges (RFC 1918)</h2>
           <ul>
-            <li><strong>10.0.0.0/8</strong> — 16,777,216 addresses (large corporate networks)</li>
-            <li><strong>172.16.0.0/12</strong> — 1,048,576 addresses (medium networks)</li>
-            <li><strong>192.168.0.0/16</strong> — 65,536 addresses (home and office LANs)</li>
+            <li><strong>10.0.0.0/8</strong> - 16,777,216 addresses (large corporate networks)</li>
+            <li><strong>172.16.0.0/12</strong> - 1,048,576 addresses (medium networks)</li>
+            <li><strong>192.168.0.0/16</strong> - 65,536 addresses (home and office LANs)</li>
           </ul>
         </article>
         <article class="guide-article">
           <h2>Common Subnet Sizes</h2>
           <ul>
-            <li><strong>/32</strong> — Single host route (1 address)</li>
-            <li><strong>/30</strong> — Point-to-point WAN link (2 usable hosts)</li>
-            <li><strong>/24</strong> — Typical VLAN or office subnet (254 usable hosts)</li>
-            <li><strong>/16</strong> — Large site block (65,534 usable hosts)</li>
-            <li><strong>/8</strong> — Very large allocation (16M+ hosts)</li>
+            <li><strong>/32</strong> - Single host route (1 address)</li>
+            <li><strong>/30</strong> - Point-to-point WAN link (2 usable hosts)</li>
+            <li><strong>/24</strong> - Typical VLAN or office subnet (254 usable hosts)</li>
+            <li><strong>/16</strong> - Large site block (65,534 usable hosts)</li>
+            <li><strong>/8</strong> - Very large allocation (16M+ hosts)</li>
           </ul>
         </article>
         <article class="guide-article">
           <h2>IPv6 Prefixes</h2>
-          <p>IPv6 subnets are almost always <strong>/64</strong> on LANs — one subnet per interface with a vast address space. <strong>fc00::/7</strong> is Unique Local (ULA, like private IPv4). <strong>fe80::/10</strong> is link-local. Use the IPv6 tab above for prefix calculations.</p>
+          <p>IPv6 subnets are almost always <strong>/64</strong> on LANs - one subnet per interface with a vast address space. <strong>fc00::/7</strong> is Unique Local (ULA, like private IPv4). <strong>fe80::/10</strong> is link-local. Use the IPv6 tab above for prefix calculations.</p>
         </article>
       </div>
     </section>
@@ -537,7 +537,7 @@ css:
       </div>
       <div class="faq-item">
         <h3>What is CIDR notation?</h3>
-        <p><strong>CIDR notation</strong> appends a slash and prefix length to an IP, e.g. <code>192.168.1.0/24</code>. The number 24 means 24 network bits — mask <code>255.255.255.0</code> and 254 usable hosts.</p>
+        <p><strong>CIDR notation</strong> appends a slash and prefix length to an IP, e.g. <code>192.168.1.0/24</code>. The number 24 means 24 network bits - mask <code>255.255.255.0</code> and 254 usable hosts.</p>
       </div>
       <div class="faq-item">
         <h3>How many hosts are in a /24 subnet?</h3>
@@ -545,11 +545,11 @@ css:
       </div>
       <div class="faq-item">
         <h3>What is the difference between subnet mask and wildcard mask?</h3>
-        <p><strong>Subnet mask</strong> marks network bits (1s). <strong>Wildcard mask</strong> is the inverse — used in ACLs. For /24: mask <code>255.255.255.0</code>, wildcard <code>0.0.0.255</code>.</p>
+        <p><strong>Subnet mask</strong> marks network bits (1s). <strong>Wildcard mask</strong> is the inverse - used in ACLs. For /24: mask <code>255.255.255.0</code>, wildcard <code>0.0.0.255</code>.</p>
       </div>
       <div class="faq-item">
         <h3>What is a /30 subnet used for?</h3>
-        <p><strong>/30</strong> gives 4 addresses (2 usable) — ideal for router-to-router point-to-point links with minimal waste.</p>
+        <p><strong>/30</strong> gives 4 addresses (2 usable) - ideal for router-to-router point-to-point links with minimal waste.</p>
       </div>
       <div class="faq-item">
         <h3>What are private IP address ranges?</h3>
@@ -573,11 +573,11 @@ css:
       </div>
       <div class="faq-item">
         <h3>Is this subnet calculator free?</h3>
-        <p>Yes — 100% free, runs in your browser, no signup, no server uploads.</p>
+        <p>Yes - 100% free, runs in your browser, no signup, no server uploads.</p>
       </div>
       <div class="faq-item">
         <h3>What does /32 mean in CIDR?</h3>
-        <p><strong>/32</strong> is a single-host route with mask <code>255.255.255.255</code> — one IP, often used for host routes or loopbacks.</p>
+        <p><strong>/32</strong> is a single-host route with mask <code>255.255.255.255</code> - one IP, often used for host routes or loopbacks.</p>
       </div>
     </section>
 

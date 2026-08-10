@@ -1,5 +1,5 @@
 /* ==========================================================================
- * HAR File Viewer — pure JavaScript, no dependencies.
+ * HAR File Viewer - pure JavaScript, no dependencies.
  *
  * Parses HAR 1.2 logs and renders a filterable, sortable entries table with
  * a per-request waterfall and a tabbed detail panel (headers / cookies /
@@ -189,7 +189,7 @@
       return;
     }
     state.har = har;
-    state.sourceName = sourceName || '—';
+    state.sourceName = sourceName || '-';
 
     const rawEntries = har.log.entries;
     state.entries = rawEntries.map((e, i) => normalizeEntry(e, i));
@@ -521,8 +521,8 @@
   function renderRowHtml(e, rowNum, timelineSpan) {
     const statusClass = e.status ? String(Math.floor(e.status / 100)) : '0';
     const methodClass = 'm-' + e.method.toLowerCase();
-    const sizeText = e.transferSize ? formatBytes(e.transferSize) : '—';
-    const timeText = e.time > 0 ? formatMs(e.time) : '—';
+    const sizeText = e.transferSize ? formatBytes(e.transferSize) : '-';
+    const timeText = e.time > 0 ? formatMs(e.time) : '-';
     const startFrac = (e.startedMs - state.timelineStart) / timelineSpan;
     const widthFrac = Math.max(0.005, (e.time || 0) / timelineSpan);
     const left = Math.max(0, Math.min(100, startFrac * 100));
@@ -537,7 +537,7 @@
       '<div class="entry-row' + isSelected + errClass + '" data-id="' + e.id + '" role="row">' +
         '<div class="col-num">' + rowNum + '</div>' +
         '<div class="col-method ' + methodClass + '">' + escapeHtml(e.method) + '</div>' +
-        '<div class="col-status s-' + statusClass + '" title="' + escapeAttr(e.statusText) + '">' + (e.status || '—') + '</div>' +
+        '<div class="col-status s-' + statusClass + '" title="' + escapeAttr(e.statusText) + '">' + (e.status || '-') + '</div>' +
         '<div class="col-url">' +
           '<span class="url-path" title="' + escapeAttr(e.url) + '">' + escapeHtml(e.path || e.url) + '</span>' +
           (e.host ? '<span class="url-host">' + escapeHtml(e.host) + '</span>' : '') +
@@ -604,7 +604,7 @@
     detailMethod.textContent = e.method;
     const statusClass = e.status ? String(Math.floor(e.status / 100)) : '0';
     detailStatus.className = 'detail-status s-' + statusClass;
-    detailStatus.textContent = (e.status || '—') + (e.statusText ? ' ' + e.statusText : '');
+    detailStatus.textContent = (e.status || '-') + (e.statusText ? ' ' + e.statusText : '');
     detailUrl.textContent = e.url;
     detailUrl.title = e.url;
 
@@ -669,8 +669,8 @@
     const out = [];
     out.push(['Request URL', e.url]);
     out.push(['Request Method', e.method]);
-    out.push(['Status', (e.status || '—') + (e.statusText ? ' ' + e.statusText : '')]);
-    out.push(['Remote IP', e.raw.serverIPAddress || '—']);
+    out.push(['Status', (e.status || '-') + (e.statusText ? ' ' + e.statusText : '')]);
+    out.push(['Remote IP', e.raw.serverIPAddress || '-']);
     if (e.raw.connection) out.push(['Connection', String(e.raw.connection)]);
     if (e.raw.startedDateTime) out.push(['Started', e.raw.startedDateTime]);
     if (e.time > 0) out.push(['Duration', formatMs(e.time)]);
@@ -847,7 +847,7 @@
              '<div class="timing-bar">' +
                (has ? '<div class="timing-bar-fill" style="left:0;width:' + pct.toFixed(2) + '%;background:' + p.color + '"></div>' : '') +
              '</div>' +
-             '<div class="timing-value">' + (has ? formatMs(v) : '—') + '</div>';
+             '<div class="timing-value">' + (has ? formatMs(v) : '-') + '</div>';
     }).join('');
 
     return '<div class="kv-section">' +

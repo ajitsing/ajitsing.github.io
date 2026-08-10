@@ -93,7 +93,7 @@
   }
 
   function displayVal(val) {
-    if (val === undefined || val === null || val === '') return '—';
+    if (val === undefined || val === null || val === '') return '-';
     return String(val);
   }
 
@@ -151,7 +151,7 @@
 
   function fieldRow(label, value) {
     var v = displayVal(value);
-    var isEmpty = v === '—';
+    var isEmpty = v === '-';
     return (
       '<div class="ua-field-row">' +
         '<span class="ua-field-label">' + escapeHtml(label) + '</span>' +

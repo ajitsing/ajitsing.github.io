@@ -184,7 +184,7 @@ Scoped Values are what ThreadLocal should have been from day one. They're faster
 
 **What Changed:**
 
-Every object in Java has an "object header" - metadata the JVM uses for garbage collection, synchronization, and identity. This header used to be 128 bits (16 bytes). Now it's 64 bits (8 bytes).
+Every object in Java has an "object header" - metadata the [JVM](/how-jvm-works/){:target="_blank" rel="noopener"} uses for garbage collection, synchronization, and identity. This header used to be 128 bits (16 bytes). Now it's 64 bits (8 bytes).
 
 **Before:**
 ```

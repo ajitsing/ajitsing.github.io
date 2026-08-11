@@ -391,7 +391,7 @@ AOT compilation removes the Dart VM entirely from the production app. The compil
 - **Smaller binary** (no VM needed)
 - **No hot reload** because the code is already compiled to fixed machine instructions
 
-If you have worked with Android's compilation pipeline, this is a similar idea. Android compiles Java/Kotlin to bytecode and then converts it to native code via ART. Flutter skips the bytecode step entirely and produces native ARM code directly.
+If you have worked with Android's compilation pipeline, this is a similar idea. Android compiles Java/Kotlin to [bytecode](/how-jvm-works/){:target="_blank" rel="noopener"} and then converts it to native code via ART. Flutter skips the bytecode step entirely and produces native ARM code directly.
 
 ---
 

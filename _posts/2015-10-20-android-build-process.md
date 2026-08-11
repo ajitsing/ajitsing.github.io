@@ -214,7 +214,7 @@ Android does not run standard Java bytecode. It runs Dalvik bytecode, which is o
 
 ### Why Not Just Use Java Bytecode?
 
-The JVM was designed for desktop and server environments where memory and power are not a concern. Android devices, especially older ones, have much tighter constraints. Dalvik bytecode is:
+The [JVM](/how-jvm-works/){:target="_blank" rel="noopener"} was designed for desktop and server environments where memory and power are not a concern. Android devices, especially older ones, have much tighter constraints. Dalvik bytecode is:
 
 - **More compact** than Java bytecode, so APKs are smaller
 - **Optimized for register-based execution**, which is faster on ARM processors

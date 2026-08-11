@@ -172,7 +172,7 @@ public class ConnectionPool {
 }
 ```
 
-This leverages the JVM's class loading mechanism. The inner class is loaded only when `getInstance()` is first called, providing lazy initialization and thread safety without explicit synchronization.
+This leverages the [JVM's class loading mechanism](/how-jvm-works/){:target="_blank" rel="noopener"}. The inner class is loaded only when `getInstance()` is first called, providing lazy initialization and thread safety without explicit synchronization.
 
 ### Enum Singleton (Simplest)
 

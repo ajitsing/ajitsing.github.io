@@ -8,6 +8,9 @@
     contain: layout;
     position: relative;
   }
+  .tool-top-ad .post-mid-ad__loading {
+    z-index: 1;
+  }
   .tool-top-ad .adsbygoogle {
     width: 100%;
     display: block;
@@ -184,35 +187,36 @@
   }
 </style>
 <div class="tool-top-ad">
+  <div class="post-mid-ad__loading" aria-live="polite">
+    <span class="post-mid-ad__spinner" aria-hidden="true"></span>
+    Loading
+  </div>
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-2886086145980317"
        data-ad-slot="2413953100"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
-  <script>
-  (function() {
-    var wrap = document.currentScript.closest('.tool-top-ad');
-    if (wrap && wrap.offsetWidth > 0) {
-      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-    } else if (wrap) {
-      var ins = wrap.querySelector('ins.adsbygoogle');
-      if (ins) ins.remove();
-    }
-  })();
-  </script>
   <div class="tool-top-ad__fallback" aria-label="From the blog">
     {% include tool-post-alert.html %}
   </div>
   <script>
   (function() {
     var wrap = document.currentScript.closest('.tool-top-ad');
+    if (!wrap) return;
     var ins = wrap.querySelector('ins.adsbygoogle');
     var done = false;
+    var requested = false;
+
+    function hideLoading() {
+      var loading = wrap.querySelector('.post-mid-ad__loading');
+      if (loading) loading.remove();
+    }
 
     function showFallback() {
       if (done) return;
       done = true;
+      hideLoading();
       var fb = wrap.querySelector('.tool-top-ad__fallback');
       if (fb) fb.setAttribute('data-show', '1');
       if (ins) ins.style.display = 'none';
@@ -224,26 +228,51 @@
       }
     }
 
-    if (!ins) { showFallback(); return; }
-
     function check() {
-      if (done) return;
+      if (done || !ins) return;
       var status = ins.getAttribute('data-ad-status');
-      if (status === 'filled' || ins.querySelector('iframe')) { done = true; return; }
-      if (status === 'unfilled') { showFallback(); return; }
+      if (status === 'filled' || ins.querySelector('iframe')) {
+        done = true;
+        hideLoading();
+        return;
+      }
+      if (status === 'unfilled') { showFallback(); }
     }
 
-    new MutationObserver(check).observe(ins, {
-      attributes: true, attributeFilter: ['data-ad-status']
-    });
-    check();
+    function requestAd() {
+      if (requested || !(wrap.offsetWidth > 0)) return;
+      requested = true;
+      if (!ins) { showFallback(); return; }
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+      new MutationObserver(check).observe(ins, {
+        attributes: true, attributeFilter: ['data-ad-status']
+      });
+      check();
+      // Safety net: if AdSense never reports a status (e.g. script blocked), fall back.
+      setTimeout(function() {
+        if (!done && ins.getAttribute('data-ad-status') !== 'filled' && !ins.querySelector('iframe')) {
+          showFallback();
+        }
+      }, 8000);
+    }
 
-    // Safety net: if AdSense never reports a status (e.g. script blocked), fall back.
-    setTimeout(function() {
-      if (!done && ins.getAttribute('data-ad-status') !== 'filled' && !ins.querySelector('iframe')) {
-        showFallback();
-      }
-    }, 8000);
+    requestAd();
+    if (requested) return;
+
+    // Hidden tab (display:none): wait until the slot is laid out, then request.
+    if ('ResizeObserver' in window) {
+      var ro = new ResizeObserver(function() {
+        requestAd();
+        if (requested) ro.disconnect();
+      });
+      ro.observe(wrap);
+    }
+    var mode = wrap.closest('.mode-content');
+    if (mode) {
+      new MutationObserver(function() { requestAd(); }).observe(mode, {
+        attributes: true, attributeFilter: ['class']
+      });
+    }
   })();
   </script>
 </div>

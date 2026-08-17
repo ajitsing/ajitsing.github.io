@@ -281,8 +281,6 @@ css:
   <span>Looking for standard 5-field Unix cron? Use <a href="/tools/cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Quartz Tool','event_label':'to_cron_from_banner'})}">Cron Expression Generator</a>. Building Amazon EventBridge schedules? Use <a href="/tools/aws-cron-expression/" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'Quartz Tool','event_label':'to_aws_from_banner'})}">AWS EventBridge Cron Generator</a>.</span>
 </div>
 
-{% include ads/tool-banner.html %}
-
 <div class="mode-tabs">
     <button class="mode-tab active" data-mode="parse">
       <i class="fas fa-search"></i>
@@ -358,6 +356,8 @@ css:
         </ul>
       </div>
     </div>
+
+{% include ads/tool-banner.html %}
   </section>
 
 <section id="build-mode" class="mode-content">
@@ -501,6 +501,8 @@ css:
         </ul>
       </div>
     </div>
+
+{% include ads/tool-banner.html %}
   </section>
 
 <section class="reference-section">
@@ -533,6 +535,8 @@ css:
       </div>
     </div>
   </section>
+
+{% include ads/grid-subscribe.html label="Quartz Multiplex Fallback" %}
 
 <section class="reference-section examples-table-section">
     <h3><i class="fas fa-lightbulb"></i> Quartz Cron Expression Examples</h3>

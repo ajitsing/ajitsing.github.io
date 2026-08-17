@@ -19,8 +19,9 @@ real_world:
   - "HotSpot's C1 and C2 compilers power tiered compilation in the standard OpenJDK and Oracle JDK."
   - "GraalVM offers a JIT written in Java and also ahead-of-time native image compilation for fast startup."
   - "Benchmarks use a warmup phase precisely because the JIT needs time to compile hot paths."
-related_terms: ["jvm", "bytecode", "garbage-collection", "class-loader"]
+related_terms: ["jvm", "bytecode", "garbage-collection", "class-loader", "jdwp"]
 related_posts:
   - "/how-jvm-works/"
+  - "/how-java-debugging-works/"
   - "/java-25-lts-features/"
 ---

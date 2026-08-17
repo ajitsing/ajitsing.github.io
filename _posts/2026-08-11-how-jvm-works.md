@@ -355,6 +355,7 @@ For observability, the JDK ships tools that read the very data areas we discusse
 - `jstat` reports live GC and heap statistics.
 - `jmap` and heap dumps let you inspect what is filling the heap.
 - **Java Flight Recorder (JFR)** and Mission Control give low-overhead profiling suitable for production, and pair well with broader [application performance monitoring](/distributed-tracing-jaeger-vs-tempo-vs-zipkin/){:target="_blank" rel="noopener"} setups.
+- `jdb` and the wider [Java debugging architecture](/how-java-debugging-works/){:target="_blank" rel="noopener"} let you pause a running JVM, set breakpoints, and inspect live state through the same hooks the VM exposes.
 
 The habit that matters most: measure before you tune. Guessing at flags without data usually makes things worse. Watch GC logs and real throughput, change one thing, and measure again.
 

@@ -19,9 +19,10 @@ real_world:
   - "HotSpot is the reference JVM shipped in OpenJDK and Oracle JDK, used by most Java applications in production."
   - "Languages like Kotlin, Scala, and Clojure compile to JVM bytecode and run on the same engine."
   - "GraalVM offers an alternative JVM plus ahead-of-time native image compilation for fast startup."
-related_terms: ["bytecode", "jit-compilation", "class-loader", "garbage-collection"]
+related_terms: ["bytecode", "jit-compilation", "class-loader", "garbage-collection", "jdwp"]
 related_posts:
   - "/how-jvm-works/"
+  - "/how-java-debugging-works/"
   - "/java-25-lts-features/"
   - "/java-custom-annotations/"
 ---

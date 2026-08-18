@@ -21,29 +21,6 @@
   padding: 16px 0;
 }
 
-.quartz-tool .post-mid-ad--multiplex {
-  margin: 32px 0;
-  min-height: 320px;
-}
-
-.quartz-tool .post-mid-ad--multiplex .adsbygoogle {
-  min-height: 280px;
-}
-
-.quartz-tool .post-mid-ad--multiplex.post-mid-ad--substack .inline-sub {
-  height: 320px;
-}
-
-@media (max-width: 768px) {
-  .quartz-tool .post-mid-ad--multiplex {
-    min-height: 280px;
-  }
-
-  .quartz-tool .post-mid-ad--multiplex.post-mid-ad--substack .inline-sub {
-    height: 250px;
-  }
-}
-
 .ad-label {
   display: flex;
   align-items: center;

@@ -114,3 +114,7 @@ password-generator:
   title: "Password Generator"
   description: "Generate strong random passwords and memorable passphrases. Dedicated 8, 12, 16, 24, and 32 character password generators."
   link: "/tools/password-generator/"
+fake-data-generator:
+  title: "Fake Data Generator"
+  description: "Generate realistic mock, dummy, and test data. Export as JSON, CSV, or SQL INSERT statements."
+  link: "/tools/fake-data-generator/"

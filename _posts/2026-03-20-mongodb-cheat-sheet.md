@@ -235,6 +235,8 @@ db.users.insertMany(
 
 `insertMany` is significantly faster than calling `insertOne` in a loop. MongoDB batches the writes internally. For bulk loading thousands of documents, always use `insertMany` or the bulk write API.
 
+{% include tool-cta.html tool="fake-data-generator" variant="inline" description="Generate a JSON array of user or product documents you can paste into insertMany or save for mongoimport --jsonArray." %}
+
 ---
 
 ## Querying Documents

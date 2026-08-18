@@ -592,6 +592,8 @@ spec:
 - Automate **regression gates** in CI.
 - Periodically **refresh test data** to avoid caching distortion.
 
+{% include tool-cta.html tool="fake-data-generator" variant="inline" description="Generate a fresh JSON or CSV dataset of users, products, or orders so k6 scripts are not hitting the same cached rows every run." %}
+
 ---
 ## Resources
 

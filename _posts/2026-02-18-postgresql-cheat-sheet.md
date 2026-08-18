@@ -415,6 +415,8 @@ ON CONFLICT (email) DO NOTHING;
 
 The `RETURNING *` clause is one of those PostgreSQL features that saves you a second query. You insert and get back the new row (with the generated ID, defaults, etc.) in one shot. The `ON CONFLICT` clause (upsert) was added in PostgreSQL 9.5. If you are on an older version, you would need to use a CTE or a function with exception handling instead.
 
+{% include tool-cta.html tool="fake-data-generator" variant="inline" description="Generate a batch of SQL INSERT statements for a users, products, or orders table when you need seed data beyond a few hand-written rows." %}
+
 ### SELECT
 
 ```sql

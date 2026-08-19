@@ -1,0 +1,70 @@
+{% assign hg_algo = include.algorithm | default: "SHA-256" %}
+{% assign hg_lock = include.lock | default: false %}
+<section class="hg-generator-main" id="hash-generator-app" data-algorithm="{{ hg_algo }}" data-lock="{% if hg_lock %}true{% else %}false{% endif %}">
+  <div class="hg-controls-section">
+    <div class="section-header">
+      <label><i class="fas fa-sliders-h"></i> Input</label>
+    </div>
+
+    {% unless hg_lock %}
+    <div class="hg-algo-tabs" role="tablist" aria-label="Hash algorithm">
+      <button type="button" class="hg-algo-btn" data-algo="MD5">MD5</button>
+      <button type="button" class="hg-algo-btn" data-algo="SHA-1">SHA-1</button>
+      <button type="button" class="hg-algo-btn" data-algo="SHA-256">SHA-256</button>
+      <button type="button" class="hg-algo-btn" data-algo="SHA-384">SHA-384</button>
+      <button type="button" class="hg-algo-btn" data-algo="SHA-512">SHA-512</button>
+    </div>
+    {% else %}
+    <p class="hg-locked-algo"><i class="fas fa-hashtag"></i> Algorithm: <strong>MD5</strong></p>
+    {% endunless %}
+
+    <label class="hg-block-label" for="hg-text">Text</label>
+    <textarea id="hg-text" rows="7" spellcheck="false" placeholder="Type or paste text to hash…"></textarea>
+
+    <div class="hg-drop" id="hg-drop">
+      <input type="file" id="hg-file" hidden>
+      <p><i class="fas fa-file-upload"></i> Drop a file here or <button type="button" id="hg-file-btn" class="hg-link-btn">browse</button> to hash its bytes</p>
+      <p id="hg-file-name" class="hg-file-name" hidden></p>
+    </div>
+
+    <div class="hg-format-block">
+      <span class="hg-block-label">Output</span>
+      <div class="hg-format-tabs">
+        <button type="button" class="hg-format-btn active" data-format="hex">Hex</button>
+        <button type="button" class="hg-format-btn" data-format="base64">Base64</button>
+      </div>
+    </div>
+
+    <label class="hg-toggle">
+      <input type="checkbox" id="hg-uppercase">
+      <span class="hg-toggle-slider"></span>
+      <span class="hg-toggle-label">Uppercase hex</span>
+    </label>
+
+    <label class="hg-block-label" for="hg-expected">Compare (optional)</label>
+    <input type="text" id="hg-expected" class="hg-expected" spellcheck="false" autocomplete="off" placeholder="Paste an expected hash to verify">
+
+    <p class="hg-hmac-note">Need a keyed signature? Use the <a href="{{ '/tools/hmac-generator/' | relative_url }}">HMAC generator</a>.</p>
+  </div>
+
+  <div class="hg-output-section">
+    <div class="section-header">
+      <label><i class="fas fa-fingerprint"></i> Hash value</label>
+      <div class="hg-output-actions">
+        <button type="button" id="hg-copy-btn" class="btn-action" title="Copy to clipboard" disabled>
+          <i class="fas fa-copy"></i>
+          Copy
+        </button>
+        <button type="button" id="hg-clear-btn" class="btn-action" title="Clear input">
+          <i class="fas fa-trash-alt"></i>
+          Clear
+        </button>
+      </div>
+    </div>
+    <div class="hg-output-wrapper">
+      <pre id="hg-output" class="hg-output-text"><span class="hg-placeholder">Your hash value will appear here</span></pre>
+    </div>
+    <div id="hg-compare" class="hg-compare" hidden></div>
+    <div id="hg-stats" class="hg-stats-bar"></div>
+  </div>
+</section>

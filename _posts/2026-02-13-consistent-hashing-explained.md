@@ -410,6 +410,8 @@ System.out.println("user:12345 → " + server);
 ring.addServer("cache-server-4");
 ```
 
+{% include tool-cta.html tool="md5-hash-generator" variant="inline" description="Hash a key like user:12345 with MD5 to see the digest this ring implementation takes its first four bytes from." %}
+
 The key operations:
 - **addServer**: O(V * log(N * V)) where V is virtual nodes and N is total servers
 - **removeServer**: O(V * log(N * V))

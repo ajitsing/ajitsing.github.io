@@ -39,6 +39,8 @@ Author: Ajit Singh (Staff Software Engineer at Agoda). Expertise: system design,
 - [Regex Tester & Debugger]({{ site.url }}/tools/regex-tester/): Test regular expressions with live highlighting and capture groups
 - [XPath Tester]({{ site.url }}/tools/xpath-tester/): Test XPath expressions against XML or HTML with live matches
 - [HMAC Generator & Verifier]({{ site.url }}/tools/hmac-generator/): Generate and verify HMAC-SHA256 and other HMAC signatures
+- [Hash Generator]({{ site.url }}/tools/hash-generator/): Create MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from text or a file
+- [MD5 Hash Generator]({{ site.url }}/tools/md5-hash-generator/): Generate an MD5 hash instantly from text or a file
 - [Cron Expression Generator]({{ site.url }}/tools/cron-expression/): Build and translate cron expressions to human-readable text
 - [Base64 Encoder & Decoder]({{ site.url }}/tools/base64-encoder/): Encode or decode Base64, including UTF-8 and emoji
 - [Base64 to PDF Converter]({{ site.url }}/tools/base64-to-pdf/): Convert Base64 to PDF with preview, or encode PDF to Base64

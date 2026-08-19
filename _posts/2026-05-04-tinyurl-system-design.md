@@ -310,6 +310,8 @@ Take MD5 or SHA-1 of the long URL, base62 encode, take the first 7 characters. I
 
 The hash approach makes sense **only** if you explicitly want content addressing, the same way [Git uses SHA-1 to name objects](/how-git-stores-data-internally/){:target="_blank" rel="noopener"}.
 
+{% include tool-cta.html tool="md5-hash-generator" variant="inline" description="Hash a long URL with MD5 the way this naive shortener would, then compare how little of that digest actually fits in a 7-character code." %}
+
 ## Database: Schema, Engine, and Sharding
 
 The schema is small, which is the only easy part.

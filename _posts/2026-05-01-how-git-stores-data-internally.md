@@ -200,6 +200,8 @@ af5626b4a114abcb82d63db7c8082c3c4756e51b
 
 (`printf` here adds the trailing newline that `echo` adds. The `14` is `len("Hello, world!\n")`.)
 
+{% include tool-cta.html tool="hash-generator" variant="inline" description="Hash the same header-plus-bytes string with SHA-1 (or SHA-256) in the browser. Git’s object ID is that digest, not a hash of the file alone." %}
+
 ## The Four Object Types
 
 Everything in Git is one of four object types. None of them know their own name on disk. The name is always the hash of their contents.

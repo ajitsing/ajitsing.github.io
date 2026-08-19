@@ -74,6 +74,10 @@ sql-formatter:
   title: "SQL Formatter and Beautifier"
   description: "Format SQL for MySQL, PostgreSQL, SQL Server, and Oracle."
   link: "/tools/sql-formatter/"
+html-beautifier:
+  title: "HTML Beautifier"
+  description: "Pretty print and minify HTML in your browser. Indent tags or collapse whitespace."
+  link: "/tools/html-beautifier/"
 base64-encoder:
   title: "Base64 Encoder and Decoder"
   description: "Encode text to Base64 or decode Base64 strings with UTF-8 support."

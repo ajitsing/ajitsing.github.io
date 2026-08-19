@@ -49,6 +49,7 @@ Author: Ajit Singh (Staff Software Engineer at Agoda). Expertise: system design,
 - [SLA Uptime Calculator]({{ site.url }}/tools/sla-calculator/): Calculate allowed downtime for any uptime percentage
 - [URL Encoder & Decoder]({{ site.url }}/tools/url-encoder/): Percent-encode or decode URL strings
 - [Fake Data Generator]({{ site.url }}/tools/fake-data-generator/): Generate realistic mock, dummy, and test data and export as JSON, CSV, or SQL
+- [HTML Beautifier]({{ site.url }}/tools/html-beautifier/): Pretty print and minify HTML in the browser
 - [All Developer Tools]({{ site.url }}/tools/): Full catalog of browser-based utilities (no data leaves the browser)
 
 ## Cheat Sheets

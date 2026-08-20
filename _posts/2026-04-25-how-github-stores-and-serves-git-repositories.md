@@ -458,7 +458,7 @@ oid sha256:4d7a214614ab2935c943f9e0ff69d22eadbb8f32b1258daaa5e2ca24d17e2393
 size 12345
 ```
 
-That pointer is what gets stored in the Git object database and replicated by Spokes. The actual bytes are uploaded over HTTPS to a separate **LFS object storage backend** (built on S3-style object storage; see the [Git LFS API spec](https://github.com/git-lfs/git-lfs/blob/main/docs/api/README.md){:target="_blank" rel="noopener"}). On checkout, a smudge filter sees the pointer, downloads the real bytes by SHA-256, and writes them to your worktree.
+That pointer is what gets stored in the Git object database and replicated by Spokes. The actual bytes are uploaded over HTTPS to a separate **LFS object storage backend** (built on S3-style object storage; see the [Git LFS API spec](https://github.com/git-lfs/git-lfs/blob/main/docs/api/README.md){:target="_blank" rel="noopener"}). On checkout, a smudge filter sees the pointer, downloads the real bytes by SHA-256, and writes them to your worktree. Storing large bytes in a content-addressed object store while keeping only lightweight metadata in the main system is the same split that file sync services use in [Dropbox's system design](/dropbox-system-design/){:target="_blank" rel="noopener"}.
 
 ```mermaid
 flowchart LR

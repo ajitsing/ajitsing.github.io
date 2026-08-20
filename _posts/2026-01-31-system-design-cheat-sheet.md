@@ -883,6 +883,7 @@ These posts go deeper into specific topics:
 - [Graph Data Structure Explained](/data-structures/graph/#bfs-dfs-time-complexity) - BFS and DFS traversal time complexity by representation
 - [Write-Ahead Log in Distributed Systems](/distributed-systems/write-ahead-log/)
 - [How Amazon S3 Works](/how-amazon-s3-works/)
+- [Dropbox System Design](/dropbox-system-design/){:target="_blank" rel="noopener"} - Chunking, deduplication, delta sync, and metadata for file storage
 
 **AI System Design**:
 - [Architecting Multi-Agent AI Swarms](/multi-agent-ai-swarms-system-design/) - System design deep dive into multi-agent orchestration patterns

@@ -182,7 +182,7 @@ That is it. The hash is the name. The implications are quietly enormous.
 - **Integrity** is built in. If a single byte of any object is corrupted on disk, the hash will not match and Git will refuse to use it.
 - **Distribution** is trivial. Two repos can compare hashes to know exactly which objects each is missing without sending the contents.
 
-This is the same design used by IPFS and a few other content-addressable systems, and it is closely related to the idea of a Merkle tree. Each commit hash in Git transitively covers the entire state of the project at that moment, so signing a commit signs the whole snapshot.
+This is the same design used by IPFS, file sync services like [Dropbox](/dropbox-system-design/){:target="_blank" rel="noopener"}, and a few other content-addressable systems, and it is closely related to the idea of a Merkle tree. Each commit hash in Git transitively covers the entire state of the project at that moment, so signing a commit signs the whole snapshot.
 
 If you want to see this for yourself, [git hash-object](https://git-scm.com/docs/git-hash-object){:target="_blank" rel="noopener"} is the plumbing command that computes an object's SHA without storing it.
 

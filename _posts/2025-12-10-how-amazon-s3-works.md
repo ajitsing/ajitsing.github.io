@@ -426,7 +426,7 @@ Benefits:
 3. **Large file support**: Required for objects over 5 GB
 4. **Better throughput**: AWS can optimize routing for each part
 
-Each part can be 5 MB to 5 GB. For most cases, 100 MB parts work well.
+Each part can be 5 MB to 5 GB. For most cases, 100 MB parts work well. This same idea of splitting a file into independently uploaded chunks is the foundation of [Dropbox's system design](/dropbox-system-design/){:target="_blank" rel="noopener"}, where chunking also enables deduplication and delta sync on top of resumable uploads.
 
 ```python
 import boto3

@@ -23,4 +23,5 @@ related_terms: ["sharding", "quorum", "caching", "gossip-protocol", "wide-column
 related_posts:
   - "/consistent-hashing-explained/"
   - "/wide-column-stores-explained/"
+  - "/dropbox-system-design/"
 ---

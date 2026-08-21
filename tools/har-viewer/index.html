@@ -475,6 +475,7 @@ css:
           <h2>What is a HAR file?</h2>
           <p><strong>HAR (HTTP Archive)</strong> is a JSON-based format for recording HTTP traffic between a client and a server. Every major browser&rsquo;s DevTools can export the current Network tab as a <code>.har</code> file, and proxies like Charles, Fiddler, and Insomnia produce HAR exports as well.</p>
           <p>A HAR file is a snapshot of a browsing session. it captures URLs, methods, status codes, request and response headers, cookies, request and response bodies (when available), and a detailed timing breakdown per request.</p>
+          <p>Bodies are often JSON, but gRPC-Web and <code>application/x-protobuf</code> responses show up as opaque binary (or Base64 inside the HAR JSON). Paste that body into the <a href="{{ '/tools/protobuf-decoder/' | relative_url }}">Protobuf Decoder</a> to inspect field numbers and nested messages without a <code>.proto</code> schema.</p>
         </article>
 
         <article class="guide-article">

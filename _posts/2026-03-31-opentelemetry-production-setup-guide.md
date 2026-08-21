@@ -232,7 +232,7 @@ flowchart LR
     style E fill:#d1fae5,stroke:#059669,color:#0d2137
 </code></pre>
 
-**Receivers** accept data in various formats. The OTLP receiver listens on port 4317 (gRPC) and 4318 (HTTP). You can also accept Prometheus metrics, Jaeger spans, Zipkin spans, and dozens of other formats.
+**Receivers** accept data in various formats. The OTLP receiver listens on port 4317 (gRPC) and 4318 (HTTP). Both of those ports carry **Protocol Buffers**, not JSON. When a Collector is refusing spans and you have a captured request body from tcpdump or a proxy, the [Protobuf Decoder](/tools/protobuf-decoder/) will walk the OTLP wire format without needing the `.proto` files. You can also accept Prometheus metrics, Jaeger spans, Zipkin spans, and dozens of other formats.
 
 **Processors** transform data in the pipeline. They run in order, and the order matters (more on this later). Common processors include batching, memory limiting, attribute filtering, and sampling.
 

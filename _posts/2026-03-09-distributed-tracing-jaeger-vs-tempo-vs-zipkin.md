@@ -227,6 +227,7 @@ def process_order(order_id: str) -> dict:
         return {"order_id": order_id, "status": "confirmed"}
 ```
 
+`OTLPSpanExporter` sends those spans as protobuf over gRPC. The bytes on the wire are not JSON, so a tcpdump or proxy capture of the Collector request looks like opaque binary. The [Protobuf Decoder](/tools/protobuf-decoder/) walks that OTLP payload the same way `protoc --decode_raw` would, without the OTLP `.proto` files.
 
 {% include ads/in-article.html %}
 

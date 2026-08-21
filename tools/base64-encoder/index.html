@@ -356,7 +356,7 @@ css:
           <ul>
             <li><strong>Email attachments:</strong> MIME encoding uses Base64 to embed binary files in emails.</li>
             <li><strong>Data URIs:</strong> Embed images directly in HTML/CSS without separate file requests.</li>
-            <li><strong>API payloads:</strong> Safely include binary data in JSON or XML documents.</li>
+            <li><strong>API payloads:</strong> Safely include binary data in JSON or XML documents. gRPC traces and protobuf blobs in logs are often Base64. after decoding, inspect the bytes with the <a href="{{ '/tools/protobuf-decoder/' | relative_url }}">Protobuf Decoder</a>.</li>
             <li><strong>Basic authentication:</strong> HTTP Basic Auth encodes credentials in Base64.</li>
             <li><strong>Storing binary in text:</strong> Databases or config files that only support text.</li>
           </ul>

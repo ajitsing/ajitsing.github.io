@@ -2,131 +2,278 @@ jwt-decoder:
   title: "JWT Decoder and Inspector"
   description: "Decode JWT tokens in your browser. View the header, payload, claims, and expiration."
   link: "/tools/jwt-decoder/"
+  icon: "fas fa-key"
+  category: decoders
+  keywords: "jwt json web token claims expiration header payload"
 protobuf-decoder:
   title: "Protobuf Decoder"
   description: "Decode Protocol Buffers wire format from hex or base64 without a .proto schema."
   link: "/tools/protobuf-decoder/"
+  icon: "fas fa-cubes"
+  category: decoders
+  popular: true
+  popular_rank: 5
+  keywords: "protobuf protocol buffers proto decode_raw wire format"
 ssl-certificate-decoder:
   title: "SSL/TLS Certificate Decoder"
   description: "Parse X.509 certificates. See subject, issuer, validity, SANs, and fingerprints."
   link: "/tools/ssl-certificate-decoder/"
+  icon: "fas fa-lock"
+  category: decoders
+  keywords: "ssl tls x509 pem der certificate san fingerprint"
 llm-token-counter:
   title: "LLM Token Counter"
   description: "Count tokens for GPT-4, Claude, Llama, Gemini, and Mistral. Estimate prompt cost."
   link: "/tools/llm-token-counter/"
+  icon: "fas fa-robot"
+  category: testers
+  keywords: "tiktoken gpt claude llama gemini openai tokens prompt"
 uuid-generator:
   title: "UUID Generator and Decoder"
   description: "Generate UUID v4 and v7. Decode existing UUIDs and extract timestamps."
   link: "/tools/uuid-generator/"
+  icon: "fas fa-fingerprint"
+  category: generators
+  keywords: "guid uuid v4 v7 random timestamp"
 ulid-generator:
   title: "ULID Generator and Decoder"
   description: "Generate sortable ULIDs and decode timestamps from existing IDs."
   link: "/tools/ulid-generator/"
+  icon: "fas fa-id-badge"
+  category: generators
+  popular: true
+  popular_rank: 4
+  keywords: "ulid sortable unique identifier timestamp"
 snowflake-decoder:
   title: "Snowflake ID Decoder"
   description: "Decode Twitter, Discord, Instagram, and LinkedIn Snowflake IDs into timestamps and components."
   link: "/tools/snowflake-decoder/"
+  icon: "fas fa-snowflake"
+  category: decoders
+  popular: true
+  popular_rank: 3
+  keywords: "discord twitter instagram linkedin snowflake id"
 epoch-converter:
   title: "Epoch Timestamp Converter"
   description: "Convert Unix epoch seconds or milliseconds to readable dates and back."
   link: "/tools/epoch-converter/"
+  icon: "fas fa-clock"
+  category: converters
+  popular: true
+  popular_rank: 6
+  keywords: "unix timestamp epoch milliseconds timezone date"
 cron-expression:
   title: "Cron Expression Translator"
   description: "Translate cron to plain English, validate syntax, and preview next run times."
   link: "/tools/cron-expression/"
+  icon: "fas fa-clock"
+  category: generators
+  popular: true
+  popular_rank: 2
+  keywords: "crontab schedule cronjob next run"
 quartz-scheduler:
   title: "Quartz Cron Generator"
   description: "Build and validate Quartz cron expressions for Java and Spring Boot."
   link: "/tools/quartz-scheduler/"
+  icon: "fas fa-calendar-check"
+  category: generators
+  popular: true
+  popular_rank: 1
+  keywords: "quartz spring boot java cron 6 field"
 json-validator:
   title: "JSON Validator and Formatter"
   description: "Validate JSON with line and column errors. Format output in one click."
   link: "/tools/json-validator/"
+  icon: "fas fa-file-code"
+  category: formatters
+  keywords: "json beautify pretty print lint formatter validator"
 yaml-validator:
   title: "YAML Validator and Formatter"
   description: "Validate YAML for Kubernetes, Docker Compose, and CI configs."
   link: "/tools/yaml-validator/"
+  icon: "fas fa-file-alt"
+  category: formatters
+  keywords: "yaml yml kubernetes docker compose ci"
 toml-validator:
   title: "TOML Validator and Formatter"
   description: "Validate TOML for Cargo.toml, pyproject.toml, and Hugo configs."
   link: "/tools/toml-validator/"
+  icon: "fas fa-cog"
+  category: formatters
+  popular: true
+  popular_rank: 10
+  keywords: "toml cargo pyproject hugo config"
 csv-to-json:
   title: "CSV to JSON Converter"
   description: "Convert CSV to JSON with headers, delimiters, copy, and download."
   link: "/tools/csv-to-json/"
+  icon: "fas fa-file-csv"
+  category: converters
+  keywords: "csv json convert delimiter headers"
 xpath-tester:
   title: "XPath Tester"
   description: "Test XPath expressions against XML or HTML with live match results."
   link: "/tools/xpath-tester/"
+  icon: "fas fa-sitemap"
+  category: testers
+  keywords: "xpath xml html query selector"
 hmac-generator:
   title: "HMAC Generator and Verifier"
   description: "Generate and verify HMAC-SHA256 and other HMAC signatures in your browser."
   link: "/tools/hmac-generator/"
+  icon: "fas fa-fingerprint"
+  category: generators
+  keywords: "hmac sha256 signature verify web crypto"
 hash-generator:
   title: "Hash Generator"
   description: "Create MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from text or a file."
   link: "/tools/hash-generator/"
+  icon: "fas fa-hashtag"
+  category: generators
+  keywords: "md5 sha1 sha256 sha384 sha512 checksum digest"
 md5-hash-generator:
   title: "MD5 Hash Generator"
   description: "Generate an MD5 hash instantly from text or a file. Hex or Base64 output."
   link: "/tools/md5-hash-generator/"
+  icon: "fas fa-hashtag"
+  category: generators
+  keywords: "md5 checksum hex base64 file hash"
 sql-formatter:
   title: "SQL Formatter and Beautifier"
   description: "Format SQL for MySQL, PostgreSQL, SQL Server, and Oracle."
   link: "/tools/sql-formatter/"
+  icon: "fas fa-database"
+  category: formatters
+  keywords: "sql beautify minify mysql postgres oracle"
 html-beautifier:
   title: "HTML Beautifier"
   description: "Pretty print and minify HTML in your browser. Indent tags or collapse whitespace."
   link: "/tools/html-beautifier/"
+  icon: "fas fa-code"
+  category: formatters
+  keywords: "html pretty print minify formatter"
 base64-encoder:
   title: "Base64 Encoder and Decoder"
   description: "Encode text to Base64 or decode Base64 strings with UTF-8 support."
   link: "/tools/base64-encoder/"
+  icon: "fas fa-exchange-alt"
+  category: converters
+  keywords: "base64 encode decode utf8"
 base64-to-pdf:
   title: "Base64 to PDF Converter"
   description: "Convert Base64 to PDF with preview and download, or encode PDF to Base64."
   link: "/tools/base64-to-pdf/"
+  icon: "fas fa-file-pdf"
+  category: converters
+  keywords: "base64 pdf preview download encode"
 url-encoder:
   title: "URL Encoder and Decoder"
   description: "Percent-encode strings for URLs or decode URL-encoded text."
   link: "/tools/url-encoder/"
+  icon: "fas fa-link"
+  category: converters
+  keywords: "urlencode percent encoding encodeURIComponent"
 curl-converter:
   title: "Curl Converter"
   description: "Convert curl commands to Python, Go, Java, Axios, PHP, C#, and more."
   link: "/tools/curl-converter/"
+  icon: "fas fa-terminal"
+  category: converters
+  keywords: "curl python go java axios php csharp powershell"
 har-viewer:
   title: "HAR File Viewer"
   description: "Open HAR exports from Chrome or Firefox. Inspect requests, headers, and timing."
   link: "/tools/har-viewer/"
+  icon: "fas fa-stream"
+  category: decoders
+  keywords: "har waterfall chrome firefox network timing"
 user-agent-parser:
   title: "User Agent Parser"
   description: "Parse User-Agent strings for browser, OS, device, and bot detection."
   link: "/tools/user-agent-parser/"
+  icon: "fas fa-user-secret"
+  category: decoders
+  keywords: "user-agent ua browser os bot device"
 subnet-calculator:
   title: "Subnet Calculator"
   description: "Calculate IPv4 and IPv6 subnets. Get network, broadcast, mask, and host ranges."
   link: "/tools/subnet-calculator/"
+  icon: "fas fa-network-wired"
+  category: calculators
+  keywords: "cidr ipv4 ipv6 subnet mask wildcard vlsm"
 chmod-calculator:
   title: "Chmod Calculator"
   description: "Convert between octal and symbolic Linux file permissions."
   link: "/tools/chmod-calculator/"
+  icon: "fas fa-shield-alt"
+  category: calculators
+  keywords: "chmod octal symbolic unix permissions"
 sla-calculator:
   title: "SLA and Uptime Calculator"
   description: "Calculate allowed downtime for 99.9%, 99.99%, and other SLA targets."
   link: "/tools/sla-calculator/"
+  icon: "fas fa-tachometer-alt"
+  category: calculators
+  keywords: "sla uptime downtime nines 99.9"
 regex-tester:
   title: "Regex Tester and Debugger"
   description: "Test regular expressions with live highlighting and capture groups."
   link: "/tools/regex-tester/"
+  icon: "fas fa-code"
+  category: testers
+  keywords: "regex regular expression debugger capture groups"
 text-diff:
   title: "Text Diff Checker"
   description: "Compare two text or code blocks with side by side and inline diff views."
   link: "/tools/text-diff/"
+  icon: "fas fa-columns"
+  category: testers
+  keywords: "diff compare side by side inline"
 password-generator:
   title: "Password Generator"
   description: "Generate strong random passwords and memorable passphrases. Dedicated 8, 12, 16, 24, and 32 character password generators."
   link: "/tools/password-generator/"
+  icon: "fas fa-key"
+  category: generators
+  keywords: "password passphrase random secure"
 fake-data-generator:
   title: "Fake Data Generator"
   description: "Generate realistic mock, dummy, and test data. Export as JSON, CSV, or SQL INSERT statements."
   link: "/tools/fake-data-generator/"
+  icon: "fas fa-database"
+  category: generators
+  keywords: "mock dummy test data faker json csv sql"
+qr-code-generator:
+  title: "QR Code Generator"
+  description: "Create custom QR codes for URLs, text, email, phone, and WiFi. Download as PNG or SVG."
+  link: "/tools/qr-code-generator/"
+  icon: "fas fa-qrcode"
+  category: generators
+  popular: true
+  popular_rank: 8
+  keywords: "qrcode wifi url svg png"
+lorem-ipsum-generator:
+  title: "Lorem Ipsum Generator"
+  description: "Generate placeholder paragraphs, sentences, or words for layouts and mockups."
+  link: "/tools/lorem-ipsum-generator/"
+  icon: "fas fa-paragraph"
+  category: generators
+  keywords: "lorem ipsum dummy text placeholder lipsum"
+cbor-decoder:
+  title: "CBOR Decoder"
+  description: "Decode RFC 8949 CBOR payloads to JSON from hex, base64, or a .cbor file."
+  link: "/tools/cbor-decoder/"
+  icon: "fas fa-cube"
+  category: decoders
+  popular: true
+  popular_rank: 7
+  keywords: "cbor rfc8949 cose cwt hex base64"
+aws-cron-expression:
+  title: "AWS EventBridge Cron Generator"
+  description: "Generate and validate AWS EventBridge cron and rate expressions for Rules, Scheduler, and Lambda."
+  link: "/tools/aws-cron-expression/"
+  icon: "fab fa-aws"
+  category: generators
+  popular: true
+  popular_rank: 9
+  keywords: "aws eventbridge cron rate lambda scheduler"

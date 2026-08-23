@@ -1,37 +1,119 @@
-<footer>
-  <div class="container-md beautiful-jekyll-footer">
-    <div class="row">
-      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-      {% include social-networks-links.html %}
-      {% if page.footer-extra %}
-        <div class="footer-custom-content">
-          {% include {{ page.footer-extra }} %}
-        </div>
-      {% endif %}
-      <p class="copyright text-muted">
-      {% if site.author %}
-        {{ site.author }}
-        &nbsp;&bull;&nbsp;
-      {% endif %}
-      {{ site.time | date: '%Y' }}
-
-      {% if site.url-pretty %}
-        &nbsp;&bull;&nbsp;
-        <a href="{{ '' | absolute_url }}">{{ site.url-pretty }}</a>
-      {% endif %}
-
-      &nbsp;&bull;&nbsp;
-      <a href="{{ '/feed.xml' | relative_url }}" title="RSS Feed">RSS Feed</a>
-
-      &nbsp;&bull;&nbsp;
-      <a href="{{ '/privacy-policy/' | relative_url }}">Privacy Policy</a>
-      </p>
-      <!-- Please don't remove this, keep my open source work credited :) -->
-      <p class="theme-by text-muted">
-        Theme by
-        <a href="https://beautifuljekyll.com">beautiful-jekyll</a>
-      </p>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    {% if page.footer-extra %}
+      <div class="site-footer-extra">
+        {% include {{ page.footer-extra }} %}
       </div>
+    {% endif %}
+
+    <nav class="site-footer-grid" aria-label="Footer">
+      <div class="site-footer-brand">
+        <a class="site-footer-logo" href="{{ '/' | relative_url }}">{{ site.author }}</a>
+        <p class="site-footer-tagline">Guides, tools, and explainers for system design, distributed systems, and software engineering.</p>
+        <ul class="site-footer-social">
+          {%- if site.social-network-links.github -%}
+          <li>
+            <a href="https://github.com/{{ site.social-network-links.github }}" title="GitHub">
+              <i class="fab fa-github" aria-hidden="true"></i>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          {%- endif -%}
+          {%- if site.social-network-links.twitter -%}
+          <li>
+            <a href="https://twitter.com/{{ site.social-network-links.twitter }}" title="Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </li>
+          {%- endif -%}
+          {%- if site.social-network-links.linkedin -%}
+          <li>
+            <a href="https://linkedin.com/in/{{ site.social-network-links.linkedin }}" title="LinkedIn">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </li>
+          {%- endif -%}
+          {%- if site.social-network-links.email -%}
+          <li>
+            <a href="mailto:{{ site.social-network-links.email }}" title="Email">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span class="sr-only">Email</span>
+            </a>
+          </li>
+          {%- endif -%}
+          {%- if site.social-network-links.rss -%}
+          <li>
+            <a href="{{ '/feed.xml' | relative_url }}" title="RSS Feed">
+              <i class="fas fa-rss" aria-hidden="true"></i>
+              <span class="sr-only">RSS Feed</span>
+            </a>
+          </li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-heading">Topics</h2>
+        <ul>
+          <li><a href="{{ '/system-design/' | relative_url }}">System Design</a></li>
+          <li><a href="{{ '/ai/' | relative_url }}">AI Engineering</a></li>
+          <li><a href="{{ '/database/' | relative_url }}">Database</a></li>
+          <li><a href="{{ '/distributed-systems/' | relative_url }}">Distributed Systems</a></li>
+          <li><a href="{{ '/design-patterns/' | relative_url }}">Design Patterns</a></li>
+          <li><a href="{{ '/software-development-news/' | relative_url }}">Dev Weekly</a></li>
+          <li><a href="{{ '/explainers/' | relative_url }}">Explainers</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-heading">Popular Tools</h2>
+        <ul>
+          {% for rank in (1..5) %}
+            {% for item in site.data.tools %}
+              {% assign tool = item[1] %}
+              {% assign tool_rank = tool.popular_rank | plus: 0 %}
+              {% if tool.popular and tool_rank == rank %}
+                <li><a href="{{ tool.link | relative_url }}">{{ tool.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          <li><a href="{{ '/tools/' | relative_url }}">All tools</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-heading">Explore</h2>
+        <ul>
+          <li><a href="{{ '/tools/' | relative_url }}">Developer Tools</a></li>
+          <li><a href="{{ '/glossary/' | relative_url }}">Glossary</a></li>
+          <li><a href="{{ '/archive/' | relative_url }}">Archive</a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer-col">
+        <h2 class="site-footer-heading">Site</h2>
+        <ul>
+          <li><a href="{{ '/aboutme/' | relative_url }}">About Me</a></li>
+          <li><a href="{{ '/privacy-policy/' | relative_url }}">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="site-footer-bottom">
+      <p class="site-footer-copy">
+        &copy; {{ site.time | date: '%Y' }}
+        {% if site.author %}{{ site.author }}{% endif %}
+        {% if site.url-pretty %}
+          &nbsp;&middot;&nbsp;
+          <a href="{{ '/' | relative_url }}">{{ site.url-pretty }}</a>
+        {% endif %}
+      </p>
+      <p class="site-footer-credit">
+        Theme by <a href="https://beautifuljekyll.com">beautiful-jekyll</a>
+      </p>
     </div>
   </div>
 </footer>

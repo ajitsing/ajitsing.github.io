@@ -134,7 +134,7 @@ public class DatabaseHelperTest {
 }
 ```
 
-In the above test first of all we are dropping the database to make sure we don't have stale data in the database. Then we are creating the DatabaseHelper instance using `InstrumentationRegistry.getTargetContext()`.
+In the above test first of all we are dropping the database in `setUp` to make sure we don't have stale data. That wipe is the same job a shared [JUnit Rule](/junit-rules/){:target="_blank" rel="noopener"} would do if more than one test class needed a clean database. Then we are creating the DatabaseHelper instance using `InstrumentationRegistry.getTargetContext()`.
 
 Then in the test we are adding a new ExpenseType and verifying that the record is added successfully in the database.
 

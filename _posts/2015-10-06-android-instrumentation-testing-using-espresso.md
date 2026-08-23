@@ -97,7 +97,7 @@ dependencies {
 
 # Example
 
-I have created a demo [project](https://github.com/ajitsing/InstrumentationTestDemo){:target="_blank"} which has one [test class](https://github.com/ajitsing/InstrumentationTestDemo/blob/master/app/src/androidTest/java/ajitsingh/com/instrumentationtestdemo/ItemListActivityEspressoTest.java){:target="_blank"} which uses espresso and another with [core instrumentation](https://github.com/ajitsing/InstrumentationTestDemo/blob/master/app/src/androidTest/java/ajitsingh/com/instrumentationtestdemo/ItemListActivityTest.java){:target="_blank"}
+I have created a demo [project](https://github.com/ajitsing/InstrumentationTestDemo){:target="_blank"} which has one [test class](https://github.com/ajitsing/InstrumentationTestDemo/blob/master/app/src/androidTest/java/ajitsingh/com/instrumentationtestdemo/ItemListActivityEspressoTest.java){:target="_blank"} which uses espresso with an `ActivityTestRule` ([JUnit Rules](/junit-rules/){:target="_blank" rel="noopener"} wrap setup like this) and another with [core instrumentation](https://github.com/ajitsing/InstrumentationTestDemo/blob/master/app/src/androidTest/java/ajitsingh/com/instrumentationtestdemo/ItemListActivityTest.java){:target="_blank"}
 
 ```java
 @RunWith(AndroidJUnit4.class)

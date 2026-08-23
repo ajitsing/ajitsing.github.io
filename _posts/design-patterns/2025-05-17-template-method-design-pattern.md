@@ -515,7 +515,7 @@ public abstract class Parent {
 
 **Java I/O Streams**: `InputStream.read(byte[])` uses template method that calls `read()`.
 
-**JUnit**: `@BeforeEach`, `@Test`, `@AfterEach` lifecycle is a template method.
+**JUnit**: `@BeforeEach`, `@Test`, `@AfterEach` lifecycle is a template method. Shared setup across classes is extracted into a [JUnit Rule](/junit-rules/){:target="_blank" rel="noopener"} or a Jupiter Extension.
 
 **Servlet**: `HttpServlet.service()` calls `doGet()`, `doPost()`, etc.
 

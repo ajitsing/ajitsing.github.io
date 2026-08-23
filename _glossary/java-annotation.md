@@ -19,7 +19,7 @@ real_world:
   - "JUnit uses `@Test` to discover test methods without a hardcoded list."
   - "Spring, Jackson, Hibernate, and Bean Validation all drive behavior from annotations."
   - "Lombok and MapStruct use SOURCE retention so the annotation disappears after code generation."
-related_terms: ["annotation-processor", "jvm", "bytecode", "class-loader"]
+related_terms: ["annotation-processor", "jvm", "bytecode", "class-loader", "junit-rule", "junit-extension"]
 related_posts:
   - "/java-custom-annotations/"
   - "/how-jvm-works/"

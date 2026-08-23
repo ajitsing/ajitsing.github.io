@@ -229,7 +229,7 @@ flowchart TD
 
 **[Strategy](/design-patterns/strategy/)** defines a family of algorithms, encapsulates each one, and makes them interchangeable. Payment processing systems with multiple payment methods, sorting with different algorithms, and compression with different codecs all use Strategy.
 
-**[Template Method](/design-patterns/template-method/)** defines the skeleton of an algorithm in a method, deferring some steps to subclasses. Framework hooks use this extensively. JUnit's setUp and tearDown, servlet lifecycle methods, and React class component lifecycle methods follow this pattern.
+**[Template Method](/design-patterns/template-method/)** defines the skeleton of an algorithm in a method, deferring some steps to subclasses. Framework hooks use this extensively. JUnit's setUp and tearDown (and reusable [JUnit Rules](/junit-rules/){:target="_blank" rel="noopener"} that wrap them), servlet lifecycle methods, and React class component lifecycle methods follow this pattern.
 
 **[Visitor](/design-patterns/visitor/)** lets you add new operations to existing object structures without modifying them. Compilers use Visitor to perform operations on abstract syntax trees. Document processors visiting different element types use it too.
 

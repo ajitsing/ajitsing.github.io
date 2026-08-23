@@ -165,7 +165,7 @@ public class ItemListActivityTest {
 }
 ```
 
-**ActivityTestRule** - This class is used to test a single Activity. It will launch the activity before starting your test.
+**ActivityTestRule** is a [JUnit Rule](/junit-rules/){:target="_blank" rel="noopener"} used to test a single Activity. It will launch the activity before starting your test.
 
 In the test, we are getting our list view from the activity and asserting that it has 4 items.
 

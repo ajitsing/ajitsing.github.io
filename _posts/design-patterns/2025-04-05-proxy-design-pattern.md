@@ -498,7 +498,7 @@ public class ImageProxy implements Image {
 
 **Hibernate Lazy Loading**: Entity relationships use proxies. Associated objects load only when accessed.
 
-**Spring AOP**: Creates proxies to add cross-cutting concerns like transactions, security, and logging.
+**Spring AOP**: Creates proxies to add cross-cutting concerns like transactions, security, and logging, usually triggered by [custom annotations](/java-custom-annotations/){:target="_blank" rel="noopener"} such as `@Transactional`.
 
 **Java RMI**: Remote proxies represent objects on different machines.
 

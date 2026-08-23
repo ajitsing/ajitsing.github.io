@@ -204,7 +204,7 @@ If you use AIDL (Android Interface Definition Language) for inter-process commun
 
 ### What About Annotation Processors?
 
-If you use libraries like Dagger, Room, or Glide, annotation processors run during compilation. They read your annotations and generate additional Java or Kotlin source files, which then get compiled along with the rest of your code.
+If you use libraries like Dagger, Room, or Glide, [annotation processors](/java-custom-annotations/){:target="_blank" rel="noopener"} run during compilation. They read your annotations and generate additional Java or Kotlin source files, which then get compiled along with the rest of your code.
 
 For Kotlin projects, **kapt** (Kotlin Annotation Processing Tool) bridges the gap between Kotlin and Java annotation processors. The newer **KSP** (Kotlin Symbol Processing) is faster because it works directly with Kotlin code instead of going through Java stubs.
 

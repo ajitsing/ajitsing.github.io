@@ -1,233 +1,251 @@
 /**
- * Developer Tools Landing Page Styles
- * Matches the warm stone design language from cron-tool and regex-tool
+ * Developer tools landing page
+ * Compact ToolsUp-style catalog on this site's warm stone palette
  */
 
-/* ==========================================================================
-   Page Container
-   ========================================================================== */
+.container-md:has(.tools-page) {
+  max-width: 1140px;
+}
 
 .tools-page {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 15px 40px;
+  padding: 8px 16px 40px;
 }
 
-/* ==========================================================================
-   Introduction
+/* Hero
    ========================================================================== */
 
-.tools-intro {
+.tools-hero {
   text-align: center;
-  margin-bottom: 32px;
-  padding: 0 20px;
+  margin: 0 auto 28px;
+  max-width: 720px;
 }
 
-.tools-intro p {
+.tools-hero h1 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: #292524;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.tools-hero p {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.05rem;
   color: #57534e;
-  line-height: 1.7;
-  margin: 0;
+  line-height: 1.6;
+  margin: 0 0 22px;
 }
 
-.tools-intro strong {
+.tools-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(41, 37, 36, 0.06);
+}
+
+.tools-search i {
+  color: #a8a29e;
+  font-size: 0.95rem;
+}
+
+.tools-search input {
+  flex: 1;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
   color: #292524;
 }
 
-/* ==========================================================================
-   Tools Grid
+.tools-search input::placeholder {
+  color: #a8a29e;
+}
+
+.tools-search:focus-within {
+  border-color: #a8a29e;
+  box-shadow: 0 6px 20px rgba(41, 37, 36, 0.1);
+}
+
+/* Category pills
+   ========================================================================== */
+
+.tools-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 36px;
+}
+
+.tools-pill {
+  appearance: none;
+  border: 2px solid #e7e0d5;
+  background: #fffdf9;
+  color: #57534e;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tools-pill:hover {
+  border-color: #a8a29e;
+  color: #292524;
+}
+
+.tools-pill.is-active {
+  background: #292524;
+  border-color: #292524;
+  color: #fef3c7;
+}
+
+/* Sections
+   ========================================================================== */
+
+.tools-section {
+  margin-bottom: 40px;
+}
+
+.tools-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tools-section-header h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0;
+}
+
+.tools-count {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #78716c;
+  margin: 0;
+}
+
+.tools-empty {
+  text-align: center;
+  padding: 36px 16px;
+  color: #78716c;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #f5f0e8;
+  border: 2px dashed #e7e0d5;
+  border-radius: 16px;
+}
+
+/* Grid + cards
    ========================================================================== */
 
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-bottom: 48px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
-
-/* ==========================================================================
-   Tool Card
-   ========================================================================== */
 
 .tool-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
-  padding: 28px;
+  gap: 12px;
+  padding: 20px;
   background: linear-gradient(135deg, #fffdf9 0%, #faf8f5 100%);
   border: 2px solid #e7e0d5;
-  border-radius: 16px;
+  border-radius: 14px;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.tool-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(41, 37, 36, 0.02) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.2s ease;
+  min-height: 100%;
 }
 
 .tool-card:hover {
   text-decoration: none;
   color: inherit;
   border-color: #a8a29e;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(41, 37, 36, 0.15);
-}
-
-.tool-card:hover::before {
-  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(41, 37, 36, 0.12);
 }
 
 .tool-card:hover .tool-icon {
   background: #292524;
   color: #fef3c7;
-  transform: scale(1.05);
-}
-
-.tool-card:hover .tool-arrow {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .tool-card:hover .tool-title {
   color: #292524;
 }
 
-/* ==========================================================================
-   Tool Icon
-   ========================================================================== */
-
 .tool-icon {
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f5f0e8;
   border: 2px solid #e7e0d5;
-  border-radius: 14px;
-  font-size: 1.5rem;
+  border-radius: 12px;
+  font-size: 1.15rem;
   color: #44403c;
-  transition: all 0.3s ease;
-}
-
-/* ==========================================================================
-   Tool Info
-   ========================================================================== */
-
-.tool-info {
-  flex: 1;
-  min-width: 0;
+  transition: all 0.2s ease;
 }
 
 .tool-title {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.02rem;
   font-weight: 700;
   color: #44403c;
-  margin: 0 0 8px 0;
-  transition: color 0.3s ease;
+  margin: 0 0 6px;
+  line-height: 1.3;
 }
 
 .tool-description {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: #78716c;
-  line-height: 1.6;
-  margin: 0 0 16px 0;
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* ==========================================================================
-   Feature Tags
-   ========================================================================== */
-
-.tool-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.tools-section.is-hidden,
+.tool-card.is-hidden {
+  display: none !important;
 }
 
-.feature-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  background: #292524;
-  color: #fef3c7;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-}
-
-.feature-tag i {
-  font-size: 0.7rem;
-}
-
-/* ==========================================================================
-   Arrow
-   ========================================================================== */
-
-.tool-arrow {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f5f0e8;
-  border-radius: 50%;
-  color: #78716c;
-  font-size: 0.9rem;
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: all 0.3s ease;
-}
-
-/* ==========================================================================
-   Coming Soon Section
+/* Coming soon
    ========================================================================== */
 
 .tools-coming-soon {
   text-align: center;
-  padding: 40px 24px;
+  padding: 32px 24px;
   background: #f5f0e8;
   border: 2px dashed #e7e0d5;
   border-radius: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .tools-coming-soon h3 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #44403c;
-  margin: 0 0 8px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.tools-coming-soon h3 i {
-  color: #78716c;
+  margin: 0 0 8px;
 }
 
 .tools-coming-soon p {
@@ -240,141 +258,36 @@
 .tools-coming-soon a {
   color: #44403c;
   font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: #e7e0d5;
-  text-underline-offset: 3px;
-  transition: all 0.2s ease;
 }
 
-.tools-coming-soon a:hover {
-  color: #292524;
-  text-decoration-color: #292524;
-}
-
-/* ==========================================================================
-   Ad Section
+/* Responsive
    ========================================================================== */
 
-.tools-ad-section {
-  margin: 40px auto;
-  max-width: 900px;
-  padding: 20px;
-  text-align: center;
-  background: #f8f9fa;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
+@media (max-width: 900px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tools-hero h1 {
+    font-size: 1.75rem;
+  }
 }
 
-.top-ad-section,
-.dedicated-ad-section,
-.bottom-ad-section {
-  padding: 20px;
-  text-align: center;
-  background: #f8f9fa;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-}
-
-.tools-ad-section .adsbygoogle {
-  width: 100%;
-  display: block;
-}
-
-/* Advertisement label styling */
-.ad-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.ad-label::before,
-.ad-label::after {
-  content: '';
-  flex: 1;
-  max-width: 120px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #d1d5db, transparent);
-}
-
-.ad-label-text {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: #6b7280;
-}
-
-/* ==========================================================================
-   Responsive Design
-   ========================================================================== */
-
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .tools-page {
-    padding: 15px 12px 30px;
+    padding: 4px 12px 30px;
   }
 
   .tools-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 
-  .tool-card {
-    padding: 24px;
-  }
-
-  .tool-icon {
-    width: 56px;
-    height: 56px;
+  .tools-hero h1 {
     font-size: 1.5rem;
-    border-radius: 12px;
   }
 
-  .tool-title {
-    font-size: 1.15rem;
-  }
-
-  .tool-description {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-  }
-
-  .tool-arrow {
-    display: none;
-  }
-
-  .feature-tag {
-    font-size: 0.7rem;
-    padding: 4px 10px;
-  }
-
-  .tools-coming-soon {
-    padding: 30px 20px;
-  }
-}
-
-@media (max-width: 480px) {
   .tool-card {
-    padding: 20px;
-  }
-
-  .tool-icon {
-    width: 48px;
-    height: 48px;
-    font-size: 1.25rem;
-  }
-
-  .tool-title {
-    font-size: 1.05rem;
-  }
-
-  .tool-features {
-    gap: 6px;
-  }
-
-  .feature-tag {
-    font-size: 0.65rem;
-    padding: 3px 8px;
+    padding: 16px;
   }
 }

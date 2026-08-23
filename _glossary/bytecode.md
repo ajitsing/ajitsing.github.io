@@ -19,7 +19,7 @@ real_world:
   - "Kotlin, Scala, Groovy, and Clojure all compile to the same JVM bytecode and interoperate with Java."
   - "Frameworks like Spring and Hibernate generate or manipulate bytecode at runtime for proxies and instrumentation."
   - "Tools such as ASM and ByteBuddy let libraries create and rewrite bytecode programmatically."
-related_terms: ["jvm", "jit-compilation", "class-loader", "garbage-collection", "jdwp"]
+related_terms: ["jvm", "jit-compilation", "class-loader", "garbage-collection", "jdwp", "java-annotation", "annotation-processor"]
 related_posts:
   - "/how-jvm-works/"
   - "/how-java-debugging-works/"

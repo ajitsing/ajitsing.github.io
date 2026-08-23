@@ -24,7 +24,7 @@ There has been a lot of confusion when it comes to Junit Rules. People hardly us
 
 # What is a Junit Rule?
 
-Well, Its nothing but a junit annotation [@Rule](http://junit.org/apidocs/org/junit/rules/TestRule.html){:target="_blank"}. You can use this annotation on anything that returns a [MethodRule](http://junit.org/apidocs/org/junit/rules/TestRule.html){:target="_blank"} or a [TestRule](http://junit.org/apidocs/org/junit/rules/TestRule.html){:target="_blank"}. A rule can run before or after a test. You can create your own rules which can replace your setup() and tearDown() methods.
+Well, Its nothing but a junit [annotation](/java-custom-annotations/){:target="_blank" rel="noopener"} [@Rule](http://junit.org/apidocs/org/junit/rules/TestRule.html){:target="_blank" rel="noopener"}. You can use this annotation on anything that returns a [MethodRule](http://junit.org/apidocs/org/junit/rules/TestRule.html){:target="_blank"} or a [TestRule](http://junit.org/apidocs/org/junit/rules/TestRule.html){:target="_blank"}. A rule can run before or after a test. You can create your own rules which can replace your setup() and tearDown() methods.
 
 # Use Case
 

@@ -19,7 +19,7 @@ real_world:
   - "Application servers and plugin systems use custom class loaders to isolate modules from each other."
   - "Hot-reload and live-restart tools swap class loaders to pick up recompiled classes without a full restart."
   - "A ClassNotFoundException or NoClassDefFoundError almost always points to a class loading or classpath problem."
-related_terms: ["jvm", "bytecode", "jit-compilation", "garbage-collection", "jdwp"]
+related_terms: ["jvm", "bytecode", "jit-compilation", "garbage-collection", "jdwp", "java-annotation"]
 related_posts:
   - "/how-jvm-works/"
   - "/how-java-debugging-works/"

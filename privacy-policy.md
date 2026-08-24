@@ -216,7 +216,7 @@ We may update this privacy policy from time to time. Changes will be reflected o
 If you have questions about this privacy policy, you can reach us at:
 
 <div class="privacy-contact">
-  <i class="fas fa-envelope"></i> <a href="mailto:jeetsingh.ajit@gmail.com">jeetsingh.ajit@gmail.com</a><br>
+  <i class="fas fa-envelope"></i> <a href="mailto:singhajitdotcom@gmail.com">singhajitdotcom@gmail.com</a><br>
   <i class="fas fa-globe"></i> <a href="https://singhajit.com">singhajit.com</a>
 </div>
 

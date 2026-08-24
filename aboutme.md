@@ -59,7 +59,7 @@ social-share: false
 
 Hi, I'm Ajit Singh. I'm a software engineer and the author of singhajit.com. I started writing code professionally in 2012 and have worked with Scala, Java, Ruby, Node.js, JavaScript, C, and Android over the years.
 
-If you'd like to follow along or stay in touch, you can find me on [LinkedIn](https://www.linkedin.com/in/ajit-singh-11620570) and on X as [@Ajit5ingh](https://x.com/Ajit5ingh). I share what I'm working on and chat with other developers there.
+If you'd like to follow along or stay in touch, you can find me on [LinkedIn](https://www.linkedin.com/in/ajit-singh-11620570) and on X as [@Ajit5ingh](https://x.com/Ajit5ingh). I share what I'm working on and chat with other developers there. For partnerships, affiliates, or email about the blog, use the [Contact](/contact/) page.
 
 I started this blog because I enjoy working with different tech and wanted a place to write about what I learn. I write about the problems I solve, the mistakes I make, and the topics I find interesting, mostly system design, distributed systems, and AI. It's my way of giving back to the community that has helped me grow.
 

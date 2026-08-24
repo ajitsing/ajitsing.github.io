@@ -303,8 +303,8 @@ A commit is the smallest object. It contains:
 $ git cat-file -p HEAD
 tree 4b825dc642cb6eb9a060e54bf8d69288fbee4904
 parent 1a410efbd13591db07496601ebc7a059dd55cfe9
-author Ajit Singh <jeetsingh.ajit@gmail.com> 1735689600 +0530
-committer Ajit Singh <jeetsingh.ajit@gmail.com> 1735689600 +0530
+author Ajit Singh <singhajitdotcom@gmail.com> 1735689600 +0530
+committer Ajit Singh <singhajitdotcom@gmail.com> 1735689600 +0530
 
 Add greeting message
 ```
@@ -321,7 +321,7 @@ An annotated tag is a real object with the format:
 object 9f9258a8...
 type commit
 tag v1.0.0
-tagger Ajit Singh <jeetsingh.ajit@gmail.com> 1735689600 +0530
+tagger Ajit Singh <singhajitdotcom@gmail.com> 1735689600 +0530
 
 Release 1.0.0
 ```

@@ -176,6 +176,22 @@ hr.small {
     padding-top: 8.125rem;
   }
 }
+@media (min-width: 992px) {
+  .navbar.fixed-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .main-content {
+    padding-top: 1.8125rem;
+  }
+}
+@media (min-width: 1200px) {
+  .main-content {
+    padding-top: 4.9375rem;
+  }
+}
 
 .hideme {
   display: none;
@@ -1361,6 +1377,22 @@ footer .footer-custom-content {
   }
   .intro-header.big-img .img-desc {
     font-size: 0.875rem;
+  }
+}
+@media (min-width: 992px) {
+  .intro-header {
+    margin-top: 1.8125rem;
+  }
+  .intro-header.big-img {
+    margin-top: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .intro-header {
+    margin-top: 4.9375rem;
+  }
+  .intro-header.big-img {
+    margin-top: 2.5rem;
   }
 }
 

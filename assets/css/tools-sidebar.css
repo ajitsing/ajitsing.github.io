@@ -167,11 +167,14 @@
   width: 300px;
   flex-shrink: 0;
   display: none;
+  position: sticky;
+  top: 72px;
+  align-self: flex-start;
 }
 
 .tool-ad-sidebar .sidebar-sticky-ad {
-  position: sticky;
-  top: 80px;
+  position: static;
+  top: auto;
   margin-top: 0;
   padding: 0.5rem;
   border: none;

@@ -1,0 +1,88 @@
+{% comment %}
+In-article house content: popular posts as a horizontal card strip,
+matching the "More from Category" carousel. Ranking matches the sidebar
+(popular flag, then top_viewed, then recent), excluding the current page.
+{% endcomment %}
+{% assign carousel_limit = 6 %}
+{% assign carousel_count = 0 %}
+{% assign carousel_urls = "|" %}
+{% assign carousel_posts = "" %}
+
+{% for post in site.posts %}
+  {% if post.popular and carousel_count < carousel_limit %}
+    {% unless post.tags contains "dev-weekly" or post.url == page.url %}
+      {% assign carousel_urls = carousel_urls | append: post.url | append: "|" %}
+      {% assign carousel_posts = carousel_posts | append: post.url | append: "||" %}
+      {% assign carousel_count = carousel_count | plus: 1 %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+
+{% if carousel_count < carousel_limit and site.data.top_viewed.posts %}
+  {% for entry in site.data.top_viewed.posts %}
+    {% if carousel_count < carousel_limit %}
+      {% assign gc_path = entry.path | strip %}
+      {% if gc_path != "" and gc_path != "/" %}
+        {% assign gc_alt = gc_path | append: "/" %}
+        {% assign found = false %}
+        {% for cand in site.posts %}
+          {% unless found %}
+            {% if cand.url == gc_path or cand.url == gc_alt %}
+              {% unless cand.tags contains "dev-weekly" or cand.url == page.url %}
+                {% assign url_token = cand.url | prepend: "|" | append: "|" %}
+                {% unless carousel_urls contains url_token %}
+                  {% assign carousel_urls = carousel_urls | append: cand.url | append: "|" %}
+                  {% assign carousel_posts = carousel_posts | append: cand.url | append: "||" %}
+                  {% assign carousel_count = carousel_count | plus: 1 %}
+                {% endunless %}
+              {% endunless %}
+              {% assign found = true %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if carousel_count < carousel_limit %}
+  {% for post in site.posts %}
+    {% if carousel_count < carousel_limit %}
+      {% unless post.tags contains "dev-weekly" or post.url == page.url %}
+        {% assign url_token = post.url | prepend: "|" | append: "|" %}
+        {% unless carousel_urls contains url_token %}
+          {% assign carousel_urls = carousel_urls | append: post.url | append: "|" %}
+          {% assign carousel_posts = carousel_posts | append: post.url | append: "||" %}
+          {% assign carousel_count = carousel_count | plus: 1 %}
+        {% endunless %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign carousel_list = carousel_posts | split: "||" %}
+
+<div class="mid-carousel category-recommendations" data-mid-carousel>
+  <div class="category-recommendations-header">
+    <h3 class="category-recommendations-title">
+      <i class="fas fa-fire"></i>
+      Popular reads
+    </h3>
+    <a href="{{ '/archive/' | relative_url }}" class="category-view-all" onclick="gtag('event', 'click', {'event_category': 'In-article Carousel', 'event_label': 'View all posts'});">
+      View All <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="category-posts-scroll">
+    <div class="category-posts-track">
+      {% for url in carousel_list %}
+        {% if url != "" %}
+          {% for post in site.posts %}
+            {% if post.url == url %}
+              {% include ads/house-post-card.html post=post event_category="In-article Carousel" %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

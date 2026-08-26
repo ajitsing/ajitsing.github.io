@@ -1,0 +1,20 @@
+{% assign p = include.post %}
+<a href="{{ p.url | relative_url }}" class="category-post-card" onclick="gtag('event', 'click', {'event_category': '{{ include.event_category | default: "In-article Carousel" }}', 'event_label': '{{ p.title | escape }}'});">
+  {% if p.thumbnail-img %}
+  <div class="category-post-image">
+    <img src="{{ p.thumbnail-img | relative_url }}" alt="{{ p.title }}" loading="lazy">
+  </div>
+  {% elsif p.share-img %}
+  <div class="category-post-image">
+    <img src="{{ p.share-img | relative_url }}" alt="{{ p.title }}" loading="lazy">
+  </div>
+  {% else %}
+  <div class="category-post-image category-post-placeholder">
+    <i class="fas fa-file-alt"></i>
+  </div>
+  {% endif %}
+  <div class="category-post-content">
+    <span class="category-post-card-title">{{ p.title }}</span>
+    <span class="category-post-date">{{ p.date | date: "%b %d, %Y" }}</span>
+  </div>
+</a>

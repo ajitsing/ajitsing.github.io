@@ -1,0 +1,48 @@
+{% comment %}
+Popular tools strip for mid-post house content. Same card chrome as
+the category carousel; uses each tool page thumbnail when available.
+{% endcomment %}
+<div class="mid-carousel category-recommendations" data-mid-carousel>
+  <div class="category-recommendations-header">
+    <h3 class="category-recommendations-title">
+      <i class="fas fa-wrench"></i>
+      Popular tools
+    </h3>
+    <a href="{{ '/tools/' | relative_url }}" class="category-view-all" onclick="gtag('event', 'click', {'event_category': 'In-article Carousel', 'event_label': 'View all tools'});">
+      View All <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="category-posts-scroll">
+    <div class="category-posts-track">
+      {% for rank in (1..6) %}
+        {% for item in site.data.tools %}
+          {% assign tool = item[1] %}
+          {% assign tool_rank = tool.popular_rank | plus: 0 %}
+          {% if tool.popular and tool_rank == rank %}
+            {% assign tool_thumb = nil %}
+            {% for tpage in site.pages %}
+              {% if tpage.url == tool.link %}
+                {% assign tool_thumb = tpage.thumbnail | default: tpage.share-img %}
+              {% endif %}
+            {% endfor %}
+            <a href="{{ tool.link | relative_url }}" class="category-post-card" onclick="gtag('event', 'click', {'event_category': 'In-article Carousel', 'event_label': '{{ tool.title | escape }}'});">
+              {% if tool_thumb %}
+              <div class="category-post-image">
+                <img src="{{ tool_thumb | relative_url }}" alt="{{ tool.title }}" loading="lazy">
+              </div>
+              {% else %}
+              <div class="category-post-image category-post-placeholder">
+                <i class="{{ tool.icon }}"></i>
+              </div>
+              {% endif %}
+              <div class="category-post-content">
+                <span class="category-post-card-title">{{ tool.title }}</span>
+                <span class="category-post-date">{{ tool.category | capitalize }}</span>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

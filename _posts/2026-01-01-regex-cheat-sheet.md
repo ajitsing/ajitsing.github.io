@@ -6,8 +6,8 @@ subtitle: "Stop guessing at regular expressions and start writing them with conf
 date: 2026-01-01
 categories: web-development
 permalink: /regex-cheat-sheet/
-share-img: /assets/img/tools/regex-tool-thumbnail.png
-thumbnail-img: /assets/img/tools/regex-tool-thumbnail.png
+share-img: /assets/img/tools/regex-tester-thumbnail.png
+thumbnail-img: /assets/img/tools/regex-tester-thumbnail.png
 description: "A practical regex cheat sheet with real examples. Learn regular expression syntax, character classes, quantifiers, lookaheads, and common patterns for email, URL, and phone validation."
 keywords: "regex cheat sheet, regular expressions, regex patterns, regex tutorial, regex examples, regex syntax, regex for beginners, regex character classes, regex quantifiers, regex lookahead, email regex, url regex, phone regex, regex validation, pattern matching, regex flags, regex groups"
 tags: ["programming", "regex"]

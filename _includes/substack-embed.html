@@ -20,7 +20,6 @@
       var iframe = root.querySelector('iframe');
       var label = {{ embed_label | jsonify }};
       var io = null;
-      var mo = null;
       var engaged = false;
       var observing = false;
       var scrollOpts = { passive: true };
@@ -32,21 +31,12 @@
           io.disconnect();
           io = null;
         }
-        if (mo) {
-          mo.disconnect();
-          mo = null;
-        }
         window.removeEventListener('scroll', onEngage, scrollOpts);
         document.removeEventListener('click', onEngage, clickOpts);
       }
 
-      // In-article ad fallback stays in the viewport while hidden; don't fetch yet.
       function isEligible() {
-        if (root.closest('[aria-hidden="true"]')) return false;
-        var shell = root.closest('.post-mid-ad__substack');
-        if (!shell) return true;
-        var wrap = shell.parentElement;
-        return !!(wrap && wrap.classList.contains('post-mid-ad--substack'));
+        return !root.closest('[aria-hidden="true"]');
       }
 
       function activate(fromClick) {
@@ -74,8 +64,6 @@
 
       function tryAutoLoad() {
         if (!isEligible()) return;
-        // After reveal, trust IntersectionObserver — avoid getBoundingClientRect
-        // right after classList / aria mutations (forced reflow).
         activate(false);
       }
 
@@ -93,19 +81,6 @@
             }
           }, { rootMargin: OBSERVER_MARGIN });
           io.observe(root);
-
-          var shell = root.closest('.post-mid-ad__substack');
-          if (shell && shell.parentElement) {
-            mo = new MutationObserver(function() {
-              if (!isEligible()) return;
-              // Let style settle, then rely on IO or activate if already near view.
-              requestAnimationFrame(function() {
-                tryAutoLoad();
-              });
-            });
-            mo.observe(shell.parentElement, { attributes: true, attributeFilter: ['class'] });
-            mo.observe(shell, { attributes: true, attributeFilter: ['aria-hidden'] });
-          }
         } else {
           tryAutoLoad();
         }

@@ -1,0 +1,198 @@
+{% if site.manual_ads %}
+<style>
+  .footer-leaderboard {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    box-sizing: border-box;
+    height: 90px;
+    background: transparent;
+    pointer-events: none;
+  }
+  .footer-leaderboard.is-ready {
+    display: block;
+    visibility: hidden;
+  }
+  .footer-leaderboard.is-visible {
+    display: block;
+    visibility: visible;
+  }
+  .footer-leaderboard__inner {
+    position: relative;
+    isolation: isolate;
+    width: 970px;
+    height: 90px;
+    margin: 0 auto;
+    pointer-events: auto;
+  }
+  .footer-leaderboard__card {
+    width: 970px;
+    height: 90px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-leaderboard__unit {
+    display: block;
+    width: 970px;
+    height: 90px;
+    pointer-events: auto;
+  }
+  .footer-leaderboard__close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 3;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+    background: rgba(245, 245, 245, 0.92);
+    color: #404040;
+    font-size: 18px;
+    line-height: 28px;
+    cursor: pointer;
+    pointer-events: auto;
+    transform: translateZ(0);
+  }
+  .footer-leaderboard__close:hover {
+    background: #EAEAEA;
+  }
+  body.footer-leaderboard-open {
+    padding-bottom: 90px;
+  }
+  @media (max-width: 991px) {
+    .footer-leaderboard { display: none !important; }
+    body.footer-leaderboard-open { padding-bottom: 0; }
+  }
+</style>
+<aside class="footer-leaderboard" aria-label="Sponsored placement">
+  <div class="footer-leaderboard__inner">
+    <div class="footer-leaderboard__card">
+      <ins class="adsbygoogle footer-leaderboard__unit"
+           style="display:inline-block;width:970px;height:90px"
+           data-ad-client="ca-pub-2886086145980317"
+           data-ad-slot="1526599965"></ins>
+    </div>
+    <button type="button" class="footer-leaderboard__close" aria-label="Close advertisement">&times;</button>
+  </div>
+  <script>
+    (function () {
+      var bar = document.currentScript.closest('.footer-leaderboard');
+      if (!bar) return;
+      if (!window.matchMedia || !window.matchMedia('(min-width: 992px)').matches) {
+        bar.remove();
+        return;
+      }
+
+      var hero = document.querySelector('.hero-banner');
+      var closeBtn = bar.querySelector('.footer-leaderboard__close');
+      var ins = bar.querySelector('ins.adsbygoogle');
+      var dismissed = false;
+      var pushed = false;
+      var filled = false;
+      var heroOffscreen = false;
+      var fillTimer = null;
+      var fillWatch = null;
+
+      function isLocalhost() {
+        return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      }
+
+      function setOpen(open) {
+        bar.classList.toggle('is-visible', open);
+        document.body.classList.toggle('footer-leaderboard-open', open);
+      }
+
+      function syncVisibility() {
+        setOpen(!dismissed && heroOffscreen && filled);
+      }
+
+      function dismiss() {
+        dismissed = true;
+        if (fillTimer) {
+          clearTimeout(fillTimer);
+          fillTimer = null;
+        }
+        setOpen(false);
+      }
+
+      function isFilled() {
+        if (!ins) return false;
+        var status = ins.getAttribute('data-ad-status');
+        if (status === 'unfilled') return false;
+        return status === 'filled' || !!ins.querySelector('iframe');
+      }
+
+      function pushAd() {
+        if (pushed || dismissed || isLocalhost()) return;
+        pushed = true;
+        bar.classList.add('is-ready');
+        try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        watchFill();
+      }
+
+      function startFillTimer() {
+        if (fillTimer || dismissed) return;
+        fillTimer = setTimeout(dismiss, 40000);
+      }
+
+      function watchFill() {
+        if (!ins || fillWatch) return;
+        function check() {
+          if (dismissed || filled) return;
+          if (!isFilled()) return;
+          filled = true;
+          startFillTimer();
+          syncVisibility();
+        }
+        fillWatch = new MutationObserver(check);
+        fillWatch.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'], childList: true, subtree: true });
+        check();
+      }
+
+      function onHeroVisibility(visible) {
+        if (dismissed) return;
+        heroOffscreen = !visible;
+        if (heroOffscreen) pushAd();
+        syncVisibility();
+      }
+
+      closeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dismiss();
+      });
+      closeBtn.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dismiss();
+      });
+
+      if (!hero) {
+        bar.remove();
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        bar.remove();
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        onHeroVisibility(entries[0].isIntersecting);
+      }, { threshold: 0 });
+      io.observe(hero);
+    })();
+  </script>
+</aside>
+{% endif %}

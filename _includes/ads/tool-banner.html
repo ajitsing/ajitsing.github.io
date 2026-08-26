@@ -4,6 +4,7 @@
     margin: 24px 0 36px;
     padding: 0 4px;
     contain: layout;
+    overflow-anchor: none;
   }
   .tool-top-ad__card {
     width: 100%;
@@ -44,12 +45,34 @@
   <script>
     (function () {
       var wrap = document.currentScript.closest('.tool-top-ad');
-      if (wrap && wrap.offsetWidth > 0) {
-        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-      } else if (wrap) {
-        var ins = wrap.querySelector('ins.adsbygoogle');
-        if (ins) ins.remove();
+      if (!wrap) return;
+      if (!(wrap.offsetWidth > 0)) {
+        var empty = wrap.querySelector('ins.adsbygoogle');
+        if (empty) empty.remove();
+        return;
       }
+
+      var startY = window.scrollY;
+      var until = Date.now() + 4000;
+
+      function restoreTopIfAdStoleFocus() {
+        if (Date.now() > until) return;
+        if (startY > 16) return;
+        if (window.scrollY > 16) window.scrollTo(0, startY);
+      }
+
+      wrap.addEventListener('focusin', function (e) {
+        if (Date.now() > until) return;
+        if (e.target && typeof e.target.blur === 'function') e.target.blur();
+        restoreTopIfAdStoleFocus();
+      }, true);
+
+      new MutationObserver(function () {
+        var iframe = wrap.querySelector('iframe');
+        if (iframe) iframe.setAttribute('tabindex', '-1');
+      }).observe(wrap, { childList: true, subtree: true });
+
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
     })();
   </script>
 </aside>

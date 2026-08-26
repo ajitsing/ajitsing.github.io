@@ -20,6 +20,11 @@
     display: block;
     visibility: visible;
   }
+  .footer-leaderboard.is-dismissed {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
   .footer-leaderboard__inner {
     position: relative;
     isolation: isolate;
@@ -123,7 +128,15 @@
           clearTimeout(fillTimer);
           fillTimer = null;
         }
+        if (fillWatch) {
+          fillWatch.disconnect();
+          fillWatch = null;
+        }
         setOpen(false);
+        bar.classList.remove('is-ready', 'is-visible');
+        bar.classList.add('is-dismissed');
+        var card = bar.querySelector('.footer-leaderboard__card');
+        if (card) card.innerHTML = '';
       }
 
       function isFilled() {

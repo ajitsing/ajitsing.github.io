@@ -24,7 +24,11 @@
 @media (min-width: 992px) {
   .glossary-term-wrapper,
   .glossary-hub-container {
-    padding: 2.5rem 1rem 3.5rem;
+    padding: 8.5rem 1rem 3.5rem;
+  }
+
+  .hero-banner + .glossary-term-wrapper {
+    padding-top: 2.5rem;
   }
 }
 

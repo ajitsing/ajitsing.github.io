@@ -20,6 +20,12 @@
   {% endif %}
   {% endunless %}
 
+  {% if site.manual_ads %}
+  {% if page.layout == 'post' or page.layout == 'glossary-term' %}
+  <link rel="preload" as="image" href="{{ '/assets/img/hero-network-bg.svg' | relative_url }}" fetchpriority="high" media="(min-width: 992px)">
+  {% endif %}
+  {% endif %}
+
   <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator | default: '-' }} {{ site.description }}{% elsif page.meta-title %}{{ page.meta-title }}{% elsif page.title %}{{ page.title }} - {{ site.title-suffix | default: site.title }}{% else %}{{ site.title }}{% endif %}</title>
   
   {% include seo.html %}
@@ -70,14 +76,6 @@
     }
     .intro-header.big-img {
       margin-top: 3.1875rem;
-    }
-    @media (min-width: 992px) {
-      .navbar.fixed-top {
-        position: sticky;
-      }
-      .intro-header.big-img {
-        margin-top: 0;
-      }
     }
   </style>
 

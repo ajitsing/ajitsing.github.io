@@ -452,6 +452,6 @@ Use Count-Min Sketch when you need frequencies. Use Bloom Filter for membership.
 
 ---
 
-*For more on probabilistic data structures, check out [Bloom Filters Explained](/data-structures/bloom-filter/) for membership testing and [HyperLogLog Explained](/data-structures/hyperloglog/) for cardinality estimation. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
+*For more on probabilistic data structures, check out [Bloom Filters Explained](/data-structures/bloom-filter/) for membership testing, the [Cuckoo Filter](/data-structures/cuckoo-filter/){:target="_blank" rel="noopener"} for membership testing with deletion, and [HyperLogLog Explained](/data-structures/hyperloglog/) for cardinality estimation. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
 
 *References: [Count-Min Sketch on Wikipedia](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch), [Original Paper by Cormode and Muthukrishnan](http://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf), [Redis Count-Min Sketch](https://redis.io/docs/latest/develop/data-types/probabilistic/count-min-sketch/)*

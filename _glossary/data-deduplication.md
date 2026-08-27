@@ -19,7 +19,7 @@ real_world:
   - "Dropbox and similar sync services skip uploading chunks they already hold."
   - "Backup systems like restic and Borg dedup chunks across every snapshot."
   - "Storage arrays and filesystems such as ZFS offer inline block-level deduplication."
-related_terms: ["content-addressable-storage", "delta-sync", "caching"]
+related_terms: ["content-addressable-storage", "delta-sync", "caching", "cuckoo-filter"]
 related_posts:
   - "/dropbox-system-design/"
   - "/how-amazon-s3-works/"

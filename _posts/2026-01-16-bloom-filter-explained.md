@@ -373,7 +373,7 @@ This is useful when you do not know the final size upfront.
 
 **Problem**: Standard Bloom filters do not support deletion and can have high false positive rates.
 
-**Solution**: Use a different approach based on cuckoo hashing. Store fingerprints (short hashes) in buckets. Supports deletion and often has better performance than Bloom filters for the same memory.
+**Solution**: The [cuckoo filter](/data-structures/cuckoo-filter/){:target="_blank" rel="noopener"} uses a different approach based on cuckoo hashing. It stores fingerprints (short hashes) in buckets, supports deletion, and often has better performance than Bloom filters for the same memory.
 
 Trade-off: More complex implementation.
 

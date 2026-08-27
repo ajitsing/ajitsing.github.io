@@ -420,6 +420,6 @@ HyperLogLog is the clear winner when you only need the count and can tolerate sm
 
 ---
 
-*For more on probabilistic data structures, check out [Bloom Filters Explained](/data-structures/bloom-filter/) for membership testing and [Count-Min Sketch Explained](/data-structures/count-min-sketch/) for frequency counting. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
+*For more on probabilistic data structures, check out [Bloom Filters Explained](/data-structures/bloom-filter/) for membership testing, the [Cuckoo Filter](/data-structures/cuckoo-filter/){:target="_blank" rel="noopener"} for membership testing with deletion, and [Count-Min Sketch Explained](/data-structures/count-min-sketch/) for frequency counting. For related topics, see [Hash Table Collisions Explained](/data-structures/hashtable-collisions/) and [Database Indexing Explained](/database-indexing-explained/).*
 
 *References: [HyperLogLog on Wikipedia](https://en.wikipedia.org/wiki/HyperLogLog), [Redis HyperLogLog](https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/), [HyperLogLog in Practice (Google)](https://research.google/pubs/pub40671/)*

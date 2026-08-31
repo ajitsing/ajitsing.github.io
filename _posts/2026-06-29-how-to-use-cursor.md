@@ -231,7 +231,7 @@ Keep them tight. Every word in your rules consumes part of the context window, s
 
 Rules tell the agent *who you are*. **Skills** tell it *how to do a specific job*. A Skill is a folder with a `SKILL.md` file that teaches the agent a multi-step workflow once, so you never re-explain it: how to cut a release, how your team reviews a pull request, how to generate a migration.
 
-The agent pulls a skill in only when the task matches its description, which keeps your context window clean, or you can trigger it by name with a slash command. This is the natural next step after rules, and it is worth a post of its own, which is exactly what the [Cursor Skills guide](/how-to-create-and-use-skills-in-cursor/){:target="_blank" rel="noopener"} covers: the `SKILL.md` format, where skills live, scoping with paths, bundling scripts, and how skills differ from rules and MCP.
+The agent pulls a skill in only when the task matches its description, which keeps your context window clean, or you can trigger it by name with a slash command. This is the natural next step after rules, and it is worth a post of its own, which is exactly what the [Cursor Skills guide](/how-to-create-and-use-skills-in-cursor/){:target="_blank" rel="noopener"} covers: the `SKILL.md` format, where skills live, scoping with paths, bundling scripts, and how skills differ from rules and MCP. If you run Anthropic's CLI, the [Claude Code skills guide](/how-to-create-and-use-skills-in-claude-code/){:target="_blank" rel="noopener"} maps the same idea onto `.claude/skills/` and `CLAUDE.md`.
 
 The short version: use a **Rule** for standing conventions, and a **Skill** for a workflow with steps.
 
@@ -328,6 +328,7 @@ Start with two or three of these tips this week, not all twelve. Get Tab and `Cm
 **Related posts:**
 
 - [Cursor Skills: How to Create and Use Agent Skills](/how-to-create-and-use-skills-in-cursor/){:target="_blank" rel="noopener"} - Package your repeatable workflows so the agent runs them on demand
+- [Claude Code Skills: How to Create and Use Agent Skills](/how-to-create-and-use-skills-in-claude-code/){:target="_blank" rel="noopener"} - The same playbooks on Claude Code, with CLAUDE.md and slash commands
 - [Model Context Protocol (MCP) Explained](/model-context-protocol-mcp-explained/){:target="_blank" rel="noopener"} - How Cursor connects to databases, APIs, and external tools
 - [Getting the Most Out of AI Coding Assistants](/ai-coding-assistants-guide/){:target="_blank" rel="noopener"} - The review and prompting habits that apply to any AI editor
 - [Context Engineering](/context-engineering/){:target="_blank" rel="noopener"} - Why feeding the model the right context matters more than the model

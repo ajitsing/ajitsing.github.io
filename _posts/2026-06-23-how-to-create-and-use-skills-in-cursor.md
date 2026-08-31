@@ -13,7 +13,7 @@ keywords: "cursor skills, cursor agent skills, how to create skills in cursor, S
 tags: ["AI", "cursor", "developer-tools", "software-engineering"]
 social-share: true
 comments: true
-popular: true
+# popular: true
 
 quick-answer: "A **Cursor Skill** is a folder with a `SKILL.md` file that teaches the AI agent how to do a specific job, like reviewing a PR, writing a commit message, or running a deploy. To create one, make a folder under `.cursor/skills/<skill-name>/` (shared with your repo) or `~/.cursor/skills/<skill-name>/` (personal, all projects), add a `SKILL.md` with two required frontmatter fields, `name` (must match the folder) and `description` (tells the agent when to use it), then write the instructions below. Cursor discovers it on startup. The agent uses it automatically when the task matches the description, or you can force it by typing `/<skill-name>` in chat. Keep `SKILL.md` short and move long details into `references/` and `scripts/` so the agent loads them only when needed."
 
@@ -86,7 +86,7 @@ Cursor discovers skills on startup by scanning a set of directories. The folder 
 | `~/.cursor/skills/` | Personal, all your projects |
 | `~/.agents/skills/` | Personal, cross-tool |
 
-For compatibility, Cursor also reads from `.claude/skills/` and `.codex/skills/` at both project and user level, so skills written for those tools work too.
+For compatibility, Cursor also reads from `.claude/skills/` and `.codex/skills/` at both project and user level, so skills written for [Claude Code](/how-to-create-and-use-skills-in-claude-code/){:target="_blank" rel="noopener"} or Codex work too.
 
 The rule of thumb is simple. If a skill encodes how *this project* works, put it in `.cursor/skills/` and commit it. If it encodes how *you* like to work everywhere, put it in `~/.cursor/skills/`.
 
@@ -428,6 +428,7 @@ Start small. Pick the one workflow you explained most this week, write it down a
 
 **Related posts:**
 
+- [Claude Code Skills: How to Create and Use Agent Skills](/how-to-create-and-use-skills-in-claude-code/){:target="_blank" rel="noopener"} - Same SKILL.md standard, with CLAUDE.md, bang-command diffs, and Claude Code plugins
 - [How to Use Cursor: 12 Tips to 10x Your Productivity](/how-to-use-cursor/){:target="_blank" rel="noopener"} - Master every Cursor surface, with skills as one piece of the workflow
 - [Model Context Protocol (MCP) Explained](/model-context-protocol-mcp-explained/){:target="_blank" rel="noopener"} - How agents connect to external tools, the perfect companion to skills
 - [Building AI Agents](/building-ai-agents/){:target="_blank" rel="noopener"} - The patterns behind the agents that run your skills

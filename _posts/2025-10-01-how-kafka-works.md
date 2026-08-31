@@ -104,7 +104,7 @@ Each topic is completely independent. You can have thousands of topics in a sing
 
 ### Partitions: The Secret to Scale
 
-Here's where it gets interesting. Each topic is split into **partitions**. Think of partitions as lanes on a highway.
+Here's where it gets interesting. Each topic is split into a fixed number of **partitions**. Think of partitions as lanes on a highway. This is the [Fixed Partitions pattern](/distributed-systems/fixed-partitions/){:target="_blank" rel="noopener"} in action: keys map to a fixed set of partitions, and partitions are spread across brokers so the cluster can scale without rehashing every key.
 
 ```mermaid
 graph TB

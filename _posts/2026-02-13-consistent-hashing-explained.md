@@ -532,7 +532,7 @@ When designing systems like URL shorteners, you need to distribute data across m
 | Rendezvous hashing | Only K/N keys | Even | Medium | When ring overhead matters |
 | Directory-based | Depends on rules | Configurable | High | Complex routing needs |
 
-Consistent hashing is the best fit when your cluster size changes frequently and you want to minimize data movement. Range-based partitioning is better when you need ordered scans across a range of keys.
+Consistent hashing is the best fit when your cluster size changes frequently and you want to minimize data movement. Range-based partitioning is better when you need ordered scans across a range of keys. A close cousin is the [Fixed Partitions pattern](/distributed-systems/fixed-partitions/){:target="_blank" rel="noopener"}, which solves the same resize problem with an explicit, fixed number of logical partitions instead of a ring, and is how Kafka and Redis Cluster distribute data.
 
 ## Common Pitfalls
 

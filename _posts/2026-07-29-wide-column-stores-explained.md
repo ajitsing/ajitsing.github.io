@@ -242,7 +242,7 @@ The data model explains a single node. The magic of wide column stores is how no
 
 **Cassandra and ScyllaDB use a masterless ring.** Every node is equal. There is no leader, no single coordinator, no special node whose failure takes down the cluster. Nodes discover each other and share state using a [gossip protocol](/distributed-systems/gossip-dissemination/){:target="_blank" rel="noopener"}, the same style of chatter that biological and distributed systems use to spread information. The partition key hash maps onto the ring, and the node responsible for that range owns the data, with copies on the next few nodes clockwise.
 
-**Bigtable and HBase use a leader-based design.** A master assigns key ranges (called tablets or regions) to worker servers and rebalances them as load shifts. Data itself sits on a shared distributed file system. This centralizes coordination, which simplifies some consistency questions at the cost of a more involved architecture. Bigtable is offered as a fully managed Google Cloud service, so you never see any of it.
+**Bigtable and HBase use a leader-based design.** A master assigns key ranges (called tablets or regions) to worker servers and rebalances them as load shifts, a leader-driven take on the [Fixed Partitions pattern](/distributed-systems/fixed-partitions/){:target="_blank" rel="noopener"}. Data itself sits on a shared distributed file system. This centralizes coordination, which simplifies some consistency questions at the cost of a more involved architecture. Bigtable is offered as a fully managed Google Cloud service, so you never see any of it.
 
 ```mermaid
 flowchart TB

@@ -369,7 +369,7 @@ Microsoft researchers discovered over 50 unique prompt injection attempts from 3
 
 **MCP Tool Poisoning to RCE**
 
-A malicious tool definition in the Model Context Protocol was shown to redirect agent execution to attacker-controlled infrastructure, achieving remote code execution through a prompt injection chain entirely within the agent's normal operational parameters. If you are building tools for AI agents with MCP (see [Claude Cowork Guide](/claude-cowork-guide/) for how MCP works in practice), this is a real risk.
+A malicious tool definition in the Model Context Protocol was shown to redirect agent execution to attacker-controlled infrastructure, achieving remote code execution through a prompt injection chain entirely within the agent's normal operational parameters. If you are building tools for AI agents with MCP (see [Claude Cowork Guide](/claude-cowork-guide/) for how MCP works in practice), this is a real risk. Treat [Claude Code skills](/how-to-create-and-use-skills-in-claude-code/) the same way: a skill with a wide `allowed-tools` grant is executable policy, so read it before you run it.
 
 ## <i class="fas fa-lock"></i> Why the Model Alone Cannot Fix This
 

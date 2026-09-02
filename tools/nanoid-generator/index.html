@@ -1,0 +1,380 @@
+---
+layout: default
+title: "NanoID Generator | Generate NanoID Online Free"
+subtitle: "Create compact, URL-safe unique IDs in your browser"
+seo: true
+description: "Free online NanoID generator. Create compact, URL-safe unique IDs with a custom size and alphabet. Bulk generate NanoIDs, see collision odds, and copy instantly. 100% client-side."
+keywords: "nanoid generator, nanoid, generate nanoid, nanoid online, nanoid js, unique id generator, url safe id, short unique id, nanoid vs uuid, custom alphabet id, collision resistant id, nanoid size, nanoid alphabet, generate unique id online, free nanoid generator, bulk nanoid generator"
+thumbnail: /assets/img/tools/nanoid-generator-thumbnail.png
+share-img: /assets/img/tools/nanoid-generator-thumbnail.png
+permalink: /tools/nanoid-generator/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/nanoid-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "NanoID Generator",
+  "alternateName": ["NanoID Generator Online", "Generate NanoID", "Unique ID Generator", "URL-Safe ID Generator", "NanoID vs UUID", "Bulk NanoID Generator"],
+  "description": "Free online NanoID generator. Create compact, URL-safe unique IDs with custom size and alphabet. Bulk generate and estimate collision odds. 100% client-side.",
+  "url": "https://singhajit.com/tools/nanoid-generator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Generate NanoIDs with one click",
+    "Default 21-character URL-safe alphabet",
+    "Custom size from 2 to 64 characters",
+    "URL-safe, alphanumeric, numeric, hex, and no-lookalike alphabets",
+    "Custom alphabet support",
+    "Collision odds for the current size and alphabet",
+    "Bulk generate up to 100 NanoIDs",
+    "Copy single or bulk IDs to clipboard",
+    "100% client-side, no data sent to servers",
+    "Free to use with no signup required"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/nanoid-generator-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "NanoID Reference",
+    "text": "NanoID is a compact, URL-safe unique identifier. The default is 21 characters from a 64-character URL-safe alphabet (A-Za-z0-9_-), giving about 126 bits of entropy. Size and alphabet are configurable, so you can trade length for collision resistance."
+  },
+  "keywords": "nanoid generator, generate nanoid, nanoid online, unique id generator, url safe id, nanoid vs uuid"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Generate a NanoID Online",
+  "description": "Generate compact, URL-safe unique IDs with this free online NanoID generator.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Choose size and alphabet",
+      "text": "Keep the default 21-character URL-safe alphabet, or pick a shorter size and a preset such as numbers, hex, or no lookalikes. You can also type a custom alphabet."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Generate a NanoID",
+      "text": "Click Generate to create a cryptographically random NanoID in your browser. Copy it with one click."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Bulk generate if needed",
+      "text": "Use Bulk Generate to create up to 100 NanoIDs at once for fixtures, tests, or seed data."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "NanoID Generator"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a NanoID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A NanoID is a compact unique identifier popularized by the nanoid JavaScript library. The default is 21 characters from a 64-character URL-safe alphabet, which is shorter than a UUID and safe to put in URLs, filenames, and HTML without encoding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I generate a NanoID online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use this free NanoID generator. A URL-safe ID is created as soon as the page loads. Click Generate for a new one, change the size or alphabet if you need a shorter or numeric ID, then copy it. Nothing is sent to a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between NanoID and UUID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A default NanoID is 21 URL-safe characters. A UUID is 36 hex characters with hyphens (32 without). NanoIDs have no hyphens, no version nibble, and a configurable alphabet. UUIDs are a fixed RFC 9562 format with native database types. Use NanoID when you want short public IDs. Use UUID v4 or v7 when you need the standard UUID layout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is NanoID unique enough?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for typical apps. A 21-character URL-safe NanoID has about 126 bits of entropy. There is roughly a 1% chance of a collision after generating about a quintillion IDs. Shorter sizes or smaller alphabets reduce that margin. This tool shows the 1% collision estimate for the size and alphabet you pick."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use NanoIDs as database primary keys?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can, but NanoIDs are random like UUID v4, so they scatter inserts across a B-tree index. If index locality matters, prefer UUID v7, ULID, or a Snowflake ID. NanoID is a better fit for public slugs, invite codes, and API resource IDs where shortness and URL safety matter more than sort order."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What alphabet does NanoID use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The default alphabet is 64 URL-safe characters: A-Z, a-z, 0-9, underscore, and hyphen. This tool also includes alphanumeric, numbers only, hex, and a no-lookalikes alphabet that drops similar characters such as 0/O and 1/l/I. You can type any custom alphabet of at least two unique characters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to generate NanoIDs in the browser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This generator uses crypto.getRandomValues() and the same unbiased sampling approach as the official nanoid library. IDs are created entirely in your browser. No data is sent to a server."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "NanoID Generator",
+      "item": "https://singhajit.com/tools/nanoid-generator/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="nanoid-page-wrapper">
+  <div class="nanoid-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-hashtag"></i>
+        NanoID Generator
+      </h1>
+      <p class="tool-subtitle">Generate compact, URL-safe unique IDs instantly</p>
+    </header>
+
+<p class="tool-intro">
+  Free <strong>NanoID generator</strong> to create short, URL-safe unique IDs. Pick a size and alphabet, generate a single ID or a batch, and copy with one click. 100% client-side, your data never leaves your browser.
+</p>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="tool-section">
+      <div class="section-header">
+        <label><i class="fas fa-plus-circle"></i> Generate NanoID</label>
+      </div>
+
+      <div class="control-row">
+        <div class="size-control">
+          <label for="size-range">Size</label>
+          <input type="range" id="size-range" min="2" max="64" value="21" aria-label="NanoID length">
+          <input type="number" id="size-input" min="2" max="64" value="21" aria-label="NanoID length value">
+        </div>
+        <button id="generate-btn" class="btn-primary" type="button">
+          <i class="fas fa-sync-alt"></i>
+          Generate
+        </button>
+      </div>
+
+      <div class="preset-row" role="group" aria-label="Alphabet presets">
+        <button type="button" class="preset-btn active" data-preset="url">URL-safe</button>
+        <button type="button" class="preset-btn" data-preset="alphanumeric">Alphanumeric</button>
+        <button type="button" class="preset-btn" data-preset="numbers">Numbers</button>
+        <button type="button" class="preset-btn" data-preset="hex">Hex</button>
+        <button type="button" class="preset-btn" data-preset="nolookalikes">No lookalikes</button>
+        <button type="button" class="preset-btn" data-preset="custom">Custom</button>
+      </div>
+
+      <div class="alphabet-field">
+        <label for="alphabet-input">Alphabet</label>
+        <input type="text" id="alphabet-input" spellcheck="false" autocomplete="off" aria-label="NanoID alphabet">
+      </div>
+
+      <div class="nanoid-output">
+        <div class="nanoid-display">
+          <span class="nanoid-text placeholder" id="nanoid-text">Generating…</span>
+          <button class="btn-copy" id="copy-single-btn" type="button" title="Copy NanoID">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+        <div class="nanoid-meta" id="nanoid-meta"></div>
+        <div class="collision-hint" id="collision-hint"></div>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="section-header">
+        <label><i class="fas fa-layer-group"></i> Bulk Generate</label>
+      </div>
+
+      <div class="bulk-row">
+        <select id="bulk-count" aria-label="How many NanoIDs to generate">
+          <option value="5">5 NanoIDs</option>
+          <option value="10" selected>10 NanoIDs</option>
+          <option value="25">25 NanoIDs</option>
+          <option value="50">50 NanoIDs</option>
+          <option value="100">100 NanoIDs</option>
+        </select>
+        <button id="bulk-btn" class="btn-primary" type="button">
+          <i class="fas fa-layer-group"></i>
+          Generate
+        </button>
+        <button class="btn-copy" id="copy-bulk-btn" type="button" title="Copy all NanoIDs" style="display:none;">
+          <i class="fas fa-copy"></i> Copy All
+        </button>
+        <span id="bulk-count-label" class="bulk-count-label"></span>
+      </div>
+
+      <div id="bulk-output" style="display:none;">
+        <pre class="bulk-list" id="bulk-list"></pre>
+      </div>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> NanoID at a glance</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Default NanoID</h4>
+          <table>
+            <tr><td>Length</td><td>21 characters</td></tr>
+            <tr><td>Alphabet</td><td>URL-safe (A-Za-z0-9_-)</td></tr>
+            <tr><td>Entropy</td><td>~126 bits</td></tr>
+            <tr><td>URL-safe</td><td>Yes, no encoding needed</td></tr>
+            <tr><td>Sortable</td><td>No (random like UUID v4)</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>NanoID vs UUID vs ULID</h4>
+          <table>
+            <tr><td>Length</td><td>NanoID 21, UUID 36, ULID 26</td></tr>
+            <tr><td>URL-safe</td><td>NanoID and ULID yes</td></tr>
+            <tr><td>Sortable</td><td>Only ULID and UUID v7</td></tr>
+            <tr><td>Custom size</td><td>NanoID yes</td></tr>
+            <tr><td>Standard</td><td>UUID RFC 9562, others community</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> NanoID Guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a NanoID?</h2>
+          <p><strong>NanoID</strong> is a small unique identifier designed to be shorter than a UUID and safe in URLs. The default is 21 characters from a 64-character alphabet: uppercase, lowercase, digits, <code>_</code>, and <code>-</code>. That is about 126 bits of entropy, which is enough uniqueness for almost any app without the hyphens and hex padding of a UUID.</p>
+          <p>The format comes from the <a href="https://github.com/ai/nanoid" target="_blank" rel="noopener">nanoid</a> library. This generator uses the same unbiased sampling idea and <code>crypto.getRandomValues()</code> in your browser.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Size and alphabet</h2>
+          <p>Collision resistance is <code>alphabet size ^ length</code>. Shorten the ID only when you know the volume you will mint. A 12-character URL-safe ID is fine for a small product catalog. A 6-character numeric code is not enough for a public signup token.</p>
+          <ul>
+            <li><strong>URL-safe (default):</strong> Best for public IDs in links and filenames.</li>
+            <li><strong>No lookalikes:</strong> Drops 0/O, 1/l/I and similar pairs so humans can read the ID aloud.</li>
+            <li><strong>Numbers or hex:</strong> Use when the consumer only accepts digits or hex.</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>NanoID vs UUID vs ULID</h2>
+          <ul>
+            <li><strong>Use NanoID</strong> for short public slugs, invite codes, and API IDs where URL safety and length matter.</li>
+            <li><strong>Use UUID v4 or v7</strong> when you need the RFC 9562 format or a native <code>uuid</code> column. Generate those with the <a href="/tools/uuid-generator/">UUID Generator</a>.</li>
+            <li><strong>Use ULID</strong> when the ID should sort by time as a string. Generate those with the <a href="/tools/ulid-generator/">ULID Generator</a>.</li>
+          </ul>
+          <p>NanoIDs are random, so they behave like UUID v4 in B-tree indexes. If you need time-ordered primary keys, pick UUID v7, ULID, or a <a href="/tools/ksuid-generator/">KSUID</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> NanoID Generator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a NanoID?</h3>
+        <p>A <strong>NanoID</strong> is a compact unique identifier. The default is 21 URL-safe characters from a 64-character alphabet. It is shorter than a UUID and needs no encoding in URLs, filenames, or HTML.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I generate a NanoID online?</h3>
+        <p>This page generates one as soon as it loads. Click <strong>Generate</strong> for a new ID, adjust size or alphabet if you need a shorter or numeric value, then copy it. Bulk Generate creates up to 100 IDs at once.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between NanoID and UUID?</h3>
+        <p>A default NanoID is 21 characters and URL-safe. A UUID is 36 characters with hyphens and a fixed hex layout from RFC 9562. NanoID lets you change size and alphabet. UUID is the better choice when you need a standard type in PostgreSQL or SQL Server.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is NanoID unique enough?</h3>
+        <p>A 21-character URL-safe NanoID has about 126 bits of entropy. Collisions are not a practical concern at that size. The hint under the generated ID shows when a 1% collision chance appears for the size and alphabet you selected.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I use NanoIDs as database primary keys?</h3>
+        <p>Yes if uniqueness is all you need. They are random, so they scatter B-tree inserts the same way UUID v4 does. For write-heavy tables, prefer <a href="/tools/uuid-generator/">UUID v7</a> or <a href="/tools/ulid-generator/">ULID</a>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What alphabet does NanoID use?</h3>
+        <p>The default is 64 URL-safe characters: <code>A-Za-z0-9_-</code>. This tool also offers alphanumeric, numbers, hex, and a no-lookalikes set. Custom alphabets need at least two unique characters. Duplicate characters are ignored.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is it safe to generate NanoIDs in the browser?</h3>
+        <p>Yes. Generation uses <code>crypto.getRandomValues()</code> and unbiased masking so every alphabet character is equally likely. All work stays in your browser.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script defer src="{{ '/assets/js/nanoid-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

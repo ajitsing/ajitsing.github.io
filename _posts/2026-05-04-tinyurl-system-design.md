@@ -760,6 +760,8 @@ Click counts are best-effort by definition. Trying to make them strictly consist
 
 {% include tool-cta.html tool="uuid-generator" description="Generate collision-resistant IDs for short codes, sharding keys, and request tracing." %}
 {% include tool-cta.html tool="ulid-generator" variant="inline" description="Generate time-sortable ULIDs when you want sortable IDs without a Snowflake coordinator." %}
+{% include tool-cta.html tool="ksuid-generator" variant="inline" description="Generate Segment-style KSUIDs when you want time-sortable Base62 IDs with second precision." %}
+{% include tool-cta.html tool="nanoid-generator" variant="inline" description="Generate compact URL-safe NanoIDs when short public codes matter more than sort order." %}
 {% include tool-cta.html tool="url-encoder" variant="inline" description="Percent-encode redirect targets and query parameters when you build URL shortener APIs." %}
 
 ## Further Reading

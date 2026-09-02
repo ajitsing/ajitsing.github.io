@@ -44,6 +44,20 @@ ulid-generator:
   popular: true
   popular_rank: 4
   keywords: "ulid sortable unique identifier timestamp"
+nanoid-generator:
+  title: "NanoID Generator"
+  description: "Generate compact, URL-safe unique IDs. Custom size, alphabet, and bulk generate."
+  link: "/tools/nanoid-generator/"
+  icon: "fas fa-hashtag"
+  category: generators
+  keywords: "nanoid unique id url-safe short id alphabet"
+ksuid-generator:
+  title: "KSUID Generator and Decoder"
+  description: "Generate time-sortable KSUIDs and decode timestamps from existing IDs."
+  link: "/tools/ksuid-generator/"
+  icon: "fas fa-sort-amount-up"
+  category: generators
+  keywords: "ksuid sortable unique identifier segment base62"
 snowflake-decoder:
   title: "Snowflake ID Decoder"
   description: "Decode Twitter, Discord, Instagram, and LinkedIn Snowflake IDs into timestamps and components."

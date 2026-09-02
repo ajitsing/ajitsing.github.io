@@ -1,0 +1,389 @@
+---
+layout: default
+title: "KSUID Generator & Decoder | Generate KSUIDs Online"
+subtitle: "Generate and decode K-Sortable Unique IDs"
+seo: true
+description: "Free KSUID generator and decoder. Create time-sortable unique IDs, extract the timestamp, bulk generate, and validate Base62 format. Runs in your browser."
+keywords: "ksuid generator, ksuid decoder, ksuid online, generate ksuid, ksuid to timestamp, ksuid vs ulid, ksuid vs uuid, k sortable unique identifier, segment ksuid, ksuid format, ksuid validator, bulk ksuid generator, decode ksuid, ksuid base62"
+thumbnail: /assets/img/tools/ksuid-generator-thumbnail.png
+share-img: /assets/img/tools/ksuid-generator-thumbnail.png
+permalink: /tools/ksuid-generator/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/ksuid-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "KSUID Generator & Decoder",
+  "alternateName": ["KSUID Generator", "KSUID Decoder", "Generate KSUID", "KSUID Online", "K-Sortable Unique Identifier"],
+  "description": "Free KSUID generator and decoder. Create time-sortable unique IDs, extract timestamps, bulk generate, and validate format. 100% client-side.",
+  "url": "https://singhajit.com/tools/ksuid-generator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Generate KSUIDs with one click",
+    "Bulk generate up to 100 KSUIDs",
+    "Decode a KSUID to its timestamp and payload",
+    "Validate Base62 format",
+    "Copy single or bulk KSUIDs",
+    "100% client-side, no data sent to servers",
+    "Free, no signup"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/ksuid-generator-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "KSUID Reference",
+    "text": "A KSUID is a 160-bit identifier. The first 32 bits are seconds since 2014-05-13 16:53:20 UTC. The remaining 128 bits are random. The usual string form is 27 characters of Base62, so string sort matches creation time."
+  },
+  "keywords": "ksuid generator, ksuid decoder, generate ksuid, ksuid vs ulid, ksuid vs uuid"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to generate a KSUID online",
+  "description": "Generate and decode KSUIDs with this free browser tool.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Generate a KSUID",
+      "text": "Click Generate. The tool fills a 32-bit timestamp and 16 random bytes, then encodes them as a 27-character Base62 string."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Bulk generate if you need a list",
+      "text": "Use Bulk Generate to mint up to 100 KSUIDs for tests or seed data."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Decode an existing KSUID",
+      "text": "Paste any 27-character KSUID to read the timestamp, Unix seconds, and 16-byte payload."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "KSUID Generator & Decoder"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a KSUID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "KSUID stands for K-Sortable Unique Identifier. Segment designed it as a 20-byte ID: 4 bytes of time (seconds since 13 May 2014) plus 16 random bytes. Encoded in Base62 it is always 27 characters. Sorting the strings sorts by time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I generate a KSUID online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open this page. A KSUID is created on load. Click Generate for another one, or Bulk Generate for a list. Copy with one click. Nothing is uploaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between KSUID and ULID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both put time first so they sort. ULID uses millisecond time and Crockford Base32 (26 characters). KSUID uses second time, a 2014 epoch, Base62, and 27 characters. ULID is more common in open source. KSUID shows up in Segment-related stacks and Go services that adopted the original library."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between KSUID and UUID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A UUID is 128 bits in a hyphenated hex layout. UUID v4 is random and does not sort by time. UUID v7 sorts by time but stays in UUID format. A KSUID is 160 bits, 27 Base62 characters, and always sortable. There is no native ksuid column in PostgreSQL or SQL Server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are KSUIDs good database primary keys?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes when you want globally unique keys that append near the end of a B-tree. New KSUIDs are usually larger than older ones, so inserts behave more like a sequence than like UUID v4. Store them as char(27) or as 20 bytes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I read the timestamp in a KSUID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first 4 bytes are seconds since 2014-05-13 16:53:20 UTC. Add 1400000000 to get Unix time. This decoder does that when you paste a KSUID."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is KSUID case-sensitive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Base62 uses both A-Z and a-z. Changing case produces a different ID. Do not lowercase KSUIDs the way you might with a ULID."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "KSUID Generator & Decoder",
+      "item": "https://singhajit.com/tools/ksuid-generator/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="ksuid-page-wrapper">
+  <div class="ksuid-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-sort-amount-up"></i>
+        KSUID Generator & Decoder
+      </h1>
+      <p class="tool-subtitle">Generate, decode, and validate KSUIDs in your browser</p>
+    </header>
+
+<p class="tool-intro">
+  Free <strong>KSUID generator</strong> for K-Sortable Unique IDs. Mint a 27-character Base62 ID, pull the timestamp out of an existing one, or generate a batch. Everything stays in your browser.
+</p>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="tool-section">
+      <div class="section-header">
+        <label><i class="fas fa-plus-circle"></i> Generate KSUID</label>
+      </div>
+
+      <div class="generator-row">
+        <button id="generate-btn" class="btn-primary" type="button">
+          <i class="fas fa-sync-alt"></i>
+          Generate
+        </button>
+      </div>
+
+      <div class="ksuid-output" id="single-output">
+        <div class="ksuid-display" id="ksuid-display">
+          <span class="ksuid-text placeholder" id="ksuid-text">Generating...</span>
+          <button class="btn-copy" id="copy-single-btn" type="button" title="Copy KSUID">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+        <div class="ksuid-meta" id="ksuid-meta"></div>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="section-header">
+        <label><i class="fas fa-layer-group"></i> Bulk Generate</label>
+      </div>
+
+      <div class="bulk-row">
+        <select id="bulk-count" aria-label="How many KSUIDs to generate">
+          <option value="5">5 KSUIDs</option>
+          <option value="10" selected>10 KSUIDs</option>
+          <option value="25">25 KSUIDs</option>
+          <option value="50">50 KSUIDs</option>
+          <option value="100">100 KSUIDs</option>
+        </select>
+        <button id="bulk-btn" class="btn-primary" type="button">
+          <i class="fas fa-layer-group"></i>
+          Generate
+        </button>
+        <button class="btn-copy" id="copy-bulk-btn" type="button" title="Copy all KSUIDs" style="display:none;">
+          <i class="fas fa-copy"></i> Copy All
+        </button>
+        <span id="bulk-count-label" class="bulk-count-label"></span>
+      </div>
+
+      <div id="bulk-output" style="display:none;">
+        <pre class="bulk-list" id="bulk-list"></pre>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="section-header">
+        <label><i class="fas fa-search"></i> Decode & Validate KSUID</label>
+      </div>
+      <div class="decoder-input-container">
+        <input
+          type="text"
+          id="decode-input"
+          placeholder="Paste a KSUID (27 characters, e.g. 0ujsszwN8NRYNET83VcCvwoKwhR)"
+          spellcheck="false"
+          autocomplete="off"
+        >
+        <button id="decode-btn" class="btn-primary" type="button">
+          <i class="fas fa-search"></i> Decode
+        </button>
+      </div>
+      <div id="decode-result" class="decode-result" style="display:none;"></div>
+    </section>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> KSUID structure</h3>
+      <div class="structure-diagram">
+        <div class="structure-bar">
+          <div class="structure-segment timestamp-seg">
+            <span class="seg-label">Timestamp</span>
+            <span class="seg-detail">32 bits / 4 bytes</span>
+          </div>
+          <div class="structure-segment random-seg">
+            <span class="seg-label">Payload</span>
+            <span class="seg-detail">128 bits / 16 bytes</span>
+          </div>
+        </div>
+        <div class="structure-example">
+          <code>20 bytes total, encoded as 27 Base62 characters</code>
+        </div>
+      </div>
+
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>KSUID format</h4>
+          <table>
+            <tr><td>Length</td><td>27 characters</td></tr>
+            <tr><td>Encoding</td><td>Base62 (0-9A-Za-z)</td></tr>
+            <tr><td>Size</td><td>160 bits (20 bytes)</td></tr>
+            <tr><td>Time unit</td><td>Seconds</td></tr>
+            <tr><td>Epoch</td><td>13 May 2014, 16:53:20 UTC</td></tr>
+            <tr><td>Case</td><td>Case-sensitive</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>KSUID vs ULID vs UUID</h4>
+          <table>
+            <tr><td>Length</td><td>KSUID 27, ULID 26, UUID 36</td></tr>
+            <tr><td>Sortable</td><td>KSUID and ULID yes, UUID v4 no</td></tr>
+            <tr><td>Time precision</td><td>KSUID seconds, ULID ms</td></tr>
+            <tr><td>Random bits</td><td>KSUID 128, ULID 80</td></tr>
+            <tr><td>Native DB type</td><td>UUID only</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> KSUID guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a KSUID?</h2>
+          <p><strong>KSUID</strong> (K-Sortable Unique Identifier) is a 20-byte ID from <a href="https://github.com/segmentio/ksuid" target="_blank" rel="noopener">Segment</a>. The first four bytes count seconds from 13 May 2014, 16:53:20 UTC (<code>1400000000</code> Unix). The other 16 bytes are random. Encoded with Base62, every KSUID is 27 characters.</p>
+          <p>Because time sits in the high bits, sorting KSUID strings is the same as sorting by creation time. That is the whole point: unique IDs that still work as a rough timeline.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Why 27 characters of Base62?</h2>
+          <p>20 bytes is 160 bits. Base62 packs about 5.95 bits per character, so you need 27 characters to cover 160 bits. The string is padded on the left with <code>0</code> so the length never changes. That fixed width is what keeps lexicographic order aligned with time.</p>
+          <p>Base62 uses digits, uppercase, and lowercase. Unlike ULID, case matters. <code>0ujssw</code> and <code>0UJSSW</code> are different values.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>KSUID vs ULID vs UUID</h2>
+          <ul>
+            <li><strong>KSUID:</strong> second precision, 128 random bits, 27-character Base62. Fine when one ID per second is plenty and you want extra payload entropy.</li>
+            <li><strong>ULID:</strong> millisecond precision, 80 random bits, 26-character Crockford Base32, case-insensitive. Pick this if you generate many IDs in the same second. Use the <a href="/tools/ulid-generator/">ULID Generator</a>.</li>
+            <li><strong>UUID v7:</strong> millisecond time in the RFC 9562 layout, native <code>uuid</code> columns. Use the <a href="/tools/uuid-generator/">UUID Generator</a>.</li>
+          </ul>
+          <p>For compact public slugs that do not need to sort, a <a href="/tools/nanoid-generator/">NanoID</a> is shorter. For 64-bit distributed IDs, see the <a href="/tools/snowflake-decoder/">Snowflake ID Decoder</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> KSUID generator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a KSUID?</h3>
+        <p>A <strong>KSUID</strong> is a 20-byte identifier: 4 bytes of time plus 16 random bytes. The string form is 27 Base62 characters. Segment shipped it so IDs could be unique and still sort by time.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I generate a KSUID online?</h3>
+        <p>This page creates one on load. Click <strong>Generate</strong> for a new ID. Bulk Generate makes up to 100. Copy is one click. Generation uses <code>crypto.getRandomValues()</code> and never leaves the browser.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the difference between KSUID and ULID?</h3>
+        <p>ULID timestamps are milliseconds and the string is Crockford Base32. KSUID timestamps are seconds, the epoch is 2014, and the string is Base62. ULID is a bit shorter and case-insensitive. KSUID has more random bits (128 vs 80).</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I use KSUIDs as primary keys?</h3>
+        <p>Yes. New IDs tend to land at the end of a B-tree, unlike random UUID v4. Store as <code>CHAR(27)</code> or 20 binary bytes. If you want a standard UUID type in Postgres, UUID v7 is less friction.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I get the timestamp from a KSUID?</h3>
+        <p>Paste it into the decoder. The first four bytes are seconds after 13 May 2014, 16:53:20 UTC. Add 1,400,000,000 to get Unix seconds.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is a KSUID case-sensitive?</h3>
+        <p>Yes. Base62 includes both cases. Lowercasing a KSUID changes the ID. Do not treat it like a ULID.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>When does the KSUID timestamp overflow?</h3>
+        <p>The 32-bit counter runs out in 2150. That is far enough out that it is not a practical limit for systems being built now.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script defer src="{{ '/assets/js/ksuid-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

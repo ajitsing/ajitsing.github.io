@@ -289,7 +289,7 @@ The second biggest difference is how releases work. In Git Flow, a release is a 
 
 ## <i class="fas fa-code-branch"></i> Where Trunk-Based Development Fits
 
-You cannot talk about this in 2026 without mentioning the third option, because it is where many strong teams have landed: **trunk-based development**.
+You cannot talk about this in 2026 without mentioning the third option, because it is where many strong teams have landed: **[trunk-based development](/how-google-manages-its-monorepo/){:target="_blank" rel="noopener"}**.
 
 Trunk-based development takes GitHub Flow's "one main branch" idea and pushes it further. Instead of branches that live for a day or two, developers commit to the trunk (`main`) almost continuously, often through branches that exist for only a few hours. Unfinished work is hidden behind [feature flags](/feature-flags-guide/){:target="_blank" rel="noopener"}, usually managed through a feature flag management platform, so it can ship to production turned off, then be switched on later.
 

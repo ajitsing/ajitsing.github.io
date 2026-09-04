@@ -16,7 +16,7 @@ how_it_works:
   - "If a majority replies, the proposer sends an Accept message with either its own value or the latest value it heard about."
   - "Acceptors that have not made a higher promise accept the value. Once a majority accepts, the value is decided."
 real_world:
-  - "Google Chubby and Spanner use Paxos variants to keep their state in sync across machines."
+  - "Google Chubby and Spanner use Paxos variants to keep their state in sync across machines. Piper, Google's source repository, stores the monorepo on Spanner and uses Paxos across replicas."
   - "Apache Cassandra runs a Paxos round on top of its storage layer for lightweight transactions."
   - "ZooKeeper's Zab protocol is a Paxos-style atomic broadcast tuned for primary backup replication."
 related_terms: ["consensus", "raft", "quorum", "replicated-log", "leader-election"]
@@ -24,4 +24,6 @@ related_posts:
   - "/distributed-systems/paxos/"
   - "/distributed-systems/replicated-log/"
   - "/distributed-systems/majority-quorum/"
+  - "/how-google-manages-its-monorepo/"
+  - "/how-google-ads-scales-with-spanner/"
 ---

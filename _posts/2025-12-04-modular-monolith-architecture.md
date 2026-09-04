@@ -36,7 +36,7 @@ There's a middle ground: the modular monolith. Clear boundaries and team autonom
 
 ## What is a Modular Monolith?
 
-A modular monolith is a single deployable application that's internally divided into well-defined modules. Each module owns its domain, has clear boundaries, and communicates with other modules through explicit interfaces.
+A modular monolith is a single deployable application that's internally divided into well-defined modules. That is a deploy shape, not a [monorepo](/how-google-manages-its-monorepo/){:target="_blank" rel="noopener"}. Each module owns its domain, has clear boundaries, and communicates with other modules through explicit interfaces.
 
 Think of it like an apartment building:
 - **Traditional monolith**: One giant open floor plan. Everyone shares everything. Chaos.

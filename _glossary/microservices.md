@@ -19,9 +19,10 @@ real_world:
   - "Netflix, Amazon, and Uber run thousands of microservices behind API gateways and service meshes."
   - "Shopify and others keep a large modular core and peel off services only where it pays off."
   - "Kubernetes has become the default platform for deploying and scaling microservices."
-related_terms: ["modular-monolith", "message-queue", "saga-pattern", "cqrs", "load-balancing", "circuit-breaker"]
+related_terms: ["modular-monolith", "monorepo", "message-queue", "saga-pattern", "cqrs", "load-balancing", "circuit-breaker"]
 related_posts:
   - "/modular-monolith-architecture/"
   - "/saga-pattern-distributed-transactions/"
   - "/role-of-queues-in-system-design/"
+  - "/how-google-manages-its-monorepo/"
 ---

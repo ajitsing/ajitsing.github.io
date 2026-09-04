@@ -19,8 +19,9 @@ real_world:
   - "Shopify and GitHub run large modular monoliths rather than sprawling microservices."
   - "Frameworks like Spring Modulith and .NET's module conventions help enforce boundaries."
   - "It is a common, pragmatic middle ground between a big ball of mud and premature microservices."
-related_terms: ["cqrs", "message-queue", "saga-pattern"]
+related_terms: ["cqrs", "message-queue", "saga-pattern", "monorepo", "microservices"]
 related_posts:
   - "/modular-monolith-architecture/"
   - "/multi-tenant-database-isolation/"
+  - "/how-google-manages-its-monorepo/"
 ---

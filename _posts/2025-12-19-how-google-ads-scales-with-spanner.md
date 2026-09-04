@@ -31,7 +31,7 @@ Everyone knows the rule: you can't have both strong consistency and global scale
 
 Google looked at that rule and said, "We'll take both."
 
-The result is Spanner. A globally distributed SQL database that powers Google Ads, serving 4.8 billion users. Thats 90% of all internet users on the planet. Every ad impression, every click, every bid runs through it.
+The result is Spanner. A globally distributed SQL database that powers Google Ads, serving 4.8 billion users, and the storage layer under [Google's source monorepo](/how-google-manages-its-monorepo/){:target="_blank" rel="noopener"}. Thats 90% of all internet users on the planet. Every ad impression, every click, every bid runs through it.
 
 This is the story of how they pulled it off. And what you can learn from it.
 

@@ -24,4 +24,5 @@ related_posts:
   - "/distributed-systems/paxos/"
   - "/distributed-systems/replicated-log/"
   - "/distributed-systems/majority-quorum/"
+  - "/how-google-manages-its-monorepo/"
 ---

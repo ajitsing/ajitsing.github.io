@@ -397,7 +397,7 @@ If you are debugging push performance, knowing this pipeline is the single most 
 
 ## Pack Files, Multi-Pack-Index, and Reachability Bitmaps
 
-If Spokes is the **distribution** problem, pack files are the **single-server performance** problem. GitHub's monorepo customers (and big open source projects like Linux, Chromium, and the Windows source tree) have repositories with tens of millions of objects and hundreds of thousands of refs. Without serious engineering on the Git side, those repos would be unusable.
+If Spokes is the **distribution** problem, pack files are the **single-server performance** problem. GitHub's [monorepo](/how-google-manages-its-monorepo/){:target="_blank" rel="noopener"} customers (and big open source projects like Linux, Chromium, and the Windows source tree) have repositories with tens of millions of objects and hundreds of thousands of refs. Without serious engineering on the Git side, those repos would be unusable.
 
 The most important features GitHub helped land in upstream Git are summarized in [Scaling monorepo maintenance](https://github.blog/open-source/git/scaling-monorepo-maintenance/){:target="_blank" rel="noopener"} and [Improving large monorepo performance on GitHub](https://github.blog/developer-skills/github/improving-large-monorepo-performance-on-github/){:target="_blank" rel="noopener"}.
 

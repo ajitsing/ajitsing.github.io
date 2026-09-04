@@ -1,0 +1,341 @@
+---
+layout: default
+title: "RGB to Hex Converter | Convert RGB to Hex Online"
+subtitle: "Turn RGB values into CSS hex colors"
+seo: true
+description: "Free RGB to hex converter. Convert rgb() and red, green, blue values to #RRGGBB or 8-digit hex with alpha. Live preview, copy CSS. 100% client-side."
+keywords: "rgb to hex, rgb to hex converter, convert rgb to hex, rgb to hexadecimal, rgb hex converter, rgb to hex online, css rgb to hex, rgba to hex, color converter rgb hex, hex color from rgb"
+thumbnail: /assets/img/tools/rgb-to-hex-thumbnail.png
+share-img: /assets/img/tools/rgb-to-hex-thumbnail.png
+permalink: /tools/rgb-to-hex/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/color-convert-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "RGB to Hex Converter",
+  "alternateName": ["RGB to Hex", "Convert RGB to Hex", "RGB Hex Converter", "RGBA to Hex", "CSS RGB to Hex"],
+  "description": "Free RGB to hex converter. Convert red, green, blue, and optional alpha to #RRGGBB or 8-digit hex. 100% client-side.",
+  "url": "https://singhajit.com/tools/rgb-to-hex/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Convert RGB 0-255 channels to hex",
+    "Optional alpha for 8-digit hex and rgba()",
+    "Live color swatch and native color picker",
+    "Copy #RRGGBB, lowercase hex, rgb(), rgba()",
+    "Presets for common CSS colors",
+    "100% client-side, no upload"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/rgb-to-hex-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "RGB to Hex Reference",
+    "text": "Each RGB channel is 0 to 255. Hex writes that byte as two hexadecimal digits. rgb(255, 87, 51) becomes #FF5733. Alpha can be stored as two extra hex digits (#RRGGBBAA) or as the fourth argument of rgba()."
+  },
+  "keywords": "rgb to hex, convert rgb to hex, rgb to hex converter, rgba to hex"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert RGB to hex",
+  "description": "Convert RGB color values to a CSS hex code in the browser.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Set red, green, and blue",
+      "text": "Move the sliders or type numbers from 0 to 255. You can also pick a color with the native picker or a preset."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Optional alpha",
+      "text": "Leave alpha at 100% for a 6-digit hex code. Lower it to get rgba() and an 8-digit hex value."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy the CSS",
+      "text": "Copy #RRGGBB, lowercase hex, rgb(), or rgba(). Nothing is sent to a server."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "RGB to Hex Converter"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert RGB to hex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Write each channel as two hex digits. 255 is FF, 87 is 57, 51 is 33, so rgb(255, 87, 51) is #FF5733. This tool does that as you move the sliders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the formula for RGB to hexadecimal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clamp each of R, G, and B to 0-255. Convert the integer to base 16 and pad to two characters. Prefix with #. CSS also accepts lowercase #ff5733."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does RGB to hex support alpha?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Alpha 0-100% maps to a byte 00-FF. You get rgba(r, g, b, a) and #RRGGBBAA. Older browsers ignore the last two hex digits, so keep rgb() when you need a solid color."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is hex the same as RGB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They describe the same sRGB triple. Hex is a compact spelling for stylesheets. rgb() is easier to tweak by channel. Use the Hex to RGB converter when you start from a hex string."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this RGB to hex converter upload my color?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Conversion runs in this tab. There is no API call."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "RGB to Hex Converter",
+      "item": "https://singhajit.com/tools/rgb-to-hex/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="color-page-wrapper">
+  <div class="color-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-palette"></i>
+        RGB to Hex Converter
+      </h1>
+      <p class="tool-subtitle">Turn RGB values into CSS hex colors</p>
+    </header>
+
+<p class="tool-intro">
+  Free <strong>RGB to hex</strong> converter for CSS. Set red, green, and blue (0 to 255), optionally alpha, and copy <code>#RRGGBB</code> or <code>rgba()</code>.   Everything stays in the browser.
+</p>
+
+<div class="cross-tool-banner">
+  <i class="fas fa-info-circle"></i>
+  <span>Starting from a hex string like <code>#FF5733</code>? Use the <a href="{{ '/tools/hex-to-rgb/' | relative_url }}" onclick="if(typeof gtag==='function'){gtag('event','cross_tool_switch',{'event_category':'RGB to Hex','event_label':'to_hex_to_rgb_from_banner'})}">Hex to RGB Converter</a>.</span>
+</div>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="tool-section">
+      <div class="section-header">
+        <label><i class="fas fa-sliders-h"></i> RGB channels</label>
+      </div>
+
+      <div class="preset-row" id="presets" aria-label="Color presets"></div>
+
+      <div class="workspace">
+        <div>
+          <div class="channel-row">
+            <label for="r-input">R</label>
+            <input id="r-range" type="range" min="0" max="255" value="41">
+            <input id="r-input" type="number" min="0" max="255" value="41">
+          </div>
+          <div class="channel-row">
+            <label for="g-input">G</label>
+            <input id="g-range" type="range" min="0" max="255" value="37">
+            <input id="g-input" type="number" min="0" max="255" value="37">
+          </div>
+          <div class="channel-row">
+            <label for="b-input">B</label>
+            <input id="b-range" type="range" min="0" max="255" value="36">
+            <input id="b-input" type="number" min="0" max="255" value="36">
+          </div>
+          <div class="channel-row">
+            <label for="a-input">A%</label>
+            <input id="a-range" type="range" min="0" max="100" value="100">
+            <input id="a-input" type="number" min="0" max="100" value="100">
+          </div>
+          <div class="picker-wrap">
+            <input id="color-picker" type="color" value="#292524" aria-label="Color picker">
+            <span class="tool-subtitle" style="opacity:1;color:#78716c;">Picker ignores alpha. Use A% for transparency.</span>
+          </div>
+        </div>
+        <div>
+          <div class="swatch" aria-hidden="true"><div id="swatch-fill" class="swatch-fill"></div></div>
+          <div class="outputs" style="margin-top:12px;">
+            <div class="output-row">
+              <span class="label">Hex</span>
+              <span class="value" id="hex-out">#292524</span>
+              <button type="button" class="btn-copy" data-copy="hex-out" aria-label="Copy hex"><i class="fas fa-copy"></i></button>
+            </div>
+            <div class="output-row">
+              <span class="label">Lower</span>
+              <span class="value" id="hex-lower-out">#292524</span>
+              <button type="button" class="btn-copy" data-copy="hex-lower-out" aria-label="Copy lowercase hex"><i class="fas fa-copy"></i></button>
+            </div>
+            <div class="output-row">
+              <span class="label">rgb</span>
+              <span class="value" id="rgb-out">rgb(41, 37, 36)</span>
+              <button type="button" class="btn-copy" data-copy="rgb-out" aria-label="Copy rgb"><i class="fas fa-copy"></i></button>
+            </div>
+            <div class="output-row">
+              <span class="label">rgba</span>
+              <span class="value" id="rgba-out">rgba(41, 37, 36, 1)</span>
+              <button type="button" class="btn-copy" data-copy="rgba-out" aria-label="Copy rgba"><i class="fas fa-copy"></i></button>
+            </div>
+            <div class="output-row">
+              <span class="label">#RGBA</span>
+              <span class="value" id="hexa-out">#292524FF</span>
+              <button type="button" class="btn-copy" data-copy="hexa-out" aria-label="Copy 8-digit hex"><i class="fas fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="color-crosslinks" aria-label="Related tools">
+      <a href="{{ '/tools/hex-to-rgb/' | relative_url }}">Hex to RGB</a>
+      <a href="{{ '/tools/svg-viewer/' | relative_url }}">SVG Viewer</a>
+      <a href="{{ '/tools/html-beautifier/' | relative_url }}">HTML Beautifier</a>
+    </nav>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> RGB to hex at a glance</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Known values</h4>
+          <table>
+            <tr><td>rgb(255, 87, 51)</td><td>#FF5733</td></tr>
+            <tr><td>rgb(41, 37, 36)</td><td>#292524</td></tr>
+            <tr><td>rgb(255, 255, 255)</td><td>#FFFFFF</td></tr>
+            <tr><td>rgb(0, 0, 0)</td><td>#000000</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Channel to hex</h4>
+          <table>
+            <tr><td>0</td><td>00</td></tr>
+            <tr><td>15</td><td>0F</td></tr>
+            <tr><td>16</td><td>10</td></tr>
+            <tr><td>255</td><td>FF</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> RGB to hex guide</h3>
+      <div class="syntax-guide-content">
+        <article class="guide-article">
+          <h2>How RGB becomes hex</h2>
+          <p>CSS <code>rgb()</code> uses three integers from 0 to 255. Hex is the same three bytes written in base 16. Pair them: red, then green, then blue. Prefix <code>#</code> so the stylesheet parser treats it as a color, not a word.</p>
+        </article>
+        <article class="guide-article">
+          <h2>When to keep rgb()</h2>
+          <p>Keep <code>rgb()</code> when you animate a single channel or generate colors in code. Switch to hex in static CSS. It is shorter and every design tool speaks it.</p>
+        </article>
+        <article class="guide-article">
+          <h2>Going the other way</h2>
+          <p>Paste a hex string into the <a href="/tools/hex-to-rgb/">Hex to RGB converter</a>. Preview fills on an SVG in the <a href="/tools/svg-viewer/">SVG Viewer</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> RGB to hex FAQ</h2>
+
+      <div class="faq-item">
+        <h3>How do I convert RGB to hex?</h3>
+        <p>Write each channel as two hex digits. 255 is FF, 87 is 57, 51 is 33, so <code>rgb(255, 87, 51)</code> is <code>#FF5733</code>. This tool does that as you move the sliders.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is the formula for RGB to hexadecimal?</h3>
+        <p>Clamp each of R, G, and B to 0-255. Convert the integer to base 16 and pad to two characters. Prefix with <code>#</code>. CSS also accepts lowercase <code>#ff5733</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does RGB to hex support alpha?</h3>
+        <p>Yes. Alpha 0-100% maps to a byte 00-FF. You get <code>rgba(r, g, b, a)</code> and <code>#RRGGBBAA</code>. Older browsers ignore the last two hex digits, so keep <code>rgb()</code> when you need a solid color.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is hex the same as RGB?</h3>
+        <p>They describe the same sRGB triple. Hex is a compact spelling for stylesheets. <code>rgb()</code> is easier to tweak by channel. Use the <a href="/tools/hex-to-rgb/">Hex to RGB converter</a> when you start from a hex string.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does this RGB to hex converter upload my color?</h3>
+        <p>No. Conversion runs in this tab. There is no API call.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script defer src="{{ '/assets/js/rgb-to-hex-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

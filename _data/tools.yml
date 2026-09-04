@@ -194,6 +194,20 @@ url-encoder:
   icon: "fas fa-link"
   category: converters
   keywords: "urlencode percent encoding encodeURIComponent"
+rgb-to-hex:
+  title: "RGB to Hex Converter"
+  description: "Convert RGB and RGBA channel values to CSS hex colors."
+  link: "/tools/rgb-to-hex/"
+  icon: "fas fa-palette"
+  category: converters
+  keywords: "rgb to hex converter css color"
+hex-to-rgb:
+  title: "Hex to RGB Converter"
+  description: "Convert #RRGGBB and shorthand hex colors to rgb() and rgba()."
+  link: "/tools/hex-to-rgb/"
+  icon: "fas fa-hashtag"
+  category: converters
+  keywords: "hex to rgb converter css color"
 curl-converter:
   title: "Curl Converter"
   description: "Convert curl commands to Python, Go, Java, Axios, PHP, C#, and more."

@@ -166,6 +166,13 @@ html-beautifier:
   icon: "fas fa-code"
   category: formatters
   keywords: "html pretty print minify formatter"
+svg-viewer:
+  title: "SVG Viewer"
+  description: "Preview SVG markup or a local .svg file. Inspect viewBox, copy a data URI, download."
+  link: "/tools/svg-viewer/"
+  icon: "fas fa-image"
+  category: testers
+  keywords: "svg preview viewBox data uri"
 base64-encoder:
   title: "Base64 Encoder and Decoder"
   description: "Encode text to Base64 or decode Base64 strings with UTF-8 support."

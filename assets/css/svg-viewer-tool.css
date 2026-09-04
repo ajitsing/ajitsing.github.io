@@ -1,0 +1,507 @@
+.svg-page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+  background: #faf8f5;
+  min-height: 100vh;
+}
+
+.svg-tool {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0;
+  background: #faf8f5;
+}
+
+body:has(.svg-tool) {
+  background: #faf8f5 !important;
+}
+
+.svg-tool .tool-header {
+  text-align: center;
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  border-radius: 12px;
+  color: #faf8f5;
+  box-shadow: 0 2px 12px rgba(41, 37, 36, 0.15);
+}
+
+.svg-tool .tool-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.svg-tool .tool-title i {
+  font-size: 1.2rem;
+  color: #fef3c7;
+}
+
+.svg-tool .tool-subtitle {
+  font-size: 0.85rem;
+  margin: 0;
+  opacity: 0.75;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #d6d3d1;
+}
+
+.svg-tool .tool-intro {
+  text-align: center;
+  color: #57534e;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+}
+
+.svg-tool .tool-intro strong {
+  color: #44403c;
+}
+
+.svg-tool .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.svg-tool .section-header label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #374151;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.svg-tool .section-header label i {
+  color: #78716c;
+}
+
+.svg-tool .tool-section {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.svg-tool .control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.svg-tool .btn-primary,
+.svg-tool .btn-secondary {
+  padding: 10px 16px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.svg-tool .btn-primary {
+  border: none;
+  background: #292524;
+  color: #faf8f5;
+  box-shadow: 0 2px 8px rgba(41, 37, 36, 0.2);
+}
+
+.svg-tool .btn-primary:hover {
+  background: #44403c;
+}
+
+.svg-tool .btn-secondary {
+  border: 2px solid #e7e0d5;
+  background: #fffdf9;
+  color: #44403c;
+}
+
+.svg-tool .btn-secondary:hover {
+  border-color: #a8a29e;
+  color: #292524;
+}
+
+.svg-tool .btn-secondary.copied,
+.svg-tool .btn-primary.copied {
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.svg-tool .preset-btn {
+  padding: 7px 12px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #57534e;
+  cursor: pointer;
+}
+
+.svg-tool .preset-btn.active {
+  background: #292524;
+  border-color: #292524;
+  color: #faf8f5;
+}
+
+.svg-tool .svg-workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.svg-tool .svg-pane-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #78716c;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.svg-tool #svg-input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 280px;
+  padding: 12px 14px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #292524;
+  resize: vertical;
+  outline: none;
+}
+
+.svg-tool #svg-input:focus {
+  border-color: #a8a29e;
+}
+
+.svg-tool .preview-frame {
+  min-height: 280px;
+  border: 2px solid #e7e0d5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fffdf9;
+}
+
+.svg-tool .preview-frame.is-checks {
+  background-color: #fffdf9;
+  background-image:
+    linear-gradient(45deg, #e7e0d5 25%, transparent 25%),
+    linear-gradient(-45deg, #e7e0d5 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e7e0d5 75%),
+    linear-gradient(-45deg, transparent 75%, #e7e0d5 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.svg-tool .preview-frame.is-dark {
+  background: #292524;
+}
+
+.svg-tool .preview-frame iframe {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border: 0;
+  background: transparent;
+}
+
+.svg-tool .svg-meta {
+  margin-top: 12px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  color: #57534e;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.svg-tool .meta-label {
+  color: #78716c;
+  font-weight: 600;
+}
+
+.svg-tool .svg-error {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #991b1b;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.svg-tool .drop-hint {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  color: #a8a29e;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.svg-tool .svg-crosslinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 0 0 32px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.svg-tool .svg-crosslinks a {
+  color: #292524;
+  font-weight: 600;
+}
+
+.svg-tool .reference-section,
+.svg-tool .syntax-guide-section {
+  margin-bottom: 32px;
+}
+
+.svg-tool .reference-section h3,
+.svg-tool .syntax-guide-section > h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #44403c;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.svg-tool .reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.svg-tool .reference-card {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.svg-tool .reference-card h4 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #78716c;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.svg-tool .reference-card table {
+  width: 100%;
+  font-size: 0.85rem;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.svg-tool .reference-card td {
+  padding: 5px 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: none;
+  background: transparent;
+}
+
+.svg-tool .reference-card td:first-child {
+  width: 40%;
+  font-weight: 600;
+  color: #292524;
+}
+
+.svg-tool .reference-card td:last-child {
+  color: #78716c;
+  font-size: 0.8rem;
+}
+
+.svg-tool .syntax-guide-content {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.svg-tool .guide-article {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e7e0d5;
+}
+
+.svg-tool .guide-article:last-child {
+  border-bottom: none;
+}
+
+.svg-tool .guide-article h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 12px 0;
+}
+
+.svg-tool .guide-article p,
+.svg-tool .guide-article li {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.7;
+}
+
+.svg-tool .guide-article p {
+  margin: 0 0 12px 0;
+}
+
+.svg-tool .guide-article p:last-child {
+  margin-bottom: 0;
+}
+
+.svg-tool .guide-article a {
+  color: #292524;
+  font-weight: 600;
+}
+
+.svg-tool .guide-article ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.svg-tool .guide-article ul li {
+  padding: 8px 0 8px 20px;
+  position: relative;
+  border-bottom: 1px solid #f5f0e8;
+}
+
+.svg-tool .guide-article ul li:last-child {
+  border-bottom: none;
+}
+
+.svg-tool .guide-article ul li::before {
+  content: "\2022";
+  color: #f59e0b;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.svg-tool .guide-article code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #fef3c7;
+}
+
+.svg-tool .faq-section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f5f0e8;
+  border-radius: 16px;
+  border: 2px solid #e7e0d5;
+}
+
+.svg-tool .faq-section h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #44403c;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.svg-tool .faq-item {
+  background: #fffdf9;
+  border: 2px solid #e7e0d5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.svg-tool .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.svg-tool .faq-item h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0 0 10px 0;
+}
+
+.svg-tool .faq-item p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #78716c;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.svg-tool .faq-item a {
+  color: #44403c;
+  font-weight: 600;
+}
+
+.svg-tool .faq-item code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  background: #292524;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #fef3c7;
+}
+
+@media (max-width: 768px) {
+  .svg-page-wrapper {
+    padding: 15px 12px 30px;
+  }
+
+  .svg-tool .svg-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .svg-tool .reference-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svg-tool .faq-section {
+    padding: 20px;
+  }
+
+  .svg-tool .guide-article {
+    padding: 20px;
+  }
+}

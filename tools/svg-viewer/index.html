@@ -1,0 +1,330 @@
+---
+layout: default
+title: "SVG Viewer | View SVG Online Free"
+subtitle: "Preview SVG markup in your browser"
+seo: true
+description: "Free online SVG viewer. Paste SVG markup or drop an .svg file to preview it, read viewBox size, copy a data URI, and download. 100% client-side."
+keywords: "svg viewer, svg viewer online, view svg online, svg preview, svg previewer, open svg file, svg inspector, paste svg, svg data uri, svg to data uri, view svg code, free svg viewer"
+thumbnail: /assets/img/tools/svg-viewer-thumbnail.png
+share-img: /assets/img/tools/svg-viewer-thumbnail.png
+permalink: /tools/svg-viewer/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/svg-viewer-tool.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "SVG Viewer",
+  "alternateName": ["SVG Viewer Online", "View SVG Online", "SVG Preview", "SVG Previewer", "Open SVG File"],
+  "description": "Free online SVG viewer. Paste SVG or drop a file to preview it, inspect viewBox, copy a data URI, and download. 100% client-side.",
+  "url": "https://singhajit.com/tools/svg-viewer/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Preview SVG from pasted markup",
+    "Drop an .svg file to open it",
+    "See width, height, viewBox, and element count",
+    "Checker, light, or dark preview background",
+    "Copy SVG or a data URI",
+    "Download the current SVG",
+    "Preview runs in a sandboxed iframe",
+    "100% client-side, no upload"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/svg-viewer-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "SVG Viewer Reference",
+    "text": "SVG is XML that describes vector graphics. A viewer parses the markup, draws it, and surfaces attributes such as viewBox and size. This tool does that in the browser and does not send the file to a server."
+  },
+  "keywords": "svg viewer, svg viewer online, view svg online, svg preview, svg data uri"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to view SVG online",
+  "description": "Preview SVG markup in the browser with this free SVG viewer.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste or drop SVG",
+      "text": "Paste SVG markup into the editor, or drop an .svg file onto it. A sample icon loads so you can see the preview immediately."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Check the preview",
+      "text": "The right pane draws the graphic. Switch the background to checker, light, or dark if you need to see transparent areas."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy or download",
+      "text": "Copy the markup, copy a data URI for CSS or HTML, or download image.svg. Nothing is uploaded."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "SVG Viewer"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I view an SVG file online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the SVG markup into this SVG viewer, or drop the .svg file onto the editor. The preview updates in the browser. You can copy the markup, copy a data URI, or download the file again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to preview SVG in the browser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG can include script. This preview loads in a sandboxed iframe without script permissions, and the file never leaves your machine. Still treat untrusted SVG like any other untrusted markup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a viewBox?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "viewBox is the coordinate system of the graphic: min-x, min-y, width, height. Browsers map that box onto the width and height of the element. If those attributes disagree, the image can look stretched or cropped."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I turn SVG into a data URI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click Copy data URI. You get a data:image/svg+xml;utf8,... string you can paste into an img src or a CSS background-image. Large files make bulky URIs. Prefer a real .svg file when the graphic is shared in many places."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my SVG blank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common causes: fill matches the preview background, missing xmlns, width and height of 0, or a viewBox that does not cover the paths. Switch the background and check the meta line for viewBox and size."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SVG Viewer",
+      "item": "https://singhajit.com/tools/svg-viewer/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="svg-page-wrapper">
+  <div class="svg-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-image"></i>
+        SVG Viewer
+      </h1>
+      <p class="tool-subtitle">Preview SVG markup without uploading a file</p>
+    </header>
+
+<p class="tool-intro">
+  Free <strong>SVG viewer</strong> to open SVG in the browser. Paste markup or drop an <code>.svg</code> file, check the preview, then copy, download, or grab a data URI. Everything stays on this page.
+</p>
+
+    {% include ads/tool-banner.html %}
+
+    <section class="tool-section">
+      <div class="section-header">
+        <label><i class="fas fa-eye"></i> Preview SVG</label>
+      </div>
+
+      <div class="control-row">
+        <button id="sample-btn" class="btn-secondary" type="button">
+          <i class="fas fa-flask"></i>
+          Sample
+        </button>
+        <button id="copy-btn" class="btn-primary" type="button">
+          <i class="fas fa-copy"></i>
+          Copy SVG
+        </button>
+        <button id="data-uri-btn" class="btn-secondary" type="button">
+          <i class="fas fa-link"></i>
+          Copy data URI
+        </button>
+        <button id="download-btn" class="btn-secondary" type="button">
+          <i class="fas fa-download"></i>
+          Download
+        </button>
+        <button id="clear-btn" class="btn-secondary" type="button">
+          <i class="fas fa-trash-alt"></i>
+          Clear
+        </button>
+        <label class="btn-secondary" for="file-input" style="margin:0;">
+          <i class="fas fa-file-upload"></i>
+          Open file
+        </label>
+        <input id="file-input" type="file" accept=".svg,image/svg+xml,text/xml,text/plain" hidden>
+      </div>
+
+      <div class="control-row" role="group" aria-label="Preview background">
+        <button type="button" class="preset-btn active" data-bg="checks">Checker</button>
+        <button type="button" class="preset-btn" data-bg="light">Light</button>
+        <button type="button" class="preset-btn" data-bg="dark">Dark</button>
+      </div>
+
+      <div class="svg-workspace">
+        <div>
+          <span class="svg-pane-label">Markup</span>
+          <textarea id="svg-input" spellcheck="false" autocomplete="off" aria-label="SVG markup"></textarea>
+          <p class="drop-hint">Drop an .svg file onto the editor. Preview never leaves this tab.</p>
+        </div>
+        <div>
+          <span class="svg-pane-label">Preview</span>
+          <div id="preview-frame" class="preview-frame is-checks">
+            <iframe id="svg-preview" title="SVG preview" sandbox=""></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="svg-meta" id="svg-meta"></div>
+      <div class="svg-error" id="svg-error" style="display:none;"></div>
+    </section>
+
+    <nav class="svg-crosslinks" aria-label="Related tools">
+      <a href="{{ '/tools/html-beautifier/' | relative_url }}">HTML Beautifier</a>
+      <a href="{{ '/tools/qr-code-generator/' | relative_url }}">QR Code Generator</a>
+      <a href="{{ '/tools/base64-encoder/' | relative_url }}">Base64 Encoder</a>
+    </nav>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> SVG at a glance</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Common attributes</h4>
+          <table>
+            <tr><td>xmlns</td><td>http://www.w3.org/2000/svg</td></tr>
+            <tr><td>viewBox</td><td>min-x min-y width height</td></tr>
+            <tr><td>width / height</td><td>CSS size of the drawing</td></tr>
+            <tr><td>fill / stroke</td><td>Paint for shapes</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Why use this viewer</h4>
+          <table>
+            <tr><td>Source</td><td>Paste or local file</td></tr>
+            <tr><td>Network</td><td>None. It stays in the tab</td></tr>
+            <tr><td>Scripts</td><td>Blocked in the preview iframe</td></tr>
+            <tr><td>Export</td><td>Copy, data URI, download</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> SVG viewer guide</h3>
+      <div class="syntax-guide-content">
+        <article class="guide-article">
+          <h2>What an SVG viewer does</h2>
+          <p>SVG is XML. Browsers already know how to draw it, but opening a raw file in an editor does not show size, viewBox, or transparency. An <strong>SVG viewer</strong> puts the markup next to a live preview so you can confirm icons, logos, and diagrams before you commit them.</p>
+          <p>This page parses the text with <code>DOMParser</code>, draws it in a sandboxed iframe, and lists width, height, viewBox, and how many elements sit under the root.</p>
+        </article>
+        <article class="guide-article">
+          <h2>viewBox vs width and height</h2>
+          <p><code>viewBox</code> is the internal coordinate system. <code>width</code> and <code>height</code> are how large the graphic appears on the page. Keep them in the same ratio unless you want stretching. If the preview looks cropped, the paths probably sit outside the viewBox.</p>
+        </article>
+        <article class="guide-article">
+          <h2>Data URIs and QR SVG</h2>
+          <p>A data URI inlines the graphic. Handy for a one-off CSS background. Bad for a 200 KB illustration you reuse on every page.</p>
+          <p>If you exported SVG from the <a href="/tools/qr-code-generator/">QR Code Generator</a>, paste it here to check quiet zone and contrast on light or dark. Messy HTML around an inline SVG can go through the <a href="/tools/html-beautifier/">HTML Beautifier</a> first.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> SVG viewer FAQ</h2>
+
+      <div class="faq-item">
+        <h3>How do I view an SVG file online?</h3>
+        <p>Paste the markup or drop the <code>.svg</code> file onto the editor. The preview updates in this tab. Copy, copy a data URI, or download as needed.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is it safe to preview SVG in the browser?</h3>
+        <p>SVG can include script. The preview iframe has no script permission, and the file is not uploaded. Still treat untrusted SVG as untrusted markup.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is a viewBox?</h3>
+        <p><code>viewBox</code> is min-x, min-y, width, height in user units. The browser maps that box onto the element size. Mismatched ratios stretch or crop the drawing.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I turn SVG into a data URI?</h3>
+        <p>Click <strong>Copy data URI</strong>. Paste it into an <code>img</code> src or a CSS <code>background-image</code>. Prefer a real file when the same graphic appears in many places.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why is my SVG blank?</h3>
+        <p>Fill may match the background, <code>xmlns</code> may be missing, size may be 0, or the viewBox may miss the paths. Switch Checker / Light / Dark and read the meta line.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script defer src="{{ '/assets/js/svg-viewer-tool.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

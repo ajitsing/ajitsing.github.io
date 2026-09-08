@@ -732,6 +732,8 @@ Find your key ID with `gpg --list-secret-keys --keyid-format=long`. If GPG canno
 export GPG_TTY=$(tty)
 ```
 
+{% include tool-cta.html tool="pgp-key-generator" variant="inline" description="Generate an OpenPGP key pair in your browser if you do not already have a GPG signing key." %}
+
 ### Sign a Single Commit
 
 If you would rather not sign everything, sign on demand instead:

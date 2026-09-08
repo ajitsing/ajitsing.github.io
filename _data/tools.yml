@@ -138,6 +138,13 @@ hmac-generator:
   icon: "fas fa-fingerprint"
   category: generators
   keywords: "hmac sha256 signature verify web crypto"
+pgp-key-generator:
+  title: "PGP Key Generator"
+  description: "Generate OpenPGP public and private keys in your browser. Inspect fingerprints and download armored .asc files."
+  link: "/tools/pgp-key-generator/"
+  icon: "fas fa-key"
+  category: generators
+  keywords: "pgp gpg openpgp key pair fingerprint armored"
 hash-generator:
   title: "Hash Generator"
   description: "Create MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from text or a file."

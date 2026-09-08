@@ -1,0 +1,490 @@
+---
+layout: default
+title: "PGP Key Generator | Generate OpenPGP Keys Online Free"
+subtitle: "Create PGP public and private keys in your browser"
+seo: true
+description: "Free online PGP key generator. Create OpenPGP and GPG key pairs (RSA or Curve25519) in your browser. Copy armored public and private keys, inspect fingerprints, download .asc files. 100% client-side."
+keywords: "pgp key generator, generate pgp key, openpgp key generator, gpg key generator, generate gpg key online, pgp public private key generator, ascii armored pgp, curve25519 pgp, rsa 4096 pgp, pgp fingerprint, generate pgp keys in browser"
+thumbnail: /assets/img/tools/pgp-key-generator-thumbnail.png
+share-img: /assets/img/tools/pgp-key-generator-thumbnail.png
+permalink: /tools/pgp-key-generator/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/pgp-key-generator.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PGP Key Generator",
+  "alternateName": ["OpenPGP Key Generator", "GPG Key Generator", "Generate PGP Key", "PGP Public Private Key Generator", "Online PGP Generator"],
+  "description": "Free online PGP key generator. Create OpenPGP and GPG key pairs in your browser. Copy armored keys, inspect fingerprints, download .asc files.",
+  "url": "https://singhajit.com/tools/pgp-key-generator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ajit Singh",
+    "url": "https://singhajit.com"
+  },
+  "featureList": [
+    "Generate OpenPGP key pairs in the browser",
+    "RSA 2048, 3072, 4096 and ECC Curve25519 or P-256",
+    "Optional passphrase on the private key",
+    "Optional key expiration",
+    "Copy and download armored public, private, and revocation certificates",
+    "Inspect existing PGP keys for fingerprint, Key ID, and User IDs",
+    "100% client-side. Keys never leave your browser"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/pgp-key-generator-thumbnail.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "name": "PGP Key Reference",
+    "text": "PGP (Pretty Good Privacy) and OpenPGP define public-key cryptography for encrypting email, signing Git commits, and verifying software. A key pair is a public key you share and a private key you keep secret. Fingerprints identify a key without sending the whole block."
+  },
+  "keywords": "pgp key generator, generate pgp key, openpgp key generator, gpg key generator, generate gpg key online"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Generate a PGP Key Online",
+  "description": "Generate an OpenPGP public and private key pair in your browser and copy or download the armored files.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter identity and algorithm",
+      "text": "Add a name and email for the User ID. Choose Curve25519 (fast, modern) or RSA 4096. Optionally set a passphrase and expiration."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Generate the key pair",
+      "text": "Click Generate keys. The tool creates an armored public key, private key, and revocation certificate locally with OpenPGP.js."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy or download the keys",
+      "text": "Copy the public key to share. Download the private key and revocation certificate and store them offline. Confirm the fingerprint before you trust a key."
+    }
+  ],
+  "tool": {
+    "@type": "HowToTool",
+    "name": "PGP Key Generator"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a PGP key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A PGP (Pretty Good Privacy) key is an OpenPGP public and private key pair used to encrypt messages, sign Git commits, and verify software. You share the public key. You keep the private key secret."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I generate a PGP key online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter a name and email, choose RSA or Curve25519, optionally add a passphrase, and click Generate keys. The armored public and private keys appear in your browser and are not uploaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to generate a GPG or PGP key in a browser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This generator runs locally with OpenPGP.js. Keys are not sent to a server. Still treat the private key as a secret: use a passphrase, download it, then clear the page. For high-value keys, prefer gpg on a trusted machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use RSA or Curve25519?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Curve25519 is the usual default: smaller keys and faster generation. RSA 4096 is widely supported on older tools. RSA 2048 is still common but weaker than 3072 or 4096 for new keys."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a PGP fingerprint?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The fingerprint is a hash of the public key, shown as grouped hex. Compare it out of band before you import someone else's key. GitHub, Keybase, and gpg --fingerprint all display the same value for a given key."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use a generated key with GPG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Save the private .asc file and import it with gpg --import key.asc. List it with gpg --list-secret-keys --keyid-format=long. For Git commit signing, set user.signingkey to the Key ID and enable commit.gpgsign."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool encrypt email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It only generates and inspects keys. Use a mail client with OpenPGP support, or gpg --encrypt, to encrypt messages with the public key."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a revocation certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A revocation certificate lets you mark a key as withdrawn if the private key is lost or leaked. Generate it now, store it offline, and publish it later if you must retire the key."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://singhajit.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://singhajit.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "PGP Key Generator",
+      "item": "https://singhajit.com/tools/pgp-key-generator/"
+    }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="pgp-page-wrapper">
+  <div class="pgp-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-key"></i>
+        PGP Key Generator
+      </h1>
+      <p class="tool-subtitle">Generate OpenPGP public and private keys in your browser</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>PGP key generator</strong> to create an <strong>OpenPGP</strong> (GPG) key pair locally.
+      Pick RSA or Curve25519, copy armored keys, inspect fingerprints, and download <code>.asc</code> files.
+      100% client-side. Your private key never leaves this tab.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="generate" type="button">
+        <i class="fas fa-key"></i>
+        Generate
+      </button>
+      <button class="mode-tab" data-mode="inspect" type="button">
+        <i class="fas fa-search"></i>
+        Inspect
+      </button>
+    </div>
+
+    <form class="pgp-main" autocomplete="off" onsubmit="return false;">
+      <div class="generate-only">
+        <div class="identity-grid">
+          <div class="input-section">
+            <label for="pgp-name">Name</label>
+            <input type="text" id="pgp-name" name="pgp_name" placeholder="Ada Lovelace" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="input-section">
+            <label for="pgp-email">Email</label>
+            <input type="email" id="pgp-email" name="pgp_email" placeholder="ada@example.com" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="input-section full">
+            <label for="pgp-comment">Comment (optional)</label>
+            <input type="text" id="pgp-comment" name="pgp_comment" placeholder="signing key" autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+
+        <div class="options-row">
+          <div class="option-group">
+            <label for="algorithm-select">Algorithm:</label>
+            <select id="algorithm-select">
+              <option value="ecc-curve25519" selected>ECC Curve25519</option>
+              <option value="ecc-p256">ECC NIST P-256</option>
+              <option value="rsa-2048">RSA 2048</option>
+              <option value="rsa-3072">RSA 3072</option>
+              <option value="rsa-4096">RSA 4096</option>
+            </select>
+          </div>
+          <div class="option-group">
+            <label for="expiry-select">Expires:</label>
+            <select id="expiry-select">
+              <option value="0" selected>Never</option>
+              <option value="31536000">1 year</option>
+              <option value="63072000">2 years</option>
+              <option value="157680000">5 years</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-section">
+          <label for="pgp-passphrase">Passphrase (optional):</label>
+          <div class="secret-row">
+            <input
+              type="password"
+              id="pgp-passphrase"
+              name="pgp_passphrase"
+              placeholder="Protects the private key..."
+              autocomplete="new-password"
+              spellcheck="false"
+              data-1p-ignore
+              data-lpignore="true"
+            >
+            <button id="toggle-passphrase-btn" class="btn-icon" type="button" title="Show or hide passphrase">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-section inspect-only hidden">
+        <label for="pgp-inspect-input">Armored PGP key:</label>
+        <div class="input-wrapper">
+          <textarea
+            id="pgp-inspect-input"
+            name="pgp_inspect"
+            rows="10"
+            placeholder="-----BEGIN PGP PUBLIC KEY BLOCK-----&#10;...&#10;-----END PGP PUBLIC KEY BLOCK-----"
+            spellcheck="false"
+            autocomplete="off"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button id="action-btn" class="btn-primary" type="button">
+          <i class="fas fa-key"></i>
+          <span id="action-btn-text">Generate keys</span>
+        </button>
+        <button id="sample-btn" class="btn-secondary" type="button">
+          <i class="fas fa-flask"></i>
+          Sample
+        </button>
+        <button id="clear-btn" class="btn-secondary" type="button">
+          <i class="fas fa-trash-alt"></i>
+          Clear
+        </button>
+      </div>
+
+      <div id="result-section" class="result-section hidden">
+        <div id="result-card" class="result-card">
+          <div id="result-icon" class="result-icon"></div>
+          <div id="result-message" class="result-message"></div>
+        </div>
+      </div>
+
+      <div id="meta-grid" class="meta-grid"></div>
+
+      <div id="output-wrap" class="hidden">
+        <div class="output-section">
+          <div class="output-meta">
+            <label for="pgp-public-output">Public key:</label>
+            <div class="output-actions">
+              <span id="public-char-count" class="char-count"></span>
+              <button id="copy-public-btn" class="btn-secondary" type="button">
+                <i class="fas fa-copy"></i>
+                Copy
+              </button>
+              <button id="download-public-btn" class="btn-secondary" type="button">
+                <i class="fas fa-download"></i>
+                Download
+              </button>
+            </div>
+          </div>
+          <div class="output-wrapper">
+            <textarea id="pgp-public-output" rows="8" readonly spellcheck="false" placeholder="Public key will appear here..."></textarea>
+          </div>
+        </div>
+
+        <div id="private-section" class="output-section">
+          <div class="output-meta">
+            <label for="pgp-private-output">Private key:</label>
+            <div class="output-actions">
+              <span id="private-char-count" class="char-count"></span>
+              <button id="copy-private-btn" class="btn-secondary" type="button">
+                <i class="fas fa-copy"></i>
+                Copy
+              </button>
+              <button id="download-private-btn" class="btn-secondary" type="button">
+                <i class="fas fa-download"></i>
+                Download
+              </button>
+            </div>
+          </div>
+          <div class="output-wrapper">
+            <textarea id="pgp-private-output" rows="8" readonly spellcheck="false" placeholder="Private key will appear here..."></textarea>
+          </div>
+        </div>
+
+        <div id="revocation-section" class="output-section">
+          <div class="output-meta">
+            <label for="pgp-revocation-output">Revocation certificate:</label>
+            <div class="output-actions">
+              <button id="copy-revocation-btn" class="btn-secondary" type="button">
+                <i class="fas fa-copy"></i>
+                Copy
+              </button>
+              <button id="download-revocation-btn" class="btn-secondary" type="button">
+                <i class="fas fa-download"></i>
+                Download
+              </button>
+            </div>
+          </div>
+          <div class="output-wrapper">
+            <textarea id="pgp-revocation-output" rows="6" readonly spellcheck="false" placeholder="Revocation certificate will appear here..."></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> PGP Quick Reference</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Algorithms</h4>
+          <table>
+            <tr><td><code>Curve25519</code></td><td>Fast default, modern ECC</td></tr>
+            <tr><td><code>P-256</code></td><td>NIST ECC, wide TLS overlap</td></tr>
+            <tr><td><code>RSA 3072</code></td><td>Solid RSA baseline</td></tr>
+            <tr><td><code>RSA 4096</code></td><td>Slower, common for GPG</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Typical Uses</h4>
+          <table>
+            <tr><td><code>Email</code></td><td>Encrypt and sign messages</td></tr>
+            <tr><td><code>Git</code></td><td>Verified commit signatures</td></tr>
+            <tr><td><code>Release</code></td><td>Sign tarballs and checksums</td></tr>
+            <tr><td><code>Chat</code></td><td>Identity in some messengers</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> PGP Key Guide</h3>
+      <div class="syntax-guide-content">
+
+        <article class="guide-article">
+          <h2>What is a PGP key?</h2>
+          <p><strong>PGP</strong> (Pretty Good Privacy) and the <strong>OpenPGP</strong> standard use a public key and a private key. Anyone can encrypt to your public key or verify a signature. Only the private key decrypts or signs. GPG is the usual command-line implementation of that format.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Generate vs inspect</h2>
+          <p><strong>Generate</strong> creates a new key pair and a revocation certificate in this tab. <strong>Inspect</strong> reads an existing armored block and shows fingerprint, Key ID, algorithm, User IDs, and expiry. Inspect never uploads the key.</p>
+        </article>
+
+        <article class="guide-article">
+          <h2>Choosing an algorithm</h2>
+          <ul>
+            <li><strong>Curve25519:</strong> Default here. Fast to generate. Preferred by current GPG for new keys.</li>
+            <li><strong>RSA 4096:</strong> Use when a tool or policy still requires RSA.</li>
+            <li><strong>Passphrase:</strong> Encrypts the private key at rest. Use one if you will keep the key.</li>
+            <li><strong>Expiration:</strong> Limits damage if a key leaks. You can extend it later with GPG if you still have the private key.</li>
+          </ul>
+        </article>
+
+        <article class="guide-article">
+          <h2>Using this PGP tool</h2>
+          <p>Generation uses OpenPGP.js in your browser. Import a downloaded private key with <code>gpg --import</code>. For Git signing, see the <a href="{{ '/git-config-guide/' | relative_url }}">Git config guide</a>. Related tools: <a href="{{ '/tools/ssl-certificate-decoder/' | relative_url }}">SSL Certificate Decoder</a>, <a href="{{ '/tools/hmac-generator/' | relative_url }}">HMAC Generator</a>, <a href="{{ '/tools/hash-generator/' | relative_url }}">Hash Generator</a>.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> PGP Key Generator FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What is a PGP key?</h3>
+        <p>A <strong>PGP</strong> (Pretty Good Privacy) key is an OpenPGP public and private key pair used to encrypt messages, sign Git commits, and verify software. You share the public key. You keep the private key secret.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I generate a PGP key online?</h3>
+        <p>Enter a name and email, choose RSA or Curve25519, optionally add a passphrase, and click <strong>Generate keys</strong>. The armored public and private keys appear in your browser and are not uploaded.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is it safe to generate a GPG or PGP key in a browser?</h3>
+        <p>This generator runs locally with OpenPGP.js. Keys are not sent to a server. Still treat the private key as a secret: use a passphrase, download it, then clear the page. For high-value keys, prefer <code>gpg</code> on a trusted machine.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Should I use RSA or Curve25519?</h3>
+        <p><strong>Curve25519</strong> is the usual default: smaller keys and faster generation. <strong>RSA 4096</strong> is widely supported on older tools. RSA 2048 is still common but weaker than 3072 or 4096 for new keys.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is a PGP fingerprint?</h3>
+        <p>The fingerprint is a hash of the public key, shown as grouped hex. Compare it out of band before you import someone else's key. GitHub, Keybase, and <code>gpg --fingerprint</code> all display the same value for a given key.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I use a generated key with GPG?</h3>
+        <p>Save the private <code>.asc</code> file and import it with <code>gpg --import key.asc</code>. List it with <code>gpg --list-secret-keys --keyid-format=long</code>. For Git commit signing, set <code>user.signingkey</code> to the Key ID and enable <code>commit.gpgsign</code>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does this tool encrypt email?</h3>
+        <p>No. It only generates and inspects keys. Use a mail client with OpenPGP support, or <code>gpg --encrypt</code>, to encrypt messages with the public key.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is a revocation certificate?</h3>
+        <p>A revocation certificate lets you mark a key as withdrawn if the private key is lost or leaked. Generate it now, store it offline, and publish it later if you must retire the key.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/openpgp@5.11.2/dist/openpgp.min.js"></script>
+<script src="{{ '/assets/js/pgp-key-generator.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

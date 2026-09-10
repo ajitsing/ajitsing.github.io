@@ -287,7 +287,7 @@ Reach for a columnar database when:
 
 - Your queries **scan and aggregate** large numbers of rows across a **few columns** of a wide table.
 - **Dashboards and reports** on PostgreSQL or MySQL have become slow.
-- You need **real-time analytics** on high-volume event data: logs, metrics, clickstreams, IoT.
+- You need **real-time analytics** on high-volume event data: logs, [metrics](/time-series-databases-explained/){:target="_blank" rel="noopener"}, clickstreams, IoT.
 - You are building **customer-facing analytics** where response time has to stay sub-second.
 - You want to query **Parquet files** in a data lake without loading them into a warehouse first.
 
@@ -326,6 +326,7 @@ The mirror image of that strength is its weakness. Point lookups, single-row upd
 **Related posts:**
 
 - [Wide Column Stores Explained](/wide-column-stores-explained/){:target="_blank" rel="noopener"} - The NoSQL data model that everyone confuses with columnar storage
+- [Time Series Databases Explained](/time-series-databases-explained/){:target="_blank" rel="noopener"} - When the workload is metrics and IoT timestamps, not a warehouse scan
 - [How Databases Store Data Internally](/how-databases-store-data-internally/){:target="_blank" rel="noopener"} - Pages, B-trees, and the row-store versus column-store layout up close
 - [PostgreSQL vs MongoDB vs DynamoDB](/postgresql-vs-mongodb-vs-dynamodb/){:target="_blank" rel="noopener"} - Picking the right database family for your workload
 - [Database Indexing Explained](/database-indexing-explained/){:target="_blank" rel="noopener"} - Why a well-indexed row store handles more than you think

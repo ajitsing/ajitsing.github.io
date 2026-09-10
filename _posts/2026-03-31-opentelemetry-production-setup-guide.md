@@ -1132,7 +1132,7 @@ processors:
 
 ### 2. High-Cardinality Attributes
 
-Setting span attributes like `user.id`, full request URLs, or UUIDs as metric labels creates a cardinality explosion. Your Prometheus instance runs out of memory or your time-series database slows to a crawl.
+Setting span attributes like `user.id`, full request URLs, or UUIDs as metric labels creates a cardinality explosion. Your Prometheus instance runs out of memory or your [time-series database](/time-series-databases-explained/){:target="_blank" rel="noopener"} slows to a crawl.
 
 ```python
 # Bad - creates millions of unique metric series

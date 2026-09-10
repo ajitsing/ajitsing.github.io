@@ -527,7 +527,7 @@ When designing systems like URL shorteners, you need to distribute data across m
 | Strategy | Key Movement on Scaling | Distribution | Complexity | Use Case |
 |----------|------------------------|-------------|------------|----------|
 | Modulo hashing | Nearly all keys | Even (when stable) | Low | Small, fixed clusters |
-| Range-based | Only affected range | Can be uneven | Medium | Ordered data (time series) |
+| Range-based | Only affected range | Can be uneven | Medium | Ordered data ([time series](/time-series-databases-explained/){:target="_blank" rel="noopener"}) |
 | Consistent hashing | Only K/N keys | Even (with vnodes) | Medium | Dynamic clusters, caches |
 | Rendezvous hashing | Only K/N keys | Even | Medium | When ring overhead matters |
 | Directory-based | Depends on rules | Configurable | High | Complex routing needs |

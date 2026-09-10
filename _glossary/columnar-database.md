@@ -19,10 +19,11 @@ real_world:
   - "ClickHouse and DuckDB are open-source columnar engines for real-time and embedded analytics."
   - "Google BigQuery, Amazon Redshift, and Snowflake are columnar cloud data warehouses."
   - "Apache Parquet, ORC, and Arrow apply the same columnar idea as portable file and in-memory formats."
-related_terms: ["wide-column-store", "database-index", "query-planner", "cqrs", "lsm-tree", "sharding"]
+related_terms: ["wide-column-store", "database-index", "query-planner", "cqrs", "lsm-tree", "sharding", "time-series-database"]
 related_posts:
   - "/columnar-databases-explained/"
   - "/wide-column-stores-explained/"
+  - "/time-series-databases-explained/"
   - "/how-databases-store-data-internally/"
   - "/postgresql-vs-mongodb-vs-dynamodb/"
 ---

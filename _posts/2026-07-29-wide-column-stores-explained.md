@@ -285,7 +285,7 @@ Where does a wide column store fit next to the databases you already know? This 
 | Joins | None (denormalize) | Full SQL joins | Limited | Analytical joins |
 | Consistency | Tunable per query | Strong (ACID) | Tunable | Eventual, batch |
 | Query flexibility | Low (query-first design) | High (ad hoc SQL) | Medium | High for aggregations |
-| Sweet spot | Time-series, logs, IoT, feeds | Transactions, reporting | Catalogs, profiles | Dashboards, analytics |
+| Sweet spot | [Time-series](/time-series-databases-explained/){:target="_blank" rel="noopener"}, logs, IoT, feeds | Transactions, reporting | Catalogs, profiles | Dashboards, analytics |
 
 The short version: a wide column store trades query flexibility for write throughput and effortless horizontal scale. If your access patterns are known and your write volume is enormous, that is a great trade. If you need to slice the data a hundred different ways next quarter, a relational database like [PostgreSQL](/postgresql-vs-mongodb-vs-dynamodb/){:target="_blank" rel="noopener"} will serve you far better.
 
@@ -335,7 +335,7 @@ Bring it out when most of these are true:
 - You need **linear horizontal scaling** across many nodes, often across regions.
 - You can **tolerate eventual consistency** for most operations, with the option to tighten it per request.
 - You **know your query patterns** at design time and they are key-based, not ad hoc.
-- Your shape fits: **time-series, event and audit logs, IoT telemetry, messaging history, activity feeds, personalization data.**
+- Your shape fits: **[time-series](/time-series-databases-explained/){:target="_blank" rel="noopener"}, event and audit logs, IoT telemetry, messaging history, activity feeds, personalization data.**
 
 Reach for something else when:
 
@@ -355,6 +355,8 @@ Get the data model right, keep your partitions bounded, respect the query-first 
 
 **Related posts:**
 
+- [Columnar Databases Explained](/columnar-databases-explained/){:target="_blank" rel="noopener"} - The OLAP layout people confuse with wide column stores
+- [Time Series Databases Explained](/time-series-databases-explained/){:target="_blank" rel="noopener"} - Purpose-built stores for metrics and IoT, instead of rolling your own on Cassandra
 - [How Databases Store Data Internally](/how-databases-store-data-internally/){:target="_blank" rel="noopener"} - Pages, B-trees, and the row-store versus column-store layout that wide column stores build on
 - [PostgreSQL vs MongoDB vs DynamoDB](/postgresql-vs-mongodb-vs-dynamodb/){:target="_blank" rel="noopener"} - Where a relational, document, or key-value store beats a wide column one
 - [Consistent Hashing Explained](/consistent-hashing-explained/){:target="_blank" rel="noopener"} - The ring that decides which node owns each partition

@@ -693,6 +693,7 @@ This post covered the fundamentals of database storage. Here are related topics 
 - [B-Tree Data Structure Explained](/data-structures/b-tree/) - The data structure behind most indexes
 - [Write-Ahead Log Explained](/distributed-systems/write-ahead-log/) - How databases guarantee durability
 - [Row vs Column Store](/explainer/row-vs-column-store/) - Choosing the right storage model
+- [Time Series Databases Explained](/time-series-databases-explained/) - How TSDBs partition, compress, and expire timestamped data
 - [How OpenAI Scales PostgreSQL](/how-openai-scales-postgresql/) - Real-world scaling at massive scale
 - [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/) - A different storage model: content-addressable Git objects, pack files, and three-replica voting
 - [Caching Strategies Explained](/caching-strategies-explained/) - When the buffer pool is not enough

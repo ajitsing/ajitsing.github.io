@@ -50,7 +50,7 @@ Before diving into code, let's understand what makes k6 special:
 | **Shift-left testing** | Run locally, in CI, Docker, or k6 Cloud |
 | **Production realism** | Model real traffic with scenarios, arrival-rate, ramping patterns |
 | **Built-in validation** | Checks, thresholds, tags, custom metrics out of the box |
-| **Real-time observability** | Native outputs to Prometheus, InfluxDB, Grafana |
+| **Real-time observability** | Native outputs to [Prometheus](/time-series-databases-explained/){:target="_blank" rel="noopener"}, InfluxDB, Grafana |
 | **CI/CD ready** | Deterministic exit codes based on SLO thresholds |
 | **Extensible** | xk6 extensions for gRPC, Redis, Kafka, WebSockets, Browser testing |
 

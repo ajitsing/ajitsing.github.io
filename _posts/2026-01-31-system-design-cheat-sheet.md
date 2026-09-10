@@ -779,7 +779,7 @@ Bandwidth: 10,000 × 10 KB = 100 MB/s = 800 Mbps
 |------|--------|
 | ACID transactions | PostgreSQL, MySQL |
 | Flexible schema | MongoDB, DynamoDB |
-| Time series data | InfluxDB, TimescaleDB |
+| [Time series data](/time-series-databases-explained/){:target="_blank" rel="noopener"} | InfluxDB, TimescaleDB |
 | Graph relationships | Neo4j |
 | High write throughput | Cassandra |
 | Caching/sessions | Redis |

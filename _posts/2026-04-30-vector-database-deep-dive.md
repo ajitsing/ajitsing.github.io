@@ -559,7 +559,7 @@ Vector databases are not a good fit for:
 
 - **Exact lookups by ID** (use a regular KV store).
 - **Range queries on metadata only** (use Postgres or your existing OLTP database).
-- **Time series** (use TimescaleDB, ClickHouse, or InfluxDB).
+- **[Time series](/time-series-databases-explained/){:target="_blank" rel="noopener"}** (use TimescaleDB, ClickHouse, or InfluxDB).
 - **Strong consistency across vectors and relational data** (use pgvector inside the same Postgres).
 
 Vector search is a hammer. Not every problem is a nail.
@@ -686,6 +686,7 @@ Start with pgvector or Chroma. Add hybrid search early. Reach for Qdrant, Pineco
 - [Database Indexing Explained](/database-indexing-explained/){:target="_blank" rel="noopener"} - B-tree, hash, GIN, BRIN, and where vector indexes fit
 - [PostgreSQL Internals: How Queries Execute](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"} - The engine pgvector runs on
 - [PostgreSQL vs MongoDB vs DynamoDB](/postgresql-vs-mongodb-vs-dynamodb/){:target="_blank" rel="noopener"} - Where each store fits, and how vector DBs compare
+- [Time Series Databases Explained](/time-series-databases-explained/){:target="_blank" rel="noopener"} - A specialized store for metrics and events, not vectors
 - [How LLMs Generate Text](/how-llms-generate-text/){:target="_blank" rel="noopener"} - Why embeddings carry meaning in the first place
 - [Building AI Agents](/building-ai-agents/){:target="_blank" rel="noopener"} - Agents that retrieve and reason over your vectors
 - [Prompt Injection Explained](/prompt-injection-explained/){:target="_blank" rel="noopener"} - Your retrieval corpus is an attack surface

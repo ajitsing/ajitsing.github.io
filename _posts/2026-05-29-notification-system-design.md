@@ -431,6 +431,8 @@ A few gotchas worth naming:
 - **SES production access is a separate quota.** Sandbox accounts can only send to verified addresses. The first production launch fails for this reason approximately every time.
 - **DKIM and SPF are not optional.** Without proper auth, Gmail will silently spam-fold your transactional emails and you will hear about it from support, not from monitoring.
 
+{% include tool-cta.html tool="eml-file-viewer" variant="inline" description="Open a bounced .eml or Show original source and view Authentication-Results, Received hops, and the MIME body in your browser." %}
+
 The dispatcher also enforces a per-domain rate limit (around 14 emails per second for the default SES throughput, more after warmup) and a per-recipient frequency cap before the API call.
 
 ### SMS: Twilio and Vonage

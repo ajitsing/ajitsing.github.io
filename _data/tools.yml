@@ -229,6 +229,13 @@ har-viewer:
   icon: "fas fa-stream"
   category: decoders
   keywords: "har waterfall chrome firefox network timing"
+eml-file-viewer:
+  title: "EML File Viewer"
+  description: "Open .eml files in your browser. Read headers, body, and attachments. Nothing is uploaded."
+  link: "/tools/eml-file-viewer/"
+  icon: "fas fa-envelope-open"
+  category: decoders
+  keywords: "eml file viewer eml viewer open eml"
 user-agent-parser:
   title: "User Agent Parser"
   description: "Parse User-Agent strings for browser, OS, device, and bot detection."

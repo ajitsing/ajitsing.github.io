@@ -579,7 +579,7 @@ graph LR
     style SNS fill:#f6a723
 ```
 
-This enables powerful serverless patterns. Upload an image, and within seconds a Lambda resizes it, another Lambda runs ML classification, and a worker indexes it for search.
+This enables powerful [serverless patterns](/serverless-computing-explained/){:target="_blank" rel="noopener"}. Upload an image, and within seconds a Lambda resizes it, another Lambda runs ML classification, and a worker indexes it for search.
 
 ## Security: Defense in Depth
 

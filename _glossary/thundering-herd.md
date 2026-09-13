@@ -19,7 +19,7 @@ real_world:
   - "Go's singleflight package coalesces duplicate in-flight calls for the same key."
   - "CDNs use request collapsing so one origin fetch serves many waiting clients."
   - "Pairing a [circuit breaker](/glossary/circuit-breaker/) and [rate limiting](/glossary/rate-limiting/) protects the backend during a stampede."
-related_terms: ["caching", "circuit-breaker", "rate-limiting", "lease"]
+related_terms: ["caching", "circuit-breaker", "rate-limiting", "lease", "cold-start"]
 related_posts:
   - "/thundering-herd-problem/"
   - "/caching-strategies-explained/"

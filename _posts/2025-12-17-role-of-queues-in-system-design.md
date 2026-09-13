@@ -353,7 +353,7 @@ graph LR
 - Standard queues don't guarantee order
 - Maximum message size of 256KB
 
-**Use SQS when**: You're on AWS and want zero ops, or building serverless with Lambda.
+**Use SQS when**: You're on AWS and want zero ops, or building [serverless with Lambda](/serverless-computing-explained/){:target="_blank" rel="noopener"}.
 
 ### Redis (as a Queue)
 

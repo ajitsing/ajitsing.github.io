@@ -297,7 +297,7 @@ A solid default is: long TTLs plus versioned file names for static assets, cache
 A CDN in 2026 is far more than a dumb cache. Because the edge already sits between every user and your origin, it is the perfect place to do more work.
 
 - **TLS termination.** The edge handles the HTTPS handshake close to the user, which is faster, and keeps a warm connection back to the origin.
-- **Edge compute.** Run small bits of code at the edge to personalize responses, do auth checks, rewrite requests, or assemble pages without an origin round trip. Cloudflare Workers (V8 isolates with sub-millisecond cold starts), AWS Lambda@Edge, Fastly Compute@Edge (WebAssembly), and Akamai EdgeWorkers all do this.
+- **Edge compute.** Run small bits of code at the edge to personalize responses, do auth checks, rewrite requests, or assemble pages without an origin round trip. Cloudflare Workers (V8 isolates with [sub-millisecond cold starts](/serverless-computing-explained/){:target="_blank" rel="noopener"}), AWS Lambda@Edge, Fastly Compute@Edge (WebAssembly), and Akamai EdgeWorkers all do this.
 - **Image and media optimization.** Resize images on the fly and convert to modern formats like WebP or AVIF, so a phone gets a small image and a desktop gets a sharp one, all from the edge.
 - **Security at the edge.** A **web application firewall (WAF)** filters malicious requests, [**DDoS protection**](/ddos-attack-and-protection/){:target="_blank" rel="noopener"} absorbs volumetric attacks across the anycast network, and bot management blocks scrapers before they ever reach your origin.
 

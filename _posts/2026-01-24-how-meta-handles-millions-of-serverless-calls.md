@@ -49,7 +49,7 @@ faq:
     answer: "No. Meta explicitly uses XFaaS only for non-user-facing functions like notifications and thumbnail generation. Serverless functions have too much variable latency for consistent user-facing performance, so they keep customer-facing code on more predictable infrastructure."
 ---
 
-When we think about serverless at scale, most of us picture AWS Lambda, Google Cloud Functions, or Azure Functions handling a few thousand requests per second. On those managed platforms you pay [per invocation and per gigabyte second](https://aws.amazon.com/lambda/pricing/), so the pricing model rewards short, efficient functions. Meta operates at a different level entirely.
+When we think about [serverless](/serverless-computing-explained/){:target="_blank" rel="noopener"} at scale, most of us picture AWS Lambda, Google Cloud Functions, or Azure Functions handling a few thousand requests per second. On those managed platforms you pay [per invocation and per gigabyte second](https://aws.amazon.com/lambda/pricing/), so the pricing model rewards short, efficient functions. Meta operates at a different level entirely.
 
 Their internal platform called XFaaS processes **trillions of function calls per day**. At peak capacity, that is roughly **11.5 million function calls per second** across more than 100,000 servers in dozens of datacenter regions.
 

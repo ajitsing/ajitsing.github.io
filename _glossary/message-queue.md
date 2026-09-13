@@ -19,7 +19,7 @@ real_world:
   - "Kafka is high-throughput streaming with replayable logs; RabbitMQ does rich routing and request-reply; SQS is simple and AWS-native."
   - "Events from the [transactional outbox](/glossary/transactional-outbox/) flow to consumers through a queue."
   - "Background jobs, email sending, and CQRS projections are all common queue consumers."
-related_terms: ["transactional-outbox", "idempotent-receiver", "cqrs", "saga-pattern"]
+related_terms: ["transactional-outbox", "idempotent-receiver", "cqrs", "saga-pattern", "serverless"]
 related_posts:
   - "/role-of-queues-in-system-design/"
   - "/kafka-vs-rabbitmq-vs-sqs/"

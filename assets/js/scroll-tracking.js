@@ -44,6 +44,35 @@
     return Math.round((scrollTop / scrollableHeight) * 100);
   }
 
+  function trackToolFaqView() {
+    if (window.location.pathname.indexOf('/tools/') !== 0) {
+      return;
+    }
+
+    var faq = document.querySelector('.faq-section');
+    if (!faq || !('IntersectionObserver' in window)) {
+      return;
+    }
+
+    var sent = false;
+    var observer = new IntersectionObserver(function(entries) {
+      if (sent || !entries[0] || !entries[0].isIntersecting) {
+        return;
+      }
+
+      sent = true;
+      observer.disconnect();
+
+      gtag('event', 'tool_faq_view', {
+        'event_category': 'Tools',
+        'event_label': window.location.pathname,
+        'non_interaction': true
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(faq);
+  }
+
   function createScrollTracker() {
     var trackedMilestones = {};
     var maxScroll = 0;
@@ -117,4 +146,5 @@
   }
 
   createScrollTracker().init();
+  trackToolFaqView();
 })();

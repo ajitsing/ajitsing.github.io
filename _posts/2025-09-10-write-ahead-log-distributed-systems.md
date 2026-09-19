@@ -193,7 +193,7 @@ graph LR
     style B fill:#e1f5fe
 ```
 
-This is why Kafka is so reliable for streaming data. The log is the source of truth, and consumers can replay from any point.
+This is why Kafka is so reliable for streaming data and [stream processing](/stream-processing/){:target="_blank" rel="noopener"}. The log is the source of truth, and consumers can replay from any point.
 
 ## How WAL Guarantees Durability
 

@@ -19,9 +19,10 @@ real_world:
   - "Debezium reads the Postgres or MySQL WAL to publish outbox events into Kafka."
   - "It is the standard way to emit reliable events from a [saga](/glossary/saga-pattern/) step."
   - "Many microservice stacks use it instead of distributed transactions to integrate a database with a broker."
-related_terms: ["saga-pattern", "message-queue", "idempotent-receiver", "cqrs"]
+related_terms: ["saga-pattern", "message-queue", "idempotent-receiver", "cqrs", "stream-processing"]
 related_posts:
   - "/transactional-outbox-pattern/"
   - "/debezium-outbox-postgres-database-impact/"
   - "/saga-pattern-distributed-transactions/"
+  - "/stream-processing/"
 ---

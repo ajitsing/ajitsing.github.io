@@ -287,7 +287,7 @@ Reach for a columnar database when:
 
 - Your queries **scan and aggregate** large numbers of rows across a **few columns** of a wide table.
 - **Dashboards and reports** on PostgreSQL or MySQL have become slow.
-- You need **real-time analytics** on high-volume event data: logs, [metrics](/time-series-databases-explained/){:target="_blank" rel="noopener"}, clickstreams, IoT.
+- You need **real-time analytics** on high-volume event data: logs, [metrics](/time-series-databases-explained/){:target="_blank" rel="noopener"}, clickstreams, IoT. A [stream processing](/stream-processing/){:target="_blank" rel="noopener"} pipeline often feeds those events into the columnar store.
 - You are building **customer-facing analytics** where response time has to stay sub-second.
 - You want to query **Parquet files** in a data lake without loading them into a warehouse first.
 

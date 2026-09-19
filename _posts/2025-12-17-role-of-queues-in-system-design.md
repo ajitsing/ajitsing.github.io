@@ -310,7 +310,7 @@ graph TB
 - Complex to operate (ZooKeeper dependency, though KRaft mode helps)
 - Overkill for simple use cases
 
-**Use Kafka when**: You need high throughput, event sourcing, stream processing, or multiple teams consuming the same events.
+**Use Kafka when**: You need high throughput, event sourcing, [stream processing](/stream-processing/){:target="_blank" rel="noopener"}, or multiple teams consuming the same events.
 
 For a deeper dive, check out [How Kafka Works](/distributed-systems/how-kafka-works/).
 

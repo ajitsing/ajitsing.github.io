@@ -239,7 +239,7 @@ The trade-off: Kafka optimizes for throughput, not per-message latency. It batch
 - **Event streaming.** You have a continuous flow of events (clicks, transactions, sensor readings) and multiple downstream consumers need to process them independently.
 - **Event sourcing.** You want to store the full history of state changes and rebuild state by replaying events.
 - **Log aggregation.** Collecting logs from hundreds of services into a central pipeline for processing.
-- **Stream processing.** Real-time transformations, aggregations, and windowed computations using Kafka Streams or ksqlDB.
+- **[Stream processing](/stream-processing/){:target="_blank" rel="noopener"}.** Real-time transformations, aggregations, and windowed computations using Kafka Streams or ksqlDB.
 - **Multiple consumers for the same data.** The analytics team, the fraud team, and the notification team all need the same order events. Kafka lets each team consume independently without affecting the others.
 
 ### When Kafka is the Wrong Choice

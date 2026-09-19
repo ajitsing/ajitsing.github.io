@@ -19,9 +19,10 @@ real_world:
   - "Apache Kafka, Google Pub/Sub, AWS SNS, and Redis Pub/Sub are common implementations."
   - "Notification systems fan one event out to email, SMS, and push subscribers at once."
   - "Slack and other real-time apps use pub/sub to route a message to every server holding a relevant [WebSocket](/glossary/websocket/)."
-related_terms: ["message-queue", "transactional-outbox", "idempotent-receiver", "cqrs", "websocket"]
+related_terms: ["message-queue", "transactional-outbox", "idempotent-receiver", "cqrs", "websocket", "stream-processing"]
 related_posts:
   - "/role-of-queues-in-system-design/"
   - "/kafka-vs-rabbitmq-vs-sqs/"
   - "/notification-system-design/"
+  - "/stream-processing/"
 ---

@@ -904,7 +904,7 @@ Instead of point-to-point connections (N systems talking to M systems = N*M conn
 **Benefits**:
 - **Decoupling**: Add new data sources or destinations without changing existing systems
 - **Replay**: Reprocess historical data for new use cases
-- **Real-time**: All systems get data in real-time
+- **Real-time**: All systems get data in real-time, and a [stream processing](/stream-processing/){:target="_blank" rel="noopener"} job can transform those events as they flow
 - **Scalability**: One scalable platform instead of many queues
 
 This is why companies like [LinkedIn built Kafka](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) - they needed a universal data pipeline.

@@ -1,7 +1,6 @@
 {% comment %}
-In-article house content: popular posts as a horizontal card strip,
-matching the "More from Category" carousel. Ranking matches the sidebar
-(popular flag, then top_viewed, then recent), excluding the current page.
+Drop-in, same as ads: {% include ads/popular-carousel.html %}
+Popular posts strip (popular flag, then top_viewed, then recent).
 {% endcomment %}
 {% assign carousel_limit = 6 %}
 {% assign carousel_count = 0 %}
@@ -62,6 +61,7 @@ matching the "More from Category" carousel. Ranking matches the sidebar
 
 {% assign carousel_list = carousel_posts | split: "||" %}
 
+{% if carousel_count > 0 %}
 <div class="mid-carousel category-recommendations" data-mid-carousel>
   <div class="category-recommendations-header">
     <h3 class="category-recommendations-title">
@@ -86,3 +86,4 @@ matching the "More from Category" carousel. Ranking matches the sidebar
     </div>
   </div>
 </div>
+{% endif %}

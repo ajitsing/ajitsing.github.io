@@ -1,58 +1,37 @@
 .post-mid-ad {
-  position: relative;
   margin: 48px 0;
-  padding: 24px 0;
-  height: 328px !important;
-  min-height: 328px !important;
-  box-sizing: border-box;
-  overflow: hidden;
+  padding: 0;
   contain: layout;
+  overflow-anchor: none;
   background: #fff;
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
 }
 
-.post-mid-ad__house,
-.post-mid-ad__slot {
-  position: absolute;
-  top: 24px;
-  bottom: 24px;
-  left: 0;
-  right: 0;
+.post-mid-ad__card {
   width: 100%;
-}
-
-.post-mid-ad__house {
-  z-index: 1;
-  opacity: 1;
-  transition: opacity 0.45s ease;
-}
-
-.post-mid-ad__slot {
-  z-index: 0;
-  opacity: 0;
-  pointer-events: none;
+  height: 250px;
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: none;
+  overflow: hidden;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.45s ease;
+  transition: background-color 200ms ease, box-shadow 200ms ease;
 }
 
-.post-mid-ad .adsbygoogle {
-  width: 100%;
+.post-mid-ad__card:has(ins[data-ad-status="filled"]) {
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.post-mid-ad__unit {
   display: block;
-  min-height: 250px;
-}
-
-.post-mid-ad--filled .post-mid-ad__house {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.post-mid-ad--filled .post-mid-ad__slot {
-  z-index: 2;
-  opacity: 1;
-  pointer-events: auto;
+  width: 100%;
+  height: 250px;
 }
 
 @media (min-width: 769px) {
@@ -61,54 +40,20 @@
   }
 }
 
-.post-mid-ad .mid-carousel.category-recommendations {
-  margin: 0;
-  padding: 8px 4px 0;
-  border-top: 0;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.post-mid-ad .mid-carousel .category-recommendations-header {
-  margin-bottom: 0.75rem;
-}
-
-.post-mid-ad .mid-carousel .category-recommendations-title {
-  font-size: 1.05rem;
-}
-
-.post-mid-ad .mid-carousel .category-posts-scroll {
-  margin: 0 -4px;
-  padding: 4px 4px 8px;
-}
-
-.post-mid-ad .mid-carousel .category-post-card:hover {
-  transform: none;
-}
-
 @media (max-width: 768px) {
   .post-mid-ad {
     margin: 36px 0;
-    padding: 20px 0;
-    height: 290px !important;
-    min-height: 290px !important;
-  }
-
-  .post-mid-ad__house,
-  .post-mid-ad__slot {
-    top: 20px;
-    bottom: 20px;
-  }
-
-  .post-mid-ad .mid-carousel .category-recommendations-title {
-    font-size: 0.95rem;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .post-mid-ad__house,
-  .post-mid-ad__slot {
-    transition: none;
+.mid-carousel.category-recommendations {
+  margin: 48px 0 36px;
+  padding: 8px 4px 0;
+}
+
+@media (max-width: 768px) {
+  .mid-carousel.category-recommendations {
+    margin: 36px 0 28px;
   }
 }
 

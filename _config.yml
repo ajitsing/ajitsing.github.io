@@ -151,6 +151,8 @@ gtag: "G-V1NK1HF18W"
 clarity: "vxy0o4yb68"
 
 manual_ads: true
+# Temporarily off to test whether AdUnblock triggers AdSense limits.
+adunblock: false
 
 # --- Comments --- #
 

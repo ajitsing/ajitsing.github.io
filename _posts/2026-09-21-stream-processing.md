@@ -3,7 +3,7 @@ layout: post
 seo: true
 title: "Stream Processing Explained: Kafka, Flink, and Real-Time Data Pipelines"
 subtitle: "How unbounded events get transformed as they arrive, why event time matters more than the wall clock, and how to pick between Kafka Streams, Flink, and a plain consumer"
-date: 2026-09-17
+date: 2026-09-21
 categories: distributed-systems
 permalink: /stream-processing/
 thumbnail-img: /assets/img/posts/distributed-systems/stream-processing-thumb.png

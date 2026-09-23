@@ -371,7 +371,7 @@ The most common abuse. Someone notices the core is "strongly consistent and alwa
 
 ### Reading from a follower and trusting it
 
-Serving metadata reads from any core node is fast, but a follower can lag. If that metadata decides who is the leader, a stale read can produce two active leaders. Use linearizable reads for anything correctness-critical, and save the cheaper serializable reads for data you can afford to see slightly late.
+Serving metadata reads from any core node is fast, but a [follower can lag](/distributed-systems/follower-reads/){:target="_blank" rel="noopener"}. If that metadata decides who is the leader, a stale read can produce two active leaders. Use linearizable reads for anything correctness-critical, and save the cheaper serializable reads for data you can afford to see slightly late.
 
 ### Forgetting the fencing token
 

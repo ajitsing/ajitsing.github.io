@@ -5,7 +5,7 @@ meta-title: "Distributed Systems Patterns: Consensus, Replication & Fault Tolera
 subtitle: "Building blocks of reliable, large-scale systems"
 seo: true
 description: "Distributed systems patterns explained: consensus (Paxos, Raft), replication, gossip, write-ahead log, quorum, heartbeat, two-phase commit. Real production examples from Kafka, Cassandra, DynamoDB."
-keywords: "distributed systems patterns, patterns of distributed systems, distributed system design patterns, distributed computing patterns, consensus algorithms, Paxos, Raft, leader election, gossip protocol, write-ahead log, two-phase commit, quorum, replication patterns, heartbeat, failure detection, fault tolerance patterns, high availability patterns, circuit breaker pattern, saga pattern, sharding patterns, CAP theorem, eventual consistency, distributed systems concepts, distributed systems examples, distributed systems for beginners, Kafka internals, Cassandra architecture, DynamoDB architecture"
+keywords: "distributed systems patterns, patterns of distributed systems, distributed system design patterns, distributed computing patterns, consensus algorithms, Paxos, Raft, leader election, gossip protocol, write-ahead log, two-phase commit, quorum, replication patterns, follower reads, follower reads pattern, heartbeat, failure detection, fault tolerance patterns, high availability patterns, circuit breaker pattern, saga pattern, sharding patterns, CAP theorem, eventual consistency, distributed systems concepts, distributed systems examples, distributed systems for beginners, Kafka internals, Cassandra architecture, DynamoDB architecture"
 thumbnail: /assets/img/ajit-singh-blog-og.png
 share-img: /assets/img/ajit-singh-blog-og.png
 permalink: /distributed-systems/
@@ -26,7 +26,7 @@ also-known-as:
   - "Distributed System Design Patterns"
   - "Distributed Computing Patterns"
   - "Distributed Systems Concepts"
-definition: "Distributed systems patterns are reusable solutions to recurring problems that arise when independent computers cooperate over an unreliable network. They cover consensus (Paxos, Raft), replication (write-ahead log, leader-follower), failure detection (heartbeat, gossip), coordination (quorum, two-phase commit), and fault tolerance (circuit breaker, idempotent receiver) used inside Kafka, Cassandra, DynamoDB and ZooKeeper."
+definition: "Distributed systems patterns are reusable solutions to recurring problems that arise when independent computers cooperate over an unreliable network. They cover consensus (Paxos, Raft), replication (write-ahead log, leader-follower, follower reads), failure detection (heartbeat, gossip), coordination (quorum, two-phase commit), and fault tolerance (circuit breaker, idempotent receiver) used inside Kafka, Cassandra, DynamoDB and ZooKeeper."
 faq:
   - question: "What are distributed systems patterns?"
     answer: "Distributed systems patterns are battle-tested solutions to problems that show up whenever multiple computers coordinate over a network: agreeing on a value (consensus), keeping data in sync (replication), detecting failed nodes (failure detection), ordering events (clocks), and recovering from partial failure. Examples include Paxos, Raft, write-ahead log, gossip, heartbeat, quorum, two-phase commit, and leader election."

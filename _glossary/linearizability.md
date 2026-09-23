@@ -19,9 +19,10 @@ real_world:
   - "etcd serves linearizable reads by default so Kubernetes always sees the latest cluster state."
   - "A [consistent core](/glossary/consistent-core/) like ZooKeeper provides linearizable operations that larger data clusters rely on for coordination."
   - "Google Spanner offers external consistency, a form of linearizability across the globe, using TrueTime and Paxos."
-related_terms: ["consensus", "quorum", "replicated-log", "eventual-consistency", "cap-theorem", "consistent-core"]
+related_terms: ["consensus", "quorum", "replicated-log", "eventual-consistency", "cap-theorem", "consistent-core", "follower-reads"]
 related_posts:
   - "/distributed-systems/consistent-core/"
   - "/distributed-systems/majority-quorum/"
   - "/distributed-systems/replicated-log/"
+  - "/distributed-systems/follower-reads/"
 ---

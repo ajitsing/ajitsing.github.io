@@ -378,7 +378,7 @@ The DocDB design follows the same pattern as CockroachDB. A leader stamps writes
 
 | System | What HLC powers | Notes |
 |--------|-----------------|-------|
-| [CockroachDB](https://github.com/cockroachdb/cockroach/blob/master/pkg/util/hlc/hlc.go){:target="_blank" rel="noopener"} | Transaction ordering, MVCC, follower reads | Default 500 ms max offset, panics on big skew |
+| [CockroachDB](https://github.com/cockroachdb/cockroach/blob/master/pkg/util/hlc/hlc.go){:target="_blank" rel="noopener"} | Transaction ordering, MVCC, [follower reads](/distributed-systems/follower-reads/){:target="_blank" rel="noopener"} | Default 500 ms max offset, panics on big skew |
 | [MongoDB](https://www.mongodb.com/blog/post/casual-guarantees-anything-casual){:target="_blank" rel="noopener"} | Cluster time, causally consistent sessions, oplog ordering | Exposed as `$clusterTime` in every command |
 | [YugabyteDB](https://github.com/yugabyte/yugabyte-db/blob/master/src/yb/server/hybrid_clock.cc){:target="_blank" rel="noopener"} | DocDB MVCC, distributed transactions, xCluster | 52 bit microseconds + 12 bit counter |
 | [TiDB](https://docs.pingcap.com/tidb/stable/tso/){:target="_blank" rel="noopener"} | Hybrid time via PD timestamp oracle (related, not pure HLC) | Centralized TSO instead of per-node HLC |

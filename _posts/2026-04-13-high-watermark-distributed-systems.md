@@ -76,7 +76,7 @@ sequenceDiagram
 
 Entry 7 is now on the leader and Follower 1. That's a [majority in a 3-node cluster](/distributed-systems/majority-quorum/). It's safe. Even if one node dies, the entry survives on at least one other.
 
-But what if the client reads from Follower 2 before it receives entry 7? The client would see an old balance. Or worse, what if the leader had appended entry 8 that only exists on the leader itself? If a client reads entry 8 and then the leader crashes, that entry is gone forever.
+But what if the client [reads from Follower 2](/distributed-systems/follower-reads/){:target="_blank" rel="noopener"} before it receives entry 7? The client would see an old balance. Or worse, what if the leader had appended entry 8 that only exists on the leader itself? If a client reads entry 8 and then the leader crashes, that entry is gone forever.
 
 The question is: **how does each node know which entries are safe to serve?**
 

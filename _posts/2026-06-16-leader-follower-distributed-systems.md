@@ -273,7 +273,7 @@ Writes have one path. Reads have choices, and each choice is a different point o
 | Read from follower, leader confirms | Fresh data with read scaling | Extra round trip to the leader |
 | Read your own writes | A client sees its own updates | Needs session tracking or version pinning |
 
-Most systems let you pick per query. MongoDB exposes this directly as read preferences and read concerns. Kafka consumers historically read only from the partition leader, then added the option to [fetch from the closest follower](https://kafka.apache.org/documentation/#design_replicaplacement){:target="_blank" rel="noopener"} to cut cross datacenter traffic. The right answer depends on whether your application can tolerate reading a value that is a few milliseconds out of date. A dashboard can. A bank balance check before a withdrawal probably cannot.
+Most systems let you pick per query with the [Follower Reads pattern](/distributed-systems/follower-reads/){:target="_blank" rel="noopener"}. MongoDB exposes this directly as read preferences and read concerns. Kafka consumers historically read only from the partition leader, then added the option to [fetch from the closest follower](https://kafka.apache.org/documentation/#design_replicaplacement){:target="_blank" rel="noopener"} to cut cross datacenter traffic. The right answer depends on whether your application can tolerate reading a value that is a few milliseconds out of date. A dashboard can. A bank balance check before a withdrawal probably cannot.
 
 ## <i class="fas fa-users-slash"></i> Split Brain and How the Pattern Survives It
 

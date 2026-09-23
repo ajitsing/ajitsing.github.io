@@ -209,7 +209,7 @@ graph LR
 
 The leader communicates the high-water mark to followers along with log entries. Each follower updates its own commit index accordingly and only applies entries up to that point.
 
-This pattern has a nice side effect: followers can safely serve read requests for any data derived from committed log entries. This is how systems like etcd and CockroachDB scale reads across the cluster without sacrificing consistency.
+This pattern has a nice side effect: followers can safely [serve read requests](/distributed-systems/follower-reads/){:target="_blank" rel="noopener"} for any data derived from committed log entries. This is how systems like etcd and CockroachDB scale reads across the cluster without sacrificing consistency.
 
 ## What Happens When the Leader Crashes
 

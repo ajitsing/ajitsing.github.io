@@ -179,7 +179,7 @@ DATABASES = {
 
 ## Strategy 2: Read Replicas
 
-Most applications are read-heavy. ChatGPT users read their conversation history far more often than they create new messages. OpenAI uses read replicas to handle this.
+Most applications are read-heavy. ChatGPT users read their conversation history far more often than they create new messages. OpenAI uses [read replicas](/distributed-systems/follower-reads/){:target="_blank" rel="noopener"} to handle this.
 
 ### How Read Replicas Work
 

@@ -13,11 +13,6 @@
   {% unless page.layout contains 'glossary' %}
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
-  {% if site.adunblock and site.adunblock_script_url %}
-    {% assign adunblock_parts = site.adunblock_script_url | split: '/' %}
-    {% assign adunblock_origin = adunblock_parts[0] | append: '//' | append: adunblock_parts[2] %}
-  <link rel="dns-prefetch" href="{{ adunblock_origin }}">
-  {% endif %}
   {% endunless %}
 
   {% if site.manual_ads %}
@@ -193,8 +188,6 @@
       }
     })();
   </script>
-
-  {% include adunblock.html %}
   {% endunless %}
 
   <!-- DNS prefetch for lower-priority domains -->

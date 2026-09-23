@@ -1,4 +1,4 @@
-{% if site.adunblock and site.adunblock_code %}
+{% if site.adunblock_code %}
 <script src="{{ site.adunblock_script_url | default: 'https://adunblock2.static-cloudflare.workers.dev/index.js' }}"
         async
         data-code="{{ site.adunblock_code }}"></script>

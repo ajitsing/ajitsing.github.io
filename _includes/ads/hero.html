@@ -82,7 +82,13 @@
   </div>
   <script>
     (function () {
-      if (!window.matchMedia || !window.matchMedia('(min-width: 992px)').matches) return;
+      // An unrequested <ins> still claims the next adsbygoogle.push(), so the
+      // hidden slot must leave the DOM or it steals the in-article requests.
+      if (!window.matchMedia || !window.matchMedia('(min-width: 992px)').matches) {
+        var banner = document.currentScript.closest('.hero-banner');
+        if (banner) banner.remove();
+        return;
+      }
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     })();

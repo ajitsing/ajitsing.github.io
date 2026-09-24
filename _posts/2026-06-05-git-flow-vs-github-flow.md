@@ -170,8 +170,6 @@ git switch develop
 git merge --no-ff hotfix/1.2.1
 ```
 
-{% include ads/in-article.html %}
-
 There is also the [git-flow command-line extension](https://github.com/nvie/gitflow){:target="_blank" rel="noopener"} that wraps all of this into commands like `git flow feature start` and `git flow release finish`, so you do not have to remember every merge by hand.
 
 ### What Git Flow is good at
@@ -220,7 +218,7 @@ gitGraph
     merge "fix/header" tag: "deploy"
 ```
 
-{% include ads/display.html %}
+{% include ads/in-article.html %}
 
 ### How a change flows through GitHub Flow
 
@@ -280,8 +278,6 @@ Here is the comparison most people come for, in one table.
 | Best for | Versioned, packaged, or regulated software | Web apps and SaaS |
 | Needs strong CI/CD | Helpful | Essential |
 | Year introduced | 2010 | 2011 |
-
-{% include ads/in-article.html %}
 
 The single biggest difference is the `develop` branch. Git Flow keeps a permanent staging layer between your work and production. GitHub Flow removes it and trusts `main` plus your tests instead. Almost every other difference flows from that one decision.
 
@@ -353,6 +349,8 @@ flowchart TD
     class TBD tbd
 ```
 
+{% include ads/in-article.html %}
+
 In short:
 
 - **Choose Git Flow** if you ship versioned software, support more than one release at a time, or work under approval and audit requirements. Think mobile apps waiting on store review, desktop and on-premise tools, SDKs and libraries, or banking and healthcare systems.
@@ -382,7 +380,6 @@ In Git Flow, a hotfix must merge into both `main` and `develop`. Teams routinely
 ### Treating the workflow as sacred
 
 No model survives contact with reality unchanged. Plenty of teams run a "GitHub Flow plus a staging branch" hybrid, or a trimmed Git Flow without release branches. That is fine. The branching strategy serves the team, not the other way around. Start simple, and add structure only when a real problem demands it.
-
 
 ## <i class="fas fa-tools"></i> A Few Practical Tips Whatever You Choose
 

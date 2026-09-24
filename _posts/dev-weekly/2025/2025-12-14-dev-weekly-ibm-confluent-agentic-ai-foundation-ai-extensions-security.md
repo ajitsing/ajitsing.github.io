@@ -118,11 +118,9 @@ This isn't a reason to stop using AI coding tools. But it's a reminder to treat 
 
 ---
 
-## <i class="fas fa-code"></i> Developer Tools
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-code"></i> Developer Tools
 
 ### Infragistics Open Sources 50+ Ignite UI Components
 
@@ -186,6 +184,8 @@ Beta customers reported "hours of troubleshooting reduced to minutes." That's th
 This is part of a bigger pattern. Every observability platform is adding AI. Datadog has Bits. New Relic has AI. Dynatrace has Davis AI. If you're doing SRE work, expect AI assistants to become standard.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-robot"></i> AI News
 
@@ -253,10 +253,6 @@ If you're already using Couchbase, this might save you from adding another datab
 
 ## <i class="fas fa-exclamation-triangle"></i> What This Week Teaches Us
 
-
-{% include ads/display.html %}
-
-
 **AI agent infrastructure is the new battleground:** The Linux Foundation bringing together Anthropic, OpenAI, and Block shows that AI agents are moving from demos to production. Standards are emerging. Infrastructure is being built. If you're not paying attention to MCP and the agent ecosystem, start now.
 
 **Acquisitions are heating up:** IBM buying Confluent for $11B, Azul buying Payara. Big companies are consolidating. If you're using a startup's product, think about what happens if they get acquired.
@@ -296,5 +292,3 @@ If you're already using Couchbase, this might save you from adding another datab
 *Big week for acquisitions and infrastructure. IBM buying Confluent is the headline, but the Linux Foundation's Agentic AI Foundation might be the bigger story long-term. AI agents are moving from experiments to production, and the ecosystem is standardizing around MCP. If you're using AI coding tools, make sure they're updated - those vulnerability disclosures are serious.*
 
 *Got news we should cover? Let us know. We're tracking what matters to developers.*
-
-

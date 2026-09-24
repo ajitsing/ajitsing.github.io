@@ -137,8 +137,6 @@ Formally, a graph G = (V, E) where:
 - **V** is the set of vertices (nodes)
 - **E** is the set of edges (connections)
 
-{% include ads/display.html %}
-
 ### Why Graphs Matter
 
 Graphs model relationships naturally. Here are some examples:
@@ -171,7 +169,6 @@ graph LR
     style B fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style C fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
-
 
 Think Facebook friendships. If Alice is friends with Bob, Bob is friends with Alice.
 
@@ -272,8 +269,6 @@ graph = [
 ]
 ```
 
-{% include ads/display.html %}
-
 For weighted graphs, store the weight instead of 1.
 
 **Space Complexity**: O(V²)
@@ -347,6 +342,8 @@ graph TD
     style D fill:#e0f2f1,stroke:#00695c,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 **Implementation**:
 
 ```python
@@ -379,8 +376,6 @@ def bfs(graph, start):
 
 **Note**: With an adjacency matrix, BFS must scan all V columns in each row to find neighbors, giving O(V²) total time. See the [complexity comparison](#bfs-dfs-time-complexity) at the top of this guide.
 
-{% include ads/in-article.html %}
-
 ### Depth-First Search (DFS) in Data Structure
 
 **DFS (Depth-First Search)** is another fundamental graph traversal algorithm. DFS goes deep before going wide. Start at a node, follow one path as far as possible, then backtrack. DFS is essential for cycle detection, topological sorting, and exploring all paths in a graph. With an adjacency list, DFS also runs in O(V + E) time.
@@ -400,7 +395,6 @@ graph TD
     style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style C fill:#e0f2f1,stroke:#00695c,stroke-width:2px
 ```
-
 
 **Implementation (Recursive)**:
 
@@ -488,9 +482,7 @@ graph LR
     style D fill:#e0f2f1,stroke:#00695c,stroke-width:2px
 ```
 
-
-{% include ads/display.html %}
-
+{% include ads/in-article.html %}
 
 **Implementation**:
 
@@ -678,7 +670,6 @@ class UnionFind:
         
         return True
 ```
-
 
 **Time Complexity**: 
 - Find: O(α(n)) amortized (almost constant due to path compression)

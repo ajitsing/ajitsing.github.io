@@ -103,10 +103,6 @@ This is wild. Rewriting your compiler in a different language and getting 10x pe
 
 ## <i class="fas fa-shield-alt"></i> Security Alert: Critical React Native Flaw
 
-
-{% include ads/in-article.html %}
-
-
 ### React Native Vulnerability Affects 2 Million Projects
 
 This one is urgent. A critical vulnerability (**CVE-2025-11953**) was discovered in the `@react-native-community/cli` NPM package.
@@ -162,7 +158,6 @@ The Cloud Native Computing Foundation announced **Helm v4** this week, coincidin
 
 If you're managing Kubernetes deployments, Helm v4 brings some nice quality-of-life improvements. The security enhancements alone make it worth upgrading.
 
-
 ### JFrog's Shadow AI Detection
 
 JFrog launched **Shadow AI Detection** for their Software Supply Chain Platform.
@@ -182,6 +177,8 @@ JFrog launched **Shadow AI Detection** for their Software Supply Chain Platform.
 This is addressing a real problem. Teams are using AI coding tools everywhere, but security and compliance teams often have no idea what's happening. Shadow AI detection gives you visibility.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> Other Security News
 
@@ -204,10 +201,6 @@ The inclusion of supply chain security and AI risks shows how the threat landsca
 ---
 
 ## <i class="fas fa-brain"></i> AI Impact on Developers
-
-
-{% include ads/display.html %}
-
 
 ### 65% of Developers Expect AI to Redefine Their Roles - [<i class="fas fa-external-link-alt"></i>](https://www.globenewswire.com/news-release/2025/11/12/3186147/0/en/65-of-Developers-Expect-Their-Roles-To-Be-Redefined-by-AI-in-2026.html)
 
@@ -254,4 +247,3 @@ This lines up with what we're seeing in the industry. The skill that matters is 
 ---
 
 *Got news we should cover? Let us know. We're tracking what matters to developers.*
-

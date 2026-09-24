@@ -156,10 +156,6 @@ public class WindowsUIFactory implements UIFactory {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### macOS Implementation
 
 ```java
@@ -350,6 +346,8 @@ sequenceDiagram
     Note over Client: All products are Mac-style
 ```
 
+{% include ads/in-article.html %}
+
 ## Database Provider Example
 
 Another common use case: database-agnostic code.
@@ -416,10 +414,6 @@ public class UserRepository {
     }
 }
 ```
-
-
-{% include ads/display.html %}
-
 
 ## Abstract Factory vs Factory Method
 
@@ -546,4 +540,3 @@ The trade-off: adding new product types is hard because all factories must imple
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 4
 - [Factory Patterns Comparison](https://stackoverflow.com/questions/5739611/what-are-the-differences-between-abstract-factory-and-factory-design-patterns) on Stack Overflow
-

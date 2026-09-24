@@ -154,10 +154,6 @@ flowchart TD
     style H fill:#ffcdd2
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ## The Coordinator's Log: The Source of Truth
 
 The coordinator keeps a transaction log. This log is critical for recovery:
@@ -199,6 +195,8 @@ sequenceDiagram
     C->>P: ROLLBACK
     Note over C: Transaction aborted
 ```
+
+{% include ads/in-article.html %}
 
 **What happens**: Coordinator times out waiting for a vote. Since not all participants voted YES, it sends ROLLBACK to those that did vote.
 
@@ -299,10 +297,6 @@ If the coordinator dies at the wrong moment, participants can be blocked indefin
 This is why 2PC alone isn't used in modern high-availability systems without additional mechanisms like [heartbeat detection](/distributed-systems/heartbeat/) for coordinator failures.
 
 ## Understanding XA: The Standard for Distributed Transactions
-
-
-{% include ads/display.html %}
-
 
 Before we look at implementations, let's understand XA, the industry standard that makes 2PC work across different databases and systems.
 
@@ -429,10 +423,6 @@ COMMIT PREPARED 'transfer_123';
 ROLLBACK PREPARED 'transfer_123';
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Important**: Prepared transactions hold locks until committed or rolled back. If your application crashes without completing Phase 2, you'll have orphaned prepared transactions blocking other operations.
 
 ```sql
@@ -550,6 +540,8 @@ sequenceDiagram
     P2-->>C: ACK
 ```
 
+{% include ads/in-article.html %}
+
 The pre-commit phase ensures that if a participant is in pre-commit state and the coordinator fails, the participant can safely commit. The protocol guarantees that if any participant received pre-commit, all participants that voted YES will eventually receive it.
 
 **The catch**: 3PC doesn't work with network partitions. If the network splits, different partitions might make different decisions. This is why 3PC is rarely used in practice.
@@ -581,10 +573,6 @@ Locks are held from the start of Phase 1 until the end of Phase 2. In a slow net
 If the coordinator dies at the wrong time, participants are blocked. You need coordinator replication, which adds more complexity.
 
 ## Alternatives to 2PC
-
-
-{% include ads/display.html %}
-
 
 Modern distributed systems often use different approaches:
 
@@ -735,4 +723,3 @@ Understanding 2PC isn't just academic. It's the foundation for understanding why
 *For more on distributed systems patterns, check out our posts on [Replicated Log](/distributed-systems/replicated-log/){:target="_blank" rel="noopener"}, [High Watermark](/distributed-systems/high-watermark/){:target="_blank" rel="noopener"}, [Hybrid Logical Clock](/distributed-systems/hybrid-clock/){:target="_blank" rel="noopener"}, [Gossip Dissemination](/distributed-systems/gossip-dissemination/){:target="_blank" rel="noopener"}, [Write-Ahead Log](/distributed-systems/write-ahead-log/){:target="_blank" rel="noopener"}, [Paxos Consensus](/distributed-systems/paxos/){:target="_blank" rel="noopener"}, [How Kafka Works](/distributed-systems/how-kafka-works/){:target="_blank" rel="noopener"}, and [Distributed Counter Architecture](/distributed-counter-architecture-guide/){:target="_blank" rel="noopener"}. Want to understand the locks that 2PC coordinates? See [Database Locks Explained](/database-locks-explained/){:target="_blank" rel="noopener"}. Building payment systems? See [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"} for the full architecture, [How Stripe Prevents Double Payment](/how-stripe-prevents-double-payment/){:target="_blank" rel="noopener"} for idempotency patterns, and the [Idempotent Receiver](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"} pattern for safely handling the duplicate requests that retries create. For a real production system that uses a three-phase commit on top of plain Git, see [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/){:target="_blank" rel="noopener"}.*
 
 *References: [Gray & Reuter's Transaction Processing](https://www.amazon.com/Transaction-Processing-Concepts-Techniques-Management/dp/1558601902), [Martin Kleppmann's Designing Data-Intensive Applications](https://dataintensive.net/), [PostgreSQL PREPARE TRANSACTION docs](https://www.postgresql.org/docs/current/sql-prepare-transaction.html)*
-

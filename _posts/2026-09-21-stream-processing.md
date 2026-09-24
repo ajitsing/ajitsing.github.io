@@ -233,8 +233,6 @@ flowchart TB
     class E3,LATE warn
 ```
 
-{% include ads/in-article.html %}
-
 Late events are normal, not a bug. Networks stall. Mobile clients buffer. A producer retries. You pick a policy:
 
 - Drop them.

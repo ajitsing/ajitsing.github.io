@@ -115,8 +115,6 @@ flowchart LR
     class F1 far
 ```
 
-{% include ads/in-article.html %}
-
 The green box is the win: the read never leaves the region. The orange box is still the only place a write is allowed to land. Replication flows one way, from leader to followers. If you draw an arrow the other way for a write, you have left the pattern.
 
 ## <i class="fas fa-book-reader"></i> What Follower Reads Are

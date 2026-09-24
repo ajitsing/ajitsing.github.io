@@ -136,10 +136,6 @@ lazy val integration = (project in file("integration"))
   )
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Pros:**
 - Simple and explicit
 - Tests are completely skipped, saving build time
@@ -275,6 +271,8 @@ sbt test integration:test
 - Need to understand sbt configurations
 - Requires specific knowledge of custom configs
 
+{% include ads/in-article.html %}
+
 ## Method 6: Selective Aggregation
 
 Remove the module from the root project's aggregation and handle it separately.
@@ -328,10 +326,6 @@ sbt integration/test
 
 ## Method 7: Environment-Based Configuration
 
-
-{% include ads/display.html %}
-
-
 Use environment variables to control test execution dynamically.
 
 ```scala
@@ -368,7 +362,6 @@ sbt test
 **Cons:**
 - Environment variable dependency
 - May not be obvious to new developers
-
 
 ## CI/CD Recommendations
 
@@ -410,7 +403,6 @@ jobs:
 
 ### 2. **Environment Variables**
 
-
 ```yaml
 # .github/workflows/ci.yml
 name: CI
@@ -446,9 +438,7 @@ jobs:
       - name: Run integration tests
         run: sbt integration/test
 
-
 ### 3. **Conditional Skip with System Properties**
-
 
 ```yaml
 # Jenkins pipeline example

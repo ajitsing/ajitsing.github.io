@@ -75,8 +75,6 @@ These characters have special meaning in regex. To match them literally, escape 
 | `{}` | Quantifier | `\{` `\}` |
 | `\` | Escape character | `\\` |
 
-{% include ads/in-article.html %}
-
 ### Escaping
 
 When you need to match a special character literally, put a backslash before it:
@@ -118,7 +116,6 @@ Use square brackets to define your own character class:
 | `[a-zA-Z0-9]` | Any alphanumeric |
 | `[^abc]` | Any character except a, b, c |
 | `[^0-9]` | Any non-digit |
-
 
 The caret `^` at the start of a character class negates it.
 
@@ -168,6 +165,8 @@ Given the text: `<div>hello</div>`
 
 The greedy pattern matches from the first `<` to the last `>`. The lazy pattern stops at the first `>`.
 
+{% include ads/in-article.html %}
+
 ## Anchors and Boundaries
 
 Anchors match positions, not characters.
@@ -190,8 +189,6 @@ A word boundary `\b` occurs between a word character and a non-word character:
 \bcat        matches "cat" and "category" but not "concatenate"
 cat\b        matches "cat" and "concatenate" but not "category"
 ```
-
-{% include ads/display.html %}
 
 ### Start and End
 
@@ -276,8 +273,6 @@ Lookarounds check for a pattern without including it in the match.
 | `(?!...)` | Negative lookahead | Not followed by... |
 | `(?<=...)` | Positive lookbehind | Preceded by... |
 | `(?<!...)` | Negative lookbehind | Not preceded by... |
-
-{% include ads/display.html %}
 
 ### Lookahead Examples
 
@@ -507,10 +502,6 @@ Uses backreference to find repeated words.
 | `\S` | Non-whitespace |
 | `.` | Any character (except newline) |
 
-
-{% include ads/in-article.html %}
-
-
 ### Quantifiers
 
 | Quant | Description |
@@ -541,6 +532,8 @@ Uses backreference to find repeated words.
 | `(?!...)` | Negative lookahead |
 | `(?<=...)` | Positive lookbehind |
 | `(?<!...)` | Negative lookbehind |
+
+{% include ads/in-article.html %}
 
 ## Regex in Different Languages
 

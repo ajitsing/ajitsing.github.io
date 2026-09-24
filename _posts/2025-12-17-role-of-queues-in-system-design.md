@@ -147,10 +147,6 @@ graph LR
     style Q fill:#4a90a4
 ```
 
-
-{% include ads/in-article.html %}
-
-
 This pattern is called **producer-consumer** or **point-to-point messaging**. One producer sends a message, one consumer receives it.
 
 ### Publish-Subscribe (Pub/Sub)
@@ -180,6 +176,8 @@ graph TB
     
     style T fill:#5fb878
 ```
+
+{% include ads/in-article.html %}
 
 With pub/sub:
 - Publisher doesn't know (or care) about subscribers
@@ -333,10 +331,6 @@ graph LR
     
     style SQS fill:#ff9900
 ```
-
-
-{% include ads/display.html %}
-
 
 **Two flavors**:
 - **Standard**: Nearly unlimited throughput, at-least-once delivery, best-effort ordering
@@ -502,10 +496,6 @@ sequenceDiagram
     end
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Each service handles its step and publishes the result. If any step fails, compensating actions run to undo previous steps.
 
 For the full pattern with choreography vs orchestration trade-offs and production tooling, see the [Saga Pattern deep dive](/saga-pattern-distributed-transactions/). For the strong-consistency alternative, see [Two-Phase Commit](/distributed-systems/two-phase-commit/).
@@ -532,6 +522,8 @@ graph LR
     style Q fill:#4a90a4
     style ES fill:#e8f5e9
 ```
+
+{% include ads/in-article.html %}
 
 Events flow through the queue to multiple projectors. Each projector builds an optimized read model for its use case.
 
@@ -686,4 +678,3 @@ def delete_message(message):
 - [Amazon SQS Developer Guide](https://docs.aws.amazon.com/sqs/)
 - [Designing Data-Intensive Applications by Martin Kleppmann](https://dataintensive.net/)
 - [Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/)
-

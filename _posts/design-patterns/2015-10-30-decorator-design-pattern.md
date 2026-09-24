@@ -81,10 +81,6 @@ public interface FlightSeat {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The FlightSeatDecorator has an instance of FlightSeat and also has both the methods.
 
 ```java
@@ -104,6 +100,8 @@ public abstract class FlightSeatDecorator implements FlightSeat {
     public abstract Double getCost();
 }
 ```
+
+{% include ads/in-article.html %}
 
 MainCabinSeat implements the FlightSeat and both its methods.
 

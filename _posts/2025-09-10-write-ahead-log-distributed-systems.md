@@ -134,10 +134,6 @@ sequenceDiagram
     S->>W: Write: "Transaction complete"
 ```
 
-
-{% include ads/in-article.html %}
-
-
 If something goes wrong:
 
 ```mermaid
@@ -192,6 +188,8 @@ graph LR
     
     style B fill:#e1f5fe
 ```
+
+{% include ads/in-article.html %}
 
 This is why Kafka is so reliable for streaming data and [stream processing](/stream-processing/){:target="_blank" rel="noopener"}. The log is the source of truth, and consumers can replay from any point.
 
@@ -251,10 +249,6 @@ graph TB
     
     style E fill:#fff3e0
 ```
-
-
-{% include ads/display.html %}
-
 
 This is how systems like **Apache Cassandra** and **MongoDB** work in cluster mode.
 

@@ -37,7 +37,6 @@ Use the below table to find the right JSS package for your sitecore version. You
 
 ![Crepe](/assets/img/posts/sitecore/sitecore-jss-version-compatibility-table.png)
 
-
 ### Install JSS package using Installation Wizard
 
 Open sitecore in your browser and goto Desktop -> Development Tools -> Installation Wizard
@@ -64,6 +63,8 @@ You should be able to see below page.
 
 ![Crepe](/assets/img/posts/sitecore/sitecore-graphql-page.png)
 
+{% include ads/in-article.html %}
+
 You can try and execute the below query and see that everything works as expected.
 
 ```graphql
@@ -77,10 +78,6 @@ You can try and execute the below query and see that everything works as expecte
   }
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 <br>
 ### Add API Key to Sitecore
@@ -100,7 +97,6 @@ The next step is to add an API Key to query GraphQL using API instead of UI. The
 <requireApiKey>true</requireApiKey>
 ```
 
-
 <br>
 ### Query sitecore content using Postman
 
@@ -115,6 +111,5 @@ The next step is to add an API Key to query GraphQL using API instead of UI. The
  ![Crepe](/assets/img/posts/sitecore/sitecore-postman-query-param.png)
 
  ![Crepe](/assets/img/posts/sitecore/sitecore-postman-query.png)
-
 
 That's all! You are all set to start using GraphQL to query your data.

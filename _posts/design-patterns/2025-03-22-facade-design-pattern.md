@@ -130,10 +130,6 @@ public class PopcornPopper {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Without a facade, watching a movie requires:
 
 ```java
@@ -283,6 +279,8 @@ sequenceDiagram
     Facade-->>Client: void
 ```
 
+{% include ads/in-article.html %}
+
 The client makes one call. The facade orchestrates all the subsystem interactions.
 
 ## Facade for Third-Party Libraries
@@ -397,10 +395,6 @@ public class ReportingFacade {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 Each facade focuses on a specific domain, keeping interfaces cohesive.
 
 ## Common Mistakes
@@ -506,4 +500,3 @@ Remember: Facade is about convenience, not control. It makes easy things easy wh
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 7
 - [Principle of Least Knowledge](https://en.wikipedia.org/wiki/Law_of_Demeter) (Law of Demeter)
-

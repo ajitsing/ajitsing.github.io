@@ -98,8 +98,6 @@ When you update a row:
 2. Postgres writes a new tuple with the updated values.
 3. Concurrent transactions reading the database will continue to read the old version of the tuple until they complete. Once all older transactions finish, the old tuple is no longer needed.
 
-{% include ads/in-article.html %}
-
 ### Under the Hood: xmin, xmax, and Tuple Visibility
 
 Every row stored in a Postgres table contains hidden system columns that manage visibility. The most important of these are:
@@ -196,8 +194,6 @@ Standard `VACUUM` scans the table pages, identifies dead tuples, and makes their
 - **Locks**: `VACUUM FULL` takes an **exclusive lock** (`AccessExclusiveLock`) on the table. This completely blocks all reads and writes. Your application cannot query the table at all while this is running.
 - **Disk Space**: It requires extra disk space to run, because Postgres temporarily keeps both the old bloated file and the new compact file until the operation completes. If you are running out of disk space, `VACUUM FULL` can fail by consuming the remaining disk.
 
-{% include ads/in-article.html %}
-
 Because `VACUUM FULL` blocks all application traffic and is slow on large datasets, running it in a production environment is a major risk. To learn more about how Postgres structures writes and reads internally, you can refer to our post on [PostgreSQL Internals: How Queries Actually Execute](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"}.
 
 ### When to Use Which
@@ -251,7 +247,7 @@ flowchart TD
     class Stats,TableStats stats
 ```
 
-{% include ads/display.html %}
+{% include ads/in-article.html %}
 
 ### The Math: When Does Autovacuum Trigger?
 
@@ -561,8 +557,6 @@ WHERE
 By running these queries regularly, you can detect database degradation early and prevent table bloat from impacting your application's users. Keep autovacuum active, monitor your dead rows, and scale your settings alongside your workload.
 
 {% include tool-cta.html tool="sql-formatter" variant="inline" description="Paste any of these monitoring queries to format and read them cleanly before running on production." %}
-
-{% include ads/display.html %}
 
 ---
 

@@ -214,10 +214,6 @@ public class DatabaseProcessor extends DataProcessor {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -257,6 +253,8 @@ sequenceDiagram
     AbstractClass->>ConcreteClass: afterProcessing()
     Note over ConcreteClass: Hook (optional override)
 ```
+
+{% include ads/in-article.html %}
 
 The template method orchestrates. Subclasses provide specific implementations.
 
@@ -442,10 +440,6 @@ public class OrderProcessor {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 Template Method is simpler but less flexible. Strategy allows runtime changes and better testing.
 
 ## Common Mistakes
@@ -543,4 +537,3 @@ When you need runtime flexibility or better testability, consider Strategy inste
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 8
 - [Hollywood Principle](https://en.wikipedia.org/wiki/Hollywood_principle) on Wikipedia
-

@@ -97,10 +97,6 @@ public class SmsService extends NotificationService {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Adding a new notification type means creating a new subclass. No existing code changes.
 
 ## Implementation
@@ -322,9 +318,7 @@ sequenceDiagram
     PdfApplication->>PdfDocument: save()
 ```
 
-
-{% include ads/display.html %}
-
+{% include ads/in-article.html %}
 
 The client works with the abstract `Application` class. It doesn't know or care whether it's dealing with PDFs, Word docs, or spreadsheets. The factory method handles the creation details.
 
@@ -459,4 +453,3 @@ Use Factory Method when you need flexibility in object creation without exposing
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 4
 - [Effective Java - Item 1: Consider static factory methods](https://www.oreilly.com/library/view/effective-java/9780134686097/) by Joshua Bloch
-

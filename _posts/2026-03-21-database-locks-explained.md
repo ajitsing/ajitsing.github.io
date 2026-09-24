@@ -125,10 +125,6 @@ sequenceDiagram
     Note over DB: Balance is 100, but 200 was withdrawn total
 ```
 
-
-{% include ads/in-article.html %}
-
-
 With proper locking, the second transaction would wait until the first one commits, then read the updated balance.
 
 ---
@@ -261,10 +257,6 @@ flowchart TB
     style Note2 fill:none,stroke:none
 ```
 
-
-{% include ads/display.html %}
-
-
 ---
 
 ## Intent Locks: The Signaling System
@@ -343,10 +335,6 @@ UPDATE products SET quantity = quantity - 1 WHERE id = 42;
 COMMIT;
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The `FOR UPDATE` clause acquires an exclusive row-level lock. Any other transaction trying to `SELECT FOR UPDATE`, `UPDATE`, or `DELETE` that row will block until this transaction completes.
 
 ```mermaid
@@ -370,6 +358,8 @@ sequenceDiagram
     Note over T2: Sees updated quantity. Knows item is out of stock.
     T2->>DB: ROLLBACK
 ```
+
+{% include ads/in-article.html %}
 
 ### FOR SHARE: The Read Lock
 
@@ -492,10 +482,6 @@ This is the question that comes up in every design discussion. Here is the pract
 | **Retry logic needed** | No | Yes |
 | **SQL example** | `SELECT FOR UPDATE` | `UPDATE WHERE version = N` |
 
-
-{% include ads/display.html %}
-
-
 ```mermaid
 flowchart TD
     A["Do concurrent transactions<br/>modify the same rows often?"] --> B{High contention?}
@@ -588,10 +574,6 @@ BEGIN;
 UPDATE accounts SET balance = balance - 50 WHERE id = 2;   -- Locks row 2
 UPDATE accounts SET balance = balance + 50 WHERE id = 1;   -- Waits for row 1
 ```
-
-
-{% include ads/in-article.html %}
-
 
 Transaction 1 holds the lock on row 1 and waits for row 2. Transaction 2 holds the lock on row 2 and waits for row 1. Circular dependency. Deadlock.
 
@@ -771,6 +753,8 @@ flowchart LR
     style J3 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
     style J4 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 This pattern is used by popular job queue libraries like Que (Ruby), Oban (Elixir), and river (Go). It works well for moderate job volumes. For high-throughput job processing, a dedicated [message queue](/role-of-queues-in-system-design/) is usually better.
 

@@ -85,9 +85,7 @@ graph LR
     G --> H
 ```
 
-
 {% include ads/in-article.html %}
-
 
 The cascade: DynamoDB became unreachable → Lambda functions timed out → API Gateway failed → CloudWatch logging broke → everything dependent on these services went down.
 
@@ -161,4 +159,3 @@ Build resilient systems with multi-region deployment, failure handling, external
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
 - [Building Multi-Region Applications](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-i-strategies-for-recovery-in-the-cloud/)
 - [Chaos Engineering Principles](https://principlesofchaos.org/)
-

@@ -65,7 +65,6 @@ Let's define the interface which every criteria has to implement. This interface
 ```java
 package filter_pattern.filter_criteria;
 
-
 import filter_pattern.model.Laptop;
 
 import java.util.List;
@@ -75,17 +74,12 @@ public interface Criteria {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Now let's implement a bunch of criteria to choose from.
 
 # Macintosh.java<br><br>
 
 ```java
 package filter_pattern.filter_criteria;
-
 
 import filter_pattern.model.Laptop;
 
@@ -127,7 +121,6 @@ public class Ram4GB implements Criteria {
 ```java
 package filter_pattern.filter_criteria;
 
-
 import filter_pattern.model.Laptop;
 
 import java.util.List;
@@ -142,6 +135,8 @@ public class I7Processor implements Criteria {
 }
 ```
 <br>
+
+{% include ads/in-article.html %}
 
 # ScreenSize15Inch.java<br><br>
 
@@ -170,7 +165,6 @@ There is two more criteria which are very important AndCriteria and OrCriteria. 
 
 ```java
 package filter_pattern.filter_criteria;
-
 
 import filter_pattern.model.Laptop;
 

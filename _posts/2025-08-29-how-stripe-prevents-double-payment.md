@@ -201,10 +201,6 @@ charge_retry = create_payment("12345", 2000)
 print(f"Same charge: {charge_retry.id}")
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Node.js
 
 ```javascript
@@ -311,6 +307,8 @@ curl https://api.stripe.com/v1/charges \
   -d source=tok_visa \
   -d description="Order 12345"
 ```
+
+{% include ads/in-article.html %}
 
 ## Beyond Idempotency Keys: Defense in Depth
 
@@ -422,10 +420,6 @@ def create_payment_with_retry(order_id: str, amount: int, max_retries: int = 3):
     
     raise Exception(f"Failed after {max_retries} attempts")
 ```
-
-
-{% include ads/display.html %}
-
 
 ## The Architecture
 
@@ -598,11 +592,9 @@ except stripe.error.APIConnectionError as e:
     return retry_payment()
 ```
 
-## Building Your Own Idempotent API
-
-
 {% include ads/in-article.html %}
 
+## Building Your Own Idempotent API
 
 The same patterns work for any API, not just payments.
 

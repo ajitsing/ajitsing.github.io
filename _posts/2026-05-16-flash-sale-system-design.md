@@ -96,8 +96,6 @@ flowchart TB
     class DB store
 ```
 
-{% include ads/in-article.html %}
-
 Each box on that diagram drops the next box's traffic by an order of magnitude. The CDN turns a 10 million spike into a 1 million origin spike. The waiting room turns it into 100k per second. The token gate clamps it at the inventory size. The Redis DECR cuts it again. By the time orders reach the database, the database sees a steady 1k writes per second instead of 10 million per second. That is the whole trick.
 
 ## Functional and Non Functional Requirements
@@ -228,6 +226,8 @@ flowchart TB
     class D best
 ```
 
+{% include ads/in-article.html %}
+
 ### Pattern 1: Pessimistic Lock on the Row
 
 The textbook answer.
@@ -344,8 +344,6 @@ if token is None:
     return 409, "sold out"
 return 200, {"order_token": token}
 ```
-
-{% include ads/in-article.html %}
 
 Properties:
 
@@ -528,8 +526,6 @@ Hot key problems on Redis are the other side of caching. When 200k requests per 
 2. **Local read cache on the application server.** For the page-render call, an in-process 1-second cache on the stock value is enough. The order path still hits Redis, but the read-only path does not.
 3. **Negative cache.** Once a shard returns zero, cache the "sold out" answer locally for 5 seconds so requests for that shard short-circuit. We discussed this defense in [Bloom filter](/data-structures/bloom-filter/){:target="_blank" rel="noopener"} and [Caching strategies explained](/caching-strategies-explained/){:target="_blank" rel="noopener"}.
 
-{% include ads/display.html %}
-
 ## Rate Limiting and Bot Defense
 
 Most "load" on a flash sale is bots, not customers. Sneaker drops are an arms race. Phone launches are scraped by resellers within seconds. The defenses are layered.
@@ -613,6 +609,8 @@ flowchart LR
     class USRedis,EURedis,APRedis hot
     class Reb ctl
 ```
+
+{% include ads/in-article.html %}
 
 Two designs are reasonable:
 

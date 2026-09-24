@@ -122,9 +122,7 @@ graph LR
     style D fill:#ffe1e1
 ```
 
-
 {% include ads/in-article.html %}
-
 
 **Human errors:**
 - Usually caught before execution
@@ -260,10 +258,6 @@ If Kiro had hit a timeout or circuit breaker, the outage might have been prevent
 ---
 
 ## The Pattern: Automation Without Safety
-
-
-{% include ads/display.html %}
-
 
 This incident follows a pattern we've seen in other major outages. The [AWS US-East-1 outage in October 2025](/aws-us-east-outage-october-2025/) showed how single points of failure can cascade. The [Cloudflare outages in November and December 2025](/cloudflare-outage-november-2025/) showed how configuration changes without gradual rollouts can cause global incidents.
 

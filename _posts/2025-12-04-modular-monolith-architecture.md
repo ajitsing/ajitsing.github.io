@@ -166,10 +166,6 @@ But they come with a tax:
 | Developer experience | Running 10 services locally is painful |
 | Debugging | Good luck tracing a request across 8 services |
 
-
-{% include ads/in-article.html %}
-
-
 For a team of 5-50 developers, this tax often outweighs the benefits.
 
 **The distributed monolith trap**: Many teams end up with tightly coupled services that have to be deployed together. They have all the complexity of microservices with none of the independence. This is worse than a well-structured monolith.
@@ -188,6 +184,8 @@ flowchart LR
     style C fill:#ffcdd2
     style D fill:#ffcdd2
 </code></pre>
+
+{% include ads/in-article.html %}
 
 ## The Modular Monolith Sweet Spot
 
@@ -379,10 +377,6 @@ public class OrderService {
     }
 }
 ```
-
-
-{% include ads/display.html %}
-
 
 <pre><code class="language-mermaid">
 sequenceDiagram
@@ -613,11 +607,9 @@ graph TB
 - More complex local development
 - Higher operational overhead
 
-## Real World Example: E-commerce Platform
-
-
 {% include ads/in-article.html %}
 
+## Real World Example: E-commerce Platform
 
 Let's design an e-commerce system as a modular monolith.
 
@@ -781,5 +773,3 @@ You might be surprised by the silence.
 *Building a system that needs to scale? Check out [How Shopify Powers 5 Million Stores](/shopify-system-design/) for a deep dive into their modular monolith, [Designing Database Isolation for B2B Multi-Tenant SaaS](/multi-tenant-database-isolation/) when many customers share one database, and [How Kafka Works](/distributed-systems/how-kafka-works/) when you need event-driven communication between modules.*
 
 *References: [Martin Fowler on Monolith First](https://martinfowler.com/bliki/MonolithFirst.html), [Sam Newman on Distributed Monoliths](https://samnewman.io/blog/2015/04/07/microservices-for-greenfield/), [Shopify Engineering Blog](https://shopify.engineering/), [Kamil Grzybek - Modular Monolith Primer](https://www.kamilgrzybek.com/design/modular-monolith-primer/)*
-
-

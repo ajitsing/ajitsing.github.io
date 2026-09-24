@@ -131,8 +131,6 @@ Cursor's Chat panel (`Cmd+L`) is for understanding, not editing. Open it and ask
 
 This is the most underused habit in Cursor. A thirty-second question in Ask mode often replaces a confused, multi-step Agent run that edits the wrong files. Understand the lay of the land first, then act. When you do want the answer grounded in the right place, pin context with `@` (more on that in Tip 6) instead of hoping the agent guesses where to look.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-robot"></i> Tip 4: Reach for the Agent on Multi-File Work
 
 The [Agent](https://cursor.com/docs/agent/overview){:target="_blank" rel="noopener"} is where Cursor stops feeling like autocomplete and starts feeling like a teammate. Open the agent panel (`Cmd+I`), describe a goal, and the Agent can:
@@ -179,6 +177,8 @@ flowchart TD
     class Plan c
 ```
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-tasks"></i> Tip 5: Start Big Tasks in Plan Mode
 
 This is the single biggest 2026 upgrade to how people use Cursor. Before you let the Agent loose on anything larger than one file, switch to [Plan Mode](https://cursor.com/docs/agent/planning){:target="_blank" rel="noopener"} by pressing `Shift+Tab` in the agent panel.
@@ -206,8 +206,6 @@ The quality of Cursor's output depends almost entirely on the context it sees. D
 - `@git` brings in commits or diffs
 
 Precise context beats a long, vague prompt every time. If you are fixing a bug, mention the file with the bug and the test that catches it, not the whole repo. This is really an applied form of [context engineering](/context-engineering/){:target="_blank" rel="noopener"}: feed the model the smallest set of high-signal information that lets it do the job, and nothing else.
-
-{% include ads/display.html %}
 
 ## <i class="fas fa-scroll"></i> Tip 7: Encode Your Conventions Once with Rules
 
@@ -263,6 +261,8 @@ flowchart LR
     class A a
 ```
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-microchip"></i> Tip 10: Switch Models by Task, Not by Habit
 
 Cursor lets you pick which model powers each interaction, and you can change it mid-chat. The mistake is picking one model and using it for everything.
@@ -303,8 +303,6 @@ You do not need all of these on day one, but committing the top few to muscle me
 | `Shift+Tab` | `Shift+Tab` | Cycle modes (Ask, Agent, Plan) |
 | `Cmd+Shift+L` | `Ctrl+Shift+L` | Add current file to context |
 | `Cmd+Shift+P` | `Ctrl+Shift+P` | Command palette |
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> Common Mistakes That Slow People Down
 

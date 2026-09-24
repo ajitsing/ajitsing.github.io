@@ -140,8 +140,6 @@ You should get a short summary plus risks. Confirm discovery with `/skills`.
 
 Custom commands merged into skills. A file at `.claude/commands/deploy.md` still creates `/deploy`. A skill at `.claude/skills/deploy/SKILL.md` creates the same command and can carry a `scripts/` folder, invocation flags, and supporting docs. Prefer skills for anything new.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-balance-scale"></i> CLAUDE.md vs Skills vs Commands vs Plugins vs MCP
 
 People dump everything into `CLAUDE.md` because it works. It also makes every session more expensive and more noisy. Split by job.
@@ -174,6 +172,8 @@ flowchart LR
     class T mcp
     class A agent
 ```
+
+{% include ads/in-article.html %}
 
 - **[CLAUDE.md](https://code.claude.com/docs/en/memory){:target="_blank" rel="noopener"}** is session memory. Load it for facts that should never be forgotten: language, test command, directories that are off limits. Official docs treat it as always-on context.
 - **Skills** are procedures. PR review, changelog, staging deploy. They load when the description matches or when you slash them.
@@ -209,11 +209,11 @@ flowchart TD
     class E skip
 ```
 
+{% include ads/in-article.html %}
+
 Two-stage load is the whole point. Descriptions stay cheap. The body, plus any `!` command output, enters the conversation as one message and stays there for later turns. Tool grants from `allowed-tools` do **not** stay: they last for the invoking turn, then your next message clears them. If a deploy skill should keep working across a few back-and-forths, say so in the instructions, or invoke it again.
 
 After compaction, Claude Code tries to re-attach recent skills, truncated, so the playbook is not wiped. If behavior drifts after a long session, type `/skill-name` again.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-tasks"></i> Frontmatter That Matters in Claude Code
 
@@ -299,8 +299,6 @@ If $ARGUMENTS is set, focus on that pull request number.
 `context: fork` runs the skill in a subagent so a heavy review does not bloat the parent chat. Bundled `/code-review` uses this pattern on recent Claude Code versions. Set `background: false` if you want the parent turn to wait for the result.
 
 Keep `SKILL.md` under about 500 lines. Point at `references/` for checklists and `scripts/` for anything fragile. The agent should run `scripts/validate.py`, not regenerate it from prose each time. That is the same token discipline as progressive disclosure: load the minimum, fetch the rest on demand.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-cubes"></i> Plugins and Sharing Skills
 

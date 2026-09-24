@@ -126,6 +126,8 @@ flowchart LR
     class A,B,C,D ts
 ```
 
+{% include ads/in-article.html %}
+
 Sort those four strings alphabetically and you also sort them by time. A random UUID v4 gives you no such guarantee. Sort a list of UUID v4 values and you get random nonsense order.
 
 This single property buys you a lot:
@@ -153,8 +155,6 @@ The result is an ID you can read over the phone, type without squinting, and pas
 
 One quirk worth knowing: 26 Base32 characters can technically hold 130 bits, but a ULID only uses 128. The spec handles this by limiting the first character to the range `0` through `7`. The largest valid ULID is `7ZZZZZZZZZZZZZZZZZZZZZZZZZ`. Any string starting with `8` or higher is not a valid ULID, which is a handy thing for validators to check.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-cogs"></i> How a ULID Is Generated
 
 Generating a ULID is two steps: read the clock, add randomness. The interesting part is what happens when you generate more than one in the same millisecond.
@@ -179,6 +179,8 @@ sequenceDiagram
     Gen->>Gen: Encode 48-bit time + 80-bit random<br/>as 26 Base32 chars
     Gen-->>App: 01ARZ3NDEKTSV4RRFFQ69G5FAV
 ```
+
+{% include ads/in-article.html %}
 
 In the simplest mode, every ULID gets brand new random bits. That is fine for uniqueness, but the spec notes that within a single millisecond, sort order is then "not guaranteed." Two ULIDs made in the same millisecond with independent random parts could sort in either order.
 
@@ -349,8 +351,6 @@ ULIDs, like UUID v7, insert in roughly increasing order. New rows append to the 
 - **MySQL:** use `BINARY(16)` rather than `CHAR(26)`. The binary form is smaller and compares faster.
 
 If you are choosing a database engine alongside your ID strategy, the [PostgreSQL vs MongoDB vs DynamoDB comparison](/postgresql-vs-mongodb-vs-dynamodb/){:target="_blank"} is a useful companion read, and [how databases store data internally](/how-databases-store-data-internally/){:target="_blank"} explains the page mechanics behind all of this.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> The Gotchas Nobody Mentions
 

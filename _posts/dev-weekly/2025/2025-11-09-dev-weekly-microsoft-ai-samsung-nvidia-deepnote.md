@@ -84,10 +84,6 @@ The reactive execution is smart too. Change a variable at the top, and everythin
 
 ## <i class="fas fa-tools"></i> Developer Tools & Releases
 
-
-{% include ads/in-article.html %}
-
-
 ### Canva Makes Affinity Suite Completely Free - [<i class="fas fa-external-link-alt"></i>](https://octet.design/journal/canva-made-affinity-free-forever/)
 
 Big news for designers. Canva acquired Serif last year, and this week they consolidated the **Affinity design suite** into a single **free app** for Mac and Windows.
@@ -133,6 +129,8 @@ This is pretty wild. You can record a video in English, and it'll make you look 
 Use cases are obvious - content creators, education, marketing, global teams. If you need to localize video content, this is way faster than re-recording everything.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-shield-alt"></i> Security News This Week
 
@@ -207,4 +205,3 @@ Scammers found a new way to inject malicious content into legitimate websites. E
 ---
 
 *Miss something? Let us know. We're always looking to cover what matters to developers.*
-

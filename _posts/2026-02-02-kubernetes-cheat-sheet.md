@@ -216,10 +216,6 @@ kubectx production
 kubens my-app
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ---
 
 ## Pods
@@ -408,6 +404,8 @@ flowchart LR
     style HPA fill:#744210,stroke:#d69e2e,color:#fefcbf
 ```
 
+{% include ads/in-article.html %}
+
 ### Updating Deployments
 
 ```bash
@@ -446,8 +444,6 @@ kubectl rollout pause deployment my-deployment
 # Resume rollout
 kubectl rollout resume deployment my-deployment
 ```
-
-{% include ads/display.html %}
 
 **Note:** For application-level feature rollouts (gradual user exposure, A/B testing), consider using [feature flags](/feature-flags-guide/) in addition to Kubernetes rolling updates. Feature flags give you finer control over which users see new features, independent of deployment.
 
@@ -628,10 +624,6 @@ kubectl delete namespace my-namespace
 | **kube-system** | System components (DNS, scheduler) |
 | **kube-public** | Publicly accessible resources |
 | **kube-node-lease** | Node heartbeats |
-
-
-{% include ads/in-article.html %}
-
 
 ---
 
@@ -816,6 +808,8 @@ flowchart TB
     style K fill:#234e52,stroke:#319795,color:#b2f5ea
 ```
 
+{% include ads/in-article.html %}
+
 ### Common Pod States
 
 | State | Meaning | What to Check |
@@ -826,10 +820,6 @@ flowchart TB
 | **Failed** | All containers stopped, at least one failed | Logs, previous logs |
 | **CrashLoopBackOff** | Container keeps crashing | Previous logs, resource limits |
 | **ImagePullBackOff** | Cannot pull image | Image name, registry auth |
-
-
-{% include ads/display.html %}
-
 
 ---
 
@@ -1033,8 +1023,6 @@ kubectl describe nodes | grep Taints
 # 4. Check pod resource requests
 kubectl get pod my-pod -o yaml | grep -A 10 resources
 ```
-
-{% include ads/in-article.html %}
 
 Common causes:
 - Insufficient CPU or memory on nodes

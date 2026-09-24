@@ -119,11 +119,9 @@ The lesson is the one supply chain people have been making for two years now. A 
 
 ---
 
-## <i class="fas fa-code"></i> Developer Tools & Platforms
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### Cursor 3.2 Adds Async Sub Agents and Multi Root Workspaces - [<i class="fas fa-external-link-alt"></i>](https://cursor.com/changelog/04-24-26){:target="_blank"}
 
@@ -160,10 +158,6 @@ On April 20, GitHub stopped accepting new sign-ups for Copilot Pro, Pro+, and St
 ---
 
 ## <i class="fas fa-shield-alt"></i> Security
-
-
-{% include ads/display.html %}
-
 
 ### Microsoft Ships Emergency ASP.NET Core Patch for CVE-2026-40372 - [<i class="fas fa-external-link-alt"></i>](https://devblogs.microsoft.com/dotnet/dotnet-10-0-7-oob-security-update/){:target="_blank"}
 
@@ -221,10 +215,6 @@ On April 21, Redwood Materials laid off about 135 employees, 10 percent of its w
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 
-
-{% include ads/in-article.html %}
-
-
 - **58.6%** GPT-5.5 SWE-Bench Pro score, below Opus 4.7's 64.3 percent
 - **82.7%** GPT-5.5 Terminal-Bench 2.0 score
 - **75%** New code at Google that is AI generated, up from 50 percent in fall 2025
@@ -239,6 +229,8 @@ On April 21, Redwood Materials laid off about 135 employees, 10 percent of its w
 - **15 years** Tim Cook's tenure as Apple CEO before stepping down
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-calendar-alt"></i> Quick Hits
 

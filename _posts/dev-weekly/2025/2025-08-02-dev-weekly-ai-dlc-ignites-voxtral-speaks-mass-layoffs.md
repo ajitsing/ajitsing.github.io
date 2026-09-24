@@ -38,7 +38,6 @@ At DevSphere Bengaluru, AWS introduced **AI-Driven Development Lifecycle (AI-DLC
 - **Governance & Community:** Launch of AWS AI-Native Builders Community and AWS AI League with $2M in credits  
 Early adopters (Wipro, S&P Global) report building production modules in <20 hrs.
 
-
 ---
 
 ## ☁️ Cloud & Infrastructure
@@ -55,11 +54,9 @@ Features include extended GA regions for API Server VNet integration, enhanced s
 
 ---
 
-## 🛡️ Security & Workforce
-
-
 {% include ads/in-article.html %}
 
+## 🛡️ Security & Workforce
 
 ### Tech Giants Slash Thousands of Jobs  
 July saw mass layoffs as AI reshapes roles:  

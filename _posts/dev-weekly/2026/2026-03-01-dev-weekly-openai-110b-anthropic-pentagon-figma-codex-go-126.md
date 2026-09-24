@@ -112,11 +112,9 @@ Most AI tools today make you pick one model and work with it. Computer abstracts
 
 ---
 
-## <i class="fas fa-code"></i> Developer Tools & Platforms
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### Figma + OpenAI Codex: Design to Code and Back - [<i class="fas fa-external-link-alt"></i>](https://techcrunch.com/2026/02/26/figma-partners-with-openai-to-bake-in-support-for-codex)
 
@@ -254,10 +252,6 @@ Right after the announcement, Check Point researchers found two critical vulnera
 
 ## <i class="fas fa-building"></i> Industry News
 
-
-{% include ads/display.html %}
-
-
 ### OpenAI Makes London Its Largest Research Hub Outside the US - [<i class="fas fa-external-link-alt"></i>](https://openai.com/index/introducing-openai-london)
 
 On February 26, OpenAI announced that London will become its largest research hub outside the United States.
@@ -308,6 +302,8 @@ eBay confirmed layoffs of approximately 800 employees, 6% of its global workforc
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-shield-alt"></i> Security
 
 ### Hacker Used Claude to Steal 150GB of Mexican Government Data - [<i class="fas fa-external-link-alt"></i>](https://securityaffairs.com/188696/ai/claude-code-abused-to-steal-150gb-in-cyberattack-on-mexican-agencies.html)
@@ -349,10 +345,6 @@ No workarounds exist. Patch immediately. If you're running Cisco Catalyst SD-WAN
 ---
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
-
-
-{% include ads/in-article.html %}
-
 
 - **$110 billion** — OpenAI's latest funding round, one of the largest private rounds in history
 - **$840 billion** — OpenAI's post-money valuation after the round

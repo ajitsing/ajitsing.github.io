@@ -126,10 +126,6 @@ def checkout(user, items):
         return process_payment_old(user, items)
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The flag value comes from somewhere external: a config file, a database, or a feature flag service. You change the value, not the code.
 
 ### How Feature Flags Work
@@ -244,6 +240,8 @@ graph LR
     style H fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 ### 6. Kill Switches for Operations
 
 Sometimes you need to disable a feature for operational reasons: high load, database issues, or a third-party service outage. Feature flags let you do this instantly without touching code.
@@ -251,10 +249,6 @@ Sometimes you need to disable a feature for operational reasons: high load, data
 This is exactly what happened during the [December 2025 Cloudflare outage](/cloudflare-outage-december-2025/). They used a killswitch to disable a feature, but the killswitch itself had a dormant bug. The lesson: test your killswitches just as thoroughly as the features they control.
 
 ## Types of Feature Flags
-
-
-{% include ads/display.html %}
-
 
 Not all feature toggles are the same. Martin Fowler's [definitive article on feature toggles](https://martinfowler.com/articles/feature-toggles.html) categorizes them into four types based on their lifecycle and purpose. Understanding the type of toggle you are working with matters because it determines how long it should live in your codebase and how it should be managed.
 
@@ -455,10 +449,6 @@ graph TB
     style API fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Pros:**
 - Advanced targeting (user segments, countries, custom attributes)
 - Real-time flag updates
@@ -529,6 +519,8 @@ graph LR
     style G fill:#dcfce7,stroke:#16a34a,stroke-width:3px
     style C fill:#fee2e2,stroke:#dc2626,stroke-width:3px
 ```
+
+{% include ads/in-article.html %}
 
 ### Consistent Hashing for Rollouts
 
@@ -611,8 +603,6 @@ def is_enabled(flag_name):
 def is_enabled(flag_name):
     return flags.get(flag_name, True)  # Dangerous!
 ```
-
-{% include ads/display.html %}
 
 If a flag doesn't exist or can't be loaded, assume the feature is off. This prevents accidental releases.
 
@@ -757,10 +747,6 @@ With many feature toggles, the number of possible combinations grows exponential
 - Use feature flag testing tools that let you override flags in tests
 
 ## Real-World Examples
-
-
-{% include ads/in-article.html %}
-
 
 ### Example 1: Gradual Rollout
 

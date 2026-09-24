@@ -82,9 +82,7 @@ function generateTable(failedJobData) {
 }
 ```
 
-
 {% include ads/in-article.html %}
-
 
 ## Step 2: Analyze failed job logs, Enters GPT!
 

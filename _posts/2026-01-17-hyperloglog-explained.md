@@ -108,8 +108,6 @@ flowchart LR
     style G fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
 
-{% include ads/in-article.html %}
-
 ## How the Algorithm Works
 
 Here is the step-by-step process:
@@ -347,7 +345,6 @@ class HyperLogLog:
         for i in range(self.m):
             self.registers[i] = max(self.registers[i], other.registers[i])
 
-
 # Usage
 
 hll = HyperLogLog()
@@ -360,8 +357,6 @@ print(f"Estimated: {hll.count()}")
 print(f"Actual: 1,000,000")
 print(f"Error: {abs(hll.count() - 1_000_000) / 1_000_000 * 100:.2f}%")
 ```
-
-{% include ads/display.html %}
 
 For production, use established libraries like `redis-py`, `datasketch`, or your database's built-in functions.
 

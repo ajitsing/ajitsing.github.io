@@ -44,8 +44,6 @@ On August 17, [Cursor began rolling Origin](https://cursor.com/changelog/origin-
 
 The timing wrote its own headline. Origin started rolling out Monday morning, and a few hours later GitHub's status page lit up. [TechCrunch noted](https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/){:target="_blank"} that you do not have to leave GitHub to try it. Two operational notes: it is paid-only, and Origin reaches enterprise orgs unless an admin opts out, so check that setting before the tab appears for everyone. Pricing, storage caps, and data-handling terms were still thin at launch. If you are on Pro, Teams, or Enterprise, sync one noncritical repo, hook Vercel or Buildkite if you need previews or CI, and keep GitHub as source of truth until the agent-native bits and the missing forge features (public repos, first-party Actions-class CI) exist.
 
-{% include ads/in-article.html %}
-
 ### GitHub Goes Down for 7 Hours and 47 Minutes After an Istio Sidecar Hits a Wall - [<i class="fas fa-external-link-alt"></i>](https://www.githubstatus.com/incidents/plk7zdvpftby){:target="_blank"}
 
 On August 17, from 13:28 to 21:15 UTC, [GitHub was degraded for 7 hours and 47 minutes](https://www.githubstatus.com/incidents/plk7zdvpftby){:target="_blank"}. Issues, pull requests, APIs, Actions, Copilot, SAML, OIDC, SCIM, and Team Sync all suffered. At peak, web and API error rates were about 20%, archive and raw downloads about 50%. An Istio sidecar in Central US hit its concurrency limit. Autoscaling watched the host service, not the sidecar. Four HAProxy nodes exhausted flow limits, the gateway auth path failed, and optimistic retries piled onto already saturated load balancers. Pausing HAProxy on those nodes produced a broad recovery. Most services were back by 16:36 UTC, Actions around 18:03 UTC.
@@ -64,8 +62,6 @@ On August 17, [Redis tagged 8.10.1](https://github.com/redis/redis/releases/tag/
 
 If you load untrusted RDB files, expose Redis over TLS with client certs, or use Vector Sets, this is not a sit-on-it minor. Upgrade to the build for your branch, then restart. Do not load RDB snapshots from untrusted sources until you are patched. Internet-facing Redis with replica or cluster restore in the mix should move first.
 
-{% include ads/display.html %}
-
 ### Stripe Agrees to Buy OpenRouter for About $7.5 Billion - [<i class="fas fa-external-link-alt"></i>](https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter){:target="_blank"}
 
 On August 19, [Stripe said it had agreed to acquire OpenRouter](https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter){:target="_blank"}, the gateway that routes across more than 400 models from more than 80 providers. Stripe did not name a price. [TechCrunch reported](https://techcrunch.com/2026/08/19/stripe-didnt-really-buy-openrouter-because-of-the-singularity/){:target="_blank"} that the New York Times put the deal at $7.5 billion, with about $1.5 billion for the founders, versus a $1.3 billion valuation in May. Patrick Collison framed it as economic infrastructure for tokens: route the request, spend the compute, sit next to Stripe's Token Billing. OpenRouter's [own post](https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/){:target="_blank"} said the product, mission, and commitments stay unchanged and close is weeks away.
@@ -80,6 +76,8 @@ If you built against those versions, treat the builder as compromised: rotate to
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### Rust 1.98.0 Adds Algebraic Float Ops and Buffered Integer Formatting - [<i class="fas fa-external-link-alt"></i>](https://blog.rust-lang.org/2026/08/20/Rust-1.98.0/){:target="_blank"}
@@ -89,8 +87,6 @@ On August 20, [Rust 1.98.0 hit stable](https://blog.rust-lang.org/2026/08/20/Rus
 ### AWS Glue 6.0 Goes GA at 30% Lower Price With Iceberg v3 - [<i class="fas fa-external-link-alt"></i>](https://aws.amazon.com/blogs/aws/aws-glue-6-0-now-available-with-30-lower-price-and-full-apache-iceberg-v3-support/){:target="_blank"}
 
 On August 21, [AWS made Glue 6.0 generally available](https://aws.amazon.com/about-aws/whats-new/2026/08/aws-glue-6-0-price-reduction-iceberg-v3/){:target="_blank"}: 30% lower price than prior Glue versions, Spark 4.1, Python 3.13, Scala 2.13, and full Apache Iceberg v3 (VARIANT with shredding, deletion vectors, geometry and geography types). You also get Spark Declarative Pipelines, real-time streaming mode, and Arrow-native Python UDFs. No API change: set `--glue-version` to `6.0` on create or update, or pick Glue 6.0 in Studio. New jobs should start on 6.0. Existing jobs can move with AWS's Spark upgrade agent after you test Iceberg and PySpark behavior.
-
-{% include ads/in-article.html %}
 
 ### JetBrains: Claude Code Is Now the Default AI Coding Tool at Work - [<i class="fas fa-external-link-alt"></i>](https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/){:target="_blank"}
 
@@ -137,9 +133,9 @@ On August 19, [Unitree Robotics began trading](https://thenextweb.com/news/unitr
 *   **TikTok:** On August 18, a WARN filed Tuesday and [covered by GeekWire](https://www.geekwire.com/2026/tiktok-cuts-75-jobs-in-seattle-area-hitting-e-commerce-teams/){:target="_blank"} said TikTok will cut 75 jobs at its Bellevue office, mostly TikTok Shop and global e-commerce, including backend and frontend engineers, with a separation date of October 19.
 *   **Qualtrics:** This week [Qualtrics cut jobs globally](https://www.geekwire.com/2026/qualtrics-cuts-jobs-in-seattle-utah-and-overseas-as-it-absorbs-6-75b-acquisition/){:target="_blank"} after absorbing Press Ganey Forsta. Headcount was not disclosed. Seattle WARN language implies at least 50 at headquarters. Dual HQ in Seattle and Provo plus international offices were in scope.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

@@ -162,10 +162,6 @@ graph LR
     style E fill:#f0fdf4,stroke:#15803d
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The trick is step 1 and step 2 happening in the same database transaction. If the transaction commits, both the order and the event are saved. If it rolls back, neither is saved. There is no window where one exists without the other.
 
 The relay process runs independently. It picks up events from the outbox table and publishes them to the broker. If it crashes, no problem. On the next run, it picks up where it left off. Events are not lost because they are sitting safely in the database.
@@ -255,10 +251,6 @@ CREATE TABLE outbox_events (
 | **published_at** | When the event was successfully published. Useful for auditing. |
 | **retry_count** | How many times the relay has attempted to publish this event. After a threshold (say 5 retries), move it to `failed` status for manual investigation. |
 
-
-{% include ads/display.html %}
-
-
 The partial index on `(status, id) WHERE status = 'pending'` is important. Without it, the relay query scans the entire table, which gets slow as the table grows. With the partial index, it only scans pending events.
 
 ### Writing to the outbox
@@ -316,6 +308,8 @@ graph TB
     style D fill:#dcfce7,stroke:#16a34a
     style E fill:#f0fdf4,stroke:#15803d
 ```
+
+{% include ads/in-article.html %}
 
 ### Implementation
 
@@ -416,10 +410,6 @@ graph LR
     style C fill:#fef3c7,stroke:#d97706
     style D fill:#f0fdf4,stroke:#15803d
 ```
-
-
-{% include ads/in-article.html %}
-
 
 ### How CDC works with the outbox
 
@@ -532,10 +522,6 @@ CREATE TABLE processed_events (
 );
 ```
 
-
-{% include ads/display.html %}
-
-
 ```python
 def handle_event(event):
     with db.transaction():
@@ -596,6 +582,8 @@ graph TB
     style I fill:#f1f5f9,stroke:#64748b
 ```
 
+{% include ads/in-article.html %}
+
 ### Outbox + CQRS
 
 If you use [CQRS (Command Query Responsibility Segregation)](/cqrs-pattern-guide/), the outbox pattern is how you reliably publish events from the write side to update the read models. Without a reliable publishing mechanism, your read models can fall behind or miss updates entirely.
@@ -651,10 +639,6 @@ Each service has its own database and its own outbox table. Do not try to share 
 ---
 
 ## <i class="fas fa-list-ol"></i> Outbox Pattern vs Alternatives
-
-
-{% include ads/in-article.html %}
-
 
 | Pattern | What it solves | Consistency | Complexity | When to use |
 |---|---|---|---|---|

@@ -94,8 +94,6 @@ sequenceDiagram
     S-->>C: Response 3
 ```
 
-{% include ads/in-article.html %}
-
 Look at what sits idle in that diagram. While the client waits, it is doing nothing. The network link is empty in both directions between messages. And the server, which could be chewing through a queue of work, has an empty queue because only one request is ever outstanding. Everyone is blocked on one thing: the speed of light and the switches in between.
 
 This matters most in exactly the places you care about performance. A [replicated log](/distributed-systems/replicated-log/){:target="_blank" rel="noopener"} leader shipping entries to followers, a database client running thousands of small writes, a cache client reading many keys. In all of them the per-request work is tiny and the round trip dominates. If the server can accept more work while it is still processing, as it can when a [Singular Update Queue](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"} sits behind it, then sending one request at a time leaves most of the server's capacity on the floor.

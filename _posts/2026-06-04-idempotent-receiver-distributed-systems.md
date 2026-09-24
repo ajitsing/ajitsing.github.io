@@ -105,8 +105,6 @@ flowchart TB
 
 In case A, the retry is necessary and harmless. In cases B and C, the work was already done, so the retry is a **duplicate** that you must not process again.
 
-{% include ads/in-article.html %}
-
 This is not an edge case you can ignore. It is baked into how systems talk to each other:
 
 - **Client retries**: every HTTP client, mobile app, and SDK retries on timeout. So do load balancers and API gateways.
@@ -180,6 +178,8 @@ sequenceDiagram
     S-->>C: Replay saved response ch_1
 ```
 
+{% include ads/in-article.html %}
+
 Notice what the server did on the retry: **nothing new**. It did not charge the card a second time. It looked up the request number, found a stored result, and replayed it. From the client's point of view the call finally succeeded. From the system's point of view the money moved exactly once.
 
 A naive version of this is dangerously easy to get wrong. The trap is recording that you have seen a request *before* you finish the work, or charging *before* you record it. The two must be tied together so that either both happen or neither does.
@@ -214,8 +214,6 @@ flowchart TB
 ```
 
 If the "do the work" and "record the result" steps are not atomic, a crash in between leaves you in the worst spot: the card is charged but no record exists, so the next retry charges again. In a single database you wrap both in one transaction. Across a service boundary you use the [transactional outbox pattern](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} so the state change and the record of it commit together.
-
-{% include ads/in-article.html %}
 
 ## A Minimal Implementation
 
@@ -301,8 +299,6 @@ flowchart LR
 - **Idempotent Receiver** is the general, request and response framing from distributed systems theory. It cares about a client retrying an RPC and getting the original answer back.
 - **Idempotent Consumer** is the messaging framing from [Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html){:target="_blank" rel="noopener"} and [microservices.io](https://microservices.io/patterns/communication-style/idempotent-consumer.html){:target="_blank" rel="noopener"}. It cares about a broker redelivering a message and the consumer skipping the repeat.
 
-{% include ads/display.html %}
-
 Both need a stable identifier per unit of work and a durable record of what has been processed. If you understand one, you understand the other.
 
 ## How Real Systems Do It
@@ -353,6 +349,8 @@ sequenceDiagram
     Note over B: Acknowledge but do NOT append again
     B-->>P: ack (no duplicate written)
 ```
+
+{% include ads/in-article.html %}
 
 A retried record with a sequence number the broker has already seen is acknowledged but not written a second time. That stops producer retries from creating duplicate records in the log. The matching consumer-side guarantees are covered well by [Confluent's exactly-once write-up](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/){:target="_blank" rel="noopener"}, and the broader trade-offs in [Kafka vs RabbitMQ vs SQS](/kafka-vs-rabbitmq-vs-sqs/){:target="_blank" rel="noopener"}.
 
@@ -430,8 +428,6 @@ In a [saga](/saga-pattern-distributed-transactions/){:target="_blank" rel="noope
 ### Watch out for non-idempotent side effects you forgot about
 
 The obvious work is easy to protect. The sneaky side effects are logging an event to an analytics pipeline, incrementing a metric, sending a webhook, or firing a downstream message. Each of those is its own non-idempotent action and may need its own key. The [distributed counter](/distributed-counter-architecture-guide/){:target="_blank" rel="noopener"} post shows how easily a duplicate increment skews numbers.
-
-{% include ads/in-article.html %}
 
 ## An Implementation Checklist
 

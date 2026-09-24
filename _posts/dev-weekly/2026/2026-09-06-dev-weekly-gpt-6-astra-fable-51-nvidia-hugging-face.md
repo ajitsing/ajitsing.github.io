@@ -48,8 +48,6 @@ On September 1, [Anthropic released Claude Fable 5.1 and Claude Mythos 5.1](http
 
 The API id is `claude-fable-5-1`. It is on the Claude API, Bedrock, Google Cloud, and Microsoft Foundry. Claude Code defaults to High effort. [GitHub Copilot added it](https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot/){:target="_blank"} the same day for Pro+, Max, Business, and Enterprise. Business and Enterprise admins have to turn the policy on. Anthropic keeps prompts on this model by default so its safety checks can run. Some companies can keep zero data retention until [a new setup](https://www.anthropic.com/news/enterprise-frontier-safeguards){:target="_blank"} ships this fall. If your agents already cache a big codebase, this is the first Fable release where that pattern is cheap enough to compare with Opus 5.
 
-{% include ads/in-article.html %}
-
 ### Nvidia Agrees to Buy Hugging Face for $12.93 Billion - [<i class="fas fa-external-link-alt"></i>](https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/){:target="_blank"}
 
 On September 3, [Jensen Huang said Nvidia will buy Hugging Face for $12.93 billion](https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/){:target="_blank"}. Last week's leak is now a signed deal. [Nvidia's filing](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm){:target="_blank"} is dated September 2: about $11.9 billion to Hugging Face shareholders, plus up to $1 billion in stock for staff who join Nvidia. Close is aimed at the first half of 2027, after regulators look at it. Huang said the Hub stays open. You can still pick any model, framework, cloud, and chip. You do not have to use NVIDIA hardware. Nvidia says the Hub has more than 18 million users, 3 million models, 500,000 datasets, and 1 million apps.
@@ -68,8 +66,6 @@ On September 2, [Google launched Gemini 3.8 Flash and Gemini 3.8 Flash Cyber](ht
 
 The API id is `gemini-3.8-flash`. It is in the Gemini API, AI Studio, Android Studio, Gemini Enterprise, and Antigravity. [GitHub Copilot added it](https://github.blog/changelog/2026-09-03-gemini-3-8-flash-is-now-available-in-github-copilot/){:target="_blank"} on September 3 for Pro and above. If you already use 3.7 Flash, change the id in a test agent before you change production. For anything that will still be running next year, budget the January price.
 
-{% include ads/display.html %}
-
 ### Python 3.15 Hits Its Last Release Candidate - [<i class="fas fa-external-link-alt"></i>](https://blog.python.org/2026/09/python-3150-rc2/){:target="_blank"}
 
 On September 1, [Python 3.15.0rc2](https://blog.python.org/2026/09/python-3150-rc2/){:target="_blank"} shipped. It is the last planned candidate. About 144 fixes landed since rc1. Wheels built on rc2 should work on the final 3.15.0 release. Final is set for October 1. New in 3.15: lazy imports (PEP 810), `frozendict` and `sentinel` builtins, UTF-8 as the default encoding, unpacking in comprehensions, and a JIT that Python says is 8-9% faster on x86-64 Linux.
@@ -83,6 +79,8 @@ On September 1, [Copilot code review started saying whether a PR looks ready to 
 Leave this off unless you really want an AI approval to count. The comment is still useful as a second opinion.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -99,8 +97,6 @@ On September 3, [Rust 1.98.1](https://blog.rust-lang.org/2026/09/03/Rust-1.98.1/
 ### Kubernetes Can Run the Kubelet as a Normal User - [<i class="fas fa-external-link-alt"></i>](https://kubernetes.io/blog/2026/09/04/kubernetes-v1-37-rootless-beta/){:target="_blank"}
 
 On September 4, [Kubernetes posted](https://kubernetes.io/blog/2026/09/04/kubernetes-v1-37-rootless-beta/){:target="_blank"} that rootless kubelet is beta in 1.37 (that release shipped August 26). The feature flag is on by default, but existing clusters that run as root do not change. To try it, run kind or minikube on rootless Docker or Podman. This is for a laptop cluster, not a production rewrite.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -145,9 +141,9 @@ On September 1, [Empirik launched](https://techcrunch.com/2026/09/01/sequoia-inc
 *   **Uber:** On September 2, [TechCrunch](https://techcrunch.com/2026/09/02/uber-is-laying-off-10-of-staff-or-3300-people/){:target="_blank"} reported about 3,300 cuts, about 10% of staff. Bloomberg had it first. CEO Dara Khosrowshahi said Uber will have about 20% fewer managers, will merge engineering, science, and delivery teams, and will end almost all remote jobs. Reuters tied the cuts to robotaxis. Khosrowshahi did not blame AI.
 *   **The Trade Desk:** On September 3, [a filing](https://www.stocktitan.net/sec-filings/TTD/8-k-trade-desk-inc-reports-material-event-6e2753cf5a23.html){:target="_blank"} said the ad company will cut about 15% of staff and take $39 million to $51 million in cash charges this quarter. [Business Insider](https://www.businessinsider.com/the-trade-desk-lays-off-15-of-staff-2026-9){:target="_blank"} put that at more than 500 people, based on 3,843 staff at the end of 2025. CEO Jeff Green said the company wants smaller teams.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

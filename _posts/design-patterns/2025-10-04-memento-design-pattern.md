@@ -146,10 +146,6 @@ public class EditorHistory {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -308,10 +304,6 @@ public class SaveManager {
 
 ## Checkpoints with Auto-Save
 
-
-{% include ads/display.html %}
-
-
 ```java
 public class AutoCheckpointManager {
     private final List<EditorMemento> checkpoints = new ArrayList<>();
@@ -381,6 +373,8 @@ sequenceDiagram
     Editor->>Memento: Get saved state
     Note over Editor: State restored to "Hello"
 ```
+
+{% include ads/in-article.html %}
 
 ## Common Mistakes
 
@@ -471,4 +465,3 @@ Remember to deep copy mutable fields. Limit history size. Keep memento internals
 
 - [Java Serialization](https://docs.oracle.com/javase/8/docs/technotes/guides/serialization/)
 - [Undo/Redo Best Practices](https://stackoverflow.com/questions/3541383/undo-redo-implementation)
-

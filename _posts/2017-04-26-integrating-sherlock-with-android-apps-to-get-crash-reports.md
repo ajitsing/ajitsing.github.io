@@ -30,7 +30,6 @@ Its always a challenge for an app tester to report crashes to the developers. Be
 
 Keeping this problem in mind, I created this android library named [Sherlock](https://github.com/ajitsing/Sherlock){:target="_blank"}. Yes its your apps private detective which can tell exactly where the crash occurred along with Device and Application information. It also enables you to share the crash details using any sharing app available on your device e.g mail, whatsapp, messenger etc.
 
-
 # How to integrate Sherlock with your app?
 
 Integrating Sherlock with your android application is very easy. You just need to add Sherlock as a dependency in your build.gradle file. And then initialize Sherlock in the Application class of your app.
@@ -44,7 +43,6 @@ dependencies {
 ```
 
 After adding the Sherlock to the build.gradle file sync your android studio project and then initialize Sherlock in your application class.
-
 
 ```java
 package com.singhajit.login;
@@ -68,6 +66,8 @@ Here is a small demo.
 
 {% include youtubePlayer.html id="cEQBJkTeRUQ" %}
 
+{% include ads/in-article.html %}
+
 # Sherlock provides much more than just a crash notification
 
 Using sherlock you can get list of all crashes that has occurred since you installed the application on your device. To see all the crashes, create a menu item or wherever you want to trigger that view from and start the CrashListActivity.
@@ -81,10 +81,6 @@ public class LoginActivity extends AppCompatActivity {
   }
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 Apart from showing all the crashes, Sherlock can also give you all the crash objects it has persisted. You can utilize these crash objects for anything. One possible use case is to generate a custom crash report.
 

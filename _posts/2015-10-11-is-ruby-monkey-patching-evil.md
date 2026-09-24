@@ -57,6 +57,8 @@ In second example we are using the concept of monkey patching or open classes. N
 
 # How ruby monkey patching can be evil?
 
+{% include ads/in-article.html %}
+
 Let's understand it through an example. So let's take a scenario where we want to replace a string in the array with another string. If you do it using monkey patching, you would write something like this
 
 ```ruby
@@ -71,10 +73,6 @@ end
 ['hello', 'ruby', 'monkey patching'].replace('monkey patching', 'open classes')
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The above code will work fine. But if you have used array in your project exhaustively and you don't have test, you might face some issues and your code will break. Why, because ruby's Array class already has a replace method, And if you have used that replace method and you don't have test for it you will not know where it might break.
 
 ```ruby
@@ -87,4 +85,3 @@ Also for the people who are new to ruby will see this replace method and think t
 # What should we do to avoid such issues?
 
 So we have to be very careful while using monkey patching in our code. Look if the method with the same name already exists if yes think of some different name and then monkey patch it. And write tests from day 1 which will give you confidence to use such concepts in your codebase.
-

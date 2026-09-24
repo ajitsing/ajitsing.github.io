@@ -119,10 +119,6 @@ graph TD
     style O4 fill:#5fb878
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ## How S3 Handles Your Upload
 
 Let's trace what happens when you upload a file to S3.
@@ -208,6 +204,8 @@ graph TB
     style C4 fill:#5fb878
 ```
 
+{% include ads/in-article.html %}
+
 Why split the data? Two reasons:
 
 1. **Parallelism**: Multiple nodes can serve your read request simultaneously
@@ -270,10 +268,6 @@ graph LR
     style F2 fill:#ff6b6b,stroke:#ff6b6b,stroke-dasharray: 5 5
     style F4 fill:#ff6b6b,stroke:#ff6b6b,stroke-dasharray: 5 5
 ```
-
-
-{% include ads/display.html %}
-
 
 This is more storage-efficient than simple replication while providing similar durability.
 
@@ -351,7 +345,6 @@ Not all data is created equal. Some files are accessed constantly; others sit un
 | **S3 Glacier Flexible Retrieval** | Annual access | $0.0036 | Minutes to hours |
 | **S3 Glacier Deep Archive** | Compliance archives | $0.00099 | 12+ hours |
 
-
 ### S3 Standard
 For data you access frequently. Highest cost per GB but lowest retrieval cost.
 
@@ -403,10 +396,6 @@ You don't have to manually move objects between classes. Lifecycle policies auto
   ]
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 This policy moves logs to cheaper storage as they age and deletes them after a year.
 
@@ -550,10 +539,6 @@ Instead of your data traversing the public internet, it takes a short hop to the
 
 ## Event Notifications: S3 as an Event Source
 
-
-{% include ads/display.html %}
-
-
 S3 isn't just storage. It's an event source. When objects are created, deleted, or modified, S3 can trigger:
 
 - **Lambda functions**: Process files immediately after upload
@@ -578,6 +563,8 @@ graph LR
     style SQS fill:#5fb878
     style SNS fill:#f6a723
 ```
+
+{% include ads/in-article.html %}
 
 This enables powerful [serverless patterns](/serverless-computing-explained/){:target="_blank" rel="noopener"}. Upload an image, and within seconds a Lambda resizes it, another Lambda runs ML classification, and a worker indexes it for search.
 
@@ -749,4 +736,3 @@ That's not magic. That's engineering.
 **Further Reading**:
 - [Amazon S3 Documentation](https://docs.aws.amazon.com/s3/)
 - [S3 Strong Consistency Announcement (AWS Blog)](https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency/)
-

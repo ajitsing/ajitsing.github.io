@@ -198,10 +198,6 @@ public class HttpClient {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -246,6 +242,8 @@ sequenceDiagram
     HttpClient-->>Builder: HttpClient instance
     Builder-->>Client: HttpClient instance
 ```
+
+{% include ads/in-article.html %}
 
 Each method returns `this`, enabling method chaining. The `build()` method validates and creates the final immutable object.
 
@@ -419,10 +417,6 @@ HttpRequest request = HttpRequest.builder()
     .build();
 ```
 
-
-{% include ads/display.html %}
-
-
 Lombok generates the Builder class, all the setter methods, and the build method.
 
 ## Common Mistakes
@@ -509,4 +503,3 @@ Use Builder when constructors get unwieldy. Skip it when objects are simple. Lib
 
 - [Effective Java - Item 2: Consider a builder when faced with many constructor parameters](https://www.oreilly.com/library/view/effective-java/9780134686097/) by Joshua Bloch
 - [Lombok @Builder Documentation](https://projectlombok.org/features/Builder)
-

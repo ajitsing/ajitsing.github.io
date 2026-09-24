@@ -154,10 +154,6 @@ tokens = ["The", " transform", "er", " architecture", " is", " powerful"]
 token_ids = [464, 6121, 263, 10959, 318, 3665]
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Why This Matters for Developers
 
 Many strange LLM behaviors come from tokenization:
@@ -212,6 +208,8 @@ flowchart LR
     style Embeddings fill:#fff3e0,stroke:#e65100,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 ### <i class="fas fa-vector-square"></i> The Magic of Vector Space
 
 In this high-dimensional space (GPT-5 uses 16,384 dimensions), tokens with similar meanings are mathematically close to each other.
@@ -263,10 +261,6 @@ flowchart TB
     style W6 fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
     style B fill:#fff3e0,stroke:#e65100,stroke-width:2px
 ```
-
-
-{% include ads/display.html %}
-
 
 The attention mechanism computes attention scores for every pair of tokens. High scores mean strong relationships. Low scores mean weak relationships.
 
@@ -384,10 +378,6 @@ flowchart LR
     style C1 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style C2 fill:#fff3e0,stroke:#e65100,stroke-width:2px
 ```
-
-
-{% include ads/in-article.html %}
-
 
 **Typical settings**:
 - Code generation: temperature 0.2, top_p 0.95
@@ -509,6 +499,8 @@ flowchart LR
     style LLM fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 RLHF teaches the model to:
 - Be helpful
 - Avoid harmful content
@@ -518,10 +510,6 @@ RLHF teaches the model to:
 This is why ChatGPT and Claude "feel" helpful. They have been optimized for human preferences, not just next-token accuracy.
 
 ## The Context Window
-
-
-{% include ads/display.html %}
-
 
 Every LLM has a maximum context window, measured in tokens. This is the limit on how much text it can process at once.
 

@@ -110,8 +110,6 @@ flowchart TB
     class N1,N2 note
 ```
 
-{% include ads/in-article.html %}
-
 Every write has to reach a majority. Add more nodes and the majority gets bigger, the leader fans out to more followers, and each decision takes longer. Consensus throughput does not improve as you add nodes; it gets *worse*. So you are stuck between two things you both need: a big cluster for capacity, and strong agreement for correctness. You cannot have both from the same set of nodes.
 
 ## <i class="fas fa-cube"></i> The Solution: A Small Strongly Consistent Cluster
@@ -159,6 +157,8 @@ flowchart TB
     class D1,D2,D3,D4,D5,D6 data
     class META note
 ```
+
+{% include ads/in-article.html %}
 
 The insight is that the state that *needs* linearizability is tiny. You do not need consensus over your terabytes of data; you need it over a few kilobytes of "who is in charge of what." So put those few kilobytes on a small, fast, strongly consistent cluster and let everything else scale without that tax.
 
@@ -211,8 +211,6 @@ sequenceDiagram
     L-->>Client: ok, committed
 ```
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-key"></i> How Clients Talk to the Core
 
 The core would not be very useful if clients had to poll it constantly or manually clean up after crashes. So coordination services expose a small set of primitives that make building on them pleasant. These are the parts you actually use as a developer.
@@ -254,6 +252,8 @@ sequenceDiagram
     Core-->>B: success, you hold the lock
 ```
 
+{% include ads/in-article.html %}
+
 That sequence, four short interactions, is a complete, crash-safe leader election. That is the whole appeal of the pattern: the hard parts are solved once, in the core, and everyone else gets to use them as simple calls.
 
 ## <i class="fas fa-random"></i> The Subtle Part: Linearizable Reads
@@ -268,8 +268,6 @@ Linearizable reads solve this, and there are two common techniques:
 - **ReadIndex / quorum check.** Before answering a read, the leader confirms with a majority that it is still the leader. This adds a round trip but does not depend on clocks. Raft's ReadIndex works this way.
 
 Many cores let you choose per read. etcd, for example, serves **linearizable** reads by default (routed through the leader with a quorum check) but also offers cheaper **serializable** reads straight from any member when you can tolerate slight staleness. The tradeoff is the usual one: strictly correct and a touch slower, or fast and occasionally stale. For metadata that decides who is in charge, pay for linearizable. For a rough dashboard, serializable is fine.
-
-{% include ads/display.html %}
 
 ## <i class="fas fa-code"></i> A Minimal Consistent-Core Client
 
@@ -322,8 +320,6 @@ Once you see the shape, you find it everywhere. Most consistent cores fall into 
 [Apache ZooKeeper](https://zookeeper.apache.org/){:target="_blank" rel="noopener"} is the original. A small ensemble runs the ZAB protocol to provide a linearizable, hierarchical key-value store with sessions, ephemeral znodes, and watches. It grew out of Google's [Chubby lock service](https://research.google/pubs/the-chubby-lock-service-for-loosely-coupled-distributed-systems/){:target="_blank" rel="noopener"}, which pioneered this exact idea.
 
 [etcd](https://etcd.io/docs/){:target="_blank" rel="noopener"} is the modern favorite. It runs [Raft](https://raft.github.io/raft.pdf){:target="_blank" rel="noopener"}, exposes a flat key-value API with leases and watches, and is the store behind Kubernetes. [HashiCorp Consul](https://developer.hashicorp.com/consul/docs/architecture){:target="_blank" rel="noopener"} also uses Raft and adds service discovery and health checking on top.
-
-{% include ads/in-article.html %}
 
 ### The systems that use a core
 

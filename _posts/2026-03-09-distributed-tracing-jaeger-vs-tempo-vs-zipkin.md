@@ -229,9 +229,6 @@ def process_order(order_id: str) -> dict:
 
 `OTLPSpanExporter` sends those spans as protobuf over gRPC. The bytes on the wire are not JSON, so a tcpdump or proxy capture of the Collector request looks like opaque binary. The [Protobuf Decoder](/tools/protobuf-decoder/) walks that OTLP payload the same way `protoc --decode_raw` would, without the OTLP `.proto` files.
 
-{% include ads/in-article.html %}
-
-
 Most frameworks support auto-instrumentation, which adds spans automatically for HTTP requests, database calls, and cache operations without touching your code:
 
 ```bash
@@ -244,6 +241,8 @@ opentelemetry-instrument \
 ```
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-search"></i> Zipkin
 
@@ -367,10 +366,6 @@ docker run -d \
   jaegertracing/all-in-one:latest
 ```
 
-
-{% include ads/display.html %}
-
-
 For production, you run the collector, storage, and query service as separate deployable units. The Helm chart handles this for Kubernetes deployments.
 
 ### Adaptive sampling
@@ -486,8 +481,6 @@ Tempo ships with TraceQL, a query language for searching traces. It is more expr
 { resource.service.name = "payments-service" && span.http.status_code >= 500 }
 ```
 
-{% include ads/in-article.html %}
-
 TraceQL works well when you know what attribute you are looking for. For more open-ended investigation (what is slow right now?), Tempo's integration with Grafana alerting and Prometheus is the intended path: you alert on high latency via Prometheus, click through to the trace ID in Grafana, and load the full trace from Tempo.
 
 ### Cost difference at scale
@@ -579,10 +572,6 @@ For most teams, the query flexibility does not justify the cost difference once 
 
 ## <i class="fas fa-random"></i> Sampling Strategies
 
-
-{% include ads/display.html %}
-
-
 Getting sampling right matters more than which backend you pick. Poor sampling is how you end up paying a lot for tracing while still missing the traces that would have actually helped you debug production.
 
 There are two fundamental approaches:
@@ -635,6 +624,8 @@ service:
 Jaeger also has its own built-in adaptive sampling that adjusts rates automatically per operation. If you are using Jaeger without the OTel Collector, Jaeger's adaptive sampler is a good default. If you are using the OTel Collector in front of any backend, tail sampling in the collector gives you the most control.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Getting Started: Quick Setup for Each Tool
 
@@ -764,10 +755,6 @@ flowchart TD
 ---
 
 ## What Real Teams Use
-
-
-{% include ads/in-article.html %}
-
 
 Understanding the theory is useful. Seeing what engineering teams actually deploy in production tells you a different story.
 

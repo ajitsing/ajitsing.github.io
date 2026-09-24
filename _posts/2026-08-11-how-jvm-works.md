@@ -261,8 +261,6 @@ flowchart LR
     class C2 c2
 ```
 
-{% include ads/in-article.html %}
-
 ### Why your app speeds up over time
 
 This design explains a behavior every Java developer notices: an application is a little sluggish right after it starts, then gets faster and settles into a steady, quick pace. That is the JIT warming up, moving hot methods from interpreted to C1 to C2. It is the reason benchmarks always include a warmup phase before measuring.
@@ -298,6 +296,8 @@ flowchart LR
     class Tenured old
     class Freed done
 ```
+
+{% include ads/in-article.html %}
 
 New objects are born in the **young generation** (specifically Eden). A quick, cheap **minor GC** sweeps it often, keeping the survivors and promoting the ones that stick around into the **old generation**. The old generation is collected less frequently with a more expensive **major (or full) GC**. Splitting memory this way means the GC spends most of its effort on the small young region where most garbage is, instead of scanning the whole heap every time.
 

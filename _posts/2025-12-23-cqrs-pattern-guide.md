@@ -167,9 +167,7 @@ sequenceDiagram
     API-->>User: 200 OK with orders
 ```
 
-
 {% include ads/in-article.html %}
-
 
 No complex joins. No locking. Just a simple fetch from a pre-built view.
 
@@ -301,10 +299,6 @@ Options include:
 
 ## CQRS and Event Sourcing
 
-
-{% include ads/display.html %}
-
-
 You'll often see CQRS mentioned alongside event sourcing. They're related but different patterns.
 
 **Event sourcing** means storing all changes as a sequence of events instead of just the current state. Instead of updating a row, you append an event: `OrderPlaced`, `ItemAdded`, `OrderShipped`.
@@ -400,4 +394,3 @@ Start with logical separation. Prove it works. Then add the infrastructure compl
 - [Greg Young on CQRS](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf) - From the person who coined the term
 
 *For a quick visual summary, see the [CQRS Pattern Explainer](/explainer/cqrs-design-pattern/). For a real-world example of read/write separation at scale, see [How OpenAI Scales PostgreSQL](/how-openai-scales-postgresql/). For more patterns, check out the [System Design Cheat Sheet](/system-design-cheat-sheet/).*
-

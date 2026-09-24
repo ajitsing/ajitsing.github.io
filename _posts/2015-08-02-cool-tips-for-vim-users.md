@@ -78,6 +78,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 # Reload vim after making change in ~/.vimrc
 
+{% include ads/in-article.html %}
+
 The below autogroup will reload vim every time you write the `~/.vimrc` file. If you put this in your ~/.vimrc file, you will never have to do `source ~/.vimrc` from the terminal.
 
 ```vimscript
@@ -86,9 +88,6 @@ autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 ```
-
-
-{% include ads/in-article.html %}
 
 <br>
 
@@ -131,4 +130,3 @@ nnoremap <silent><F2> :set rnu!<CR>
 nnoremap <silent><F3> :set nu!<CR>
 ```
 <br>
-

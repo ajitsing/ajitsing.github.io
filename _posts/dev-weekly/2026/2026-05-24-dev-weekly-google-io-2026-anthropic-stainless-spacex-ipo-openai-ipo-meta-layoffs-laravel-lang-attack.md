@@ -44,8 +44,6 @@ The platform center of Google's agent strategy is [Antigravity 2.0](https://blog
 
 For backend developers, Google launched [Managed Agents in the Gemini API](https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/){:target="_blank"}. A single API call provisions an autonomous agent that can reason, use tools, and safely execute code inside an isolated Linux sandbox managed by Google.
 
-{% include ads/in-article.html %}
-
 **Workspace and Consumer Agents:**
 
 Google showed [Gemini Spark](https://blog.google/innovation-and-ai/sundar-pichai-io-2026/){:target="_blank"}, a personal AI agent that runs 24/7 on dedicated Google Cloud virtual machines. Spark can coordinate background research, compare products, and manage workflows even when the user's devices are completely turned off. For commerce, [Universal Cart](https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/){:target="_blank"} lets users add items from different stores into a single AI-managed checkout, automatically tracking stock and completing purchases.
@@ -66,8 +64,6 @@ The company reported [18.7 billion dollars in consolidated revenue](https://www.
 
 The filing officially disclosed a massive computing transaction between SpaceX and Anthropic. Under their agreement, Anthropic is paying SpaceX [1.25 billion dollars per month through May 2029](https://www.techmeme.com/260520/p49){:target="_blank"}, representing a total of 40 billion dollars, to rent unused capacity in data centers that was originally established before the merger of xAI into SpaceX. On X, Anthropic confirmed it is expanding the partnership to scale up its capacity on GB200 servers inside the new Colossus 2 data center starting in June.
 
-{% include ads/in-article.html %}
-
 ### OpenAI Prepares Confidential IPO Prospectus - [<i class="fas fa-external-link-alt"></i>](https://www.cnbc.com/2026/05/20/openai-ipo-filing.html){:target="_blank"}
 
 While SpaceX went public with its registration statement, [CNBC confirmed on May 20](https://cryptobriefing.com/openai-confidential-ipo-filing-goldman-sachs/){:target="_blank"} that OpenAI is preparing a confidential draft of its own initial public offering prospectus. The company has engaged Goldman Sachs, Morgan Stanley, and JPMorgan Chase as lead underwriters for a potential listing between Labor Day and Thanksgiving in September 2026.
@@ -86,8 +82,6 @@ On May 20, [Intuit announced a major reorganization](https://www.metaintro.com/b
 
 CEO Sasan Goodarzi stated in an internal memo that the restructuring is designed to reduce corporate complexity and speed up execution. The plans include flattening management structures, [co-locating engineering teams in strategic hubs](https://www.sec.gov/Archives/edgar/data/896878/000089687826000024/fy26q3-ex9902.htm){:target="_blank"}, closing offices in Reno and Woodland Hills, and scaling back investment in Mailchimp to reallocate capital directly to its primary AI growth engines across TurboTax, QuickBooks, and Credit Karma.
 
-{% include ads/display.html %}
-
 ### Andrej Karpathy Joins Anthropic Pre-Training Team - [<i class="fas fa-external-link-alt"></i>](https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/){:target="_blank"}
 
 On May 19, [Andrej Karpathy, co-founder of OpenAI](https://finance.biggo.com/news/202605191933_Karpathy_joins_Anthropic_pre-training_team){:target="_blank"} and former director of AI at Tesla, announced he has joined Anthropic. Karpathy will report to Nicholas Joseph, Anthropic's head of pre-training, and will build a new team focused on using Claude itself to automate and accelerate pre-training research. 
@@ -95,6 +89,8 @@ On May 19, [Andrej Karpathy, co-founder of OpenAI](https://finance.biggo.com/new
 Pre-training is the most expensive and compute-heavy phase of building large language models. The appointment represents a strategic bet by Anthropic on using recursive model-driven research to optimize training efficiency. Karpathy announced that his education startup, Eureka Labs, is on pause while he focuses on his new role. On the same day, Anthropic also hired Chris Rohlf, a veteran cybersecurity researcher with experience at Meta, to join its frontier red-teaming group.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -140,8 +136,6 @@ GitHub shipped several updates to the Copilot ecosystem this week:
 *   **Google ADK Python v2.0 GA:** Launched on May 19, [Google's Agent Development Kit](https://github.com/google/adk-python/releases/tag/v2.0.0){:target="_blank"} provides a production-ready, code-first Python framework for building, evaluating, and deploying multi-agent workflows with flexible execution graphs and native inter-agent routing.
 *   **FastAPI 0.136.2:** Released on May 23, [shipping minor bug fixes and performance improvements](https://github.com/fastapi/fastapi/releases/tag/0.136.2){:target="_blank"}.
 
-{% include ads/in-article.html %}
-
 ---
 
 ## <i class="fas fa-shield-alt"></i> Security
@@ -172,6 +166,8 @@ CISA updated its Known Exploited Vulnerabilities (KEV) catalog with several addi
 *   On May 22, [CISA added Drupal Core SQL Injection CVE-2026-9082](https://www.cisa.gov/news-events/alerts/2026/05/22/cisa-adds-one-known-exploited-vulnerability-catalog){:target="_blank"} to the catalog.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-coins"></i> Funding & Industry Deals
 

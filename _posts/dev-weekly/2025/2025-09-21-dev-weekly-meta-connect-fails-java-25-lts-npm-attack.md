@@ -58,10 +58,6 @@ Multiple security agencies issued advisories this week, with Singapore's CSA pub
 
 ## 🚀 Major Releases & Updates
 
-
-{% include ads/in-article.html %}
-
-
 ### GitHub Copilot - September Updates - [🌐](https://github.blog/changelog/2025-09-12-github-copilot-in-vs-code-august-release-v1-104/)
 GitHub rolled out meaningful Copilot improvements:
 
@@ -112,11 +108,9 @@ Key improvements:
 
 ---
 
+{% include ads/in-article.html %}
+
 ## 📈 Industry Trends
-
-
-{% include ads/display.html %}
-
 
 ### AI Development Tools Explosion
 Sept 17 brought a wave of funding for AI dev tools:
@@ -163,4 +157,3 @@ LogRocket published their **AI dev tool power rankings** for September 2025, sho
 ---
 
 The pace of innovation in developer tools keeps climbing. **AI is becoming table stakes**, and **security** remains a top concern as supply chain attacks get more sophisticated.
-

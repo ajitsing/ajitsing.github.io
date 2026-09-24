@@ -85,10 +85,6 @@ public class Product {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 And now we are about to discuss the most important class of this demo project.
 
 `DataBaseHelper` is the class which will create the database in the device and will maintain it using versions. This class is extended from `SQLiteOpenHelper` which handles the core database stuff internally for us.
@@ -96,6 +92,8 @@ And now we are about to discuss the most important class of this demo project.
 DataBaseHelper has mainly two methods:
 
 1. `onCreate` - This method is called first time when you create the DataBaseHelper object. And you can specify what are the tables you want to create in it or any sort of database operations that you would like to do. This method gets called only once when you first install the applications. In our implementation of onCreate method, we are seeding the products in product table.
+
+{% include ads/in-article.html %}
 
 2. `onUpgrade` - This method is used for updating the database and bumping up the version of database. Once you bump up the version and user upgrades the app and starts it then this method will be called.
 
@@ -155,10 +153,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 Now let's see what we have in our MainActivity class.  In our Activity we are creating an instance of DataBaseHelper and asking it for product's cursor.
 
 `databaseHelper.getProductCursor()` - this method queries the products table and returns a cursor object which contains all the records of that table.
@@ -183,7 +177,6 @@ import ajitsingh.com.androiddatabasedemo.R;
 import ajitsingh.com.androiddatabasedemo.database_helper.DatabaseHelper;
 import ajitsingh.com.androiddatabasedemo.table.ProductTable;
 
-
 public class MainActivity extends Activity {
 
   @Override
@@ -202,4 +195,3 @@ public class MainActivity extends Activity {
 ```
 
 If you want to have a look at the resource files then probably you can clone my repo or you can take a look at it on the [github](https://github.com/ajitsing/AndroidDatabaseDemo){:target="_blank"} itself.
-

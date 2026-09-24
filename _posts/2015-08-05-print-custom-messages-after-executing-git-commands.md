@@ -65,6 +65,8 @@ To start amusement for a specific git repository follow the below steps:
 
 Thats it, now when you pull or push code to github, amusing_git will amuse you. To stop amusing_git for a repo, just run `amusing_git stop` in the same repo.
 
+{% include ads/in-article.html %}
+
 # Want to print jokes in your own scripts?
 
 amusing_git is flexible enough to be used anywhere. If you want to make your own script funny just execute below command in your script and amusing_git will take care of the rest.
@@ -75,10 +77,6 @@ amusing_git amuse
 <br>
 
 # amusing_git configuration
-
-
-{% include ads/in-article.html %}
-
 
 amusing_git stores all the configuration in ~/.amusing_git directory. This directory contains two files:
 

@@ -194,10 +194,6 @@ graph TB
     style C4 fill:#bfdbfe,stroke:#1d4ed8
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The key ideas:
 
 - **Messages are not deleted after consumption.** They stay in the log for a configurable retention period (hours, days, weeks, or forever). Multiple consumer groups can read the same data independently. This is what makes Kafka fundamentally different from a queue.
@@ -261,10 +257,6 @@ The trade-off: Kafka optimizes for throughput, not per-message latency. It batch
 
 ## <i class="fas fa-exchange-alt"></i> RabbitMQ
 
-
-{% include ads/display.html %}
-
-
 RabbitMQ was first released in 2007. It implements the AMQP (Advanced Message Queuing Protocol) standard and is the most widely deployed open-source message broker. Where Kafka is a log, RabbitMQ is a router.
 
 ### How RabbitMQ Works
@@ -286,6 +278,8 @@ flowchart LR
     style Q2 fill:#f0fdf4,stroke:#22c55e
     style Q3 fill:#f0fdf4,stroke:#22c55e
 ```
+
+{% include ads/in-article.html %}
 
 The **exchange** is the key concept that separates RabbitMQ from Kafka and SQS. Producers never send messages directly to queues. They publish to an exchange with a routing key. The exchange uses its type and bindings to decide which queues receive the message.
 
@@ -368,10 +362,6 @@ RabbitMQ 4.1 improved quorum queue performance further by offloading log reads t
 ---
 
 ## <i class="fas fa-cloud"></i> Amazon SQS
-
-
-{% include ads/in-article.html %}
-
 
 Amazon SQS was the first AWS service ever launched, introduced in beta in 2004 and reaching general availability in 2006. It is the simplest option in this comparison. There are no brokers to manage, no clusters to configure, no disks to monitor. You create a queue, send messages, and receive messages. AWS handles everything else.
 
@@ -468,10 +458,6 @@ At low volume, SQS is almost free. At high volume, costs add up. [One team disco
 ---
 
 ## Architecture Patterns Compared
-
-
-{% include ads/display.html %}
-
 
 Different messaging patterns work better with different brokers. Here is how each one handles the most common patterns.
 
@@ -609,10 +595,6 @@ flowchart LR
 
 ## Dead Letter Queues
 
-
-{% include ads/in-article.html %}
-
-
 All three support dead letter queues (DLQ), but the implementation varies.
 
 ```mermaid
@@ -626,6 +608,8 @@ flowchart LR
     style DLQ fill:#fdecea,stroke:#c0392b
     style Done fill:#dcfce7,stroke:#15803d
 ```
+
+{% include ads/in-article.html %}
 
 **SQS**: Built-in. Set a `maxReceiveCount` on the source queue and point it to a DLQ. After the message has been received (and not deleted) that many times, SQS moves it to the DLQ automatically.
 

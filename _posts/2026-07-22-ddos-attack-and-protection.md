@@ -120,8 +120,6 @@ Why is this so easy to build? Because the internet is full of cheap, always-on d
 
 The 2025 record holder, the Aisuru-Kimwolf botnet, is an estimated one to four million infected devices, many of them Android TVs. One attacker, millions of sources, coordinated with a single command. That asymmetry is why DDoS is so hard: the attacker rents this firepower cheaply through DDoS-for-hire services, while you have to defend real infrastructure that costs real money.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-layer-group"></i> The Three Types of DDoS Attacks
 
 Not all floods are the same. DDoS attacks are usually grouped by which part of your stack they try to exhaust. This maps loosely onto the [OSI network model](/what-happens-when-you-type-url-in-browser/){:target="_blank" rel="noopener"}, and knowing the category tells you which defense applies.
@@ -155,6 +153,8 @@ flowchart TD
     class V1,P1,A1 leaf
 ```
 
+{% include ads/in-article.html %}
+
 ### 1. Volumetric attacks: fill the pipe
 
 Volumetric attacks are the brute-force option. The goal is simple: send so much data that your internet connection is completely saturated, like pouring a swimming pool through a garden hose. Legitimate packets cannot squeeze through because the pipe is already full of junk. These are measured in **bits per second (bps)**, and the biggest ones now reach tens of terabits per second.
@@ -182,8 +182,6 @@ The problem is detection. A Layer 7 flood looks like a busy Tuesday. The request
 | Volumetric | 3 / 4 | Bits per second | UDP flood, DNS amplification | Large network, scrubbing, anycast |
 | Protocol | 3 / 4 | Packets per second | SYN flood | SYN cookies, stateful filtering |
 | Application | 7 | Requests per second | HTTP flood, login abuse | WAF, rate limiting, CAPTCHA |
-
-{% include ads/display.html %}
 
 ## <i class="fas fa-shield-alt"></i> Why You Cannot Just Block It Yourself
 
@@ -230,6 +228,8 @@ flowchart LR
     class DROP drop
 ```
 
+{% include ads/in-article.html %}
+
 ### Absorb with a CDN and anycast
 
 The first layer is capacity. A [content delivery network (CDN)](/cdn-system-design/){:target="_blank" rel="noopener"} puts hundreds of edge locations between users and your origin. It uses **anycast** routing, where the same IP address is announced from many data centers at once, so attack traffic is automatically spread across the whole network instead of piling onto one place. A flood that would crush one server gets diluted across dozens of cities. This is exactly how [Cloudflare handles 55 million requests per second](/how-cloudflare-supports-55-million-requests-per-second/){:target="_blank" rel="noopener"} without falling over.
@@ -249,8 +249,6 @@ For Layer 7 attacks, you need to inspect the actual HTTP request, not just the p
 ### Keep the origin cheap
 
 Finally, make sure that even the traffic that does reach you is cheap to serve. Aggressive [caching](/caching-strategies-explained/){:target="_blank" rel="noopener"} means most requests never touch your database or application logic; they are answered from the edge or an in-memory cache. Pair that with autoscaling so you add capacity under load, and a [circuit breaker](/circuit-breaker-pattern/){:target="_blank" rel="noopener"} so a struggling dependency fails fast instead of dragging the whole system down. The goal is that an attack, even when partly successful, degrades gracefully instead of collapsing.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-clipboard-check"></i> A Practical DDoS Defense Checklist
 

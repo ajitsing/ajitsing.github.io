@@ -65,10 +65,6 @@ The big question is how well it works in practice. Security is hard to get right
 
 ## <i class="fas fa-tools"></i> Developer Tools & Releases
 
-
-{% include ads/in-article.html %}
-
-
 ### Anthropic Expands to Seoul, Launches Claude Haiku 4.5 - [<i class="fas fa-external-link-alt"></i>](https://www.anthropic.com/news/seoul-becomes-third-anthropic-office-in-asia-pacific)
 
 Anthropic opened a new office in **Seoul, South Korea** this week. They're serious about the Asian market.
@@ -142,11 +138,9 @@ This is aimed at big companies that want AI but need it to reflect their brand. 
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-shield-alt"></i> Security News This Week
-
-
-{% include ads/display.html %}
-
 
 This week had some major security incidents:
 
@@ -178,4 +172,3 @@ If you handle user data, take security seriously. Encrypt everything. Monitor ac
 ---
 
 *See something we missed? Hit us up. We're always looking to cover what matters to developers.*
-

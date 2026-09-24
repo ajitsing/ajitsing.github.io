@@ -99,10 +99,6 @@ This CVE is why Cloudflare was making firewall changes in the first place. The i
 
 ## <i class="fas fa-cloud"></i> Cloud News
 
-
-{% include ads/in-article.html %}
-
-
 ### AWS and Google Launch Joint Multicloud Networking Service - [<i class="fas fa-external-link-alt"></i>](https://www.reuters.com/business/retail-consumer/amazon-google-launch-multicloud-service-faster-connectivity-2025-12-01/)
 
 In news nobody expected: Amazon and Google are now working together.
@@ -168,6 +164,8 @@ If you're running Amazon Linux in production, you now have access to a much larg
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-robot"></i> AI News
 
 ### OpenAI and Accenture Announce $3 Billion Partnership - [<i class="fas fa-external-link-alt"></i>](https://openai.com/index/accenture-partnership/)
@@ -214,10 +212,6 @@ Developer tools are in the middle of an AI revolution. The $2.3B valuation shows
 
 ## <i class="fas fa-exclamation-triangle"></i> What This Week Teaches Us
 
-
-{% include ads/display.html %}
-
-
 **AI coding is the biggest investment theme:** Anthropic buying Bun, Cursor at $2.3B, OpenAI-Accenture at $3B - the money flowing into AI coding tools is staggering. This isn't a fad. This is the new normal for developer tools.
 
 **Infrastructure redundancy remains critical:** Cloudflare's second outage in 17 days shows that even the biggest providers can fail. Multi-CDN setups cost more but provide protection against single points of failure.
@@ -261,5 +255,3 @@ Developer tools are in the middle of an AI revolution. The $2.3B valuation shows
 *Big week for acquisitions, funding, and outages. AI coding tools are getting serious investment - Anthropic buying Bun, Cursor at $2.3B, OpenAI-Accenture at $3B. Cloudflare needs to fix their deployment pipeline before the next outage. And if you're running React Server Components, patch now.*
 
 *Got news we should cover? Let us know. We're tracking what matters to developers.*
-
-

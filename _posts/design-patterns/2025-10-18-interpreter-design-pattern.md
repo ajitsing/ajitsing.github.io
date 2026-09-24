@@ -203,10 +203,6 @@ public class InList implements BooleanExpression {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -401,10 +397,6 @@ ctx.setVariable("country", "US");
 System.out.println(expr.interpret(ctx));  // true
 ```
 
-
-{% include ads/display.html %}
-
-
 ## How It Works
 
 ```mermaid
@@ -422,6 +414,8 @@ graph TD
     GT --> AGE
     IN --> COUNTRY
 ```
+
+{% include ads/in-article.html %}
 
 ```mermaid
 sequenceDiagram
@@ -524,4 +518,3 @@ Use Interpreter when the grammar is simple, the language is stable, and you need
 
 - [ANTLR Parser Generator](https://www.antlr.org/)
 - [Writing a Simple Expression Parser](https://en.wikipedia.org/wiki/Recursive_descent_parser)
-

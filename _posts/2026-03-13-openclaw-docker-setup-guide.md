@@ -116,8 +116,6 @@ flowchart LR
 
 The Gateway itself does not do AI processing. It accepts inputs from messaging channels, manages WebSocket connections, and routes traffic to AI providers like Anthropic, OpenAI, or a local Ollama instance. The architecture is a hub-and-spoke design with strict separation between the interface layer and the intelligence layer.
 
-{% include ads/in-article.html %}
-
 Two directories get bind-mounted from the host: `~/.openclaw/` holds config files, credentials, memory, and logs. `~/.openclaw/workspace/` is the agent's working directory. Both survive container restarts and updates.
 
 ---
@@ -217,8 +215,6 @@ docker compose run --rm openclaw-cli devices list
 docker compose run --rm openclaw-cli devices approve <requestId>
 ```
 
-{% include ads/display.html %}
-
 ---
 
 ## <i class="fas fa-file-code"></i> Method 2: Docker Compose from Scratch
@@ -309,6 +305,8 @@ For a full list of Docker Compose commands, see the [Docker Cheat Sheet](/devops
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-shield-alt"></i> Setting Up Sandboxing
 
 Sandboxing is where OpenClaw Docker gets interesting. Instead of running all agent tools directly on the host, you can isolate tool execution in separate Docker containers. This means a rogue `rm -rf` from a hallucinating model damages a throwaway container, not your server.
@@ -341,8 +339,6 @@ flowchart LR
     style S3 fill:#ffe0b2,stroke:#e65100
 </code></pre>
 
-{% include ads/in-article.html %}
-
 The Gateway stays on the host. It handles connections and routing. When an agent needs to read a file, write code, or execute a shell command, that operation runs inside a sandbox container. If the sandbox crashes or gets corrupted, the Gateway keeps running and spins up a new one.
 
 ### What Gets Sandboxed
@@ -353,7 +349,6 @@ The Gateway stays on the host. It handles connections and routing. When an agent
 | Shell execution (exec, bash) | Elevated tools (explicit host access) |
 | Process management | Tools explicitly allowed on host |
 | Browser automation | |
-
 
 ### Configuration
 
@@ -448,8 +443,6 @@ Each agent gets its own directory under `~/.openclaw/agents/<agentId>/`:
 │           └── auth-profiles.json
 ```
 
-{% include ads/display.html %}
-
 Credentials are not shared between agents. Each agent reads from its own `auth-profiles.json`. To share credentials, copy the file manually.
 
 ### Example: Three Agents with Different Security Profiles
@@ -542,7 +535,6 @@ Add this to your `~/.openclaw/openclaw.json`:
 }
 ```
 
-
 Two details that trip people up:
 
 **The base URL must use `host.docker.internal`**, not `127.0.0.1`. Inside a Docker container, `127.0.0.1` points to the container itself, not the host. `host.docker.internal` is a special DNS name that Docker provides to reach the host machine.
@@ -595,8 +587,6 @@ services:
         max-size: "10m"
         max-file: "3"
 ```
-
-{% include ads/in-article.html %}
 
 This adds three things over the basic setup:
 
@@ -666,6 +656,8 @@ Before exposing your OpenClaw instance:
 For a deeper look at security architecture in AI agent systems, see the security section in [Prompt Injection Explained](/prompt-injection-explained/) and the credential isolation patterns in [Perplexity Computer](/perplexity-computer-explained/#safety-and-security-architecture).
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-wrench"></i> Troubleshooting
 

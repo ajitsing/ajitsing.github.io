@@ -44,8 +44,6 @@ On August 26, [SpaceXAI expanded Grok Bot](https://x.ai/news/grok-bot-more-plans
 
 A Bot is a cloud VM with a browser and a terminal. It signs into the apps you already use, keeps going when you step away, and only pulls you in for a judgment call. SpaceXAI's list of jobs includes inbox cleanup, support refunds inside a policy, a meeting stand-in, and a website builder that buys a domain and deploys. [The product page](https://x.ai/bot){:target="_blank"} lists Cursor Pro at $20 a month, SuperGrok at $30, and Cursor Teams at $40 a seat, with weekly Bot usage included. If you are already on Cursor Pro, download Grok Bot, sign in with that plan, and give it one low-stakes job (a changelog draft, a bug repro, a folder of support mail) before you trust it with production credentials.
 
-{% include ads/in-article.html %}
-
 ### AWS Agrees to Buy DuckLabs, the Company Behind DuckDB - [<i class="fas fa-external-link-alt"></i>](https://www.aboutamazon.com/news/company-news/aws-ducklabs){:target="_blank"}
 
 On August 26, [Amazon signed a definitive agreement to acquire DuckLabs](https://www.aboutamazon.com/news/company-news/aws-ducklabs){:target="_blank"}, the Amsterdam company that employs the people who build DuckDB. Close is expected shortly, DuckLabs said early September. AWS is not buying the open-source project. [DuckDB's own post](https://duckdb.org/2026/08/26/ducklabs-to-join-aws.html){:target="_blank"} and [DuckLabs' longer note](https://ducklabs.com/news/2026/08/26/ducklabs-to-join-aws){:target="_blank"} say DuckDB, DuckLake, Quack, and the rest of the Duck Stack stay MIT-licensed under the nonprofit DuckDB Foundation. Hannes Mühleisen and Mark Raasveldt stay in Amsterdam and keep technical direction. DuckLabs said the project sees more than one million downloads a day.
@@ -64,8 +62,6 @@ On August 25, [Lambda introduced managed runtimes in public preview](https://aws
 
 Create or update a function with runtime `nodejs26.x` or `python3.15` in the console, CLI, CloudFormation, SAM, or CDK. Billing is standard Lambda rates, in commercial, GovCloud, and China Regions. The identifier does not change at GA, so a preview function is meant to graduate without a template edit. [The Compute Blog](https://aws.amazon.com/blogs/compute/introducing-public-preview-runtimes-on-aws-lambda-starting-with-node-js-26-and-python-3-15/){:target="_blank"} says both languages are expected to reach upstream stable in October 2026, with Lambda GA targeted within two months after that. Node.js 26 will not go GA on Lambda until Active LTS.
 
-{% include ads/display.html %}
-
 ### GitHub Copilot's Customize Tab Goes GA, CLI Moves to Rust - [<i class="fas fa-external-link-alt"></i>](https://github.blog/changelog/2026-08-28-github-copilot-weekly-releases-august-24/){:target="_blank"}
 
 On August 25, [the Copilot app's Customize tab became generally available](https://github.blog/changelog/2026-08-28-github-copilot-weekly-releases-august-24/){:target="_blank"}, putting MCP servers, plugins, skills, and canvases in one place, including Azure DevOps issues and pull requests as session sources. Copilot CLI now starts sessions with `defaultMode` and `defaultPermissionMode`, restores sessions that did not exit cleanly, and runs on a native Rust runtime while the terminal UI stays TypeScript. JetBrains got enterprise controls for plugins, MCP, telemetry, and agent permission modes. VS Code 1.135 can continue Copilot or Claude agent sessions started in other apps, ask a second model for a second opinion, and show per-model chat usage.
@@ -79,6 +75,8 @@ Late on August 26, [The Information reported Nvidia had agreed to buy Hugging Fa
 This is still a reported deal, not a close. If it happens, the Hub, datasets, Spaces, and inference sit under the company that already sells most of the GPUs those weights run on. Keep downloading models. Watch licensing, default compute, and whether NVIDIA-first serving becomes the easy path. Do not rewrite your stack on a leak.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -99,8 +97,6 @@ On August 25, [IBM released Granite 4.2](https://research.ibm.com/blog/introduci
 ### Tencent Open-Sources Hy4 Preview, 770B Total, 49B Active - [<i class="fas fa-external-link-alt"></i>](https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/){:target="_blank"}
 
 On August 28, [Tencent released Hy4 preview](https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/){:target="_blank"}: 770 billion total parameters, 49 billion active, and a context window over 1 million tokens, aimed at coding, office work, and research. [TechNode dated the drop August 28](https://technode.com/2026/08/28/tencent-open-sources-hy4-preview-with-770b-parameters-and-a-1m-token-context/){:target="_blank"}. API access is through Tencent Cloud TokenHub and OpenRouter at $0.834 per million input tokens and $2.501 per million output, with $0.042 for cache hits. WorkBuddy and CodeBuddy have two weeks of free access. If you already route Hunyuan, this is the preview to A/B against Hy3 before you change production ids.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -136,9 +132,9 @@ On August 25, [TechCrunch reported](https://techcrunch.com/2026/08/25/gamma-acqu
 *   **PagerDuty:** On August 27, [PagerDuty reported Q2 FY2027 results](https://www.pagerduty.com/newsroom/pagerduty-announces-second-quarter-fiscal-2027-financial-results/){:target="_blank"} and a restructuring that cuts about 15% of headcount. An 8-K described the plan as announced August 26, with $5.5 million to $7.5 million of severance-class charges. The company said it protected quota-carrying sales and product teams and concentrated cuts in support work that automation now covers. Revenue was $124.4 million, up 0.8% year over year, with ARR at $501 million.
 *   **Kneat:** On August 26, [Silicon Republic reported](https://www.siliconrepublic.com/business/limericks-kneat-lays-off-10pc-of-staff-after-thoma-bravo-acquisition){:target="_blank"} that Limerick-based Kneat cut fewer than 10% of more than 360 staff, about 36 people, two weeks after Thoma Bravo closed its acquisition.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

@@ -48,8 +48,6 @@ The headline feature is [Dynamic Workflows in Claude Code](https://memeburn.com/
 
 Developers can call the model as `claude-opus-4-8` through the Claude API, with day-one availability on Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry. Anthropic also said it expects to make its cybersecurity-focused Mythos-class models available through a general release in the near future, once stronger safeguards are in place.
 
-{% include ads/in-article.html %}
-
 ### Cognition Raises $1B at $26B Valuation for Devin - [<i class="fas fa-external-link-alt"></i>](https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/){:target="_blank"}
 
 On May 27, [Cognition raised more than 1 billion dollars at a 25 billion dollar pre-money and 26 billion dollar post-money valuation](https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/){:target="_blank"}, more than doubling from the 10.2 billion dollar valuation it hit eight months ago. Lux Capital, General Catalyst, and 8VC co-led the round, with participation from Founders Fund, Ribbit Capital, Atreides, Layer Global, Elad Gil, Soma Capital, Omri Casspi, Alpha Wave, Bain Capital Ventures, and Vitruvian.
@@ -80,8 +78,6 @@ On May 28, Wix CEO Avishai Abrahami [confirmed roughly 1,000 layoffs](https://ww
 
 Abrahami cited two structural forces. First, the strengthening of the Israeli shekel against the US dollar, which makes the heavily Israel-based workforce increasingly expensive in dollar terms. More than 60 percent of Wix employees are based in Israel. Second, what he called [the most significant shift in how companies are built since the invention of modern programming languages in the 1970s](https://www.ynetnews.com/business/article/ryroptbxme){:target="_blank"}. The company is flattening management layers and introducing new roles around AI work, including a position called xEngineer and a broader Creators category. Wix stock has fallen more than 50 percent in 2026.
 
-{% include ads/display.html %}
-
 ### OpenAI Brings Codex Computer Use to Windows - [<i class="fas fa-external-link-alt"></i>](https://www.neowin.net/news/openai-rolls-out-major-codex-for-windows-update-with-computer-use-and-mobile-access/){:target="_blank"}
 
 On May 29, [OpenAI released a major Codex update for Windows](https://www.neowin.net/news/openai-rolls-out-major-codex-for-windows-update-with-computer-use-and-mobile-access/){:target="_blank"} that brings two features previously limited to macOS: Computer Use, where Codex sees what is on the screen, clicks buttons, and types to complete tasks; and remote control through the ChatGPT mobile app on iOS and Android. The Codex Windows app, version 26.527, runs Computer Use in the foreground, which means users cannot continue working in the same Windows session while Codex drives another app.
@@ -93,6 +89,8 @@ On May 29, OpenAI also [announced mobile control for Windows machines](https://t
 On May 25, [xAI launched Grok Build](https://cryptobriefing.com/xai-grok-build-coding-agent-beta/){:target="_blank"}, a terminal-based coding agent aimed squarely at Anthropic's Claude Code and GitHub Copilot. The early beta is available only to SuperGrok and X Premium Plus subscribers at 300 dollars per month. Elon Musk publicly acknowledged that xAI had fallen behind on coding tools, and the Grok Build 0.1 model briefly surfaced on the xAI API roughly five days before the official beta. The CLI ships with a built-in `/feedback` command so xAI can iterate against real users.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -129,8 +127,6 @@ On May 26, [AI penetration testing startup Novee launched Agentic Fix](https://s
 ### Microsoft Releases Lens 3.8B Text-to-Image Model - [<i class="fas fa-external-link-alt"></i>](https://tpsreport.news/news/microsoft-lens-3-8b-text-to-image-model){:target="_blank"}
 
 On May 26, [Microsoft released Lens on Hugging Face](https://tpsreport.news/news/microsoft-lens-3-8b-text-to-image-model){:target="_blank"}, a 3.8 billion parameter foundational text-to-image model trained on Lens-800M, an 800 million image-text corpus with GPT-4.1 captions. The model uses a 48-block MMDiT denoiser with FLUX.2 latents and supports generation up to 1440 by 1440 resolution across aspect ratios from 1:2 to 2:1. Microsoft published minimal inference code for running the Lens DiT checkpoints, though it did not disclose a training cutoff date, pricing, or benchmark comparisons against DALL-E 3, Midjourney, or Stable Diffusion.
-
-{% include ads/in-article.html %}
 
 ### Apple Seeds First iOS 26.6, macOS 26.6, and Companion Betas - [<i class="fas fa-external-link-alt"></i>](https://www.macrumors.com/2026/05/26/apple-releases-ios-26-beta-1/){:target="_blank"}
 
@@ -170,8 +166,6 @@ On May 26, [Amazon brought Alexa+ to France](https://gadgetbond.com/amazon-alexa
 *   **Typer 0.26.0:** Released on May 26 by [Sebastián Ramírez (tiangolo)](https://github.com/fastapi/typer/releases/tag/0.26.0){:target="_blank"} for Typer, the FastAPI-style CLI library.
 *   **Spring AI 2.0.0-M8:** Released on May 27, [shifting to dash-separated Spring Boot property names](https://github.com/spring-projects/spring-ai/releases/tag/v2.0.0-M8){:target="_blank"} and shipping MistralAI Jackson improvements plus fixes for the pgvector and google-genai starters.
 *   **Docker Agent v1.70.0:** Released on May 29 by Docker Engineering, [adding text handling improvements](https://github.com/docker/docker-agent/releases/tag/v1.70.0){:target="_blank"}, OAuth flow enhancements for MCP catalog servers, and allow and block list filtering for the `mcp_catalog` tool.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -217,9 +211,9 @@ On May 28, [Wix CEO Avishai Abrahami confirmed mass layoffs](https://www.calcali
 
 On May 27, [Snowflake announced a 6 billion dollar five year commitment to AWS](https://thenewstack.io/snowflake-aws-6b-commitment/){:target="_blank"} for Graviton compute and AI infrastructure. This is the company's largest cloud spend commitment to date and reads as a vote of confidence that enterprise demand for the AI Data Cloud will keep accelerating through the agentic shift.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

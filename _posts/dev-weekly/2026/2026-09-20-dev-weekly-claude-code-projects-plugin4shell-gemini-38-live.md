@@ -48,8 +48,6 @@ On September 17, [Air published Plugin4Shell](https://www.air.security/blog-post
 
 Update Claude Code to `2.1.179` or later. Update Codex to `0.146.0` or later. Air says Copilot is still open because it can install plugins from hosts that allow hash-shaped branch names. GitHub told The Register that github.com rejects those names, which does not cover Bitbucket or self-hosted git. Google will not patch Gemini CLI. Move those installs to Antigravity. Auto-update is on by default in Claude Code and Codex, which is why Air calls it zero-click. If you cannot patch, stop marketplace auto-update and drop plugins from hosts that accept SHA-shaped refs.
 
-{% include ads/in-article.html %}
-
 ### Google Ships Gemini 3.8 Live for Voice Agents - [<i class="fas fa-external-link-alt"></i>](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/){:target="_blank"}
 
 On September 15, [Google launched Gemini 3.8 Live and 3.8 Live Extended Thinking](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/){:target="_blank"}. Both are on the Gemini API and Google AI Studio. The cheap, low-latency model is `gemini-3.8-live`. The harder one is `gemini-3.8-live-extended-thinking`. Input limit is 131,072 tokens. Output limit is 65,536. If you still pass `gemini-3.1-flash-live-preview`, change the model string and drop `thinking_level` from session setup. Async tools with `behavior: NON_BLOCKING` are now the default. Audio is the response modality.
@@ -68,8 +66,6 @@ On September 14, [Copilot auto model selection gained three tiers](https://githu
 
 Set the tier to match the work, not the brand of the model.
 
-{% include ads/display.html %}
-
 ### Redis 8.10 Cuts Hash Memory and Adds Incremental Backups - [<i class="fas fa-external-link-alt"></i>](https://redis.io/blog/announcing-redis-810-compact-hash-jsonpath-extensions-performance-improvements-and-more/){:target="_blank"}
 
 On September 14, [Redis Open Source 8.10 went GA](https://redis.io/blog/announcing-redis-810-compact-hash-jsonpath-extensions-performance-improvements-and-more/){:target="_blank"}. Hashes that share a field set can use a template encoding, which Redis says can cut memory by up to 50%. Bulk load with `HIMPORT PREPARE` then `HIMPORT SET` so you send values without repeating field names. Operators get incremental cluster backups through the new `BACKUP` commands, with staggered snapshots instead of every shard forking at once.
@@ -77,6 +73,8 @@ On September 14, [Redis Open Source 8.10 went GA](https://redis.io/blog/announci
 There are also `SUNIONCARD` and `SDIFFCARD`, `LMOVEM` for moving several list items atomically, `MAXCOUNT`/`MAXSIZE` on `XREAD`, and more JSONPath functions. Download 8.10 and try `HIMPORT` on a profile or session keyspace before you change the rest of the app.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -91,8 +89,6 @@ Run your suite on `python3.14t`. Check `sys._is_gil_enabled()` after you import 
 On September 15, [GitHub disabled SHA-1 in HTTPS](https://github.blog/changelog/2026-09-15-sha-1-in-https-on-github-sunset/){:target="_blank"} for github.com and partner CDNs, including GitHub Enterprise Cloud and Data Residency. GitHub Enterprise Server is not in this cut. Anything that still negotiates SHA-1 to github.com fails as of that day.
 
 The same day, [enterprise admins could enforce Advanced Security configurations](https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations/){:target="_blank"} so org owners cannot weaken them. The Enforcement dropdown is Don't enforce, Enforce for repository owners, or Enforce for repository and organization owners. On September 16, [Enterprise Cloud also got bulk SSO authorization](https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys/){:target="_blank"} for classic PATs and SSH keys through a GitHub App with `enterprise_credentials:write`, up to 50 orgs per request.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -128,9 +124,9 @@ On September 17, [S&P Global agreed to acquire OpenZeppelin](https://www.openzep
 
 *   **Oracle:** On September 14, [Oracle America filed a California WARN](https://layoffiq.com/layoffs/oracle-america-inc/ca-2026-09-ce1430){:target="_blank"} covering 378 employees at two sites, with an effective date of November 13. That follows last week's disclosure that Oracle would add about $700 million to its fiscal 2026 restructuring plan. Oracle did not publish a new company-wide headcount with this filing.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

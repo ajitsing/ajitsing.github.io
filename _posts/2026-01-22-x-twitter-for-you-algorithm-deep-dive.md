@@ -114,8 +114,6 @@ The four main components:
 | **Phoenix** | ML system for retrieval and ranking | [phoenix/](https://github.com/xai-org/x-algorithm/tree/main/phoenix) |
 | **Candidate Pipeline** | Reusable framework connecting everything | [candidate-pipeline/](https://github.com/xai-org/x-algorithm/tree/main/candidate-pipeline) |
 
-{% include ads/in-article.html %}
-
 Let me break down each component.
 
 ## Home Mixer: The Orchestration Layer
@@ -232,13 +230,13 @@ flowchart LR
     style Output fill:#e8f5e9,stroke:#388e3c
 ```
 
+{% include ads/in-article.html %}
+
 When you ask for your feed, Thunder looks at who you follow and returns their recent posts. No database queries. No network hops. Everything lives in memory, partitioned by user.
 
 **Key design choice**: Thunder maintains separate stores for different post types. Original posts, replies, reposts, and videos each have their own storage. This allows different retention policies and query patterns for each type.
 
 The retention period is configurable. Posts older than the threshold get automatically trimmed. This keeps memory usage bounded while ensuring fresh content is always available.
-
-{% include ads/in-article.html %}
 
 ## Phoenix: The ML Powerhouse
 <small>[View source on GitHub](https://github.com/xai-org/x-algorithm/tree/main/phoenix)</small>
@@ -377,6 +375,8 @@ flowchart LR
     style Negative fill:#ffebee,stroke:#c62828
     style Result fill:#e3f2fd,stroke:#1976d2
 ```
+
+{% include ads/in-article.html %}
 
 Here's what we know about the weights from the source code:
 

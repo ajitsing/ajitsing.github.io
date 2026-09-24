@@ -116,10 +116,6 @@ Example usage:
 </button>
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The `hx-swap` attribute has several options:
 
 - `innerHTML` - Replace the target's inner content (default)
@@ -310,6 +306,8 @@ Delete an item and remove it from the list:
 
 Click delete, browser shows native confirm dialog, if confirmed, the row vanishes. The server returns an empty response or a 200 status.
 
+{% include ads/in-article.html %}
+
 ## Out of Band Swaps
 
 Sometimes you need to update multiple parts of the page. That's what `hx-swap-oob` is for.
@@ -334,10 +332,6 @@ Say you have a shopping cart. When you add an item, you want to:
   <div id="cart-total">$99.00</div>
 </main>
 ```
-
-
-{% include ads/display.html %}
-
 
 Your server can return:
 
@@ -498,10 +492,6 @@ sequenceDiagram
     Note over User: No full page reload
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ## When HTMX Shines
 
 HTMX is excellent for:
@@ -586,6 +576,8 @@ HTMX isn't better or worse. It's different. It's optimized for a different set o
 
 If you're building the next Figma, use React. If you're building an admin dashboard, HTMX might save you months.
 
+{% include ads/in-article.html %}
+
 ## Combining HTMX with Other Tools
 
 HTMX plays well with others.
@@ -601,10 +593,6 @@ HTMX plays well with others.
   </nav>
 </div>
 ```
-
-
-{% include ads/display.html %}
-
 
 **Tailwind CSS**: Style your HTMX applications the same way you'd style anything else. Nothing special needed.
 
@@ -732,4 +720,3 @@ You might find, like many developers have, that the complexity you thought you n
 - [Awesome HTMX](https://github.com/rajasegar/awesome-htmx) - Community curated list of HTMX resources
 
 *Looking for more web development content? Check out [How WebTransport Works](/how-webtransport-works/) for real time communication, [Long Polling Explained](/long-polling-explained/) for understanding push patterns, and [Server Sent Events Explained](/server-sent-events-explained/) for one way server push.*
-

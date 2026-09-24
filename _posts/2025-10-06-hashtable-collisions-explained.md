@@ -147,9 +147,7 @@ graph TB
     style B1 fill:#ffeb3b
 ```
 
-
 {% include ads/in-article.html %}
-
 
 Notice Bucket 1: Alice, Steve, and David all hashed to the same bucket. Instead of overwriting each other, they form a chain.
 
@@ -295,10 +293,6 @@ n = number of entries
 m = table size
 ```
 
-
-{% include ads/display.html %}
-
-
 **Impact on performance:**
 
 ```mermaid
@@ -428,6 +422,8 @@ graph TB
     style D fill:#ff6b6b
 ```
 
+{% include ads/in-article.html %}
+
 A single request could tie up a CPU core for 30 seconds. A few dozen requests would crash the server.
 
 ### The Fix: Randomized Hash Seeds
@@ -456,10 +452,6 @@ class SecureHashTable:
 Modern languages now use randomized hashing by default.
 
 ## Choosing a Good Hash Function
-
-
-{% include ads/in-article.html %}
-
 
 A good hash function should:
 1. **Distribute keys uniformly**
@@ -574,4 +566,3 @@ Used by Chrome (malicious URLs), Cassandra (reducing disk reads), and Bitcoin wa
 ---
 
 *For more on data structures and algorithms, check out our posts on [Consistent Hashing](/consistent-hashing-explained/) (how hashing is used to distribute data across servers), [Skip Lists](/data-structures/skip-list/) (when you need sorted data with O(log n) operations), [Distributed Systems](/distributed-systems/paxos/), [Write-Ahead Logs](/distributed-systems/write-ahead-log/), and [System Design at Scale](/whatsapp-scaling-secrets/).*
-

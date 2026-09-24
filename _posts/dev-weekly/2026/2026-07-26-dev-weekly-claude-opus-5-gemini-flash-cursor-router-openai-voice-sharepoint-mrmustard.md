@@ -46,8 +46,6 @@ On July 21, [Google shipped three new Gemini models at once](https://www.unite.a
 
 What Google did not ship is the model everyone is waiting for. As [The State of AI noted](https://www.thestateofai.com/news/google-gemini-flash-cyber-anthropic){:target="_blank"}, Gemini 3.5 Pro, the flagship previewed at I/O and once promised for June, is still stuck in partner testing, and independent benchmarking found the new Flash line cheaper per task than comparable OpenAI and Anthropic offerings. The [AI Herald breakdown](https://ai-herald.com/gemini-3-6-flash-3-5-flash-lite-flash-cyber-what-google-just-launched/){:target="_blank"} makes the strategic read clear: Google is willing to fragment its lineup to win specific use cases, and the restricted Flash Cyber release copies the gated playbook Anthropic used for its Claude Mythos security model. For developers, the practical takeaway is that the cheap tiers are getting genuinely good, but do not architect around a Pro model that still has no public date.
 
-{% include ads/in-article.html %}
-
 ### Cursor Launches a Router That Picks the Model for You - [<i class="fas fa-external-link-alt"></i>](https://cursor.com/blog/router){:target="_blank"}
 
 On July 22, [Cursor launched Cursor Router](https://cursor.com/blog/router){:target="_blank"}, a request-level classifier that reads each coding query and sends it to the model best suited for that task instead of routing everything to a single default. Cursor says it trained the router on more than 600,000 live requests, evaluated it across millions in an online A/B test, and that it delivers frontier-quality output at up to 60 percent lower cost. It ships with three modes, Intelligence, Balance, and Cost, that let teams pick where they sit on the cost-intelligence tradeoff, and the model pool spans Fable 5, Opus 4.8, GPT-5.6 Sol, Grok 4.5, and Cursor's own Composer.
@@ -60,8 +58,6 @@ On July 23, [OpenAI brought its full-duplex GPT-Live voice model into the ChatGP
 
 As [9to5Mac reported](https://9to5mac.com/2026/07/23/openai-updating-chatgpt-desktop-app-with-gpt-voice-for-talking-through-work/){:target="_blank"}, the feature rolled out globally the same day as desktop build 26.715 and is limited to paid Plus, Pro, Business, Edu, and Enterprise plans, with remote task checks available from iOS. One honest limitation: there is still no developer API for GPT-Live, so you cannot build custom voice agents on this exact stack; the older Realtime API remains the buildable path. It landed the same week Anthropic shipped its own voice mode, a sign both labs are betting that once agents run unattended, the real interface problem becomes supervising several jobs at once.
 
-{% include ads/display.html %}
-
 ### SharePoint CVE-2026-50522 Goes From Public PoC to Machine-Key Theft in Hours - [<i class="fas fa-external-link-alt"></i>](https://www.bleepingcomputer.com/news/security/critical-sharepoint-rce-flaw-exploited-to-steal-machine-keys/){:target="_blank"}
 
 On July 20, [attackers began exploiting a critical SharePoint flaw, CVE-2026-50522, to steal machine keys](https://www.bleepingcomputer.com/news/security/critical-sharepoint-rce-flaw-exploited-to-steal-machine-keys/){:target="_blank"} and keep access even after servers are patched. Microsoft fixed the deserialization remote code execution bug in the July Patch Tuesday but did not initially mark it as exploited. That changed when offensive security firm watchTowr identified public proof-of-concept exploit code on July 20 and, within hours, saw its global honeypot network capture attacks that successfully compromised on-premises SharePoint deployments. The published exploit delivers a malicious .NET payload through a forged security token posted to SharePoint's sign-in endpoint.
@@ -69,6 +65,8 @@ On July 20, [attackers began exploiting a critical SharePoint flaw, CVE-2026-505
 As [Security Affairs reported](https://securityaffairs.com/195889/security/u-s-cisa-adds-microsoft-sharepoint-and-check-point-smartconsole-flaws-to-its-known-exploited-vulnerabilities-catalog.html){:target="_blank"}, CISA added CVE-2026-50522 to its Known Exploited Vulnerabilities catalog on July 22 with a July 25 remediation deadline. The catch that makes this worse than a normal RCE: attackers pull the SharePoint machine keys in a single request, and those keys let them forge authentication tokens for persistent access long after the update lands. Security teams are warned that patching is not enough. You have to rotate machine keys and any other credentials that may have been exposed, or an attacker who already grabbed the keys stays in. On-premises SharePoint remains one of the most reliably attacked pieces of enterprise software in 2026.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -79,8 +77,6 @@ On July 22, [Anthropic released the Claude Security plugin for Claude Code in be
 ### Vercel Patches Nine Next.js Vulnerabilities in Its First Scheduled Release - [<i class="fas fa-external-link-alt"></i>](https://nextjs.org/blog/july-2026-security-release){:target="_blank"}
 
 On July 21, [Vercel published the first release under its new monthly Next.js security program](https://nextjs.org/blog/july-2026-security-release){:target="_blank"}, patching nine vulnerabilities across four high and five medium severity issues in versions 16.2.11 (Active LTS) and 15.5.21 (Maintenance LTS). As the [GitHub release notes](https://github.com/vercel/next.js/releases/tag/v16.2.11){:target="_blank"} spell out, the high-severity fixes include two server-side request forgery bugs, a denial of service in the App Router using Server Actions, and a middleware and proxy bypass in Turbopack apps using a single locale. Announced ahead of time as promised under the preannounced release model, the update slipped one day from its July 20 target. There are no backports for the end-of-life 13.x and 14.x lines, so teams stuck on those majors have to upgrade rather than patch. Run `npm install next@16.2.11` or `next@15.5.21` and redeploy.
-
-{% include ads/in-article.html %}
 
 ### Deno 2.9.4 Lands With a V8 Upgrade and Better Node Compatibility - [<i class="fas fa-external-link-alt"></i>](https://tleapps.com/version/deno/deno-2-9-4/){:target="_blank"}
 
@@ -117,9 +113,9 @@ This week, [Meshy AI closed $400 million in Series B funding at a $1.5 billion v
 *   **Uber:** On July 22, [Uber cut 10 percent of its customer service operations](https://www.outlookbusiness.com/corporate/uber-slashes-10-of-customer-service-workforce-amid-ai-push){:target="_blank"} as it leans harder on AI, the first time Uber has explicitly tied layoffs to AI-driven efficiency. It asked remaining remote staff in the division to relocate to hub offices, and it follows a People-division cut two months earlier.
 *   **Magic Leap:** On July 20, [Magic Leap confirmed it is laying off 193 employees](https://roadtovr.com/magic-leap-lay-off-2026-waveguide-pivot/){:target="_blank"} at its Florida headquarters per a WARN Act notice, as the AR company pivots to become a waveguide supplier and focuses on AI display glasses. The cuts span software, hardware, design, and senior leadership, effective October 1.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

@@ -46,8 +46,6 @@ The other half of Anthropic's week was about getting models back. On June 30, [A
 
 As [Ars Technica reported](https://arstechnica.com/tech-policy/2026/07/after-spooking-trump-into-safety-testing-anthropic-ai-models-get-global-release/){:target="_blank"}, the curbs came off about three weeks after the administration flagged the models as national security risks, and only after Anthropic trained a new safety classifier that reliably blocks the specific jailbreak, documented by Amazon researchers, that let the model surface software vulnerabilities. The episode is now the template for how frontier AI ships in 2026: models pass through Washington first, and the details of who can use them get negotiated behind closed doors. Anthropic is still working with Amazon, Microsoft, Google, and other partners on a shared framework for grading jailbreak severity, which suggests this will not be the last model to blink offline for a while.
 
-{% include ads/in-article.html %}
-
 ### GitHub Copilot Becomes a Native Agent in JetBrains IDEs - [<i class="fas fa-external-link-alt"></i>](https://github.blog/changelog/2026-06-30-copilot-agent-is-now-available-in-jetbrains-ai-assistant/){:target="_blank"}
 
 On June 30, [GitHub and JetBrains made Copilot a first-class option in the JetBrains AI Assistant agent picker](https://github.blog/changelog/2026-06-30-copilot-agent-is-now-available-in-jetbrains-ai-assistant/){:target="_blank"}. Copilot had already been reachable inside AI Assistant through the Agent Client Protocol (ACP), but this integration bundles it in directly, so it shows up in the agent list automatically for anyone with a valid Copilot subscription, with no endpoint to configure. You open the agent picker, select GitHub Copilot, choose your model and reasoning depth, and hand off multistep work that Copilot reasons through, runs commands for, and iterates on with you.
@@ -59,8 +57,6 @@ As [JetBrains described it](https://blog.jetbrains.com/ai/2026/06/github-copilot
 On July 2, at an internal town hall, [Meta superintelligence chief Alexandr Wang told staff that the company's next model, codenamed Watermelon, has caught up to OpenAI's GPT-5.5 on closely watched benchmarks](https://www.businessinsider.com/meta-ai-model-catches-up-openai-gpt-5-says-2026-7){:target="_blank"}. Wang said Watermelon, the successor to the Muse Spark family Meta released in April under the codename Avocado, is still in training and uses an order of magnitude more compute than its predecessor. He did not name the benchmarks, there is no public preview or release date, and Meta declined to comment, so this is a leadership claim, not a verified result.
 
 Still, it is a notable signal from a lab that has trailed OpenAI, Google, and Anthropic at the frontier despite enormous spending. As [Tech Times pointed out](https://www.techtimes.com/articles/319723/20260704/meta-watermelon-ai-claims-gpt-55-parity-benchmarks-remain-unnamed-unverified.htm){:target="_blank"}, the reference point has already moved, since OpenAI previewed GPT-5.6 in late June, so matching GPT-5.5 is catching up to where the race was, not where it is. The part developers should watch is the open-weight angle: Meta has committed to releasing future Muse models with open weights, and Wang posted on July 3 that a near-term Muse Spark update will bring major coding and agentic gains. If a GPT-5.5-class model ships as open weights, teams running on-premises get a frontier-adjacent option they cannot buy today.
-
-{% include ads/display.html %}
 
 ### A Cloudflare Failure Takes npm and Other Services Offline - [<i class="fas fa-external-link-alt"></i>](https://isdown.app/status/cloudflare/incidents/616087-cloudflare-is-investigating-issues-with-network-performance-in-enam-and-wnam-us){:target="_blank"}
 
@@ -76,6 +72,8 @@ It is a small release on paper but it points at where agent frameworks are going
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### CloudNativePG 1.30 Ships Declarative Roles and Safer Failover - [<i class="fas fa-external-link-alt"></i>](https://cloudnative-pg.io/releases/cloudnative-pg-1-30.0-released/){:target="_blank"}
@@ -89,8 +87,6 @@ Google Cloud had a busy start to July. On July 1 it brought [Conversational Anal
 ### AWS Launches Interconnect Last Mile With AT&T - [<i class="fas fa-external-link-alt"></i>](https://aws.amazon.com/about-aws/whats-new/2026/06/aws-announces-AWS-interconnect-last-mile-ATT-gated-preview/){:target="_blank"}
 
 On June 30, [AWS announced Interconnect last mile, a managed connectivity service](https://aws.amazon.com/about-aws/whats-new/2026/06/aws-announces-AWS-interconnect-last-mile-ATT-gated-preview/){:target="_blank"} that lets customers connect branch offices, data centers, and remote sites to AWS in a few clicks. The first partner is AT&T, in a US gated preview. You choose a Region, bandwidth, Direct Connect Gateway ID, and partner subscriber ID, and AWS pre-provisions capacity and automates the fiddly parts like BGP peering, VLAN configuration, and ASN assignment, backed by an SLA and zero-downtime maintenance. It is a networking, not an AI, launch, but it targets a real source of friction: getting private, reliable pipes into the cloud without weeks of telecom coordination. Partners can integrate through a published open API on GitHub.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -120,9 +116,9 @@ On June 30, [Datadog acquired Adaptive ML](https://www.datadoghq.com/about/lates
 *   **TikTok:** On July 1, [TikTok confirmed layoffs across its Trust and Safety teams in Singapore, Indonesia, and Malaysia](https://startupfortune.com/tiktok-confirms-layoffs-in-singapore-and-three-other-cities-in-one-day/){:target="_blank"} and reportedly weighed about 300 cuts in Dublin, saying automated systems now handle 85 percent of content removals. It is hiring specialist roles even as it cuts moderators, a clear case of AI reshaping who staffs a function.
 *   **Cisco:** On June 30, California published WARN filings detailing [Cisco's plan to cut 471 Bay Area roles](https://www.techtimes.com/articles/319430/20260701/software-engineers-top-ciscos-list-bay-area-warn-notices-hit-471-jobs.htm){:target="_blank"}, with software engineer the single most-affected title at 56 positions. Terminations begin July 13, part of a restructuring that trims nearly 4,000 jobs this year.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

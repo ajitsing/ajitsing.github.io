@@ -57,8 +57,6 @@ On May 7, Cloudflare reported Q1 2026 revenue of 639.8 million dollars, up 34 pe
 
 **The framing:**
 
-{% include ads/in-article.html %}
-
 CEO Matthew Prince called it a transition to an "agentic AI-first operating model." Internal AI usage at Cloudflare is up over 600 percent in three months. Prince said the company is keeping product builders and sellers but cutting the support roles sitting behind them. [TechCrunch reported](https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/){:target="_blank"} that this is the first mass layoff in Cloudflare's 16 year history, with notifications hitting both work and personal email within an hour of the announcement.
 
 **Numbers:**
@@ -88,8 +86,6 @@ The day before, on May 6, [AWS announced the AWS MCP Server is generally availab
 ### Cursor 3.3 Brings PR Review Into the Agents Window - [<i class="fas fa-external-link-alt"></i>](https://cursor.com/changelog/05-07-26){:target="_blank"}
 
 On May 7, Cursor 3.3 shipped with three headline features and a stack of smaller improvements.
-
-{% include ads/display.html %}
 
 **PR review:**
 
@@ -121,6 +117,8 @@ xAI also published a [May 15, 2026 model retirement notice](https://docs.x.ai/de
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### OpenAI Updates ChatGPT to GPT-5.5 Instant - [<i class="fas fa-external-link-alt"></i>](https://openai.com/index/gpt-5-5-instant/){:target="_blank"}
@@ -142,8 +140,6 @@ On May 6, Google Cloud rolled out a set of IAM updates for the agentic era. Agen
 ### Gemini API File Search Goes Multimodal - [<i class="fas fa-external-link-alt"></i>](https://blog.google/innovation-and-ai/technology/developers-tools/expanded-gemini-api-file-search-multimodal-rag/){:target="_blank"}
 
 On May 5, Google updated the Gemini API File Search endpoint with three additions. Multimodal support means it can process images and text together. Custom metadata filtering helps teams organize unstructured data inside the same store. Page level citations give grounding back at the page rather than the document level. Less glue code for grounded retrieval pipelines.
-
-{% include ads/in-article.html %}
 
 ### Anthropic Releases Ten Financial Services Agent Templates - [<i class="fas fa-external-link-alt"></i>](https://www.anthropic.com/news/finance-agents){:target="_blank"}
 
@@ -231,8 +227,6 @@ The PHP project formally retired the PHP License 3.01 and the Zend Engine Licens
 
 ## <i class="fas fa-coins"></i> Funding
 
-{% include ads/display.html %}
-
 ### Blitzy Raises $200M at $1.4B Valuation for Parallel Coding Agents - [<i class="fas fa-external-link-alt"></i>](https://siliconangle.com/2026/05/05/blitzy-raises-200m-1-4b-valuation-deploy-thousands-coding-agents-parallel/){:target="_blank"}
 
 On May 5, Blitzy announced a 200 million dollar round at a 1.4 billion dollar valuation. The autonomous software development startup, founded in 2023, deploys thousands of coding agents in parallel for enterprise codebases and pitches months of completed work in a single run. Northzone led, with PSG, Battery Ventures, and Jump Capital among the participants. Direct competitor signal for Devin, Cursor cloud agents, and Claude Code at scale.
@@ -272,9 +266,9 @@ On May 8, Tekst raised 11.5 million dollars in Series A funding for an agentic A
 - **13** Security advisories patched in the Next.js May emergency release
 - **$200M** Blitzy round at $1.4B valuation, the largest in the window
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-calendar-alt"></i> Quick Hits
 

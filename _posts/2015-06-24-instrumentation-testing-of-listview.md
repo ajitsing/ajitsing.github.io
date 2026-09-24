@@ -124,13 +124,11 @@ dependencies {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 `androidTestCompile 'com.android.support.test:rules:0.3'` Instrumentation tests will be written with the help of this dependency. It has an internal dependency to test:runner:0.3 library which provides some class which are essential for our tests.
 
 Enough of application knowledge, let's jump into our tests.
+
+{% include ads/in-article.html %}
 
 **Scenario 1** - I want to verify the number of items displayed in the list view.
 
@@ -154,7 +152,6 @@ public class ItemListActivityTest {
 
   @Rule
   public ActivityTestRule<ItemListActivity> main = new ActivityTestRule<ItemListActivity>(ItemListActivity.class);
-
 
   @Test
   public void testShouldLaunchTheMainActivityAndFindItemsInTheList() throws Exception {
@@ -207,10 +204,6 @@ public void testShouldShowTheItemDetailWhenAnItemIsClicked() throws Exception {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 In the above test there are quite a few things to learn. Let's go through them one by one.
 
 `runOnMainSync` - In order to click on an item in the list, we have to perform our click action in the main thread of our application otherwise test will throw the following error.
@@ -234,6 +227,3 @@ Also this method returns back the target activity which makes our life easier to
 At last in the test we assert the text on the ItemDetailActivity.
 
 Thats All Folks!!
-
-
-

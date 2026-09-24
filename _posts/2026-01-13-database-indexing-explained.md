@@ -129,10 +129,6 @@ For a table with 10 million rows, a B-tree index typically has 3 to 4 levels. Th
 | 1,000,000 rows | 1,000,000 comparisons | ~20 comparisons |
 | 10,000,000 rows | 10,000,000 comparisons | ~24 comparisons |
 
-
-{% include ads/in-article.html %}
-
-
 The logarithmic scaling is what makes indexes so powerful for large tables.
 
 ## Types of Indexes
@@ -230,6 +226,8 @@ flowchart LR
     style R3 fill:#fff3e0,stroke:#e65100
 ```
 
+{% include ads/in-article.html %}
+
 The index entries are sorted alphabetically, but they point to rows in the table that are stored in a different order.
 
 ### <i class="fas fa-book-open"></i> Covering Index
@@ -281,10 +279,6 @@ CREATE INDEX idx_articles_content ON articles USING gin(to_tsvector('english', c
 -- MySQL
 CREATE FULLTEXT INDEX idx_articles_content ON articles(content);
 ```
-
-
-{% include ads/display.html %}
-
 
 **Best for**: Search functionality where users search for words or phrases in text columns.
 
@@ -349,6 +343,8 @@ flowchart LR
     style CL fill:#ffecb3,stroke:#ff8f00,stroke-width:2px
     style D2 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 Two lookups. First find the pointer in the non-clustered index, then follow it to get the actual data.
 
@@ -418,10 +414,6 @@ Seq Scan on orders  (cost=0.00..1234.00 rows=50000 width=100) (actual time=0.015
 Planning Time: 0.085 ms
 Execution Time: 52.456 ms
 ```
-
-
-{% include ads/in-article.html %}
-
 
 After adding an index:
 
@@ -590,10 +582,6 @@ CREATE INDEX idx_orders_status_date ON orders(status, order_date DESC);
 -- Index on foreign key
 CREATE INDEX idx_orders_customer ON orders(customer_id);
 ```
-
-
-{% include ads/display.html %}
-
 
 **Step 4: Verify the improvement**
 

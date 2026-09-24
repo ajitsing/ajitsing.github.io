@@ -147,10 +147,6 @@ PgBouncer has three pool modes. Choosing the right one matters:
 | **transaction** | Connection assigned per transaction | Most web applications |
 | **statement** | Connection assigned per statement | Only for autocommit queries |
 
-
-{% include ads/in-article.html %}
-
-
 **Use transaction mode for most applications.** It gives you the best connection reuse while still supporting transactions.
 
 ### Practical Example: Django with PgBouncer
@@ -213,6 +209,8 @@ flowchart LR
     style R2 fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e40af
     style R3 fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e40af
 ```
+
+{% include ads/in-article.html %}
 
 - **Writes** go to the primary database
 - **Reads** go to the replicas
@@ -352,9 +350,7 @@ flowchart TB
     style S4 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
 ```
 
-
-{% include ads/display.html %}
-
+{% include ads/in-article.html %}
 
 Each shard is a complete PostgreSQL instance with the same schema. Data is partitioned based on a shard key, typically user_id or tenant_id.
 
@@ -520,10 +516,6 @@ SELECT * FROM messages
 WHERE created_at >= '2026-01-15' 
   AND created_at < '2026-01-16';
 ```
-
-
-{% include ads/in-article.html %}
-
 
 **Bad: SELECT ***
 
@@ -729,10 +721,6 @@ WHERE calls > 100
 ORDER BY stddev_exec_time DESC
 LIMIT 10;
 ```
-
-
-{% include ads/display.html %}
-
 
 ---
 

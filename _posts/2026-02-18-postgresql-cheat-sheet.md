@@ -239,10 +239,6 @@ FROM pg_database
 ORDER BY pg_database_size(datname) DESC;
 ```
 
-
-{% include ads/in-article.html %}
-
-
 <i class="fas fa-exclamation-triangle" style="color: #e65100;"></i> **Warning**: You cannot drop a database while there are active connections to it. Disconnect all clients first, or use `SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'myapp'` to force-close connections.
 
 ---
@@ -342,6 +338,8 @@ DROP TABLE users CASCADE;
 
 ---
 
+{% include ads/in-article.html %}
+
 ## Data Types
 
 Picking the right data type matters more than most developers think. Here are the types you will use most often and when to use them.
@@ -361,10 +359,6 @@ Picking the right data type matters more than most developers think. Here are th
 | `JSONB` | Structured JSON data | Settings, metadata |
 | `INTEGER[]` | Array of integers | Tag IDs |
 | `INET` | IP addresses | Client IP |
-
-
-{% include ads/display.html %}
-
 
 **A few strong opinions from experience:**
 
@@ -491,10 +485,6 @@ TRUNCATE TABLE logs RESTART IDENTITY;
 ---
 
 ## Filtering and Sorting
-
-
-{% include ads/in-article.html %}
-
 
 ```sql
 -- WHERE with comparison
@@ -670,10 +660,6 @@ FROM employees
 GROUP BY department;
 ```
 
-
-{% include ads/display.html %}
-
-
 The difference between `WHERE` and `HAVING`: `WHERE` filters rows before grouping. `HAVING` filters groups after aggregation. You cannot use aggregate functions in `WHERE`.
 
 ---
@@ -805,10 +791,6 @@ REFRESH MATERIALIZED VIEW monthly_revenue;
 -- Requires a UNIQUE index on the materialized view
 REFRESH MATERIALIZED VIEW CONCURRENTLY monthly_revenue;
 ```
-
-
-{% include ads/in-article.html %}
-
 
 <i class="fas fa-info-circle" style="color: #1565c0;"></i> **Note**: `REFRESH MATERIALIZED VIEW CONCURRENTLY` requires that the materialized view has at least one `UNIQUE` index. Without it, PostgreSQL throws an error. Create one before using `CONCURRENTLY`:
 
@@ -1126,6 +1108,8 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO analyst;
 ```
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Performance and Troubleshooting
 

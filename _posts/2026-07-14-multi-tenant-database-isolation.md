@@ -86,8 +86,6 @@ Multi-tenancy means one product serves many of those companies on shared infrast
 
 Teams often treat isolation as "add `tenant_id` and hope." The rest of this post is about building the hope into something you can defend in a diligence call.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-id-card"></i> How to Identify the Tenant on Every Request
 
 Before you can isolate data, you have to know which tenant a request belongs to. This step comes before the database model and applies to all three of them. Get it wrong and every layer below inherits the mistake. There are three common ways to carry the tenant, and most B2B products use more than one.
@@ -156,6 +154,8 @@ flowchart TB
     class Hybrid hybrid
 ```
 
+{% include ads/in-article.html %}
+
 ### Shared schema (pool model)
 
 One database. One set of tables. Every tenant-owned row carries a `tenant_id` (or `organization_id`). Queries always filter on it. This is the default for most B2B SaaS in 2026 because:
@@ -192,8 +192,6 @@ Use this when:
 - White-label or regional residency needs separate stacks.
 
 Do not choose it on day one for a thousand SMB tenants unless provisioning, migrations, monitoring, and teardown are fully automated.
-
-{% include ads/display.html %}
 
 ## <i class="fas fa-balance-scale"></i> How to Choose for a B2B Product
 
@@ -440,8 +438,6 @@ flowchart LR
 Microsoft's guide on [storage and data in multitenant solutions](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/storage-data){:target="_blank" rel="noopener"} frames the same trade-off: share for efficiency, isolate when tenancy requirements demand it. ClickHouse's write-up on [multi-tenant SaaS on Postgres](https://clickhouse.com/resources/engineering/multi-tenant-saas-postgres-architecture){:target="_blank" rel="noopener"} makes the same call for shared schema as the 2026 default, with dedicated databases for regulated and white-label cases.
 
 If your product still lives as one deployable unit, this model pairs cleanly with a [modular monolith](/modular-monolith-architecture/){:target="_blank" rel="noopener"}: clear module boundaries, one deploy, tenant-aware data access in one place.
-
-{% include ads/display.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> Common Mistakes
 

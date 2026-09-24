@@ -216,10 +216,6 @@ docker build --build-arg NODE_ENV=production -t myapp:latest .
 docker build -t myapp:latest -t myapp:1.0.0 .
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Tagging Images
 
 ```bash
@@ -442,8 +438,6 @@ docker run -v mydata:/container/path nginx:latest
 docker run -v /container/path nginx:latest
 ```
 
-{% include ads/display.html %}
-
 ### Resource Limits
 
 ```bash
@@ -657,10 +651,6 @@ volumes:
   postgres_data:
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Common docker-compose Commands
 
 ```bash
@@ -728,6 +718,8 @@ flowchart TB
     style D fill:#234e52,stroke:#319795,color:#b2f5ea
     style V1 fill:#2d3748,stroke:#4a5568,color:#e2e8f0
 ```
+
+{% include ads/in-article.html %}
 
 ### Environment Variables in docker-compose
 
@@ -906,10 +898,6 @@ docker run -v /host/path:/container/path:ro nginx:latest
 docker run -v data1:/data1 -v data2:/data2 nginx:latest
 ```
 
-
-{% include ads/display.html %}
-
-
 ### Volume Architecture
 
 ```mermaid
@@ -938,6 +926,8 @@ flowchart TB
     style V2 fill:#1a365d,stroke:#2b6cb0,color:#bee3f8
     style V3 fill:#2d3748,stroke:#4a5568,color:#e2e8f0
 ```
+
+{% include ads/in-article.html %}
 
 ### Backup and Restore
 
@@ -1167,8 +1157,6 @@ docker exec -it myapp-dev npm test
 # 5. Stop and remove
 docker stop myapp-dev && docker rm myapp-dev
 ```
-
-{% include ads/in-article.html %}
 
 ### Production Deployment Workflow
 

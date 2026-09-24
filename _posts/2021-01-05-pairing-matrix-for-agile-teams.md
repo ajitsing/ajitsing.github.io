@@ -79,10 +79,6 @@ github:
     - github_username/my_private_repo
 ```
 
-
-{% include ads/in-article.html %}
-
-
 &nbsp;
 # How to test the author regex?
 
@@ -102,6 +98,8 @@ You can choose any format as long as you are able to extract dev names from the 
 ```
 
 Once you are ready with your regex, put it in the pairing_matrix.yml and run the below command from the same directory.
+
+{% include ads/in-article.html %}
 
 ```bash
 pairing_martix

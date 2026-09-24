@@ -239,6 +239,8 @@ flowchart LR
     class DROP,COLD keep
 ```
 
+{% include ads/in-article.html %}
+
 Three knobs show up in every product, under different names:
 
 - **Retention** is a [TTL](/glossary/ttl/){:target="_blank" rel="noopener"} on raw data. Prometheus defaults to 15 days (`--storage.tsdb.retention.time=15d`). TimescaleDB drops old chunks. InfluxDB has retention periods per bucket. Amazon Timestream moves hot data from memory to magnetic storage, then expires it.
@@ -246,8 +248,6 @@ Three knobs show up in every product, under different names:
 - **Tiering** keeps yesterday fast and last year cheap. Timestream's memory vs magnetic stores, VictoriaMetrics' cold parts, and "remote write to object storage" (Mimir, Thanos) are the same idea.
 
 If you skip this, you will pay for a warehouse of points nobody queries. Set retention on day one, even if the number is generous.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-balance-scale"></i> InfluxDB vs TimescaleDB vs Prometheus
 

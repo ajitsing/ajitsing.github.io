@@ -104,8 +104,6 @@ From [Hardware Corner's GPU benchmarks](https://www.hardware-corner.net/gpu-rank
 | 8B (Qwen3 8B) | 42.0 | 31.9 |
 | 14B (Qwen3 14B) | 22.7 | — |
 
-{% include ads/in-article.html %}
-
 From [geerlingguy's ai-benchmarks](https://github.com/geerlingguy/ai-benchmarks/issues/40) (llama.cpp, RTX 3060 12GB, Vulkan backend, Q4_K_M):
 
 | Model | Tokens/sec (tg128) |
@@ -150,8 +148,6 @@ From the [Qwen documentation](https://qwen.readthedocs.io/en/v2.0/benchmark/spee
 | Qwen2-1.5B | GPTQ-Int8 | ~32.6 | A100 GPU |
 | Qwen2-1.5B | GPTQ-Int4 | ~42.5 | A100 GPU |
 | Qwen2-1.5B | AWQ | ~43.0 | A100 GPU |
-
-{% include ads/display.html %}
 
 Even on a data center GPU, the speeds are in the tens of tokens per second, not billions.
 
@@ -217,10 +213,6 @@ Qwen2.5 is one of the strongest open-source model families for local inference. 
 | M1 Max 64GB | GGUF | Ollama | 40.75 | [r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/) |
 | M1 Pro 16GB | Q4_K_M | Ollama | ~25-30 | [PracticalWebTools](https://practicalwebtools.com/blog/local-llm-benchmarks-consumer-hardware-guide-2025) |
 
-
-{% include ads/display.html %}
-
-
 For NVIDIA GPUs, use the Hardware Corner 8B model numbers as a close proxy: RTX 3060 = ~42 tok/s, RTX 4070 = ~52 tok/s, RTX 4090 = ~104 tok/s ([source](https://www.hardware-corner.net/gpu-ranking-local-llm/), Q4_K_XL, 16K context). Qwen2.5-7B and Qwen3 8B have similar architectures, so performance is comparable.
 
 ### Qwen2.5-14B Inference Speed
@@ -281,6 +273,8 @@ flowchart LR
     style Q4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 | Quantization | Size Reduction | Speed Impact | Quality Impact |
 |--------------|----------------|--------------|----------------|
 | BF16 | 1x (baseline) | Slowest | Best |
@@ -317,7 +311,6 @@ flowchart TD
     style NVIDIA fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
     style Fast fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
 ```
-
 
 Why Apple Silicon works well for local LLMs: unified memory means your GPU can access all system RAM. A MacBook with 32GB unified memory can load models that would require a 32GB GPU on other systems.
 
@@ -402,10 +395,6 @@ NVIDIA data from [Hardware Corner](https://www.hardware-corner.net/gpu-ranking-l
 | 32B | 18-22 GB | Does not fit | Does not fit | 30-45 tok/s | 8-12 tok/s |
 | 70B | 35-42 GB | Does not fit | Does not fit | Does not fit | 4-8 tok/s |
 
-
-{% include ads/display.html %}
-
-
 ### By Quantization (Qwen2.5-7B on M1 Max)
 
 | Quantization | Model Size | Tokens/sec | Quality |
@@ -486,6 +475,8 @@ flowchart TD
     style R6 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 ### How to Measure Your Own Setup
 
 Run this command to get your actual speed:
@@ -547,10 +538,6 @@ time ollama run $MODEL "$PROMPT" --verbose 2>&1 | grep -E "(eval rate|total dura
 | RTX 3060/4070 (ease of use) | Ollama | Simpler setup, slight speed penalty |
 | Production serving | vLLM | Best throughput for batches |
 | Maximum control | llama.cpp | Most configuration options |
-
-
-{% include ads/in-article.html %}
-
 
 ## Common Misconceptions
 

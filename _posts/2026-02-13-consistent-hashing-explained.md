@@ -159,9 +159,7 @@ graph TB
     style K4 fill:#f3f4f6,stroke:#6b7280,stroke-width:1px
 ```
 
-
 {% include ads/in-article.html %}
-
 
 In this setup:
 - **key1** (position 800) walks clockwise and hits **Server A** (position 1000)
@@ -305,10 +303,6 @@ graph TB
     style VC2 fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
 ```
 
-
-{% include ads/display.html %}
-
-
 With 4 virtual nodes per server, the ring has 12 positions instead of 3. The gaps are much smaller and more uniform. More virtual nodes means better distribution.
 
 ### How Many Virtual Nodes?
@@ -446,9 +440,7 @@ sequenceDiagram
     S2-->>C: Return data
 ```
 
-
 {% include ads/in-article.html %}
-
 
 This is exactly how DynamoDB and Cassandra handle replication. Walk clockwise on the ring, skip virtual nodes that belong to the same physical server, and replicate to the next N distinct physical servers.
 
@@ -519,10 +511,6 @@ For sticky sessions (routing the same user to the same backend server), consiste
 When designing systems like URL shorteners, you need to distribute data across multiple storage nodes. Consistent hashing on the short URL key distributes writes evenly and makes it easy to add more storage servers as the system grows. We walk through this end to end, including base62 encoding and caching, in [Design TinyURL](/tinyurl-system-design/){:target="_blank" rel="noopener"}.
 
 ## Consistent Hashing vs Other Partitioning Strategies
-
-
-{% include ads/display.html %}
-
 
 | Strategy | Key Movement on Scaling | Distribution | Complexity | Use Case |
 |----------|------------------------|-------------|------------|----------|

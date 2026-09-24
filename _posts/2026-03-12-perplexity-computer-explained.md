@@ -106,8 +106,6 @@ Three things make the Mac mini stand out for always-on AI workloads:
 
 **Unified memory architecture.** CPU and GPU share one memory pool. There is no data copying penalty between them. For AI workloads that move data between CPU processing and GPU inference, this is a meaningful advantage over discrete GPU setups. The M4 Pro with 64GB can run 30-32B parameter models locally at 10-15 tokens per second.
 
-{% include ads/in-article.html %}
-
 **Power efficiency.** 15 watts idle, 30 watts under load. That is roughly $15 per year in electricity for 24/7 operation. Compare that to a GPU server that costs $400+ per year just in power. For an agent that needs to be always on, this is the difference between practical and impractical.
 
 **Silent, compact, and headless-friendly.** A 5-by-5 inch box with no fan noise that can sit on a shelf and run indefinitely. No dedicated cooling. No server room. Just plug it in and forget it is there.
@@ -203,8 +201,6 @@ Security researcher Yang Fan [confirmed this architecture](https://medium.com/@s
 
 ### Cloud Browser: Separate Web Layer
 
-{% include ads/display.html %}
-
 Perplexity runs a completely separate cloud browser instance for web automation. Yang Fan confirmed this by fetching `httpbin.org/headers` from both the sandbox and the browser tool. Different IP addresses, different User-Agent strings, different network fingerprints. Two separate machines.
 
 This means browser-based vulnerabilities (malicious JavaScript, fingerprinting, session hijacking) cannot propagate back into the code execution environment. The two do not share memory, filesystem, or network stack.
@@ -212,6 +208,8 @@ This means browser-based vulnerabilities (malicious JavaScript, fingerprinting, 
 **Developer takeaway**: This four-layer split (local device, cloud orchestrator, isolated execution, separate browser) is the pattern that matters. Each layer can be swapped independently. New model? Update the routing. Better sandbox provider? Swap the execution layer. Neither change affects the others. This is separation of concerns applied to AI infrastructure. For more on how attackers exploit weak boundaries between these layers, see [Prompt Injection Explained](/prompt-injection-explained/).
 
 ---
+
+{% include ads/in-article.html %}
 
 ## How 19-Model Routing Works
 
@@ -232,7 +230,6 @@ Most AI products pick one model and use it for everything. Perplexity's approach
 | Nano Banana 2 | Image generation | Internal/custom image model |
 | Veo 3.1 | Video generation | Google's video model |
 | ElevenLabs TTS v3 | Voice synthesis | High-quality text-to-speech |
-
 
 ### Task-Semantic Routing
 
@@ -274,8 +271,6 @@ When Personal Computer encounters a task too complex for a single pass, it spawn
 ### How Sub-Agents Work
 
 The parent agent (the orchestrator you talk to) creates sub-agents via a `run_subagent` call. Each sub-agent type gets different default tools and potentially a different underlying model.
-
-{% include ads/display.html %}
 
 | Sub-Agent Type | Purpose | Typical Model |
 |---------------|---------|---------------|
@@ -335,8 +330,6 @@ As Yang Fan noted in his reverse engineering analysis, this is what Unix knew in
 ### Permission Caps
 
 Three deliberate restrictions prevent sub-agents from going rogue:
-
-{% include ads/display.html %}
 
 1. **No spawning children**: Hierarchy is exactly two levels deep. Parent and children. No grandchildren. This prevents cascading agent creation.
 2. **No memory access**: Only the parent holds persistent user memory. Sub-agents are stateless unless the parent explicitly passes information.
@@ -424,8 +417,6 @@ Personal Computer exposes 40+ built-in tools and 400+ external connectors via MC
 | **Memory** | `memory_search`, `memory_update`, `schedule_cron`, `pause_and_wait` |
 | **Safety** | `confirm_action`, `ask_user_question` |
 
-{% include ads/in-article.html %}
-
 The `wide_research` and `wide_browse` tools fan out across multiple targets simultaneously. Need to research twenty companies? `wide_research` dispatches twenty parallel operations and aggregates the results.
 
 ### External Connectors
@@ -441,6 +432,8 @@ Rather than cramming every domain's expertise into one system prompt, Personal C
 When you ask it to "write a PRD," it loads the `pm/feature-spec` skill. This keeps the base context lean and token costs down. It is the same plugin architecture pattern from traditional software, applied to [context engineering](/context-engineering/) for LLMs.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Personal Computer vs OpenClaw vs Claude Cowork
 

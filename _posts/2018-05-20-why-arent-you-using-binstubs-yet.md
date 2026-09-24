@@ -52,10 +52,6 @@ require_relative '../config/boot'
 require 'rails/commands'
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Take a look at the above code. I want you to focus on the second last line which requires the boot.rb file. Now lets see what lies in boot.rb file.
 
 ```ruby
@@ -63,6 +59,8 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __dir__)
 
 require 'bundler/setup' # Set up gems listed in the Gemfile.
 ```
+
+{% include ads/in-article.html %}
 
 boot.rb loads all the gems listed in Gemfile and this is how your bin stub executable will run in the context of current bundle.
 

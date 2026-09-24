@@ -27,7 +27,6 @@ Google introduced android [awareness api](https://developers.google.com/awarenes
 * [Fence API](https://developers.google.com/awareness/android-api/fence-api-overview){:target="_blank"}
 * [Snapshot API](https://developers.google.com/awareness/android-api/snapshot-api-overview){:target="_blank"}
 
-
 # Fence API
 
 This API is an enhancement over geofencing. It can call a callback when user enters or leaves a particular location. It also applies on things like headphones, your app can receive a callback when headphones are connected or disconnect. We will see and example of geofencing in a while.
@@ -95,10 +94,6 @@ To start using awareness API you need to create an API key from [google console]
 </manifest>
 ```
 
-
-{% include ads/in-article.html %}
-
-
 *Note:* The key which I have used above is a fake key, it will not work. To make it work you have to generate your own key and replace the above key with your newly created key.
 
 Now that our setup is done, lets start using awareness API in our app. Lets take the above example of advertising your new indoor map feature of your app. For this what you would need is list of airports locations where you have enabled indoor map.
@@ -132,6 +127,8 @@ Here we are creating GoogleApiClient and adding the Awareness and LocationServic
     client.connect();
   }
 ```
+
+{% include ads/in-article.html %}
 
 To register locations we have to connect to the google client first and pass it a callback saying whenever you are connected, register these locations. Now lets see what regiserGeoFence() does.
 
@@ -183,10 +180,6 @@ public void registerGeofenceRequest(GoogleApiClient client, GeofencingRequest ge
   LocationServices.GeofencingApi.addGeofences(client, geofencingRequest, geoFencePendingIntent);
 }
 ```
-
-
-{% include ads/display.html %}
-
 
 Registering geofencingRequest is a simple task, you just have to use *LocationServices.GeofencingApi* to add the request. But what is this LocationAwareService? Ok, so what happens when user comes nearby the registered location? Your awareness api need something e.g callback which it can trigger.
 

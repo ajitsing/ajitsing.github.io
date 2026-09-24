@@ -2021,12 +2021,21 @@ h1 + h3 {
 .home-bottom-ad {
   margin: 40px 0;
   text-align: center;
+  min-height: 320px;
   contain: layout;
 }
 
 .home-bottom-ad .adsbygoogle {
   display: block;
   width: 100%;
+  min-height: 280px;
+}
+
+@media (max-width: 768px) {
+  .home-bottom-ad {
+    margin: 28px 0;
+    min-height: 280px;
+  }
 }
 
 /* --- Home Page Layout Override for Sidebar --- */

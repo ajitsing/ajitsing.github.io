@@ -159,11 +159,9 @@ AI is now a national priority, not just a corporate one. More compute means more
 
 ---
 
-## <i class="fas fa-robot"></i> AI News
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-robot"></i> AI News
 
 ### Google Releases Gemini 3 Flash - [<i class="fas fa-external-link-alt"></i>](https://techcrunch.com/2025/12/17/google-launches-gemini-3-flash-makes-it-the-default-model-in-the-gemini-app/)
 
@@ -237,6 +235,8 @@ Apple open sourced SHARP, a tool for instant 2D-to-3D conversion.
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools
 
 ### Nvidia Acquires SchedMD, Maker of Slurm - [<i class="fas fa-external-link-alt"></i>](https://techstartups.com/2025/12/16/top-tech-news-today-ai-startup-stories-december-16-2025/)
@@ -282,10 +282,6 @@ AI isn't replacing developers - it's changing what they do.
 ---
 
 ## <i class="fas fa-exclamation-triangle"></i> What This Week Teaches Us
-
-
-{% include ads/display.html %}
-
 
 **The AI coding stack is consolidating:** Cursor buying Graphite, OpenAI racing with Google. The winners will own the whole workflow.
 
@@ -333,4 +329,3 @@ AI isn't replacing developers - it's changing what they do.
 *Huge week for consolidation. Cursor/Graphite in dev tools. Coursera/Udemy in education. But the privacy extension story is the wake-up call - even tools marketed for security can be selling your data. The Genesis Mission shows where things are headed: AI infrastructure at national scale. And GitHub's reversal proves that developer feedback still matters.*
 
 *Got news we should cover? Let us know. We track what matters to developers.*
-

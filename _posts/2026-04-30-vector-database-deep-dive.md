@@ -103,8 +103,6 @@ The interesting parts are the **ANN index** and the **metadata filter** that run
 
 A useful way to think about it: a vector database is a search engine where the document is a point in 1024-dimensional space and "relevance" means "geometrically close." The full taxonomy comparison appears in the [PractiqAI overview](https://practiqai.com/blog/vector-databases-what-why-when){:target="_blank" rel="noopener"}.
 
-{% include ads/display.html %}
-
 ## Embeddings: The Currency of Vector Search
 
 Before any of this matters, you need vectors. Vectors come from **embedding models**.
@@ -202,11 +200,9 @@ flowchart TB
     class A1,A2,A3,AC boxGreen
 ```
 
-The rest of the engineering inside a vector database is essentially "which clever ANN index do we use, and how do we keep it fast as data grows?"
-
-
 {% include ads/in-article.html %}
 
+The rest of the engineering inside a vector database is essentially "which clever ANN index do we use, and how do we keep it fast as data grows?"
 
 ## <i class="fas fa-project-diagram"></i> HNSW: The Default Index Almost Everywhere
 
@@ -332,8 +328,6 @@ flowchart LR
 
 A million vectors split into a thousand cells, with `nprobe=10`, means each query scans roughly 1 percent of the data. That is the speedup.
 
-{% include ads/display.html %}
-
 ### When IVF Wins
 
 - **Memory pressure**. The index itself is tiny: just `nlist` centroids. The vectors live wherever you want them, including SSD or object storage with a thin in-memory cache.
@@ -362,7 +356,6 @@ In practice you combine PQ with one of the indexes:
 - **HNSW-PQ**: HNSW graph plus PQ-compressed vectors. Used by Qdrant and recent versions of pgvector via [pgvectorscale](https://github.com/timescale/pgvectorscale){:target="_blank" rel="noopener"}.
 
 PQ is what makes billion-vector indexes feasible on a single beefy machine. Pinecone's serverless tier and most large RAG deployments are running PQ under the hood whether you know it or not.
-
 
 ## Anatomy of a Modern Vector Database
 
@@ -415,6 +408,8 @@ flowchart TB
     class WAL,Vec,Meta boxTeal
     class Shard,Repl,Snap boxBlue
 ```
+
+{% include ads/in-article.html %}
 
 A few things in that diagram are worth pulling apart, because they are where teams spend most of their debugging time.
 
@@ -522,12 +517,9 @@ Two patterns repeat across every benchmark you will read:
 1. **Self-hosted beats managed on raw latency**, mostly because there is no internet round trip. Managed wins on operational cost.
 2. **At ten million vectors and below**, the choice barely matters for query speed. It matters for memory, for cost, and for whether you have to babysit a separate system.
 
-{% include ads/in-article.html %}
-
 ## Common Pitfalls Production Teams Hit
 
 These are the issues that show up over and over in vector database support channels.
-
 
 ### 1. Embedding Drift After a Model Upgrade
 

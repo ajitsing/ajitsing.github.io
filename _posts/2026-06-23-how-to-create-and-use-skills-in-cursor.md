@@ -153,8 +153,6 @@ to limit the blast radius of a leaked token.
 
 That is a complete, working skill. The structure is always the same: YAML frontmatter between `---` markers, then a Markdown body with your instructions. Let us break down the parts that matter.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-tasks"></i> The Frontmatter Fields That Matter
 
 The frontmatter is where Cursor reads the metadata it needs to route and scope your skill. Two fields are required, the rest are optional but powerful.
@@ -214,6 +212,8 @@ flowchart TD
     class E skip
 ```
 
+{% include ads/in-article.html %}
+
 The key insight is the two-stage load. Lightweight metadata up front for routing, heavy content only when chosen. That is what lets you keep dozens of skills installed without paying for all of them on every message.
 
 ## <i class="fas fa-bolt"></i> Using a Skill: Automatic vs Manual
@@ -225,8 +225,6 @@ Once a skill exists, there are two ways it runs.
 **Manual.** Type a forward slash in Agent chat, search for the skill, and pick it, for example `/commit-helper`. This forces the skill to load no matter what the description says. Manual invocation is handy when you want to be certain, or when the skill has `disable-model-invocation: true` and a slash command is the *only* way to run it.
 
 To confirm a skill was discovered, open Cursor Settings (Cmd+Shift+J on Mac, Ctrl+Shift+J on Windows and Linux), go to **Rules**, and look under the **Agent Decides** section. Your skill should be listed there.
-
-{% include ads/display.html %}
 
 ## <i class="fas fa-filter"></i> Scoping Skills With paths
 
@@ -274,8 +272,6 @@ disable-model-invocation: true
 ```
 
 This is the safety valve for anything destructive. The agent will never reach for it without you asking by name.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-terminal"></i> Adding Scripts to a Skill
 
@@ -355,6 +351,8 @@ flowchart LR
     class M mcp
     class Q agent
 ```
+
+{% include ads/in-article.html %}
 
 - **Rules** are standing guidance. They apply always, or by file pattern, and shape every relevant response. Good for code style, naming, and conventions you never want forgotten.
 - **Skills** are on-demand playbooks. They load only when a task matches, so they keep context clean while still encoding rich, multi-step workflows.

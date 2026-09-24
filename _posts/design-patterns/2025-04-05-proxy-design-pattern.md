@@ -130,10 +130,6 @@ public class ImageProxy implements Image {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Usage:
 
 ```java
@@ -362,10 +358,6 @@ public class LoggingProxy implements UserService {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 ## Java Dynamic Proxy
 
 Java's built-in `Proxy` class creates proxies at runtime:
@@ -412,6 +404,8 @@ proxiedService.findById("123");
 // Calling: findById
 // Completed in 15ms
 ```
+
+{% include ads/in-article.html %}
 
 ## How It Works
 
@@ -526,4 +520,3 @@ The key is transparency. Clients shouldn't care whether they're using a proxy or
 
 - [Java Dynamic Proxy Documentation](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Proxy.html)
 - [Spring AOP Proxies](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop)
-

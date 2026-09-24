@@ -92,8 +92,6 @@ Erlang was created by Ericsson in the 1980s for telephone switches. Those system
 - Hot code updates
 - Distributed computing
 
-{% include ads/in-article.html %}
-
 ### The Actor Model
 
 Erlang uses the actor model for concurrency. Instead of threads sharing memory (and fighting over locks), you have isolated processes that communicate through messages.
@@ -140,7 +138,6 @@ The magic is in how lightweight these processes are:
 | Max per machine | Thousands | Millions |
 | Crash isolation | Takes down app | Process restarts |
 
-
 A single WhatsApp server can run 2+ million Erlang processes. Try that with Java threads.
 
 ### Supervisors: Let It Crash
@@ -177,6 +174,8 @@ Here is something most languages cannot do: update running code without stopping
 Erlang's BEAM virtual machine supports loading new code while the old code is still running. Active processes continue with the old code until they reach a checkpoint, then switch to the new version.
 
 WhatsApp could deploy bug fixes and new features without disconnecting a single user. For a global messaging app, this is invaluable.
+
+{% include ads/in-article.html %}
 
 ## Architecture Overview
 
@@ -229,8 +228,6 @@ graph TB
     S1 --> CDN
     CDN --> OBJ
 </code></pre>
-
-{% include ads/in-article.html %}
 
 Each server runs thousands of Erlang processes, one per connected user. The Mnesia cluster stores session data and routing information. MySQL handles persistent user data. The [CDN](/cdn-system-design/) serves media files.
 
@@ -306,8 +303,6 @@ find_user_process(UserId) ->
         end
     end).
 ```
-
-{% include ads/display.html %}
 
 ### Why Mnesia Works for WhatsApp
 
@@ -391,8 +386,6 @@ Key properties:
 
 WhatsApp servers only see encrypted blobs. They cannot read your messages.
 
-{% include ads/in-article.html %}
-
 ## Media Handling
 
 Text messages are tiny. Images and videos are not. WhatsApp handles media differently:
@@ -419,6 +412,8 @@ sequenceDiagram
 4. Recipients download from the CDN and decrypt locally
 
 This keeps the message servers lightweight. They only handle small text payloads, not gigabytes of videos.
+
+{% include ads/in-article.html %}
 
 ## Multi-Device Support
 

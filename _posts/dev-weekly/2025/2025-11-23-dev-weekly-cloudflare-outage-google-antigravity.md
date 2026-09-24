@@ -106,10 +106,6 @@ Nvidia has dominated for years. AMD making a serious push with 35x inference imp
 
 ## <i class="fas fa-robot"></i> Google's Antigravity: AI IDE That Codes For You
 
-
-{% include ads/in-article.html %}
-
-
 ### Google Enters the AI Coding Wars - [<i class="fas fa-external-link-alt"></i>](https://en.wikipedia.org/wiki/Google_Antigravity)
 
 Google launched **Antigravity** on November 18 - an AI-powered IDE built on VS Code that goes beyond autocomplete.
@@ -133,6 +129,7 @@ The question: does it actually work on real codebases, or just demos?
 
 AI coding tools are evolving fast. We're moving from autocomplete to autonomous feature development.
 
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> Lessons from This Week
 
@@ -192,5 +189,3 @@ For anyone building server-side JavaScript, Node 20 brings meaningful improvemen
 *Infrastructure failures happen to everyone. Competition in AI is heating up. Security is becoming the default. Build resilient systems and stay adaptable.*
 
 *Got news we should cover? Let us know. We're tracking what matters to developers.*
-
-

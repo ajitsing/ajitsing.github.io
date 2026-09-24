@@ -99,8 +99,6 @@ flowchart LR
     class MySQL meta
 ```
 
-{% include ads/in-article.html %}
-
 Five things to lock in:
 
 1. Your Git client speaks the **standard Git wire protocol** over SSH or HTTPS. There is nothing GitHub specific on the wire. The TCP connection itself starts with a normal [DNS lookup](/how-dns-works/){:target="_blank" rel="noopener"} and TLS or SSH handshake (the same path covered in [what happens when you type a URL](/what-happens-when-you-type-url-in-browser/){:target="_blank" rel="noopener"}).
@@ -137,8 +135,6 @@ The [object store](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects){:ta
 
 Because the ID is the hash of the contents, two files with identical bytes are stored exactly once across the whole repo. That is why `git clone` of a repo with thousands of identical license files is fast and small.
 
-{% include ads/display.html %}
-
 ```mermaid
 flowchart LR
     Ref["fa:fa-bookmark <b>refs/heads/main</b><br/>(text file with one SHA)"]
@@ -160,6 +156,8 @@ flowchart LR
     class T tree
     class B1,B2 blob
 ```
+
+{% include ads/in-article.html %}
 
 ### Loose Objects vs Pack Files
 
@@ -197,8 +195,6 @@ Spokes does three jobs.
 3. **Heal** automatically when a server fails.
 
 Critically, each fileserver still runs plain Git on a regular Linux filesystem with local SSDs. There is no SAN, no distributed filesystem, no clever block layer. The reasoning, in GitHub's words, is that Git is extremely sensitive to disk latency. A single `git log` or `git blame` can touch thousands of objects sequentially, and any abstraction that adds even a millisecond of latency per object lookup becomes a serious tax. So Spokes lives one layer above the filesystem and treats each replica as a normal Git repo it talks to over Git protocols.
-
-{% include ads/in-article.html %}
 
 ```mermaid
 flowchart TB
@@ -332,8 +328,6 @@ When a `git push` arrives, the proxy does roughly this:
 
 The metadata layer is the brain of routing. Without it, the proxy has no idea which fileservers to talk to. With it, the proxy can fail over a single repository's replicas as easily as updating one row.
 
-{% include ads/display.html %}
-
 ```mermaid
 flowchart LR
     Push["fa:fa-upload <b>git push</b>"]
@@ -444,6 +438,8 @@ flowchart LR
     class T good
 ```
 
+{% include ads/in-article.html %}
+
 These are not exotic optimizations any more. If you push to a busy GitHub repository today, a real-world stack of MIDX, bitmaps, and (increasingly) reftable is what makes your push feel instant.
 
 ## Git LFS: Where the Big Files Actually Live
@@ -544,8 +540,6 @@ Once you understand the GitHub model, the differences in other Git hosts become 
 | Metadata DB | MySQL/Vitess | PostgreSQL | PostgreSQL | SQLite/MySQL/Postgres |
 | LFS backend | Object storage | Object storage | Object storage | Local or object storage |
 | Geo-replication | Built into Spokes | [GitLab Geo](https://about.gitlab.com/solutions/geo/){:target="_blank" rel="noopener"} | Smart Mirroring | Manual |
-
-{% include ads/display.html %}
 
 The ideas are very similar across hosts. Plain Git on disk, a routing layer in front, replicated metadata, and a separate large-file path. The differences are in how aggressively each host pushes the storage tier toward strict consistency.
 

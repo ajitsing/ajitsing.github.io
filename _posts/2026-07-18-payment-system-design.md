@@ -131,9 +131,9 @@ flowchart TD
     class BUS,PSP,HOOK,RECON async
 ```
 
-Read it as three lanes. The **edge** authenticates the caller and enforces the idempotency key. The **core** owns the truth: the payment state machine and the double-entry ledger, written in a single [ACID](/glossary/acid/){:target="_blank" rel="noopener"} transaction. The **async** lane does everything slow or unreliable: calling the processor, handling its webhooks, and reconciling. The rest of the post is really just a closer look at each of these.
-
 {% include ads/in-article.html %}
+
+Read it as three lanes. The **edge** authenticates the caller and enforces the idempotency key. The **core** owns the truth: the payment state machine and the double-entry ledger, written in a single [ACID](/glossary/acid/){:target="_blank" rel="noopener"} transaction. The **async** lane does everything slow or unreliable: calling the processor, handling its webhooks, and reconciling. The rest of the post is really just a closer look at each of these.
 
 ## <i class="fas fa-key"></i> Idempotency: The Foundation
 
@@ -205,8 +205,6 @@ The states map to what actually happens with a card:
 
 Splitting **authorize** and **capture** is not academic. It is why hotels can hold money at check-in and charge the real amount at checkout, and why a store only charges you when it ships. Because these are distinct states, an operation like capture is only legal from the `Authorized` state. If a duplicate capture request arrives, the state machine sees the payment is already `Captured` and rejects the transition instead of moving money again. The state machine and the idempotency key are two layers of the same defense.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-book"></i> The Double-Entry Ledger
 
 Here is the part that separates a toy payment system from a real one. Beginners store a `balance` column on an account and update it. That is wrong for money, because updates race, updates lose history, and a partial failure leaves a number that no longer matches reality.
@@ -262,6 +260,8 @@ flowchart LR
     class A,B,C,D step
     class A1,B1 comp
 ```
+
+{% include ads/in-article.html %}
 
 If the card charge fails, the saga releases the reserved inventory. If order creation fails after a successful charge, the saga issues a refund. You trade the strict atomicity of a single transaction for [eventual consistency](/glossary/eventual-consistency/){:target="_blank" rel="noopener"} and a guarantee that the system rolls forward or rolls back cleanly. For the deeper mechanics, see the [saga pattern guide](/saga-pattern-distributed-transactions/){:target="_blank" rel="noopener"}.
 

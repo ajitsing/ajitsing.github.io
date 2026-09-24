@@ -115,10 +115,6 @@ goblin2.setPosition(150, 220);
 // Each goblin has same stats but different positions
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Prototype Registry
 
 ```java
@@ -308,10 +304,6 @@ HttpRequestTemplate ordersRequest = apiTemplate.clone()
     .withHeader("X-Custom-Header", "value");
 ```
 
-
-{% include ads/display.html %}
-
-
 ## How It Works
 
 ```mermaid
@@ -331,6 +323,8 @@ sequenceDiagram
     Client->>Clone: setPosition(100, 200)
     Note over Clone: Customize clone
 ```
+
+{% include ads/in-article.html %}
 
 ## Common Mistakes
 
@@ -422,4 +416,3 @@ Use a prototype registry when you have multiple prototype types to manage.
 
 - [Effective Java - Item 13: Override clone judiciously](https://www.oreilly.com/library/view/effective-java/9780134686097/)
 - [Copy Constructors vs Cloneable](https://stackoverflow.com/questions/2427883/clone-vs-copy-constructor-which-is-recommended-in-java)
-

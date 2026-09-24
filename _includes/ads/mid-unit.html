@@ -1,7 +1,8 @@
 <div class="post-mid-ad{% if include.extra_class %} {{ include.extra_class }}{% endif %}">
+  <div class="ad-label"><span class="ad-label-text">Advertisement</span></div>
   <div class="post-mid-ad__card">
     <ins class="adsbygoogle post-mid-ad__unit"
-         style="display:block;width:100%;height:250px"
+         style="display:block;width:100%;height:280px"
          data-ad-client="ca-pub-2886086145980317"
          data-ad-slot="{{ include.slot }}"
          data-ad-format="auto"
@@ -11,10 +12,6 @@
   (function () {
     var wrap = document.currentScript.closest('.post-mid-ad');
     if (!wrap) return;
-    if (wrap.classList.contains('post-mid-ad--display') &&
-        window.matchMedia && window.matchMedia('(min-width: 769px)').matches) {
-      return;
-    }
     if (!(wrap.offsetWidth > 0)) {
       wrap.remove();
       return;
@@ -27,7 +24,7 @@
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) { io.disconnect(); requestAd(); }
-      }, { rootMargin: '1500px 0px' });
+      }, { rootMargin: '300px 0px' });
       io.observe(wrap);
     } else {
       requestAd();

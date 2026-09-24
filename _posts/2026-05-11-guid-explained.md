@@ -112,6 +112,8 @@ flowchart LR
     class E tail
 ```
 
+{% include ads/in-article.html %}
+
 Everything else is the actual identifier data: random bits, a timestamp, or both, depending on the version.
 
 ## <i class="fas fa-balance-scale"></i> GUID vs UUID: Same Thing, Different Name
@@ -128,8 +130,6 @@ Because people search for both terms, it helps to be blunt about the relationshi
 | Technical difference | None | None |
 
 The only real differences are the name and the ecosystem you usually hear it in. A `Guid` in C# and a `uuid` column in PostgreSQL hold the exact same kind of value. If you want a deeper comparison of the modern alternatives, the [ULID guide](/ulid-guide/){:target="_blank"} and the [Snowflake ID guide](/snowflake-id-guide/){:target="_blank"} cover two popular ID schemes that compete with GUIDs.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-code-branch"></i> GUID Versions You Will Actually See
 
@@ -249,6 +249,8 @@ flowchart TB
     class Q1 good
 ```
 
+{% include ads/in-article.html %}
+
 Random inserts force SQL Server to split full pages to make room in the middle, which causes heavy fragmentation, larger indexes, and slower writes over time. The fix is to make the values increase over time:
 
 - **`NEWSEQUENTIALID()`** generates GUIDs that are [greater than any previous value](https://learn.microsoft.com/en-us/sql/t-sql/functions/newsequentialid-transact-sql){:target="_blank"} on that machine, so new rows append near the end of the index. The catch is that it only works as a column `DEFAULT`, and the sequence can reset after a Windows restart.
@@ -257,8 +259,6 @@ Random inserts force SQL Server to split full pages to make room in the middle, 
 This is the same B-tree behavior that affects every random key. The mechanics are explained in detail in [Database Indexing Explained](/database-indexing-explained/){:target="_blank"} and the [B-tree data structure guide](/data-structures/b-tree/){:target="_blank"}.
 
 **Store it the compact way.** A GUID is 16 bytes. The native `uniqueidentifier` type stores exactly that. Storing the text form as `CHAR(36)` more than doubles the size and slows every comparison, so avoid it unless you have a strong reason. For how pages and rows are actually written to disk, see [how databases store data internally](/how-databases-store-data-internally/){:target="_blank"}.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> Common GUID Gotchas
 

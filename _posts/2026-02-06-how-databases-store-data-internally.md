@@ -191,6 +191,8 @@ SELECT * FROM users WHERE ctid = '(0,1)';  -- PostgreSQL: page 0, slot 1
 
 In PostgreSQL, `ctid` exposes the physical location of a row as (page_number, slot_number). In MySQL InnoDB, rows are identified by their primary key value since InnoDB uses clustered indexes.
 
+{% include ads/in-article.html %}
+
 ## Heap vs Indexed Storage
 
 Pages need to be organized somehow. There are two fundamental approaches:
@@ -265,10 +267,6 @@ For a deep dive into B-trees, see [B-Tree Data Structure Explained](/data-struct
 | Number per table | 1 | Many |
 | Extra lookup needed | No | Yes |
 | Range scans | Very fast | Slower |
-
-
-{% include ads/in-article.html %}
-
 
 In MySQL InnoDB, the primary key is always the clustered index. The actual table data lives in the B-tree organized by primary key. If you do not define a primary key, InnoDB creates a hidden one.
 
@@ -399,10 +397,6 @@ The key insight: WAL writes are sequential (fast), while data page writes are ra
 | SQL Server | Transaction Log |
 | SQLite | Journal or WAL mode |
 
-
-{% include ads/display.html %}
-
-
 For a deeper explanation, see [Write-Ahead Log: The Golden Rule of Durable Systems](/distributed-systems/write-ahead-log/).
 
 ### Checkpoints
@@ -512,10 +506,6 @@ This is why primary key choice matters in MySQL. A large primary key (like a UUI
 SELECT * FROM users WHERE email = 'alice@example.com';
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Auto-Generated Row IDs
 
 If you do not define a primary key:
@@ -565,6 +555,8 @@ SELECT xmin, xmax, * FROM users LIMIT 3;
 ```
 
 This is why long-running transactions can cause problems. The database must keep old row versions around as long as any transaction might need them.
+
+{% include ads/in-article.html %}
 
 ## Putting It All Together
 

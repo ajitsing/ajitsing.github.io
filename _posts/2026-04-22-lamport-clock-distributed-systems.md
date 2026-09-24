@@ -84,10 +84,6 @@ graph TD
     style R4 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
 ```
 
-
-{% include ads/in-article.html %}
-
-
 That is it. Three rules. They define a [partial order](https://en.wikipedia.org/wiki/Partially_ordered_set){:target="_blank" rel="noopener"} on events because some pairs are unrelated. That is fine. If two events never exchanged messages, their order does not matter for correctness anyway.
 
 Concrete example. Imagine three nodes labeled A, B, C.
@@ -191,15 +187,13 @@ sequenceDiagram
     Note over C: Local event<br/>LC=6
 ```
 
+{% include ads/in-article.html %}
+
 Trace any causal chain. `e_send_AB = 2 < e_recv_AB = 3 < e_send_BC = 4 < e_recv_BC = 5`. The numbers grow strictly along the chain, even though Node C's wall clock might be 200 milliseconds behind Node A's. That is the power of the Lamport Clock in one diagram.
 
 Notice also that Node A's local event at `LC = 3` and Node C's local event at `LC = 6` look like A came before C numerically. But these events are concurrent. The Lamport Clock cannot tell you that. It just gives you a number that respects causality when causality exists.
 
 ## A Reference Implementation
-
-
-{% include ads/display.html %}
-
 
 Here is a clean Python implementation. It is short on purpose.
 
@@ -304,10 +298,6 @@ For most ordering and consensus problems, neither limit matters. But knowing whe
 
 ## How Lamport Clocks Compare to Other Clocks
 
-
-{% include ads/in-article.html %}
-
-
 Each clock fixes a different problem. Pick the one that matches your need.
 
 ```mermaid
@@ -330,6 +320,8 @@ graph TD
     style VC fill:#fff3e0,stroke:#f57c00
     style HLC fill:#fff3e0,stroke:#f57c00
 ```
+
+{% include ads/in-article.html %}
 
 | Property | Wall Clock | Lamport Clock | Vector Clock | Hybrid Logical Clock |
 |----------|-----------|---------------|--------------|----------------------|
@@ -382,10 +374,6 @@ When you understand the Lamport Clock, you stop seeing each of these as a separa
 | [ZooKeeper / ZAB](https://zookeeper.apache.org/doc/r3.9.0/zookeeperInternals.html){:target="_blank" rel="noopener"} | zxid (epoch + counter) | Lamport tuple in disguise |
 | [PostgreSQL](https://www.postgresql.org/docs/current/wal-internals.html){:target="_blank" rel="noopener"} | LSN | Monotonic byte position in WAL |
 | [Spanner / TrueTime](https://research.google/pubs/spanner-googles-globally-distributed-database-2/){:target="_blank" rel="noopener"} | Commit timestamps | Hybrid of wall clock + Lamport-style increments |
-
-
-{% include ads/display.html %}
-
 
 ## A Worked Example: Distributed Mutex
 
@@ -461,10 +449,6 @@ The most common production mistake is treating a Lamport counter as if it were a
 {% include tool-cta.html tool="epoch-converter" variant="inline" description="Convert Lamport timestamps and wall-clock values when you debug distributed event ordering." %}
 
 ## Key Takeaways for Developers
-
-
-{% include ads/in-article.html %}
-
 
 1. **Memorize the receive rule.** `local = max(local, received) + 1`. That single line is the entire pattern. Everything else is application detail.
 

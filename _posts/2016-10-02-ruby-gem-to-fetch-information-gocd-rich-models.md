@@ -79,9 +79,7 @@ if pipelines.any_red?
 end
 ```
 
-
 {% include ads/in-article.html %}
-
 
 Now run this script as part of your pre-push [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks){:target="_blank"} and you are done. Neat and Clean!!
 
@@ -109,7 +107,6 @@ pipelines = GOCD::PipelineGroup.new ['Pipeline1 :: stage1', 'Pipeline1 :: stage2
 pipelines.red_pipelines
 pipelines.status
 pipelines.any_red?
-
 
 #To get all the idle agents:
 idle_agents = GOCD::Agents.idle

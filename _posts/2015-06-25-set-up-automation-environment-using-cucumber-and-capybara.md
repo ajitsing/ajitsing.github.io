@@ -80,6 +80,8 @@ gem 'rspec'
 
 # Feature File<br><br>
 
+{% include ads/in-article.html %}
+
 ```cucumber
 Feature: Test cucumber setup
   Scenario: Search for something on google
@@ -87,10 +89,6 @@ Feature: Test cucumber setup
     And I search "github ajitsing"
     Then I pause the browser
 ```
-
-
-{% include ads/in-article.html %}
-
 
 In this file you can see a scenario where we want to search something on google. And for this we are using three steps. Let's see each step's implementation in detail.
 
@@ -140,4 +138,3 @@ end
 This step is used for pausing the test in order to see the result in the browser, not doing that will quit the browser immediately which will not give us time to look into the search results.
 
 Generally we use `binding.pry` only when we want to debug something. It will open a ruby console on command line to execute the ruby statements directly and see the result on the browser.
-

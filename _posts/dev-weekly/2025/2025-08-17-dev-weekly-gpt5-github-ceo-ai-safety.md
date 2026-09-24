@@ -51,10 +51,6 @@ This isn't just about convenience - it's about maintaining flow state while buil
 
 ## ☁️ Cloud & Infrastructure
 
-
-{% include ads/in-article.html %}
-
-
 ### Tech Giants Battle Power Grid Challenges
 
 Big Tech's AI data centers are driving up electricity bills for everyone as companies attempt to reshape power grids to meet AI infrastructure demands. [🌐](https://www.nytimes.com/2025/08/14/business/energy-environment/ai-data-centers-electricity-costs.html) The race to fuel modern AI technology is creating local battles over who foots the bill for new energy infrastructure.
@@ -77,6 +73,8 @@ Norway's spy chief blamed Russian hackers for hijacking a dam, marking another e
 
 ---
 
+{% include ads/in-article.html %}
+
 ## 🤖 AI & Machine Learning
 
 ### The AI Safety Reality Check
@@ -96,10 +94,6 @@ Apple released iOS 18.6.1 and watchOS 11.6.1, bringing back Blood Oxygen monitor
 ---
 
 ## 💻 Languages & Frameworks
-
-
-{% include ads/display.html %}
-
 
 ### Vue.js Looks to the Future
 

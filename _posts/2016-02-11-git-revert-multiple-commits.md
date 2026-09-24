@@ -72,11 +72,9 @@ git reset --hard <commit-SHA>
 
 ---
 
-## Method 3: Using `git revert` with a Range
-
-
 {% include ads/in-article.html %}
 
+## Method 3: Using `git revert` with a Range
 
 If the commits are consecutive, you can revert them using a range.
 

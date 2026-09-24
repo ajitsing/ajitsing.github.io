@@ -49,8 +49,6 @@ The attacker chained three things. A `pull_request_target` Pwn Request misconfig
 
 **What the malware did:**
 
-{% include ads/in-article.html %}
-
 On `npm install`, the payload harvested AWS, GCP, Kubernetes, Vault, GitHub, npm, and SSH credentials, then sent them out over the Session encrypted messenger network. It also enumerated other packages owned by the victim and re published them with the same payload to spread.
 
 **The OpenAI angle:**
@@ -111,8 +109,6 @@ A single environment can now pull every repository the agent needs to do its job
 
 **Config as code:**
 
-{% include ads/display.html %}
-
 Environments are defined with Dockerfiles and now support build secrets for private package registries. Layer caching got reworked and cached builds run about 70 percent faster.
 
 **Agent led setup:**
@@ -141,6 +137,8 @@ The same day OpenAI also [launched the OpenAI Deployment Company](https://www.me
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### Claude Code v2.1.139 Lands With Agent View and /goal - [<i class="fas fa-external-link-alt"></i>](https://github.com/anthropics/claude-code/releases/tag/v2.1.139){:target="_blank"}
@@ -162,8 +160,6 @@ On May 14, [The Verge reported](https://www.theverge.com/tech/930447/microsoft-c
 ### GitHub Introduces Copilot Max at $100 and Flex Allotments - [<i class="fas fa-external-link-alt"></i>](https://github.blog/news-insights/company-news/github-copilot-individual-plans-introducing-flex-allotments-in-pro-and-pro-and-a-new-max-plan/){:target="_blank"}
 
 On May 12, GitHub [reshuffled the Copilot individual plans](https://github.blog/news-insights/company-news/github-copilot-individual-plans-introducing-flex-allotments-in-pro-and-pro-and-a-new-max-plan/){:target="_blank"} effective June 1. Pro stays at 10 dollars but is now 10 dollars base plus 5 dollars flex for 15 dollars of total monthly credits. Pro+ is 39 dollars base plus 31 dollars flex for 70 dollars. A new Max tier at 100 dollars a month gets 100 dollars base plus 100 dollars flex for 200 dollars of credits. Base credits are fixed at the dollar value of the plan. The flex allotment changes over time as model pricing and efficiency move. Code completions and next edit suggestions remain unlimited on all paid plans. GitHub also [shipped Copilot code review comment improvements](https://github.blog/changelog/2026-05-12-copilot-code-review-comment-experience-improvements/){:target="_blank"} and [cross org Dependabot access for internal repos](https://github.blog/changelog/2026-05-11-cross-org-dependabot-access-for-internal-repositories/){:target="_blank"} on May 12 and May 11 respectively.
-
-{% include ads/in-article.html %}
 
 ### Microsoft Ships MDASH Multi Model Agentic Security System - [<i class="fas fa-external-link-alt"></i>](https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/){:target="_blank"}
 
@@ -221,8 +217,6 @@ On May 11, [Coursera and Udemy completed their merger](https://blog.coursera.org
 
 ## <i class="fas fa-coins"></i> Funding
 
-{% include ads/display.html %}
-
 ### Isomorphic Labs Raises $2.1B Series B - [<i class="fas fa-external-link-alt"></i>](https://www.prnewswire.com/news-releases/isomorphic-labs-secures-2-1-billion-funding-to-scale-its-ai-drug-design-engine-302769674.html){:target="_blank"}
 
 On May 12, Isomorphic Labs [raised 2.1 billion dollars](https://www.prnewswire.com/news-releases/isomorphic-labs-secures-2-1-billion-funding-to-scale-its-ai-drug-design-engine-302769674.html){:target="_blank"} for its AI drug design engine IsoDDE. Thrive Capital led. Alphabet, GV, MGX, Temasek, CapitalG, and the UK Sovereign AI Fund all participated. Largest dev adjacent round of the week.
@@ -246,9 +240,9 @@ On May 12, [White Circle raised 11 million dollars](https://fortune.com/2026/05/
 - **600+** GM IT employees laid off May 11 in an AI skills swap
 - **$2.1B** Isomorphic Labs Series B led by Thrive Capital
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-calendar-alt"></i> Quick Hits
 

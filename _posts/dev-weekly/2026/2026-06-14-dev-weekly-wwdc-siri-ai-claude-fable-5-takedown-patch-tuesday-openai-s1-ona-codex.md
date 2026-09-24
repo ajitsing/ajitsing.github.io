@@ -48,8 +48,6 @@ For developers, the bigger story landed at the Platforms State of the Union on J
 
 The Foundation Models framework grew up too. It is now a single native Swift API that can call the new on-device Apple models, Apple models on the server, and third-party models like Claude and Gemini through one shared protocol. It adds image input, Dynamic Profiles for building multi-agent workflows, and, in the move most likely to matter for indie shops, free access to Apple Foundation Models on Private Cloud Compute for developers in the App Store Small Business Program with fewer than two million first-time downloads. Apple also confirmed the framework will go open source later this summer, and Swift 6.4 adds an `anyAppleOS` availability shorthand, async support in `defer` blocks, and suppressible compiler warnings.
 
-{% include ads/in-article.html %}
-
 ### Anthropic Launches Claude Fable 5 and Mythos 5, Then Pulls Them Days Later - [<i class="fas fa-external-link-alt"></i>](https://www.anthropic.com/news/claude-fable-5-mythos-5){:target="_blank"}
 
 On June 9, Anthropic [launched Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5){:target="_blank"}, its fifth model generation. Fable 5 is the most capable model Anthropic has ever released to the public, built for long, multi-day, agentic work, and it went out across the [Claude API, AWS, Amazon Bedrock, Vertex AI, and Microsoft Foundry](https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5){:target="_blank"} at 10 dollars per million input tokens and 50 dollars per million output tokens. Mythos 5 is the same underlying model with some safeguards lifted, restricted to cyberdefenders through Project Glasswing, and Anthropic called it the strongest cybersecurity model in the world.
@@ -78,9 +76,9 @@ On June 12, [SpaceX started trading on the Nasdaq under the ticker SPCX and jump
 
 It matters for this newsletter because it caps a wild run of IPO news. In the same two-week window, Anthropic and OpenAI both filed confidential S-1s, and now the most valuable private company has gone public in record fashion. The flip side is the financials: SpaceX reported a 4.3 billion dollar net loss in the first quarter, and some analysts argue the valuation runs far ahead of the fundamentals.
 
-{% include ads/display.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -100,8 +98,6 @@ On June 9, [GitHub made security validation for third-party coding agents genera
 ### AWS Ships Graviton5 With M9g Instances - [<i class="fas fa-external-link-alt"></i>](https://aws.amazon.com/blogs/aws/now-available-amazon-ec2-m9g-and-m9gd-instances-powered-by-new-aws-graviton5-processors/){:target="_blank"}
 
 On June 13, [AWS made its Graviton5-powered EC2 M9g and M9gd instances generally available](https://aws.amazon.com/blogs/aws/now-available-amazon-ec2-m9g-and-m9gd-instances-powered-by-new-aws-graviton5-processors/){:target="_blank"}. AWS claims up to 25 percent better compute performance than Graviton4, with bigger gains for web apps, machine learning inference, and databases, plus the fastest memory of any cloud instance and five times the L3 cache of the prior generation. Early testers reported real numbers: ClickHouse saw a 36 percent boost with no code changes. The eye-catching detail is that Meta is deploying Graviton at scale, starting with tens of millions of cores, to run its agentic AI workloads, which lean hard on CPU for real-time reasoning and code generation.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -137,9 +133,9 @@ Also on June 10, [OpenAI and Oracle said OCI customers can apply Oracle Universa
 *   **Expeditors:** On June 8, [logistics firm Expeditors International cut about 230 technology jobs in the Seattle area](https://www.geekwire.com/2026/expeditors-cuts-230-tech-jobs-in-seattle-region-ending-decades-long-policy-against-layoffs/){:target="_blank"}, ending a decades-long tradition of never laying off employees. The cuts hit developers, QA testers, project managers, and analysts, roughly 15 percent of its global tech workforce.
 *   **Veritone:** On June 10, [AI company Veritone began a restructuring that will cut at least 25 percent of its staff](https://www.stocktitan.net/sec-filings/VERI/8-k-veritone-inc-reports-material-event-39aae164c6f9.html){:target="_blank"}, aiming to trim operating expenses by up to 30 percent, with the reduction expected to wrap up by late July.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

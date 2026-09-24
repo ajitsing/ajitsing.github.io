@@ -97,8 +97,6 @@ flowchart LR
     class Index idx
 ```
 
-{% include ads/in-article.html %}
-
 Five things to lock in:
 
 1. The **working directory** is the files you edit. The **index** is a binary file that says what the next commit will look like. The **object store** is the immutable database of everything Git has ever seen.
@@ -233,6 +231,8 @@ flowchart TB
     class B1,B2,B3 blob
 ```
 
+{% include ads/in-article.html %}
+
 ### Blob: The File Content
 
 A blob is the rawest thing in Git. It is the bytes of a file with **no filename, no path, and no permissions**. The format on disk is:
@@ -327,8 +327,6 @@ Release 1.0.0
 ```
 
 It is essentially a signed or unsigned wrapper around another object, almost always a commit. **Lightweight tags** are not objects at all. They are just files in `.git/refs/tags/` containing one commit hash, exactly like a branch. The difference matters when you sign or annotate releases.
-
-{% include ads/display.html %}
 
 ## How git add and git commit Actually Work
 
@@ -547,8 +545,6 @@ You can put it all together. Suppose you make one commit and run `git push origi
 
 That is it. There is nothing GitHub-specific about the data on the wire. The same protocol works against a bare Git repo on a Linux box you SSH into. Hosts like GitHub, GitLab, and Bitbucket layer replication, auth, and pull request workflows on top, but the bytes are the same. We dug into how that layering works in [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/){:target="_blank" rel="noopener"}.
 
-{% include ads/in-article.html %}
-
 ## Garbage Collection, Reflog, and How Lost Commits Come Back
 
 If you `git reset --hard HEAD~5` you have not lost anything. The five "deleted" commits are still in the object store. They are unreachable from any branch, but they exist.
@@ -593,6 +589,8 @@ flowchart LR
     class Recover,Reflog good
     class Obj neutral
 ```
+
+{% include ads/in-article.html %}
 
 This is also why Git can feel like it has memory loss after a long-running script that hammers the reflog. Once entries age out and `git gc` runs, the unreachable objects really are gone. The lesson is the same one we learned with [database write-ahead logs](/distributed-systems/write-ahead-log/){:target="_blank" rel="noopener"}: durable history is a prerequisite for safe destructive operations.
 

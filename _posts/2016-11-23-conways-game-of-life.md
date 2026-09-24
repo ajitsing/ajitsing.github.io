@@ -57,11 +57,9 @@ I have implemented this game in JavaScript, Html and Css. The code is available 
 8. Iterate over the list of cells which will die in next generation and mark them as dead by adding dead css class to them.
 9. Run the steps from 3-8 all over again after a small time interval.
 
-# Source Code<br><br>
-
-
 {% include ads/in-article.html %}
 
+# Source Code<br><br>
 
 ```javascript
 $(document).ready(function(){

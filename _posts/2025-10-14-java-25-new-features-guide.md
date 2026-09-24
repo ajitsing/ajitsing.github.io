@@ -162,10 +162,6 @@ void processRequest(User user) {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Performance Benefits:**
 
 According to [Oracle's benchmarks](https://openjdk.org/jeps/464), Scoped Values are significantly faster than ThreadLocal:
@@ -268,6 +264,8 @@ Your import statements just got cleaner. This is especially useful when working 
 
 ---
 
+{% include ads/in-article.html %}
+
 ## Change 6: Key Derivation Function API (KDF) - Security Made Easy
 
 **What Changed:**
@@ -305,10 +303,6 @@ You no longer need external security libraries for basic password hashing. The J
 ---
 
 ## Performance Improvements You'll Notice
-
-
-{% include ads/display.html %}
-
 
 ### 1. Garbage Collection Improvements
 
@@ -348,8 +342,6 @@ List<Integer> numbers = IntStream.range(0, 1_000_000)
 ```
 
 ---
-
-
 
 ## Breaking Changes (What Might Break)
 
@@ -432,4 +424,3 @@ Whether you're building microservices, teaching Java to beginners, or maintainin
 ---
 
 **What's your experience with Java 25? Have you migrated yet? Share your thoughts in the comments below.**
-

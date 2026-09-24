@@ -131,10 +131,6 @@ public class ConnectionPool {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The `volatile` keyword ensures the instance is fully constructed before it becomes visible to other threads. The double-check avoids synchronization overhead after initialization.
 
 ### Bill Pugh Singleton (Recommended)
@@ -236,6 +232,8 @@ sequenceDiagram
     Instance-->>Client2: Connection B
 ```
 
+{% include ads/in-article.html %}
+
 Both clients receive the same `ConnectionPool` instance. They share the pool but get different connections from it.
 
 ## Common Mistakes
@@ -273,10 +271,6 @@ private Singleton() {
     }
 }
 ```
-
-
-{% include ads/display.html %}
-
 
 Enum singletons are immune to this attack.
 
@@ -345,4 +339,3 @@ When you do need a singleton, make sure it's for a truly shared resource where m
 
 - [Effective Java - Item 3: Enforce the singleton property](https://www.oreilly.com/library/view/effective-java/9780134686097/) by Joshua Bloch
 - [Why Singletons are Controversial](https://stackoverflow.com/questions/137975/what-is-so-bad-about-singletons) on Stack Overflow
-

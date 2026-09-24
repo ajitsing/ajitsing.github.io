@@ -168,10 +168,6 @@ OpenTelemetry treats observability as three distinct signals that share context.
 | **Metrics** | Numerical measurements over time | Request count, error rate, CPU usage, queue depth |
 | **Logs** | Discrete events with unstructured or structured data | `ERROR: payment gateway timeout for order_id=5678` |
 
-
-{% include ads/in-article.html %}
-
-
 Each signal alone gives you a partial picture. The real power of OpenTelemetry is **correlation**: linking a metric spike to the traces that caused it, and linking those traces to the log lines from each service involved.
 
 This works because OpenTelemetry injects the same `trace_id` and `span_id` into all three signals. When your error rate metric spikes, you click through to the traces from that window. When you find a slow trace, you click through to the logs from each span.
@@ -283,10 +279,6 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317 \
 opentelemetry-instrument python app.py
 ```
 
-
-{% include ads/display.html %}
-
-
 This wraps Flask, Django, FastAPI, SQLAlchemy, requests, httpx, and other libraries.
 
 **Go** (via the Auto SDK):
@@ -374,6 +366,8 @@ public Order processOrder(OrderRequest request) {
 **Start with auto-instrumentation.** Get it running, see what shows up, and add manual spans only where you need business context. Most teams over-instrument on day one and end up with 10x the trace volume they need.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Collector Configuration for Production
 
@@ -578,10 +572,6 @@ This pattern gives you fault isolation at the node level and centralized control
 ---
 
 ## Kubernetes Deployment
-
-
-{% include ads/in-article.html %}
-
 
 In Kubernetes, the Collector fits into three deployment models. The choice depends on what kind of telemetry you are collecting and how much control you need.
 
@@ -831,10 +821,6 @@ processors:
           sampling_percentage: 5
 ```
 
-
-{% include ads/display.html %}
-
-
 **The catch**: tail sampling is stateful. The Collector must buffer all spans of a trace in memory until the decision is made. This means:
 
 1. All spans of a single trace must reach the **same Collector instance**. You need a **load-balancing exporter** that routes by trace ID.
@@ -1006,11 +992,9 @@ flowchart TB
 
 ---
 
-## Security and PII
-
-
 {% include ads/in-article.html %}
 
+## Security and PII
 
 Telemetry data can accidentally contain sensitive information: email addresses in URLs, auth tokens in headers, credit card numbers in span attributes, PII in log messages. Once it reaches your backend, it is stored and potentially searchable.
 

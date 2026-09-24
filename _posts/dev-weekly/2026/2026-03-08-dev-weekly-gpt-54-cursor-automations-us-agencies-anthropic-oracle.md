@@ -116,11 +116,9 @@ Most AI coding tools still require a human to start every interaction. Automatio
 
 ---
 
-## <i class="fas fa-code"></i> Developer Tools & Platforms
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### OpenAI Releases Symphony: Open Source Agentic Framework Built in Elixir - [<i class="fas fa-external-link-alt"></i>](https://github.com/openai/symphony/)
 
@@ -222,10 +220,6 @@ npmjs.com hasn't meaningfully changed in years. The fact that a community projec
 
 ## <i class="fas fa-building"></i> Industry News
 
-
-{% include ads/display.html %}
-
-
 ### Oracle Planning to Cut Up to 30,000 Jobs to Fund AI Data Centers - [<i class="fas fa-external-link-alt"></i>](https://finance.yahoo.com/news/oracle-may-slash-30-000-114418881.html)
 
 Oracle is planning what would be its largest restructuring ever: cuts of 20,000 to 30,000 employees, roughly 18% of its 162,000-person global workforce.
@@ -247,6 +241,8 @@ Oracle's stock has dropped about 54% from its September 2025 peak. Investors are
 Oracle joins a growing list of companies cutting headcount while citing AI productivity: Block (40% of staff), Meta (3,600), Microsoft (1,000-1,500). The stated reason varies, but the underlying logic is the same. AI tools are reducing the number of people needed to do certain categories of work.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-shield-alt"></i> Security
 
@@ -303,10 +299,6 @@ Unpatched vulnerabilities in React frontend applications caused this. A 2024 CVE
 ---
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
-
-
-{% include ads/in-article.html %}
-
 
 - **1 million** — Token context window in GPT-5.4's API configuration
 - **33%** — Reduction in factual errors in GPT-5.4 compared to GPT-5.2

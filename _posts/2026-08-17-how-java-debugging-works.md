@@ -226,8 +226,6 @@ sequenceDiagram
     FE-->>IDE: values shown in UI
 ```
 
-{% include ads/in-article.html %}
-
 This design explains a few things you may have noticed:
 
 - **A plain breakpoint is basically free until it is hit.** Code with a breakpoint that never triggers runs at normal speed, because nothing is polling.

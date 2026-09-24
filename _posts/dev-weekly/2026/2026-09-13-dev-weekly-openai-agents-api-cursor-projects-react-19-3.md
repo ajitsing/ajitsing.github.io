@@ -50,8 +50,6 @@ A Project runs on its own cloud machine, so closing your laptop does not stop it
 
 Use it for a feature with several PRs, a migration, or chores that never really end. Do not use it as a replacement for a one-off chat.
 
-{% include ads/in-article.html %}
-
 ### React 19.3 Makes View Transitions Stable - [<i class="fas fa-external-link-alt"></i>](https://react.dev/blog/2026/09/09/react-19-3){:target="_blank"}
 
 On September 9, [React 19.3 landed on npm](https://react.dev/blog/2026/09/09/react-19-3){:target="_blank"}. View Transitions and Fragment Refs, both experimental last year, are stable. Wrap UI in `ViewTransition` and change it inside `startTransition` (or a Suspense reveal, or `useDeferredValue`) if you want the browser View Transition API to animate enter, exit, update, or a shared element. Urgent updates outside a transition still snap.
@@ -72,8 +70,6 @@ On September 9, [Copilot Business and Enterprise admins got managed permissions]
 
 If you already let agents run in those products, set the policy this week before a team turns auto-approval on.
 
-{% include ads/display.html %}
-
 ### Anthropic's CEO Asks Labs to Slow the Frontier - [<i class="fas fa-external-link-alt"></i>](https://darioamodei.com/post/we-must-pace-the-frontier){:target="_blank"}
 
 On September 12, [Dario Amodei published "We Must Pace the Frontier"](https://darioamodei.com/post/we-must-pace-the-frontier){:target="_blank"}. He wants companies to slow how fast they raise model capability, not stop training. Anthropic will, on its own, give third-party evaluators (he names METR) employee-like access: badges, laptops, and the right to publish findings with only narrow redactions. Step two is coordination among labs in democracies. Step three is governments. [The Guardian](https://www.theguardian.com/technology/2026/sep/12/we-must-slow-the-pace-ceo-of-anthropic-calls-for-an-ai-slowdown){:target="_blank"} reported Sam Altman saying OpenAI will do the same on evaluators, and Elon Musk agreeing in public.
@@ -81,6 +77,8 @@ On September 12, [Dario Amodei published "We Must Pace the Frontier"](https://da
 Nothing in the essay changes Claude or GPT APIs this week. It is a policy fight sitting on top of the Hugging Face agent incident from the summer.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -103,8 +101,6 @@ On September 8, [Copilot in JetBrains IDEs added managed sandbox policies](https
 ### GitHub Actions Cache Access Is Now a First-Class Setting - [<i class="fas fa-external-link-alt"></i>](https://github.blog/changelog/2026-09-10-control-github-actions-cache-access-with-cache-mode/){:target="_blank"}
 
 On September 10, [`cache-mode` became generally available](https://github.blog/changelog/2026-09-10-control-github-actions-cache-access-with-cache-mode/){:target="_blank"} on all GitHub plans. Set it on a workflow or job to `read`, `write`, `write-only`, or `none`. Job settings win. A called reusable workflow cannot get more cache access than its caller. `pull_request_target` still defaults to read-only. If you set `write` on a low-trust event, Actions warns you, because that is how cache poisoning starts.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -154,9 +150,9 @@ On September 9, [Lightfield raised a $47 million Series A](https://www.prnewswir
 
 *   **Oracle:** On September 11, [Oracle said](https://www.channelnewsasia.com/business/oracle-spend-700-million-more-restructuring-costs-it-ramps-up-ai-spending-6378456){:target="_blank"} it would add about $700 million to its fiscal 2026 restructuring plan, taking the expected cost to about $2.8 billion. The company had already booked about $2.1 billion. [Bloomberg](https://www.bloomberg.com/news/articles/2026-09-11/oracle-boosts-layoffs-plan-by-700-million){:target="_blank"} described the extra money as more job cuts while Oracle funds AI data centers. The disclosure was in the quarterly filing after the August 31 quarter. Oracle did not publish a new headcount for this increment.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

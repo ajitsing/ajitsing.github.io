@@ -87,10 +87,6 @@ OpenAI is already one of the most valuable private companies in the world. If th
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
-
-{% include ads/in-article.html %}
-
-
 ### TypeScript 7 Native Compiler Released
 
 On February 18, Microsoft shipped TypeScript 7 with a new native compiler that significantly reduces build times for large-scale projects.
@@ -152,6 +148,8 @@ You can opt into Canary updates through Android Studio or by flashing Canary bui
 Canary builds are unstable. Things break. Features change. Don't use them for production apps. But for testing and development, they're invaluable.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-building"></i> Industry News
 
@@ -233,11 +231,9 @@ If you're organizing events, security matters. Even registration systems need pr
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-shield-alt"></i> Security & Open Source
-
-
-{% include ads/display.html %}
-
 
 ### New npm Worm Steals Dev Secrets and Poisons AI Toolchains - [<i class="fas fa-external-link-alt"></i>](https://www.ox.security/blog/npm-worm-hijacks-ci-workflows-ai-packages/)
 
@@ -308,10 +304,6 @@ AI chatbots are under increasing scrutiny. Regulators are worried about privacy,
 ---
 
 ## <i class="fas fa-calendar-alt"></i> Quick Hits
-
-
-{% include ads/in-article.html %}
-
 
 **India AI Summit** - New Delhi hosts first AI Impact Summit, secures $250B in investments. Reliance commits $109.8B, Adani pledges $100B.
 

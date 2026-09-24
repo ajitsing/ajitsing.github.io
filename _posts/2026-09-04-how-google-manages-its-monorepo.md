@@ -159,8 +159,6 @@ flowchart LR
     class Span store
 ```
 
-{% include ads/in-article.html %}
-
 Piper presents one logical tree even though its storage and replicas are distributed across many machines. The monorepo is logically centralized, not physically confined to one server.
 
 ## <i class="fas fa-code-branch"></i> Trunk-Based Development at Company Scale

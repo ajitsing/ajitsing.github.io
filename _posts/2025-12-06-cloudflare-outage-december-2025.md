@@ -85,6 +85,8 @@ graph TB
     G --> H[HTTP 500 Errors for 28% of Traffic]
 ```
 
+{% include ads/in-article.html %}
+
 **The sequence of events:**
 
 1. **React vulnerability disclosure** - CVE-2025-55182, a critical vulnerability in React Server Components, was disclosed. Cloudflare needed to act fast.
@@ -167,10 +169,6 @@ if let Some(execute) = &rule_result.execute {
     execute.results = ruleset_results[execute.results_index];
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 The Rust compiler would force you to handle the `None` case. You cannot accidentally access a field that might not exist. The FL2 proxy, written in Rust, was not affected by this incident because the strong type system made this class of bugs impossible.
 
@@ -277,10 +275,6 @@ The WAF testing tool was not critical for customer traffic. Its failure should n
 
 ## The Bottom Line
 
-
-{% include ads/display.html %}
-
-
 A security fix triggered a killswitch that was applied to an `execute` action for the first time. This exposed a nil value bug that had been dormant for years. The global config system propagated the bug to the entire fleet in seconds. 28% of HTTP traffic returned 500 errors for 25 minutes.
 
 **The lessons:**
@@ -305,5 +299,3 @@ Build systems that assume failure. Deploy with gradual rollouts. Validate health
 - [Cloudflare Incident Report - November 18, 2025](https://blog.cloudflare.com/18-november-2025-outage/)
 - [Previous analysis: November 2025 Cloudflare Outage](/cloudflare-outage-november-2025/)
 - [Feature Flags Guide: Safe Deployment and Gradual Rollouts](/feature-flags-guide/)
-
-

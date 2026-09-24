@@ -41,7 +41,6 @@ Your android device has capability to notify all the applications in the mobile
 ```java
 package com.ajit.singh.offlinemode.receiver;
 
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -89,9 +88,6 @@ Now that our ```NetworkStateChangeReceiver``` is ready and it can identify the n
 
 ```xml
 
-
-{% include ads/in-article.html %}
-
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ajit.singh.offlinemode">
@@ -99,6 +95,8 @@ Now that our ```NetworkStateChangeReceiver``` is ready and it can identify the n
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+{% include ads/in-article.html %}
 
   <application
     android:allowBackup="true"

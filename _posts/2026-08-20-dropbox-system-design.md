@@ -221,8 +221,6 @@ sequenceDiagram
     N-->>C: Tell other devices
 ```
 
-{% include ads/in-article.html %}
-
 Read the flow carefully and a few good design habits show up:
 
 - **Metadata is asked first.** The client sends only hashes, which are tiny, and the server replies with the subset it actually needs. This is the dedup check and it happens before a single byte of file content moves.

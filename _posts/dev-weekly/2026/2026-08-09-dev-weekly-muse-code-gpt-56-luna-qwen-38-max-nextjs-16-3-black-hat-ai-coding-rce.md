@@ -44,8 +44,6 @@ On August 6, [OpenAI updated ChatGPT](https://www.macrumors.com/2026/08/06/chatg
 
 The part that matters if you build on OpenAI is what did not change. As [The Next Web laid out](https://thenextweb.com/news/chatgpt-free-unlimited-text-chats-gpt-5-6-luna-default){:target="_blank"}, this is a chat-experience update, not an API change: the GPT-5.6 Sol and GPT-5.6 Luna versions running in Codex and ChatGPT Work are untouched, and there is no new pricing on the API. So your integrations behave exactly as before, but the consumer default your non-technical colleagues use just got meaningfully more accurate, and a model that cost real money a month ago is now the free tier. It is also a clear retention play against Claude and Gemini, since OpenAI is trading away rate limits to keep its billion-plus monthly users from wandering off to free alternatives.
 
-{% include ads/in-article.html %}
-
 ### Alibaba Makes Qwen 3.8-Max Generally Available at 2.4 Trillion Parameters - [<i class="fas fa-external-link-alt"></i>](https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421){:target="_blank"}
 
 On August 3, [Alibaba officially released Qwen 3.8-Max](https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421){:target="_blank"}, the most capable model in the Qwen family so far and the production replacement for the July preview. Built on the Qwen 3.5 architecture, it is a 2.4 trillion parameter sparse mixture-of-experts model with about 95 billion active parameters, a context window up to 1 million tokens, and text, image, and video inputs. Alibaba pitches it at coding, real-world work, research, and long-horizon agentic tasks, and it is live now on QwenCloud with an OpenAI-compatible and Anthropic-compatible API at $2 per million input tokens and $6 per million output tokens.
@@ -64,8 +62,6 @@ At Black Hat USA 2026, [Novee Security disclosed that a single public GitHub iss
 
 This is the security story to act on this week. Install the corrected Claude Code 2.1.163 and Gemini CLI 0.39.1, then audit any workflow triggered by public issues or pull requests, stop separate agents from sharing a writable directory, and scope tokens down to the minimum each task needs. OpenAI separated its agent runs into different jobs and read-only checkouts within three days, but the researchers stressed that fixing a vendor's own repository does not automatically fix the same pattern in workflows other organizations copied. The durable lesson is to treat all repository content, including issue and pull request text, as untrusted input the moment an autonomous agent can read it.
 
-{% include ads/display.html %}
-
 ### Anthropic Makes Claude Code Auto Mode the Default for Pro, Max, and Team - [<i class="fas fa-external-link-alt"></i>](https://claude.com/blog/auto-mode-default-in-claude-code){:target="_blank"}
 
 On August 7, [Anthropic announced that auto mode is becoming the default in Claude Code](https://claude.com/blog/auto-mode-default-in-claude-code){:target="_blank"} for Pro, Max, and Team plans. Starting August 14, new sessions on those plans will run in auto mode, which enables longer autonomous work and, per Anthropic's testing, catches more dangerous commands than manual review. If you have already pinned a different default, nothing changes; if you have not set one, you will get an in-product notice and new sessions will start in auto mode. Anthropic also stopped charging Pro, Max, and Team users for the small classifier overhead that auto mode adds per tool call, effective the day of the announcement.
@@ -80,6 +76,8 @@ The reason to care is cost-effective agentic coding from a strong open-weight mo
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### Google Cloud Adds Model Routing to API Gateway - [<i class="fas fa-external-link-alt"></i>](https://developers.googleblog.com/a-unified-api-for-ai-model-routing/){:target="_blank"}
@@ -89,8 +87,6 @@ On August 4, [Google Cloud launched model routing for API Gateway in public prev
 ### Cursor Adds Google Workspace Plugins for Gmail, Drive, and Calendar - [<i class="fas fa-external-link-alt"></i>](https://cursor.com/changelog){:target="_blank"}
 
 On August 3, [Cursor shipped Google Workspace plugins](https://cursor.com/changelog){:target="_blank"} that give coding agents direct access to Gmail, Google Drive, and Google Calendar, with Docs, Sheets, and Chat also mentioned. The plugins let an agent search and read mail and draft messages, search and create Drive files, and read and update calendar events, all without leaving the editor, so you can have the agent pull a spec from a Doc, write the code, and draft a status email in one flow. Under the hood the plugins connect to Google's remote Model Context Protocol endpoints, which are still in developer preview, and you install them from the Cursor Marketplace or the Customize page and authorize with a one-time Google login. Because you are handing an agent access to your inbox and files, scope the permissions to the minimum your use case needs and keep to draft-first, human-approved sending until you have tested the behavior on throwaway data.
-
-{% include ads/in-article.html %}
 
 ### Django 6.1 Released With Model Field Fetch Modes - [<i class="fas fa-external-link-alt"></i>](https://www.djangoproject.com/weblog/2026/aug/05/django-61-released/){:target="_blank"}
 
@@ -137,9 +133,9 @@ On August 4, [HappyRobot raised a $150 million Series C](https://tech.eu/2026/08
 *   **Salesforce:** [Salesforce is eliminating 133 jobs](https://theoutpost.ai/news-story/salesforce-cuts-133-jobs-in-third-2026-round-amid-ai-push-and-leadership-reshuffling-29561/){:target="_blank"} across California and Washington effective October 5, its third round of cuts this year, weighted toward engineering roles even as CEO Marc Benioff credits AI tools for efficiency gains.
 *   **Zillow:** On August 7, [Zillow filed to cut 91 Washington jobs](https://theseattletoday.com/zillow-to-cut-91-washington-jobs-in-october-with-product-and-engineering-roles-hit-hardest/){:target="_blank"} starting in October, concentrated in product managers, software engineers, UX researchers, and machine learning staff, the roles that built its core product.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

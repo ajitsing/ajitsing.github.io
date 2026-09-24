@@ -100,8 +100,6 @@ You only have three options to coordinate them:
 2. **Eventual consistency with no rollback**. Just write to each service in turn and hope. This is what most "we will fix it in support" architectures actually look like.
 3. **The Saga Pattern**. Local transactions plus explicit compensations. Eventual consistency, but with structured recovery.
 
-{% include ads/in-article.html %}
-
 Sagas are option three, and in 2026 they are the default for anything more complex than a single-service write.
 
 ```mermaid
@@ -192,8 +190,6 @@ A few things to notice in that picture, because they trip people up:
 
 This is the entire pattern. Everything else is "how do we coordinate the steps" and "how do we make the compensations behave."
 
-{% include ads/display.html %}
-
 ## Compensating Transactions Are Not Rollbacks
 
 This is the single biggest mental shift. Read it twice.
@@ -250,6 +246,8 @@ flowchart LR
     classDef svc fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#0f172a
     class O,P,I,S svc
 ```
+
+{% include ads/in-article.html %}
 
 The double-arrows are the happy path. The dotted arrows are compensation events that flow backward. Each service knows nothing about the saga as a whole. It only knows which events it cares about and what it should do with them.
 
@@ -365,8 +363,6 @@ def on_stock_failed(event):
     OrderService.cancel(event.order_id)
 ```
 
-{% include ads/in-article.html %}
-
 Notice three things:
 
 1. Every state change happens inside a local DB transaction together with an `outbox.publish` call. That is the [transactional outbox pattern](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} doing the heavy lifting. Without it your saga loses events and gets stuck.
@@ -443,6 +439,8 @@ flowchart LR
     class DAT,OUT,TX txbox
     class REL,K infrabox
 ```
+
+{% include ads/in-article.html %}
 
 If you have not read it yet, the [Transactional Outbox Pattern post](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} walks through the polling and CDC variants. For the rest of this article, assume every "publish event" call is doing this under the hood. If you are choosing CDC with Debezium, the [Debezium plus outbox database impact analysis](/debezium-outbox-postgres-database-impact/){:target="_blank" rel="noopener"} covers the Postgres-side cost in detail.
 
@@ -547,8 +545,6 @@ Open source workflow engine from Netflix. Heavy in adoption inside data and ML p
 Java library focused on CQRS and event sourcing. Sagas are first-class and are wired up via annotations on event handlers. A natural fit if your domain is already event sourced.
 
 The boring advice: pick one of these and use it. Hand-rolling a saga engine on top of Kafka and a Postgres state table is a common path that ends with reinventing badly what these tools already do well.
-
-{% include ads/display.html %}
 
 ## Saga Pitfalls That Show Up in Production
 

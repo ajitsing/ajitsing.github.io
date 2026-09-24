@@ -127,10 +127,6 @@ sequenceDiagram
     Note over Alice,Bob: Result: "HelYloX"
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Transform Rules
 
 The transformation rules depend on the operation types:
@@ -178,6 +174,8 @@ flowchart TD
     style DB fill:#fef3c7,stroke:#d97706,stroke-width:2px
     style WS fill:#e0f2fe,stroke:#0284c7,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 1. Client sends operation to server
 2. Server assigns a global sequence number
@@ -319,10 +317,6 @@ flowchart LR
     style S2 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
 
-
-{% include ads/display.html %}
-
-
 ### <i class="fas fa-database"></i> Document Storage
 
 Documents aren't stored as plain text. They're stored as:
@@ -463,10 +457,6 @@ Users are worldwide. A user in Tokyo editing with someone in London has 200+ mil
 
 ## OT vs CRDT: Two Approaches
 
-
-{% include ads/in-article.html %}
-
-
 Google Docs uses OT, but there's an alternative: Conflict-Free Replicated Data Types (CRDTs). Let's compare:
 
 | Aspect | Operational Transform (OT) | CRDT |
@@ -501,6 +491,8 @@ flowchart TB
     style C2 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
     style C3 fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 CRDTs don't need a central server because every operation is designed to be commutative and idempotent. Insert "X" at position between "A" and "B" will always put "X" between "A" and "B", regardless of what other operations happen.
 

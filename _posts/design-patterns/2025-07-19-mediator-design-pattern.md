@@ -135,10 +135,6 @@ public class User {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -334,10 +330,6 @@ eventBus.publish(new UserLoggedIn("user-123", Instant.now()));
 eventBus.publish(new OrderPlaced("order-456", "user-123"));
 ```
 
-
-{% include ads/display.html %}
-
-
 ## How It Works
 
 ```mermaid
@@ -355,6 +347,8 @@ sequenceDiagram
     Room->>Alice: showTypingIndicator("Bob")
     Room->>Charlie: showTypingIndicator("Bob")
 ```
+
+{% include ads/in-article.html %}
 
 ## Common Mistakes
 
@@ -436,4 +430,3 @@ Use Mediator for chat systems, UI coordination, air traffic control, and anywher
 
 - [Event-Driven Architecture](https://martinfowler.com/articles/201701-event-driven.html) - Martin Fowler
 - [MediatR Library for .NET](https://github.com/jbogard/MediatR)
-

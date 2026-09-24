@@ -128,10 +128,6 @@ signature = HMACSHA256(
 )
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The signature proves:
 - Token was created by someone with the secret key
 - Data hasn't been tampered with
@@ -216,6 +212,8 @@ sequenceDiagram
         Server->>User: 401 Unauthorized
     end
 ```
+
+{% include ads/in-article.html %}
 
 **Code example**:
 
@@ -355,10 +353,6 @@ res.cookie('token', jwt, {
   maxAge: 3600000
 });
 ```
-
-
-{% include ads/display.html %}
-
 
 ### 2. Short Expiration
 

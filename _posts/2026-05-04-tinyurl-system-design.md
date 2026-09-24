@@ -100,8 +100,6 @@ flowchart LR
     class DB,Q,A,AS store
 ```
 
-{% include ads/in-article.html %}
-
 That is the whole system on one page. Most of this post is justifying each box and the lines between them.
 
 ## Functional and Non Functional Requirements
@@ -375,8 +373,6 @@ flowchart LR
     class S1,S2,S3,S4 store
 ```
 
-{% include ads/in-article.html %}
-
 [Consistent hashing](/consistent-hashing-explained/){:target="_blank" rel="noopener"} on the short code spreads load evenly and minimizes data movement when nodes are added or removed. That is exactly the workload it was designed for.
 
 ## Caching: Where the Real Win Lives
@@ -437,8 +433,6 @@ For a URL shortener, the trade-off is clear: **301 cuts traffic and breaks analy
 Real services pick based on use case. A marketing analytics product like Bitly defaults to 302 because every click is the product. A pure "make this URL shorter for SMS" service can default to 301 to save infrastructure. Some let users choose per link.
 
 Both responses should set `Cache-Control: private, max-age=0` (302) or a small `max-age` (301) to keep behavior consistent across clients.
-
-{% include ads/display.html %}
 
 ## Analytics Without Hurting the Redirect Path
 

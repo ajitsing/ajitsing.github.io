@@ -25,7 +25,6 @@ This article will cover how cucumber and calabash can be used for android testin
 [Android App](https://github.com/ajitsing/InstrumentationTestDemo){:target="_blank"}
 [Functional Test Step](https://github.com/ajitsing/calabash_setup){:target="_blank"}
 
-
 The app which we are going to test has only two screens.
 
 1. Item List Screen - Default screen of app, it has a list of items.
@@ -84,13 +83,11 @@ As you can see when you run `calabash-android gen` it asks a question before cr
 3 directories, 6 files
 ```
 
-
-{% include ads/in-article.html %}
-
-
 If you don't understand the above file structure and want to know what each directory means then visit this [link](http://www.singhajit.com/set-up-automation-environment-using-cucumber-and-capybara/){:target="_blank"}.
 
 Now you don't have to touch any of the support directory files, because calabash does a good job in default configuration itself.
+
+{% include ads/in-article.html %}
 
 Replace the `my_first.feature` with your own features. I have added the following feature to my feature file.
 
@@ -124,10 +121,6 @@ end
 
 # Query an element on screen
 
-
-{% include ads/display.html %}
-
-
 To query and element on the screen use the `query` method of calabash. You have to pass the path to the element you want to query. For example
 
 If you want to query a text, which will be present inside a TextView then your query will be following:
@@ -147,7 +140,3 @@ calabash-android run /path/to/apk_file.apk
 ```
 
 Once you supply the apk file to calabash it takes care of installing that app in the simulator and uninstalling it before each feature.
-
-
-
-

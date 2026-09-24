@@ -161,10 +161,6 @@ public class ListElement implements DocumentElement {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Concrete Visitors
 
 ```java
@@ -395,9 +391,7 @@ sequenceDiagram
     Paragraph-->>Client: void
 ```
 
-
-{% include ads/display.html %}
-
+{% include ads/in-article.html %}
 
 The accept method provides the first dispatch (element type). Calling visitXxx provides the second dispatch (visitor type).
 
@@ -582,4 +576,3 @@ The pattern trades one flexibility for another: easy to add operations, hard to 
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Appendix
 - [Double Dispatch Explained](https://en.wikipedia.org/wiki/Double_dispatch)
-

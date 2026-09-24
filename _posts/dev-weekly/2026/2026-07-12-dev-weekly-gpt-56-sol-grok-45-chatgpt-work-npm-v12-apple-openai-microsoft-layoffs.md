@@ -46,8 +46,6 @@ On July 8, [SpaceXAI released Grok 4.5](https://x.ai/news/grok-4-5){:target="_bl
 
 As [TechCrunch reported](https://techcrunch.com/2026/07/08/spacexai-releases-grok-4-5-which-elon-describes-as-an-opus-class-model/){:target="_blank"}, Elon Musk framed Grok 4.5 as an Opus-class model that is faster, more token-efficient, and lower cost, later saying internal assessments put it roughly comparable to Opus 4.7. Independent coding-agent indexes have it below Fable 5 on some harnesses while estimating a lower cost per task, so the launch is more a price and distribution story than a settled benchmark crown. The Cursor integration is the developer-facing hook: after SpaceX's June acquisition of Anysphere, Grok 4.5 lands inside an IDE many teams already use, not only behind a new API.
 
-{% include ads/in-article.html %}
-
 ### ChatGPT Work Turns ChatGPT Into a Long-Running Work Agent - [<i class="fas fa-external-link-alt"></i>](https://openai.com/index/chatgpt-for-your-most-ambitious-work/){:target="_blank"}
 
 Also on July 9, [OpenAI launched ChatGPT Work](https://openai.com/index/chatgpt-for-your-most-ambitious-work/){:target="_blank"}, an agent inside ChatGPT that can pull context from connected apps and files, stay with a project for hours, and turn a goal into finished sheets, slides, docs, and web apps. It is powered by GPT-5.6, folds Codex technology into non-coding workflows, and ships with a unified plugins directory for tools like Slack, Microsoft Teams, Google Drive, SharePoint, email, calendars, and CRMs. Scheduled Tasks can keep work moving when you are away, Sites lets you publish interactive pages from ChatGPT, and the redesigned desktop app merges Chat, Work, and Codex on Mac and Windows, including for Free users.
@@ -66,8 +64,6 @@ On July 8, [Microsoft announced TypeScript 7 as generally available](https://dev
 
 The caveat for framework teams is the programmatic API. TypeScript 7.0 prioritizes the compiler and editor path; a stabilized API for tools that embed TypeScript, the ones Vue, Svelte, Astro, and MDX template checkers rely on, is planned for the 7.1 cycle. Next.js, React, and plain Node services can move now. Teams whose editor tooling still imports TypeScript as a library should stay on 6.x until 7.1, or run a split stack. After years of type-check CI as the slowest job in the pipeline, this is the rare language release that can change wall-clock build time overnight.
 
-{% include ads/display.html %}
-
 ### Apple Sues OpenAI Over Alleged Trade Secret Theft - [<i class="fas fa-external-link-alt"></i>](https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/){:target="_blank"}
 
 On July 10, [Apple sued OpenAI in Northern California federal court](https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/){:target="_blank"} for trade secret misappropriation and breach of contract, accusing OpenAI of a leadership-directed campaign to extract confidential hardware information as it builds consumer devices. The complaint names OpenAI Chief Hardware Officer Tang Yew Tan, formerly Apple's VP of product design for iPhone and Apple Watch, and former Apple engineer Chang Liu, and it notes that more than 400 former Apple employees now work at OpenAI. Apple alleges recruiting practices that solicited designs and prototypes, misuse of supplier relationships, and downloads of confidential specs for unannounced products.
@@ -82,6 +78,8 @@ Chief People Officer Amy Coleman framed the cuts around a fast-changing industry
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### AWS Ships a Claude Apps Gateway for Enterprise Claude Code - [<i class="fas fa-external-link-alt"></i>](https://aws.amazon.com/blogs/machine-learning/introducing-claude-apps-gateway-for-aws/){:target="_blank"}
@@ -91,8 +89,6 @@ On July 8, [AWS announced the Claude apps gateway for AWS](https://aws.amazon.co
 ### GPT-5.6 Becomes the Preferred Model in Microsoft 365 Copilot - [<i class="fas fa-external-link-alt"></i>](https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot/){:target="_blank"}
 
 Also on July 9, [OpenAI and Microsoft made GPT-5.6 the preferred model series in Microsoft 365 Copilot](https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot/){:target="_blank"} across Word, Excel, PowerPoint, Chat, and Cowork. The update is the distribution half of the GPT-5.6 launch: the same model family that just opened in the API becomes the default intelligence layer inside the office suite millions of enterprise users already pay for. Microsoft will serve the models natively and also reach them through the OpenAI API. For teams standardizing on Copilot, the model upgrade arrives without a separate procurement cycle, which is often how frontier capability actually reaches corporate desktops.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -127,9 +123,9 @@ On July 10, [SK hynix listed American Depositary Receipts on Nasdaq](https://www
 *   **Microsoft:** On July 6, [Microsoft cut 4,800 jobs immediately](https://www.cnbc.com/2026/07/06/microsoft-cuts-2point1percent-of-employees-as-xbox-unit-plans-to-spin-studios.html){:target="_blank"}, or about 2.1 percent of its workforce. Xbox will shed about 3,200 roles through FY27, including 1,600 on day one, and spin out or rehome Compulsion Games, Double Fine, Ninja Theory, and Undead Labs. Commercial sales teams were also reduced. The company said AI is changing how work gets done but is not directly replacing the eliminated roles.
 *   **Unnamed services firm (Reddit claim):** On July 9, [Times of India covered a viral Reddit post](https://timesofindia.indiatimes.com/etimes/trending/company-lays-off-62-employees-retains-8-says-claude-fable-5-is-enough-reddit-post-goes-viral/articleshow/132276124.cms){:target="_blank"} from a developer who said their mid-sized services company cut a team of about 70 down to eight in one round, with leadership telling the remaining staff that Claude Fable 5 would be enough to handle the work left. The company was not named, and the claims have not been independently verified. Commenters split between panic over AI replacing engineers and skepticism that "layoffs due to AI" is cover for fewer clients and weaker revenue. Either way, the post hit a nerve in the same week Fable 5 moved off included subscription access and onto usage credits.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

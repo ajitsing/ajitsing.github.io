@@ -130,10 +130,6 @@ graph TD
     H --> I
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Performance Comparison:**
 
 Let's say you have 10 million users across 50 countries and 10,000 cities.
@@ -241,6 +237,8 @@ Use virtual columns for calculations that don't need to be indexed and aren't qu
 
 ---
 
+{% include ads/in-article.html %}
+
 ## Feature 4: UUIDv7 - Time-Ordered UUIDs That Don't Kill Performance
 
 **What Changed:**
@@ -315,10 +313,6 @@ SELECT * FROM orders
 WHERE id >= uuidv7_from_timestamp('2024-09-01')
   AND id < uuidv7_from_timestamp('2024-10-01');
 ```
-
-
-{% include ads/display.html %}
-
 
 **What It Means:**
 
@@ -484,10 +478,6 @@ RETURNING
     (NEW.price - OLD.price) AS price_increase;
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Output:**
 
 ```
@@ -503,6 +493,8 @@ RETURNING
 You can now build audit logs, track changes, and implement business logic without separate queries. This is faster, cleaner, and atomic.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Feature 8: Smoother Upgrades with Retained Statistics
 
@@ -682,4 +674,3 @@ Postgres 18 is the most performance-focused release in years. The async I/O impr
 - [How Databases Store Data Internally](/how-databases-store-data-internally/) - Pages, B-trees, and buffer pools
 
 **Have you upgraded to Postgres 18 yet? What performance improvements did you see? Share your experience in the comments below.**
-

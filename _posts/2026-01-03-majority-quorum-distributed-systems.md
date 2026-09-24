@@ -75,8 +75,6 @@ graph TD
 
 General A thinks everyone agreed. General C never got the message. What happens at dawn?
 
-{% include ads/display.html %}
-
 This is exactly what happens in distributed systems. Servers send messages. Messages get delayed or lost. Servers crash. Networks partition. And somehow, the system needs to keep making decisions.
 
 ## The Solution: Majority Rules
@@ -161,9 +159,7 @@ graph TB
     style O fill:#c8e6c9
 ```
 
-
 {% include ads/in-article.html %}
-
 
 Any two majorities in a group **must overlap**. That overlap node guarantees you read the latest write.
 
@@ -260,8 +256,6 @@ With 4 nodes split 2-2, neither side can form a quorum. The system halts. With 5
 
 **Rule of thumb**: Always use odd numbers for your cluster size.
 
-{% include ads/display.html %}
-
 ## Real-World Examples
 
 ### Apache Cassandra: Tunable Consistency
@@ -341,10 +335,6 @@ sequenceDiagram
     N5->>N3: I am the leader
     N5->>N4: I am the leader
 ```
-
-
-{% include ads/display.html %}
-
 
 The leader is elected by quorum. All writes go through the leader. The leader only acknowledges a write when a quorum of followers confirm it.
 
@@ -443,6 +433,8 @@ gantt
     Wait for 2 fastest :crit, 0, 50
 ```
 
+{% include ads/in-article.html %}
+
 If you need 2 out of 3 nodes, you wait for the 2nd response. In this case, 50ms instead of 200ms. The slowest node doesn't hurt you (unless all your nodes are slow).
 
 **Optimization**: Place nodes in different availability zones but same region. You get fault isolation without cross-region latency.
@@ -477,10 +469,6 @@ When a node fails, the system keeps running as long as quorum is maintained. But
 Some systems like etcd have explicit membership change protocols to handle this safely.
 
 ## When Quorum Gets Tricky
-
-
-{% include ads/in-article.html %}
-
 
 ### Geographic Distribution
 
@@ -571,5 +559,3 @@ The next time your database says "quorum achieved," you'll know exactly what it 
 *For more on distributed systems patterns, check out [Leader and Followers](/distributed-systems/leader-follower/), [Replicated Log](/distributed-systems/replicated-log/), [High Watermark](/distributed-systems/high-watermark/), [Hybrid Logical Clock](/distributed-systems/hybrid-clock/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Heartbeat: Detecting Failures](/distributed-systems/heartbeat/), [Paxos Consensus Algorithm](/distributed-systems/paxos/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), and [Two-Phase Commit](/distributed-systems/two-phase-commit/). Building high-availability systems? See [How Kafka Works](/distributed-systems/how-kafka-works/) for durable message queuing.*
 
 *References: [Martin Kleppmann's Designing Data-Intensive Applications](https://dataintensive.net/), [Raft Consensus Algorithm](https://raft.github.io/), [Apache Cassandra Documentation](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html), [etcd Design](https://etcd.io/docs/v3.5/learning/design-learner/)*
-
-

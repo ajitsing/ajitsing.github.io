@@ -205,10 +205,6 @@ public class CryptoStrategy implements PaymentStrategy {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Step 3: Create the Context
 
 ```java
@@ -315,6 +311,8 @@ sequenceDiagram
     CheckoutService-->>Client: PaymentResult
 ```
 
+{% include ads/in-article.html %}
+
 The `PaymentProcessor` doesn't know which payment method it's handling. It just calls the strategy interface methods.
 
 ## Strategy with Lambda (Java 8+)
@@ -406,10 +404,6 @@ public class CreditCardStrategy implements PaymentStrategy {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 ### 3. Confusing Strategy with State
 
 Strategy switches algorithms externally. State changes behavior based on internal conditions. If your "strategies" need to transition to each other automatically, you might want [State pattern](/design-patterns/state/) instead.
@@ -459,4 +453,3 @@ Use Strategy when you have a family of related algorithms and need to switch bet
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 1
 - [Replace Conditional with Polymorphism](https://refactoring.com/catalog/replaceConditionalWithPolymorphism.html) - Martin Fowler
-

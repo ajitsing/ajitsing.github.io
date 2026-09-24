@@ -163,13 +163,11 @@ public class LoginActivity extends AppCompatActivity {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 You would notice one things here that your activity's onCreate method is very lean and simple. Thats all because of data binding as you don't need to write any boiler plate code like findViewById() etc.
 
 To inflate the layout I am using DataBindingUtil.setContentView() method. This method inflates the layout and returns a binding class which is generated at compile time. You can give a customized name to this binding class by adding a class attribute in data tag inside the layout xml file. If you don't provide a name then binding will look at the naming convention of the layout file and will name the class accordingly. For example if your layout file name is my_activity.xml then binding will generate a class with name MyActivityBinding.
+
+{% include ads/in-article.html %}
 
 Here is how you can give custom name to your binding class.
 
@@ -260,10 +258,6 @@ public class LoginViewModel extends BaseObservable {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 You would notice that we are extending the ```LoginViewModel``` with ```BaseObservable``` class. Which means that any of the fields in this view model can be observed using binding. Whenever value of a field changes we need to notify binding that this particular field has changed so please refresh all the views which are using this particular field.
 
 To generate BR property, you need to add ```@Bindable``` annotation on it's getter. The @Bindable annotation will generate a property by omitting the prefix 'get' or 'is' from getter's name. As you can see the ```getLoginMessage()``` has a property with name BR.loginMessage.
@@ -298,4 +292,3 @@ public class LoginHandler {
 You can use all the handler methods directly as a value of the listener attributes in the layout file. As you might have noticed in our layout file.
 
 Well thats all folks, I will write a separate article on how to create custom bindings and use them in layout files. Please comment below for feedback and suggestions. Thank you!
-

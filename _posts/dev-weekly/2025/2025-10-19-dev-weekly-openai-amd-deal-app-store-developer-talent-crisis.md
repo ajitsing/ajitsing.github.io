@@ -86,10 +86,6 @@ Details are still emerging, but it appears to be a vulnerability in how SonicWal
 
 ## 🛠 Developer Tools & Releases
 
-
-{% include ads/in-article.html %}
-
-
 ### Microsoft Releases Agent Framework - [🌐](https://azure.microsoft.com/en-us/blog/introducing-microsoft-agent-framework/)
 
 Microsoft launched the **Agent Framework**, an open-source toolkit for building AI agents in .NET and Python.
@@ -153,6 +149,8 @@ For developers at enterprises using IBM tools, this makes Claude accessible with
 
 ---
 
+{% include ads/in-article.html %}
+
 ## 📊 Programming & Development Trends
 
 ### Python Holds Strong, C Rebounds
@@ -187,10 +185,6 @@ This matches what we're seeing. GitHub Copilot, Cursor, Claude, ChatGPT - these 
 
 ## 🌐 AI & Platform News
 
-
-{% include ads/display.html %}
-
-
 ### Reddit Expands AI Search to 5 Languages
 
 Reddit rolled out AI-powered search in **French, German, Spanish, Italian, and Portuguese**. Users in Brazil, France, Germany, Spain, Mexico, and Italy can now search using natural language in their native languages.
@@ -220,4 +214,3 @@ Microsoft announced they're providing AI tools and training to **295 school dist
 ---
 
 *Got a story we missed? Let us know, we're always looking to improve our coverage of what matters to developers.*
-

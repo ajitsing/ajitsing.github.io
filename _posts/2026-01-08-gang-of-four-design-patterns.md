@@ -95,9 +95,7 @@ flowchart TD
     Q4 -->|No| FactoryMethod[Use Factory Method]
 ```
 
-
 {% include ads/in-article.html %}
-
 
 ### Quick Examples
 
@@ -168,10 +166,6 @@ flowchart TD
 
 ## <i class="fas fa-exchange-alt"></i> Behavioral Patterns
 
-
-{% include ads/display.html %}
-
-
 Behavioral patterns are concerned with algorithms and the assignment of responsibilities between objects. They describe patterns of communication between objects.
 
 ### Overview
@@ -209,6 +203,8 @@ flowchart TD
     Q6 -->|No| Other[Consider other patterns]
 ```
 
+{% include ads/in-article.html %}
+
 ### Quick Examples
 
 **[Chain of Responsibility](/design-patterns/chain-of-responsibility/)** passes requests along a chain of handlers. Each handler decides whether to process the request or pass it along. Middleware in Express.js or Spring Security filters work exactly this way.
@@ -236,10 +232,6 @@ flowchart TD
 ---
 
 ## Pattern Combinations That Work Well
-
-
-{% include ads/in-article.html %}
-
 
 Patterns often work together. Here are combinations you will see frequently:
 
@@ -345,5 +337,3 @@ Learn the patterns. Understand when they apply. Then use your judgment.
 - [Refactoring Guru: Design Patterns](https://refactoring.guru/design-patterns) (excellent online reference with examples in multiple languages)
 - [Source Making: Design Patterns](https://sourcemaking.com/design_patterns) (another solid online reference)
 - [Flutter Under the Hood](/flutter-under-the-hood/) - See Composite, Observer, and Builder patterns in action inside Flutter's three-tree architecture
-
-

@@ -161,10 +161,6 @@ Row 3, col 6 = 1
 Minimum = 1 ✓ (correct!)
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Even with collisions, the minimum gives the correct answer in this case. With larger sketches, collisions become less likely.
 
 ## Choosing Parameters
@@ -209,6 +205,8 @@ So when you query:
 - Therefore: **estimate >= true count**, always
 
 This makes Count-Min Sketch useful when overestimating is safer than underestimating. For example, detecting abuse: better to flag some false positives than miss real abusers.
+
+{% include ads/in-article.html %}
 
 ## Finding Heavy Hitters
 
@@ -318,8 +316,6 @@ CMS.INCRBY my_sketch item1 1 item2 5
 CMS.QUERY my_sketch item1 item2
 ```
 
-{% include ads/display.html %}
-
 ## Implementation Example
 
 Here is a simple Count-Min Sketch in Python:
@@ -357,7 +353,6 @@ class CountMinSketch:
         for i in range(self.depth):
             for j in range(self.width):
                 self.table[i][j] += other.table[i][j]
-
 
 # Usage
 cms = CountMinSketch(width=1000, depth=5)

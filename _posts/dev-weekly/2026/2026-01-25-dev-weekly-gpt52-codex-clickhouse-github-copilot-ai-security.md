@@ -90,10 +90,6 @@ AI regulation is getting real. Countries are willing to block AI services that d
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
-
-{% include ads/in-article.html %}
-
-
 ### Inside Turbopack: How It Builds Fast - [<i class="fas fa-external-link-alt"></i>](https://nextjs.org/blog/turbopack-incremental-computation)
 
 On January 20, Next.js published a detailed explanation of how Turbopack achieves its speed.
@@ -193,11 +189,9 @@ The AI boom has created companies valued in the tens of billions. Public market 
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-shield-alt"></i> Security Updates
-
-
-{% include ads/display.html %}
-
 
 ### AI Library Vulnerabilities Worth Watching
 

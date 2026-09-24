@@ -112,9 +112,9 @@ flowchart TB
     class LEAD leader
 ```
 
-Notice what the coordinator does *not* do here. It does not sit on the write path taking every client request the way a leader does in the [Leader and Followers pattern](/distributed-systems/leader-follower/){:target="_blank" rel="noopener"}. Its job is lighter: membership decisions and partition assignment. Because the role is lighter and recoverable, you can get away with picking it by ordering instead of by consensus.
-
 {% include ads/in-article.html %}
+
+Notice what the coordinator does *not* do here. It does not sit on the write path taking every client request the way a leader does in the [Leader and Followers pattern](/distributed-systems/leader-follower/){:target="_blank" rel="noopener"}. Its job is lighter: membership decisions and partition assignment. Because the role is lighter and recoverable, you can get away with picking it by ordering instead of by consensus.
 
 ## <i class="fas fa-comments"></i> How Every Node Agrees on the List
 
@@ -178,11 +178,11 @@ flowchart TB
     class BB,BC,AC node
 ```
 
+{% include ads/in-article.html %}
+
 This is why age is such a convenient ordering. Succession is obvious. The second oldest node was always the leader-in-waiting, and every node already knew it. Compare that to an election, where the successor is unknown until votes are counted.
 
 One detail worth pinning down: ages can tie or be fuzzy, because clocks across machines do not agree. Real implementations do not trust wall-clock timestamps for this. They use a stable, monotonically increasing sequence assigned when a node joins, or fall back to a deterministic tiebreak like the node's unique address, so the sort is total and identical everywhere.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> The Catch: It Is Only as Safe as Your Membership View
 

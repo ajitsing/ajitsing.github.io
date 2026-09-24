@@ -141,8 +141,6 @@ git config --global <key> <value>
 
 The `--global` flag sets the value in your global **gitconfig** file (`~/.gitconfig`). Replace `--global` with `--local` to set a value only for the current repository (**git repo config**), or `--system` for machine-wide settings.
 
-{% include ads/display.html %}
-
 **Examples:**
 
 ```bash
@@ -161,7 +159,6 @@ git config --global help.autocorrect 10
 # Remove a setting
 git config --global --unset core.editor
 ```
-
 
 To read a config value:
 
@@ -244,6 +241,8 @@ You can also match by remote URL:
 
 This applies work settings to any repository cloned from your company's GitHub organization.
 
+{% include ads/in-article.html %}
+
 ## Core Settings
 
 These settings control fundamental Git behavior.
@@ -273,8 +272,6 @@ git config --global core.editor "subl -n -w"
 ```
 
 The `--wait` flag tells Git to wait until you close the editor before continuing.
-
-{% include ads/in-article.html %}
 
 ### Default Branch Name
 
@@ -382,10 +379,6 @@ git config --global core.ignorecase false
 Be careful with this. If you rename `File.txt` to `file.txt` on a case insensitive system, Git might not notice.
 
 ## Color Configuration
-
-
-{% include ads/display.html %}
-
 
 Git output is colored by default. You can customize the colors.
 
@@ -638,10 +631,6 @@ Now `git push` works on new branches without needing `-u origin branch-name`.
 
 ## Credential Management
 
-
-{% include ads/in-article.html %}
-
-
 Store your credentials so you do not have to type passwords repeatedly. A credential helper is also the safest place to keep a personal access token, which most Git hosts now require instead of a password. For teams, a dedicated credential manager or secrets management tool keeps those tokens out of plaintext files.
 
 ### macOS
@@ -714,8 +703,6 @@ Now every commit is signed automatically. To also sign your tags:
 ```bash
 git config --global tag.gpgsign true
 ```
-
-{% include ads/in-article.html %}
 
 ### Sign with a GPG Key
 
@@ -808,6 +795,8 @@ git config --global fetch.parallel 0
 
 Setting to `0` uses one worker per CPU core.
 
+{% include ads/in-article.html %}
+
 ## Useful Miscellaneous Settings
 
 ### Auto Correct
@@ -845,8 +834,6 @@ git config --global merge.conflictstyle diff3
 ```
 
 This shows the common ancestor in addition to both sides, making conflicts easier to understand.
-
-{% include ads/display.html %}
 
 ### Reuse Recorded Resolution (rerere)
 

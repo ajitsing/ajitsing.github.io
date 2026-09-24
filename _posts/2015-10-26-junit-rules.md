@@ -94,8 +94,6 @@ flowchart TD
     class T test
 ```
 
-{% include ads/in-article.html %}
-
 That wrapping is why a Rule can enforce a timeout on the whole method, including `setUp`, or wipe a database even if `setUp` in the test class does something else.
 
 `MethodRule` is the older interface. `TestRule` replaced it in JUnit 4.9. New rules should implement `TestRule`.
@@ -358,8 +356,6 @@ flowchart TD
     class E neu
     class S simple
 ```
-
-{% include ads/in-article.html %}
 
 Spring Boot tests follow the same split. Older suites use Spring's JUnit 4 `SpringClassRule` and `SpringMethodRule`. Current Spring Boot tests use `@ExtendWith(SpringExtension.class)` or `@SpringBootTest`, which registers that extension for you. Mockito's `@ExtendWith(MockitoExtension.class)` replaced `MockitoJUnit.rule()`.
 

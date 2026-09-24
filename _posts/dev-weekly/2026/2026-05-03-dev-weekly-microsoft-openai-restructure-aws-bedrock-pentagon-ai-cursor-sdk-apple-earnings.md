@@ -51,8 +51,6 @@ This is the end of the closed loop that defined Big Tech AI from late 2022 throu
 
 On April 28, AWS announced that [OpenAI frontier models, the Codex coding agent, and Amazon Bedrock Managed Agents](https://www.aboutamazon.com/news/aws/bedrock-openai-models){:target="_blank"} are now available on Amazon Bedrock in limited preview.
 
-{% include ads/display.html %}
-
 **What is in the box:**
 
 GPT-5.5 and the rest of the OpenAI frontier family run through the same Bedrock APIs you already use for Claude, Llama, and Nova. Codex is available through Bedrock via the CLI, desktop app, and VS Code extension. Amazon Bedrock Managed Agents are powered by OpenAI and ship with individual identities, full action logging, and inference that stays inside your AWS account.
@@ -109,11 +107,9 @@ Opus 4.7 promotional pricing on GitHub Copilot also ended on April 30. The premi
 
 ---
 
-## <i class="fas fa-code"></i> Developer Tools & Platforms
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### Cursor Ships TypeScript SDK in Public Beta - [<i class="fas fa-external-link-alt"></i>](https://www.marktechpost.com/2026/04/29/cursor-introduces-a-typescript-sdk-for-building-programmatic-coding-agents-with-sandboxed-cloud-vms-subagents-hooks-and-token-based-pricing/){:target="_blank"}
 
@@ -166,10 +162,6 @@ Keeper Security launched Agent Kit on May 1 to handle secrets for coding agents.
 ---
 
 ## <i class="fas fa-shield-alt"></i> Security
-
-
-{% include ads/display.html %}
-
 
 ### Linux Kernel Copy Fail (CVE-2026-31431) Hits Every Distro Since 2017 - [<i class="fas fa-external-link-alt"></i>](https://www.helpnetsecurity.com/2026/04/30/copyfail-linux-lpe-vulnerability-cve-2026-31431/){:target="_blank"}
 
@@ -233,9 +225,9 @@ Actively raised $45 million Series B on April 28 (TCV and First Harmonic co led,
 - **9.8** CVSS for cPanel CVE-2026-41940 exploited since February
 - **572K** Weekly downloads of the compromised SAP npm packages
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-calendar-alt"></i> Quick Hits
 

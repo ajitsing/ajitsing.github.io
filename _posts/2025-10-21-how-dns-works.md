@@ -112,10 +112,6 @@ graph TD
     Example --> API[api.example.com]
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Root servers** are the foundation. There are 13 of them, labeled A through M. Actually, there are hundreds of physical servers, but they share 13 IP addresses using anycast routing. When you query `a.root-servers.net`, you hit the closest one geographically.
 
 **TLD servers** manage top-level domains. VeriSign runs the `.com` and `.net` servers. PIR runs `.org`. Each country runs its own (like `.uk` or `.in`).
@@ -251,11 +247,9 @@ The DNS part is done. The rest is standard HTTPS.
 
 ---
 
+{% include ads/in-article.html %}
+
 ## DNS Record Types
-
-
-{% include ads/display.html %}
-
 
 DNS isn't just IP addresses. It stores different types of records for different purposes.
 
@@ -444,9 +438,9 @@ time dig example.com
 curl https://www.dnsperf.com/
 ```
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## Tools Every Developer Should Know
 
@@ -599,4 +593,3 @@ If you are interested in how DNS fits into large-scale infrastructure, see how [
 ---
 
 **Have questions about DNS? Drop them in the comments.**
-

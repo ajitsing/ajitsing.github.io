@@ -134,8 +134,6 @@ A decent GPU costs $500-1500 once. After that, running local models is free.
 | Claude API (heavy usage) | $800-2500 | $9,600-30,000 |
 | Local LLM | $0* | $0* |
 
-{% include ads/in-article.html %}
-
 *After initial hardware investment
 
 ### <i class="fas fa-wifi-slash"></i> Offline Access
@@ -190,7 +188,6 @@ Before diving in, here are a few terms you will see throughout this guide:
 | **Inference** | Running a model to get output. When you ask a question and get an answer, that is inference. |
 | **Hugging Face** | The "GitHub for AI models." A platform where researchers and companies publish models, datasets, and demos. When you download a local LLM, you are usually getting it from Hugging Face. |
 
-
 ## Hardware Requirements
 
 Let us be realistic about what hardware you need.
@@ -219,8 +216,6 @@ In plain English: a 7 billion parameter model, compressed to 4 bits per weight, 
 | 13-14B | Q4_K_M | 8-10 GB | 10-12 GB | Llama 2 13B, Qwen2.5-14B |
 | 32-34B | Q4_K_M | 18-22 GB | 20-24 GB | DeepSeek 33B, Qwen2.5-32B |
 | 70-72B | Q4_K_M | 35-42 GB | 40-48 GB | Llama 3.1 70B, Qwen2.5-72B |
-
-{% include ads/display.html %}
 
 ### CPU vs GPU
 
@@ -252,8 +247,6 @@ For reference, 20+ tokens per second feels responsive in a chat. Below 10 tokens
 - Mac Studio M2 Ultra with 64GB+ RAM
 - Or PC with RTX 4090 (24GB VRAM)
 - Can run 70B models
-
-{% include ads/display.html %}
 
 ## Method 1: Ollama (Easiest)
 
@@ -493,7 +486,6 @@ Quantization is how we fit large models on consumer hardware. It reduces the pre
 | Q3_K_M | 3 | 5.3x | Significant | When RAM is very limited |
 | Q2_K | 2 | 8x | Large | Experimental |
 
-
 ### My Recommendation
 
 **Q4_K_M** is the sweet spot for most users. It provides:
@@ -525,6 +517,8 @@ flowchart TD
     style Large fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style XLarge fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 ## Choosing the Right Model
 
@@ -562,6 +556,8 @@ quadrantChart
     Qwen2.5-72B: [0.9, 0.93]
 ```
 
+{% include ads/in-article.html %}
+
 ### Quick Recommendations
 
 **Just getting started?** Use `ollama run llama3.3`
@@ -575,9 +571,6 @@ quadrantChart
 ## Practical Use Cases
 
 Here are real ways developers use local LLMs.
-
-
-{% include ads/display.html %}
 
 ### Use Case 1: Local Coding Assistant
 
@@ -694,7 +687,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     git commit -m "$MESSAGE"
 fi
 ```
-
 
 ### Use Case 4: API Server for Team Use
 

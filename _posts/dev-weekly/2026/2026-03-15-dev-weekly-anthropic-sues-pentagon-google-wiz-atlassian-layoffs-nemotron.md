@@ -111,11 +111,9 @@ The bottleneck in modern development is shifting from writing code to reviewing 
 
 ---
 
-## <i class="fas fa-code"></i> Developer Tools & Platforms
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### Nvidia Releases Nemotron 3 Super: 120B Open Model for Agentic AI - [<i class="fas fa-external-link-alt"></i>](https://blogs.nvidia.com/blog/nemotron-3-super-agentic-ai)
 
@@ -209,10 +207,6 @@ These updates apply automatically to repositories with secret scanning enabled. 
 
 ## <i class="fas fa-building"></i> Industry News
 
-
-{% include ads/display.html %}
-
-
 ### Atlassian Cuts 1,600 Jobs to Fund AI and Enterprise Sales - [<i class="fas fa-external-link-alt"></i>](https://www.theregister.com/2026/03/11/atlassian_layoffs/)
 
 On March 11, Atlassian announced it's laying off approximately 1,600 employees, about 10% of its global workforce.
@@ -277,11 +271,9 @@ Adobe also expanded Firefly with Generative Fill, Generative Remove, Generative 
 
 ---
 
-## <i class="fas fa-shield-alt"></i> Security
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-shield-alt"></i> Security
 
 ### DryRun Report: 87% of AI-Coded Pull Requests Have Security Vulnerabilities - [<i class="fas fa-external-link-alt"></i>](https://www.helpnetsecurity.com/2026/03/13/claude-code-openai-codex-google-gemini-ai-coding-agent-security/)
 
@@ -350,10 +342,6 @@ Update immediately. If you're running any version of pac4j-jwt below the patched
 ---
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
-
-
-{% include ads/display.html %}
-
 
 - **$32 billion** — Price Google paid for Wiz, Google's largest acquisition ever
 - **$1 billion** — Wiz's annual recurring revenue that made Google come back with a higher offer

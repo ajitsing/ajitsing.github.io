@@ -142,10 +142,6 @@ public class Folder implements FileSystemNode {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -319,6 +315,8 @@ sequenceDiagram
     Note over Client,File2: Recursive traversal
 ```
 
+{% include ads/in-article.html %}
+
 ## Organization Hierarchy Example
 
 ```java
@@ -399,10 +397,6 @@ ceo.addSubordinate(marketing);
 ceo.printHierarchy("");
 System.out.println("Total salary cost: $" + ceo.getSalary());
 ```
-
-
-{% include ads/display.html %}
-
 
 ## Common Mistakes
 
@@ -515,4 +509,3 @@ The pattern trades type safety for flexibility. Clients don't know if they're ha
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 9
 - [Recursive Data Structures](https://en.wikipedia.org/wiki/Recursive_data_type) on Wikipedia
-

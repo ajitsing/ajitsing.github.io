@@ -120,10 +120,6 @@ graph TB
     style H7 fill:#c8e6c9
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ## Chapter 2: The Real-Time Location Pipeline
 
 Every Uber driver's phone sends a GPS ping every 4-6 seconds. That's millions of location updates per minute flowing into Uber's system. But raw GPS is noisy and unreliable.
@@ -198,10 +194,6 @@ Making offers to drivers is where things get really interesting. Uber can't affo
 
 ## Chapter 6: Scale - The 1 Million RPS Story
 
-
-{% include ads/display.html %}
-
-
 Let's talk numbers. Uber handles 1M+ matching requests per second. That's:
 - 86 billion requests per day
 - Each request touching 10-50 H3 cells
@@ -242,6 +234,8 @@ flowchart LR
     style R1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
     style R2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 **Memory-First Architecture**: The entire "which drivers are in which cells" mapping lives in RAM across thousands of servers. They use Redis for shared state, but most reads happen from local memory.
 

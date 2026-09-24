@@ -362,8 +362,6 @@ This section is the one worth reading twice, because the failure mode of serverl
 
 **Very chatty internal services.** Function-to-function synchronous calls multiply cold starts, multiply cost, and multiply failure modes. If two functions always call each other, they probably want to be one function, or one service.
 
-{% include ads/in-article.html %}
-
 Most real systems land on both sides of this tree, and that is fine. A container fleet for the steady core, functions for the bursty edges and the glue. Treating it as an either-or decision for the entire architecture is the mistake.
 
 ## <i class="fas fa-search"></i> Observability and Debugging

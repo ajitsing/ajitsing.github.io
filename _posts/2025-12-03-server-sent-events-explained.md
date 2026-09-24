@@ -118,8 +118,6 @@ app.listen(3000);
 
 That's it. 25 lines for a working real-time server.
 
-{% include ads/in-article.html %}
-
 ### Client Side (JavaScript)
 
 ```javascript
@@ -168,7 +166,6 @@ data: {"message": "Market closing in 5 minutes"}
 | `id` | Event ID. Browser sends this as `Last-Event-ID` header on reconnect |
 | `retry` | Milliseconds before browser retries after disconnect |
 
-
 ### Handling Different Event Types
 
 ```javascript
@@ -194,6 +191,8 @@ eventSource.addEventListener('heartbeat', (event) => {
     // Just keeping the connection alive
 });
 ```
+
+{% include ads/in-article.html %}
 
 ## Automatic Reconnection: The Killer Feature
 
@@ -301,10 +300,6 @@ Here's when to use each:
 | HTTP/2 multiplexing | Yes | No | Yes |
 | Browser support | All modern (no IE) | All modern | Universal |
 | Proxy/firewall friendly | Yes | Sometimes blocked | Yes |
-
-
-{% include ads/in-article.html %}
-
 
 **Choose SSE when:**
 - Server pushes data, client just listens
@@ -532,6 +527,8 @@ function publishEvent(type, data) {
 }
 ```
 
+{% include ads/in-article.html %}
+
 ## Common Pitfalls and Solutions
 
 ### Pitfall 1: Proxy Buffering
@@ -550,10 +547,6 @@ location /events {
     chunked_transfer_encoding off;
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 ### Pitfall 2: Connection Limits
 
@@ -693,4 +686,3 @@ Sometimes the right tool is the one that's been there all along.
 *Building real-time systems? Check out [Long Polling Explained](/long-polling-explained/) for the fallback option, [How Google Docs Works](/how-google-docs-works/) for collaborative editing at scale, and [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/) to see how financial systems push millions of updates per second.*
 
 *References: [MDN EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource), [HTML Living Standard](https://html.spec.whatwg.org/multipage/server-sent-events.html), [Can I Use SSE](https://caniuse.com/eventsource)*
-

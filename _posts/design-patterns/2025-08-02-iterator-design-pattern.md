@@ -141,10 +141,6 @@ public class DepthFirstIterator<T> implements Iterator<T> {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -325,10 +321,6 @@ for (Song song : playlist) {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 ## How It Works
 
 ```mermaid
@@ -351,6 +343,8 @@ sequenceDiagram
     Client->>Iterator: hasNext()
     Iterator-->>Client: false
 ```
+
+{% include ads/in-article.html %}
 
 ## Common Mistakes
 
@@ -442,4 +436,3 @@ The pattern hides complexity. Clients don't care if it's an array, linked list, 
 
 - [Java Iterator Documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html)
 - [Effective Java - Item 58: Prefer for-each loops](https://www.oreilly.com/library/view/effective-java/9780134686097/)
-

@@ -174,10 +174,6 @@ public class ValidationMiddleware extends BaseMiddleware {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Building the Chain
 
 ```java
@@ -249,6 +245,8 @@ sequenceDiagram
     Logging-->>Client: true
     Client->>Handler: Execute handler
 ```
+
+{% include ads/in-article.html %}
 
 ## Support Ticket Escalation Example
 
@@ -342,10 +340,6 @@ support.handleTicket(new SupportTicket("T3", "Database down", 5));
 //         Level 2 escalating to Level 3
 //         Level 3 handling: Database down
 ```
-
-
-{% include ads/display.html %}
-
 
 ## Event Handler Chain
 
@@ -472,4 +466,3 @@ The pattern trades guaranteed handling for flexibility. Add a catch-all handler 
 
 - [Java Servlet Filter Chain](https://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html)
 - [Express.js Middleware Guide](https://expressjs.com/en/guide/using-middleware.html)
-

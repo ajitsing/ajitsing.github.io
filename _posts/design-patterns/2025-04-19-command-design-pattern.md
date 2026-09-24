@@ -139,10 +139,6 @@ public class DeleteTextCommand implements Command {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Command History Manager
 
 ```java
@@ -378,10 +374,6 @@ try {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 ## How It Works
 
 ```mermaid
@@ -408,6 +400,8 @@ sequenceDiagram
     Command->>Receiver: insertText("Hello", 0)
     Invoker->>Invoker: push to undoStack
 ```
+
+{% include ads/in-article.html %}
 
 ## Common Mistakes
 
@@ -535,4 +529,3 @@ The pattern shines in GUIs, job schedulers, and anywhere you need to track, queu
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 6
 - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) - Related pattern by Martin Fowler
-

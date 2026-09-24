@@ -140,10 +140,6 @@ graph TB
     style WT fill:#4caf50
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Three Ways to Send Data
 
 WebTransport gives you three distinct communication patterns:
@@ -279,6 +275,8 @@ graph TB
     style S4 fill:#fff3e0
 ```
 
+{% include ads/in-article.html %}
+
 **Key insight**: A lost packet on Stream 2 (file upload) doesn't affect Stream 1 (chat), Stream 3 (game state), or Stream 4 (positions). Each stream is isolated.
 
 ### Step 3: Handling Packet Loss
@@ -343,10 +341,6 @@ if (supportsWebTransport()) {
 - Python: Via `aioquic` library
 
 ## WebTransport vs WebSocket: The Breakdown
-
-
-{% include ads/display.html %}
-
 
 Let's compare them side by side:
 
@@ -542,7 +536,6 @@ Chrome DevTools has excellent support:
 3. See connection details, streams, and datagrams
 4. Monitor bandwidth and latency
 
-
 ## The Bottom Line
 
 WebTransport fixes what's broken in WebSockets: head-of-line blocking, no stream isolation, and no reliability choices. Built on HTTP/3 and QUIC, it delivers lower latency and better congestion control.
@@ -554,4 +547,3 @@ For applications demanding low latency and high throughput, WebTransport is the 
 *Interested in more web protocols and networking? Check out our posts on [How DNS Works](/how-dns-works-complete-guide/) and [WebSockets Explained](/explainer/websockets-explained/).*
 
 *Building real-time systems at scale? Read [How Slack Handles 10+ Billion Messages](/slack-system-design/) and [How Cloudflare Supports 55M Requests Per Second](/how-cloudflare-supports-55-million-requests-per-second/).*
-

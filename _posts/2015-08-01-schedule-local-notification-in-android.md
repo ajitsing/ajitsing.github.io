@@ -55,7 +55,6 @@ import android.os.Bundle;
 
 import java.util.Calendar;
 
-
 public class MainActivity extends Activity {
 
     @Override
@@ -85,6 +84,8 @@ In the above code we are creating a notification intent with action `android.me
 ### AlarmManager
 
 AlarmManager is created using the `ALARM_SERVICE`. It takes a [PendingIntent](https://github.com/ajitsing/AlarmManagerAndReceiver){:target="_blank"} and time as  parameters. And it launches that intent when the time is over. In our case the time when the intent will be broadcasted is 15 seconds.
+
+{% include ads/in-article.html %}
 
 ```java
 import android.app.Notification;
@@ -120,10 +121,6 @@ public class AlarmReceiver extends BroadcastReceiver{
     }
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 In the above code main components are
 
@@ -180,5 +177,3 @@ Well its the AndroidManifest.xml which does the magic. We define all the broadca
 ```
 
 As you can see in the above file I have defined a receiver whose name is .AlarmReceiver which points to java class AlarmReceiver. And it has the action to which it listens to and a category. The intent-filter helps the receiver to filter those broadcast which it suppose to listen.
-
-

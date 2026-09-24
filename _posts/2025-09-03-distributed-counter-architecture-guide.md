@@ -195,10 +195,6 @@ likesCounter.increment();  // Fast write
 long totalLikes = likesCounter.getCount();  // Slightly slower read
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Pros and Cons
 
 **Pros:**
@@ -217,6 +213,8 @@ Perfect for:
 - Social media likes/views
 - Website analytics
 - Non-critical metrics
+
+{% include ads/in-article.html %}
 
 ## Architecture Pattern #2: Local Aggregation with Batch Updates
 
@@ -484,10 +482,6 @@ counter1.merge(counter2);
 System.out.println(counter1.value());  // 8
 ```
 
-
-{% include ads/display.html %}
-
-
 ### PN-Counter (Positive-Negative Counter)
 
 For counters that can decrement:
@@ -534,6 +528,8 @@ public class PNCounter {
     }
 }
 ```
+
+{% include ads/in-article.html %}
 
 ## Performance Comparison
 
@@ -674,10 +670,6 @@ Let's look at how these patterns perform under different loads:
 </div>
 
 ## Handling Edge Cases
-
-
-{% include ads/in-article.html %}
-
 
 ### The Thundering Herd Problem
 

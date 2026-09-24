@@ -116,8 +116,6 @@ flowchart LR
 
 Let me explain what each component does.
 
-{% include ads/in-article.html %}
-
 ### <i class="fas fa-door-open"></i> 1. Submitter: The Gatekeeper
 
 The Submitter is the entry point for all function calls. Its main job is protecting the system from overload.
@@ -132,7 +130,6 @@ Now the Submitter enforces quotas at the front door:
 | Default quotas | Every team gets baseline capacity without asking |
 | Quota negotiation | Teams can request more capacity through a formal process |
 | Admission control | Rejects requests early when system is overloaded |
-
 
 This is the first lesson for your own systems: **add quota enforcement at your entry points**. It is much cheaper to reject a request immediately than to let it consume resources before failing.
 
@@ -202,6 +199,8 @@ flowchart LR
     style XFaaS fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 How do they achieve this? The details are not fully public, but the paper hints at:
 
 - Pre-loading commonly used function code
@@ -246,10 +245,6 @@ flowchart TB
     style F2 fill:#fff8e1,stroke:#f9a825,stroke-width:2px
     style F3 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
 ```
-
-
-{% include ads/display.html %}
-
 
 This simple idea has massive impact. Instead of provisioning for peak load, Meta provisions for average load and shifts work to fill the valleys.
 
@@ -384,9 +379,7 @@ flowchart LR
     style Action fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
 ```
 
-
 {% include ads/in-article.html %}
-
 
 **Developer lesson**: Track your traffic patterns. Even if your system cannot automatically adapt, knowing when spikes occur lets you prepare. Schedule maintenance during low periods. Pre-warm caches before high-traffic events.
 

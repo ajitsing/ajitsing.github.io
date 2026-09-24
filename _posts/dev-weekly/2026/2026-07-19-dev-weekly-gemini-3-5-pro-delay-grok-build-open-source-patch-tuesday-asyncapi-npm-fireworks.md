@@ -46,8 +46,6 @@ On July 15, [SpaceXAI open-sourced Grok Build](https://x.ai/news/grok-build-open
 
 The timing was not a coincidence. As [Simon Willison documented](https://simonwillison.net/2026/Jul/15/grok-build/){:target="_blank"}, developers discovered a day earlier that the `grok` CLI would upload an entire working directory to xAI cloud buckets as a Git bundle; one user reported it shipped their SSH keys, password manager database, and personal files after a run in their home directory. SpaceXAI disabled default retention on July 12, promised to delete previously retained coding data, and reset usage limits alongside the open-source release. As [The New Stack noted](https://thenewstack.io/musk-spacexai-grok-open-source/){:target="_blank"}, Elon Musk pitched the move as an attack on Claude Code and Codex, and Bloomberg reported that Anthropic alone pays SpaceXAI about $1.25 billion a month for compute, which helps explain how xAI can afford to give the harness away.
 
-{% include ads/in-article.html %}
-
 ### Microsoft Patch Tuesday Sets a Record With 570 Flaws and 3 Zero-Days - [<i class="fas fa-external-link-alt"></i>](https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/){:target="_blank"}
 
 On July 14, [Microsoft's July Patch Tuesday fixed a record 570 vulnerabilities](https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/){:target="_blank"}, the largest single release in the program's history, including 59 rated Critical and three zero-days. Two were already under active attack: CVE-2026-56164, a SharePoint Server elevation of privilege flaw reported by Google's incident responders and remotely exploitable in low-complexity attacks, and CVE-2026-56155, an Active Directory Federation Services elevation of privilege flaw caught by Microsoft's own responders. The third, CVE-2026-50661, is a publicly disclosed BitLocker security feature bypass. CISA added both exploited flaws to its Known Exploited Vulnerabilities catalog the same day.
@@ -59,8 +57,6 @@ As [Help Net Security reported](https://www.helpnetsecurity.com/2026/07/15/micro
 On July 14, [Microsoft Threat Intelligence and others detailed a coordinated compromise of the @asyncapi npm organization](https://www.microsoft.com/en-us/security/blog/2026/07/15/unpacking-asyncapi-npm-supply-chain-compromise-import-time-payload-delivery/){:target="_blank"}. Five versions across four packages were republished with the same malicious loader: @asyncapi/specs (6.11.2 and 6.11.2-alpha.1), @asyncapi/generator@3.3.1, @asyncapi/generator-helpers@1.1.1, and @asyncapi/generator-components@0.7.1. Because @asyncapi/specs is a transitive dependency of much of the AsyncAPI tooling, the exposure reached workstations, CI pipelines, and container builds. The dangerous twist is that the payload runs at module-load time, when the package is imported, so the usual `npm install --ignore-scripts` mitigation does nothing. The loader then pulls an encrypted second stage from IPFS and drops the Miasma remote access trojan with command and control, persistence, and fallback channels.
 
 As [Socket's research team explained](https://socket.dev/blog/asyncapi-supply-chain-attack){:target="_blank"}, the attacker never stole an npm token. They exploited a `pull_request_target` workflow that executed untrusted pull request code with access to repository secrets, opened 37 pull requests as camouflage, harvested a privileged bot token, then pushed to protected branches and let each project's real release pipeline publish through npm's OIDC trusted publisher. The result: malicious packages carrying valid SLSA provenance, on libraries with roughly 2.9 million weekly downloads. A fix for that exact workflow footgun had been sitting in an unmerged pull request for nearly two months. Remove the bad versions, pin the last safe releases, and rotate credentials on anything that imported them during the window.
-
-{% include ads/display.html %}
 
 ### Fireworks AI Raises $1.5B at a $17.5B Valuation - [<i class="fas fa-external-link-alt"></i>](https://www.cnbc.com/2026/07/16/fireworks-nvidia-cloud-ai-startup-value.html){:target="_blank"}
 
@@ -82,6 +78,8 @@ The post is less a victory lap than a playbook. Anthropic lays out a six-step pr
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### Vercel Launches a Monthly Next.js Security Release Program - [<i class="fas fa-external-link-alt"></i>](https://cyberpress.org/next-js-launches-monthly-security-release-program/){:target="_blank"}
@@ -91,8 +89,6 @@ On July 16, [Vercel announced a formal monthly security release program for Next
 ### Claude Code Defaults Auto Mode as Fable 5 Subscription Access Ends - [<i class="fas fa-external-link-alt"></i>](https://www.joinnextdev.com/blog/ai-tools-weekly-claude-code-auto-mode-ships-2-more-updates){:target="_blank"}
 
 Anthropic kept up its rapid Claude Code cadence, [shipping v2.1.208 through v2.1.210 on July 14](https://www.joinnextdev.com/blog/ai-tools-weekly-claude-code-auto-mode-ships-2-more-updates){:target="_blank"} after making Auto Mode the default on Amazon Bedrock, Google Vertex AI, and Foundry, disableable via `disableAutoMode`. The week's releases added a screen reader mode, roughly 7x lower per-tool-call CPU and far smaller transcripts in edit-heavy sessions, and security hardening that stops the `ultracode` opt-in from firing on non-human input like webhooks and PR comments and toughens the agent tool against prompt injection. The calendar was the other story: Claude Fable 5's included subscription access, extended twice, ended July 19 and moves to usage credits, capping a month of billing whiplash for Pro and Max users.
-
-{% include ads/in-article.html %}
 
 ### Alibaba's T-Head Open-Sources SAIL to Challenge CUDA - [<i class="fas fa-external-link-alt"></i>](https://thenextweb.com/news/alibaba-t-head-sail-open-source-nvidia-cuda-alternative){:target="_blank"}
 
@@ -128,9 +124,9 @@ On July 14, [Chai Discovery raised $400 million](https://www.refolk.ai/blog/redi
 *   **Redis:** On July 13, [Redis laid off about 80 of its 300 Tel Aviv R&D engineers](https://www.refolk.ai/blog/redis-tel-aviv-layoffs-agent-memory-engineers){:target="_blank"}, roughly 27 percent of the local workforce, even after crossing $300 million in ARR and signing a new ten-year lease. The company framed it as a strategic reshuffle, and the freed engineers, skilled in retrieval, vector, and agent memory, landed in a week of large AI infrastructure raises.
 *   **Polygon Labs:** On July 16, [Polygon Labs announced its second layoff round of 2026](https://www.htx.com/news/Regulation-RmFGozRh/){:target="_blank"} as it finalizes its Coinme acquisition and pivots into a "blockchain-enabled payments company." CEO Marc Boiron called the cuts difficult but necessary, part of a broader restructuring as the firm targets profitability in 2027.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

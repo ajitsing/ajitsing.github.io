@@ -90,8 +90,6 @@ Django ships with SQLite out of the box. When you need real concurrency or are r
 - [Avoiding N+1 Queries](#avoiding-n1-queries)
 - [Wrapping Up](#wrapping-up)
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-tools"></i> What You Need {#what-you-need}
 
 You need Python 3.10+, [uv](https://docs.astral.sh/uv/){:target="_blank" rel="noopener"} (install with `curl -LsSf https://astral.sh/uv/install.sh | sh`), and PostgreSQL installed and running.
@@ -174,6 +172,8 @@ myapp/
 ```
 
 Django loads settings from the module in `DJANGO_SETTINGS_MODULE`. When you run `uv run python manage.py runserver`, that defaults to `config.settings`. The file you edit is `config/settings.py`.
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-database"></i> Step 2: Create the PostgreSQL Database and User {#step-2-create-the-postgresql-database-and-user}
 
@@ -288,9 +288,6 @@ DATABASES = {
     }
 }
 ```
-
-{% include ads/in-article.html %}
-
 
 **Option reference (all passed via OPTIONS):**
 
@@ -468,6 +465,8 @@ uv run python manage.py migrate
 ```
 
 Django generates SQL and applies it to PostgreSQL. To see the SQL for a migration: `uv run python manage.py sqlmigrate items 0001`. Then open `dbshell` and run `\dt` again; you will see `items_item`. Your Django + Postgres setup is now creating tables from models. For production deployments, run migrations as part of your release process; for large tables, prefer additive migrations (nullable columns, backfill, then add constraints). The [OpenAI PostgreSQL scaling post](/how-openai-scales-postgresql/){:target="_blank" rel="noopener"} has more on migrations at scale.
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-server"></i> Production Configuration {#production-configuration}
 

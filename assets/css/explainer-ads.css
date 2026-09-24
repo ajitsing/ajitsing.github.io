@@ -74,12 +74,21 @@
 .explainer-above-rss-ad {
   margin: 40px 0;
   text-align: center;
+  min-height: 320px;
   contain: layout;
 }
 
 .explainer-above-rss-ad .adsbygoogle {
   width: 100%;
   display: block;
+  min-height: 280px;
+}
+
+@media (max-width: 768px) {
+  .explainer-above-rss-ad {
+    margin: 28px 0;
+    min-height: 280px;
+  }
 }
 
 /* Advertisement label styling */

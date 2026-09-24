@@ -186,10 +186,6 @@ def is_rate_limited(user_id: str, limit: int = 100) -> bool:
     return count > limit
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Distributed locks**: `SET key value NX PX timeout` acquires a lock atomically. Used to prevent double-processing in distributed systems where two workers might race on the same job.
 
 **Pub/Sub**: Publish messages to channels and fan out to all subscribers. Works well for real-time notifications, cache invalidation signals, and simple event broadcasting between services.
@@ -207,6 +203,8 @@ def is_rate_limited(user_id: str, limit: int = 100) -> bool:
 **The license**: Redis has had a complicated few years on licensing. In March 2024, Redis dropped its BSD license for SSPL/RSALv2, which triggered the Valkey fork. Then in May 2025, Redis 8 added AGPLv3 as a third option, making it technically open-source again. AGPLv3 is an OSI-approved license, but it is strongly copyleft: if you offer a networked service built on AGPLv3 software, you must publish your source code. For many commercial products, that is a real constraint. If your organization needs a permissive open-source license with no copyleft obligations, Valkey (BSD) remains the cleaner option.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-layer-group" style="color: #15803d;"></i> DragonflyDB
 
@@ -272,10 +270,6 @@ These numbers are drawn from [DragonflyDB's own published benchmarks](https://dr
 | P50 latency | 0.1ms | 0.05ms | 2x better |
 | P99 latency | 0.3ms | 0.15ms | 2x better |
 | P99.9 latency | 1ms | 0.3ms | 3x better |
-
-
-{% include ads/display.html %}
-
 
 Memory efficiency: DragonflyDB uses a custom allocator and compressed data structures, resulting in [2-4x better memory utilization than Redis](https://dragonflydb.io/blog/redis-and-dragonfly-architecture-comparison) for most workloads. On a 64GB machine, you can fit roughly 2-4x as much useful data as you could in Redis.
 
@@ -382,8 +376,6 @@ replica-read-only no       # allow writes on replica nodes
 replicaof 10.0.0.1 6379
 ```
 
-{% include ads/in-article.html %}
-
 ```python
 # Your application code does not change at all
 import redis
@@ -405,6 +397,8 @@ KeyDB is BSD-3-Clause. Fully open-source, no commercial restrictions. You can ru
 - Your team is not ready to validate compatibility with a completely new system like DragonflyDB
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Performance Comparison
 
@@ -443,10 +437,6 @@ One thing to notice across all three: none of these are used in isolation. They 
 ---
 
 ## Common Mistakes
-
-
-{% include ads/display.html %}
-
 
 ### <i class="fas fa-exclamation-triangle"></i> Migrating to DragonflyDB without testing compatibility
 

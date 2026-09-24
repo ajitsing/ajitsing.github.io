@@ -170,11 +170,9 @@ AI infrastructure is now a national priority. The compute wars have gone federal
 
 ---
 
-## <i class="fas fa-code"></i> Language and Framework Releases
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-code"></i> Language and Framework Releases
 
 ### TypeScript 5.9
 
@@ -266,6 +264,8 @@ Google's AI models are now in Photoshop and Premiere. Enterprise customers can t
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-building"></i> Big Tech Moves
 
 ### Amazon Cut 30,000 Jobs
@@ -291,10 +291,6 @@ Anthropic opened a Seoul office, signaling serious expansion into Asia. Claude H
 ---
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Defined 2025
-
-
-{% include ads/display.html %}
-
 
 - **$5 trillion** - Nvidia's market cap (first company ever)
 - **$22.5 billion** - SoftBank's investment in OpenAI
@@ -340,5 +336,3 @@ The pace isn't slowing down. If anything, 2025 was the year we got used to movin
 *That's 2025. A year where AI became normal, valuations went stratospheric, and the way we build software changed forever. Thanks for reading Dev Weekly this year. Here's to 2026.*
 
 *Happy New Year.*
-
-

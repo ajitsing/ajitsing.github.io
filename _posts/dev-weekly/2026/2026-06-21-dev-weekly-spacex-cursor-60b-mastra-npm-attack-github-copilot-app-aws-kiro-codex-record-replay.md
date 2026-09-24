@@ -46,8 +46,6 @@ The supply chain attack of the week hit the Mastra AI ecosystem. In the early ho
 
 On June 19, [Microsoft attributed the campaign with high confidence to Sapphire Sleet](https://www.bleepingcomputer.com/news/security/microsoft-links-mastra-ai-supply-chain-attack-to-north-korean-hackers/){:target="_blank"}, a North Korean state actor also tracked as BlueNoroff, the same group behind the April 2026 Axios npm compromise. Microsoft's [deep dive on the dropper](https://www.microsoft.com/en-us/security/blog/2026/06/17/postinstall-payload-inside-mastra-npm-supply-chain-compromise/){:target="_blank"} describes follow-on activity that planted a PowerShell backdoor, added Microsoft Defender exclusions, and installed a malicious Windows service running with SYSTEM privileges. The lesson is the same one this newsletter keeps repeating: a single stale maintainer account is enough to poison a whole namespace. If you installed any Mastra package after June 16, treat the machine as compromised, rotate every token and key, move crypto funds, and rebuild from clean lockfiles.
 
-{% include ads/in-article.html %}
-
 ### GitHub Copilot App Goes Generally Available - [<i class="fas fa-external-link-alt"></i>](https://github.blog/changelog/2026-06-17-github-copilot-app-generally-available/){:target="_blank"}
 
 On June 17, [GitHub made the Copilot app generally available for macOS, Windows, and Linux](https://github.blog/changelog/2026-06-17-github-copilot-app-generally-available/){:target="_blank"}. It is a standalone desktop home for agent-driven development, built to pull coding agents out of the IDE sidebar and into a first-class workspace. You start a session from an issue, a pull request, or a plain prompt, run parallel sessions across repositories with each on its own branch and git worktree, review the diff, validate in the built-in terminal and browser, then open a pull request that respects your team's existing checks and merge rules. As [GitHub explained](https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/){:target="_blank"}, the point is to keep engineers in control instead of letting agents run as opaque background jobs.
@@ -68,9 +66,9 @@ On June 18, [OpenAI shipped Record and Replay in the Codex macOS app](https://de
 
 Also on June 18, [Anthropic added Artifacts to Claude Code](https://venturebeat.com/data/anthropics-claude-code-artifacts-update-brings-live-shared-dashboards-and-interactive-workspaces-to-enterprises){:target="_blank"} for Team and Enterprise plans. The feature turns the work from a Claude Code terminal session into a live, interactive, shareable HTML page, so you can plug in code and data sources and hand a teammate a working dashboard, a system diagram, or a quick app preview through a single secure link. Anthropic is clear about the limits: an artifact is a capture of work, not a backend application, which is a deliberate contrast with the hosted Sites feature OpenAI added to Codex two weeks earlier. The bigger idea here is that the most valuable output of an AI coding assistant is often not the raw code, it is the context and the reasoning made easy to share.
 
-{% include ads/display.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -85,8 +83,6 @@ On June 18, [Node.js released security updates across the 26.x, 24.x, and 22.x l
 ### Google Cloud Launches Cloud Network Insights - [<i class="fas fa-external-link-alt"></i>](https://cloud.google.com/blog/products/networking/cloud-network-insights-end-to-end-cross-cloud-observability){:target="_blank"}
 
 On June 18, [Google Cloud made Cloud Network Insights generally available](https://cloud.google.com/blog/products/networking/cloud-network-insights-end-to-end-cross-cloud-observability){:target="_blank"}, an out-of-the-box service for cross-cloud observability built with Broadcom AppNeta. It answers the question every on-call engineer dreads when an app slows down: is it the network, the application, or something in between? It uses active synthetic probing to watch paths across Google Cloud, AWS, Azure, and on-prem around the clock, even when no live traffic is flowing, and it plugs into Google Cloud Observability and Gemini Cloud Assist so you can interrogate telemetry in plain language. For teams running a multi-cloud setup, this turns hours of finger-pointing into a quick root-cause answer.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -122,9 +118,9 @@ On June 17, [Anthropic became the first pure AI company to join Frontier, the ca
 *   **Bay Area WARN filings:** On June 15, [five Bay Area tech firms filed WARN notices for a combined 370 jobs](https://www.thevideshi.com/articles/bay-area-tech-layoffs-9284-h1b-60-day-grace-warn-20260615){:target="_blank"}, including Ubisoft, Salesforce, Quizlet, Verily, and ServiceNow, pushing the region's 2026 total past all of the first half of 2025.
 *   **Oracle:** June 15 was the final separation date for the bulk of [Oracle's roughly 30,000 job cuts](https://layoffready.co/blog/oracle-layoffs-2026-30000-jobs-final-wave-ai-data-centers){:target="_blank"}, the largest in the company's history, framed as a reallocation toward AI and data center teams rather than a sign of distress.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

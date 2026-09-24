@@ -139,9 +139,7 @@ flowchart LR
     style G fill:#fce4ec,stroke:#c2185b,stroke-width:2px
 ```
 
-
 {% include ads/in-article.html %}
-
 
 **Indexing (offline)**  
 You run this when documents change. Load docs, split into chunks, compute embeddings, write to the vector store. This can be a batch job or a pipeline that runs on upload.
@@ -222,10 +220,6 @@ def retrieve(question: str, collection_name: str = "docs", top_k: int = 5) -> li
     return results["documents"][0]
 ```
 
-
-{% include ads/display.html %}
-
-
 Choosing `top_k` is a trade-off: too few and you miss relevant info; too many and you waste tokens and add noise. Start with 5 and tune using real questions. You can later add reranking or hybrid search (keyword + vector) to improve quality; see the production section below.
 
 ## <i class="fas fa-comment-dots"></i> Step 4: Send Context and Question to the LLM
@@ -295,6 +289,8 @@ Fixed-size chunking gets you started. As you scale, you will care about:
 
 There is no single best setting. Test with real questions and adjust. For more on structuring what you send to the model, see [Context Engineering](/context-engineering/).
 
+{% include ads/in-article.html %}
+
 ## Retrieval Quality and Production Tweaks
 
 - **Same embedding model for docs and queries**  
@@ -313,10 +309,6 @@ There is no single best setting. Test with real questions and adjust. For more o
   Log questions and which chunks were retrieved. Manually check whether the right chunks are in the list. If not, fix chunking or retrieval before adding more features. As you add agents or tools, the same idea applies: see [Building AI Agents](/building-ai-agents/) for tool use and planning.
 
 ## Common Pitfalls
-
-
-{% include ads/in-article.html %}
-
 
 1. **Skipping evaluation**  
   Do not assume “good embeddings” means good answers. Run real questions and inspect retrieved chunks and LLM output.

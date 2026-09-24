@@ -184,10 +184,6 @@ Field names appear once. The more items in your array, the bigger the savings.
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Token count**: ~3,200 tokens  
 **Cost per request**: $0.096
 
@@ -225,6 +221,8 @@ graph TB
     style E fill:#dcfce7,stroke:#16a34a,stroke-width:2px
     style F fill:#dbeafe,stroke:#3b82f6,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 **The strategy**:
 1. Keep using JSON in your app
@@ -373,10 +371,6 @@ Deep nesting doesn't benefit much from TOON. Stick with JSON.
   { "type": "error", "code": 500, "trace": "..." }
 ]
 ```
-
-
-{% include ads/display.html %}
-
 
 When array items have different fields, TOON's tabular format doesn't work.
 

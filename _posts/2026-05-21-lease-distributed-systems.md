@@ -139,10 +139,6 @@ stateDiagram-v2
     Free --> [*]
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Acquire
 
 A node calls something like `acquire(resource_id, ttl)`. The lease service writes a record saying "node N holds resource R until time T", where T is now plus TTL. If another node already holds the lease, the call fails. If the lease has expired or was released, the call succeeds. In etcd this is a `Grant` followed by a `Put` with the lease id attached. In ZooKeeper it is the creation of an [ephemeral node](https://zookeeper.apache.org/doc/r3.9.0/zookeeperProgrammers.html#Ephemeral+Nodes){:target="_blank" rel="noopener"} on a session. In Kubernetes it is a `Create` on a `Lease` object.
@@ -188,6 +184,8 @@ sequenceDiagram
     Note over DB: Corrupted<br/>v1 overwrote v2
     end
 ```
+
+{% include ads/in-article.html %}
 
 Both clients believe they hold the lock at the same time. The lock service is correct. The clients are correct from their local point of view. But the database now has the wrong value.
 
@@ -361,10 +359,6 @@ A few rules of thumb that hold up in production.
 
 The lease pattern is everywhere once you start looking. Here are the big ones.
 
-
-{% include ads/display.html %}
-
-
 ### Google Chubby
 
 [Chubby](https://research.google/pubs/the-chubby-lock-service-for-loosely-coupled-distributed-systems/){:target="_blank" rel="noopener"}, the lock service Google built in 2006, is the spiritual ancestor of ZooKeeper and etcd. It is a Paxos backed key value store whose primary product is the lease. Clients open a session, and the session has a lease. As long as the client keeps the session alive with heartbeats, the lease holds. Locks in Chubby are just files in the Chubby namespace with a holder identity attached to the session lease. When the session dies, the locks die with it. This is the same shape every lease implementation since has followed.
@@ -429,10 +423,6 @@ The original lease. [DHCP](https://datatracker.ietf.org/doc/html/rfc2131){:targe
 
 Different problems call for different tools. Pick the lightest one that solves your case.
 
-
-{% include ads/in-article.html %}
-
-
 ```mermaid
 graph TD
     PROB["<b>What kind of coordination do you need?</b>"]
@@ -453,6 +443,8 @@ graph TD
     style RL fill:#fff3e0,stroke:#f57c00
     style HB fill:#fff3e0,stroke:#f57c00
 ```
+
+{% include ads/in-article.html %}
 
 A side by side comparison.
 
@@ -552,10 +544,6 @@ func doLeaderWork(ctx context.Context, session *concurrency.Session) error {
 The critical line is `case <-session.Done()`. If the lease behind the session expires for any reason, the channel fires and your code knows it is no longer the leader. Every write you do should also include a fencing check against the lease revision so that a paused leader cannot wake up and write stale data. The etcd docs cover the [lock tutorial and concurrency primitives](https://etcd.io/docs/v3.5/tutorials/how-to-create-locks/){:target="_blank" rel="noopener"} in more detail.
 
 ## Key Takeaways for Developers
-
-
-{% include ads/in-article.html %}
-
 
 1. **Default to leases, not locks.** Any distributed system that survives real failures uses time-bound leases. Plain locks are an attractive nuisance.
 

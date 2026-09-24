@@ -201,6 +201,8 @@ When you sign up for Shopify, you get assigned to a pod. Your store lives there 
 
 Their solution: Cross-pod queries are read-only and eventually consistent. The analytics service maintains its own denormalized copy of data from all pods. It might be a few seconds stale, but that's acceptable for dashboards.
 
+{% include ads/in-article.html %}
+
 ## The Black Friday Challenge
 
 Let's talk numbers. Black Friday Cyber Monday (BFCM) is Shopify's Super Bowl.
@@ -356,7 +358,6 @@ graph TB
 
 **VTGate**: Query router that knows which shard has what data
 
-
 **VTTablet**: Sits in front of each MySQL instance, handles connection pooling and query rewriting
 
 Key optimizations:
@@ -396,10 +397,6 @@ GET /admin/orders/123/line_items
 GET /admin/products/456
 GET /admin/products/456/variants
 ```
-
-
-{% include ads/in-article.html %}
-
 
 That's 5 requests to build one admin page. On mobile with spotty connections, that's painful.
 
@@ -615,11 +612,9 @@ They use Sidekiq with Redis as the job queue. During normal operations, jobs pro
 - **Normal**: Analytics updates, search indexing (minutes)
 - **Low**: Report generation, cleanup tasks (hours)
 
+{% include ads/in-article.html %}
+
 ## Monitoring: Know Before Customers Do
-
-
-{% include ads/display.html %}
-
 
 Shopify's monitoring philosophy: **alert on customer impact, not system metrics**.
 
@@ -766,4 +761,3 @@ The result? A platform that handles 5+ million stores, billions in sales, and st
 *Want more system design deep dives? Check out [How Slack Built a System That Handles 10+ Billion Messages](/slack-system-design/) and [How Uber Finds Nearby Drivers at 1 Million Requests per Second](/how-uber-finds-nearby-drivers-1-million-requests-per-second/).*
 
 *References: [Shopify Engineering Blog](https://shopify.engineering/), [InfoQ - Shopify Modular Monolith](https://www.infoq.com/news/2019/07/shopify-modular-monolith/), [Talent500 - Shopify Tech Stack](https://talent500.com/blog/shopify-tech-stack-architecture/)*
-

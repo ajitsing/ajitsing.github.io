@@ -59,8 +59,6 @@ Generate a 128-bit random number. Problem solved, right? Not quite:
 
 The best of both worlds. Unique like UUIDs, but smaller and time-sortable.
 
-{% include ads/in-article.html %}
-
 ## Snowflake ID Structure: The 64-Bit Breakdown
 
 A Snowflake ID packs three pieces of information into 64 bits:
@@ -155,6 +153,8 @@ Discord Snowflake IDs typically range from 17 to 19 digits when displayed as dec
 - A recent Discord ID: `1234567890123456789` (19 digits)
 
 The exact length depends on when the ID was created. Older accounts have shorter IDs.
+
+{% include ads/in-article.html %}
 
 ## Extracting the Timestamp: Decoding Snowflake IDs
 
@@ -297,8 +297,6 @@ System.out.println("User ID: " + userId);    // 7155791234567890124
 - [phxql/snowflake-id](https://github.com/phxql/snowflake-id) - Customizable bit allocation
 - [HMWCS/java-snowflake-id-generator](https://github.com/HMWCS/java-snowflake-id-generator) - Optimized with CAS for high throughput
 
-{% include ads/in-article.html %}
-
 ## Snowflake ID vs UUID: When to Use Which
 
 Here's a direct comparison:
@@ -386,6 +384,8 @@ public synchronized long nextId() {
 - Monitor clock drift across your servers
 - Set up alerts for clock skew > 1 second
 - Consider using a distributed time service like Spanner's TrueTime
+
+{% include ads/in-article.html %}
 
 ## Machine ID Assignment in the Cloud
 

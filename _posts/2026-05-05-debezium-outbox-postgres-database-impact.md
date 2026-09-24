@@ -121,8 +121,6 @@ A quick tour of each piece:
 - **Logical decoding plugin**. Postgres ships with `pgoutput` since version 10. The older `wal2json` exists but you should not reach for it on a new project. We explain why below. The plugin is the code that takes physical WAL records and turns them into logical change events (INSERT, UPDATE, DELETE) that an external consumer can understand.
 - **walsender process**. One backend process per active replication connection from Debezium. It reads the WAL, runs it through the plugin, applies publication and column filters, reorders by transaction commit, and streams the result over the network to the connector.
 
-{% include ads/in-article.html %}
-
 So yes, your DBA is right that Debezium "looks like a replica" to the database. The cost profile is different from a streaming physical replica, but the mental model of "another consumer of the WAL pipeline" is correct. The disagreement is about what that actually costs.
 
 ## Where the Overhead Actually Lands
@@ -382,8 +380,6 @@ If you observe spill files in `pg_replslot/<slot>/` under normal load, raise `lo
 
 Logical decoding cannot ship the events for a transaction until that transaction commits. A transaction that stays open for an hour holds the slot at its starting LSN for that whole hour, which means an hour of WAL is pinned, even if the outbox table never sees a write from that transaction. Long transactions are a sin for many reasons; this is one more. The [Postgres internals: how queries execute](/postgresql-internals-how-queries-execute/){:target="_blank" rel="noopener"} post covers transaction visibility in more depth.
 
-{% include ads/display.html %}
-
 ## Pgoutput vs Wal2json (and Why You Should Care)
 
 Postgres ships with `pgoutput` since version 10. It is also what AWS RDS, GCP Cloud SQL, and Azure Database for PostgreSQL provide out of the box, with no extension installation required. `wal2json` is older, requires a separate extension, and serializes events to JSON text instead of the binary `pgoutput` format.
@@ -459,6 +455,8 @@ flowchart TB
     class B1,B2,B3,B4 dbz
     class C1,C2 k
 ```
+
+{% include ads/in-article.html %}
 
 Concrete alert thresholds that have served real teams well.
 
@@ -563,8 +561,6 @@ Six things to defend in a design review.
 4. **Time-partitioned outbox table** with `DROP PARTITION` cleanup.
 5. **Outbox event router** doing topic routing and key extraction inside Kafka Connect, not in your application.
 6. **Monitoring on slot lag, disk, connector state, and walsender CPU**, with paging thresholds calibrated to the real disk size.
-
-{% include ads/in-article.html %}
 
 ## Practical Lessons for Software Developers
 

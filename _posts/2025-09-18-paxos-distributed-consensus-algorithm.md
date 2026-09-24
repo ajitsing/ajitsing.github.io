@@ -160,10 +160,6 @@ sequenceDiagram
     B-->>NY: Accepted!
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Even though Tokyo was down, the booking still went through because a majority (3 out of 5) agreed.
 
 **What happens when Tokyo comes back online?**
@@ -206,6 +202,8 @@ graph LR
     
     style B fill:#e1f5fe
 ```
+
+{% include ads/in-article.html %}
 
 ## The Paxos Algorithm: Under the Hood
 
@@ -278,10 +276,6 @@ Since the group already committed to considering Bob's newer request (#2), they 
 **The rule is simple**: Once you promise to consider a newer proposal, you can't go back to an older one. This prevents confusion and ensures the group always moves forward with the most recent decision.
 
 ## The Tradeoffs: When Paxos Isn't Perfect
-
-
-{% include ads/display.html %}
-
 
 Paxos is powerful, but it comes with costs:
 
@@ -359,7 +353,6 @@ graph TD
 ## Wrapping Up
 
 Paxos is like democracy for distributed systems. It can be complex and sometimes slow, but it reliably achieves consensus even when networks fail and servers crash. While it's challenging to implement correctly, it's the foundation that keeps many of the world's largest systems running smoothly.
-
 
 *For more distributed systems patterns, check out [Replicated Log](/distributed-systems/replicated-log/), [High Watermark](/distributed-systems/high-watermark/), [Hybrid Logical Clock](/distributed-systems/hybrid-clock/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Lease](/distributed-systems/lease/), [Majority Quorum](/distributed-systems/majority-quorum/), and [Write-Ahead Log](/distributed-systems/write-ahead-log/).*
 

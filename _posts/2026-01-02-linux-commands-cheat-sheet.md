@@ -62,8 +62,6 @@ These commands are your bread and butter. You will use them dozens of times ever
 
 ### Moving Around
 
-{% include ads/display.html %}
-
 ```bash
 # Where am I right now?
 pwd
@@ -169,10 +167,6 @@ tail -f app.log error.log
 less huge-file.log
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The `tail -f` command is essential for debugging. When your application is running and you want to see logs as they appear, this is what you use. Press `Ctrl+C` to stop following.
 
 In `less`, use these keys:
@@ -201,6 +195,8 @@ echo "fresh start" > file.txt
 If you are stuck in vim and do not know how to exit, press `Esc`, then type `:q!` and press `Enter`. This quits without saving. For saving and quitting, use `:wq`.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Searching and Finding
 
@@ -345,8 +341,6 @@ pkill -f "python server.py"
 lsof -ti :8080 | xargs kill
 ```
 
-{% include ads/display.html %}
-
 Always try `kill` before `kill -9`. The regular kill gives the process a chance to clean up (close files, release locks, save state). Force kill terminates immediately and can leave things in a bad state.
 
 ---
@@ -435,8 +429,6 @@ nmap -p 1-1000 localhost
 # Test if a port is open
 nc -zv server.com 443
 ```
-
-{% include ads/display.html %}
 
 ---
 
@@ -558,8 +550,6 @@ awk '{sum += $1} END {print sum}' numbers.txt
 awk '$3 > 100 {print $1, $3}' data.txt
 ```
 
-{% include ads/in-article.html %}
-
 Real world example: analyze Apache access logs to find top IP addresses:
 
 ```bash
@@ -610,6 +600,8 @@ Flags for tar:
 - `z` = use gzip compression
 
 ---
+
+{% include ads/in-article.html %}
 
 ## System Information
 

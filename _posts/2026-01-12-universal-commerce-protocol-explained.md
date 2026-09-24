@@ -123,8 +123,6 @@ flowchart TB
 
 The key insight: AI agents only need to speak UCP. They do not need to know the specifics of each platform.
 
-{% include ads/display.html %}
-
 ## Core Capabilities
 
 UCP defines three core capabilities that every implementation must support.
@@ -165,7 +163,6 @@ sequenceDiagram
     
     Agent->>User: "Order placed. Confirmation #12345"
 ```
-
 
 What the checkout capability handles:
 - Cart creation and management
@@ -333,9 +330,9 @@ flowchart TB
     style DataLayer fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
 ```
 
-### Transport Protocols
+{% include ads/in-article.html %}
 
-{% include ads/display.html %}
+### Transport Protocols
 
 UCP is transport-agnostic. It works over:
 
@@ -359,7 +356,6 @@ Authorization: Bearer <token>
   "currency": "USD"
 }
 ```
-
 
 **Model Context Protocol (MCP)**: For AI systems that already use Anthropic's MCP standard. UCP capabilities become MCP tools.
 
@@ -418,8 +414,6 @@ GET /ucp/v1/profile
 ```
 
 AI agents query this endpoint to discover what your store can do.
-
-{% include ads/in-article.html %}
 
 ### Step 2: Implement Checkout Sessions
 
@@ -615,7 +609,6 @@ def token():
         })
 ```
 
-
 ### Step 4: Implement Order Webhooks
 
 Send updates when order status changes.
@@ -710,6 +703,8 @@ sequenceDiagram
     UCP-->>Agent: Transaction complete
 ```
 
+{% include ads/in-article.html %}
+
 Key security features:
 - **Explicit user consent**: No purchases without confirmation
 - **Biometric authentication**: Fingerprint or face ID for mobile
@@ -738,8 +733,6 @@ def revoke_token(token):
     add_to_revocation_list(token_data['jti'])
     return True
 ```
-
-{% include ads/in-article.html %}
 
 ### Rate Limiting
 
@@ -1051,7 +1044,6 @@ def ucp_complete_purchase(session_id: str, confirm: bool):
         return {"error": "User must confirm purchase"}
     return ucp_client.checkout.complete(session_id)
 ```
-
 
 ## What This Means for Developers
 

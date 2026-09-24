@@ -164,10 +164,6 @@ flowchart TB
     style Ingest fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Automated Inspection
 
 Before processing begins, every file goes through automated inspection. The system checks:
@@ -244,6 +240,8 @@ flowchart TB
     style R3 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 The result: animated content might achieve excellent quality at 2 Mbps while an action movie needs 5 Mbps for the same perceived quality. Multiply this across thousands of titles and millions of viewers. The bandwidth savings are enormous.
 
 **Developer lesson:** One-size-fits-all rarely works at scale. Analyze your workloads and optimize for their specific characteristics. This principle applies to database queries, API rate limits, and caching strategies too. See [Caching Strategies Explained](/caching-strategies-explained/) for examples.
@@ -287,10 +285,6 @@ flowchart TB
     style QAS fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
     style STORE fill:#fff8e1,stroke:#f9a825,stroke-width:2px
 ```
-
-
-{% include ads/display.html %}
-
 
 ### Video Encoding Service (VES)
 
@@ -424,10 +418,6 @@ flowchart TB
     style Storage fill:#fff8e1,stroke:#f9a825,stroke-width:2px
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **How it works:**
 
 1. **New content triggers Lambda** which creates encoding jobs
@@ -526,6 +516,8 @@ flowchart TB
     style Users fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 When you hit play, Netflix's control plane figures out which OCA has the content and is closest to you. The video comes from a server that might be in your ISP's data center, not from a Netflix facility thousands of miles away.
 
 | Benefit | Explanation |
@@ -565,8 +557,6 @@ def encode_video_parallel(video_path, num_workers=100):
     
     return assemble_chunks(encoded_chunks)
 ```
-
-{% include ads/display.html %}
 
 This pattern works for any CPU-intensive batch job. Image processing, data transformation, report generation.
 

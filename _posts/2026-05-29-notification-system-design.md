@@ -89,8 +89,6 @@ A notification system has four promises. Everything else is a feature on top.
 3. **Honor user preferences.** Opt-outs, quiet hours, channel choice, frequency caps.
 4. **Stay up when one provider is down.** Twilio outages should not block push notifications.
 
-{% include ads/display.html %}
-
 That sounds modest, until you add the shape of real traffic. A normal Tuesday afternoon sees a steady stream of transactional events: payment confirmations, order updates, message pings. Then marketing schedules a 10 million row "spring sale" blast at noon. Then a regulatory alert fires for half a million users. Then a third-party webhook tells you 200,000 emails bounced. All in the same minute.
 
 The whole system has to absorb that without [head-of-line blocking](/glossary/head-of-line-blocking/), without losing a single one-time password, and without spending three months of a senior engineer's time every quarter chasing "where did my email go."
@@ -210,8 +208,6 @@ flowchart TB
     class DLQ bad
 ```
 
-{% include ads/in-article.html %}
-
 The whole pipeline has a few jobs. The API takes the producer off the hook and gets out of the way. The queues isolate priorities. The router knows the user. The dispatchers know the provider. The webhook handler knows the truth.
 
 ## The Notification API
@@ -299,6 +295,8 @@ flowchart LR
     class Mkt cool
     class WT,WS,WM worker
 ```
+
+{% include ads/in-article.html %}
 
 Slack's job queue uses this pattern at billion-jobs-per-day scale. Their [JQRelay layer](https://slack.engineering/scaling-slacks-job-queue/){:target="_blank" rel="noopener"} reads from Kafka and feeds Redis with configurable rate limits per job type, which is the same idea expressed in different infrastructure.
 
@@ -623,8 +621,6 @@ The architectures of large notification platforms are remarkably similar in shap
 | **Netflix** | Push notifications for new content go through a fan-out service that resolves audience from a Cassandra-backed segmentation store. |
 
 These are different teams, different scale points, and different histories. The patterns overlap so much because the problem shape forces them. There are only so many ways to send 100 million notifications a day without making 100 million customers angry.
-
-{% include ads/display.html %}
 
 ## Failure Modes and Their Fixes
 

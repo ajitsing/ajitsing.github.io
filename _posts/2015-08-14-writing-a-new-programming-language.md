@@ -56,15 +56,13 @@ A lot of people use tools like yacc, lex to convert code snippet into tokens, b
 
 # Following is the design of my Lexical analyzer
 
-
-{% include ads/in-article.html %}
-
-
 ![Crepe](/assets/img/posts/soft/soft_1.png)
 
 `Scanner` takes a stream of character from the source code and pass each character to the TokenFactory and then TokenFactory passes the char to all the machines([KeywordMachine](https://github.com/ajitsing/soft/blob/master/grammar.txt){:target="_blank"}, `StringMachine` etc.) that it has. Finally scanner asks for a token and the `TokenFactory` checks which machine is in final state and gets a token from that machine.
 
 I am writing this language in ruby because I am not worried about performance or other stuff, I just want to learn things.
+
+{% include ads/in-article.html %}
 
 I did TDD during development so you can take a look at the test cases, And the most useful test here would be [scanner specs](https://github.com/ajitsing/soft/blob/master/spec/scanner_spec.rb){:target="_blank"}. Some of the scanner tests are below.
 
@@ -118,5 +116,3 @@ I also created an interactive shell that takes the code snippet and converts it 
 ![Crepe](/assets/img/posts/soft/soft_2.png)
 
 Thats all folks, I will keep you updated whenever I will start working on it again..
-
-

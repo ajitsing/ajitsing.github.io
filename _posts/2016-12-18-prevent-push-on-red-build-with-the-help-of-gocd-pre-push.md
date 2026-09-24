@@ -58,6 +58,8 @@ gem 'gocd_pre_push'
 
 To create pre-push hook and a template of ```pipelines.yml``` execute the below command in root folder of your git repository.
 
+{% include ads/in-article.html %}
+
 ```bash
 gocd_pre_push create
 ```
@@ -71,10 +73,6 @@ gocd_server = GocdServer.with do |server|
   server.password = 'yourpassword'
 end
 ```
-
-
-{% include ads/in-article.html %}
-
 
 And your pre-push hook is ready. Now you need to tell gocd_pre_push, which pipelines you want to check for this repository. That you can add inside pipelines.yml. For example I want to check for following pipelines and their stages.
 

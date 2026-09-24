@@ -153,7 +153,6 @@ Add more machines to distribute the load.
 | Cost effective (commodity hardware) | Data consistency challenges |
 | No single point of failure | Network overhead |
 
-
 ```mermaid
 flowchart TB
     subgraph Vertical["Vertical Scaling"]
@@ -203,8 +202,6 @@ A load balancer distributes traffic across multiple servers.
 | **IP Hash** | Client IP determines server (sticky sessions) | Stateful applications, session affinity |
 | **Least Response Time** | Fastest responding server gets next request | Performance-critical applications |
 
-{% include ads/in-article.html %}
-
 ### Layer 4 vs Layer 7 Load Balancing
 
 **Layer 4 (Transport Layer)** routes based on IP address and port. Fast but cannot inspect content.
@@ -221,6 +218,8 @@ flowchart LR
     style S2 fill:#1a365d,stroke:#2b6cb0,color:#bee3f8
     style S3 fill:#1a365d,stroke:#2b6cb0,color:#bee3f8
 ```
+
+{% include ads/in-article.html %}
 
 **Layer 7 (Application Layer)** routes based on URL, headers, cookies. Smarter but more processing overhead.
 
@@ -294,10 +293,6 @@ I covered these in depth in [Caching Strategies Explained](/caching-strategies-e
 | **Write-Through** | Writes go to cache and DB synchronously | Consistency critical |
 | **Write-Behind** | Writes go to cache, async to DB later | High write throughput |
 | **Write-Around** | Writes bypass cache, go to DB only | Write-once data |
-
-
-{% include ads/display.html %}
-
 
 ### Cache Eviction Policies
 
@@ -405,8 +400,6 @@ flowchart TB
     style S2 fill:#1a365d,stroke:#2b6cb0,color:#bee3f8
     style S3 fill:#1a365d,stroke:#2b6cb0,color:#bee3f8
 ```
-
-{% include ads/display.html %}
 
 | Sharding Strategy | How It Works | Pros | Cons |
 |-------------------|--------------|------|------|
@@ -565,10 +558,6 @@ flowchart TB
 | **Causal** | Related events appear in order | Chat messages |
 | **Read-your-writes** | You see your own writes immediately | Shopping cart |
 
-
-{% include ads/display.html %}
-
-
 ### Consensus Algorithms
 
 How do distributed nodes agree on a value?
@@ -678,6 +667,8 @@ flowchart LR
     style RM fill:#234e52,stroke:#319795,color:#b2f5ea
 ```
 
+{% include ads/in-article.html %}
+
 Use when read and write patterns are very different. See [CQRS Pattern Guide](/cqrs-pattern-guide/) for details.
 
 ---
@@ -733,10 +724,6 @@ Back-of-envelope calculations help validate designs.
 | Network round trip (same datacenter) | 500 μs |
 | Network round trip (cross-country) | 150 ms |
 | Disk seek | 10 ms |
-
-
-{% include ads/in-article.html %}
-
 
 ### Storage Calculations
 

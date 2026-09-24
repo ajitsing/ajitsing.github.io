@@ -255,10 +255,6 @@ public class CancelledState implements OrderState {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -291,6 +287,8 @@ stateDiagram-v2
     Delivered --> [*]
     Cancelled --> [*]
 ```
+
+{% include ads/in-article.html %}
 
 ## State Machine with Guards
 
@@ -443,10 +441,6 @@ public class RedState implements TrafficLightState {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 This works when states don't hold context-specific data.
 
 ## Common Mistakes
@@ -551,4 +545,3 @@ Remember: State controls its own transitions. The client doesn't pick states, th
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 10
 - [Finite State Machines](https://en.wikipedia.org/wiki/Finite-state_machine) on Wikipedia
-

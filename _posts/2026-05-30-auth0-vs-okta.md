@@ -138,8 +138,6 @@ A few facts that matter for any planning meeting:
 
 This matters because the question "should we use Auth0 or Okta?" is almost always the wrong question. The right question is "**which of our user populations** are we solving for?" Once that is clear, the product picks itself.
 
-{% include ads/in-article.html %}
-
 ---
 
 ## How Each Platform Sits in Your Architecture
@@ -249,8 +247,6 @@ Two highlights worth pulling out:
 1. The Okta side wins on **lifecycle management and SCIM**. If your problem is "an employee left and I want every SaaS app to know within 60 seconds," Okta is built for that.
 2. The Auth0 side wins on **developer extensibility**. If your problem is "I need to call a fraud-detection API in the middle of the login flow and reject high-risk signups," Auth0 Actions is built for that.
 
-{% include ads/display.html %}
-
 ---
 
 ## Pricing in 2026
@@ -337,8 +333,6 @@ This is where Auth0 historically pulled ahead and still leads. Okta has narrowed
 - **Terraform support is excellent** for both products and is the recommended way to manage tenants past a small scale.
 
 The honest summary: Auth0 is built like a developer tool. Okta is built like an IT admin tool with an SDK bolted on. Both work. They feel different.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -447,11 +441,11 @@ sequenceDiagram
     API-->>App: 200 OK with user data
 ```
 
+{% include ads/in-article.html %}
+
 The Action inserted at step 5 is where you customize the flow. That is also where teams add fraud checks, IP allowlists, enrichment from a CRM, or routing logic between B2B organizations.
 
 If the API in step 9 belongs to you, you verify the token using the public keys advertised at the tenant's JWKS endpoint, usually `https://yourtenant.auth0.com/.well-known/jwks.json`. The post on [How JWT Works](/how-jwt-works/){:target="_blank" rel="noopener"} walks through that verification step by step.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -478,6 +472,8 @@ sequenceDiagram
     SaaS->>SaaS: Verify signature against Okta certificate
     SaaS-->>Emp: 302 redirect to Salesforce landing page
 ```
+
+{% include ads/in-article.html %}
 
 There are no JWTs in this flow. SAML is XML-based, the assertion is signed by Okta's private key, and Salesforce trusts Okta by having its public certificate registered. This is the flow that powers most enterprise SSO deployments today, even in 2026, and it is the flow that the Okta Integration Network's 1,300+ SAML apps standardize on.
 
@@ -560,8 +556,6 @@ Every "Super Admin" in Okta can read every user, every group, and every secret. 
 ### <i class="fas fa-exclamation-triangle"></i> Mistake 6: Forgetting about machine-to-machine
 
 If your microservices call each other, they need to authenticate too. Auth0 bills M2M tokens per token issued, which surprises teams. Cache and reuse the access token for its full lifetime, do not issue a new one per request. The post on [the role of queues in system design](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"} covers the patterns where this comes up most.
-
-{% include ads/display.html %}
 
 ---
 

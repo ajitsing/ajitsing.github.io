@@ -129,9 +129,7 @@ graph TB
     RUNTIME2 --> POD2
 ```
 
-
 {% include ads/in-article.html %}
-
 
 Let's dive into each component and understand what they actually do.
 
@@ -240,10 +238,6 @@ The runtime handles:
 
 ## How It All Works Together: A Pod's Journey
 
-
-{% include ads/display.html %}
-
-
 Let's trace what happens when you deploy a simple web application to understand how all these components work together.
 
 ### Step 1: You Submit a Deployment
@@ -319,6 +313,8 @@ sequenceDiagram
     Runtime->>Kubelet: Container running
     Kubelet->>API: Pod status: Running
 ```
+
+{% include ads/in-article.html %}
 
 ## Real World Lessons: What Developers Need to Know
 

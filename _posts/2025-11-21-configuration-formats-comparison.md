@@ -171,6 +171,8 @@ Now let's break down each format.
 
 ---
 
+{% include ads/in-article.html %}
+
 ## YAML: Human-Readable Format
 
 **Best for:** Docker, Kubernetes, CI/CD pipelines
@@ -275,10 +277,6 @@ Now let's break down each format.
 | **Trailing Commas** | ❌ Error | ✅ Allowed | ✅ Allowed | ✅ Allowed |
 | **Parser Speed** | ⚡ Very Fast | 🐢 Slower | ⚡ Fast | ⚡ Fast |
 | **Ecosystem Size** | 🌟 Massive | 🌟 Large | 📊 Growing | 📊 JVM-focused |
-
-
-{% include ads/in-article.html %}
-
 
 ### Performance Benchmarks
 
@@ -478,8 +476,6 @@ remarshal -if json -of toml config.json config.toml
 # Test and deploy
 ```
 
-{% include ads/display.html %}
-
 ---
 
 ## Summary
@@ -502,6 +498,8 @@ remarshal -if json -of toml config.json config.toml
 The right format depends on your specific needs. Consider who reads and writes the file, how complex the data is, and what your ecosystem uses.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Head-to-Head Comparisons
 
@@ -601,10 +599,6 @@ The right format depends on your specific needs. Consider who reads and writes t
 | **Browser Support** | ❌ Needs library | ✅ Native |
 | **Ecosystem** | Rust, Python | Universal |
 
-
-{% include ads/in-article.html %}
-
-
 **Choose TOML over JSON when:**
 - Need comments in config files
 - Human-edited configuration
@@ -683,4 +677,3 @@ Both support comments, but differ in structure and ecosystem.
 - [YAML Specification](https://yaml.org/spec/)
 - [TOML Specification](https://toml.io/)
 - [HOCON Documentation](https://github.com/lightbend/config/blob/main/HOCON.md)
-

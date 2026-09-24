@@ -3,16 +3,21 @@
   padding: 0;
   contain: layout;
   overflow-anchor: none;
-  background: #fff;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
+}
+
+.post-mid-ad .ad-label {
+  min-height: 20px;
+  margin-bottom: 8px;
 }
 
 .post-mid-ad__card {
   width: 100%;
-  height: 250px;
+  height: 280px;
+  min-height: 280px;
   margin: 0 auto;
-  background: transparent;
+  box-sizing: border-box;
+  background: #faf8f5;
+  border: 1px solid #e7e0d5;
   border-radius: 10px;
   box-shadow: none;
   overflow: hidden;
@@ -31,13 +36,8 @@
 .post-mid-ad__unit {
   display: block;
   width: 100%;
-  height: 250px;
-}
-
-@media (min-width: 769px) {
-  .post-mid-ad--display {
-    display: none !important;
-  }
+  height: 280px;
+  min-height: 280px;
 }
 
 @media (max-width: 768px) {

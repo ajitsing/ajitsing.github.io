@@ -144,10 +144,6 @@ WHERE attributes->>'category' = 'electronics'
   AND (attributes->>'price')::numeric < 500;
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Horizontal scaling with the right setup.** By itself, PostgreSQL scales vertically. But with [read replicas](/how-openai-scales-postgresql/), [connection pooling via PgBouncer](/how-openai-scales-postgresql/), and tools like Citus for sharding, it scales further than most applications will ever need. OpenAI runs ChatGPT for 800 million users on PostgreSQL.
 
 ### Where it struggles
@@ -169,6 +165,8 @@ WHERE attributes->>'category' = 'electronics'
 For setup guidance, see [Django + PostgreSQL from zero to production](/django-postgresql-setup-from-zero-to-production/) or the [PostgreSQL Cheat Sheet](/postgresql-cheat-sheet/) for the commands you will use daily.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-leaf"></i> MongoDB
 
@@ -249,10 +247,6 @@ For the commands you will use daily with MongoDB, see the [MongoDB Cheat Sheet](
 ---
 
 ## <i class="fab fa-aws"></i> DynamoDB
-
-
-{% include ads/display.html %}
-
 
 DynamoDB is Amazon's fully managed NoSQL database. It has been running at AWS scale since 2012 and powers some of the most high-traffic systems in the world. But it is genuinely different from PostgreSQL and MongoDB, and choosing it without understanding that difference will cause real pain.
 
@@ -340,10 +334,6 @@ table.query(
 ---
 
 ## Performance: What the Numbers Actually Show
-
-
-{% include ads/in-article.html %}
-
 
 Marketing pages show benchmarks in the best case. Here is a more honest picture.
 
@@ -484,11 +474,9 @@ flowchart TD
 
 ---
 
+{% include ads/in-article.html %}
+
 ## What Real Companies Use
-
-
-{% include ads/display.html %}
-
 
 Knowing the theory is useful. Knowing what production systems actually run helps more.
 
@@ -558,10 +546,6 @@ UPDATE users
 SET preferences = preferences || '{"notifications": true}'::jsonb
 WHERE id = 42;
 ```
-
-
-{% include ads/in-article.html %}
-
 
 This lets you keep ACID transactions, SQL joins, and a single database while still handling variable-schema data. For many teams that think they need MongoDB, a `JSONB` column in PostgreSQL is enough.
 

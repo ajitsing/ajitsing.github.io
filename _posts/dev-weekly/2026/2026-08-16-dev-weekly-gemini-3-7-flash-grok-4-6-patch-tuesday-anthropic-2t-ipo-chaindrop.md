@@ -44,8 +44,6 @@ On August 12, [xAI released Grok 4.6](https://x.ai/news/grok-4-6){:target="_blan
 
 Two days later the distribution story got bigger. On August 14, [GitHub made Grok 4.6 available in Copilot](https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot/){:target="_blank"} across eight surfaces: VS Code, Visual Studio, the Copilot CLI, the cloud agent, the Copilot app, JetBrains, Xcode, and Eclipse. That reach into JetBrains, Xcode, and Eclipse is unusually wide for a new model addition and puts Grok 4.6 in front of developers well outside the VS Code core. Two operational notes if you want to try it: the rollout is gradual, so check the model picker again if you do not see it yet, and on Copilot Business and Enterprise the Grok 4.6 policy is off by default, so an admin has to enable it before anyone can select it. Billing follows Copilot's usage-based pricing at provider list rates.
 
-{% include ads/in-article.html %}
-
 ### Microsoft's August Patch Tuesday Fixes 400 Flaws and a Lazarus Kernel Zero-Day - [<i class="fas fa-external-link-alt"></i>](https://www.bleepingcomputer.com/news/microsoft/microsoft-august-2026-patch-tuesday-fixes-400-flaws-3-zero-days/){:target="_blank"}
 
 On August 11, [Microsoft shipped one of the year's largest Patch Tuesdays](https://www.bleepingcomputer.com/news/microsoft/microsoft-august-2026-patch-tuesday-fixes-400-flaws-3-zero-days/){:target="_blank"}, fixing around 400 vulnerabilities, 42 of them Critical, along with three zero-days. The one that demands immediate attention is CVE-2026-68820, a use-after-free in the Windows Ancillary Function Driver for WinSock (afd.sys) that lets a local attacker win a race condition and gain SYSTEM privileges. [Check Point reported](https://www.notebookcheck.net/August-2026-Patch-Tuesday-Microsoft-fixes-over-420-flaws.1368553.0.html){:target="_blank"} that North Korea's Lazarus group exploited it in an Operation Dream Job campaign, using a trojanized PDF viewer to deploy a backdoor and reinstall its FudModule rootkit against defense and aerospace targets, and CISA gave federal agencies an August 25 deadline to patch. Two more zero-days, CVE-2026-62832 in the Windows User Profile Service and CVE-2026-72971 in the Container Isolation FS Filter Driver, were publicly disclosed before the fix.
@@ -57,8 +55,6 @@ Beyond the zero-days, prioritize two remotely exploitable bugs. CVE-2026-62878 i
 A self-propagating npm worm named ChainDrop dominated the security conversation all week, with fresh analysis from [The Register on August 15](https://www.theregister.com/security/2026/08/15/chaindrop-worm-crawls-into-npm-supply-chain-evades-standard-defenses/5287958){:target="_blank"} and a detailed [Zscaler ThreatLabz writeup on August 11](https://www.zscaler.com/blogs/security-research/tracking-shai-hulud-inside-chaindrop-npm-worm){:target="_blank"}. A variant of the Shai-Hulud worm, ChainDrop poisoned about 444 packages and 2,212 versions in under four hours, including deep infrastructure dependencies like keyv, flat-cache, and file-entry-cache that collectively see hundreds of millions of weekly downloads and sit under ESLint, cache-manager, and much of the JavaScript ecosystem. It runs through an npm preinstall hook that downloads the Bun runtime and executes a heavily obfuscated payload, then hunts workstations and CI runners for npm, GitHub, AWS, Kubernetes, and HashiCorp Vault credentials and republishes infected versions of any package the stolen tokens can reach.
 
 What makes this one nasty is how it evades the usual defenses. By compromising the keyv maintainer's GitHub account and pushing malicious commits, the attacker got the project's own trusted CI pipeline to publish poisoned packages, some carrying valid SLSA provenance attestations that made them look clean to automated tooling. It anchors its command and control in an Ethereum smart contract, so the operator can rotate domains with a single transaction and defeat domain blocklists, and it plants persistence hooks in Claude Code and VS Code configuration files to survive package removal and spread developer to developer. If you installed any affected package on a workstation or in CI, treat that environment as compromised: rotate every credential and token it could touch, pin dependencies and disable install scripts where you can, and audit your AI tool and IDE config files for injected hooks. As one researcher put it, repository-supplied configuration is now executable content, and dependency scanners were not looking there.
-
-{% include ads/display.html %}
 
 ### Anthropic's Backers Model a $2 Trillion October IPO - [<i class="fas fa-external-link-alt"></i>](https://qz.com/anthropic-ipo-2-trillion-valuation-october-081326){:target="_blank"}
 
@@ -80,6 +76,8 @@ The developer-relevant details are in the limits. Watermarking is deliberately s
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### OpenAI Previews GPT-5.6 Sol Ultrafast on Cerebras - [<i class="fas fa-external-link-alt"></i>](https://decrypt.co/375580/google-openai-super-fast-ai-models-gemini-flash-gpt-ultrafast){:target="_blank"}
@@ -89,8 +87,6 @@ On August 13, [OpenAI opened a limited preview of GPT-5.6 Sol Ultrafast](https:/
 ### Claude Code Makes Auto Mode the Default and Ships GitLab Worktrees - [<i class="fas fa-external-link-alt"></i>](https://code.claude.com/docs/en/whats-new/2026-w32){:target="_blank"}
 
 Anthropic's planned switch landed this week: starting August 14, [auto mode became the default](https://code.claude.com/docs/en/whats-new/2026-w32){:target="_blank"} for new Claude Code sessions on Pro, Max, and Team plans, enabling longer autonomous work while, per Anthropic, catching more dangerous commands than manual review. The same window brought a steady stream of releases, with v2.1.233 on August 14 adding GitLab merge request `--worktree` support, a Bash tool memory cgroup limit on Linux, and a fix for a Windows NT path validation bypass that could leak NTLM credentials. If you run Claude Code across a team and are not ready for more autonomy, set an explicit default through managed settings before the change reaches you, and on Windows deployments update to v2.1.233 for the path-validation fix. Note too that the temporary weekly usage boost expires August 19 and Sonnet 5 launch pricing ends August 31.
-
-{% include ads/in-article.html %}
 
 ### PostgreSQL Ships 18.6 and PG19 Beta 3 With 28 Security Fixes - [<i class="fas fa-external-link-alt"></i>](https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/){:target="_blank"}
 
@@ -141,9 +137,9 @@ On August 13, [Anthropic was reported to be in talks to acquire Decart](https://
 *   **CD Projekt Red:** On August 13, [The Witcher and Cyberpunk maker laid off nine developers](https://www.gamedeveloper.com/business/report-cd-projekt-red-has-laid-off-some-project-sirius-developers){:target="_blank"} from its Witcher multiplayer game Project Sirius across Boston and Poland, inviting nine others to apply for roles on other projects and leaving the team at roughly 65.
 *   **Bitwise:** On August 11, [crypto firm Bitwise cut about 14% of its staff](https://www.bloomberg.com/news/articles/2026-08-11/bitwise-cuts-14-of-jobs-with-crypto-industry-under-pressure){:target="_blank"}, dropping from around 180 to 155 employees during a prolonged slump in digital-asset prices.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

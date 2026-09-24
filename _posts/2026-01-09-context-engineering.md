@@ -56,9 +56,6 @@ This is what context engineering solves. It is the system that gathers, filters,
 
 <img src="/assets/img/posts/artificial-intelligence/context-engineering-need.png" alt="Comparison diagram showing AI responses without context engineering producing generic output versus with context engineering producing relevant responses by including code, docs, history and tools" title="Why Context Engineering Matters for AI Applications" loading="lazy" width="800" height="500">
 
-
-{% include ads/display.html %}
-
 ## The Building Blocks of Context
 
 Every piece of information you send to an AI model is context. Let us break down the components.
@@ -87,6 +84,8 @@ Modern AI agents can call tools. Search databases. Execute code. Call APIs. Each
 
 Finally, the actual question or task from the user. This seems obvious, but how you structure and position the user query within the overall context affects how the AI processes it.
 
+{% include ads/in-article.html %}
+
 ## The Architecture of Context
 
 Here is how these pieces fit together in a typical AI application:
@@ -106,10 +105,6 @@ But bigger is not always better.
 | Small (4K-8K) | Cheap, fast | Limited information |
 | Medium (32K-128K) | Good balance | Moderate cost |
 | Large (200K+) | Lots of context | Expensive, slower, may miss important details |
-
-
-{% include ads/in-article.html %}
-
 
 Research shows that putting everything in a huge context window can hurt performance. The AI may miss important details buried in the middle. It is called the "lost in the middle" problem. Models tend to pay more attention to the beginning and end of the context.
 
@@ -190,10 +185,6 @@ Agents that can use tools need context about what tools are available and when t
 
 ## Security and Privacy
 
-
-{% include ads/display.html %}
-
-
 Context engineering introduces security considerations:
 
 **Data minimization**: Only include data the AI needs. Do not dump entire databases into context just because you can.
@@ -203,6 +194,8 @@ Context engineering introduces security considerations:
 **Prompt injection**: Malicious content in your retrieved documents could try to override your system instructions. Sanitize and validate what goes into context.
 
 **Audit logging**: Keep track of what context was used for each request. You may need this for compliance or debugging.
+
+{% include ads/in-article.html %}
 
 ## Measuring Success
 
@@ -256,4 +249,3 @@ Context engineering is not a one time task. It is an ongoing practice of refinin
 - [Context Engineering in Practice](https://www.inngest.com/blog/context-engineering-in-practice) by Inngest
 - [What is Context Engineering?](https://www.cognizant.com/us/en/glossary/context-engineering) by Cognizant
 - [Context Engineering Blog](https://contextengineering.ai/blog/) by ContextEngineering.ai
-

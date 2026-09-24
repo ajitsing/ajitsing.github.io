@@ -113,7 +113,6 @@ def get_user(user_id):
     
     return user
 
-
 def update_user(user_id, data):
     # Update database
     db.execute("UPDATE users SET ... WHERE id = ?", data, user_id)
@@ -121,10 +120,6 @@ def update_user(user_id, data):
     # Invalidate cache
     cache.delete(f"user:{user_id}")
 ```
-
-
-{% include ads/in-article.html %}
-
 
 ### When to Use Cache-Aside
 
@@ -232,6 +227,8 @@ cache = ReadThroughCache(
 
 ---
 
+{% include ads/in-article.html %}
+
 ## 3. Write-Through Cache
 
 Write-Through ensures the cache and database are always in sync. Every write goes to both the cache and database before returning success.
@@ -268,10 +265,6 @@ class WriteThroughCache:
         
         # If either fails, the operation fails
 ```
-
-
-{% include ads/display.html %}
-
 
 ### When to Use Write-Through
 
@@ -408,7 +401,6 @@ def create_log_entry(log_data):
     db.execute("INSERT INTO logs ...", log_data)
     # Cache is not updated
 
-
 def get_user(user_id):
     # Normal Cache-Aside for reads
     cached = cache.get(f"user:{user_id}")
@@ -419,10 +411,6 @@ def get_user(user_id):
     cache.set(f"user:{user_id}", user)
     return user
 ```
-
-
-{% include ads/in-article.html %}
-
 
 ### When to Use Write-Around
 
@@ -545,8 +533,6 @@ cache.get("A")     # Access A, moves to end: [B, C, A]
 cache.set("D", 4)  # Cache full, evict B (least recent): [C, A, D]
 ```
 
-{% include ads/display.html %}
-
 **Best for**: General purpose caching, most common choice
 
 ### LFU (Least Frequently Used)
@@ -656,7 +642,6 @@ def get_user(user_id):
     cache.set(cache_key, user)
     return user
 
-
 def update_user(user_id, data):
     db.update("users", user_id, data)
     db.increment_version("user", user_id)
@@ -666,6 +651,8 @@ def update_user(user_id, data):
 **When to use**: When you cannot easily track all cache dependencies
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Common Caching Mistakes
 
@@ -723,10 +710,6 @@ sequenceDiagram
     
     Note over DB: Database overloaded!
 ```
-
-
-{% include ads/in-article.html %}
-
 
 **Solution**: Use locking or probabilistic early expiration. This is known as the [thundering herd problem](/thundering-herd-problem/) and it can take down entire systems during peak traffic.
 
@@ -890,4 +873,3 @@ Those layers sit in the broader path from entering a URL to getting a response a
 - [Memcached Wiki](https://github.com/memcached/memcached/wiki) - Memcached patterns and usage
 
 *Building a high-traffic system? Check out [How OpenAI Scales PostgreSQL to 800M Users](/how-openai-scales-postgresql/) for caching + database scaling patterns, the [System Design Cheat Sheet](/system-design-cheat-sheet/) for a complete reference, and [How Stripe Prevents Double Payments](/how-stripe-prevents-double-payment/) for idempotency patterns. Caching is also a key differentiator when choosing your API protocol -- see [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/) for how caching works across each.*
-

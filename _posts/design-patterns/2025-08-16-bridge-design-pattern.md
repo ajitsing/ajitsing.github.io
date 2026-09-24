@@ -159,10 +159,6 @@ public class Square extends Shape {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -341,10 +337,6 @@ advancedRemote.setChannel(102); // Radio frequency: 102 FM
 advancedRemote.mute();          // Radio volume: 0
 ```
 
-
-{% include ads/display.html %}
-
-
 ## How It Works
 
 ```mermaid
@@ -385,6 +377,8 @@ classDiagram
     Device <|.. Television
     Device <|.. Radio
 ```
+
+{% include ads/in-article.html %}
 
 Without Bridge: BasicTVRemote, AdvancedTVRemote, BasicRadioRemote, AdvancedRadioRemote... (2 remotes x N devices = 2N classes)
 
@@ -478,4 +472,3 @@ Design Bridge upfront. If you're retrofitting, you probably want Adapter instead
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Appendix
 - [JDBC Architecture](https://docs.oracle.com/javase/tutorial/jdbc/overview/index.html)
-

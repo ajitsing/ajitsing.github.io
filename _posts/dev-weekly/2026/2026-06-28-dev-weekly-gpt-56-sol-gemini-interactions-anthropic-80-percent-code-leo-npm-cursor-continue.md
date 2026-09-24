@@ -46,8 +46,6 @@ On June 22, [Google announced that the Interactions API has reached general avai
 
 The design tells you where API thinking is heading in the agent era. As [API Evangelist put it](https://apievangelist.com/2026/06/22/google-makes-the-interactions-api-the-front-door-to-gemini/){:target="_blank"}, the old request and response shape, where you resend the whole conversation every call and get a single completion, was never going to carry agents that think, call tools, and run for minutes at a time. The Interactions API replaces role-based messages with typed steps like `user_input`, `function_call`, and `model_output`, keeps state server-side, and can provision a remote Linux sandbox for an agent in a single call. This is the same direction as OpenAI's Responses API and Anthropic's tool platform, so the major labs are now converging on stateful, agent-native interfaces. If you build on Gemini, treat Interactions as the path forward and plan migrations off `generateContent` for anything new.
 
-{% include ads/in-article.html %}
-
 ### Anthropic Says Claude Writes More Than 80% of Its Code - [<i class="fas fa-external-link-alt"></i>](https://venturebeat.com/technology/anthropic-says-80-of-its-new-production-code-is-now-authored-by-claude-how-your-enterprise-can-keep-up){:target="_blank"}
 
 On June 22, the Anthropic Institute published a report called When AI Builds Itself, and the headline number got everyone's attention: [more than 80 percent of the code merged into Anthropic's codebase in May was authored by Claude](https://venturebeat.com/technology/anthropic-says-80-of-its-new-production-code-is-now-authored-by-claude-how-your-enterprise-can-keep-up){:target="_blank"}, up from low single digits before Claude Code launched in research preview in February 2025. As the [report itself describes](https://www.anthropic.com/institute/recursive-self-improvement){:target="_blank"}, the typical engineer now ships about 8 times as much code per quarter as in the 2021 to 2024 baseline, with humans directing and reviewing rather than typing. On open-ended engineering problems that start without clear specifications, Claude's success rate climbed to 76 percent in May, a 50-point jump in six months.
@@ -66,8 +64,6 @@ On June 22, [Cursor acquired Continue, the open-source AI coding assistant](http
 
 This is the latest beat in a steady acquisition drumbeat from Cursor maker Anysphere, which has previously picked up Supermaven and code review startup Graphite. Unlike Graphite, which kept operating, Continue looks shuttered, with co-founder Nate Sesti joining Cursor while other founding engineers went elsewhere. The move lands the same week SpaceX's $60 billion deal for Anysphere is still working through, so the company is consolidating talent even as its own ownership shifts. For developers who liked Continue precisely because it was open and model-agnostic, the closure is one less independent option in an increasingly consolidated market.
 
-{% include ads/display.html %}
-
 ### DeepReinforce Open-Sources the Ornith-1.0 Coding Models - [<i class="fas fa-external-link-alt"></i>](https://www.marktechpost.com/2026/06/25/deepreinforce-releases-ornith-1-0-an-open-source-coding-model-family-that-learns-its-own-rl-scaffolds/){:target="_blank"}
 
 On June 25, [DeepReinforce released Ornith-1.0, an open-source model family built for agentic coding](https://www.marktechpost.com/2026/06/25/deepreinforce-releases-ornith-1-0-an-open-source-coding-model-family-that-learns-its-own-rl-scaffolds/){:target="_blank"}. The lineup spans four sizes, from a 9B dense model to a 397B mixture-of-experts flagship, all shipped under the MIT license on Hugging Face and post-trained on top of Gemma 4 and Qwen 3.5. The interesting twist is that instead of pairing a model with a fixed, human-designed harness, Ornith-1.0 learns to write its own scaffold during reinforcement learning, jointly optimizing the harness and the solution.
@@ -75,6 +71,8 @@ On June 25, [DeepReinforce released Ornith-1.0, an open-source model family buil
 The 397B model scores 82.4 on SWE-Bench Verified and tops Claude Opus 4.7 on the headline benchmarks, though it trails Opus 4.8 and the larger GLM-5.2, so the state-of-the-art claim is scoped to open models of comparable size. The models target terminal-native coding agents and repository-scale work like multi-file refactors and test-driven patches, with the 9B build aimed at single-GPU and edge setups. For teams that want a capable coding model they can self-host without sending code to a closed API, this is a meaningful new option, and the MIT license means no strings attached.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -93,8 +91,6 @@ On June 25 and 26, [Next.js 16.3 Preview arrived](https://nextjs.org/blog/next-1
 ### Envoy AI Gateway and Kubernetes Security Profiles Operator Reach v1.0 - [<i class="fas fa-external-link-alt"></i>](https://aigateway.envoyproxy.io/blog/v1.0-release-announcement){:target="_blank"}
 
 Two notable open-source infrastructure projects hit their first stable release on June 23. [Envoy AI Gateway 1.0](https://aigateway.envoyproxy.io/blog/v1.0-release-announcement){:target="_blank"} is the first GA of the CNCF Envoy Gateway extension built for AI traffic, with a now-stable control-plane API, a single OpenAI-compatible interface across 16 providers, a full Model Context Protocol gateway, and multi-tenant, quota-aware routing. It arrived after 16 months of work led by maintainers at Bloomberg, Nutanix, and Tetrate, and the same code already runs in production at those companies. If you are stitching together LLM providers behind a homegrown proxy, this is a credible vendor-neutral option built on the battle-tested Envoy data plane. Separately, the Kubernetes [Security Profiles Operator reached v1.0](https://github.com/kubernetes-sigs/security-profiles-operator/releases/tag/v1.0.0){:target="_blank"}, graduating all of its CRDs from alpha and beta to a stable v1 API for managing seccomp, SELinux, and AppArmor profiles, and shipping a new `spoc` command-line tool. The release followed a third-party security audit that turned up zero critical vulnerabilities.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -126,9 +122,9 @@ On June 23, [Superhuman acquired AI detection startup GPTZero](https://techcrunc
 *   **Cisco:** [Cisco told California officials it will lay off 471 workers](https://www.crn.com/news/software/2026/cisco-to-lay-off-471-workers-in-california-software-engineers-hit-hardest){:target="_blank"} across San Francisco, Milpitas, and San Jose, with software engineer the single most affected job title, as part of a restructuring that cuts nearly 4,000 jobs this year.
 *   **Amperity:** On June 25, [Seattle customer data startup Amperity confirmed layoffs](https://www.geekwire.com/2026/amperity-hit-with-layoffs-as-ai-changes-the-shape-of-the-customer-data-startup-and-how-it-operates/){:target="_blank"}, citing a transformation to build more AI into how it operates, two weeks after its co-founders took over as co-CEOs.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

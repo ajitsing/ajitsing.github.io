@@ -130,10 +130,6 @@ The Fraud Detection service hits a bug and starts responding in 30 seconds inste
 | T+45s | API Gateway starts returning 503 to all users |
 | T+60s | Entire platform is down |
 
-
-{% include ads/in-article.html %}
-
-
 One slow service took down four services in 60 seconds. The Fraud Detection service did not even crash. It just got slow. And that is actually worse than crashing, because a crashed service returns errors immediately. A slow service holds onto resources.
 
 This is what engineers mean by **cascading failure**. The failure cascades upstream through the dependency chain, like dominoes falling. Each service consumes its resources waiting for the one below it.
@@ -246,9 +242,7 @@ flowchart TD
     style N fill:#fef3c7,stroke:#d97706,stroke-width:2px
 ```
 
-
-{% include ads/display.html %}
-
+{% include ads/in-article.html %}
 
 ### Configuration Parameters
 
@@ -469,10 +463,6 @@ func CallPaymentService(orderID string) ([]byte, error) {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### <i class="fab fa-python"></i> pybreaker (Python)
 
 A clean, decorator-based circuit breaker for Python.
@@ -631,10 +621,6 @@ public class OrderService {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 The decorators execute from bottom to top: TimeLimiter wraps the call first, then Retry wraps that, then CircuitBreaker wraps the retries, and Bulkhead wraps everything.
 
 ## How Netflix Stops One Service From Killing Everything
@@ -671,6 +657,8 @@ flowchart TD
     style L fill:#fee2e2,stroke:#dc2626,stroke-width:2px
     style I fill:#dcfce7,stroke:#16a34a,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 Key design decisions Netflix made:
 
@@ -755,10 +743,6 @@ A circuit breaker is only useful if you know when it trips. Here are the metrics
 | Rejected calls | Requests rejected by open breaker | Any sustained rejections |
 | Call duration (p99) | Latency of calls through the breaker | > 2x normal p99 |
 | State transition frequency | How often the breaker flips | > 3 transitions in 5 minutes |
-
-
-{% include ads/in-article.html %}
-
 
 ### What Your Dashboard Should Show
 

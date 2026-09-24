@@ -181,10 +181,6 @@ response = client.chat.completions.create(
 )
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### My Recommendation
 
 Start with OpenAI API for the best developer experience. Once you understand the patterns, you can switch to Claude for better quality or local models for privacy. The code we write will work with all three.
@@ -400,10 +396,6 @@ def chat_with_retry(self, messages: List[Dict[str, str]], max_retries: int = 3, 
     raise Exception("Failed after retries")
 ```
 
-
-{% include ads/display.html %}
-
-
 ### Add Cost Tracking
 
 Track token usage to control costs:
@@ -441,6 +433,8 @@ class OpenAIAdapter(LLMAdapter):
         cost = (prompt_tokens * input_cost_per_1k) + (completion_tokens * output_cost_per_1k)
         return cost
 ```
+
+{% include ads/in-article.html %}
 
 ## Step 3: Add Conversation Memory
 
@@ -710,10 +704,6 @@ Create a simple HTML frontend:
 </html>
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Open `index.html` in a browser. You now have a working LLM chat application.
 
 ## Step 5: Add Production Features
@@ -796,6 +786,8 @@ async def health():
             "error": str(e)
         }, 503
 ```
+
+{% include ads/in-article.html %}
 
 ## Common Patterns and Best Practices
 

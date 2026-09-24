@@ -115,11 +115,9 @@ Rubber Duck is available in experimental mode through the `/experimental` slash 
 
 ---
 
-## <i class="fas fa-code"></i> Developer Tools & Platforms
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-code"></i> Developer Tools & Platforms
 
 ### VS Code 1.115 Launches the Agents App - [<i class="fas fa-external-link-alt"></i>](https://www.infoworld.com/article/4156169/visual-studio-code-1-115-introduces-vs-code-agents-app-2.html){:target="_blank"}
 
@@ -179,10 +177,6 @@ The new Platinum tier brings disaster failover times under 30 seconds, up to 4x 
 
 ## <i class="fas fa-building"></i> Industry News
 
-
-{% include ads/display.html %}
-
-
 ### NeuBird AI Raises $19.3M for Autonomous Production Operations - [<i class="fas fa-external-link-alt"></i>](https://siliconangle.com/2026/04/07/agentic-ai-startup-neubird-raises-19-3m-help-human-site-reliability-engineers-rise-ashes-alert-fatigue/){:target="_blank"}
 
 On April 7, NeuBird AI closed a $19.3 million funding round led by Xora Innovation, with participation from Mayfield, StepStone Group, Prosperity7 Ventures, and Microsoft's M12 venture fund.
@@ -239,11 +233,9 @@ On April 8, GitHub shipped several security improvements. Secret scanning now in
 
 ---
 
-## <i class="fas fa-chart-bar"></i> The Numbers That Matter
-
-
 {% include ads/in-article.html %}
 
+## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 
 - **$30 billion** — Anthropic's annual revenue run rate, up from $9 billion at end of 2025
 - **$100 million** — Usage credits Anthropic committed for Project Glasswing security testing

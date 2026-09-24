@@ -146,9 +146,9 @@ flowchart TD
     class C1,C2 col
 ```
 
-On a wide fact table with 50 to 500 columns, a typical analytical query touches only 3 to 6 of them. The row store still has to read every column of every row it scans, because the columns are interleaved on the page. The column store reads only the columns named in the query and ignores the rest. That is **column pruning**, and on wide tables it alone cuts I/O by roughly 10x. The [row versus column layout](/how-databases-store-data-internally/){:target="_blank" rel="noopener"} is covered from the storage-engine angle in the database internals post if you want the page-level detail.
-
 {% include ads/in-article.html %}
+
+On a wide fact table with 50 to 500 columns, a typical analytical query touches only 3 to 6 of them. The row store still has to read every column of every row it scans, because the columns are interleaved on the page. The column store reads only the columns named in the query and ignores the rest. That is **column pruning**, and on wide tables it alone cuts I/O by roughly 10x. The [row versus column layout](/how-databases-store-data-internally/){:target="_blank" rel="noopener"} is covered from the storage-engine angle in the database internals post if you want the page-level detail.
 
 ## <i class="fas fa-bolt"></i> Why Columnar Databases Are So Fast
 
@@ -221,8 +221,6 @@ Data in a columnar store is written as large, sorted, compressed blocks (ClickHo
 
 If your workload is update-heavy or lookup-heavy, that is a loud signal you want a row store, not a columnar one.
 
-{% include ads/display.html %}
-
 ## <i class="fas fa-server"></i> The Main Columnar Databases
 
 The columnar world splits into open-source engines, embedded libraries, and managed cloud warehouses. They share the same core layout but target different niches.
@@ -253,8 +251,6 @@ Columnar is not only a database idea, it is also a file format idea, and this is
 
 The power of these formats is that many engines read the same files. You can write Parquet once and query it from DuckDB, Spark, BigQuery, or ClickHouse. Columnar storage stops being locked inside one database and becomes a shared substrate for analytics.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-project-diagram"></i> How Columnar Fits Your Architecture
 
 You rarely replace your main database with a columnar one. You add it alongside. The standard production shape is a row store for transactions and a columnar store for analytics, kept in sync.
@@ -276,6 +272,8 @@ flowchart LR
     class PIPE pipe
     class CH,DASH ch
 ```
+
+{% include ads/in-article.html %}
 
 Transactions land in PostgreSQL. A [change data capture](/debezium-outbox-postgres-database-impact/){:target="_blank" rel="noopener"} stream, often through [Kafka](/distributed-systems/how-kafka-works/){:target="_blank" rel="noopener"}, copies changes into ClickHouse. Dashboards query ClickHouse, so heavy analytics never slows down the transactional database. This read-and-write separation is the same instinct behind the [CQRS pattern](/cqrs-pattern-guide/){:target="_blank" rel="noopener"}: use one model tuned for writes and another tuned for reads.
 

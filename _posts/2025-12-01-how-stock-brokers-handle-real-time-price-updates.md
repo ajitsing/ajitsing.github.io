@@ -152,10 +152,6 @@ The ticker plant converts both into a consistent internal format:
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 This normalized data flows through the rest of the system without every downstream service needing to understand each exchange's quirks.
 
 ### The Importance of Filtering
@@ -168,6 +164,8 @@ Common filters include:
 - **Volume validation**: Negative volume? Reject it
 - **Timestamp ordering**: Messages arriving out of order need handling
 - **Circuit breaker integration**: Respect trading halts
+
+{% include ads/in-article.html %}
 
 ## Step 3: Inside the Broker's Backend
 
@@ -309,10 +307,6 @@ class SubscriptionManager:
         return self.subscriptions[symbol]
 ```
 
-
-{% include ads/display.html %}
-
-
 ### Connection Limits
 
 A single server can typically handle 50,000 to 100,000 concurrent WebSocket connections. Beyond that, you need more servers.
@@ -386,6 +380,8 @@ function connectWebSocket() {
 Let's put it all together and see the full system architecture for real-time stock price updates:
 
 <img src="/assets/img/posts/system-design/how-stock-brokers-handle-real-time-price-updates.png" alt="Stock broker real-time price update system architecture showing data flow from stock exchanges (NYSE, NASDAQ, NSE) through data vendors, ticker plant, Kafka message broker, WebSocket servers, to client applications (mobile, web, API)" title="Complete architecture diagram of a real-time stock price distribution system" loading="lazy" />
+
+{% include ads/in-article.html %}
 
 ## Key Takeaways for Building Real-Time Systems
 
@@ -481,4 +477,3 @@ Next time you watch a stock price flicker on your screen, you'll know the journe
 ---
 
 *Want to dive deeper into real-time systems? Check out [WebSockets Explained](/explainer/websockets-explained/) for the protocol basics, [How Google Docs Works](/how-google-docs-works/) for collaborative editing at scale, and [Building a Dynamic Rate Limiter](/dynamic-rate-limiter-system-design/) for protecting these systems at scale.*
-

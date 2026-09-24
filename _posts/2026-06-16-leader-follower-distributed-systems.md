@@ -106,8 +106,6 @@ flowchart TB
     class F1,F2 good
 ```
 
-{% include ads/in-article.html %}
-
 The leader does not make the cluster faster. It makes the cluster *agree*, and agreement is the thing that was missing.
 
 ## <i class="fas fa-crown"></i> What the Leader and Followers Pattern Is
@@ -180,6 +178,8 @@ sequenceDiagram
     F1->>F3: Heartbeat(gen=5)
 ```
 
+{% include ads/in-article.html %}
+
 The randomized election timeout is a small detail with a big payoff. If every node timed out at the same instant, they would all become candidates at once, split the vote forever, and never elect anyone. Spreading the timeouts out means one node almost always gets a head start.
 
 ## <i class="fas fa-heartbeat"></i> Heartbeats: How Followers Notice a Dead Leader
@@ -205,8 +205,6 @@ sequenceDiagram
     Note over F: no heartbeat...<br/>election timer running
     Note over F: timer expires<br/>start election (gen 6)
 ```
-
-{% include ads/in-article.html %}
 
 A leader is never assumed alive. It is only ever *recently seen alive*. The instant that recency lapses, the cluster moves to replace it. That single discipline is what turns a crashed primary from a 3 AM page into a non-event.
 
@@ -341,6 +339,8 @@ flowchart LR
     class WIN c
 ```
 
+{% include ads/in-article.html %}
+
 The trend is interesting. Kafka spent a decade depending on an external ZooKeeper core and then moved leader election in-house with [KRaft](https://kafka.apache.org/documentation/#kraft){:target="_blank" rel="noopener"}, its own Raft implementation, to drop the extra system. Fewer moving parts usually wins in the long run.
 
 ## <i class="fas fa-code"></i> A Minimal Reference Implementation
@@ -413,8 +413,6 @@ Three lines carry the safety of the whole thing:
 3. `candidate_log_index < self.last_log_index`. Refusing to vote for a candidate that is behind is what stops a failover from losing committed writes.
 
 A production implementation adds log replication, persistence of the generation and vote across restarts, snapshotting, and a lot of careful edge-case handling. But the skeleton above is genuinely the shape of [Raft](https://raft.github.io/raft.pdf){:target="_blank" rel="noopener"}.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-server"></i> The Pattern in Real Systems
 

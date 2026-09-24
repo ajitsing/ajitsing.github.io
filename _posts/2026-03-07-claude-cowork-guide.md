@@ -137,10 +137,6 @@ When one agent is not enough, Cowork can coordinate several. The patterns are th
 | Sequential pipeline | Agents run in a chain; output of one is input to the next. | Pipelines like research then draft then edit. |
 | Peer-to-peer swarm | Agents work in parallel on different parts, sharing a task list and using file locks to avoid conflicts. | Independent chunks of work that merge at the end. |
 
-
-{% include ads/in-article.html %}
-
-
 <pre><code class="language-mermaid">
 flowchart TD
     User["fa:fa-user  User"] --> Orchestrator["fa:fa-sitemap  Orchestrator"]
@@ -153,6 +149,8 @@ flowchart TD
 </code></pre>
 
 The supervisor pattern is the most common. The orchestrator holds the high-level plan and delegates execution to workers with narrow roles and limited tools. That keeps each agent focused and reduces the chance of one agent going off track and wasting tokens or making bad edits.
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-cog"></i> Setting Up Cowork
 
@@ -197,10 +195,6 @@ If you are connecting Cowork to your own APIs or databases, MCP is the right bou
 
 ## <i class="fas fa-code"></i> Real Developer Use Cases
 
-
-{% include ads/display.html %}
-
-
 Where Cowork actually helps in practice:
 
 **PR review automation**: You can feed diffs to Claude (via GitHub Actions or a script) and get structured feedback: Critical, Major, Minor, security notes, and a verdict. People report catching bugs they missed (e.g. in-memory state issues, rate-limiting logic). Cost is often in the single-digit dollars per month. This can be done with the API and automation; Cowork is useful when you want the same kind of review applied to documents or specs in a folder.
@@ -212,6 +206,8 @@ Where Cowork actually helps in practice:
 **Report and data automation**: Real-world examples from early users: 320 podcast transcripts summarized in 15 minutes; 50+ receipts turned into an Excel sheet in 20 minutes; 12-week curriculum drafts in about an hour. The pattern is "many inputs, one structured output." Cowork reads the files, applies a consistent format, and writes the result. Good for recurring reports where the schema is fixed and the content changes.
 
 **Recurring tasks**: Schedule a daily briefing (inbox and calendar summary), or a weekly digest of a folder. Cowork can run on a schedule and drop the output into a file or (with the right plugins) send it somewhere. Desktop must stay on and the app open for scheduled runs.
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> What Cowork Is Not Good At
 
@@ -234,10 +230,6 @@ Honest limitations so you can decide if it fits your setup.
 Skip Cowork if you need rock-solid predictability, handle highly sensitive data without strong isolation, or mainly want autocomplete and short answers. For those, Chat or Claude Code with a narrow scope are better fits.
 
 ## <i class="fas fa-balance-scale"></i> Cowork vs Claude Code: A Developer Decision Guide
-
-
-{% include ads/in-article.html %}
-
 
 | | Claude Cowork | Claude Code |
 |---|---------------|-------------|
@@ -268,4 +260,3 @@ Cowork is a useful product, but the design choices behind it are even more usefu
 **Constrained tool access reduces hallucinations**: Giving each sub-agent only the tools it needs for its role keeps behavior more predictable. Broad access leads to the model trying to do too much and making mistakes. Narrow tools and clear boundaries help more than fancier prompts.
 
 Claude Cowork is one implementation of these ideas. The takeaways apply whether you use Cowork, Claude Code, [your own agent](/building-ai-agents/), or a [self-hosted setup](/moltworker-self-hosted-ai-agent/). Understand the loop, isolate execution, scope access, and use a clear contract for tools. Then you can build or use agentic systems that are both powerful and manageable.
-

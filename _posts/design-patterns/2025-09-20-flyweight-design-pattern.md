@@ -127,10 +127,6 @@ public class Character {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -271,10 +267,6 @@ System.out.println("Particles: " + particles.size());
 System.out.println("Memory saved: ~100MB (10KB texture x 10,000)");
 ```
 
-
-{% include ads/display.html %}
-
-
 ## String Interning as Flyweight
 
 Java's String pool is a built-in Flyweight:
@@ -317,6 +309,8 @@ sequenceDiagram
     
     Note over Client: Millions of characters share one format
 ```
+
+{% include ads/in-article.html %}
 
 ## Common Mistakes
 
@@ -403,4 +397,3 @@ The pattern is invisible to most clients. They just get objects from the factory
 
 - [Java String Pool](https://www.baeldung.com/java-string-pool)
 - [Integer Cache in Java](https://www.baeldung.com/java-integer-cache)
-

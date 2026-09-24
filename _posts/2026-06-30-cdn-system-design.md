@@ -113,8 +113,6 @@ flowchart LR
 
 Most users are served straight from the nearest edge. The dotted lines to the origin only fire on a cache miss, which is the exception, not the rule.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-stopwatch"></i> Why Latency Is the Whole Game
 
 To understand CDN design you have to respect the speed of light. In fiber, signals travel roughly 200,000 km per second. A round trip from Singapore to Virginia and back is around 30,000 km, which is about 150 ms of pure travel time before your server does any work at all. Add TLS handshakes, [DNS lookups](/how-dns-works-complete-guide/){:target="_blank" rel="noopener"}, and multiple assets, and you can lose a full second to distance alone.
@@ -165,9 +163,9 @@ flowchart TD
     class E,I good
 ```
 
-The decision in the middle, **cache hit or cache miss**, is the heart of the whole system. Everything a CDN does well comes down to making that diamond say "hit" as often as possible.
-
 {% include ads/in-article.html %}
+
+The decision in the middle, **cache hit or cache miss**, is the heart of the whole system. Everything a CDN does well comes down to making that diamond say "hit" as often as possible.
 
 ## <i class="fas fa-layer-group"></i> Caching: The Core of CDN Design
 

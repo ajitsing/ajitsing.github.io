@@ -89,10 +89,6 @@ on:
     branches: [ main ]
 ```
 
-
-{% include ads/in-article.html %}
-
-
 <br/>
 
 ### Android Lint Check
@@ -168,6 +164,8 @@ You would notice that we are running this job on `mac-latest` machine. That is b
 The macOS VM provided by GitHub Actions has HAXM installed so we are able to create a new AVD instance, launch an emulator with hardware acceleration, and run our Android tests directly on the VM.
 <br/>
 
+{% include ads/in-article.html %}
+
 Most of the steps we have already discussed in above configurations. The only thing we are doing extra is to start the android emulator using `reactivecircus/android-emulator-runner@v2` and running the instrumentation tests using `./gradlew connectedCheck`.
 
 ```yaml
@@ -221,10 +219,6 @@ The minimum version required for sonar scanner is Java 11 and that is why you se
         env:
           GITHUB_TOKEN: {{ "${{ secrets.GITHUB_TOKEN "}}}}
 ```
-
-
-{% include ads/display.html %}
-
 
 You can generate the Sonar token using SonarCloud portal. You can watch below video to understand how to setup sonarqube for your project and how the reports will look like on SonarCloud.
 

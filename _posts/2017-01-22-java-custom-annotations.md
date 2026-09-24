@@ -130,8 +130,6 @@ flowchart LR
     class X,Y drop
 ```
 
-{% include ads/in-article.html %}
-
 The three [retention policies](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/annotation/RetentionPolicy.html){:target="_blank" rel="noopener"} are:
 
 | Policy | Still in source | In the `.class` file | Visible with reflection |

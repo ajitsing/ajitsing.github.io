@@ -98,11 +98,9 @@ Microsoft released .NET 8.0.19 and .NET 9.0.8 on August 5, 2025, containing non-
 
 ---
 
-## ☁️ Cloud and Infrastructure Developments
-
-
 {% include ads/in-article.html %}
 
+## ☁️ Cloud and Infrastructure Developments
 
 ### AWS Lambda Billing Changes
 

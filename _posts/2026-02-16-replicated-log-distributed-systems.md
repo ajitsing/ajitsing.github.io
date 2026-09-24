@@ -106,10 +106,6 @@ graph TD
     style SM3 fill:#c8e6c9,stroke:#388e3c
 ```
 
-
-{% include ads/in-article.html %}
-
-
 All three state machines end up with the same balance because they all applied the same entries in the same order. This is the core idea.
 
 If you're familiar with the [Write-Ahead Log (WAL)](/distributed-systems/write-ahead-log/) pattern, the replicated log builds directly on top of it. WAL gives you durability on a single node. The replicated log gives you durability across the entire cluster.
@@ -173,6 +169,8 @@ sequenceDiagram
     F2->>F2: Apply to state machine
 ```
 
+{% include ads/in-article.html %}
+
 ### Why Majority Matters
 
 The leader doesn't wait for all followers. It only waits for a majority. In a 5-node cluster, the leader needs 3 acknowledgments (including itself). This means the system can tolerate 2 node failures and still make progress.
@@ -202,10 +200,6 @@ graph LR
     style E5 fill:#fff3e0,stroke:#f57c00
     style HW fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
 ```
-
-
-{% include ads/display.html %}
-
 
 The leader communicates the high-water mark to followers along with log entries. Each follower updates its own commit index accordingly and only applies entries up to that point.
 
@@ -283,10 +277,6 @@ sequenceDiagram
     Note over F: Log: [1,2,3,4,5,6]
 ```
 
-
-{% include ads/in-article.html %}
-
-
 This backtracking mechanism ensures that eventually, every follower's log matches the leader's. The leader's log is always the source of truth.
 
 ## Log Compaction: Preventing Infinite Growth
@@ -314,6 +304,8 @@ graph LR
     style B4 fill:#e0e0e0,stroke:#9e9e9e
     style B5 fill:#e0e0e0,stroke:#9e9e9e
 ```
+
+{% include ads/in-article.html %}
 
 When a new node joins:
 1. Leader sends the latest snapshot
@@ -366,10 +358,6 @@ ZooKeeper is used by many systems for distributed coordination, including older 
 Spanner uses Paxos-based log replication for each split (data partition). Each split has its own Paxos group, and writes are replicated through the Paxos log. This gives Spanner its globally consistent, distributed SQL capabilities.
 
 ## Replicated Log vs Other Replication Approaches
-
-
-{% include ads/display.html %}
-
 
 Not every replication technique uses a replicated log. Here's how it compares:
 

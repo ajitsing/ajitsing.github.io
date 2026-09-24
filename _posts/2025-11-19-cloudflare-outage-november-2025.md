@@ -87,6 +87,8 @@ graph TB
     F --> G[All Sites Behind Cloudflare Fail]
 ```
 
+{% include ads/in-article.html %}
+
 **The cascade:**
 
 1. **Database permission change** - Someone modified permissions on Cloudflare's database system that generates the Bot Management feature file.
@@ -106,10 +108,6 @@ The AWS US-East-1 outage was regional. This was global. Every Cloudflare data ce
 ---
 
 ## Cloudflare's Critical Role in the Internet
-
-
-{% include ads/in-article.html %}
-
 
 **The numbers:**
 - Cloudflare handles **55 million requests per second** on average
@@ -219,10 +217,6 @@ Yes, it's expensive. But compare that cost to 6 hours of global downtime.
 
 ## The Bottom Line
 
-
-{% include ads/display.html %}
-
-
 A database permission change caused duplicate entries in a feature file, which doubled in size, exceeded a hard limit, and crashed traffic routing software globally for 6 hours. Millions of users couldn't access critical services.
 
 **The lessons:**
@@ -246,5 +240,3 @@ The next outage is coming. Will your application handle it?
 **Resources:**
 - [Cloudflare Incident Report](https://blog.cloudflare.com/18-november-2025-outage/)
 - [Feature Flags Guide: Safe Deployment and Gradual Rollouts](/feature-flags-guide/)
-
-

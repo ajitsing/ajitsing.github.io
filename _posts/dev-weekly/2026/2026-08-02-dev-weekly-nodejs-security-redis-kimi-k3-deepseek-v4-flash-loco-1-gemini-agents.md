@@ -44,8 +44,6 @@ On July 27, [Redis publicly responded to vulnerability research](https://redis.i
 
 What you need to do is straightforward. As [heise reported](https://www.heise.de/en/news/Kimi-K3-Chinese-AI-finds-several-zero-day-vulnerabilities-in-redis-database-11377430.html){:target="_blank"}, Redis shipped a batch of security releases (6.2.23, 7.2.15, 7.4.10, 8.2.8, 8.4.5, 8.6.5, and 8.8.1) that fix the confirmed bugs, so upgrade to the patched release for your branch. Both disclosed exploit chains require the attacker to be able to run the RESTORE command, so the additional mitigation is to revoke RESTORE from any account that does not need it and keep Redis off untrusted networks. Authentication is not a shield here, since the confirmed remote code execution paths are all authenticated. The bigger takeaway for the week is that AI-assisted bug hunting has moved from a talking point to a thing that finds real memory corruption in mature C code, which cuts both ways for defenders and attackers.
 
-{% include ads/in-article.html %}
-
 ### DeepSeek Ships the Official V4 Flash 0731 as a Drop-In Agentic Upgrade - [<i class="fas fa-external-link-alt"></i>](https://runtimewire.com/article/deepseek-v4-flash-0731-agentic-model-price){:target="_blank"}
 
 On July 31, [DeepSeek released the official version of V4 Flash](https://runtimewire.com/article/deepseek-v4-flash-0731-agentic-model-price){:target="_blank"}, the 0731 build, graduating the model from the preview it first shipped in April. The architecture did not change: it is still a 284-billion-parameter mixture-of-experts model with about 13 billion active parameters and a 1 million token context. What changed is a round of post-training that DeepSeek says sharply improved agentic, coding, and tool-calling ability, plus native support for the OpenAI Responses API and specific adaptations for Codex-style coding agents.
@@ -64,8 +62,6 @@ On July 28, [Google expanded Managed Agents in the Gemini API](https://blog.goog
 
 The more interesting part for anyone actually shipping agents is the new environment hooks, which let you block, lint, or audit tool calls inside the sandbox before they run. That is a real control surface for keeping an autonomous agent from doing something it should not, and it pairs with new budget controls and scheduled triggers. Google also opened managed agents to free tier projects, so you can prototype agentic workflows with an API key from a project that has no active billing. Taken together, this is Google trying to make its managed-agent stack cheaper to run and safer to trust, which are the two things most teams cite when they hesitate to put agents in production.
 
-{% include ads/display.html %}
-
 ### OpenAI and Anthropic Formally Back the Pacing the Frontier Letter - [<i class="fas fa-external-link-alt"></i>](https://www.techtimes.com/articles/322125/20260729/openai-anthropic-formally-back-plan-slow-ai-that-writes-its-own-code.htm){:target="_blank"}
 
 On July 28, [a letter titled Pacing the Frontier was published](https://www.techtimes.com/articles/322125/20260729/openai-anthropic-formally-back-plan-slow-ai-that-writes-its-own-code.htm){:target="_blank"}, asking the US government to help build the technical and governance tools needed to deliberately pace the frontier of automated AI development, the point where AI systems substantially improve themselves. Signed by more than 1,200 verified employees of frontier AI companies, it drew corporate endorsements from both OpenAI and Anthropic within hours, which is what makes it notable: earlier open letters, like the 2023 pause letter, were signed by individuals, while these are statements issued in the companies' own names.
@@ -73,6 +69,8 @@ On July 28, [a letter titled Pacing the Frontier was published](https://www.tech
 The ask is narrower and more operational than a blanket pause. It does not call for anyone to stop, but for shared tools and infrastructure that would make a future coordinated slowdown possible without any single lab having to unilaterally pull back. Anthropic's endorsement, reposted by co-founder Jack Clark, pointed to its own recursive self-improvement research as the evidence base, and the signer list includes safety and research leads from across the field. For developers, this is less a product story and more a read on where the industry thinks capability is heading, and how nervous the people building it are about the self-improving-code milestone specifically.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -83,8 +81,6 @@ On July 27, [GitHub shipped a Copilot update for JetBrains IDEs](https://github.
 ### Bun's Rust Rewrite Gets a Robustness Pass Ahead of v1.4, but Stable Is Still Waiting - [<i class="fas fa-external-link-alt"></i>](https://github.com/oven-sh/bun/pull/36165){:target="_blank"}
 
 On July 31, [Bun merged a broad robustness pass](https://github.com/oven-sh/bun/pull/36165){:target="_blank"} across install, crypto, ffi, spawn, shell, CSS serialization, node compatibility, and the resolver, each change shipping with a regression test and no API removed, explicitly framed as work ahead of a release. The context is that Bun v1.4, the first version rewritten from Zig to Rust, is still only available as a canary build. As the [Bun team explained when it announced the rewrite](https://bun.com/blog/bun-in-rust){:target="_blank"}, moving to Rust buys the project the borrow checker, sanitizers, and continuous fuzzing to systematically harden the runtime, but the codebase is still being reworked at machine speed. The practical read for now: if your workload is memory-intensive and you want the Rust engine's improvements, test the canary on staging, but for everyone else the risk-benefit math still favors waiting for a stable v1.4 rather than betting production on an actively-evolving codebase.
-
-{% include ads/in-article.html %}
 
 ### Cursor Opens iPad to All Paid Plans and Launches a Low-Cost India Plan - [<i class="fas fa-external-link-alt"></i>](https://cursor.com/changelog){:target="_blank"}
 
@@ -118,9 +114,9 @@ On July 27, [Enigma emerged from stealth with a $71 million seed round](https://
 
 *   **Krutrim:** On July 28, [Krutrim laid off another 20 to 25 employees](https://inc42.com/buzz/krutrim-cuts-nearly-half-of-remaining-workforce-in-fresh-layoffs/){:target="_blank"}, nearly half of an already-reduced workforce of about 40 to 50 people, in its second round of cuts this year. The Bhavish Aggarwal-led Indian AI startup, which became India's first AI unicorn in 2024, has scaled back its full-stack ambitions, shelving its indigenous large language models and semiconductor plans to focus on AI cloud infrastructure and enterprise services. The latest cuts hit the product and engineering teams, after earlier rounds thinned out sales and operations.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

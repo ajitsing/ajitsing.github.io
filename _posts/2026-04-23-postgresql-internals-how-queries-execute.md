@@ -151,10 +151,6 @@ flowchart TB
     class BG,CH,WW,AV,ST,IO ax
 ```
 
-
-{% include ads/in-article.html %}
-
-
 A few practical implications fall out of this design.
 
 - **Each backend uses around 10 MB of resident memory by itself**, plus whatever it allocates for sorts and hashes. A thousand idle connections is not free.
@@ -198,6 +194,8 @@ flowchart LR
     class Lex,Gram,Ana step
     class Q out
 ```
+
+{% include ads/in-article.html %}
 
 The parser is the cheapest part of executing a query. It runs in microseconds. If you want to skip it on repeated queries, that is what **prepared statements** are for. `PREPARE` parses, analyzes, and plans the statement once, then `EXECUTE` skips straight to the executor with new parameters bound in.
 
@@ -247,10 +245,6 @@ flowchart TD
     class Paths,Costs boxOrange
     class Pick boxGreen
 ```
-
-
-{% include ads/display.html %}
-
 
 ### How Cost Is Computed
 
@@ -329,10 +323,6 @@ The most common executor node types every developer should recognize:
 | `Sort` | `ORDER BY` without a usable index, `MERGE JOIN` prep | Sort tuples, in memory if `work_mem` permits, otherwise spill to disk |
 | `Hash Aggregate` | `GROUP BY`, `DISTINCT` | Build a hash table keyed by the group columns |
 | `Gather` / `Gather Merge` | parallel query | Collect rows from worker processes |
-
-
-{% include ads/in-article.html %}
-
 
 The full list is in [Using EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html){:target="_blank" rel="noopener"}. We will read a real plan in a moment.
 
@@ -429,10 +419,6 @@ Indexes are separate files of pages with the same 8 KB layout, but with a tree s
 
 ## MVCC: Why UPDATE Never Updates In Place
 
-
-{% include ads/display.html %}
-
-
 Here is the part that surprises most developers when they first read it. **PostgreSQL never updates a row in place.** Every `UPDATE` is, internally, a new `INSERT` plus a `DELETE` mark on the old row.
 
 That trick is what enables **Multi-Version Concurrency Control** ([MVCC](https://www.postgresql.org/docs/current/mvcc-intro.html){:target="_blank" rel="noopener"}). Every transaction takes a **snapshot** at start and sees only the row versions visible to that snapshot. Readers do not block writers. Writers do not block readers. Different transactions can see different versions of the same row at the same time.
@@ -508,6 +494,8 @@ flowchart LR
     class WAL,Data d
 ```
 
+{% include ads/in-article.html %}
+
 Every WAL record carries a **Log Sequence Number (LSN)** that is exactly a [Lamport-style](/distributed-systems/lamport-clock/){:target="_blank" rel="noopener"} monotonic counter measured in bytes from the start of the log. Replicas pull WAL by LSN, point in time recovery rewinds to a specific LSN, and physical replication slots track LSNs to know how much WAL the primary can recycle.
 
 For more on the general pattern of writing to a log first, the [Write-Ahead Log distributed systems pattern](/distributed-systems/write-ahead-log/){:target="_blank" rel="noopener"} post covers it from a different angle. The Postgres specific reference is the [WAL Internals](https://www.postgresql.org/docs/current/wal-internals.html){:target="_blank" rel="noopener"} chapter. If you are using the WAL through logical replication (for example, to stream a [transactional outbox](/transactional-outbox-pattern/){:target="_blank" rel="noopener"} table to Kafka with Debezium), the [Debezium and outbox database impact analysis](/debezium-outbox-postgres-database-impact/){:target="_blank" rel="noopener"} walks through the CPU, memory, and WAL retention costs in detail.
@@ -521,10 +509,6 @@ A useful trio of WAL related GUCs:
 | `synchronous_commit` | `on` waits for fsync, `off` returns early (faster but loses last few ms on crash) |
 | `checkpoint_timeout` | how often the checkpointer runs (default 5 minutes) |
 | `max_wal_size` | soft cap on WAL between checkpoints |
-
-
-{% include ads/in-article.html %}
-
 
 Tuning is documented in [WAL Configuration](https://www.postgresql.org/docs/current/wal-configuration.html){:target="_blank" rel="noopener"}.
 

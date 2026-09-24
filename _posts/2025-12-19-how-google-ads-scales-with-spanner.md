@@ -124,9 +124,7 @@ graph LR
     style AC2 fill:#5fb878
 ```
 
-
 {% include ads/in-article.html %}
-
 
 ### The Commit Wait
 
@@ -288,10 +286,6 @@ graph TB
     style A3 fill:#4a90a4
 ```
 
-
-{% include ads/display.html %}
-
-
 ### Automatic Resharding
 
 As data grows or access patterns change, Spanner automatically splits and moves data. No downtime. No manual intervention.
@@ -349,6 +343,8 @@ sequenceDiagram
     Span->>Ads: Committed at timestamp T
     Ads->>User: Click recorded
 ```
+
+{% include ads/in-article.html %}
 
 Total time: 10-50ms depending on geography. For that latency, you get:
 
@@ -416,10 +412,6 @@ Spanner constantly monitors load and automatically rebalances. Build similar fee
 
 ## Open Source Alternatives
 
-
-{% include ads/in-article.html %}
-
-
 You can't run Spanner yourself (unless you're on Google Cloud), but several open-source databases use similar ideas.
 
 | Database | TrueTime Alternative | Consistency | Best For |
@@ -476,4 +468,3 @@ The next time someone tells you that you can't have consistency at scale, you'll
 - [Spanner: Becoming a SQL System](https://research.google.com/pubs/archive/46103.pdf)
 - [Cloud Spanner Documentation](https://cloud.google.com/spanner)
 - [CockroachDB Architecture](https://www.cockroachlabs.com/docs/stable/architecture/overview.html)
-

@@ -103,10 +103,6 @@ NIST sets standards that become industry benchmarks. Their work on AI safety and
 
 ## <i class="fas fa-robot"></i> AI News
 
-
-{% include ads/in-article.html %}
-
-
 ### OpenAI Launches "Your Year with ChatGPT"
 
 OpenAI's answer to Spotify Wrapped is here.
@@ -164,6 +160,8 @@ An open-source vision foundation model that Microsoft is calling a "Swiss Army k
 Open-source vision models give developers tools to build image-understanding features without relying on closed APIs. Florence-2 joins a growing ecosystem of open vision models.
 
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools
 
@@ -248,10 +246,6 @@ You're not just building for developers anymore. Your users increasingly expect 
 
 ## <i class="fas fa-exclamation-triangle"></i> What This Week Teaches Us
 
-
-{% include ads/display.html %}
-
-
 **Money is pouring into AI:** SoftBank's $22.5B investment in OpenAI is one of the largest single AI investments ever. The biggest players are going all-in.
 
 **AI companies are buying developer tools:** Earlier this month Anthropic got Bun, Cursor got Graphite. The pattern is clear - AI companies want to own the whole development experience, not just the models.
@@ -297,5 +291,3 @@ You're not just building for developers anymore. Your users increasingly expect 
 *Holiday week, but the deals kept coming. SoftBank's $22.5B OpenAI investment is the headline. Disney testing AI-generated content with Sora is worth watching - if Disney is doing it, others will follow. And the year-end numbers confirm what we've all felt: AI changed how developers work in 2025. The question for 2026 isn't whether AI will matter. It's how fast things will move.*
 
 *See you next year. Happy New Year to all developers.*
-
-

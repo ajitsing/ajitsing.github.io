@@ -138,10 +138,6 @@ class TokenBucket:
         self.last_refill = now
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Pro**: Smooths out traffic, allows controlled bursts  
 **Con**: Can still allow 2x capacity if bucket is full when burst hits
 
@@ -208,6 +204,8 @@ Count requests in fixed time windows (e.g., 1 minute). Reset counter when window
 **Con**: Can allow 2x traffic at window boundaries (100 requests at 12:59:59, 100 more at 13:00:00)
 
 **My recommendation**: Start with Token Bucket. It's the best balance between burst handling and long-term rate control.
+
+{% include ads/in-article.html %}
 
 ## Making It Distributed
 
@@ -278,10 +276,6 @@ redis.call('INCR', key)
 redis.call('EXPIRE', key, window)
 return 1  -- Request allowed
 ```
-
-
-{% include ads/display.html %}
-
 
 Call this from your API server:
 
@@ -510,10 +504,6 @@ class DynamicRateLimiter:
     # ... other helper methods
 ```
 
-
-{% include ads/in-article.html %}
-
-
 Usage in your API:
 
 ```python
@@ -581,6 +571,8 @@ AWS uses token bucket with:
 - **Steady state**: 10,000 requests per second (refill rate)
 
 You can handle sudden spikes using the burst capacity, but sustained load is limited by the refill rate. Both are configurable.
+
+{% include ads/in-article.html %}
 
 ## The Response: What to Return
 
@@ -681,10 +673,6 @@ if retry_count > 5:
 
 ## Monitoring Your Rate Limiter
 
-
-{% include ads/display.html %}
-
-
 Track these metrics:
 
 1. **Rate limit hits by user**: Who's getting blocked?
@@ -739,5 +727,3 @@ The goal isn't to block requests - it's to keep your system healthy and responsi
 *Want more system design deep dives? Check out [Circuit Breaker Pattern](/circuit-breaker-pattern/) for another critical resilience pattern, [Flash Sale System Design](/flash-sale-system-design/) for how a per-user token bucket keeps bots from draining limited stock, [How Shopify Powers 5 Million Stores Without Breaking a Sweat](/shopify-system-design/), and [Change Data Capture Explained](/explainer/change-data-capture/).*
 
 *References: [Stripe Rate Limits](https://stripe.com/docs/rate-limits), [Redis Rate Limiting](https://redis.io/learn/howtos/ratelimiting), [AWS API Gateway Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html)*
-
-

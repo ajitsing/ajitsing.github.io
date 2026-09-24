@@ -155,6 +155,8 @@ sequenceDiagram
 
 The benefit of this architecture is that you can message your AI from any platform and pick up the conversation elsewhere. Start a task on Slack, continue it on WhatsApp. The Gateway maintains session continuity.
 
+{% include ads/in-article.html %}
+
 ## Memory: Plain Markdown Files
 
 This is one of OpenClaw's most interesting design decisions. Instead of storing memory in a database, everything is saved as plain Markdown files in your agent workspace.
@@ -173,10 +175,6 @@ This is one of OpenClaw's most interesting design decisions. Instead of storing 
 └── logs/
     └── gateway.log
 ```
-
-
-{% include ads/in-article.html %}
-
 
 ### Why Markdown?
 
@@ -323,10 +321,6 @@ This is a useful pattern for any self-hosted tool: design with clear abstraction
 
 ## Setting Up OpenClaw
 
-
-{% include ads/display.html %}
-
-
 There are several ways to get started, depending on your preferences.
 
 ### Option 1: Docker (Recommended for Most Developers)
@@ -385,6 +379,8 @@ Each channel has its own setup process:
 - **WhatsApp**: Scan QR code to link account
 
 The dashboard walks you through each integration.
+
+{% include ads/in-article.html %}
 
 ## Security Considerations
 

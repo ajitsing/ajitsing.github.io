@@ -83,10 +83,6 @@ Convert the following JSON object into a Python dictionary:
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### 3. **Set Constraints**
 Define any limitations or requirements for the output.
 
@@ -117,6 +113,8 @@ Write a Python function to divide two numbers. Handle cases where the denominato
 ```
 
 ---
+
+{% include ads/in-article.html %}
 
 ## Common Use Cases for Prompt Engineering
 

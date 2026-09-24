@@ -64,6 +64,8 @@ In this tab you will notice that each queue has its own widget which shows below
 
 To see more details of a particular queue, click on the queue name and you will be directed to queue summary page.
 
+{% include ads/in-article.html %}
+
 ![Crepe](/assets/img/posts/monitoring_sidekiq/monitoring_sidekiq_2.png)
 
 On this page you will notice that mailer_queue has its own widget that shows all the stats of the queue. Also there is a table of failed jobs. Which shows worker name, arguments, enqueued time and the error message of each failure. By default, the plugin shows 50 recent failures of a queue. You can configure that number according to your needs with below config.
@@ -78,10 +80,6 @@ To view the details of individual job failure, click on the enqueued time of the
 
 &nbsp;
 ## Fetching stats of all queues
-
-
-{% include ads/in-article.html %}
-
 
 You can use the below api to fetch the stats of all the queues.
 

@@ -176,10 +176,6 @@ public class DraggableActivity extends AppCompatActivity implements View.OnTouch
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Understanding the Offset Calculation
 
 The trickiest part is understanding why we need `dX` and `dY`. When the user touches the view, they might touch anywhere on it—the center, the edge, or a corner. If you just set the view position to the touch coordinates, the view jumps so its top-left corner aligns with the touch point. That feels wrong.
@@ -203,6 +199,8 @@ sequenceDiagram
     
     Note over View: View moves smoothly,<br/>maintaining touch point
 ```
+
+{% include ads/in-article.html %}
 
 **Example**: Say the view is at position (100, 200) and the user touches at screen coordinate (120, 220). The offset is (100 - 120, 200 - 220) = (-20, -20). When the user moves their finger to (150, 250), the view moves to (150 + (-20), 250 + (-20)) = (130, 230). The touch point stays under the finger the entire time.
 
@@ -322,9 +320,7 @@ stateDiagram-v2
     end note
 ```
 
-
-{% include ads/display.html %}
-
+{% include ads/in-article.html %}
 
 ### Implementing Drag and Drop
 
@@ -544,10 +540,6 @@ case MotionEvent.ACTION_UP:
     break;
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### 5. Performance Issues with Complex Views
 
 **Problem**: Dragging feels laggy with complex views (many children, animations).
@@ -745,10 +737,6 @@ ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(
 ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
 touchHelper.attachToRecyclerView(recyclerView);
 ```
-
-
-{% include ads/display.html %}
-
 
 This is simpler than implementing drag and drop manually and provides built-in animations.
 

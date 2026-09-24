@@ -46,8 +46,6 @@ On June 1, [GitHub Copilot switched every plan from flat pricing to token-based 
 
 The reaction was immediate. The phrase "what a joke" spread across Reddit, Hacker News, and X, with one developer reporting a projected jump from 29 dollars to nearly 750 dollars a month. Defenders pushed back too, noting that careful prompting keeps costs flat or lower and that the big bills come from heavy, iterative vibe coding. The timing was awkward, landing one day before Microsoft used Build to pitch its cheaper MAI coding model.
 
-{% include ads/in-article.html %}
-
 ### GitHub Ships the Agent-Native Copilot App and Opens the Copilot SDK - [<i class="fas fa-external-link-alt"></i>](https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/){:target="_blank"}
 
 Also on June 2 at Build, GitHub introduced [the GitHub Copilot app, an agent-native desktop experience](https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/){:target="_blank"} now in technical preview for Copilot Pro, Pro+, Business, and Enterprise users. A single My Work view shows active sessions, issues, pull requests, and background automations across connected repositories. Every session runs in its own Git worktree so parallel agents do not step on each other, and a new canvas surface lets you inspect, steer, and redirect agent work as it happens. The app runs on Windows, macOS, and Linux and supports cloud and local sandboxes.
@@ -80,9 +78,9 @@ On June 3, the campaign got worse. [StepSecurity reported 57 packages across mor
 
 On June 3, [GitLab laid off about 350 employees, roughly 14 percent of its workforce](https://techcrunch.com/2026/06/03/gitlab-cuts-14-of-staff-as-it-scales-its-platform-to-serve-ai-workloads/){:target="_blank"}, as part of a restructuring it detailed in May. The company is [exiting 22 countries](https://www.storyboard18.com/brand-marketing/gitlab-layoff-company-cuts-350-jobs-exits-22-countries-to-pivot-toward-ai-driven-agentic-era-100124.htm){:target="_blank"}, flattening management layers, and reorganizing R&D into smaller teams as it pushes its Duo Agent Platform. GitLab reported first-quarter revenue of 264 million dollars, up 23 percent year on year, with 88 percent gross margins, and expects 30 to 35 million dollars in restructuring costs. It is the same pattern seen at Intuit, Amazon, Meta, Microsoft, and Oracle this year: record revenue alongside a shrinking headcount, with AI cited as both the reason for the growth and the justification for the cuts.
 
-{% include ads/display.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
@@ -109,8 +107,6 @@ On June 5, Anthropic [notified developers that Claude Opus 4.1 is deprecated](ht
 *   **Elixir 1.20.0:** Released on June 3, [Elixir 1.20.0 landed](https://github.com/elixir-lang/elixir/releases/tag/v1.20.0){:target="_blank"} with broader type inference across clauses and applications, occurrence typing on `case`, `cond`, and `with`, warnings on redundant clauses, and new helpers like `Integer.ceil_div/2` and `Integer.popcount/1`. It requires Erlang/OTP 27 or later. See the [official announcement](https://elixir-lang.org/blog/2026/06/03/elixir-v1-20-0-released/){:target="_blank"} for the full list.
 *   **Angular v22:** Announced on June 3 with [a release event on June 5](https://blog.angular.dev/announcing-angular-v22-c52bb83a4664){:target="_blank"}, Angular v22 promotes Signal Forms, Angular Aria, and asynchronous reactivity APIs toward stable. Webpack support and the `@angular-devkit/build-angular` builders are deprecated as the team focuses on TSGo support in the application builder.
 *   **Go 1.26.4:** Released on June 2, [Go 1.26.4](https://go.dev/doc/devel/release){:target="_blank"} is a minor revision with security fixes to the `crypto/x509`, `mime`, and `net/textproto` packages, plus bug fixes to `crypto/fips140`, `go/types`, and `os`.
-
-{% include ads/in-article.html %}
 
 ---
 
@@ -146,9 +142,9 @@ On June 3, [Uber cut 23 percent of its People and Places division](http://www.te
 
 Oracle is in the final stage of its largest workforce reduction, with [thousands of employees reaching their separation dates between June 1 and June 15](https://economictimes.indiatimes.com/news/international/us/oracle-to-complete-30000-job-cuts-by-june-15-whats-the-reason-which-team-is-impacted-the-most-and-what-oracle-workers-could-be-giving-up-when-they-sign-severance-agreements/articleshow/131446249.cms){:target="_blank"}. The total is around 30,000 people, roughly 18 percent of its global workforce, with the deepest cuts in Oracle Health, the division built from the 28.3 billion dollar Cerner acquisition. The cuts come during strong financial results, as Oracle redirects resources toward AI infrastructure.
 
-{% include ads/in-article.html %}
-
 ---
+
+{% include ads/in-article.html %}
 
 ## <i class="fas fa-chart-bar"></i> The Numbers That Matter
 

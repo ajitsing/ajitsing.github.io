@@ -151,9 +151,9 @@ flowchart LR
     class Peers net
 ```
 
-The elegance is that the node never blocks a thread waiting for a peer. It accepts the request, records what needs to happen when responses arrive, and moves on to the next piece of work. The responses drive everything from that point forward. This is the same deferred-work idea behind a [future or promise](https://en.wikipedia.org/wiki/Futures_and_promises){:target="_blank" rel="noopener"}: the waiting list holds work that will finish later, when the world is ready.
-
 {% include ads/in-article.html %}
+
+The elegance is that the node never blocks a thread waiting for a peer. It accepts the request, records what needs to happen when responses arrive, and moves on to the next piece of work. The responses drive everything from that point forward. This is the same deferred-work idea behind a [future or promise](https://en.wikipedia.org/wiki/Futures_and_promises){:target="_blank" rel="noopener"}: the waiting list holds work that will finish later, when the world is ready.
 
 ## <i class="fas fa-key"></i> Choosing the Key
 
@@ -237,8 +237,6 @@ Second, a response for an unknown key is simply ignored. Late replies after a re
 
 Third, the entry is removed from the map *before* the callback runs. That ordering matters: it prevents a second response from finding the entry still present and completing the request twice.
 
-{% include ads/display.html %}
-
 ## <i class="fas fa-clock"></i> The Non-Negotiable Part: Expiry
 
 A waiting list with no timeout is a slow memory leak wearing a nice pattern name. Networks drop packets. Peers crash mid-reply. A node you were counting on for the quorum goes away. If even one expected response never arrives, its entry sits in the map forever, holding memory, and the client that sent the request waits forever too.
@@ -285,6 +283,8 @@ flowchart TB
     class B1,B2 warn
     class B3 danger
 ```
+
+{% include ads/in-article.html %}
 
 The timeout also plays nicely with retries. Because the receiver ignores responses for unknown keys, a client or peer that retries after a timeout will not corrupt anything. Pairing the waiting list with an [idempotent receiver](/distributed-systems/idempotent-receiver/){:target="_blank" rel="noopener"} on the other side means those retries stay safe end to end.
 
@@ -342,8 +342,6 @@ flowchart LR
 ```
 
 Think of pipelining and batching as the "how do we send efficiently" half, and the waiting list as the "how do we make sense of what comes back" half. You need both to build a cluster node that is fast *and* correct.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-exclamation-triangle"></i> Mistakes Teams Make
 

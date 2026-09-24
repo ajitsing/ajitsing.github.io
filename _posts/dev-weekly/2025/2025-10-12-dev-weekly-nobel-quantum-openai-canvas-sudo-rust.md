@@ -151,11 +151,9 @@ The law is California-only for now, but other states are watching. Platform comp
 
 ---
 
-## 🛠 Developer Tools & Releases
-
-
 {% include ads/in-article.html %}
 
+## 🛠 Developer Tools & Releases
 
 ### Ubuntu Plans to Replace sudo with Rust Version - [🌐](https://discourse.ubuntu.com/t/adopting-sudo-rs-by-default-in-ubuntu-25-10/60583)
 
@@ -218,6 +216,8 @@ AMD issued OpenAI a **warrant for up to 160 million shares** of AMD stock. The s
 
 This partnership could reshape the AI hardware market. If AMD delivers, NVIDIA's dominance is over. If AMD stumbles, it reinforces NVIDIA's position. Either way, the next 12-18 months will be interesting.
 
+{% include ads/in-article.html %}
+
 ---
 
 ## 📊 The Numbers That Matter
@@ -235,4 +235,3 @@ This partnership could reshape the AI hardware market. If AMD delivers, NVIDIA's
 ---
 
 *Got a story we missed? Let us know - we're always looking to improve our coverage of what matters to developers.*
-

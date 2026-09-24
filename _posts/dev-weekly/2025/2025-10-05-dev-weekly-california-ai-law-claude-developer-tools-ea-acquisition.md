@@ -80,10 +80,6 @@ The gaming industry has been in consolidation mode, but this is the biggest deal
 
 ## 🛠 Developer Tools & Releases
 
-
-{% include ads/in-article.html %}
-
-
 ### AWS Launches Browser Automation Tool
 
 AWS released **Nova Act**, an open-source IDE extension for building browser automation agents.
@@ -142,6 +138,8 @@ Nothing groundbreaking, but if you're testing Android apps, you should update to
 
 ---
 
+{% include ads/in-article.html %}
+
 ## 💼 Funding & Business Moves
 
 ### AI Infrastructure Startups Clean Up
@@ -189,10 +187,6 @@ This matters because:
 
 ## 🔒 Security & Open Source
 
-
-{% include ads/display.html %}
-
-
 ### F-Droid Challenges Google's Sideloading Rules
 
 F-Droid, the free software app store for Android, pushed back against Google's new sideloading restrictions. Google claims the changes improve security, but F-Droid says they threaten alternative app distribution.
@@ -236,4 +230,3 @@ The industry is moving fast right now. AI tools are getting better weekly, regul
 ---
 
 *Got a story we missed? Let us know - we're always looking to improve our coverage of what matters to developers.*
-

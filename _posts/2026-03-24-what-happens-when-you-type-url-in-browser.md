@@ -123,10 +123,6 @@ sequenceDiagram
     Resolver-->>Browser: 93.184.216.34 (TTL: 3600)
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **The caching layers, in order:**
 
 1. **Browser cache** - Chrome caches DNS records for about 60 seconds
@@ -198,6 +194,8 @@ sequenceDiagram
     Note over Browser,Server: Encrypted connection ready
 ```
 
+{% include ads/in-article.html %}
+
 **Here is what happens in TLS 1.3:**
 
 1. **Client Hello** - The browser sends a list of cipher suites it supports (like `TLS_AES_256_GCM_SHA384`), a random number, and the server name (SNI). The server name is sent in plain text so the server knows which certificate to use if it hosts multiple domains.
@@ -221,10 +219,6 @@ On a modern server, TLS adds about 1-2ms of processing time per connection. The 
 ---
 
 ## Step 5: HTTP Request
-
-
-{% include ads/display.html %}
-
 
 The connection is open and encrypted. The browser sends an HTTP request.
 
@@ -358,10 +352,6 @@ ORDER BY rank DESC
 LIMIT 10;
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The database parses the query, checks its query plan cache, determines the best execution strategy (which indexes to use, whether to do a sequential scan), runs the query, and returns results. A well-indexed query takes under 1ms. A full table scan on millions of rows can take seconds.
 
 ---
@@ -444,6 +434,8 @@ flowchart TD
     style Screen fill:#065f46,stroke:#059669,color:#f8fafc
 ```
 
+{% include ads/in-article.html %}
+
 ### Step 8a: HTML Parsing and DOM Construction
 
 The browser reads the HTML byte by byte and constructs the **DOM (Document Object Model)** tree. The DOM is a tree representation of the page structure.
@@ -501,10 +493,6 @@ When the parser encounters a `<link>` tag for a CSS file or a `<script>` tag for
 <!-- Defer: downloads in parallel, executes after HTML parsing is done -->
 <script defer src="/app.js"></script>
 ```
-
-
-{% include ads/display.html %}
-
 
 Use `defer` for scripts that need the full DOM. Use `async` for independent scripts like analytics.
 
@@ -601,10 +589,6 @@ Not everything loads upfront. Modern browsers and frameworks optimize by deferri
 ---
 
 ## The Full Timeline
-
-
-{% include ads/in-article.html %}
-
 
 Let's put it all together with approximate timings for a typical page load over a 50ms RTT connection:
 

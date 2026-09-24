@@ -361,7 +361,6 @@ class CuckooFilter:
                 return True
         return False
 
-
 # Usage
 cf = CuckooFilter()
 cf.insert("user_alice")

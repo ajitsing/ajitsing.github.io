@@ -94,10 +94,6 @@ The January 2026 TIOBE Index is out, and C# took the top honor.
 | 5 | C# | 7.39% | +2.94% |
 | 6 | JavaScript | 4.01% | +0.54% |
 
-
-{% include ads/in-article.html %}
-
-
 **Why C# won Language of the Year:**
 
 It's not about being number one. TIOBE's award goes to the language with the biggest growth. C# jumped from 4.45% to 7.39% - a **2.94 percentage point gain**, the largest of any language in 2025. That's why a #5 ranked language wins the award.
@@ -182,6 +178,8 @@ AI is changing how we write code. But it's not replacing the need to understand 
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-code"></i> Developer Tools
 
 ### Keeper Security Launches JetBrains Extension - [<i class="fas fa-external-link-alt"></i>](https://www.prnewswire.com/news-releases/keeper-security-launches-jetbrains-extension-embedding-zero-trust-secrets-management-directly-into-developer-workflows-302654731.html)
@@ -236,10 +234,6 @@ If you're working with containers, orchestration, or cloud-native architectures,
 ---
 
 ## <i class="fas fa-apple-alt"></i> Apple Developer Updates - [<i class="fas fa-external-link-alt"></i>](https://developer.apple.com/news/?id=zni5qkkl)
-
-
-{% include ads/display.html %}
-
 
 Apple's "Hello Developer: January 2026" update dropped on January 6.
 
@@ -307,4 +301,3 @@ Apple's been teasing Liquid Glass as a design framework. If you're building iOS 
 *First week of 2026 set the tone. Security threats targeting developers. Consolidation in the tools space. AI changing how we work but not eliminating the need to understand code. And a talent market that heavily favors skilled developers. The themes from 2025 are accelerating. Stay sharp, audit your extensions, and if you're looking for a job - this is your market.*
 
 *See you next week.*
-

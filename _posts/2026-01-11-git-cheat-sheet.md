@@ -87,8 +87,6 @@ git config --global init.defaultBranch main
 
 These are just the basics. For a complete guide covering aliases, credentials, editor setup, and more, see the [Git Config Guide](/git-config-guide/).
 
-{% include ads/display.html %}
-
 ## Starting a Project
 
 You have two options: start fresh or clone an existing repository.
@@ -252,9 +250,7 @@ gitGraph
     commit id: "Release"
 ```
 
-
 {% include ads/in-article.html %}
-
 
 ### Create and Switch Branches
 
@@ -370,8 +366,6 @@ git commit -m "Add login feature"
 
 This is useful when a feature branch has messy commit history.
 
-{% include ads/in-article.html %}
-
 ### Abort a Merge
 
 If things go wrong during a merge:
@@ -411,6 +405,8 @@ flowchart TB
     style C2 fill:#1a365d,stroke:#2b6cb0,color:#bee3f8
     style D2 fill:#1a365d,stroke:#2b6cb0,color:#bee3f8
 ```
+
+{% include ads/in-article.html %}
 
 ### Rebase onto main
 
@@ -537,10 +533,6 @@ git reset --hard abc1234
 Reflog entries expire after about 90 days.
 
 ## Stashing
-
-
-{% include ads/display.html %}
-
 
 Stash saves your uncommitted changes temporarily.
 
@@ -832,10 +824,6 @@ sequenceDiagram
     Dev->>Local: git pull origin main
     Dev->>Local: git branch -d feature
 ```
-
-
-{% include ads/in-article.html %}
-
 
 1. Create a feature branch
 2. Make commits

@@ -102,10 +102,6 @@ This is agentic AI coming to the browser. Google is positioning Chrome as a plat
 
 ## <i class="fas fa-code"></i> Developer Tools & Platforms
 
-
-{% include ads/in-article.html %}
-
-
 ### MCP Apps Go Live as Official Extension - [<i class="fas fa-external-link-alt"></i>](http://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/)
 
 On January 26, the Model Context Protocol announced that MCP Apps is now an official extension ready for production.
@@ -174,6 +170,8 @@ If you're building on OpenAI APIs, check your model selections. The retirement a
 
 ---
 
+{% include ads/in-article.html %}
+
 ## <i class="fas fa-building"></i> Industry News
 
 ### OpenAI Shares Data Agent Architecture - [<i class="fas fa-external-link-alt"></i>](https://openai.com/index/inside-our-in-house-data-agent/)
@@ -190,7 +188,6 @@ On January 29, OpenAI published details about their internal data agent system.
 
 OpenAI building internal AI agents signals what's coming for everyone. If they're using agents for data work internally, the tools they build for external use will reflect that experience.
 
-
 ### OpenAI Scaling PostgreSQL to 800 Million Users - [<i class="fas fa-external-link-alt"></i>](/how-openai-scales-postgresql/)
 
 OpenAI shared engineering details on how they scale PostgreSQL to support 800 million ChatGPT users.
@@ -202,10 +199,6 @@ This is a deep dive into database architecture at massive scale. Useful reading 
 ---
 
 ## <i class="fas fa-exclamation-triangle"></i> What This Week Teaches Us
-
-
-{% include ads/display.html %}
-
 
 **AI is coming for research workflows:** Prism is OpenAI's play for academia. If it works, expect similar tools for legal writing, medical documentation, and other specialized fields.
 

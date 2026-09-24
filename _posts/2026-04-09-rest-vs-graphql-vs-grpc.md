@@ -204,10 +204,6 @@ graph LR
     style G fill:#dcfce7,stroke:#16a34a
 ```
 
-
-{% include ads/in-article.html %}
-
-
 REST works well here because each client type (mobile, web, partner) gets the same interface. The API gateway can handle [authentication](/how-jwt-works/), [rate limiting](/dynamic-rate-limiter-system-design/), and routing.
 
 ---
@@ -325,6 +321,8 @@ sequenceDiagram
     G-->>C: Combined response
 ```
 
+{% include ads/in-article.html %}
+
 That is 101 queries for a single GraphQL request. The solution is a **DataLoader** that batches and deduplicates queries, but you have to implement it yourself.
 
 **Caching is hard.** With REST, `GET /users/123` always returns the same URL, so CDNs and browser caches work out of the box. GraphQL uses `POST` requests with query bodies, so standard HTTP caching does not apply. You need application-level caching (Apollo Client, Relay) or persisted queries.
@@ -354,8 +352,6 @@ query {
   }
 }
 ```
-
-{% include ads/display.html %}
 
 You need query depth limiting, complexity analysis, and [rate limiting](/dynamic-rate-limiter-system-design/) to protect your GraphQL API. This is extra infrastructure that REST APIs rarely need.
 
@@ -483,10 +479,6 @@ service ChatService {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 If you have used [Server-Sent Events](/server-sent-events-explained/) or [WebSockets](/long-polling-explained/) for real-time communication, gRPC bidirectional streaming is the equivalent for service-to-service calls, with built-in type safety and flow control.
 
 ### Schema evolution in gRPC
@@ -554,10 +546,6 @@ GraphQL is slightly slower than REST for simple single-resource queries because 
 | Client libraries | Every language, manual | Apollo, Relay, urql | Auto-generated from .proto |
 | Browser support | Native | Native | Requires proxy (gRPC-Web) |
 | File uploads | Standard multipart | Awkward, non-standard | Streaming-based |
-
-
-{% include ads/display.html %}
-
 
 ### Caching
 
@@ -673,10 +661,6 @@ graph TB
     style H fill:#dcfce7,stroke:#16a34a
 ```
 
-
-{% include ads/in-article.html %}
-
-
 The GraphQL layer aggregates data from multiple REST services and lets each client query exactly what it needs. This is how [Shopify](/shopify-system-design/) structures their Storefront API. The backend services remain simple REST, but the client-facing layer is flexible.
 
 ### Pattern 3: gRPC internally, REST/GraphQL externally (large-scale)
@@ -712,6 +696,8 @@ graph TB
     style G fill:#dcfce7,stroke:#16a34a
     style K fill:#fef3c7,stroke:#d97706
 ```
+
+{% include ads/in-article.html %}
 
 Netflix uses gRPC for their internal service mesh. Their graph abstraction layer handles 650TB of data and exposes a gRPC API that delivers single-digit millisecond latency for single-hop queries. Externally, they use GraphQL for their marketing and content APIs.
 

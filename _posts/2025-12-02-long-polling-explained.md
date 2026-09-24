@@ -157,10 +157,6 @@ app.post('/send-notification', express.json(), (req, res) => {
 app.listen(3000);
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Client Side (JavaScript)
 
 ```javascript
@@ -221,6 +217,8 @@ class LongPollingClient {
 const client = new LongPollingClient('user-123');
 client.start();
 ```
+
+{% include ads/in-article.html %}
 
 ## The Connection Timeout Dance
 
@@ -319,10 +317,6 @@ app.get('/channel/:channelId', async (req, res) => {
     }
 });
 ```
-
-
-{% include ads/display.html %}
-
 
 This reduced the number of open connections dramatically. Instead of 1 million connections for 1 million users, they might have 100,000 connections each serving 10 users.
 
@@ -476,6 +470,8 @@ app.get('/poll', (req, res) => {
 });
 ```
 
+{% include ads/in-article.html %}
+
 ## Scaling Long Polling
 
 For serious production use, you need to think about horizontal scaling. The challenge is that a user's long-poll request might hit Server A, but the event they're waiting for arrives at Server B.
@@ -536,10 +532,6 @@ function notifyUser(userId, data) {
     pub.publish('user-events', JSON.stringify({ userId, data }));
 }
 ```
-
-
-{% include ads/in-article.html %}
-
 
 ### Option 2: Sticky Sessions with Shared State
 
@@ -627,4 +619,3 @@ Long Polling isn't the future of real-time web. But it's a reliable, battle-test
 *Want to understand other real-time communication approaches? Check out [Server-Sent Events Explained](/server-sent-events-explained/) for one-way server push, [WebSockets Explained](/explainer/websockets-explained/) for the persistent connection alternative, [How Google Docs Works](/how-google-docs-works/) for collaborative editing architecture, and [How Stock Brokers Handle Real-Time Price Updates](/how-stock-brokers-handle-real-time-price-updates/) to see WebSockets in action at massive scale.*
 
 *References: [Comet (Wikipedia)](https://en.wikipedia.org/wiki/Comet_(programming)), [RFC 6202: HTTP Long Polling](https://tools.ietf.org/html/rfc6202), [Facebook Engineering Blog](https://engineering.fb.com/)*
-

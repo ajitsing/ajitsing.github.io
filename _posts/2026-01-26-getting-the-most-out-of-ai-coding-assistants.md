@@ -144,10 +144,6 @@ Before opening your IDE, create a markdown file describing what you want to buil
 - Unverified email login should return 403
 ```
 
-
-{% include ads/in-article.html %}
-
-
 This document does several things:
 
 1. Forces you to think through the problem before coding
@@ -207,6 +203,8 @@ flowchart TB
     style I fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
+{% include ads/in-article.html %}
+
 ### <i class="fas fa-vial"></i> Start With the Test
 
 Ask AI to write a failing test first:
@@ -263,8 +261,6 @@ def get_user_orders(user_ids: list[int]) -> list[Order]:
         orders.extend(user_orders)
     return orders
 ```
-
-{% include ads/display.html %}
 
 This is an [N+1 query problem](/explainer/n-plus-one-query-problem/). With 1000 users, you make 1000 database calls instead of one. It works in development with 10 users and falls over in production.
 
@@ -363,10 +359,6 @@ In Cursor, use the resync command. In Copilot, close and reopen files you change
 
 ## Prompting Patterns That Work
 
-
-{% include ads/in-article.html %}
-
-
 ### <i class="fas fa-bullseye"></i> Be Specific
 
 Vague prompts produce vague results. Compare:
@@ -434,6 +426,8 @@ flowchart TB
     style Right fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style X fill:none,stroke:none
 ```
+
+{% include ads/in-article.html %}
 
 Each smaller task is easier for AI to get right. And if something goes wrong, you know exactly where.
 
@@ -511,10 +505,6 @@ If you do not understand the code AI generates, you cannot:
 Use AI to speed up tasks you already know how to do. Use learning resources to build skills you do not have yet.
 
 ## Measuring Your Productivity
-
-
-{% include ads/display.html %}
-
 
 How do you know if AI is actually helping? Track these metrics:
 

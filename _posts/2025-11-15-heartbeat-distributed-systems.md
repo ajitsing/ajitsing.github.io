@@ -136,10 +136,6 @@ spec:
       failureThreshold: 3
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **What this does:**
 - Wait 30 seconds after container starts (give it time to boot)
 - Every 10 seconds, send an HTTP GET to `/health`
@@ -211,7 +207,6 @@ Failure Detection Time = (Heartbeat Interval × Failure Threshold) + Network Lat
 
 That's how long it takes to detect a failure in the best case.
 
-
 ## Pattern 1: Push-Based Heartbeat
 
 The node actively sends "I'm alive" messages to a central monitor.
@@ -245,6 +240,8 @@ sequenceDiagram
     M->>M: Trigger alerts
 ```
 
+{% include ads/in-article.html %}
+
 **The flow:**
 
 1. **Node startup**: Each node starts a background thread that sends heartbeats
@@ -269,10 +266,6 @@ AWS Auto Scaling uses push-based heartbeats. EC2 instances send heartbeats to th
 - <i class="fas fa-times-circle text-danger"></i> Monitor can be overwhelmed with many nodes
 
 ## Pattern 2: Pull-Based Health Check
-
-
-{% include ads/display.html %}
-
 
 The monitor actively polls each node to check if it's alive.
 
@@ -405,10 +398,6 @@ sequenceDiagram
     Note over N1,N4: Everyone knows N3 is dead
 ```
 
-
-{% include ads/in-article.html %}
-
-
 **Pros:**
 - <i class="fas fa-check-circle text-success"></i> No single point of failure (fully distributed)
 - <i class="fas fa-check-circle text-success"></i> Scales to thousands of nodes efficiently
@@ -538,10 +527,6 @@ graph LR
     style H fill:#fee2e2,stroke:#dc2626,stroke-width:2px
 ```
 
-
-{% include ads/display.html %}
-
-
 **Why this works:** If the network fails but the node can still write to shared storage, you know it's alive even though network heartbeats failed. This dramatically reduces false positives.
 
 ## Real-World Examples Deep Dive
@@ -567,6 +552,8 @@ graph LR
     style F fill:#dcfce7,stroke:#16a34a,stroke-width:2px
     style G fill:#fee2e2,stroke:#dc2626,stroke-width:2px
 ```
+
+{% include ads/in-article.html %}
 
 **How it works:**
 
@@ -667,10 +654,6 @@ for {
 
 ## The Heartbeat Hierarchy
 
-
-{% include ads/in-article.html %}
-
-
 In production systems, you often have multiple layers of heartbeats:
 
 ```mermaid
@@ -767,4 +750,3 @@ Remember: in distributed systems, things will fail. Heartbeat mechanisms ensure 
 *For a real production failure detector that prefers real application traffic over heartbeats, see how GitHub's Spokes system marks fileservers offline in [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/).*
 
 *Building reliable systems? Read [Stop Blocking Your Paying Customers: Build a Smart Rate Limiter](/dynamic-rate-limiter-system-design/).*
-

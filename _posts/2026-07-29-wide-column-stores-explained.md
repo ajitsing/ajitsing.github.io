@@ -153,8 +153,6 @@ LIMIT 50;
 
 No sorting at query time, no scatter-gather across nodes. The data was already laid out exactly the way you asked for it. That is the payoff of getting the two keys right, and the reason the next section on data modeling matters so much.
 
-{% include ads/in-article.html %}
-
 ## <i class="fas fa-pencil-ruler"></i> Query-First Data Modeling
 
 In a relational database you model your data first (normalize into clean tables) and write whatever queries you need later. In a wide column store you flip that completely. **You model your tables around the queries you need to run.**
@@ -179,6 +177,8 @@ flowchart LR
     class T1,T2,T3 t
     class Q1,Q2,Q3 q
 ```
+
+{% include ads/in-article.html %}
 
 The rules of thumb that fall out of this:
 
@@ -234,8 +234,6 @@ Deletes add a twist. Since SSTables are immutable, you cannot erase a value in p
 
 Finally, because data is replicated, a read might find different values on different replicas. **Read repair** fixes this: when the coordinator notices a replica is out of date, it pushes the newer value back so the replicas converge. This is one of the mechanisms behind [eventual consistency](/glossary/eventual-consistency/){:target="_blank" rel="noopener"}.
 
-{% include ads/display.html %}
-
 ## <i class="fas fa-network-wired"></i> How the Cluster Scales
 
 The data model explains a single node. The magic of wide column stores is how nodes work together, and here the two lineages diverge.
@@ -260,6 +258,8 @@ flowchart TB
     class N1,N2,N3,N4 n
     class G g
 ```
+
+{% include ads/in-article.html %}
 
 ### Replication and tunable consistency
 
@@ -288,8 +288,6 @@ Where does a wide column store fit next to the databases you already know? This 
 | Sweet spot | [Time-series](/time-series-databases-explained/){:target="_blank" rel="noopener"}, logs, IoT, feeds | Transactions, reporting | Catalogs, profiles | Dashboards, analytics |
 
 The short version: a wide column store trades query flexibility for write throughput and effortless horizontal scale. If your access patterns are known and your write volume is enormous, that is a great trade. If you need to slice the data a hundred different ways next quarter, a relational database like [PostgreSQL](/postgresql-vs-mongodb-vs-dynamodb/){:target="_blank" rel="noopener"} will serve you far better.
-
-{% include ads/in-article.html %}
 
 ## <i class="fas fa-server"></i> The Main Wide Column Stores
 

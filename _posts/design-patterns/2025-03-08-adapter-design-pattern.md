@@ -205,10 +205,6 @@ public class AmplitudeAdapter implements AnalyticsService {
 }
 ```
 
-
-{% include ads/in-article.html %}
-
-
 ### Usage
 
 ```java
@@ -267,6 +263,8 @@ sequenceDiagram
     Adaptee-->>Adapter: void
     Adapter-->>Client: void
 ```
+
+{% include ads/in-article.html %}
 
 The client calls the Target interface. The Adapter translates these calls to the Adaptee's specific API.
 
@@ -395,10 +393,6 @@ public class PaymentAdapter implements PaymentService {
 }
 ```
 
-
-{% include ads/display.html %}
-
-
 ### 2. Not Handling All Interface Methods
 
 If the adaptee doesn't support something the target requires:
@@ -477,4 +471,3 @@ Keep adapters thin. They should translate, not add logic. If you're adding signi
 
 - [Head First Design Patterns](https://www.oreilly.com/library/view/head-first-design/0596007124/) - Chapter 7
 - [Object Adapter vs Class Adapter](https://stackoverflow.com/questions/9978477/difference-between-object-adapter-pattern-and-class-adapter-pattern) on Stack Overflow
-

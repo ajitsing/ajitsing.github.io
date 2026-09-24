@@ -86,11 +86,9 @@ Google announced a major **quantum computing breakthrough** this week. Details a
 
 ---
 
-## 🛠 Developer Tools & Releases
-
-
 {% include ads/in-article.html %}
 
+## 🛠 Developer Tools & Releases
 
 ### Red Hat Developer Lightspeed - [🌐](https://www.redhat.com/en/about/press-releases/red-hat-launches-red-hat-developer-lightspeed-ai-powered-developer-productivity)
 
@@ -167,4 +165,3 @@ Vector databases are hot right now because of RAG (Retrieval-Augmented Generatio
 ---
 
 *Got a story we missed? Let us know, we're always looking to improve our coverage of what matters to developers.*
-

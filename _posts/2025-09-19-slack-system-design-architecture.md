@@ -134,10 +134,6 @@ sequenceDiagram
 
 ## The Workspace Sharding Strategy
 
-
-{% include ads/in-article.html %}
-
-
 Slack's key insight: **workspaces are natural boundaries**. Users in different companies rarely interact, and each workspace has its own isolated data.
 
 So Slack shards **everything** by workspace:
@@ -252,6 +248,8 @@ graph TD
 
 **Key insight**: No foreign keys between shards keeps each workspace completely independent.
 
+{% include ads/in-article.html %}
+
 ## Real-Time Magic: WebSockets Done Right
 
 The real-time experience is where Slack shines. Here's how they make it feel instant. (For WebSocket fundamentals, check out [WebSockets Explained](/explainer/websockets-explained/).)
@@ -304,10 +302,6 @@ graph TB
 4. Client deduplicates using message ID
 
 ## Search: Essential for Productivity
-
-
-{% include ads/display.html %}
-
 
 With billions of messages, great search transforms user productivity.
 

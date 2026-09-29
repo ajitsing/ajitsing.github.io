@@ -209,7 +209,7 @@ How do you know if your context engineering is working? Track these metrics:
 | Cache hit rates | Are you saving costs with caching? |
 | User satisfaction | Are users actually helped? |
 
-A/B test different context strategies. Try different numbers of retrieved documents. Experiment with context ordering. The right approach depends on your specific use case.
+[A/B test](/ab-testing/){:target="_blank" rel="noopener"} different context strategies. Try different numbers of retrieved documents. Experiment with context ordering. The right approach depends on your specific use case.
 
 ## The Future
 

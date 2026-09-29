@@ -467,7 +467,7 @@ function safeToonConvert(data) {
 
 **Step 2**: Implement the converter (use code above or [official library](https://github.com/johannschopplich/toon))
 
-**Step 3**: A/B test both formats in parallel
+**Step 3**: [A/B test](/ab-testing/){:target="_blank" rel="noopener"} both formats in parallel
 
 **Step 4**: Measure token usage, cost reduction, and response quality
 

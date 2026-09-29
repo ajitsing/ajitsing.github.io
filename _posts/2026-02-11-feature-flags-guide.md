@@ -105,7 +105,7 @@ graph TB
 - <i class="fas fa-check-circle text-success"></i> Test in production with real users
 - <i class="fas fa-check-circle text-success"></i> Instant rollback without redeployment
 - <i class="fas fa-check-circle text-success"></i> Gradual rollout limits blast radius
-- <i class="fas fa-check-circle text-success"></i> A/B test different versions
+- <i class="fas fa-check-circle text-success"></i> [A/B test](/ab-testing/){:target="_blank" rel="noopener"} different versions
 
 ## What Are Feature Flags (Feature Toggles)?
 

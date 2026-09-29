@@ -697,7 +697,7 @@ How do you know if your agent is working well?
 
 **3. Human evaluation**: Have people rate agent responses for quality.
 
-**4. A/B testing**: Compare different agent configurations on real traffic.
+**4. [A/B testing](/ab-testing/){:target="_blank" rel="noopener"}**: Compare different agent configurations on real traffic.
 
 **5. Red teaming**: Try to break the agent with adversarial inputs.
 

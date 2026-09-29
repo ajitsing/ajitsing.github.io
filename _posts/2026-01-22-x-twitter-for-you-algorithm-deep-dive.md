@@ -558,7 +558,7 @@ The algorithm is not one giant model. It's a system of specialized components. T
 - Teams can work independently
 - Components can be tested in isolation  
 - Changes have limited blast radius
-- You can A/B test at any stage
+- You can [A/B test](/ab-testing/){:target="_blank" rel="noopener"} at any stage
 
 If you're building recommendations, start with the pipeline architecture. The ML model is just one component.
 

@@ -445,7 +445,7 @@ kubectl rollout pause deployment my-deployment
 kubectl rollout resume deployment my-deployment
 ```
 
-**Note:** For application-level feature rollouts (gradual user exposure, A/B testing), consider using [feature flags](/feature-flags-guide/) in addition to Kubernetes rolling updates. Feature flags give you finer control over which users see new features, independent of deployment.
+**Note:** For application-level feature rollouts (gradual user exposure, [A/B testing](/ab-testing/){:target="_blank" rel="noopener"}), consider using [feature flags](/feature-flags-guide/) in addition to Kubernetes rolling updates. Feature flags give you finer control over which users see new features, independent of deployment.
 
 ### Deleting Deployments
 

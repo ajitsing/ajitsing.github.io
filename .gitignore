@@ -3,6 +3,8 @@ _site
 .sass-cache
 .vagrant
 .favicon-venv
+.bundle
+vendor/bundle
 
 # general
 .DS_Store

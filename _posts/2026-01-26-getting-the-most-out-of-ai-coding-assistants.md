@@ -575,7 +575,7 @@ Simple code is easier to review, easier to debug, and easier to maintain. Do not
 
 3. **Review everything.** Treat AI output like a junior developer's code. Check logic, security, performance, and edge cases.
 
-4. **Keep context focused.** Reference specific files instead of dumping code. More context is not always better.
+4. **Keep context focused.** Reference specific files instead of dumping code. More context is not always better, and it is also how the [token bill grows](/how-to-save-cost-on-ai-assisted-coding/){:target="_blank" rel="noopener"}.
 
 5. **Match tool to task.** Use inline suggestions for quick completions. Use chat for complex generation. Use agents for changes across multiple files.
 

@@ -270,7 +270,7 @@ Cursor lets you pick which model powers each interaction, and you can change it 
 A practical strategy:
 
 - **Routine edits, Tab, most Agent work:** a fast, capable model such as a current Claude Sonnet or GPT model. Fast and cheap, good enough for the large majority of tasks.
-- **Deep architecture, hard debugging, big refactors:** a stronger reasoning model. Slower and pricier, so save it for the ten percent of work where reasoning depth actually matters.
+- **Deep architecture, hard debugging, big refactors:** a stronger reasoning model. Slower and pricier, so save it for the ten percent of work where reasoning depth actually matters, and read [how that choice hits the bill](/how-to-save-cost-on-ai-assisted-coding/){:target="_blank" rel="noopener"} before you leave a frontier model pinned all day.
 - **Huge codebase exploration:** a long-context model when you genuinely need to feed in a lot at once.
 
 A good heuristic: start with the fast model, and only escalate if it fails twice on the same task. If you find yourself reaching for the heavy model many times a day, the problem is usually your prompt or your context, not your model. The same instincts from [prompt engineering basics](/prompt-engineering-basics/){:target="_blank" rel="noopener"} apply here directly.

@@ -142,7 +142,7 @@ Custom commands merged into skills. A file at `.claude/commands/deploy.md` still
 
 ## <i class="fas fa-balance-scale"></i> CLAUDE.md vs Skills vs Commands vs Plugins vs MCP
 
-People dump everything into `CLAUDE.md` because it works. It also makes every session more expensive and more noisy. Split by job.
+People dump everything into `CLAUDE.md` because it works. It also makes every session more expensive and more noisy, which shows up directly on the [AI coding bill](/how-to-save-cost-on-ai-assisted-coding/){:target="_blank" rel="noopener"}. Split by job.
 
 ```mermaid
 flowchart LR

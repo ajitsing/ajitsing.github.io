@@ -149,7 +149,7 @@ For conversations, maintain different windows for different purposes:
 
 ### 5. Smart Caching
 
-If parts of your context are stable (system prompts, common documentation), cache them. Many APIs support prefix caching that reduces cost and latency for repeated context.
+If parts of your context are stable (system prompts, common documentation), cache them. Many APIs support prefix caching that reduces cost and latency for repeated context, which is the main way to [keep AI assisted coding bills down](/how-to-save-cost-on-ai-assisted-coding/){:target="_blank" rel="noopener"}.
 
 ## Context Engineering for Different Use Cases
 

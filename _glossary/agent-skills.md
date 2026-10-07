@@ -19,10 +19,11 @@ real_world:
   - "Teams commit `.claude/skills/` so Claude Code reviews pull requests, writes commits, and deploys the same way for everyone."
   - "The same `SKILL.md` format works in Cursor under `.cursor/skills/`, which is why one repo can serve both agents."
   - "Anthropic ships bundled Claude Code skills such as `/code-review` and `/debug`, and lets you override them with a project skill of the same name."
-related_terms: ["progressive-disclosure"]
+related_terms: ["progressive-disclosure", "prompt-caching"]
 related_posts:
   - "/how-to-create-and-use-skills-in-claude-code/"
   - "/how-to-create-and-use-skills-in-cursor/"
   - "/model-context-protocol-mcp-explained/"
   - "/context-engineering/"
+  - "/how-to-save-cost-on-ai-assisted-coding/"
 ---

@@ -275,7 +275,7 @@ This is the safety valve for anything destructive. The agent will never reach fo
 
 ## <i class="fas fa-terminal"></i> Adding Scripts to a Skill
 
-For fragile or repetitive operations, hand the agent a script instead of asking it to write the same code every time. Scripts are more reliable, save tokens, and produce consistent results.
+For fragile or repetitive operations, hand the agent a script instead of asking it to write the same code every time. Scripts are more reliable, [save tokens](/how-to-save-cost-on-ai-assisted-coding/){:target="_blank" rel="noopener"}, and produce consistent results.
 
 Drop executables into a `scripts/` directory and reference them with relative paths from the skill root:
 

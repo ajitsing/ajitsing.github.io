@@ -937,7 +937,7 @@ def test_conversation_memory():
 
 ## Cost Optimization
 
-LLM APIs charge per token. Optimize costs:
+LLM APIs charge per token. [Optimize costs](/how-to-save-cost-on-ai-assisted-coding/){:target="_blank" rel="noopener"}:
 
 1. **Use smaller models when possible**: GPT-4o mini is 10x cheaper than GPT-4o
 2. **Cache common responses**: Store frequently asked questions

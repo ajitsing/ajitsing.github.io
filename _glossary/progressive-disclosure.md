@@ -19,9 +19,10 @@ real_world:
   - "Claude Code loads skill descriptions for routing, then injects `SKILL.md` when you type `/deploy` or when the task matches."
   - "Cursor Agent Skills use the same two-stage load so dozens of project skills do not fill the window on every chat."
   - "Settings screens that hide power-user options behind an Advanced toggle are the same idea in a GUI."
-related_terms: ["agent-skills"]
+related_terms: ["agent-skills", "prompt-caching"]
 related_posts:
   - "/how-to-create-and-use-skills-in-claude-code/"
   - "/how-to-create-and-use-skills-in-cursor/"
   - "/context-engineering/"
+  - "/how-to-save-cost-on-ai-assisted-coding/"
 ---

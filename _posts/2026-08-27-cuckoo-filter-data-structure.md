@@ -439,3 +439,5 @@ The catch is honest: inserts can fail as the table fills, you must only delete i
 - [Caching Strategies Explained](/caching-strategies-explained/){:target="_blank" rel="noopener"} - A natural home for membership filters that need deletion
 
 *Further reading: the original [Cuckoo Filter: Practically Better Than Bloom](https://www.cs.cmu.edu/~binfan/papers/conext14_cuckoofilter.pdf){:target="_blank" rel="noopener"} paper by Fan, Andersen, Kaminsky, and Mitzenmacher, the [cuckoo hashing overview](https://en.wikipedia.org/wiki/Cuckoo_hashing){:target="_blank" rel="noopener"} (Pagh and Rodler's scheme), the authors' [reference implementation](https://github.com/efficient/cuckoofilter){:target="_blank" rel="noopener"}, and the [RedisBloom cuckoo filter docs](https://redis.io/docs/latest/develop/data-types/probabilistic/cuckoo-filter/){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

@@ -621,3 +621,5 @@ And now you know how it works.
 ---
 
 *For more system design deep dives, check out our posts on [How Kafka Works](/distributed-systems/how-kafka-works/), [How Slack Built a System That Handles 10+ Billion Messages](/slack-system-design/), and [Vector Databases and RAG](/explainer/vector-databases-and-rag/). Want to understand the patterns behind recommendation systems? Explore our [Design Patterns](/design-patterns/) guide.*
+
+{% include buy-me-a-coffee.html %}

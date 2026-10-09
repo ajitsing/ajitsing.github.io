@@ -536,3 +536,5 @@ Meta is not the only company operating at this scale. But they are one of the fe
 - [Role of Queues in System Design](/role-of-queues-in-system-design/) - Using queues to handle traffic spikes
 
 *References: [SOSP 2023 Paper](https://www.cs.cmu.edu/~dskarlat/publications/xfaas_sosp23.pdf), [Engineer's Codex](https://read.engineerscodex.com/p/meta-xfaas-serverless-functions-explained), [Communications of the ACM](https://cacm.acm.org/research/metas-hyperscale-infrastructure-overview-and-insights/), [Micah Lerner's Paper Review](https://newsletter.micahlerner.com/p/paper-review-xfaas-hyperscale-and)*
+
+{% include buy-me-a-coffee.html %}

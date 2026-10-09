@@ -689,3 +689,5 @@ You now know what they learned the hard way. Build carefully, test ruthlessly.
 ---
 
 *Want to dive deeper? Check out [Database Locks Explained](/database-locks-explained/){:target="_blank" rel="noopener"} for how SELECT FOR UPDATE and pessimistic locking work under the hood, the [Flash sale system design](/flash-sale-system-design/){:target="_blank" rel="noopener"} for how the same patterns scale to ten million buyers fighting for ten thousand units, [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"} for the charge, ledger, and reconciliation layer behind checkout, the [Notification system design](/notification-system-design/){:target="_blank" rel="noopener"} for how to deliver the booking confirmation, the seat reminder, and the support escalation without sending the same SMS twice, the [BookMyShow engineering blog](https://blog.bookmyshow.com/){:target="_blank" rel="noopener"} for war stories from the trenches, and explore [distributed systems patterns](https://martinfowler.com/articles/patterns-of-distributed-systems/){:target="_blank" rel="noopener"} to level up your architecture game.*
+
+{% include buy-me-a-coffee.html %}

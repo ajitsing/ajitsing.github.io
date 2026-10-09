@@ -475,3 +475,5 @@ The result? A system that serves 3 billion users with near-perfect consistency a
 ---
 
 *Want to dive deeper into distributed systems? Check out our other architecture deep-dives and learn how the world's biggest platforms solve difficult problems.*
+
+{% include buy-me-a-coffee.html %}

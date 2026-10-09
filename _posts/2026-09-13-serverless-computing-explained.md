@@ -441,3 +441,5 @@ Serverless is a tool in the box, not the box. Use it where it fits, and be hones
 - [Saga Pattern for Distributed Transactions](/saga-pattern-distributed-transactions/){:target="_blank" rel="noopener"} - Coordinating multi-step workflows without distributed transactions
 
 *Further reading: the AWS documentation on the [Lambda execution environment lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html){:target="_blank" rel="noopener"}, the AWS Compute Blog on [understanding and remediating cold starts](https://aws.amazon.com/blogs/compute/understanding-and-remediating-cold-starts-an-aws-lambda-perspective/){:target="_blank" rel="noopener"} and [INIT phase billing](https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/){:target="_blank" rel="noopener"}, the [Firecracker NSDI paper](https://www.usenix.org/conference/nsdi20/presentation/agache){:target="_blank" rel="noopener"}, and Cloudflare's [Cloud Computing without Containers](https://blog.cloudflare.com/cloud-computing-without-containers/){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

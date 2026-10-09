@@ -593,3 +593,5 @@ If you are interested in how DNS fits into large-scale infrastructure, see how [
 ---
 
 **Have questions about DNS? Drop them in the comments.**
+
+{% include buy-me-a-coffee.html %}

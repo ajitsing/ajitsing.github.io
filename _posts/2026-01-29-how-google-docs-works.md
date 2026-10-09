@@ -609,3 +609,5 @@ This is weeks of work minimum. Use a library if you can.
 - [Yjs Documentation](https://docs.yjs.dev/) - Popular CRDT library for collaborative editing
 
 *Building real-time collaborative features? The same patterns that power Google Docs work for chat applications, multiplayer games, and any system where multiple users need to see changes instantly. Start simple, optimize later, and always handle the offline case.*
+
+{% include buy-me-a-coffee.html %}

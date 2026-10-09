@@ -477,3 +477,5 @@ Next time you watch a stock price flicker on your screen, you'll know the journe
 ---
 
 *Want to dive deeper into real-time systems? Check out [WebSockets Explained](/explainer/websockets-explained/) for the protocol basics, [How Google Docs Works](/how-google-docs-works/) for collaborative editing at scale, and [Building a Dynamic Rate Limiter](/dynamic-rate-limiter-system-design/) for protecting these systems at scale.*
+
+{% include buy-me-a-coffee.html %}

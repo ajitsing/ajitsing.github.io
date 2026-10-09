@@ -831,3 +831,5 @@ flowchart LR
 ---
 
 *Have questions about scaling PostgreSQL? Share your experience in the comments below.*
+
+{% include buy-me-a-coffee.html %}

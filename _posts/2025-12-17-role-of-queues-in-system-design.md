@@ -678,3 +678,5 @@ def delete_message(message):
 - [Amazon SQS Developer Guide](https://docs.aws.amazon.com/sqs/)
 - [Designing Data-Intensive Applications by Martin Kleppmann](https://dataintensive.net/)
 - [Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/)
+
+{% include buy-me-a-coffee.html %}

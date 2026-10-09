@@ -265,3 +265,5 @@ That frugality is also its limit. The choice is only as trustworthy as the membe
 - [Emergent Leader (Patterns of Distributed Systems)](https://martinfowler.com/articles/patterns-of-distributed-systems/emergent-leader.html){:target="_blank" rel="noopener"} by Unmesh Joshi
 - [Akka Cluster Specification](https://doc.akka.io/libraries/akka/current/typed/cluster-concepts.html){:target="_blank" rel="noopener"} by Lightbend
 - [Designing Data-Intensive Applications](https://dataintensive.net/){:target="_blank" rel="noopener"} by Martin Kleppmann
+
+{% include buy-me-a-coffee.html %}

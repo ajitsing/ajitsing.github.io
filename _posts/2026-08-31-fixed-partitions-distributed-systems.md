@@ -367,3 +367,5 @@ The wisdom is all in the details: pick the partition count generously and once, 
 - [Leader and Followers Pattern](/distributed-systems/leader-follower/){:target="_blank" rel="noopener"} - How each partition's replicas stay in sync
 
 *Further reading: Unmesh Joshi's [Fixed Partitions chapter](https://martinfowler.com/articles/patterns-of-distributed-systems/fixed-partitions.html){:target="_blank" rel="noopener"} in Patterns of Distributed Systems; the [Redis Cluster specification](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/){:target="_blank" rel="noopener"}; the [Akka Cluster Sharding docs](https://doc.akka.io/docs/akka/current/typed/cluster-sharding.html){:target="_blank" rel="noopener"}; and the original [Consistent Hashing paper](https://www.cs.princeton.edu/courses/archive/fall09/cos518/papers/chash.pdf){:target="_blank" rel="noopener"} by Karger et al.*
+
+{% include buy-me-a-coffee.html %}

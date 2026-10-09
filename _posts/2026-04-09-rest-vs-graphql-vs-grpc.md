@@ -943,3 +943,5 @@ If you are building systems where API design matters, these related posts go dee
 - [Circuit Breaker Pattern](/circuit-breaker-pattern/) -- Protecting your services when downstream APIs fail
 - [Server-Sent Events Explained](/server-sent-events-explained/) -- The HTTP-native alternative for server push when gRPC is not an option
 - [Protobuf Decoder](/tools/protobuf-decoder/) -- Inspect binary Protocol Buffers payloads as a field tree and JSON when you debug gRPC traffic
+
+{% include buy-me-a-coffee.html %}

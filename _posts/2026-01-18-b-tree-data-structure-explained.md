@@ -620,3 +620,5 @@ Many insertions can cause frequent splits. Deletions can cause merges. This is w
 - [SQLite B-tree Implementation](https://www.sqlite.org/fileformat.html#btree)
 
 *Building systems that handle large datasets? Understanding B-trees is just the start. Check out [How Kafka Works](/distributed-systems/how-kafka-works/) to learn about handling high-throughput data streams, or [Caching Strategies Explained](/caching-strategies-explained/) to reduce database load.*
+
+{% include buy-me-a-coffee.html %}

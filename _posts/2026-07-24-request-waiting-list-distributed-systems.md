@@ -394,3 +394,5 @@ None of the pieces are complicated on their own: a map, a key, a callback, a quo
 - [Two-Phase Commit](/distributed-systems/two-phase-commit/){:target="_blank" rel="noopener"} - A coordinator that parks a transaction until every participant votes
 
 *Further reading: [Request Waiting List chapter](https://martinfowler.com/articles/patterns-of-distributed-systems/request-waiting-list.html){:target="_blank" rel="noopener"} in Patterns of Distributed Systems; the [Raft paper](https://raft.github.io/raft.pdf){:target="_blank" rel="noopener"} by Ongaro and Ousterhout; the [Kafka producer acks documentation](https://kafka.apache.org/documentation/#producerconfigs_acks){:target="_blank" rel="noopener"}; and the [Cassandra data consistency guide](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

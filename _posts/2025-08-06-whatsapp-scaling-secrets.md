@@ -522,3 +522,5 @@ You probably will not rewrite your app in Erlang. But you can apply these princi
 WhatsApp proved that a small team with the right technology choices can outperform armies of engineers with conventional stacks. The lesson is not to copy their exact stack. It is to think critically about your tools, embrace simplicity, and design for the problems you actually have.
 
 *Building a messaging system or preparing for system design interviews? Check out our other [system design posts](/system-design/) for more architecture deep dives.*
+
+{% include buy-me-a-coffee.html %}

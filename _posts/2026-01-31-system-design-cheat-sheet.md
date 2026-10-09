@@ -909,3 +909,5 @@ These posts go deeper into specific topics:
 - [Designing Data-Intensive Applications (Book)](https://dataintensive.net/)
 - [High Scalability Blog](http://highscalability.com/)
 - [Martin Fowler's Architecture Posts](https://martinfowler.com/architecture/)
+
+{% include buy-me-a-coffee.html %}

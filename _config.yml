@@ -115,6 +115,9 @@ url: "https://singhajit.com"
 # Substack publication URL
 substack-url: "https://singhajitdotcom.substack.com"
 
+# Buy Me a Coffee page (nav button and in-post support card)
+buymeacoffee-url: "https://www.buymeacoffee.com/ajit5ingh"
+
 # Create a "tags" index page and make tags on each post clickable
 link-tags: true
 

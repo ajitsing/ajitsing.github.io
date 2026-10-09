@@ -736,3 +736,5 @@ That's not magic. That's engineering.
 **Further Reading**:
 - [Amazon S3 Documentation](https://docs.aws.amazon.com/s3/)
 - [S3 Strong Consistency Announcement (AWS Blog)](https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency/)
+
+{% include buy-me-a-coffee.html %}

@@ -406,3 +406,5 @@ If you remember one number, make it cache hit ratio. Push it high and your CDN i
 - [Dynamic Rate Limiter System Design](/dynamic-rate-limiter-system-design/){:target="_blank" rel="noopener"} - Another way to shield an expensive backend from traffic
 
 *Further reading: Cloudflare's [What is a CDN?](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/){:target="_blank" rel="noopener"} and [CDN Reference Architecture](https://developers.cloudflare.com/reference-architecture/architectures/cdn/){:target="_blank" rel="noopener"}, the [Amazon CloudFront developer guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html){:target="_blank" rel="noopener"}, GeeksforGeeks on [CDNs in system design](https://www.geeksforgeeks.org/system-design/what-is-content-delivery-networkcdn-in-system-design/){:target="_blank" rel="noopener"}, and the [MDN HTTP caching guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

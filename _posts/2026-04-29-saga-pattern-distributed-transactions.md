@@ -708,3 +708,5 @@ If you are designing your first saga today, the order to read other things in is
 - [OpenTelemetry Production Guide](/opentelemetry-production-guide/){:target="_blank" rel="noopener"} - Observability that makes sagas debuggable
 
 *Further reading: the [original Sagas paper](https://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf){:target="_blank" rel="noopener"} by Garcia-Molina and Salem, [Chris Richardson's saga pattern](https://microservices.io/patterns/data/saga.html){:target="_blank" rel="noopener"}, the [Microsoft Azure saga reference](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga){:target="_blank" rel="noopener"}, the [AWS Prescriptive Guidance saga article](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-data-persistence/saga-pattern.html){:target="_blank" rel="noopener"}, [Baeldung's saga overview](https://www.baeldung.com/cs/saga-pattern-microservices){:target="_blank" rel="noopener"}, and the [Eventuate Tram Sagas](https://github.com/eventuate-tram/eventuate-tram-sagas){:target="_blank" rel="noopener"} reference implementation in Java.*
+
+{% include buy-me-a-coffee.html %}

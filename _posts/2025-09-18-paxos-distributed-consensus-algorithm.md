@@ -357,3 +357,5 @@ Paxos is like democracy for distributed systems. It can be complex and sometimes
 *For more distributed systems patterns, check out [Replicated Log](/distributed-systems/replicated-log/), [High Watermark](/distributed-systems/high-watermark/), [Hybrid Logical Clock](/distributed-systems/hybrid-clock/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Heartbeat: Failure Detection](/distributed-systems/heartbeat/), [Lease](/distributed-systems/lease/), [Majority Quorum](/distributed-systems/majority-quorum/), and [Write-Ahead Log](/distributed-systems/write-ahead-log/).*
 
 *Have you implemented Paxos in your systems? Share your experiences in the comments below!*
+
+{% include buy-me-a-coffee.html %}

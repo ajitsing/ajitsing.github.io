@@ -527,3 +527,5 @@ Get it right, and your system runs for years without running out of disk. Get it
 *For more distributed systems patterns, check out [High Watermark](/distributed-systems/high-watermark/), [Hybrid Logical Clock](/distributed-systems/hybrid-clock/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Replicated Log](/distributed-systems/replicated-log/), [Majority Quorum](/distributed-systems/majority-quorum/), [Heartbeat](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Paxos](/distributed-systems/paxos/), [Two-Phase Commit](/distributed-systems/two-phase-commit/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
 
 *Further reading: Unmesh Joshi's [Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/low-watermark.html) on Martin Fowler's site covers the Low Watermark and related patterns in depth.*
+
+{% include buy-me-a-coffee.html %}

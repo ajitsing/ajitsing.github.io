@@ -785,3 +785,5 @@ Distributed counters are a perfect example of how "simple" problems become fasci
 ---
 
 *Have you implemented distributed counters in production? What patterns worked best for your use case? Share your war stories in the comments!*
+
+{% include buy-me-a-coffee.html %}

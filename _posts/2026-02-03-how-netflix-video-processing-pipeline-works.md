@@ -654,3 +654,5 @@ But microservices add complexity. Do not adopt them just because Netflix does. A
 ---
 
 *References: [Netflix Tech Blog - Rebuilding Video Pipeline](https://netflixtechblog.com/rebuilding-netflix-video-processing-pipeline-with-microservices-4e5e6310e359), [Netflix Tech Blog - High Quality Encoding](https://netflixtechblog.com/high-quality-video-encoding-at-scale-d159db052746), [Netflix Tech Blog - VES Microservice](https://netflixtechblog.com/the-making-of-ves-the-cosmos-microservice-for-netflix-video-encoding-946b9b3cd300), [Netflix Tech Blog - VMAF at Scale](https://netflixtechblog.com/netflix-video-quality-at-scale-with-cosmos-microservices-552be631c113)*
+
+{% include buy-me-a-coffee.html %}

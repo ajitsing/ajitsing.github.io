@@ -411,3 +411,5 @@ That single move, separating the control plane from the data plane, is behind a 
 - [Kubernetes Architecture](/devops/kubernetes-architecture/){:target="_blank" rel="noopener"} - etcd as the control plane's consistent core
 
 *Further reading: Unmesh Joshi's [Consistent Core chapter](https://martinfowler.com/articles/patterns-of-distributed-systems/consistent-core.html){:target="_blank" rel="noopener"} in Patterns of Distributed Systems; the [ZooKeeper paper](https://www.usenix.org/legacy/event/atc10/tech/full_papers/Hunt.pdf){:target="_blank" rel="noopener"}; Google's [Chubby lock service paper](https://research.google/pubs/the-chubby-lock-service-for-loosely-coupled-distributed-systems/){:target="_blank" rel="noopener"}; the [Raft paper](https://raft.github.io/raft.pdf){:target="_blank" rel="noopener"}; and the [etcd documentation](https://etcd.io/docs/){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

@@ -119,3 +119,5 @@ The fact that they handle 55 million requests per second with just 15 database c
 ---
 
 *Want to see more of what Cloudflare is building? Check out [Self-Hosted AI Agents with Moltworker](/moltworker-self-hosted-ai-agent/) to learn how Cloudflare Workers can run personal AI assistants, or dive into [How Kafka Works](/distributed-systems/how-kafka-works/) to understand another system built for massive scale.*
+
+{% include buy-me-a-coffee.html %}

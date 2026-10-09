@@ -468,3 +468,5 @@ The next time someone tells you that you can't have consistency at scale, you'll
 - [Spanner: Becoming a SQL System](https://research.google.com/pubs/archive/46103.pdf)
 - [Cloud Spanner Documentation](https://cloud.google.com/spanner)
 - [CockroachDB Architecture](https://www.cockroachlabs.com/docs/stable/architecture/overview.html)
+
+{% include buy-me-a-coffee.html %}

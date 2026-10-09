@@ -895,3 +895,5 @@ The good news: the solutions are well understood and battle tested. Start with j
 These are not theoretical patterns. Facebook runs leases on billions of cache operations daily. Twitter buffers millions of writes through queues. Netflix wraps every external call in [circuit breakers](/circuit-breaker-pattern/). These companies did not start with these solutions. They learned from outages and built them in over time.
 
 You do not have to wait for the 3 AM page to start.
+
+{% include buy-me-a-coffee.html %}

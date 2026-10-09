@@ -540,3 +540,5 @@ Learn it once and you will recognize it for the rest of your career. The next ti
 - [Write-Ahead Log](/distributed-systems/write-ahead-log/){:target="_blank" rel="noopener"} - What the leader ships to standbys in SQL replication
 
 *Further reading: Unmesh Joshi's [Leader and Followers chapter](https://martinfowler.com/articles/patterns-of-distributed-systems/leader-follower.html){:target="_blank" rel="noopener"} in Patterns of Distributed Systems; the [Raft paper](https://raft.github.io/raft.pdf){:target="_blank" rel="noopener"} by Diego Ongaro and John Ousterhout; the [ZooKeeper paper](https://www.usenix.org/legacy/event/atc10/tech/full_papers/Hunt.pdf){:target="_blank" rel="noopener"}; the [Kafka replication docs](https://kafka.apache.org/documentation/#replication){:target="_blank" rel="noopener"}; and Chapter 5 of Martin Kleppmann's [Designing Data-Intensive Applications](https://dataintensive.net/){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

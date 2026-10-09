@@ -735,3 +735,5 @@ Start simple. Add an outbox table. Build a polling relay. Make your consumers id
 If you are building microservices, this pattern is not optional. It is infrastructure.
 
 For more on how queues and brokers fit into system architecture, check out [Role of Queues in System Design](/role-of-queues-in-system-design/){:target="_blank" rel="noopener"} and [How Kafka Works](/distributed-systems/how-kafka-works/){:target="_blank" rel="noopener"}. If you are deciding which synchronous API protocol to use alongside your async messaging layer, [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/){:target="_blank" rel="noopener"} covers the trade-offs. And before you take Debezium to production, the [database impact analysis of Debezium and the outbox on Postgres](/debezium-outbox-postgres-database-impact/){:target="_blank" rel="noopener"} explains where the CPU lands, why WAL retention is the real risk, and the monitoring you need on day one. For a full system that leans on the outbox for money movement, see [Payment System Design](/payment-system-design/){:target="_blank" rel="noopener"}.
+
+{% include buy-me-a-coffee.html %}

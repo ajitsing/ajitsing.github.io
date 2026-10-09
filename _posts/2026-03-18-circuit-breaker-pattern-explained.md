@@ -850,3 +850,5 @@ Start simple. Pick a library for your language (Resilience4j for Java, gobreaker
 Then layer your defenses. Add timeouts to every outgoing call. Add retries with exponential backoff and [jitter](/thundering-herd-problem/). Add bulkheads to isolate your thread pools. Add monitoring so you know when breakers trip.
 
 These are not patterns you should adopt because they sound impressive in a system design interview. These are patterns you adopt because at 2 AM, when a service goes down, you want your system to handle it gracefully without waking you up. Netflix, Amazon, and Google all learned this the hard way. You do not have to.
+
+{% include buy-me-a-coffee.html %}

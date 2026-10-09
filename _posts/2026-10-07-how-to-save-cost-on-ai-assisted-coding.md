@@ -246,6 +246,8 @@ AI assisted coding got cheap at the sticker and metered at the token. The people
 
 Pick one change this week. The highest leverage is usually the model pinned in the picker, or a rules file that is longer than the task.
 
+{% include buy-me-a-coffee.html %}
+
 ---
 
 **Related posts:**

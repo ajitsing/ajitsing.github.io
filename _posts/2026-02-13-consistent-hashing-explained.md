@@ -587,3 +587,5 @@ The next time you design a system that needs to distribute data across multiple 
 *Building systems that scale? See [System Design Cheat Sheet](/system-design-cheat-sheet/) for a complete reference, [How Meta Achieves Cache Consistency](/meta-cache-consistency/) for distributed caching at scale, and [Hash Collisions Explained](/data-structures/hashtable-collisions/) for the data structure fundamentals behind hashing.*
 
 *References: [Consistent Hashing and Random Trees (Karger et al., 1997)](https://dl.acm.org/doi/10.1145/258533.258660), [Dynamo: Amazon's Highly Available Key-Value Store](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf), [Apache Cassandra Architecture Documentation](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html), [Toptal: A Guide to Consistent Hashing](https://www.toptal.com/big-data/consistent-hashing)*
+
+{% include buy-me-a-coffee.html %}

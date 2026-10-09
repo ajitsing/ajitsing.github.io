@@ -803,3 +803,5 @@ The right message broker depends on what problem you are solving, not what is tr
 Start with the simplest option that meets your requirements. SQS if you are on AWS and need a queue. RabbitMQ if you need routing or request-reply. Kafka if you need streaming, replay, or multiple consumers on the same data.
 
 You can always add more later. Most large systems do.
+
+{% include buy-me-a-coffee.html %}

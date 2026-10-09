@@ -1,0 +1,22 @@
+{% assign coffee_url = site.buymeacoffee-url | default: "https://www.buymeacoffee.com/ajit5ingh" %}
+{% assign coffee_title = include.title | default: "Thanks for reading!" %}
+{% assign coffee_message = include.message | default: "If this added value to your day, consider supporting my work with a quick coffee." %}
+{% assign coffee_button = include.button | default: "Buy me a coffee" %}
+{% assign coffee_label = include.label | default: page.url | default: "Buy Me a Coffee Widget" | replace: "'", "" | escape %}
+
+<div markdown="0">
+<aside class="coffee-support" aria-label="Support this blog">
+  <img class="coffee-support__avatar" src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="{{ site.author | escape }}" width="48" height="48" loading="lazy" decoding="async">
+  <div class="coffee-support__copy">
+    <p class="coffee-support__title">{{ coffee_title | escape }}</p>
+    <p class="coffee-support__message">{{ coffee_message | escape }}</p>
+  </div>
+  <a class="coffee-support__button" href="{{ coffee_url }}" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','click',{'event_category':'Support','event_label':'{{ coffee_label }}'});}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
+    </svg>
+    {{ coffee_button | escape }}
+  </a>
+</aside>
+</div>

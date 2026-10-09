@@ -361,3 +361,5 @@ Build those layers in that order and you have a system that stays honest under t
 - [Notification System Design](/notification-system-design/){:target="_blank" rel="noopener"} - Reusing queues and idempotency to fan out receipts at scale
 
 *Further reading: Stripe's write-up on [designing robust and predictable APIs with idempotency](https://stripe.com/blog/idempotency){:target="_blank" rel="noopener"}, the [AWS guide to the transactional outbox pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html){:target="_blank" rel="noopener"}, Chris Richardson's [saga pattern reference](https://microservices.io/patterns/data/saga.html){:target="_blank" rel="noopener"}, the [TigerBeetle documentation](https://docs.tigerbeetle.com/){:target="_blank" rel="noopener"} on ledger design, and Martin Kleppmann's [Designing Data-Intensive Applications](https://dataintensive.net/){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

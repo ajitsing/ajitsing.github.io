@@ -394,3 +394,5 @@ If you are prepping for an interview, practice drawing the high-level split firs
 - [Notification System Design](/notification-system-design/){:target="_blank" rel="noopener"} - Building the channel that tells devices what changed
 
 *Further reading: the Dropbox engineering blog on [streaming file synchronization](https://dropbox.tech/infrastructure/streaming-file-synchronization){:target="_blank" rel="noopener"} and [Inside the Magic Pocket](https://dropbox.tech/infrastructure/inside-the-magic-pocket){:target="_blank" rel="noopener"}, their write-up on [rewriting the sync engine](https://dropbox.tech/infrastructure/rewriting-the-heart-of-our-sync-engine){:target="_blank" rel="noopener"}, and the [Amazon S3](https://aws.amazon.com/s3/){:target="_blank" rel="noopener"} object storage docs.*
+
+{% include buy-me-a-coffee.html %}

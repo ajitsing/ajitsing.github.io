@@ -761,3 +761,5 @@ The result? A platform that handles 5+ million stores, billions in sales, and st
 *Want more system design deep dives? Check out [How Slack Built a System That Handles 10+ Billion Messages](/slack-system-design/) and [How Uber Finds Nearby Drivers at 1 Million Requests per Second](/how-uber-finds-nearby-drivers-1-million-requests-per-second/).*
 
 *References: [Shopify Engineering Blog](https://shopify.engineering/), [InfoQ - Shopify Modular Monolith](https://www.infoq.com/news/2019/07/shopify-modular-monolith/), [Talent500 - Shopify Tech Stack](https://talent500.com/blog/shopify-tech-stack-architecture/)*
+
+{% include buy-me-a-coffee.html %}

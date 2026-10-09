@@ -657,3 +657,5 @@ Redis creator Antirez explained: skip lists are simpler to implement correctly, 
 - [Skip Lists: Done Right](https://ticki.github.io/blog/skip-lists-done-right/) - Practical implementation insights
 
 *Working with sorted data in production? Skip lists might be the simple solution you need. For in-memory caching, check out [Caching Strategies Explained](/caching-strategies-explained/). Building distributed systems? See [How Kafka Works](/distributed-systems/how-kafka-works/) for handling high-throughput data streams.*
+
+{% include buy-me-a-coffee.html %}

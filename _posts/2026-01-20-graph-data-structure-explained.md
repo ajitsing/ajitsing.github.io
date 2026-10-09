@@ -1364,3 +1364,5 @@ Graph algorithms form the foundation of many computer science problems. Focus on
 Start with the fundamentals: BFS, DFS, and graph representations. Know that both traversals run in O(V + E) with an adjacency list and O(V²) with an adjacency matrix because of how neighbors are found. Master these before moving to Dijkstra and MST algorithms.
 
 Adjacency lists are preferred for most graph problems because real-world graphs are sparse. Keep learning, keep practicing, and understand the "why" behind each algorithm.
+
+{% include buy-me-a-coffee.html %}

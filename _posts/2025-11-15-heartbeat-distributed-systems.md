@@ -750,3 +750,5 @@ Remember: in distributed systems, things will fail. Heartbeat mechanisms ensure 
 *For a real production failure detector that prefers real application traffic over heartbeats, see how GitHub's Spokes system marks fileservers offline in [How GitHub Stores and Serves Git Repositories](/how-github-stores-and-serves-git-repositories/).*
 
 *Building reliable systems? Read [Stop Blocking Your Paying Customers: Build a Smart Rate Limiter](/dynamic-rate-limiter-system-design/).*
+
+{% include buy-me-a-coffee.html %}

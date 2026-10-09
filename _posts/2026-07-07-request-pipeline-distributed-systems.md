@@ -402,3 +402,5 @@ The mechanics are small: a sender thread, a receiver thread, a correlation ID to
 - [How WebTransport Works](/how-webtransport-works/){:target="_blank" rel="noopener"} - QUIC and HTTP/3, which kill transport-layer head-of-line blocking
 
 *Further reading: Unmesh Joshi's [Request Pipeline chapter](https://martinfowler.com/articles/patterns-of-distributed-systems/request-pipeline.html){:target="_blank" rel="noopener"} in Patterns of Distributed Systems; the [Redis pipelining guide](https://redis.io/docs/latest/develop/use/pipelining/){:target="_blank" rel="noopener"}; the [HTTP/2 specification (RFC 9113)](https://www.rfc-editor.org/rfc/rfc9113.html){:target="_blank" rel="noopener"}; the [Kafka producer configuration docs](https://kafka.apache.org/documentation/#producerconfigs_max.in.flight.requests.per.connection){:target="_blank" rel="noopener"}; and [PostgreSQL's pipeline mode documentation](https://www.postgresql.org/docs/current/libpq-pipeline-mode.html){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

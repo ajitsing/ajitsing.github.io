@@ -351,3 +351,5 @@ If you take one thing into your next design review, take this: **pick a source l
 - [GitHub Actions: CI/CD Basics](/github-actions-basics-cicd-automation/){:target="_blank" rel="noopener"} - What TAP looks like when your CI is still YAML
 
 *Further reading: [Why Google Stores Billions of Lines of Code in a Single Repository](https://cacm.acm.org/research/why-google-stores-billions-of-lines-of-code-in-a-single-repository/){:target="_blank" rel="noopener"} (Potvin and Levenberg), the [Google Research copy](https://research.google.com/pubs/pub45424.html){:target="_blank" rel="noopener"}, [Software Engineering at Google, Large-Scale Changes](https://abseil.io/resources/swe-book/html/ch22.html){:target="_blank" rel="noopener"}, the [Bazel](https://bazel.build/){:target="_blank" rel="noopener"} docs, and [Trunk Based Development](https://trunkbaseddevelopment.com/){:target="_blank" rel="noopener"}.*
+
+{% include buy-me-a-coffee.html %}

@@ -558,3 +558,5 @@ Every time you set `acks=all` in Kafka, every time you read a consistent value f
 *For more distributed systems patterns, check out [Low Watermark](/distributed-systems/low-watermark/), [Hybrid Logical Clock](/distributed-systems/hybrid-clock/), [Write-Ahead Log](/distributed-systems/write-ahead-log/), [Replicated Log](/distributed-systems/replicated-log/), [Majority Quorum](/distributed-systems/majority-quorum/), [Heartbeat](/distributed-systems/heartbeat/), [Gossip Dissemination](/distributed-systems/gossip-dissemination/), [Paxos](/distributed-systems/paxos/), [Two-Phase Commit](/distributed-systems/two-phase-commit/), and [How Kafka Works](/distributed-systems/how-kafka-works/).*
 
 *Further reading: Unmesh Joshi's [Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/high-watermark.html) on Martin Fowler's site covers the high watermark and related patterns in depth.*
+
+{% include buy-me-a-coffee.html %}

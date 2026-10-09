@@ -873,3 +873,5 @@ Those layers sit in the broader path from entering a URL to getting a response a
 - [Memcached Wiki](https://github.com/memcached/memcached/wiki) - Memcached patterns and usage
 
 *Building a high-traffic system? Check out [How OpenAI Scales PostgreSQL to 800M Users](/how-openai-scales-postgresql/) for caching + database scaling patterns, the [System Design Cheat Sheet](/system-design-cheat-sheet/) for a complete reference, and [How Stripe Prevents Double Payments](/how-stripe-prevents-double-payment/) for idempotency patterns. Caching is also a key differentiator when choosing your API protocol -- see [REST vs GraphQL vs gRPC](/rest-vs-graphql-vs-grpc/) for how caching works across each.*
+
+{% include buy-me-a-coffee.html %}

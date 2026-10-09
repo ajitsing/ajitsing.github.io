@@ -9,7 +9,7 @@
     </a>
   {%- endif -%}
 
-  <a class="navbar-support-btn" href="https://www.buymeacoffee.com/ajit5ingh" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','click',{'event_category':'Support','event_label':'Buy Me a Coffee Nav'})}">
+  <a class="navbar-support-btn" href="{{ site.buymeacoffee-url | default: 'https://www.buymeacoffee.com/ajit5ingh' }}" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','click',{'event_category':'Support','event_label':'Buy Me a Coffee Nav'})}">
     <span class="navbar-support-emoji">☕</span>
     <span class="navbar-support-text">Buy me a coffee</span>
   </a>

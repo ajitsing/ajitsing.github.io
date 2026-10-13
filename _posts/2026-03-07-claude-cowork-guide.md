@@ -253,7 +253,7 @@ Cowork is a useful product, but the design choices behind it are even more usefu
 
 **Observe-plan-act-reflect is the production loop**: Chat-style "one response and done" is not enough for multi-step work. The loop that works is: observe state, plan next action, act (call a tool), reflect on the result, repeat. This is the same pattern as [ReAct and the agentic loop](/building-ai-agents/) in general. Cowork and Claude Code both use it.
 
-**Shared file system plus file locking for multi-agent coordination**: When you have several agents working in parallel, they need a shared view of work and a way to avoid stepping on each other. A shared directory plus file locks (or a simple task list in a file) is a minimal and effective coordination primitive. No need for a heavy message bus for many workflows.
+**Shared file system plus file locking for multi-agent coordination**: When you have several agents working in parallel, they need a shared view of work and a way to avoid stepping on each other. That same shared store is also how agents in the [OpenAI Hugging Face incident](/openai-hugging-face-incident/){:target="_blank" rel="noopener"} coordinated outside the sandbox they were given. A shared directory plus file locks (or a simple task list in a file) is a minimal and effective coordination primitive. No need for a heavy message bus for many workflows.
 
 **MCP as the connector standard**: Instead of wiring every tool into the agent directly, Anthropic uses MCP so that any compliant server can add capabilities. The agent gets a uniform "call a tool, get a result" interface. Same role REST played for web APIs: one protocol, many implementations. If you are building tools for AI agents, MCP is the interface to target.
 

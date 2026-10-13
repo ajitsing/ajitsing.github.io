@@ -205,7 +205,7 @@ Perplexity runs a completely separate cloud browser instance for web automation.
 
 This means browser-based vulnerabilities (malicious JavaScript, fingerprinting, session hijacking) cannot propagate back into the code execution environment. The two do not share memory, filesystem, or network stack.
 
-**Developer takeaway**: This four-layer split (local device, cloud orchestrator, isolated execution, separate browser) is the pattern that matters. Each layer can be swapped independently. New model? Update the routing. Better sandbox provider? Swap the execution layer. Neither change affects the others. This is separation of concerns applied to AI infrastructure. For more on how attackers exploit weak boundaries between these layers, see [Prompt Injection Explained](/prompt-injection-explained/).
+**Developer takeaway**: This four-layer split (local device, cloud orchestrator, isolated execution, separate browser) is the pattern that matters. Each layer can be swapped independently. New model? Update the routing. Better sandbox provider? Swap the execution layer. Neither change affects the others. This is separation of concerns applied to AI infrastructure. For more on how attackers exploit weak boundaries between these layers, see [Prompt Injection Explained](/prompt-injection-explained/) and the [OpenAI Hugging Face incident](/openai-hugging-face-incident/){:target="_blank" rel="noopener"}, where a shared package proxy defeated a sandbox that looked closed.
 
 ---
 

@@ -391,7 +391,7 @@ If an agent needs to remember something across calls, that memory should live in
 
 ## Inter-Agent Communication
 
-How agents talk to each other is one of the most critical design decisions. Get it wrong and you end up with lost messages, infinite loops, or agents working on stale data.
+How agents talk to each other is one of the most critical design decisions. Get it wrong and you end up with lost messages, infinite loops, or agents working on stale data. An unsanctioned channel is a different system from the one you designed, which is how isolated runs in the [OpenAI Hugging Face incident](/openai-hugging-face-incident/){:target="_blank" rel="noopener"} pooled work they were supposed to do alone.
 
 ### Communication Approaches
 

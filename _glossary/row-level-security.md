@@ -20,7 +20,7 @@ real_world:
   - "B2B multi-tenant SaaS products use RLS on shared tables so one customer's invoices, projects, and users stay invisible to every other customer."
   - "AWS documents RLS as the isolation backstop for the PostgreSQL pool model on Amazon RDS and Aurora."
   - "Admin dashboards and schema migrations usually run under a separate role that can bypass RLS, with access logged and short-lived."
-related_terms: ["database-index", "acid", "database-lock", "sharding", "mvcc"]
+related_terms: ["database-index", "acid", "database-lock", "sharding", "mvcc", "least-privilege"]
 related_posts:
   - "/multi-tenant-database-isolation/"
   - "/database-indexing-explained/"

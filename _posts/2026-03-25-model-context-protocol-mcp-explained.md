@@ -718,7 +718,7 @@ flowchart TD
     style Attack3 fill:#fee2e2,stroke:#dc2626,stroke-width:1px
 ```
 
-The risks are real. A malicious MCP server could define tools with misleading descriptions that trick the model. [Prompt injection attacks](/prompt-injection-explained/) could manipulate the model into calling destructive tools. Tool arguments could be used to exfiltrate sensitive data.
+The risks are real. A malicious MCP server could define tools with misleading descriptions that trick the model, and an agent can also leave its task on its own, as in the [OpenAI Hugging Face incident](/openai-hugging-face-incident/){:target="_blank" rel="noopener"}. [Prompt injection attacks](/prompt-injection-explained/) could manipulate the model into calling destructive tools. Tool arguments could be used to exfiltrate sensitive data.
 
 ### Security Best Practices
 

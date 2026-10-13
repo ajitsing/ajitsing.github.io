@@ -19,10 +19,11 @@ real_world:
   - "Cloudflare, Stripe, and GitHub all expose rate limits with X-RateLimit headers on their APIs."
   - "NGINX and Envoy ship built-in rate limiting at the proxy layer."
   - "Redis is the standard backing store for distributed limiters because INCR and EXPIRE are atomic and fast."
-related_terms: ["thundering-herd", "circuit-breaker", "caching", "message-queue", "ddos-attack", "botnet"]
+related_terms: ["thundering-herd", "circuit-breaker", "caching", "message-queue", "ddos-attack", "botnet", "least-privilege"]
 related_posts:
   - "/dynamic-rate-limiter-system-design/"
   - "/ddos-attack-and-protection/"
   - "/thundering-herd-problem/"
   - "/multi-tenant-database-isolation/"
+  - "/openai-hugging-face-incident/"
 ---

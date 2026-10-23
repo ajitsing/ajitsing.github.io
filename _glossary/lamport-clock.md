@@ -21,8 +21,9 @@ real_world:
   - "Cassandra uses Lamport style timestamps for last-write-wins conflict resolution on every column."
   - "Kafka uses a producer epoch number to fence out zombie producers after a restart."
   - "[Raft](/glossary/raft/) term numbers and [Paxos](/glossary/paxos/) ballot ids follow the same monotonic, max-on-receive rule."
-related_terms: ["hybrid-logical-clock", "consensus", "replicated-log", "write-ahead-log"]
+related_terms: ["hybrid-logical-clock", "consensus", "replicated-log", "write-ahead-log", "generation-clock"]
 related_posts:
+  - "/distributed-systems/generation-clock/"
   - "/distributed-systems/lamport-clock/"
   - "/distributed-systems/hybrid-clock/"
   - "/distributed-systems/replicated-log/"

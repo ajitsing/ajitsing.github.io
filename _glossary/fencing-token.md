@@ -19,7 +19,8 @@ real_world:
   - "Kafka's controller epoch and producer epoch are fencing tokens. They stop stale leaders and zombie producers from writing bad data."
   - "ZooKeeper uses the cversion or czxid of a znode as a natural fencing token for client side locking."
   - "HDFS NameNode lease recovery uses generation stamps as fencing tokens to invalidate stale block writes."
-related_terms: ["lease", "ttl", "leader-election", "consensus", "split-brain"]
+related_terms: ["lease", "ttl", "leader-election", "consensus", "split-brain", "generation-clock"]
 related_posts:
   - "/distributed-systems/lease/"
+  - "/distributed-systems/generation-clock/"
 ---

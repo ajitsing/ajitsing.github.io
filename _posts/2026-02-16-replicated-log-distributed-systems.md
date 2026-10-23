@@ -120,7 +120,7 @@ In a replicated log system, one node is elected as the **leader**. All writes go
 
 ### Step 2: Leader Appends to Its Own Log
 
-The leader takes the client request and appends it as a new entry at the end of its local log. Each entry gets a monotonically increasing index number and includes the leader's current term (generation number).
+The leader takes the client request and appends it as a new entry at the end of its local log. Each entry gets a monotonically increasing index number and includes the leader's current term ([generation number](/distributed-systems/generation-clock/){:target="_blank" rel="noopener"}).
 
 ### Step 3: Leader Sends Entry to Followers
 

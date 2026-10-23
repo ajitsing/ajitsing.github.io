@@ -19,8 +19,9 @@ real_world:
   - "Kubernetes uses a Lease object to elect the active controller manager and scheduler."
   - "Kafka's controller is elected through ZooKeeper or KRaft and decides who owns each partition."
   - "etcd, Consul, and Vault all expose a leader election helper that wraps lease and watch primitives."
-related_terms: ["consensus", "raft", "lease", "fencing-token", "split-brain", "emergent-leader", "follower-reads"]
+related_terms: ["consensus", "raft", "lease", "fencing-token", "split-brain", "emergent-leader", "follower-reads", "generation-clock"]
 related_posts:
+  - "/distributed-systems/generation-clock/"
   - "/distributed-systems/replicated-log/"
   - "/distributed-systems/lease/"
   - "/distributed-systems/heartbeat/"

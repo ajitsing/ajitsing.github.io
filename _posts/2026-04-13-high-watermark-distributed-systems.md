@@ -244,7 +244,7 @@ graph TD
 
 Entry 7 was only on the old leader. It was never replicated to any follower, so it was never committed. It's lost. But no client ever saw it because it was above the high watermark.
 
-Entry 6 is on the old leader and Follower 1. In a 3-node cluster, 2 out of 3 is a majority. But the leader crashed before advancing the high watermark to 6, so it was still uncommitted. The new leader (Follower 1) has entry 6 in its log. Depending on the protocol, the new leader might commit it or truncate it.
+Entry 6 is on the old leader and Follower 1. In a 3-node cluster, 2 out of 3 is a majority. But the leader crashed before advancing the high watermark to 6, so it was still uncommitted. The new leader (Follower 1) has entry 6 in its log. The [generation clock](/distributed-systems/generation-clock/){:target="_blank" rel="noopener"} is what tells that leader whether to commit entry 6 or truncate it.
 
 Entries 1 through 5 are safe. They exist on all three nodes and were committed (HW = 5). Every client read was based on these entries. Nothing that any client saw will disappear.
 

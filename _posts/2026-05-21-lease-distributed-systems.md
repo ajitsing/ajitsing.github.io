@@ -490,7 +490,7 @@ A [heartbeat](/distributed-systems/heartbeat/){:target="_blank" rel="noopener"} 
 Lease shows up at the intersection of several patterns. Once you have it, a lot of other building blocks fall into place.
 
 - [Heartbeat](/distributed-systems/heartbeat/){:target="_blank" rel="noopener"} is what renews a lease. Without heartbeats, the lease cannot stay alive.
-- [Lamport Clock](/distributed-systems/lamport-clock/){:target="_blank" rel="noopener"} timestamps and Raft terms are the natural source for fencing tokens.
+- [Lamport Clock](/distributed-systems/lamport-clock/){:target="_blank" rel="noopener"} timestamps and [Raft terms](/distributed-systems/generation-clock/){:target="_blank" rel="noopener"} are the natural source for fencing tokens.
 - [Paxos](/distributed-systems/paxos/){:target="_blank" rel="noopener"} and [Replicated Log](/distributed-systems/replicated-log/){:target="_blank" rel="noopener"} provide the strongly consistent store the lease service needs.
 - [Majority Quorum](/distributed-systems/majority-quorum/){:target="_blank" rel="noopener"} is how the lease service stays available when nodes fail.
 - [High Watermark](/distributed-systems/high-watermark/){:target="_blank" rel="noopener"} and [Low Watermark](/distributed-systems/low-watermark/){:target="_blank" rel="noopener"} use monotonic indices in the same spirit as fencing tokens.

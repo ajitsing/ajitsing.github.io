@@ -19,8 +19,9 @@ real_world:
   - "etcd uses Raft to back the Kubernetes control plane."
   - "CockroachDB and TiDB run thousands of independent Raft groups, one per data range, so consensus scales out."
   - "Consul and Nomad use Raft for service discovery and orchestrator state."
-related_terms: ["consensus", "paxos", "leader-election", "replicated-log", "heartbeat"]
+related_terms: ["consensus", "paxos", "leader-election", "replicated-log", "heartbeat", "generation-clock"]
 related_posts:
+  - "/distributed-systems/generation-clock/"
   - "/distributed-systems/replicated-log/"
   - "/distributed-systems/heartbeat/"
   - "/distributed-systems/majority-quorum/"

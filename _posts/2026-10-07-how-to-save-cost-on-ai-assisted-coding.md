@@ -216,7 +216,7 @@ These are the moves that show up in real invoices, in order of how often they ma
 3. **One task per thread.** New bug, new chat. The old transcript is not free context. It is input.
 4. **Scripts for chores you repeat.** A skill that runs `scripts/migrate.sh` sends the script's output, not a freshly generated migration every time. The [Cursor skills guide](/how-to-create-and-use-skills-in-cursor/){:target="_blank" rel="noopener"} shows the layout.
 5. **Local models for the boring 40%.** Commit messages, fixtures, and "turn this JSON into types" run fine on a model you already downloaded. [Running LLMs locally](/running-llms-locally/){:target="_blank" rel="noopener"} is the setup. Keep the hosted frontier model for the work where being wrong is expensive.
-6. **Read the diff before the next prompt.** A follow-up that says "undo all of that" is a second job at the same rate. The review you skip is not free.
+6. **Read the diff before the next prompt.** A follow-up that says "undo all of that" is a second job at the same rate. The review you skip is not free. A high token count is a cost, which is the same point in [how the software engineer role is changing with AI](/sde-role-in-the-age-of-ai/){:target="_blank" rel="noopener"}.
 7. **Watch long context.** Some Cursor first-party models bill a multiple of the standard rate past 256k tokens. A large window still charges you for every token you attach.
 
 If you are building your own assistant, the same levers are in [building your first LLM application](/building-your-first-llm-application/){:target="_blank" rel="noopener"}: smaller models, a max output length, and a summary of old turns in place of the raw transcript.

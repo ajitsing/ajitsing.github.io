@@ -985,7 +985,7 @@ After building and studying multi-agent systems, here is what I keep coming back
 
 6. **Budget limits are not optional.** Without hard caps on tokens and API calls, a runaway agent can cost you thousands. Set limits at every level: per call, per agent, per task, per hour.
 
-7. **Human-in-the-loop is not a feature. It is a requirement.** Any action that is destructive, expensive, or public-facing needs human approval. Period.
+7. **Human-in-the-loop is not a feature. It is a requirement.** Any action that is destructive, expensive, or public-facing needs human approval. That approval is the job described in [how the software engineer role is changing with AI](/sde-role-in-the-age-of-ai/){:target="_blank" rel="noopener"}.
 
 8. **Schema validation catches 60% of errors for almost free.** Before running expensive semantic checks, validate the structure of every agent output. It is the highest-ROI quality check you can add.
 

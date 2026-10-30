@@ -295,7 +295,7 @@ Go through every AI generated code block with this checklist:
 | Error Handling | What happens when things fail? Are errors caught and handled gracefully? |
 | Readability | Will other developers understand this in 6 months? |
 
-This review should feel like reviewing a pull request from a junior developer. Assume competence but verify everything.
+This review should feel like reviewing a pull request from a junior developer. Assume competence but verify everything. That check is the part of the [software engineer role in the age of AI](/sde-role-in-the-age-of-ai/){:target="_blank" rel="noopener"} that stays with the person who merges.
 
 If you want to automate the routine parts of code review so your team can focus on architecture and business logic, see the guide on [building a code review assistant with LLMs](/building-code-review-assistant-with-llms/).
 

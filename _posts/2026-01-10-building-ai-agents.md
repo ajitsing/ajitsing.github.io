@@ -440,7 +440,7 @@ Most teams jump to multi-agent systems too early. A well-designed single agent b
 
 ### Pattern 3: Human in the Loop
 
-For any action with consequences (sending emails, making purchases, modifying data), add a confirmation step:
+For any action with consequences (sending emails, making purchases, modifying data), add a confirmation step. That checkpoint is also how the [software engineer role](/sde-role-in-the-age-of-ai/){:target="_blank" rel="noopener"} stays accountable once agents can act:
 
 <pre><code class="language-mermaid">
 flowchart LR

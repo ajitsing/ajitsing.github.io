@@ -280,7 +280,7 @@ If you are building AI agents (see [How to Build AI Agents That Actually Work](/
 - Database read and write
 - Code execution
 
-A single injected instruction can trigger a chain of tool calls. The attacker does not need credentials or access to your infrastructure. They just need to get their instructions into something the agent reads. OWASP LLM06:2025 (Excessive Agency) is directly related: the more permissions your agent has, the higher the blast radius of any injection.
+A single injected instruction can trigger a chain of tool calls. The engineer who granted those tools still owns the outcome, which is the accountability bar in [how the SDE role is changing with AI](/sde-role-in-the-age-of-ai/){:target="_blank" rel="noopener"}. The attacker does not need credentials or access to your infrastructure. They just need to get their instructions into something the agent reads. OWASP LLM06:2025 (Excessive Agency) is directly related: the more permissions your agent has, the higher the blast radius of any injection.
 
 <pre><code class="language-mermaid">
 flowchart TD

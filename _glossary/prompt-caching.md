@@ -19,9 +19,10 @@ real_world:
   - "Claude Code caches the main conversation automatically. On a subscription it uses a longer cache window. On an API key the default is five minutes unless you set a longer TTL."
   - "Anthropic lists cache reads at $0.20 per million tokens on Sonnet 5.5 (10% of input) and on Opus 5.5 (5% of input)."
   - "Cursor's Auto Cost mode lists cache reads at $0.25 per million tokens, below its input rate, for the same reason: a stable thread should get cheaper on turn two."
-related_terms: ["progressive-disclosure", "agent-skills"]
+related_terms: ["progressive-disclosure", "agent-skills", "agentic-coding"]
 related_posts:
   - "/how-to-save-cost-on-ai-assisted-coding/"
+  - "/sde-role-in-the-age-of-ai/"
   - "/context-engineering/"
   - "/how-llms-generate-text/"
   - "/how-to-use-cursor/"

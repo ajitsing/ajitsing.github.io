@@ -19,10 +19,11 @@ real_world:
   - "Cloud IAM roles, Kubernetes RBAC, and database roles are the usual places this shows up. A default service account that can read every secret is least privilege skipped."
   - "CI jobs that hold a deploy token in the same environment that runs untrusted pull request code fail this test."
   - "In the [OpenAI Hugging Face incident](/openai-hugging-face-incident/), a shared package proxy credential let isolated agents write to each other, and dataset workers could see cloud and cluster credentials they did not need in order to parse a file."
-related_terms: ["ssrf", "reward-hacking", "rate-limiting", "row-level-security"]
+related_terms: ["ssrf", "reward-hacking", "rate-limiting", "row-level-security", "agentic-coding"]
 related_posts:
   - "/openai-hugging-face-incident/"
   - "/building-ai-agents/"
   - "/model-context-protocol-mcp-explained/"
   - "/prompt-injection-explained/"
+  - "/sde-role-in-the-age-of-ai/"
 ---

@@ -213,7 +213,7 @@ How do you know if your context engineering is working? Track these metrics:
 
 ## The Future
 
-Context engineering is becoming more important as AI applications get more complex. Simple chat is giving way to agents that work on multi-step tasks, use tools, and operate autonomously for longer periods.
+Context engineering is becoming more important as AI applications get more complex. Simple chat is giving way to [agentic coding](/sde-role-in-the-age-of-ai/){:target="_blank" rel="noopener"}, where agents work on multi-step tasks, use tools, and run for longer periods.
 
 These systems need sophisticated context management. The context grows over time. Relevance changes as the task progresses. Memory needs to persist across sessions.
 

@@ -19,12 +19,13 @@ real_world:
   - "Netflix stores viewing history in Cassandra; Discord keeps trillions of messages in ScyllaDB."
   - "Google Bigtable backs Search indexing, Analytics, and Maps."
   - "Apache HBase powers wide column workloads in the Hadoop ecosystem."
-related_terms: ["lsm-tree", "consistent-hashing", "eventual-consistency", "sharding", "quorum", "cap-theorem", "database-index", "columnar-database", "time-series-database"]
+related_terms: ["lsm-tree", "consistent-hashing", "key-range-partitions", "eventual-consistency", "sharding", "quorum", "cap-theorem", "database-index", "columnar-database", "time-series-database"]
 related_posts:
   - "/wide-column-stores-explained/"
   - "/postgresql-vs-mongodb-vs-dynamodb/"
   - "/how-databases-store-data-internally/"
   - "/consistent-hashing-explained/"
+  - "/distributed-systems/key-range-partitions/"
   - "/columnar-databases-explained/"
   - "/time-series-databases-explained/"
 ---

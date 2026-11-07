@@ -500,7 +500,7 @@ Key points to mention:
 
 ### Database Sharding
 
-When [sharding a database](/system-design-cheat-sheet/#sharding-partitioning) across multiple servers, consistent hashing determines which shard holds which data. This is preferable to range-based sharding when you want even distribution and the ability to add shards without rebalancing everything.
+When [sharding a database](/system-design-cheat-sheet/#sharding-partitioning) across multiple servers, consistent hashing determines which shard holds which data. This is preferable to [range-based sharding](/distributed-systems/key-range-partitions/){:target="_blank" rel="noopener"} when you want even distribution and the ability to add shards without rebalancing everything.
 
 ### Load Balancer Design
 

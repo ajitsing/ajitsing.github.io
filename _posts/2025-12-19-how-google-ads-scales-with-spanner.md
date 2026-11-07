@@ -168,7 +168,7 @@ sequenceDiagram
 
 ### How Spanner Uses Paxos
 
-Spanner organizes data into "splits" (like shards). Each split has multiple replicas. One replica is the leader; others are followers.
+Spanner organizes data into [splits](/distributed-systems/key-range-partitions/){:target="_blank" rel="noopener"} (contiguous key ranges). Each split has multiple replicas. One replica is the leader; others are followers.
 
 ```mermaid
 graph TD

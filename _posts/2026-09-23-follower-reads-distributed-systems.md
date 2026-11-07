@@ -186,7 +186,7 @@ Three designs cover almost every system. One avoids the leader by reading the pa
 
 CockroachDB, and Spanner before it, let a follower answer alone when the read is aimed at a timestamp that is already "closed."
 
-The leader of a range (CockroachDB calls it the leaseholder) moves a marker called the **closed timestamp**. The promise is simple: no new write will be assigned a timestamp at or below that marker. The leader tells followers as the marker moves forward. A follower that has applied every write up to the marker can answer "what did this row look like at time T?" from its own disk, as long as T is at or below the marker.
+The leader of a [key range](/distributed-systems/key-range-partitions/){:target="_blank" rel="noopener"} (CockroachDB calls it the leaseholder) moves a marker called the **closed timestamp**. The promise is simple: no new write will be assigned a timestamp at or below that marker. The leader tells followers as the marker moves forward. A follower that has applied every write up to the marker can answer "what did this row look like at time T?" from its own disk, as long as T is at or below the marker.
 
 Ask for `now()` and T is still open, so the follower cannot promise it has every write. Ask for a time a few seconds ago and the marker has usually passed it, so the local replica answers. The age of that answer is the price of not calling the leader.
 

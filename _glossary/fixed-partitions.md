@@ -15,9 +15,10 @@ how_it_works:
   - "Locate a key with partition = hash(key) % partitionCount, a mapping that never changes."
   - "Keep a separate partition-to-node assignment table, usually in a [consistent core](/glossary/consistent-core/) like ZooKeeper or etcd."
   - "When a node is added or removed, reassign some partitions to it and move only those partitions' data."
-related_terms: ["sharding", "consistent-hashing", "consistent-core", "replicated-log", "quorum"]
+related_terms: ["sharding", "consistent-hashing", "key-range-partitions", "consistent-core", "replicated-log", "quorum"]
 related_posts:
   - "/distributed-systems/fixed-partitions/"
+  - "/distributed-systems/key-range-partitions/"
   - "/consistent-hashing-explained/"
   - "/distributed-systems/consistent-core/"
   - "/distributed-systems/how-kafka-works/"

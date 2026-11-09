@@ -1,0 +1,125 @@
+{% assign default_mode = include.default_mode | default: 'request' %}
+{% assign event_category = include.event_category | default: 'SAML Decoder' %}
+<div id="saml-decoder-app" class="sd-decoder-main" data-default-mode="{{ default_mode }}" data-event-category="{{ event_category }}">
+  <div class="sd-tab-row" role="tablist" aria-label="Decoder mode">
+    <button type="button" class="sd-tab-btn active" data-tab="decode" role="tab" aria-selected="true">
+      <i class="fas fa-unlock-alt"></i> Decode
+    </button>
+    <button type="button" class="sd-tab-btn" data-tab="encode" role="tab" aria-selected="false">
+      <i class="fas fa-lock"></i> Encode
+    </button>
+  </div>
+
+  <div id="saml-decode-panel" class="sd-panel sd-input-section">
+    <div class="section-header">
+      <label for="saml-input"><i class="fas fa-file-code"></i> SAML Input</label>
+      <div class="input-actions">
+        <button type="button" id="saml-paste-btn" class="btn-mini" title="Paste from clipboard">
+          <i class="fas fa-paste"></i> Paste
+        </button>
+        <button type="button" id="saml-sample-btn" class="btn-mini" title="Load a sample payload">
+          <i class="fas fa-flask"></i> Sample
+        </button>
+        <button type="button" id="saml-file-btn" class="btn-mini" title="Open a .xml or .txt file">
+          <i class="fas fa-folder-open"></i> Open file
+        </button>
+        <input type="file" id="saml-file" accept=".xml,.txt,.saml" hidden>
+        <button type="button" id="saml-clear-btn" class="btn-mini" title="Clear input">
+          <i class="fas fa-trash-alt"></i> Clear
+        </button>
+      </div>
+    </div>
+
+    <textarea
+      id="saml-input"
+      spellcheck="false"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      placeholder="https://idp.example.com/sso?SAMLRequest=fZJNT8Mw…&#10;&#10;or PD94bWwgdmVyc2lvbj0i…&#10;&#10;or <samlp:AuthnRequest …>"
+      aria-describedby="saml-input-help"
+    ></textarea>
+
+    <div class="sd-input-meta">
+      <p id="saml-input-help" class="input-help">
+        <i class="fas fa-info-circle"></i>
+        Paste a redirect URL, a SAMLRequest or SAMLResponse value, Base64, or raw XML. Decoding runs as you type, in your browser.
+      </p>
+      <span id="saml-detected" class="sd-detected">Waiting for input</span>
+    </div>
+
+    <div id="saml-parse-status" class="parse-status" role="status" aria-live="polite"></div>
+
+    <section id="saml-results-section" class="sd-results" style="display: none;">
+      <div class="section-header">
+        <label><i class="fas fa-search"></i> Decoded Result</label>
+        <div class="input-actions">
+          <div class="sd-view-toggle" role="tablist" aria-label="Result view">
+            <button type="button" class="sd-view-btn active" data-view="summary" role="tab" aria-selected="true">Summary</button>
+            <button type="button" class="sd-view-btn" data-view="xml" role="tab" aria-selected="false">XML</button>
+          </div>
+          <button type="button" id="saml-copy-xml" class="btn-mini"><i class="fas fa-copy"></i> Copy XML</button>
+          <button type="button" id="saml-download-xml" class="btn-mini"><i class="fas fa-download"></i> Download</button>
+        </div>
+      </div>
+      <p id="saml-decode-path" class="input-help sd-decode-path"></p>
+
+      <div id="saml-view-summary" class="sd-view">
+        <div id="saml-summary"></div>
+        <div id="saml-details"></div>
+        <div id="saml-cert-card"></div>
+      </div>
+      <div id="saml-view-xml" class="sd-view hidden">
+        <div id="saml-xml-output" class="sd-xml-output"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="saml-encode-panel" class="sd-panel sd-input-section hidden">
+    <div class="section-header">
+      <label for="saml-encode-input"><i class="fas fa-file-code"></i> SAML XML</label>
+      <div class="input-actions">
+        <button type="button" id="saml-encode-from-decode" class="btn-mini" title="Use the XML from the Decode tab">
+          <i class="fas fa-exchange-alt"></i> Use decoded XML
+        </button>
+        <button type="button" id="saml-encode-clear" class="btn-mini" title="Clear XML">
+          <i class="fas fa-trash-alt"></i> Clear
+        </button>
+      </div>
+    </div>
+
+    <textarea id="saml-encode-input" spellcheck="false" placeholder="<samlp:AuthnRequest …>" aria-describedby="saml-encode-help"></textarea>
+
+    <div class="sd-input-meta">
+      <p id="saml-encode-help" class="input-help">
+        <i class="fas fa-info-circle"></i>
+        Builds HTTP-POST and HTTP-Redirect values for local SSO testing. Output updates as you type.
+      </p>
+      <span id="saml-encode-detected" class="sd-detected">Waiting for XML</span>
+    </div>
+
+    <div id="saml-encode-status" class="parse-status" role="status" aria-live="polite"></div>
+
+    <div class="sd-encode-card">
+      <div class="sd-encode-head">
+        <div>
+          <h3 class="sd-encode-title">HTTP-POST</h3>
+          <p class="sd-encode-sub">Base64 only. Put it in a hidden form field.</p>
+        </div>
+        <button type="button" class="btn-mini" data-copy-target="saml-encode-post"><i class="fas fa-copy"></i> Copy</button>
+      </div>
+      <div id="saml-encode-post" class="sd-encode-output">Paste XML above</div>
+    </div>
+
+    <div class="sd-encode-card">
+      <div class="sd-encode-head">
+        <div>
+          <h3 class="sd-encode-title">HTTP-Redirect</h3>
+          <p class="sd-encode-sub">DEFLATE, then Base64, then URL encode. Append it to the IdP or SP URL.</p>
+        </div>
+        <button type="button" class="btn-mini" data-copy-target="saml-encode-redirect"><i class="fas fa-copy"></i> Copy</button>
+      </div>
+      <div id="saml-encode-redirect" class="sd-encode-output">Paste XML above</div>
+    </div>
+  </div>
+</div>

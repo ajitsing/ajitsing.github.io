@@ -21,6 +21,20 @@ ssl-certificate-decoder:
   icon: "fas fa-lock"
   category: decoders
   keywords: "ssl tls x509 pem der certificate san fingerprint"
+saml-request-decoder:
+  title: "SAML Request Decoder"
+  description: "Decode SAMLRequest and AuthnRequest from redirect URLs. URL decode, Base64, DEFLATE, and inspect ACS URL and Issuer."
+  link: "/tools/saml-request-decoder/"
+  icon: "fas fa-sign-in-alt"
+  category: decoders
+  keywords: "saml request decoder decode samlrequest authnrequest deflate redirect"
+saml-response-decoder:
+  title: "SAML Response Decoder"
+  description: "Decode SAMLResponse assertions. Inspect StatusCode, NameID, conditions, attributes, and X.509 signatures in your browser."
+  link: "/tools/saml-response-decoder/"
+  icon: "fas fa-file-signature"
+  category: decoders
+  keywords: "saml response decoder decode samlresponse assertion attributes"
 llm-token-counter:
   title: "LLM Token Counter"
   description: "Count tokens for GPT-4, Claude, Llama, Gemini, and Mistral. Estimate prompt cost."

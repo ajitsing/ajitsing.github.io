@@ -1,0 +1,218 @@
+---
+layout: default
+title: "SAML Response Decoder Online | Decode SAMLResponse & Assertions"
+subtitle: "Decode SAMLResponse XML. Inspect status, NameID, conditions, attributes, and signatures"
+seo: true
+description: "Free SAML response decoder. Decode SAMLResponse from HTTP-POST or redirect bindings in your browser. Read StatusCode, assertions, NameID, NotBefore, NotOnOrAfter, AttributeStatement, and embedded X.509 certificates. 100% client-side."
+keywords: "saml response decoder, decode saml response, saml assertion decoder, saml decoder online, inspect saml response attributes, samlresponse decoder"
+thumbnail: /assets/img/tools/saml-response-decoder-thumbnail.png
+share-img: /assets/img/tools/saml-response-decoder-thumbnail.png
+permalink: /tools/saml-response-decoder/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/saml-decoder.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "SoftwareApplication"],
+  "name": "SAML Response Decoder",
+  "alternateName": ["SAMLResponse Decoder", "SAML Assertion Decoder", "SAML SSO Response Inspector"],
+  "description": "Free SAML response decoder. Decode SAMLResponse XML, assertions, attributes, and certificate signatures in your browser.",
+  "url": "https://singhajit.com/tools/saml-response-decoder/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Ajit Singh", "url": "https://singhajit.com" },
+  "featureList": [
+    "Decode SAMLResponse from HTTP-POST and HTTP-Redirect bindings",
+    "Read StatusCode, assertion conditions, and session index",
+    "Inspect NameID and AttributeStatement values",
+    "Check NotBefore and NotOnOrAfter validity",
+    "Extract embedded X.509 signing certificates",
+    "Pretty-print XML with copy and download",
+    "100% client-side decoding"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/saml-response-decoder-thumbnail.png"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to decode a SAMLResponse",
+  "description": "Decode a SAMLResponse after IdP login and inspect assertion fields.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste SAMLResponse",
+      "text": "Paste the Base64 SAMLResponse from a form post, redirect URL, or raw assertion XML."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Check status and timing",
+      "text": "Confirm StatusCode is Success and review NotBefore and NotOnOrAfter on the assertion."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Read attributes",
+      "text": "Review NameID, Audience, AuthnStatement, and AttributeStatement values for mapping into your app."
+    }
+  ],
+  "tool": { "@type": "HowToTool", "name": "SAML Response Decoder" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I decode a SAMLResponse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the SAMLResponse parameter from an HTTP-POST ACS callback, a redirect URL, or the raw XML. This SAML response decoder Base64 decodes and pretty-prints the assertion for inspection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I read SAML attributes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After decoding, open the AttributeStatement table for each Attribute Name and AttributeValue. Map those names to your application roles or profile fields."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does SSO fail with status Responder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Decode the response and read StatusCode and second-level status values. Common causes are audience mismatch, expired NotOnOrAfter, invalid signature certificate, or ACS URL mismatch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is the SAML request decoder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the SAML Request Decoder on this site to inspect AuthnRequest payloads before the user reaches the IdP login page."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://singhajit.com" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://singhajit.com/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "SAML Response Decoder", "item": "https://singhajit.com/tools/saml-response-decoder/" }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="sd-page-wrapper">
+  <div class="sd-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-file-signature"></i>
+        SAML Response Decoder
+      </h1>
+      <p class="tool-subtitle">Decode SAMLResponse assertions, attributes, and signing certificates</p>
+    </header>
+
+    <p class="tool-intro">
+      Decode <strong>SAMLResponse</strong> XML after enterprise SSO login. This <strong>SAML response decoder</strong> reads <strong>StatusCode</strong>, <strong>NameID</strong>, <strong>Conditions</strong>, <strong>AttributeStatement</strong>, and embedded <strong>X.509</strong> certificates.
+      Paste Base64 from an HTTP-POST ACS callback, a redirect URL, or raw XML. To debug outbound requests, use the <a href="{{ '/tools/saml-request-decoder/' | relative_url }}">SAML Request Decoder</a>. Fully client-side.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    {% include tools/saml-decoder-app.html default_mode='response' event_category='SAML Response Decoder' %}
+
+    {% include tools/saml-decoder-crosslinks.html %}
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Quick Reference</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Response</h4>
+          <table>
+            <tr><td><code>StatusCode</code></td><td>Success or failure URI</td></tr>
+            <tr><td><code>InResponseTo</code></td><td>AuthnRequest ID this answers</td></tr>
+            <tr><td><code>Destination</code></td><td>SP ACS URL</td></tr>
+            <tr><td><code>Issuer</code></td><td>IdP entity ID</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Assertion</h4>
+          <table>
+            <tr><td><code>NameID</code></td><td>Stable user identifier</td></tr>
+            <tr><td><code>Audience</code></td><td>SP entity ID allowed to consume the assertion</td></tr>
+            <tr><td><code>NotOnOrAfter</code></td><td>Assertion expiry (clock skew matters)</td></tr>
+            <tr><td><code>SessionIndex</code></td><td>Logout correlation token</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> SAML response debugging guide</h3>
+      <div class="syntax-guide-content">
+        <article class="guide-article">
+          <h2>Capture a SAMLResponse during SSO</h2>
+          <p>Use browser DevTools on the ACS POST: copy the <code>SAMLResponse</code> hidden field. For redirect binding, copy the query parameter from the location bar before the page navigates away.</p>
+        </article>
+        <article class="guide-article">
+          <h2>Validate timing and audience</h2>
+          <p>Check <strong>NotBefore</strong> and <strong>NotOnOrAfter</strong> against your server clock. Confirm <strong>Audience</strong> matches your SP entity ID. Skew or wrong audience is a frequent cause of silent login failures.</p>
+        </article>
+        <article class="guide-article">
+          <h2>Certificates and signatures</h2>
+          <p>When an <code>X509Certificate</code> is present, compare the SHA-256 fingerprint with the cert registered in your SP. For full PEM inspection, use the <a href="{{ '/tools/ssl-certificate-decoder/' | relative_url }}">SSL/TLS Certificate Decoder</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> SAML Response Decoder FAQ</h2>
+      <div class="faq-item">
+        <h3>How do I decode a SAMLResponse?</h3>
+        <p>Paste the <code>SAMLResponse</code> form field, redirect parameter, or XML. The tool decodes Base64 and DEFLATE when needed.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I read SAML attributes?</h3>
+        <p>Look at the AttributeStatement table for each attribute name and value returned by the IdP.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is my SAML response uploaded?</h3>
+        <p>No. Parsing stays in your browser with JavaScript only.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I decode SAMLRequest?</h3>
+        <p>Use the <a href="{{ '/tools/saml-request-decoder/' | relative_url }}">SAML Request Decoder</a> for AuthnRequest payloads before login.</p>
+      </div>
+    </section>
+  </div>
+</div>
+<script src="{{ '/assets/js/saml-decoder.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

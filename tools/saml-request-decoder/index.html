@@ -1,0 +1,223 @@
+---
+layout: default
+title: "SAML Request Decoder Online | Decode AuthnRequest & SAMLRequest"
+subtitle: "Decode SAMLRequest from redirect URLs. URL decode, Base64, and DEFLATE inflate AuthnRequest XML"
+seo: true
+description: "Free SAML request decoder. Decode SAMLRequest and AuthnRequest from HTTP-Redirect or HTTP-POST bindings in your browser. URL decode, Base64, DEFLATE, pretty-print XML, and inspect Issuer, ACS URL, and NameIDPolicy. 100% client-side."
+keywords: "saml request decoder, decode saml request, saml authnrequest decoder, saml deflate base64 decoder, saml redirect binding decoder, samlrequest decoder online"
+thumbnail: /assets/img/tools/saml-request-decoder-thumbnail.png
+share-img: /assets/img/tools/saml-request-decoder-thumbnail.png
+permalink: /tools/saml-request-decoder/
+social-share: true
+hide-explore-posts: true
+css:
+  - /assets/css/tools-sidebar.css
+  - /assets/css/saml-decoder.css
+---
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:locale" content="en_US">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "SoftwareApplication"],
+  "name": "SAML Request Decoder",
+  "alternateName": ["SAMLRequest Decoder", "AuthnRequest Decoder", "SAML Redirect Decoder"],
+  "description": "Free SAML request decoder. Decode SAMLRequest and AuthnRequest from redirect URLs with DEFLATE and Base64 handling in your browser.",
+  "url": "https://singhajit.com/tools/saml-request-decoder/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Ajit Singh", "url": "https://singhajit.com" },
+  "featureList": [
+    "Decode SAMLRequest from HTTP-Redirect and HTTP-POST bindings",
+    "URL decode, Base64 decode, and DEFLATE inflate automatically",
+    "Inspect AuthnRequest, LogoutRequest, Issuer, and ACS URL",
+    "Pretty-print SAML XML with copy and download",
+    "Encode XML back to redirect or POST payloads for testing",
+    "100% client-side. SAML data never leaves your browser"
+  ],
+  "screenshot": "https://singhajit.com/assets/img/tools/saml-request-decoder-thumbnail.png"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to decode a SAML AuthnRequest",
+  "description": "Decode a SAMLRequest from an IdP redirect URL and read the AuthnRequest XML fields.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste the SAMLRequest payload",
+      "text": "Paste the full redirect URL, the SAMLRequest query parameter, Base64, or raw AuthnRequest XML."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Review decoding steps",
+      "text": "The tool shows whether it URL decoded, Base64 decoded, or DEFLATED the payload for HTTP-Redirect binding."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Inspect SAML fields",
+      "text": "Read Issuer, Destination, AssertionConsumerServiceURL, NameIDPolicy, and formatted XML output."
+    }
+  ],
+  "tool": { "@type": "HowToTool", "name": "SAML Request Decoder" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I decode a SAMLRequest from a redirect URL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste the full URL or just the SAMLRequest parameter. This SAML request decoder URL decodes the value, Base64 decodes it, and inflates DEFLATE for HTTP-Redirect binding, then shows the AuthnRequest XML."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is HTTP-Redirect binding for SAML?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTTP-Redirect sends SAMLRequest or SAMLResponse as a query parameter. The XML is usually DEFLATE compressed, then Base64 encoded, then URL encoded. HTTP-POST sends Base64 XML in a form field without DEFLATE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to decode SAML online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool runs entirely in your browser. SAML requests are not uploaded. Do not paste live production secrets you are not allowed to share on any website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is the SAML response decoder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the dedicated SAML Response Decoder page on this site to inspect SAMLResponse assertions, attributes, and conditions after login."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://singhajit.com" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://singhajit.com/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "SAML Request Decoder", "item": "https://singhajit.com/tools/saml-request-decoder/" }
+  ]
+}
+</script>
+
+<div class="tools-layout">
+{% include tools-sidebar.html %}
+<div class="tools-main">
+<div class="sd-page-wrapper">
+  <div class="sd-tool">
+    <header class="tool-header">
+      <h1 class="tool-title">
+        <i class="fas fa-sign-in-alt"></i>
+        SAML Request Decoder
+      </h1>
+      <p class="tool-subtitle">Decode SAMLRequest and AuthnRequest payloads from SSO redirect URLs</p>
+    </header>
+
+    <p class="tool-intro">
+      Use this free <strong>SAML request decoder</strong> to decode <strong>SAMLRequest</strong> and <strong>AuthnRequest</strong> XML from Okta, Auth0, Entra ID, and other IdPs.
+      Paste a redirect URL, query string, Base64 blob, or raw XML. The tool handles URL decoding, Base64, and DEFLATE for HTTP-Redirect binding.
+      For login responses, open the <a href="{{ '/tools/saml-response-decoder/' | relative_url }}">SAML Response Decoder</a>. Fully client-side.
+    </p>
+
+    {% include ads/tool-banner.html %}
+
+    {% include tools/saml-decoder-app.html default_mode='request' event_category='SAML Request Decoder' %}
+
+    {% include tools/saml-decoder-crosslinks.html %}
+
+    <section class="reference-section">
+      <h3><i class="fas fa-book"></i> Quick Reference</h3>
+      <div class="reference-grid">
+        <div class="reference-card">
+          <h4>Request attributes</h4>
+          <table>
+            <tr><td><code>Issuer</code></td><td>SP entity ID sending the request</td></tr>
+            <tr><td><code>Destination</code></td><td>IdP SSO endpoint URL</td></tr>
+            <tr><td><code>AssertionConsumerServiceURL</code></td><td>SP ACS URL for the response</td></tr>
+            <tr><td><code>ProtocolBinding</code></td><td>Usually HTTP-POST for ACS</td></tr>
+            <tr><td><code>RelayState</code></td><td>Opaque state from the query string (not inside XML)</td></tr>
+          </table>
+        </div>
+        <div class="reference-card">
+          <h4>Bindings</h4>
+          <table>
+            <tr><td><code>HTTP-Redirect</code></td><td>DEFLATE + Base64 + URL encode in query</td></tr>
+            <tr><td><code>HTTP-POST</code></td><td>Base64 XML in a hidden form field</td></tr>
+            <tr><td><code>ForceAuthn</code></td><td>IdP must re-authenticate the user</td></tr>
+            <tr><td><code>NameIDPolicy</code></td><td>Requested name identifier format</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="syntax-guide-section">
+      <h3><i class="fas fa-graduation-cap"></i> SAML request debugging guide</h3>
+      <div class="syntax-guide-content">
+        <article class="guide-article">
+          <h2>What is a SAML AuthnRequest?</h2>
+          <p>A <strong>SAML AuthnRequest</strong> asks an Identity Provider to authenticate a user and return a signed <strong>SAMLResponse</strong> to your Service Provider ACS URL. The request is XML wrapped as <code>SAMLRequest</code> on redirect or POST.</p>
+        </article>
+        <article class="guide-article">
+          <h2>HTTP-Redirect vs HTTP-POST</h2>
+          <p><strong>HTTP-Redirect</strong> compresses the XML with DEFLATE, Base64 encodes it, and places it in the query string. <strong>HTTP-POST</strong> Base64 encodes the XML without DEFLATE and auto-posts a form. This decoder auto-detects both.</p>
+        </article>
+        <article class="guide-article">
+          <h2>Typical SSO failures at the request</h2>
+          <ul>
+            <li>Wrong <strong>AssertionConsumerServiceURL</strong> in the SP metadata versus what the IdP expects.</li>
+            <li>Missing or mismatched <strong>Issuer</strong> entity ID.</li>
+            <li>Corrupt <strong>DEFLATE</strong> or double URL encoding on the SAMLRequest parameter.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> SAML Request Decoder FAQ</h2>
+      <div class="faq-item">
+        <h3>How do I decode a SAMLRequest from a redirect URL?</h3>
+        <p>Paste the full URL or the <code>SAMLRequest=</code> value. The decoder URL decodes, Base64 decodes, and inflates DEFLATE when needed.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is HTTP-Redirect binding?</h3>
+        <p>It sends SAML in the query string using DEFLATE, Base64, and URL encoding. It is common for SP-initiated SSO to Okta and similar IdPs.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is my SAML request uploaded?</h3>
+        <p>No. Decoding runs locally in JavaScript. Nothing is sent to a server.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I decode SAMLResponse?</h3>
+        <p>Use the <a href="{{ '/tools/saml-response-decoder/' | relative_url }}">SAML Response Decoder</a> to inspect assertions, attributes, and certificate signatures.</p>
+      </div>
+    </section>
+  </div>
+</div>
+<script src="{{ '/assets/js/saml-decoder.js' | relative_url }}"></script>
+</div>
+{% include tool-sidebar-ad.html %}
+</div>

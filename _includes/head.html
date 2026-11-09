@@ -13,6 +13,9 @@
   {% unless page.layout contains 'glossary' %}
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  {% if site.dokira_site_id %}
+  <link rel="preconnect" href="https://cdn.dokira.com">
+  {% endif %}
   {% if site.adunblock_script_url %}
     {% assign adunblock_parts = site.adunblock_script_url | split: '/' %}
     {% assign adunblock_origin = adunblock_parts[0] | append: '//' | append: adunblock_parts[2] %}
@@ -195,6 +198,7 @@
   </script>
 
   {% include adunblock.html %}
+  {% include dokira.html %}
   {% endunless %}
 
   <!-- DNS prefetch for lower-priority domains -->

@@ -155,6 +155,9 @@ clarity: "vxy0o4yb68"
 
 manual_ads: true
 
+# Dokira ad partner site tag ID (cdn.dokira.com/sites/<id>.js)
+dokira_site_id: "o2ahfeyh3vyl3ukg"
+
 # --- Comments --- #
 
 # Utterances (GitHub Issues-backed comments)

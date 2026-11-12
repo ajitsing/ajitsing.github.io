@@ -62,7 +62,7 @@ Why? Because when you're handling 55 million requests per second, every microsec
 
 ## Smart Traffic Management: The HAProxy Magic
 
-Even with optimized connections and bare metal servers, you still need to distribute traffic intelligently. Cloudflare uses **HAProxy** as their load balancer, but not in the way you might expect.
+Even with optimized connections and bare metal servers, you still need to distribute traffic intelligently. Cloudflare uses **HAProxy** as their [load balancer](/load-balancing-explained/){:target="_blank" rel="noopener"}, but not in the way you might expect.
 
 HAProxy doesn't just distribute traffic randomly—it understands the health and capacity of each database server. It can automatically route traffic away from overloaded servers and balance the load between primary databases and read replicas. It's like having an incredibly smart GPS that not only knows the shortest route but also understands traffic conditions and can reroute you in real-time.
 

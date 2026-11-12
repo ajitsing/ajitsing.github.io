@@ -184,7 +184,7 @@ flowchart TB
 
 ## Load Balancing
 
-A load balancer distributes traffic across multiple servers.
+A [load balancer](/load-balancing-explained/){:target="_blank" rel="noopener"} distributes traffic across multiple servers.
 
 ### Why Use Load Balancers?
 

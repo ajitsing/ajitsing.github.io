@@ -19,8 +19,9 @@ real_world:
   - "AWS Elastic Load Balancing, Google Cloud Load Balancing, and Azure Load Balancer run this at cloud scale."
   - "NGINX and HAProxy are widely used software load balancers, often paired with [rate limiting](/glossary/rate-limiting/)."
   - "Cloudflare and other CDNs balance traffic across data centers using anycast and DNS."
-related_terms: ["rate-limiting", "consistent-hashing", "circuit-breaker", "microservices", "heartbeat", "cdn", "ddos-attack"]
+related_terms: ["rate-limiting", "consistent-hashing", "circuit-breaker", "microservices", "heartbeat", "cdn", "ddos-attack", "anycast"]
 related_posts:
+  - "/load-balancing-explained/"
   - "/how-cloudflare-supports-55-million-requests-per-second/"
   - "/how-uber-finds-nearby-drivers-1-million-requests-per-second/"
   - "/system-design-cheat-sheet/"

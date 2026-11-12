@@ -321,7 +321,7 @@ For static content (images, CSS, JS files), the request might never reach your o
 
 ### Load Balancer
 
-If the request reaches your infrastructure, it hits a load balancer first. The load balancer distributes traffic across multiple application servers. Common strategies include:
+If the request reaches your infrastructure, it hits a [load balancer](/load-balancing-explained/){:target="_blank" rel="noopener"} first. The load balancer distributes traffic across multiple application servers. Common strategies include:
 
 - **Round Robin** - Requests go to servers in rotation
 - **Least Connections** - Requests go to the server with the fewest active connections

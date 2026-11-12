@@ -167,7 +167,7 @@ Protocol attacks are sneakier. Instead of filling your bandwidth, they abuse how
 
 A normal TCP connection starts with a three-way handshake: the client sends `SYN`, the server replies `SYN-ACK` and reserves memory for the half-open connection, and the client finishes with `ACK`. In a SYN flood, the attacker sends thousands of `SYN` packets but never sends the final `ACK`. The server keeps reserving memory for connections that never complete, until its connection table is full and it can accept no new connections, including from real users.
 
-These attacks are measured in **packets per second (pps)** because it is the sheer number of packets, not their size, that overwhelms firewalls, load balancers, and the server's connection tracking.
+These attacks are measured in **packets per second (pps)** because it is the sheer number of packets, not their size, that overwhelms firewalls, [load balancers](/load-balancing-explained/){:target="_blank" rel="noopener"}, and the server's connection tracking.
 
 ### 3. Application-layer attacks: exhaust the app
 

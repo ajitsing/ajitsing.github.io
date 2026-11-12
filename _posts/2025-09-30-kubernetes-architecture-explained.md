@@ -392,7 +392,7 @@ startupProbe:     # "Finished starting?" - For slow-starting apps
 
 ### 2. Misunderstanding Networking
 
-Kubernetes networking can be complex. Pods can communicate with each other by default, but services provide stable endpoints and load balancing.
+Kubernetes networking can be complex. Pods can communicate with each other by default, but services provide stable endpoints and [load balancing](/load-balancing-explained/){:target="_blank" rel="noopener"}.
 
 **Key concepts**:
 - **Pod-to-Pod**: Direct communication using pod IPs

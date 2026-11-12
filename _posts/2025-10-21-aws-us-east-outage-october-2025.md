@@ -70,7 +70,7 @@ gantt
 
 ## What Broke
 
-AWS network load balancers use a health check system to monitor if backend servers are working. That system malfunctioned - it marked healthy servers as dead. The load balancer stopped routing traffic, causing DNS queries to fail.
+AWS network load balancers use a health check system to monitor if backend servers are working. That system malfunctioned - it marked healthy servers as dead. The [load balancer](/load-balancing-explained/){:target="_blank" rel="noopener"} stopped routing traffic, causing DNS queries to fail.
 
 ```mermaid
 graph LR

@@ -19,9 +19,10 @@ real_world:
   - "Cloudflare mitigated a record 31.4 Tbps DDoS attack in late 2025, powered by the Aisuru-Kimwolf botnet of infected devices."
   - "The 2016 Mirai botnet took down DNS provider Dyn, knocking Twitter, Reddit, and Netflix offline."
   - "GitHub survived a 1.35 Tbps memcached amplification attack in 2018 by rerouting through Akamai Prolexic."
-related_terms: ["botnet", "rate-limiting", "cdn", "load-balancing", "caching", "circuit-breaker"]
+related_terms: ["botnet", "rate-limiting", "cdn", "load-balancing", "caching", "circuit-breaker", "anycast"]
 related_posts:
   - "/ddos-attack-and-protection/"
+  - "/load-balancing-explained/"
   - "/dynamic-rate-limiter-system-design/"
   - "/how-cloudflare-supports-55-million-requests-per-second/"
 ---

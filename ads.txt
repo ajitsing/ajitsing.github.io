@@ -66,5 +66,10 @@ flashb.id, 22a897ca-8cd1-59a3-b4d5-a3cd7a23486b, RESELLER
 copper6.com, 766168, RESELLER
 oxiem.com, 7ca9393691, RESELLER, d1a215d9eb5aee9e
 onetag.com, 62e564782c44a66, RESELLER
+vidazoo.com, 6a30f1d13fca21dac90ac8b3, DIRECT, b6ada874b4d7d0b2
+rubiconproject.com, 17130, RESELLER, 0bfd66d529a55807
+openx.com, 541017750, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 159988, RESELLER, 5d62403b186f2ace
+triplelift.com, 11883, RESELLER, 6c33edb13117fd86
 OWNERDOMAIN=singhajit.com
 MANAGERDOMAIN=dokira.com

@@ -1,0 +1,27 @@
+{% if site.dokira_site_id and site.manual_ads %}
+<style>
+  .tool-dokira-ad {
+    margin: 24px 0 36px;
+    padding: 0 4px;
+    contain: layout;
+    overflow-anchor: none;
+  }
+  .tool-dokira-ad [data-placement-id] {
+    width: 100%;
+    max-width: 970px;
+    min-height: 90px;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    .tool-dokira-ad {
+      margin: 20px 0 28px;
+    }
+    .tool-dokira-ad [data-placement-id] {
+      min-height: 50px;
+    }
+  }
+</style>
+<aside class="tool-dokira-ad" aria-label="Sponsored placement">
+  <div data-placement-id="dokira-u-fqsauajv"></div>
+</aside>
+{% endif %}

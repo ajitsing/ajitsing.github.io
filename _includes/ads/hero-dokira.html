@@ -1,0 +1,88 @@
+{% if site.dokira_site_id and site.manual_ads %}
+<style>
+  .hero-banner {
+    display: none;
+    position: relative;
+    width: 100%;
+    margin-top: 72px;
+    padding: 42px 0 18px;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    contain: layout;
+  }
+  .hero-banner__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-banner__inner {
+    position: relative;
+    z-index: 1;
+    width: 970px;
+    margin: 0 auto;
+  }
+  .hero-banner__card {
+    width: 970px;
+    height: 250px;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: none;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 200ms ease, box-shadow 200ms ease;
+  }
+  /* Frame only after a creative iframe is injected. */
+  .hero-banner__card:has(iframe) {
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 18px rgba(15, 23, 42, 0.06);
+  }
+  .hero-banner__unit {
+    display: block;
+    width: 970px;
+    height: 250px;
+  }
+  @media (min-width: 992px) {
+    .hero-banner { display: block; }
+    .hero-banner ~ .header-section .intro-header { margin-top: 1.25rem; }
+  }
+  @media (min-width: 1200px) {
+    .hero-banner {
+      margin-top: 72px;
+      padding-top: 42px;
+    }
+  }
+</style>
+<aside class="hero-banner" aria-label="Sponsored placement">
+  <img class="hero-banner__bg"
+       src="{{ '/assets/img/hero-network-bg.svg' | relative_url }}"
+       alt=""
+       width="1200"
+       height="300"
+       decoding="async"
+       fetchpriority="high"
+       aria-hidden="true">
+  <div class="hero-banner__inner">
+    <div class="hero-banner__card">
+      <div class="hero-banner__unit" data-placement-id="dokira-u-ty7fry2k"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      if (!window.matchMedia || !window.matchMedia('(min-width: 992px)').matches) {
+        var banner = document.currentScript.closest('.hero-banner');
+        if (banner) banner.remove();
+      }
+    })();
+  </script>
+</aside>
+{% endif %}

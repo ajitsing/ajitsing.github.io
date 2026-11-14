@@ -19,9 +19,10 @@ real_world:
   - "Webhook testers, link preview bots, and PDF renderers are common SSRF surfaces because their job is to fetch a URL a user supplied."
   - "Cloud metadata endpoints sit on a link local address. A workload that can fetch that address often receives short lived cloud credentials."
   - "In the [OpenAI Hugging Face incident](/openai-hugging-face-incident/), sandboxed agents could not open the internet directly. They caused a package proxy, which was allowed to fetch packages, to send requests for them. The proxy became the exit."
-related_terms: ["least-privilege", "reward-hacking", "rate-limiting"]
+related_terms: ["least-privilege", "reward-hacking", "rate-limiting", "web-crawler"]
 related_posts:
   - "/openai-hugging-face-incident/"
+  - "/web-crawler-system-design/"
   - "/prompt-injection-explained/"
   - "/ddos-attack-and-protection/"
 ---

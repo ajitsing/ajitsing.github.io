@@ -382,7 +382,7 @@ for message in messages:
 
 ### Pattern 1: Work Queue (Task Distribution)
 
-Distribute work across multiple workers. Classic use case: image processing.
+Distribute work across multiple workers. Classic use cases include image processing and a [web crawler](/web-crawler-system-design/){:target="_blank" rel="noopener"} handing URLs to fetchers.
 
 ```mermaid
 graph LR

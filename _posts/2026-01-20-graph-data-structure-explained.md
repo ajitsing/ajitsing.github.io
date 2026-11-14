@@ -147,7 +147,7 @@ Graphs model relationships naturally. Here are some examples:
 
 **Dependency Graph**: Nodes are packages or modules, edges are dependencies. You can determine installation order, detect circular dependencies, or find what breaks if you remove a package.
 
-**Web Pages**: Nodes are pages, edges are links. Search engines use this to rank pages and crawl the web.
+**Web Pages**: Nodes are pages, edges are links. Search engines use this to rank pages and [crawl the web](/web-crawler-system-design/){:target="_blank" rel="noopener"}.
 
 The list goes on. If your problem involves relationships, connections, or networks, graphs are likely the right tool.
 

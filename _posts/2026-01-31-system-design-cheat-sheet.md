@@ -884,6 +884,7 @@ These posts go deeper into specific topics:
 - [Payment System Design](/payment-system-design/)
 - [How WhatsApp Scales](/whatsapp-scaling-secrets/)
 - [Design TinyURL: System Design Interview Guide](/tinyurl-system-design/)
+- [Web Crawler System Design](/web-crawler-system-design/){:target="_blank" rel="noopener"} - URL frontier, politeness, and dedup
 
 **Distributed Systems**:
 - [How Consistent Hashing Works](/consistent-hashing-explained/)

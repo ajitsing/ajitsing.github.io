@@ -486,7 +486,7 @@ Discord uses consistent hashing to route messages to the correct server in their
 
 ## Consistent Hashing in System Design Interviews
 
-Consistent hashing shows up in a lot of system design interview questions. Here are the common scenarios where you should bring it up:
+Consistent hashing shows up in a lot of system design interview questions, including a [distributed web crawler](/web-crawler-system-design/){:target="_blank" rel="noopener"} that has to keep every URL for one host on the same machine. Here are the common scenarios where you should bring it up:
 
 ### Distributed Cache Design
 

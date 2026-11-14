@@ -211,7 +211,7 @@ For most applications, 7 hash functions with 10 bits per element gives about 1% 
 
 ## Where Bloom Filters Are Used
 
-Bloom filters show up everywhere in production systems.
+Bloom filters show up everywhere in production systems, from databases that skip disk reads to [web crawlers](/web-crawler-system-design/){:target="_blank" rel="noopener"} that remember URLs they have already seen.
 
 ### Databases: Avoiding Disk Reads
 

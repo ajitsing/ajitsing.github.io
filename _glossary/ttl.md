@@ -20,9 +20,10 @@ real_world:
   - "Redis EXPIRE and SETEX commands set a TTL for cache invalidation."
   - "etcd lease grants take a TTL in seconds and auto delete keys when they are not renewed."
   - "Kubernetes lease objects use leaseDurationSeconds and renewTime to compute the effective expiry."
-related_terms: ["lease", "heartbeat", "fencing-token", "time-series-database", "stream-processing"]
+related_terms: ["lease", "heartbeat", "fencing-token", "time-series-database", "stream-processing", "robots-txt", "caching"]
 related_posts:
   - "/distributed-systems/lease/"
+  - "/web-crawler-system-design/"
   - "/distributed-systems/heartbeat/"
   - "/time-series-databases-explained/"
   - "/stream-processing/"

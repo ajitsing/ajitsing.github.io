@@ -477,6 +477,7 @@ sequenceDiagram
 
 There are no JWTs in this flow. SAML is XML-based, the assertion is signed by Okta's private key, and Salesforce trusts Okta by having its public certificate registered. This is the flow that powers most enterprise SSO deployments today, even in 2026, and it is the flow that the Okta Integration Network's 1,300+ SAML apps standardize on.
 
+{% include tool-cta.html tool="saml-request-decoder" variant="inline" description="Paste a SAMLRequest from the IdP redirect URL to inflate the AuthnRequest and read the Issuer, ACS URL, and NameIDPolicy." %}
 {% include tool-cta.html tool="saml-response-decoder" variant="inline" description="Paste a SAMLResponse from an ACS POST to read StatusCode, NameID, attributes, and the embedded signing certificate." %}
 
 The same flow works in reverse on Auth0 if you are the SaaS app and your enterprise customer wants to bring their own SAML IdP. Auth0 calls this an "enterprise connection" and bills it per connection, as covered above.

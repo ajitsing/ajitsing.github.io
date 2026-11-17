@@ -110,6 +110,198 @@
   color: #0085A1;
 }
 
+.sidebar-expertedge {
+  margin-bottom: 1rem;
+}
+
+.expertedge-ticket {
+  position: relative;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f4faff 100%);
+  color: inherit;
+  border: 1px solid #d6ecfa;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.expertedge-ticket-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid #e6f2fa;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.18s ease;
+}
+
+.expertedge-ticket-top:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.expertedge-ticket-top:hover .expertedge-brand {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #0085A1;
+}
+
+.expertedge-brand {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #0085A1;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.expertedge-brand-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  display: inline-block;
+  color: #0284c7;
+}
+
+.expertedge-brand em {
+  font-style: normal;
+  color: #2c3e50;
+}
+
+.expertedge-stamp {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #047857;
+  background: #ecfdf5;
+  padding: 0.14rem 0.42rem;
+  border: 1px solid #a7f3d0;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.expertedge-ticket-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.expertedge-ticket-link:hover {
+  text-decoration: none;
+}
+
+.expertedge-ticket-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.35;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.18s ease;
+}
+
+.expertedge-ticket-link:hover .expertedge-ticket-title {
+  color: #0085A1;
+}
+
+.expertedge-ticket-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid #e6f2fa;
+}
+
+.expertedge-ticket-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.18rem 0.45rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 0.63rem;
+  line-height: 1.2;
+  color: #475569;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.expertedge-ticket-code:hover {
+  background: #f0f9ff;
+  border-color: #38bdf8;
+}
+
+.expertedge-ticket-code:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+.expertedge-ticket-code-key {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.expertedge-ticket-code code.expertedge-ticket-code-val {
+  padding: 0.05rem 0.28rem;
+  background: #e0f2fe !important;
+  color: #0369a1 !important;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.expertedge-ticket-code .expertedge-cta__code-status {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #0284c7;
+}
+
+.expertedge-ticket-code.is-copied {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.expertedge-ticket-code.is-copied code.expertedge-ticket-code-val {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+.expertedge-ticket-code.is-copied .expertedge-cta__code-status {
+  color: #15803d;
+}
+
+.expertedge-ticket-cta {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #0085A1 !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.expertedge-ticket-cta:hover {
+  color: #006d8a !important;
+  text-decoration: underline !important;
+}
+
 .sidebar-sticky-ad {
   position: sticky;
   top: 80px;

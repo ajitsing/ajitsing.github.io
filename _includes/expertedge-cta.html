@@ -1,0 +1,343 @@
+{% comment %}
+  Self-contained ExpertEdge by Packt affiliate CTA component.
+  All campaign constants live locally in this include (no _config.yml globals).
+  Parameters:
+    placement: "post_footer" (default) | "sidebar"
+    variant:   optional override ("kafka" | "ai" | "default")
+    title, description, url: optional overrides
+  Optional per-post front matter:
+    expertedge_cta: false          # opt out on a specific post/page
+    expertedge_variant: "kafka"    # force "kafka" | "ai" | "default"
+    expertedge_title: "..."        # custom headline
+    expertedge_description: "..."  # custom description
+    expertedge_url: "..."          # custom destination URL
+{% endcomment %}
+
+{% assign ee_enabled = true %}
+{% assign ee_code = "AJIT50" %}
+{% assign ee_discount_label = "50% off" %}
+{% assign ee_price_sale = "$60/yr" %}
+{% assign ee_price_regular = "$120/yr" %}
+{% assign ee_base_url = "https://www.expertedge.org/roles/solutions-architect" %}
+{% assign ee_utm_source = "singhajit" %}
+{% assign ee_utm_medium = "blog" %}
+
+{% assign ee_placement = include.placement | default: "post_footer" | strip | downcase %}
+{% if ee_placement == "sidebar" %}
+  {% assign ee_utm_campaign = "sidebar_cta" %}
+{% else %}
+  {% assign ee_utm_campaign = "evergreen_post_cta" %}
+{% endif %}
+
+{% if ee_enabled and page.expertedge_cta != false %}
+  {% assign ee_cats = page.categories | join: " " | downcase %}
+  {% assign ee_tags = page.tags | join: " " | downcase %}
+  {% assign ee_hub_cat = page["hub-category"] | default: "" | downcase %}
+  {% assign ee_url_lc = page.url | default: "" | downcase %}
+  {% capture ee_haystack %} {{ ee_cats }} {{ ee_tags }} {{ ee_hub_cat }} {{ ee_url_lc }} {% endcapture %}
+
+  {% assign ee_variant = include.variant | default: page.expertedge_variant | default: "" | strip | downcase %}
+  {% if ee_variant == "" %}
+    {% if ee_haystack contains "kafka"
+       or ee_haystack contains "flink"
+       or ee_haystack contains "stream-processing"
+       or ee_haystack contains "data-pipelines"
+       or ee_haystack contains "queues"
+       or ee_haystack contains "message-queue"
+       or ee_haystack contains "outbox"
+       or ee_haystack contains "debezium"
+       or ee_haystack contains "partitions" %}
+      {% assign ee_variant = "kafka" %}
+    {% elsif page.categories contains "ai"
+       or ee_hub_cat == "ai"
+       or ee_haystack contains "llm"
+       or ee_haystack contains "ai-agents"
+       or ee_haystack contains "context-engineering"
+       or ee_haystack contains " mcp "
+       or ee_haystack contains "model-context-protocol"
+       or ee_haystack contains "prompt-"
+       or ee_haystack contains "vector-database" %}
+      {% assign ee_variant = "ai" %}
+    {% else %}
+      {% assign ee_variant = "default" %}
+    {% endif %}
+  {% endif %}
+
+  {% case ee_variant %}
+    {% when "kafka" %}
+      {% assign ee_default_title = "Go Deeper on Event Streaming & Modern System Design" %}
+      {% assign ee_sidebar_title = "Apache Kafka for Developers & System Design for the LLM Era" %}
+      {% capture ee_default_desc %}Master real-time architecture with <strong>Apache Kafka for Developers</strong>, <strong>System Design for the LLM Era</strong>, and the full Solutions Architect track on ExpertEdge by Packt.{% endcapture %}
+    {% when "ai" %}
+      {% assign ee_default_title = "Go Deeper on System Design for the LLM Era" %}
+      {% assign ee_sidebar_title = "System Design for the LLM Era & Solutions Architect Track" %}
+      {% capture ee_default_desc %}Build production-grade AI systems with <strong>System Design for the LLM Era</strong>, <strong>Apache Kafka for Developers</strong>, and the Solutions Architect track on ExpertEdge by Packt.{% endcapture %}
+    {% else %}
+      {% assign ee_default_title = "Go Deeper on Distributed Systems & Architecture" %}
+      {% assign ee_sidebar_title = "System Design for the LLM Era & Kafka for Developers" %}
+      {% capture ee_default_desc %}Unlock <strong>System Design for the LLM Era</strong>, <strong>Apache Kafka for Developers</strong>, and the complete Solutions Architect learning path on ExpertEdge by Packt.{% endcapture %}
+  {% endcase %}
+
+  {% assign ee_title = include.title | default: page.expertedge_title | default: ee_default_title %}
+  {% assign ee_sb_headline = include.title | default: page.expertedge_title | default: ee_sidebar_title %}
+  {% assign ee_custom_desc = include.description | default: page.expertedge_description | default: "" %}
+
+  {% assign ee_slug = page.url | default: "" | downcase %}
+  {% if ee_slug == "/" or ee_slug == "" %}
+    {% assign ee_slug = "home" %}
+  {% else %}
+    {% assign ee_first = ee_slug | slice: 0, 1 %}
+    {% if ee_first == "/" %}
+      {% assign ee_slug = ee_slug | slice: 1, ee_slug.size %}
+    {% endif %}
+    {% if ee_slug.size > 0 %}
+      {% assign ee_last_idx = ee_slug.size | minus: 1 %}
+      {% assign ee_last = ee_slug | slice: ee_last_idx, 1 %}
+      {% if ee_last == "/" %}
+        {% assign ee_slug = ee_slug | slice: 0, ee_last_idx %}
+      {% endif %}
+    {% endif %}
+    {% assign ee_slug = ee_slug | replace: "/", "-" | replace: ".", "-" | url_encode %}
+    {% if ee_slug == "" %}
+      {% assign ee_slug = "post" %}
+    {% endif %}
+  {% endif %}
+
+  {% assign ee_custom_url = include.url | default: page.expertedge_url | default: "" | strip %}
+  {% if ee_custom_url != "" %}
+    {% assign ee_href = ee_custom_url %}
+  {% else %}
+    {% capture ee_href %}{{ ee_base_url }}?utm_source={{ ee_utm_source }}&utm_medium={{ ee_utm_medium }}&utm_campaign={{ ee_utm_campaign }}&utm_content={{ ee_slug }}{% endcapture %}
+  {% endif %}
+
+  {% assign ee_ga_label = page.url | default: ee_slug | replace: "'", "" | escape %}
+
+  {% if ee_placement == "sidebar" %}
+<aside class="sidebar-expertedge"
+       aria-label="ExpertEdge partner offer"
+       data-ee-card
+       data-ee-partner="packt_expertedge"
+       data-ee-placement="sidebar"
+       data-ee-variant="{{ ee_variant | escape }}"
+       data-ee-label="{{ ee_ga_label }}"
+       data-ee-code="{{ ee_code | escape }}">
+  <div class="expertedge-ticket">
+    <a href="{{ ee_href }}"
+       class="expertedge-ticket-top"
+       target="_blank"
+       rel="sponsored noopener"
+       data-ee-click="sidebar_header">
+      <span class="expertedge-brand">
+        <svg class="expertedge-brand-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        EXPERTEDGE <em>BY PACKT</em>
+      </span>
+      <span class="expertedge-stamp">{{ ee_discount_label }} &middot; {{ ee_price_sale }}</span>
+    </a>
+
+    <a href="{{ ee_href }}"
+       class="expertedge-ticket-link"
+       target="_blank"
+       rel="sponsored noopener"
+       data-ee-click="sidebar_title">
+      <h4 class="expertedge-ticket-title">{{ ee_sb_headline | escape }}</h4>
+    </a>
+
+    <div class="expertedge-ticket-footer">
+      <button type="button"
+              class="expertedge-ticket-code"
+              data-ee-copy="{{ ee_code | escape }}"
+              aria-label="Copy discount code {{ ee_code | escape }}">
+        <span class="expertedge-ticket-code-key">Code</span>
+        <code class="expertedge-ticket-code-val">{{ ee_code | escape }}</code>
+        <span class="expertedge-cta__code-status" aria-live="polite">Copy</span>
+      </button>
+      <a href="{{ ee_href }}"
+         class="expertedge-ticket-cta"
+         target="_blank"
+         rel="sponsored noopener"
+         data-ee-click="sidebar_cta">Explore &rarr;</a>
+    </div>
+  </div>
+</aside>
+  {% else %}
+<div markdown="0">
+  <aside class="expertedge-cta"
+         role="complementary"
+         aria-label="ExpertEdge learning partner offer"
+         data-ee-card
+         data-ee-partner="packt_expertedge"
+         data-ee-placement="post_footer"
+         data-ee-variant="{{ ee_variant | escape }}"
+         data-ee-label="{{ ee_ga_label }}"
+         data-ee-code="{{ ee_code | escape }}">
+    <div class="expertedge-cta__inner">
+      <div class="expertedge-cta__icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+
+      <div class="expertedge-cta__body">
+        <div class="expertedge-cta__eyebrow-row">
+          <span class="expertedge-cta__eyebrow">Further Learning &middot; ExpertEdge by Packt</span>
+          <span class="expertedge-cta__offer-pill">
+            {{ ee_discount_label }} &middot; <span class="expertedge-cta__price-sale">{{ ee_price_sale }}</span>
+            <s class="expertedge-cta__price-reg">{{ ee_price_regular }}</s>
+          </span>
+        </div>
+
+        <h3 class="expertedge-cta__title">
+          <a href="{{ ee_href }}"
+             target="_blank"
+             rel="sponsored noopener"
+             data-ee-click="title_link">{{ ee_title | escape }}</a>
+        </h3>
+
+        <p class="expertedge-cta__desc">
+          {% if ee_custom_desc != "" %}{{ ee_custom_desc | escape }}{% else %}{{ ee_default_desc }}{% endif %}
+        </p>
+
+        <div class="expertedge-cta__meta">
+          <button type="button"
+                  class="expertedge-cta__code-btn"
+                  data-ee-copy="{{ ee_code | escape }}"
+                  aria-label="Copy discount code {{ ee_code | escape }}">
+            <span class="expertedge-cta__code-label">Code</span>
+            <code class="expertedge-cta__code-val">{{ ee_code | escape }}</code>
+            <svg class="expertedge-cta__copy-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="expertedge-cta__code-status" aria-live="polite">Copy</span>
+          </button>
+          <span class="expertedge-cta__disclosure">Partner resource &middot; Individual &amp; team plans</span>
+        </div>
+      </div>
+
+      <div class="expertedge-cta__action">
+        <a href="{{ ee_href }}"
+           class="expertedge-cta__btn"
+           target="_blank"
+           rel="sponsored noopener"
+           data-ee-click="cta_button">
+          Explore Courses
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+  {% endif %}
+<script>
+  (function() {
+    function bindExpertEdgeCards() {
+      var cards = document.querySelectorAll('[data-ee-card]:not([data-ee-init])');
+      for (var c = 0; c < cards.length; c++) {
+        (function(card) {
+          card.setAttribute('data-ee-init', '1');
+
+          var partner = card.getAttribute('data-ee-partner') || 'packt_expertedge';
+          var placement = card.getAttribute('data-ee-placement') || 'post_footer';
+          var variant = card.getAttribute('data-ee-variant') || 'default';
+          var label = card.getAttribute('data-ee-label') || window.location.pathname;
+          var code = card.getAttribute('data-ee-code') || 'AJIT50';
+
+          function track(eventName, extra) {
+            if (typeof window.gtag !== 'function') return;
+            var payload = {
+              event_category: 'Affiliate',
+              event_label: label,
+              affiliate_partner: partner,
+              affiliate_placement: placement,
+              affiliate_variant: variant,
+              coupon: code
+            };
+            if (extra) {
+              for (var key in extra) {
+                if (Object.prototype.hasOwnProperty.call(extra, key)) {
+                  payload[key] = extra[key];
+                }
+              }
+            }
+            window.gtag('event', eventName, payload);
+          }
+
+          if ('IntersectionObserver' in window) {
+            var seen = false;
+            var io = new IntersectionObserver(function(entries) {
+              if (seen || !entries[0] || !entries[0].isIntersecting) return;
+              seen = true;
+              io.disconnect();
+              track('affiliate_impression', { non_interaction: true });
+            }, { threshold: 0.35 });
+            io.observe(card);
+          }
+
+          var clickLinks = card.querySelectorAll('[data-ee-click]');
+          for (var i = 0; i < clickLinks.length; i++) {
+            clickLinks[i].addEventListener('click', function() {
+              track('affiliate_click', {
+                affiliate_element: this.getAttribute('data-ee-click'),
+                transport_type: 'beacon'
+              });
+            });
+          }
+
+          var copyBtn = card.querySelector('[data-ee-copy]');
+          if (copyBtn) {
+            var resetTimer = null;
+            copyBtn.addEventListener('click', function() {
+              var text = copyBtn.getAttribute('data-ee-copy') || code;
+              var statusEl = copyBtn.querySelector('.expertedge-cta__code-status');
+
+              function markCopied() {
+                copyBtn.classList.add('is-copied');
+                if (statusEl) statusEl.textContent = 'Copied!';
+                if (resetTimer) clearTimeout(resetTimer);
+                resetTimer = setTimeout(function() {
+                  copyBtn.classList.remove('is-copied');
+                  if (statusEl) statusEl.textContent = 'Copy';
+                }, 2200);
+              }
+
+              if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(markCopied, markCopied);
+              } else {
+                try {
+                  var ta = document.createElement('textarea');
+                  ta.value = text;
+                  ta.setAttribute('readonly', '');
+                  ta.style.position = 'fixed';
+                  ta.style.opacity = '0';
+                  document.body.appendChild(ta);
+                  ta.select();
+                  document.execCommand('copy');
+                  document.body.removeChild(ta);
+                } catch (e) {}
+                markCopied();
+              }
+
+              track('affiliate_code_copy', {
+                affiliate_element: placement === 'sidebar' ? 'sidebar_coupon_badge' : 'coupon_badge'
+              });
+            });
+          }
+        })(cards[c]);
+      }
+    }
+
+    bindExpertEdgeCards();
+    if ('requestAnimationFrame' in window) {
+      requestAnimationFrame(bindExpertEdgeCards);
+    }
+  })();
+</script>
+{% endif %}

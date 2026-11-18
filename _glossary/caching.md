@@ -19,9 +19,10 @@ real_world:
   - "Redis and Memcached are the default in-memory caches for web backends."
   - "CDNs cache static assets and responses close to users at the edge."
   - "Read replicas and materialised views are database-level caching of query results."
-related_terms: ["thundering-herd", "consistent-hashing", "eventual-consistency", "cqrs", "robots-txt", "ttl"]
+related_terms: ["thundering-herd", "consistent-hashing", "eventual-consistency", "cqrs", "robots-txt", "ttl", "trie"]
 related_posts:
   - "/caching-strategies-explained/"
+  - "/search-autocomplete-system-design/"
   - "/web-crawler-system-design/"
   - "/meta-cache-consistency/"
 ---

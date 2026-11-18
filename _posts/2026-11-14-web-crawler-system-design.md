@@ -433,6 +433,7 @@ Get those right and the crawler can grow without becoming wasteful or rude. Get 
 **Related posts:**
 
 - [System Design Cheat Sheet](/system-design-cheat-sheet/){:target="_blank" rel="noopener"}: the building blocks this design sits on, from queues to storage
+- [Search Autocomplete System Design](/search-autocomplete-system-design/){:target="_blank" rel="noopener"}: tries, cached top-k lists, and sub-100ms typeahead on the query side
 - [Bloom Filter Explained](/data-structures/bloom-filter/){:target="_blank" rel="noopener"}: the seen-URL test, and what a false positive actually means
 - [Cuckoo Filter](/data-structures/cuckoo-filter/){:target="_blank" rel="noopener"}: the membership filter to reach for when the seen set must delete
 - [Consistent Hashing Explained](/consistent-hashing-explained/){:target="_blank" rel="noopener"}: how hosts move onto new workers without a full reshuffle

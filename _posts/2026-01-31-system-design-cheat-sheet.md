@@ -885,6 +885,7 @@ These posts go deeper into specific topics:
 - [How WhatsApp Scales](/whatsapp-scaling-secrets/)
 - [Design TinyURL: System Design Interview Guide](/tinyurl-system-design/)
 - [Web Crawler System Design](/web-crawler-system-design/){:target="_blank" rel="noopener"} - URL frontier, politeness, and dedup
+- [Search Autocomplete System Design](/search-autocomplete-system-design/){:target="_blank" rel="noopener"} - Tries, top-k caching, sharding, and sub-100ms typeahead
 
 **Distributed Systems**:
 - [How Consistent Hashing Works](/consistent-hashing-explained/)
